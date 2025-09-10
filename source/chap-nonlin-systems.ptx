@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="nlin-chapter" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Nonlinear Systems</title>
+
+    <xi:include href="chap-nonlin-systems/sec-linearization-stability.ptx" />
+    <xi:include href="chap-nonlin-systems/sec-nonlinear-analysis-advanced.ptx" />
+    <xi:include href="chap-nonlin-systems/sec-nonlin-applications.ptx" />
+    <xi:include href="chap-nonlin-systems/sec-limit-cycles.ptx" />
+    <xi:include href="chap-nonlin-systems/sec-chaos.ptx" />
+
+
+    </chapter>

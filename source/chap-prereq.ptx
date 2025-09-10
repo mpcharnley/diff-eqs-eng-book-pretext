@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="chap-prereq" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Prerequisite Material</title>
+
+    <introduction>
+        <p>
+            This chapter provides a review of some of the material from previous classes that 
+may be a little rusty by the time one reaches differential equations. This can be used as a reference whenever 
+these topics come up throughout the book. A lot of this material (or inspiration for it) is taken from the Precalculus book by Stitz and Zeager **ADD CITATION**. 
+        </p>
+    </introduction>
+
+    <xi:include href="chap-prereq/sec-pre-polynomials.ptx" />
+
+    <xi:include href="chap-prereq/sec-pre-complex.ptx" />
+    <xi:include href="chap-prereq/sec-pre-deriv-int.ptx" />
+      
+
+    </chapter>

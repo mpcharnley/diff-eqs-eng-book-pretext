@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="linalg-appendix" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Linear Algebra</title>
+
+    <xi:include href="chap-linear-algebra/sec-vectors-maps.ptx" />
+    <xi:include href="chap-linear-algebra/sec-matrix-algebra.ptx" />
+    <xi:include href="chap-linear-algebra/sec-elimination.ptx" />
+    <xi:include href="chap-linear-algebra/sec-determinant.ptx" />
+    <xi:include href="chap-linear-algebra/sec-eigenvalues.ptx" />
+    <xi:include href="chap-linear-algebra/sec-advanced-linalg.ptx" />
+
+
+    </chapter>

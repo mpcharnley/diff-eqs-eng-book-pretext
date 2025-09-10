@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- we first include a file which contains the docinfo element: -->
+  <xi:include href="./docinfo.ptx" />
+
+  <book xml:id="my-great-book">
+    <title>Differential Equations</title>
+    <subtitle>An Introduction for Engineers</subtitle>
+
+    <!-- Include frontmatter -->
+    <xi:include href="./frontmatter.ptx" />
+
+    <!-- Include chapters -->
+    <xi:include href="./chap-preface.ptx" />
+    <xi:include href="./chap-first-order.ptx" />
+    <xi:include href="./chap-higher-order-ode.ptx" />
+    <xi:include href="./chap-linear-algebra.ptx" />
+    <xi:include href="./chap-systems.ptx" />
+    <xi:include href="./chap-nonlin-systems.ptx" />
+    <xi:include href="./chap-matlab-intro.ptx" />
+    <xi:include href="./chap-prereq.ptx" />
+
+
+    <!-- Include backmatter -->
+    <xi:include href="./backmatter.ptx" />
+
+  </book>
+</pretext>

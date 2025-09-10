@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="fo-chapter" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>First Order Differential Equations</title>
+
+  <introduction>
+    <p> In this chapter, we begin by discussing first order differential equations. As they have the
+      lowest possible order, only containing one derivative of the unknown function, they tend to be
+      the simplest equations to try to analyze and solve. This doesn't mean that we'll be able to
+      solve all of them, but we can make a decent effort at a fair number of them. These equations
+      are also very common in modeling problems, as most principles from science and engineering
+      give us a way to express the rate of change of a given quantity. This setup gives rise to a
+      first order differential equation involving that quantity, which, if we can solve it, will
+      tell us how the quantity evolves over time. Even if we can't solve the equation analytically,
+      a numerical solution may allow us to predict the behavior of a system over time and design it
+      to best fit our needs. </p>
+  </introduction>
+
+  <!-- include sections -->
+  <xi:include href="chap-first-order/sec-integral-sols.ptx" />
+  <xi:include href="chap-first-order/sec-slope-fields.ptx" />
+  <xi:include href="chap-first-order/sec-first-order-lin.ptx" />
+  <xi:include href="chap-first-order/sec-first-existence.ptx" />
+  <xi:include href="chap-first-order/sec-numerical-euler.ptx" />
+  <xi:include href="chap-first-order/sec-autonomous-eqn.ptx" />
+  <xi:include href="chap-first-order/sec-bifurcation-diag.ptx" />
+  <xi:include href="chap-first-order/sec-exact.ptx" />
+  <xi:include href="chap-first-order/sec-modeling-first.ptx" />
+  <xi:include href="chap-first-order/sec-modeling-parameters.ptx" />
+  <xi:include href="chap-first-order/sec-substitution.ptx" />
+
+</chapter>

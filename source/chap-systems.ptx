@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="sys-chapter" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Systems of ODEs</title>
+
+    <xi:include href="chap-systems/sec-intro-sys.ptx" />
+
+    <xi:include href="chap-systems/sec-matrices.ptx" />
+
+    <xi:include href="chap-systems/sec-lin-systems.ptx" />
+
+    <xi:include href="chap-systems/sec-eigenvalue-method.ptx" />
+
+    <xi:include href="chap-systems/sec-eigenvalue-method-complex.ptx" />
+
+    <xi:include href="chap-systems/sec-eigenvalue-method-repeated.ptx" />
+
+    <xi:include href="chap-systems/sec-two-dim-systems.ptx" />
+
+    <xi:include href="chap-systems/sec-nonhomog-systems.ptx" />
+
+    <xi:include href="chap-systems/sec-second-order-sys.ptx" />
+
+    <xi:include href="chap-systems/sec-matrix-exp.ptx" />
+
+
+</chapter>
