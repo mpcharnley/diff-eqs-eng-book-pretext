@@ -19,6 +19,7 @@
   <!-- include sections -->
   <xi:include href="chap-first-order/sec-integral-sols.ptx" />
   <xi:include href="chap-first-order/sec-slope-fields.ptx" />
+  <xi:include href="chap-first-order/sec-separable.ptx" />
   <xi:include href="chap-first-order/sec-first-order-lin.ptx" />
   <xi:include href="chap-first-order/sec-first-existence.ptx" />
   <xi:include href="chap-first-order/sec-numerical-euler.ptx" />
