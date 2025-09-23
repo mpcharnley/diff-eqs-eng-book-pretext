@@ -7,8 +7,7 @@
 	<objectives>
 		<introduction>
 			<p>
-				 After this section, you will be able to:
-			</p>
+				After this section, you will be able to: </p>
 		</introduction>
 		<ul>
 			<li>
@@ -29,18 +28,20 @@
 		<p> As mentioned in <xref ref="integralsols-section" />, when a differential equation is of
 			the form <m>y' = f(x)</m>, we can just integrate: <m>y = \int f(x) \,dx + C</m>.
 			Unfortunately this method no longer works for the general form of the equation <m>y' =
-			f(x,y)</m>. Integrating both sides yields 
+			f(x,y)</m>. Integrating both sides yields </p><p>
 			<me>
-				y = \int f(x,y) \,dx + C
-			</me>. 
-			Notice the dependence on <m>y</m> in the integral.
-			Since <m>y</m> is a function of <m>x</m>, this expression is really of the form <me>
-				y = \int f(x, y(x))\ dx + C
-			</me> and without knowing what <m>y(x)</m> is in advance
+				y = \int f(x,y) \, dx + C
+			</me>.</p>
+			<p>	Notice the dependence on <m>y</m> in the integral.
+			Since <m>y</m> is a function of <m>x</m>, this expression is really of the form </p><p>
+			<me>
+				y = \int f(x, y(x))\, dx + C
+			</me> </p><p>and without knowing what <m>y(x)</m> is in advance
 			(which we don't, because that's what we are trying to solve for) we can't compute this
-			integral. Note that while you may have seen integrals of the form <me>
-				\int f(x,y)\ dx
-			</me> in Calculus 3, this is not the same situation. In that class, <m>
+			integral. Note that while you may have seen integrals of the form </p><p>
+			<me>
+				\int f(x,y)\, dx
+			</me></p><p> in Calculus 3, this is not the same situation. In that class, <m>
 			x</m> and <m>y</m> were both independent variables, so we could integrate this
 			expression in <m>x</m>, treating <m>y</m> as a constant. However, here <m>y</m> is a
 			function of <m>x</m>, so they are not both independent variables and <m>y</m> can not be
@@ -59,12 +60,22 @@
 		<definition xml:id="def-separableeqn">
 			<statement>
 				<p>
-					We say a differential equation is <term>separable</term> if we can write it as <me>
+					We say a differential equation is <term>separable</term> if we can write it as </p><p>
+				<me>
 				y' = f(x)g(y)
-			</me>, for some functions <m>f(x)</m> and <m>g(y)</m>.
+			</me>,</p><p> for some functions <m>f(x)</m> and <m>g(y)</m>.
 				</p>
 			</statement>
 		</definition>
+
+		<p>
+  <me>
+    \frac{d}{dx} \int_1^x \frac{1}{t}\, dt = \frac{1}{x}
+  </me>
+  <me>
+    \int_a^b f(x)\, dx = F(b) - F(a)
+  </me>
+</p>
 
 		<p> Let us write the equation in the <me>
 				\frac{dy}{dx} = f(x)g(y)
@@ -87,6 +98,10 @@
 			</me>. If we can find closed form
 			expressions for these two integrals, we can, perhaps, solve for <m>y</m>. </p>
 
+			<p>So a simple, short equality such as <m>x=2</m> should not cause a problem, but if you want to claim that the probability distribution of the normal distribution has the right scaling factors, <m>\int_{-\infty}^{\infty}\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}\frac{\left(x-\mu\right)^2}{\sigma}} dx = 1</m>, there is a good chance it will do less harm to your paragraph of you display it
+                <me>\int_{-\infty}^{\infty}\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}\frac{\left(x-\mu\right)^2}{\sigma}} dx = 1</me>
+                using the <tag>me</tag> element described next.</p>
+				
 
 		<example>
 			<statement>

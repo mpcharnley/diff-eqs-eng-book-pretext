@@ -5,54 +5,76 @@
 
 	<section xml:id="classification-section">
 		<title>Classification of differential equations</title>
-
+<objectives>
+	<introduction>
+		<p>
+			After this section, you will be able to:
+		</p>
+	</introduction>
+	<ul>
+		<li>
+			<p>
+				Classify equation as ordinary or partial differential equations,
+			</p>
+		</li>
+		<li>
+			<p>
+				Identify whether an equation is linear or non-linear, and 
+			</p>
+		</li>
+		<li>
+			<p>
+				Classify linear equations as homogeneous, non-homogeneous, or constant coefficient, as appropriate.
+			</p>
+		</li>
+	</ul>
+</objectives>
 		<p>
 			There are many types of differential equations, and we classify them into different categories based on their properties. Let us quickly go over the most basic classification. We already saw the distinction between ordinary and partial differential equations:
 		</p>
 
-<!-- div attr= class="definition"-->
-		<p><ul>
-			<li>
-					<p>
-						<em>Ordinary differential equations</em> or (ODE) are equations where the derivatives are taken with respect to only one variable. That is, there is only one independent variable.
-					</p>
-			</li>
-
-			<li>
-					<p>
-						<em>Partial differential equations</em> or (PDE) are equations that depend on partial derivatives of several variables. That is, there are several independent variables.
-					</p>
-			</li>
-
-		</ul></p><!--</div attr= class="definition">-->
-
+<definition xml:id="def-ODE-PDE">
+	<statement>
 		<p>
-			Let us see some examples of ordinary differential equations: <me>\begin{align*}
-&amp; \frac{d y}{dt} = ky , &amp; &amp; \text{(Exponential growth\index{exponential growth})} \\
-&amp; \frac{d y}{dt} = k(A-y) , &amp; &amp; \text{(\myindex{Newton's law of cooling})} \\
-&amp; m \frac{d^2 x}{dt^2} + c \frac{dx}{dt} + kx = f(t) . &amp; &amp;
-\text{(Mechanical vibrations\index{mechanical vibrations})}
-\end{align*}</me> And of partial differential equations: <me>\begin{align*}
-&amp; \frac{\partial y}{\partial t} + c \frac{\partial y}{\partial x} = 0 , &amp; &amp; 
-\text{(Transport equation\index{transport equation})} \\
-&amp; \frac{\partial u}{\partial t} = \frac{\partial^2 u}{\partial x^2} , &amp; &amp; 
-\text{(Heat equation\index{heat equation})} \\
-&amp; \frac{\partial^2 u}{\partial t^2} = \frac{\partial^2 u}{\partial x^2} +
-\frac{\partial^2 u}{\partial y^2} . &amp; &amp; 
-\text{(Wave equation in 2 dimensions\index{wave equation in 2 dimensions})}
-\end{align*}</me>
+			<ul>
+			<li>
+					<p>
+						<term>Ordinary differential equations</term> or (ODE) are equations where the derivatives are taken with respect to only one variable. That is, there is only one independent variable.
+					</p>
+			</li>
+
+			<li>
+					<p>
+						<term>Partial differential equations</term> or (PDE) are equations that depend on partial derivatives of several variables. That is, there are several independent variables.
+					</p>
+			</li>
+
+		</ul>
+		</p>
+	</statement>
+</definition>
+	<p>
+			Let us see some examples of ordinary differential equations: <md>
+				<mrow> \amp \frac{d y}{dt} = ky \amp \amp \text{(Exponential growth)} </mrow>
+				<mrow> \amp \frac{d y}{dt} = k(A-y)  \amp \amp \text{(Newton's law of cooling)} </mrow>
+				<mrow> \amp m \frac{d^2 x}{dt^2} + c \frac{dx}{dt} + kx = f(t) \amp \amp \text{(Mechanical vibrations)} </mrow>
+			</md> And of partial differential equations: <md>
+				<mrow> \amp \frac{\partial y}{\partial t} + c \frac{\partial y}{\partial x} = 0 \amp \amp \text{(Transport equation)} </mrow>
+				<mrow> \amp \frac{\partial u}{\partial t} = \frac{\partial^2 u}{\partial x^2} \amp \amp \text{(Heat equation)} </mrow>
+				<mrow> \amp \frac{\partial^2 u}{\partial t^2} = \frac{\partial^2 u}{\partial x^2} +
+\frac{\partial^2 u}{\partial y^2}  \amp \amp \text{(Wave equation in 2 dimensions)} </mrow>
+			</md>
 		</p>
 
 		<p>
-			If there are several equations working together, we have a so-called <em></em>. For example, 
+			If there are several equations working together, we have a so-called <term>system of differential equations</term>. For example, 
 <me>
 y' = x , \qquad x' = y
 </me>
- is a simple system of ordinary differential equations. for electromagnetics, <me>\begin{align*}
-&amp; \nabla \cdot \vec{D} = \rho, &amp; &amp; \nabla \cdot \vec{B} = 0 , \\
-&amp; \nabla \times \vec{E} = - \frac{\partial \vec{B}}{\partial t}, &amp;
-&amp; \nabla \times \vec{H} = \vec{J} + \frac{\partial \vec{D}}{\partial t} ,
-\end{align*}</me> are a system of partial differential equations. The divergence operator <m>\nabla \cdot</m> and the curl operator <m>\nabla \times</m> can be written out in partial derivatives of the functions involved in the <m>x</m>, <m>y</m>, and <m>z</m> variables.
+ is a simple system of ordinary differential equations. <term>Maxwell's Equations</term> for electromagnetics, <md>
+	<mrow> \nabla \cdot \vec{D} = \rho \amp \nabla \cdot \vec{B} = 0 </mrow>
+	<mrow> \nabla \times \vec{E} = - \frac{\partial \vec{B}}{\partial t} \amp \nabla \times \vec{H} = \vec{J} + \frac{\partial \vec{D}}{\partial t} </mrow>
+ </md> are a system of partial differential equations. The divergence operator <m>\nabla \cdot</m> and the curl operator <m>\nabla \times</m> can be written out in partial derivatives of the functions involved in the <m>x</m>, <m>y</m>, and <m>z</m> variables.
 		</p>
 
 		<p>
@@ -63,10 +85,13 @@ y' = x , \qquad x' = y
 			We also distinguish how the dependent variables appear in the equation (or system).
 		</p>
 
-<!-- div attr= class="definition"-->
-		<p>
-			We say an equation is <em>linear</em> if the dependent variable (or variables) and their derivatives appear linearly, that is only as first powers, they are not multiplied together, and no other functions of the dependent variables appear. Otherwise, the equation is called <em>nonlinear</em>.
-		</p><!--</div attr= class="definition">-->
+<definition xml:id="def-lin-nonline">
+	<statement>
+			<p>
+			We say an equation is <term>linear</term> if the dependent variable (or variables) and their derivatives appear linearly, that is only as first powers, they are not multiplied together, and no other functions of the dependent variables appear. Otherwise, the equation is called <term>nonlinear</term>.
+		</p>
+	</statement>
+</definition>
 
 		<p>
 			Another way to determine if a differential equation is linear is if the equation is a sum of terms, where each term is some function of the independent variables or some function of the independent variables multiplied by a dependent variable or its derivative. That is, an ordinary differential equation is linear if it can be put into the form 
@@ -79,7 +104,7 @@ a_{1}(x) \frac{dy}{dx}
 +
 a_{0}(x) y = b(x) .
 </men>
-The functions <m>a_0</m>, <m>a_1</m>, …, <m>a_n</m> are called the <em></em>. The equation is allowed to depend arbitrarily on the independent variable. So 
+The functions <m>a_0</m>, <m>a_1</m>, …, <m>a_n</m> are called the <term>coefficients</term>. The equation is allowed to depend arbitrarily on the independent variable. So 
 <men xml:id="classification-eqlinex">
  e^x \frac{d^2 y}{dx^2} + 
 \sin(x) \frac{d y}{dx} + 
@@ -91,7 +116,7 @@ is still a linear equation as <m>y</m> and its derivatives only appear linearly.
 		</p>
 
 		<p>
-			All the equations and systems above as examples are linear. It may not be immediately obvious for Maxwell’s equations unless you write out the divergence and curl in terms of partial derivatives. Let us see some nonlinear equations. For example , 
+			All the equations and systems above as examples are linear. It may not be immediately obvious for Maxwell’s equations unless you write out the divergence and curl in terms of partial derivatives. Let us see some nonlinear equations. For example <term>Burger's equation</term>, 
 <me>
 \frac{\partial y}{\partial t} + 
 y \frac{\partial y}{\partial x} =
@@ -104,10 +129,13 @@ y \frac{\partial y}{\partial x} =
 is a nonlinear first order differential equation as there is a second power of the dependent variable <m>x</m>.
 		</p>
 
-<!-- div attr= class="definition"-->
+<definition xml:id="def-">
+	<statement>
 		<p>
-			A linear equation may further be called <em></em> if all terms depend on the dependent variable. That is, if no term is a function of the independent variables alone. Otherwise, the equation is called <em></em> or <em></em>.
-		</p><!--</div attr= class="definition">-->
+			A linear equation may further be called <term>homogeneous</term> if all terms depend on the dependent variable. That is, if no term is a function of the independent variables alone. Otherwise, the equation is called <term>nonhomogeneous</term> or <term>inhomogeneous</term>.
+		</p>
+	</statement>
+</definition>
 
 		<p>
 			For example, the exponential growth equation, the wave equation, or the transport equation above are homogeneous. The mechanical vibrations equation above is nonhomogeneous as long as <m>f(t)</m> is not the zero function. Similarly, if the ambient temperature <m>A</m> is nonzero, Newton’s law of cooling is nonhomogeneous. A homogeneous linear ODE can be put into the form 
@@ -124,7 +152,7 @@ a_{0}(x) y = 0 .
 		</p>
 
 		<p>
-			If the coefficients of a linear equation are actually constant functions, then the equation is said to have <em>constant coefficients</em>. The coefficients are the functions multiplying the dependent variable(s) or one of its derivatives, not the function <m>b(x)</m> standing alone. A constant coefficient nonhomogeneous ODE is an equation of the form 
+			If the coefficients of a linear equation are actually constant functions, then the equation is said to have <term>constant coefficients</term>. The coefficients are the functions multiplying the dependent variable(s) or one of its derivatives, not the function <m>b(x)</m> standing alone. A constant coefficient nonhomogeneous ODE is an equation of the form 
 <me>
 a_n \frac{d^n y}{dx^n} + 
 a_{n-1} \frac{d^{n-1} y}{dx^{n-1}} + 
@@ -138,7 +166,7 @@ a_{0} y = b(x) ,
 		</p>
 
 		<p>
-			Finally, an equation (or system) is called <em></em> if the equation does not explicitly depend on the independent variable. For autonomous ordinary differential equations, the independent variable is then thought of as time. Autonomous equation means an equation that does not change with time. For example, Newton’s law of cooling is autonomous, so is equation <xref ref="classification-eqnonlinode" />. On the other hand, mechanical vibrations or <xref ref="classification-eqlinex" /> are not autonomous.
+			Finally, an equation (or system) is called <term>autonomous</term> if the equation does not explicitly depend on the independent variable. For autonomous ordinary differential equations, the independent variable is then thought of as time. Autonomous equation means an equation that does not change with time. For example, Newton's law of cooling is autonomous, so is equation <xref ref="classification-eqnonlinode" />. On the other hand, mechanical vibrations or <xref ref="classification-eqlinex" /> are not autonomous.
 		</p>
 
 
@@ -146,37 +174,164 @@ a_{0} y = b(x) ,
 			<title>Exercises</title>
 
 <exercise>
-<statement>
-			<p>
+<introduction>
+	<p>
 				Classify the following equations. Are they ODE or PDE? Is it an equation or a system? What is the order? Is it linear or nonlinear, and if it is linear, is it homogeneous, constant coefficient? If it is an ODE, is it autonomous?
-			</p>
-
-<!-- div attr= class="tasks"-->
-			<p>
-				(2) <m>\displaystyle \sin(t) \frac{d^2 x}{dt^2} + \cos(t) x = t^2</m> <m>\displaystyle \frac{\partial u}{\partial x} + 3 \frac{\partial u}{\partial y} = xy</m> <m>\displaystyle y''+3y+5x=0, \quad x''+x-y=0</m> <m>\displaystyle \frac{\partial^2 u}{\partial t^2} + u\frac{\partial^2 u}{\partial s^2} =
-0</m> <m>\displaystyle x''+tx^2=t</m> <m>\displaystyle \frac{d^4 x}{dt^4} = 0</m>
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) ODE, equation, second order, linear, non-homogeneous, not constant coefficient, not autonomous.<!-- linebreak -->b) PDE, equation, first order, linear, constant coefficient, non-homogeneous.<!-- linebreak -->c) ODE, system, second order, linear, constant coefficient, homogeneous, autonomous.<!-- linebreak -->d) PDE, equation, second order, non-linear.<!-- linebreak -->e) ODE, equation, second order, non-linear, not autonomous.<!-- linebreak -->f) ODE, equation, fourth order, linear, constant coefficient, homogeneous, autonomous. 
-			</p>
-</answer>
+	</p>
+</introduction>
+<task>
+	<statement>
+		<p>
+			<m>\displaystyle \sin(t) \frac{d^2 x}{dt^2} + \cos(t) x = t^2</m>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			ODE, equation, second order, linear, non-homogeneous, not constant coefficient, not autonomous.
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			<m>\displaystyle \frac{\partial u}{\partial x} + 3 \frac{\partial u}{\partial y} = xy</m>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			PDE, equation, first order, linear, constant coefficient, non-homogeneous.
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			<m>\displaystyle y''+3y+5x=0, \quad x''+x-y=0</m>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			ODE, system, second order, linear, constant coefficient, homogeneous, autonomous.
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			<m>\displaystyle \frac{\partial^2 u}{\partial t^2} + u\frac{\partial^2 u}{\partial s^2} = 0</m>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			PDE, equation, second order, non-linear.
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			<m>\displaystyle x''+tx^2=t</m> 
+		</p>
+	</statement>
+	<answer>
+		<p>
+			ODE, equation, second order, non-linear, not autonomous.
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			<m>\displaystyle \frac{d^4 x}{dt^4} = 0</m>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			ODE, equation, fourth order, linear, constant coefficient, homogeneous, autonomous. 
+		</p>
+	</answer>
+</task>
 </exercise>
 
 <exercise>
-<statement>
-			<p>
+<introduction>
+	<p>
 				Classify the following equations. Are they ODE or PDE? Is it an equation or a system? What is the order? Is it linear or nonlinear, and if it is linear, is it homogeneous, constant coefficient? If it is an ODE, is it autonomous?
 			</p>
-
-<!-- div attr= class="tasks"-->
-			<p>
-				(2) <m>\displaystyle \frac{\partial^2 v}{\partial x^2} + 3 \frac{\partial^2
-v}{\partial y^2} = \sin(x)</m> <m>\displaystyle \frac{d x}{dt} + \cos(t) x = t^2+t+1</m> <m>\displaystyle \frac{d^7 F}{dx^7} = 3F(x)</m> <m>\displaystyle y''+8y'=1</m> <m>\displaystyle x''+tyx'=0, \quad y''+txy = 0</m> <m>\displaystyle \frac{\partial u}{\partial t} = \frac{\partial^2 u}{\partial s^2} + u^2</m>
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
+</introduction>
+		<task>
+			<statement>
+				<p>
+					<m>\displaystyle \frac{\partial^2 v}{\partial x^2} + 3 \frac{\partial^2
+v}{\partial y^2} = \sin(x)</m>
+				</p>
+			</statement>
+			<answer>
+				<p>
+					PDE, equation, second order, linear, nonhomogeneous, constant coefficient.
+				</p>
+			</answer>
+		</task>
+		<task>
+			<statement>
+				<p>
+					<m>\displaystyle \frac{d x}{dt} + \cos(t) x = t^2+t+1</m>
+				</p>
+			</statement>
+			<answer>
+				<p>
+					ODE, equation, first order, linear, nonhomogeneous, not constant coefficient, not autonomous.
+				</p>
+			</answer>
+		</task>
+		<task>
+			<statement>
+				<p>
+					<m>\displaystyle \frac{d^7 F}{dx^7} = 3F(x)</m>
+				</p>
+			</statement>
+			<answer>
+				<p>
+					ODE, equation, seventh order, linear, homogeneous, constant coefficient, autonomous.
+				</p>
+			</answer>
+		</task>
+		<task>
+			<statement>
+				<p>
+					<m>\displaystyle y''+8y'=1</m>
+				</p>
+			</statement>
+			<answer>
+				<p>
+					ODE, equation, second order, linear, nonhomogeneous, constant coefficient, autonomous.
+				</p>
+			</answer>
+		</task>
+		<task>
+			<statement>
+				<p>
+					<m>\displaystyle x''+tyx'=0, \quad y''+txy = 0</m>
+				</p>
+			</statement>
+			<answer>
+				<p>
+					ODE, system, second order, nonlinear.
+				</p>
+			</answer>
+		</task>
+		<task>
+			<statement>
+				<p>
+					<m>\displaystyle \frac{\partial u}{\partial t} = \frac{\partial^2 u}{\partial s^2} + u^2</m>
+				</p>
+			</statement>
+			<answer>
+				<p>
+					PDE, equation, second order, nonlinear.
+				</p>
+			</answer>
+		</task>
 </exercise>
 <exercise>
 <statement>
@@ -254,28 +409,63 @@ v}{\partial y^2} = \sin(x)</m> <m>\displaystyle \frac{d x}{dt} + \cos(t) x = t^2
 </exercise>
 
 <exercise>
-<statement>
-			<p>
+<introduction>
+	<p>
 				Let <m>x</m>, <m>y</m>, and <m>z</m> be three functions of <m>t</m> defined by the system of differential equations 
 <me>
 x' = y \quad y' = z \quad z' = 3x - 2y + 5z + e^t
 </me>
-
-			</p>
-
-			<p>
 				with initial conditions <m>x(0) = 3</m>, <m>y(0) = -2</m> and <m>z(0) = 1</m>, and let <m>u(t)</m> be the function defined by the solution to 
 <me>
 u''' - 5u'' + 2u' - 3u = e^t
 </me>
  with initial conditions <m>u(0) = 3</m>, <m>u'(0) = -2</m>, and <m>u''(0) = 1</m>.
 			</p>
+</introduction>
+<task>
+	<statement>
+		<p>
+			Use the substitution <m>u=x</m>, <m>u' = y</m>, and <m>u'' = z</m> to verify that <m>x(t) = u(t)</m> because they solve the same initial value problem.
+		</p>
+	</statement>
+</task>
+<task>
+	<statement>
+		<p>
+			What is the order of the system defining <m>x</m>, <m>y</m>, and <m>z</m> and how many components does it have?
+		</p>
+	</statement>
+	<answer>
+		<p>
+			First order with three components.
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			What is the order of the equation defining <m>u</m>? How many components does that have?
+		</p>
+	</statement>
+	<answer>
+		<p>
+			Third order with one component.
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			How do these numbers relate to each other?
+		</p>
+	</statement>
+	<answer>
+		<p>
+			The product is three in both cases. (<m>1 \times 3 = 3 \times 1</m>).
+		</p>
+	</answer>
+</task>
 
-<!-- div attr= class="tasks"-->
-			<p>
-				Use the substitution <m>u=x</m>, <m>u' = y</m>, and <m>u'' = z</m> to verify that <m>x(t) = u(t)</m> because they solve the same initial value problem. What is the order of the system defining <m>x</m>, <m>y</m>, and <m>z</m> and how many components does it have? What is the order of the equation defining <m>u</m>? How many components does that have? How do these numbers relate to each other?
-			</p><!--</div attr= class="tasks">-->
-</statement>
 </exercise></exercises>
 
 	</section>
