@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<references xml:id="references">
+
+
+<biblio type = "raw" xml:id = "BM">
+    Paul W. Berg and James L. McGregor. <title>Elementary
+Partial Differential Equations</title>. Holden-Day,
+ San Francisco, CA,
+ 1966. <url href="https://books.google.com/books?id=EfJQAAAAMAAJ" />
+</biblio>
+
+<biblio type = "raw" xml:id = "BD">
+    William E. Boyce and
+ Richard C. DiPrima. <title>Elementary
+Differential Equations and Boundary Value Problems</title> 11th edition,
+ John Wiley &amp; Sons Inc.,
+ New York, NY, 2017. <url href="https://books.google.com/books?id=nYWcQgAACAAJ" />
+</biblio>
+
+<biblio type = "raw" xml:id = "EP">
+    C.H. Edwards and D.E. Penney. <title>Differential
+Equations and Boundary Value Problems: Computing and Modeling</title> 5th edition,
+ Pearson,
+ 2014. <url href="https://books.google.com/books?id=wuWvoAEACAAJ" />
+</biblio>
+
+
+<biblio type = "raw" xml:id = "F">
+    Stanley J. Farlow. <title>An Introduction to Differential Equations and Their Applications</title>. McGraw-Hill, Inc., Princeton, NJ.
+ 1994.  (Published also by Dover Publications, 2006.) <url href="https://books.google.com/books?id=_ozWAAAAMAAJ" />
+</biblio>
+
+<biblio type = "raw" xml:id = "I">
+    E.L. Ince. <title>Ordinary Differential Equations</title> Dover Publications, Inc., New York, NY. 1956. <url href="https://books.google.com/books?id=uYz-pqUD75gC" />
+</biblio>
+
+<biblio type = "raw" xml:id = "JL">
+    Jiří Lebl. <title>Notes on Diffy Qs</title>. Open-source publication. <url href="https://www.jirka.org/diffyqs" />
+</biblio>
+
+<biblio type = "raw" xml:id = "SZ">
+    Carl Stitz and Jeff Zeager. <title>Precalculus</title>. Version 4. 2017. <url href="https://www.stitz-zeager.com/"/>
+</biblio>
+
+<biblio type = "raw" xml:id = "T">
+ William F. Trench. <title>Elementary Differential Equations with Boundary Value
+Problems</title> Books and Monographs. Book 9. 2013. <url href = "https://digitalcommons.trinity.edu/mono/9"/>
+</biblio>
+
+<biblio type="raw" xml:id="ZW">
+    Dennis Zill and Warren Wright. <title> Advanced Engineering Mathematics</title>. 6th Edition, Jones &amp; Bartlett Learning, 2016.
+</biblio>
+
+</references>
