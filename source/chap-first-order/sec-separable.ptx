@@ -60,13 +60,20 @@
 		<definition xml:id="def-separableeqn">
 			<statement>
 				<p>
-					We say a differential equation is <term>separable</term> if we can write it as </p><p>
-				<me>
+					We say a differential equation is <term>separable</term> if we can write it as
+				</p> 
+				<p>
+					<me>
 				y' = f(x)g(y)
-			</me>,</p><p> for some functions <m>f(x)</m> and <m>g(y)</m>.
+			</me>,</p>
+			<p>for some functions <m>f(x)</m> and <m>g(y)</m>.
 				</p>
 			</statement>
 		</definition>
+
+		<p>So a simple, short equality such as <m>x=2</m> should not cause a problem, but if you want to claim that the probability distribution of the normal distribution has the right scaling factors, <m>\int_{-\infty}^{\infty}\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}\frac{\left(x-\mu\right)^2}{\sigma}} dx = 1</m>, there is a good chance it will do less harm to your paragraph of you display it
+                <me>\int_{-\infty}^{\infty}\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}\frac{\left(x-\mu\right)^2}{\sigma}} dx = 1</me>
+                using the <tag>md</tag> element described next.</p>
 
 		<p>
   <me>
@@ -97,11 +104,7 @@
 				\int \frac{dy}{g(y)} = \int f(x) \,dx + C
 			</me>. If we can find closed form
 			expressions for these two integrals, we can, perhaps, solve for <m>y</m>. </p>
-
-			<p>So a simple, short equality such as <m>x=2</m> should not cause a problem, but if you want to claim that the probability distribution of the normal distribution has the right scaling factors, <m>\int_{-\infty}^{\infty}\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}\frac{\left(x-\mu\right)^2}{\sigma}} dx = 1</m>, there is a good chance it will do less harm to your paragraph of you display it
-                <me>\int_{-\infty}^{\infty}\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}\frac{\left(x-\mu\right)^2}{\sigma}} dx = 1</me>
-                using the <tag>me</tag> element described next.</p>
-				
+			
 
 		<example>
 			<statement>
@@ -260,7 +263,7 @@
 			</solution>
 		</example>
 
-		<example>
+		<example xml:id="ex-coffeeCooling">
 			<title>A first modeling problem</title>
 			<statement>
 				<p> Bob made a cup of coffee, and Bob likes to drink coffee only once reaches 60

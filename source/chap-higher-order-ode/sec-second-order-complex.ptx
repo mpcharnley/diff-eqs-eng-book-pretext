@@ -5,9 +5,7 @@
 
 	<section xml:id="complexroots-section">
 		<title>Complex Roots and Euler’s Formula</title>
-<subsection xml:id="subsec-complexgen">
-	<title>complexgen</title>
-	
+
 		<p>
 			The next case to consider for constant coefficient second order equations is the one where <m>b^2 - 4ac &lt; 0</m>. This results in two roots <m>r_1</m> and <m>r_2</m>, but they are complex roots. In order to solve differential equations with <m>b^2 - 4ac &lt; 0</m>, we need to be able to manipulate and use some properties of complex numbers. Complex numbers may seem a strange concept, especially because of the terminology. There is nothing imaginary or really complicated about complex numbers. For more bachground information on complex numbers, see .
 		</p>
@@ -53,23 +51,30 @@
 </statement>
 
 <answer>		<p>
-			In order to solve differential equations where the characteristic equation has complex roots, we need to deal with the exponential <m>e^{a+bi}</m> of complex numbers. We do this by writing down the Taylor series and plugging in the complex number. Because most properties of the exponential can be proved by looking at the Taylor series, these properties still hold for the complex exponential. For example the very important property: <m>e^{x+y} = e^x e^y</m>. This means that <m>e^{a+ib} = e^a e^{ib}</m>. Hence if we can compute <m>e^{ib}</m>, we can compute <m>e^{a+ib}</m>. For <m>e^{ib}</m>, we use the so-called <em></em>.
+			The important part to keep in mind with complex numbers is that dividing by complex numbers is not as simple as one would hope. The process does not just involve inverting the real and imaginary parts and putting an <m>i</m> in there, instead, the complex number in the denominator needs to be converted into a real number by multiplying the top and bottom by the complex conjugate, and then everything can be distributed and simplified. We use <m>\bar{z}</m> to denote the complex conjugate of a complex number <m>z</m>, and for <m>z = a+bi</m> the conjugate is defined as <m>\bar{z} = a - bi</m>. There also one more very useful property. If <m>z = a+bi</m>, then <me>z\bar{z} = (a+bi)(a-bi) = a^2 + b^2,</me> which is always a real number. That’s why division works the way that it does.
 		</p>
 </answer>
 </exercise>
 
-<!-- div attr= class="theorem1"-->
 		<p>
-			Euler’s formula 
-<me>
+			In order to solve differential equations where the characteristic equation has complex roots, we need to deal with the exponential <m>e^{a+bi}</m> of complex numbers. We do this by writing down the Taylor series and plugging in the complex number. Because most properties of the exponential can be proved by looking at the Taylor series, these properties still hold for the complex exponential. For example the very important property: <m>e^{x+y} = e^x e^y</m>. This means that <m>e^{a+ib} = e^a e^{ib}</m>. Hence if we can compute <m>e^{ib}</m>, we can compute <m>e^{a+ib}</m>. For <m>e^{ib}</m>, we use the so-called <em></em>.
+		</p>
+
+<theorem xml:id="eulersformula">
+	<title>Euler's formula </title>
+	<statement>
+		<p>
+			<me>
 %\mybxbg{~~
 e^{i \theta} = \cos \theta + i \sin \theta
 \qquad \text{ and } \qquad
 e^{- i \theta} = \cos \theta - i \sin \theta .
 %~~}
 </me>
+		</p>
+	</statement>
+</theorem>
 
-		</p><!--</div attr= class="theorem1">-->
 
 		<p>
 			In other words, <m>e^{a+ib} = e^a \bigl( \cos(b) + i \sin(b) \bigr) = e^a \cos(b) + i e^a \sin(b)</m>.
@@ -78,7 +83,7 @@ e^{- i \theta} = \cos \theta - i \sin \theta .
 <exercise>
 <statement>
 		<p>
-			Using Euler’s formula, check the identities: 
+			Using Euler's formula, check the identities: 
 <me>
 \cos \theta = \frac{e^{i \theta} + e^{-i \theta}}{2}
 \qquad \text{and} \qquad
@@ -102,8 +107,8 @@ e^{- i \theta} = \cos \theta - i \sin \theta .
 		</p>
 </statement>
 
+
 </exercise>
-</subsection>
 		<subsection xml:id="complex-roots">
 			<title>Complex roots</title>
 
@@ -212,8 +217,9 @@ v_2(x) &amp;= -e^{\alpha x} \sin (\beta x).
 </answer>
 </exercise>
 
-<!-- div attr= class="theorem1"-->
-			<p>
+<theorem xml:id="thm-realimagparts">
+	<statement>
+		<p>
 				Take the equation 
 <me>
 ay'' + by' + cy = 0 .
@@ -223,7 +229,10 @@ ay'' + by' + cy = 0 .
 y = C_1 e^{\alpha x} \cos (\beta x) + C_2 e^{\alpha x} \sin (\beta x) .
 </me>
 
-			</p><!--</div attr= class="theorem1">-->
+			</p>
+	</statement>
+</theorem>
+
 
 
 <example>

@@ -35,5 +35,8 @@
   <colophon xml:id="front-colophon">
     <colophon-items/>
   </colophon>
+
+  <xi:include href="./chap-preface.ptx" />
+  
 </frontmatter>
 

@@ -5,11 +5,11 @@
 
 	<section xml:id="nonhomogsys-section">
 		<title>Nonhomogeneous systems</title>
-<introduction>
+
 		<p>
 			Now, we want to take a look at solving non-homogeneous linear systems. As discussed previously, the process here is the same as it was for second order non-homogeneous equations. We can solve the homogeneous equation and then need one particular solution to the non-homogeneous problem. Adding these together gives the general solution to the non-homogeneous problem, where we can pick constants to meet an initial condition if it is given. This section here will focus on a variety of methods to find this particular solution.
 		</p>
-	</introduction>
+
 
 		<subsection xml:id="first-order-constant-coefficient">
 			<title>First order constant coefficient</title>
@@ -177,7 +177,7 @@ EDE^{-1} &amp;= \begin{bmatrix} 1 &amp; 1 \\ -1 &amp; 1 \end{bmatrix} \begin{bma
 <me>
 \vec{y}' = D\vec{y} + E^{-1}\vec{f} = \begin{bmatrix} -2 &amp; 0 \\ 0 &amp; 4 \end{bmatrix} \vec{y} + \begin{bmatrix} 1/2 &amp; -1/2 \\ 1/2 &amp; 1/2 \end{bmatrix} \begin{bmatrix} 2e^t \\ 2t \end{bmatrix}
 </me>
- for <m>\vec{y} = E^{-1}\vec{x}</m>, or <m>\vec{y}</m> defined by <m>\vec{x} = E\vec{y}</m>. Computing the non-homogenoeus term gives 
+ for <m>\vec{y} = E^{-1}\vec{x}</m>, or <m>\vec{y}</m> defined by <m>\vec{x} = E\vec{y}</m>. Computing the non-homogeneous term gives 
 <me>
 \begin{bmatrix} 1/2 &amp; -1/2 \\ 1/2 &amp; 1/2 \end{bmatrix} \begin{bmatrix} 2e^t \\ 2t \end{bmatrix} = \begin{bmatrix} e^t - t \\ e^t + t \end{bmatrix}
 </me>
@@ -623,7 +623,7 @@ _{\xi_2}
 </exercise>
 			</subsubsection>
 
-			<subsubsection xml:id="undetermined-coefficients">
+			<subsubsection xml:id="undetermined-coefficients-sys">
 				<title>Undetermined coefficients</title>
 
 				<p>
@@ -871,7 +871,7 @@ t
 			<title>First order variable coefficient</title>
 
 
-			<subsubsection xml:id="variation-of-parameters">
+			<subsubsection xml:id="variation-of-parameters-sys">
 				<title>Variation of parameters</title>
 
 				<p>

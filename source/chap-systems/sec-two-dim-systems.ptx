@@ -5,9 +5,7 @@
 
 	<section xml:id="sec-twodimaut">
 		<title>Two-dimensional systems and their vector fields</title>
-<subsection xml:id="subsec-twodim">
-	<title>twodim</title>
-	
+
 		<p>
 			In the last three sections, we looked at the different options for two-component constant-coefficient systems. We want to determine a nice way to put all of this together. We summarize the behavior of linear homogeneous two-dimensional systems given by a nonsingular matrix in . Systems where one of the eigenvalues is zero (the matrix is singular) come up in practice from time to time, see , and the pictures are somewhat different (simpler in a way). See the exercises.
 		</p>
@@ -60,7 +58,7 @@
 			The sketches of all of these different behaviors and phase portraits can be found in their respective sections. Make sure that you understand the terminology, general behavior, and sketches for each of these different cases.
 		</p>
 
-</subsection>
+
 		<subsection xml:id="trace-determinant-analysis">
 			<title>Trace-Determinant Analysis</title>
 

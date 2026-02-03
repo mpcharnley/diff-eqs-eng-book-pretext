@@ -5,7 +5,7 @@
 
 	<section xml:id="eigenmethod-section">
 		<title>Eigenvalue method</title>
-<introduction>
+
 		<p>
 			In this section we will learn how to solve linear homogeneous constant coefficient systems of ODEs by the eigenvalue method. Suppose we have such a system 
 <me>
@@ -55,7 +55,7 @@ P\vec{x} = \lambda \vec{x}
 </me>
  and this is the equation for eigenvalues and eigenvectors of <m>P</m>. We are back to the same type of solution that we found previously.
 		</p>
-	</introduction>
+
 
 		<subsection xml:id="the-eigenvalue-method-with-distinct-real-eigenvalues">
 			<title>The eigenvalue method with distinct real eigenvalues</title>
@@ -234,7 +234,7 @@ c_1 \\ c_2 \\ c_3
 </example>
 		</subsection>
 
-		<subsection xml:id="phase-portraits">
+		<subsection xml:id="phase-portraits-real">
 			<title>Phase Portraits</title>
 
 			<p>
@@ -284,6 +284,14 @@ P ( \alpha \vec{v} ) =  \alpha ( P \vec{v} )
 <!--</div attr= class="myfig">-->
 
 			<p>
+				We also need to look at how the solution curves are drawn to determine the appropriate shape, even when we don’t have the vector field. In this example, we have two positive eigenvalues, with <m>\left[\begin{smallmatrix} 1 \\ 0 \end{smallmatrix}\right]</m> as an eigenvector for eigenvalue 1, and <m>\left[\begin{smallmatrix} 1 \\ 1 \end{smallmatrix}\right]</m> as an eigenvector for eigenvalue 2, which gives rise to a general solution <me>\vec{x}(t) = C_1 \begin{bmatrix} 1\\ 0 \end{bmatrix}e^t + C_2 \begin{bmatrix}  1 \\ 1 \end{bmatrix}e^{2t}.</me> As <m>t</m> gets larger, the term with <m>e^{2t}</m> on it is larger and more important, so the solution curves move parallel to the <m>\left[\begin{smallmatrix} 1 \\ 1 \end{smallmatrix}\right]</m> line as <m>t\rightarrow \infty</m>, which in this case, means as the solution goes away from the origin. In the other direction, as <m>t \rightarrow -\infty</m>, the <m>e^{2t}</m> term vanishes first, meaning the <m>e^t</m> term is more important. So the solution curves will leave from the origin (since this happens as <m>t \rightarrow -\infty</m>) in the direction of the <m>\left[\begin{smallmatrix} 1 \\ 0 \end{smallmatrix}\right]</m> line.
+			</p>
+
+			<p>
+				That is exactly what we see in ; the solutions leave the origin along the <m>\left[\begin{smallmatrix} 1 \\ 0 \end{smallmatrix}\right]</m> line and then head to infinity parallel to the <m>\left[\begin{smallmatrix} 1 \\ 1 \end{smallmatrix}\right]</m> line. Within the figure here, they don’t quite get parallel to those lines, but they will get more and more parallel as they get farther away from the origin.
+			</p>
+
+			<p>
 				<em>Case 2.</em> Suppose both eigenvalues are negative. For example, take the negation of the matrix in case 1, <m>\left[ \begin{smallmatrix} -1 &amp; -1 \\ 0 &amp; -2 \end{smallmatrix} \right]</m>. The eigenvalues are <m>-1</m> and <m>-2</m> and corresponding eigenvectors are the same, <m>\left[ \begin{smallmatrix} 1 \\ 0 \end{smallmatrix} \right]</m> and <m>\left[ \begin{smallmatrix} 1 \\ 1 \end{smallmatrix} \right]</m>. The calculation and the picture are almost the same. The only difference is that the eigenvalues are negative and hence all arrows are reversed. We get the picture in . We call this kind of picture a <em></em> or a <em></em>.
 			</p>
 
@@ -291,7 +299,15 @@ P ( \alpha \vec{v} ) =  \alpha ( P \vec{v} )
 <!--</div attr= class="myfig">-->
 
 			<p>
+				In terms of the shape of the solution curves, the same type of argument works. This general solution will have terms involving <m>e^{-t}</m> and <m>e^{-2t}</m>. The solution is tending towards the origin as <m>t \rightarrow \infty</m>, and as it does, the <m>e^{-2t}</m> term vanishes first. Therefore, the solution goes to the origin along the line corresponding to <m>e^{-t}</m>, which is <m>\left[\begin{smallmatrix} 1 \\ 0 \end{smallmatrix}\right]</m>. As <m>t \rightarrow -\infty</m>, the reverse happens, and the <m>e^{-2t}</m> term matters more, so the solution comes in from infinity parallel to the <m>\left[\begin{smallmatrix} 1 \\ 1 \end{smallmatrix}\right]</m> line. Exactly where this <q>parallel</q> component of the line is depends on the initial condition. This is again what we see in .
+			</p>
+
+			<p>
 				<em>Case 3.</em> Suppose one eigenvalue is positive and one is negative. For example the matrix <m>\left[ \begin{smallmatrix} 1 &amp; 1 \\ 0 &amp; -2 \end{smallmatrix} \right]</m>. The eigenvalues are 1 and <m>-2</m> and corresponding eigenvectors are <m>\left[ \begin{smallmatrix} 1 \\ 0 \end{smallmatrix} \right]</m> and <m>\left[ \begin{smallmatrix} 1 \\ -3 \end{smallmatrix} \right]</m>. We reverse the arrows on one line (corresponding to the negative eigenvalue) and we obtain the picture in . We call this picture a <em></em>.
+			</p>
+
+			<p>
+				For saddle points, it is slightly more clear what the shape should be. The general solution for the system drawn in is <me>\vec{x}(t) = C_1 \begin{bmatrix} 1 \\ 0 \end{bmatrix}e^t + C_2 \begin{bmatrix} 1 \\ -3 \end{bmatrix}e^{-2t}.</me> As <m>t\rightarrow \infty</m>, the <m>e^{-2t}</m> term vanishes, so only the <m>\left[\begin{smallmatrix} 1 \\ 0 \end{smallmatrix}\right]e^t</m> term remains, meanin the solution approaches the <m>\left[\begin{smallmatrix} 1 \\ 0 \end{smallmatrix}\right]</m> line. In the other direction, as <m>t \rightarrow -\infty</m>, the <m>e^t</m> term vanishes, meaning that our solution approaches the straight-line solution with negative eigenvalue, which in this case is the <m>\left[\begin{smallmatrix} 1 \\ -3 \end{smallmatrix}\right]</m> line.
 			</p>
 
 		</subsection>
@@ -492,7 +508,51 @@ a &amp; b &amp; c \\
 			</p>
 </answer>
 </exercise>
-</exercises>
+
+<exercise>
+<statement>
+			<p>
+				Find the general solution of the system 
+<me>
+{\vec{x}}' = \begin{bmatrix}
+-2 &amp; 1 \\ 
+3 &amp; -4 \\ 
+\end{bmatrix} \vec{x}
+</me>
+ and draw a sketch for the phase portrait.
+			</p>
+</statement>
+
+</exercise>
+<exercise>
+<statement>
+			<p>
+				Find the general solution of the system 
+<me>
+{\vec{x}}' =  \begin{bmatrix}
+3 &amp; 6 \\ 
+2 &amp; -1 \\ 
+\end{bmatrix}\vec{x}
+</me>
+ and draw a sketch for the phase portrait.
+			</p>
+</statement>
+
+</exercise>
+<exercise>
+<statement>
+			<p>
+				Find the general solution of the system 
+<me>
+{\vec{x}}' = \begin{bmatrix}
+6 &amp; -2 \\ 
+5 &amp; -1 \\ 
+\end{bmatrix} \vec{x}
+</me>
+ and draw a sketch for the phase portrait.
+			</p>
+</statement>
+</exercise></exercises>
 
 	</section>
 

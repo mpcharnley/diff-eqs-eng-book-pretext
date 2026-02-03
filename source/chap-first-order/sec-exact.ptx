@@ -191,13 +191,18 @@ N = xy = F_y (x,y) = x+A'(y) .
 			</p></fn>.
 			</p>
 
-<!-- div attr= class="theorem1"-->
-			<p>
-				Poincaré If <m>M</m> and <m>N</m> are continuously differentiable functions of <m>(x,y)</m>, and <m>\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}</m>, then near any point there is a function <m>F(x,y)</m> such that <m>M = \frac{\partial F}{\partial x}</m> and <m>N = \frac{\partial F}{\partial y}</m>.
-			</p><!--</div attr= class="theorem1">-->
+<theorem xml:id="thm-Poincare">
+	<creator>H. Poincaré</creator>
+	<statement>
+					<p>
+	If <m>M</m> and <m>N</m> are continuously differentiable functions of <m>(x,y)</m>, and <m>\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}</m>, then near any point there is a function <m>F(x,y)</m> such that <m>M = \frac{\partial F}{\partial x}</m> and <m>N = \frac{\partial F}{\partial y}</m>.
+			</p>
+	</statement>
+</theorem>
+
 
 			<p>
-				The theorem doesn’t give us a global <m>F</m> defined everywhere. In general, we can only find the potential locally, near some initial point. By this time, we have come to expect this from differential equations.
+				The theorem doesn't give us a global <m>F</m> defined everywhere. In general, we can only find the potential locally, near some initial point. By this time, we have come to expect this from differential equations.
 			</p>
 
 			<p>

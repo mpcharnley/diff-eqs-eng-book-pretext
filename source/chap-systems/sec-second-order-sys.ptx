@@ -655,7 +655,7 @@ M \vec{x}'' = K \vec{x} + \vec{G} \cos(\omega t) .
 			<title>Non-Homogeneous Solutions</title>
 
 
-			<subsubsection xml:id="undetermined-coefficients">
+			<subsubsection xml:id="undetermined-coefficients-secondsys">
 				<title>Undetermined coefficients</title>
 
 				<p>

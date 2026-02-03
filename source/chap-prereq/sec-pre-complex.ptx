@@ -25,8 +25,9 @@
 		= 4i</m>, <m>(2-7i) + (3 + 4i) = 5-3i</m>, and so forth. The key properties which
 		distinguish <m>i</m> from the real numbers are listed below. </p>
 
-	<!-- div attr= class="definition"-->
-	<p> The imaginary unit <m>i</m> satisfies the two following properties: </p>
+	<definition xml:id="idefn">
+		<statement>
+			<p> The imaginary unit <m>i</m> satisfies the two following properties: </p>
 
 	<p>
 		<ol>
@@ -42,8 +43,10 @@
 			</li>
 
 		</ol>
-	</p><!--</div
-	attr= class="definition">-->
+	</p>
+		</statement>
+	</definition>
+
 
 	<p> Property 1 in the previous definition establishes that <m>i</m> does act as a square root<fn>
 			 Note the use of the indefinite article <sq>a</sq>. Whatever beast is chosen to be <m>
@@ -72,7 +75,7 @@
 		above. The next example should help recall how these animals behave. </p>
 
 
-	<example>
+	<example xml:id="complexzeroex1">
 		<title> </title>
 		<statement>
 			<p>
@@ -222,8 +225,12 @@
 		not before <m>\sqrt{5}</m>. The properties of the conjugate are summarized in the following
 		theorem. </p>
 
-	<!-- div attr= class="theorem1"-->
-	<p> Properties of the Complex Conjugate Let <m>z</m> and <m>w</m> be complex numbers. </p>
+	<theorem xml:id="conjugateprops">
+		<title>Properties of the Complex Conjugate</title>
+		
+		
+		<statement>
+			<p>  Let <m>z</m> and <m>w</m> be complex numbers. </p>
 
 	<p>
 		<ul>
@@ -258,8 +265,10 @@
 			</li>
 
 		</ul>
-	</p><!--</div
-	attr= class="theorem1">-->
+	</p>
+		</statement>
+	</theorem>
+
 
 	<p> Theorem <xref ref="conjugateprops" /> says in part that complex conjugation works well with
 		addition, multiplication and powers. The proofs of these properties can best be achieved by
@@ -293,7 +302,7 @@
 	</p>
 
 
-	<example>
+	<example xml:id="complexsolnsreviewex">
 		<title> </title>
 		<statement>
 			<p> Find the complex solutions to the following equations.<fn>

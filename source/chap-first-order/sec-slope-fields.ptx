@@ -5,6 +5,26 @@
 
 	<section xml:id="slopefields-section">
 		<title>Slope fields</title>
+		<objectives>
+		<introduction>
+			<p>
+				After this section, you will be able to: </p>
+		</introduction>
+		<ul>
+			<li>
+				<p>
+					Identify or sketch a slope field for a first order differential equation and
+				</p>
+			</li>
+			<li>
+				<p>
+					Use the slope field to determine the trajectory of a solution to a differential equation. 
+				</p>
+			</li>
+		</ul>
+	</objectives>
+
+
 <introduction>
 		<p>
 			As we said, the general first order equation we are studying looks like 
@@ -18,17 +38,19 @@ y' = f(x,y).
 		<subsection xml:id="slope-fields">
 			<title>Slope fields</title>
 
-<!-- div attr= class="mywrapfig"-->
-			<p>
-				2.75in
-			</p><!--</div attr= class="mywrapfig">-->
+<figure xml:id="fig0-1-3">
+	<caption>The slope <m>y' = xy</m> at <m>(2,1.5)</m>.</caption>
+	<image source="1-3-xysl-one.png">
+		<description><p>A graph showing a short line of slope 3 at the point <m>(2, 1.5)</m></p></description>
+	</image>
+</figure>
 
 			<p>
-				Suppose that we have a solution to the equation <m>y' = f(x,y)</m> with <m>y(x_0) = y_0</m>. What does the fact that this solves the differential equation tell us about the solution? It tells us that the derivative of the solution at this point will be <m>f(x_0, y_0)</m>. Graphically, the derivative gives the slope of the solution, so it means that the solution will pass through the point <m>(x_0, y_0)</m> and will have slope <m>f(x_0, y_0)</m>. For example, if <m>f(x,y) = xy</m>, then at point <m>(2,1.5)</m> we draw a short line of slope <m>xy = 2 \times 1.5 = 3</m>. So, if <m>y(x)</m> is a solution and <m>y(2) = 1.5</m>, then the equation mandates that <m>y'(2) = 3</m>. See .
+				Suppose that we have a solution to the equation <m>y' = f(x,y)</m> with <m>y(x_0) = y_0</m>. What does the fact that this solves the differential equation tell us about the solution? It tells us that the derivative of the solution at this point will be <m>f(x_0, y_0)</m>. Graphically, the derivative gives the slope of the solution, so it means that the solution will pass through the point <m>(x_0, y_0)</m> and will have slope <m>f(x_0, y_0)</m>. For example, if <m>f(x,y) = xy</m>, then at point <m>(2,1.5)</m> we draw a short line of slope <m>xy = 2 \times 1.5 = 3</m>. So, if <m>y(x)</m> is a solution and <m>y(2) = 1.5</m>, then the equation mandates that <m>y'(2) = 3</m>. See <xref ref="fig0-1-3"/>.
 			</p>
 
 			<p>
-				To get an idea of how solutions behave, we draw such lines at lots of points in the plane, not just the point <m>(2,1.5)</m>. We would ideally want to see the slope at every point, but that is just not possible. Usually we pick a grid of points fine enough so that it shows the behavior, but not too fine so that we can still recognize the individual lines. We call this picture the <em></em> of the equation. See for the slope field of the equation <m>y' = xy</m>. Usually in practice, one does not do this by hand, but has a computer do the drawing.
+				To get an idea of how solutions behave, we draw such lines at lots of points in the plane, not just the point <m>(2,1.5)</m>. We would ideally want to see the slope at every point, but that is just not possible. Usually we pick a grid of points fine enough so that it shows the behavior, but not too fine so that we can still recognize the individual lines. We call this picture the <term>slope field</term> of the equation. See <xref ref="fig1-1-3"/> for the slope field of the equation <m>y' = xy</m>. Usually in practice, one does not do this by hand, but has a computer do the drawing.
 			</p>
 
 			<p>
@@ -39,19 +61,40 @@ y' = f(x,y).
 				Suppose we are given a specific initial condition <m>y(x_0) = y_0</m>. A solution, that is, the graph of the solution, would be a curve that follows the slopes we drew, starting from the point <m>(x_0, y_0)</m>. For a few sample solutions, see . It is easy to roughly sketch (or at least imagine) possible solutions in the slope field, just from looking at the slope field itself. You simply sketch a line that roughly fits the little line segments and goes through your initial condition. The graph should <q>flow</q> along the little slopes that are on the slope field.
 			</p>
 
-<!-- div attr= class="myfig"-->
-<!--</div attr= class="myfig">-->
+<figure xml:id="fig-slopeFields1">
+	<caption>Two graphs showing solutions to autonomous equations.</caption>
+	<sidebyside>
+		<figure xml:id="fig1-1-3">
+			<caption>Slope field of <m>y' = xy</m>.</caption>
+			<image source="1-3-xysl.png">
+				<description> <p> A graph showing many short lines, the slope of which is <m>xy</m> at the point <m>(x,y)</m>.</p> </description>
+			</image>
+		</figure>
+		<figure xml:id="fig2-1-3">
+			<caption>Slope field of <m>y' = xy</m> with a graph of solutions satisfying <m>y(0) = 0.2</m>, <m>y(0) = 0</m>, and <m>y(0) = -0.2</m>.</caption>
+			<image source="1-3-xysl-sol.png">
+				<description> <p> A graph showing many short lines, the slope of which is <m>xy</m> at the point <m>(x,y)</m>. On top of this are three red curves that follow the slope field lines given. Above the horizontal axis, the graph is somewhat parabolic facing upwards. Another red line is straight across the horizontal axis. The graph below the horizontal axis is somewhat like a downward facing parabola. </p></description>
+			</image>
+		</figure>
+	</sidebyside>
+</figure>
 
 			<p>
-				By looking at the slope field we get a lot of information about the behavior of solutions without having to solve the equation. For example, in we see what the solutions do when the initial conditions are <m>y(0) &gt; 0</m>, <m>y(0) = 0</m> and <m>y(0) &lt; 0</m>. A small change in the initial condition causes quite different behavior. We see this behavior just from the slope field and imagining what solutions ought to do.
+				By looking at the slope field we get a lot of information about the behavior of solutions without having to solve the equation. For example, in <xref ref="fig2-1-3"/> we see what the solutions do when the initial conditions are <m>y(0) &gt; 0</m>, <m>y(0) = 0</m> and <m>y(0) &lt; 0</m>. A small change in the initial condition causes quite different behavior. We see this behavior just from the slope field and imagining what solutions ought to do.
 			</p>
 
 			<p>
-				We see a different behavior for the equation <m>y' = -y</m>. The slope field and a few solutions is in see . If we think of moving from left to right (perhaps <m>x</m> is time and time is usually increasing), then we see that no matter what <m>y(0)</m> is, all solutions tend to zero as <m>x</m> tends to infinity. Again that behavior is clear from simply looking at the slope field itself.
+				We see a different behavior for the equation <m>y' = -y</m>. The slope field and a few solutions is in <xref ref="fig3-1-3"/> . If we think of moving from left to right (perhaps <m>x</m> is time and time is usually increasing), then we see that no matter what <m>y(0)</m> is, all solutions tend to zero as <m>x</m> tends to infinity. Again that behavior is clear from simply looking at the slope field itself.
 			</p>
 
-<!-- div attr= class="myfig"-->
-<!--</div attr= class="myfig">-->
+<figure xml:id="fig3-1-3">
+	<caption>Slope field of <m>y' = -y</m> with a graph of a few solutions.</caption>
+	<image source="1-3-mysl-sol.png">
+		<description><p>
+			A graph showing sloped lines that all point towards the horizontal axis, getting flatter as they get closer to that axis. A few red solution lines are drawn on top of this that all converge to zero as the graph goes to the right.
+		</p></description>
+	</image>
+</figure>
 
 		</subsection>
 

@@ -10,19 +10,17 @@
 
     <!-- Include frontmatter -->
     <xi:include href="./frontmatter.ptx" />
-    <xi:include href="./chap-preface.ptx" />
 
     <!-- Include chapters -->
     <xi:include href="./chap-intro.ptx" />
     <xi:include href="./chap-first-order.ptx" />
-    <!-- <xi:include href="./chap-higher-order-ode.ptx" />
+    <xi:include href="./chap-higher-order-ode.ptx" />
     <xi:include href="./chap-linear-algebra.ptx" />
     <xi:include href="./chap-systems.ptx" />
     <xi:include href="./chap-nonlin-systems.ptx" />
     <xi:include href="./chap-matlab-intro.ptx" />
     <xi:include href="./chap-prereq.ptx" />
   
--->
     <!-- Include backmatter -->
     <xi:include href="./backmatter.ptx" />
   

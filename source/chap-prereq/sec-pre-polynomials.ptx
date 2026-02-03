@@ -183,12 +183,17 @@
 			Before we dive into examples, we first state a theorem telling us when we can divide two
 			polynomials, and what to expect when we do so. </p>
 
-		<!-- div attr= class="theorem1"-->
-		<p> Polynomial Division Let <m>d</m> and <m>p</m> be nonzero polynomials where the degree of <m>
+		<theorem xml:id="polydiv">
+			<title>Polynomial Division</title>
+			
+			<statement>
+				<p>Let <m>d</m> and <m>p</m> be nonzero polynomials where the degree of <m>
 			p</m> is greater than or equal to the degree of <m>d</m>. There exist two unique
 			polynomials, <m>q</m> and <m>r</m>, such that <m>p = d \cdot q + r,\,</m> where either <m>r
-			= 0</m> or the degree of <m>r</m> is strictly less than the degree of <m>d</m>. </p><!--</div
-		attr= class="theorem1">-->
+			= 0</m> or the degree of <m>r</m> is strictly less than the degree of <m>d</m>. </p>
+			</statement>
+		</theorem>
+
 
 		<p> Essentially, Theorem <xref ref="polydiv" /> tells us that we can divide polynomials
 			whenever the degree of the divisor is less than or equal to the degree of the dividend.
@@ -575,13 +580,17 @@
 			friendly reminder of what we can expect when we divide polynomials.
 		</p>
 
-		<!-- div attr= class="theorem1"-->
-		<p> Suppose <m>d(x)</m> and <m>p(x)</m> are nonzero polynomial functions where the degree of <m>
+		<theorem xml:id="polydivthm">
+			<statement>
+				<p>
+					Suppose <m>d(x)</m> and <m>p(x)</m> are nonzero polynomial functions where the degree of <m>
 			p</m> is greater than or equal to the degree of <m>d</m>. There exist two unique
 			polynomial functions, <m>q(x)</m> and <m>r(x)</m>, such that <m>p(x) = d(x) \, q(x) +
 			r(x),\,</m> where either <m>r(x) = 0</m> or the degree of <m>r</m> is strictly less than
-			the degree of <m>d</m>. </p><!--</div
-		attr= class="theorem1">-->
+			the degree of <m>d</m>.
+				</p>
+			</statement>
+		</theorem>
 
 		<p> As you may recall, all of the polynomials in Theorem <xref ref="polydivthm" /> have
 			special names. The polynomial <m>p</m> is called the <em>dividend</em>; <m>d</m> is the <em>
@@ -1242,7 +1251,7 @@
 			.<fn>
 				It is a good review of the algebra of complex numbers to start with <m>
 			(x-[1+2i])(x-[1-2i])</m>, perform the indicated operations, and simplify the result to <m>
-			x^2-2x+5</m>. See part 6 of Example <xref ref="complexzeroex1" />. 
+			x^2-2x+5</m>. See part 6 of <xref ref="complexzeroex1" />. 
 			</fn>
 		</p>
 
@@ -1287,8 +1296,11 @@
 			This constant is none-other than the leading coefficient of <m>f</m> which is carried
 			down line by line each time we divide by factors of the form <m>x-c</m>. </p>
 
-		<!-- div attr= class="theorem1"-->
-		<p> Complex Factorization Theorem Suppose <m>f</m> is a polynomial function with complex
+		<theorem xml:id="complexfactorization">
+			<title>Complex Factorization Theorem</title>
+			
+			<statement>
+				<p> Suppose <m>f</m> is a polynomial function with complex
 			number coefficients. If the degree of <m>f</m> is <m>n</m> and <m>n \geq 1</m>, then <m>
 			f</m> has exactly <m>n</m> complex zeros, counting multiplicity. If <m>z_{\mbox{\tiny
 			$1$}}</m>, <m>z_{\mbox{\tiny $2$}}</m>, …, <m>z_{\mbox{\tiny $k$}}</m> are the distinct
@@ -1296,8 +1308,10 @@
 			$2$}}</m>, …, <m>m_{\mbox{\tiny $k$}}</m>, respectively, then <m>f(x) = a\left(x -
 			z_{\mbox{\tiny $1$}} \right)^{m_{\mbox{\tiny $1$}}}\left(x - z_{\mbox{\tiny $2$}}
 			\right)^{m_{\mbox{\tiny $2$}}} \cdots \left(x - z_{\mbox{\tiny $k$}}
-			\right)^{m_{\mbox{\tiny $k$}}}</m>. </p><!--</div
-		attr= class="theorem1">-->
+			\right)^{m_{\mbox{\tiny $k$}}}</m>. </p>
+			</statement>
+		</theorem>
+
 
 		<p> Theorem <xref ref="complexfactorization" /> says two important things: first, every
 			polynomial is a product of linear factors; second, every polynomial function is
@@ -1411,11 +1425,14 @@
 			quadratics.
 		</p>
 
-		<!-- div attr= class="theorem1"-->
-		<p> Conjugate Pairs Theorem If <m>f</m> is a polynomial function with real number
-			coefficients and <m>z</m> is a complex zero of <m>f</m>, then so is <m>\overline{z}</m>. </p><!--</div
-		attr= class="theorem1">-->
-
+		<theorem xml:id="conjugatepairsthm">
+			<title>Conjugate Pairs Theorem</title>	
+			<statement>
+				<p>  If <m>f</m> is a polynomial function with real number
+			coefficients and <m>z</m> is a complex zero of <m>f</m>, then so is <m>\overline{z}</m>. </p>
+			</statement>
+		</theorem>
+		
 		<p> To prove the theorem, let <m>f(x) = a_{n} x^{n} + a_{n-\mbox{\tiny$1$}}
 			x^{n-\mbox{\tiny$1$}} + \ldots + a_{\mbox{\tiny $2$}} x^{\mbox{\tiny $2$}} +
 			a_{\mbox{\tiny $1$}} x + a_{\mbox{\tiny $0$}}</m> be a polynomial function with real

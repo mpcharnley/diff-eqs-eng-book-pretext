@@ -64,7 +64,7 @@ y''(x) &amp;= v''(x)e^{-x} - 2v'(x)e^{-x} + v(x)e^{-x}
 </statement>
 
 <answer>		<p>
-			The <em></em> applies more generally to any second order linear homogenous equation and the goal is the same: use one solution of the differential equation to generate another one. The idea is that if we somehow found <m>y_1</m> as a solution of <m>y'' + p(x) y' + q(x) y = 0</m> we try a second solution of the form <m>y_2(x) = y_1(x) v(x)</m>. We just need to find <m>v</m>. We plug <m>y_2</m> into the equation: 
+			The <em></em> applies more generally to any second order linear homogeneous equation and the goal is the same: use one solution of the differential equation to generate another one. The idea is that if we somehow found <m>y_1</m> as a solution of <m>y'' + p(x) y' + q(x) y = 0</m> we try a second solution of the form <m>y_2(x) = y_1(x) v(x)</m>. We just need to find <m>v</m>. We plug <m>y_2</m> into the equation: 
 <me>
 \begin{split}
 0 = 
@@ -109,7 +109,6 @@ y'' -8 y' + 16 y = 0 .
 
 		</p>
 </statement>
-
 <solution>		<p>
 			The characteristic equation is <m>r^2 - 8 r + 16 = {(r-4)}^2 = 0</m>. The equation has a double root <m>r_1 = r_2 = 4</m>. The general solution is, therefore, 
 <me>
@@ -117,9 +116,9 @@ y = (C_1 + C_2 x)\, e^{4 x} = C_1 e^{4x} + C_2 x e^{4x} .
 </me>
 
 		</p>
-		</solution>
-
-</example><exercise>
+	</solution>
+</example>
+<exercise>
 <statement>
 		<p>
 			Check that <m>e^{4x}</m> and <m>x e^{4x}</m> are linearly independent.
@@ -132,13 +131,9 @@ y = (C_1 + C_2 x)\, e^{4 x} = C_1 e^{4x} + C_2 x e^{4x} .
 y'' - 8 y' + 16 y = 
 8 e^{4x} + 16xe^{4x} - 8(e^{4x} + 4xe^{4x}) + 16 xe^{4x} = 
 0 .
-</me>
-
-		</p><!--</div attr= class="exampleSol">-->
+</me> </p>
 </answer>
 </exercise>
-		
-
 
 		<p>
 			In some sense, a doubled root rarely happens. If coefficients are picked randomly, a doubled root is unlikely. There are, however, some natural phenomena where a doubled root does happen, so we cannot just dismiss this case. In addition, there are specific physical applications that involve the double root problem, which we will discuss in Section <xref ref="sec-mv" />. Finally, the solution with a doubled root can be thought of as an approximation of the solution with two roots that are very close together, and the behavior of this solution will approximate <q>nearby</q> solutions as well.
@@ -403,13 +398,13 @@ y_2(x) = y_1(x) \int \frac{e^{-\int p(x)\,dx}}{{\bigl(y_1(x)\bigr)}^2} \,dx
 			</p>
 </answer>
 </exercise>
-<exercise>
-<statement>
+
 			<p>
 				The rest of these exercises can be solved using any of the methods discussed in the last three sections. Pick the appropriate method in order to solve the problem.
 			</p>
 
-
+<exercise>
+<statement>
 			<p>
 				Find the general solution of <m>y'' + 5y' - 6y = 0</m>.
 			</p>
@@ -481,7 +476,7 @@ y_2(x) = y_1(x) \int \frac{e^{-\int p(x)\,dx}}{{\bigl(y_1(x)\bigr)}^2} \,dx
 </statement>
 
 <answer>			<p>
-				 <m>y= -\frac{4}{5}e^{-6t} - \frac{1}{5}e^{2t}</m> 
+				 <m>y= -\frac{5}{8}e^{-6t} - \frac{3}{8}e^{2t}</m> 
 			</p>
 </answer>
 </exercise>

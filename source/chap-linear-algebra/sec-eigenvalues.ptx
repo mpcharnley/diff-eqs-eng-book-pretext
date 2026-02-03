@@ -5,7 +5,7 @@
 
 	<section xml:id="eig-section">
 		<title>Eigenvalues and Eigenvectors</title>
-<introduction>
+
 		<p>
 			Consider the matrix <me>A = \begin{bmatrix} 7 &amp; -8 \\ 3 &amp; -3 \end{bmatrix}.</me> We can compute a few operations with this matrix. For instance <me>A\begin{bmatrix} 1 \\ 1\end{bmatrix} = \begin{bmatrix} 7 &amp; -8 \\ 3 &amp; -3 \end{bmatrix}\begin{bmatrix} 1 \\ 1\end{bmatrix} = \begin{bmatrix} -1\\ 0 \end{bmatrix}</me> and <me>A\begin{bmatrix} 2 \\ 1\end{bmatrix} = \begin{bmatrix} 7 &amp; -8 \\ 3 &amp; -3 \end{bmatrix}\begin{bmatrix} 2 \\ 1\end{bmatrix} = \begin{bmatrix} 6\\ 3 \end{bmatrix}.</me> This last computation is fairly interesting, because the result we get is the same as 3 times the original vector. However, the matrix <m>A</m> does not multiply every vector by 3, as seen in the first example and the fact that <me>A\begin{bmatrix} 4 \\ 3 \end{bmatrix} = \begin{bmatrix} 4 \\ 3 \end{bmatrix}</me> so <m>A</m> actually preserves this vector, multiplying it by 1. So, these vectors, <m>\begin{bmatrix} 2 \\ 1 \end{bmatrix}</m> and <m>\begin{bmatrix} 4 \\ 3 \end{bmatrix}</m>, and numbers, <m>3</m> and <m>1</m>, are somehow special for this matrix <m>A</m>. With this information, we want to define these vectors as <em></em> and numbers as <em></em> of the matrix <m>A</m>.
 		</p>
@@ -31,7 +31,7 @@ A\begin{bmatrix} 6 \\ 4 \end{bmatrix} &amp;= A\left(\begin{bmatrix} 4 \\ 3 \end{
 			In addition, eigenvectors determine directions in which multiplying by the matrix <m>A</m> behaves just like scalar multiplication. This idea will be very important for our understanding of systems of differential equations, because we have already seen how to solve a scalar first order equation way back in and .
 		</p>
 
-	</introduction>
+
 		<subsection xml:id="finding-eigenvalues-and-eigenvectors">
 			<title>Finding Eigenvalues and Eigenvectors</title>
 
@@ -625,6 +625,30 @@ A\begin{bmatrix} 6 \\ 4 \end{bmatrix} &amp;= A\left(\begin{bmatrix} 4 \\ 3 \end{
 <exercise>
 <statement>
 			<p>
+				Find the eigenvalues and corresponding eigenvectors of the matrix <me>\begin{bmatrix}
+5 &amp; -6 &amp; -6 \\ 
+3 &amp; -1 &amp; 6 \\ 
+0 &amp; 0 &amp; 3 \\ 
+\end{bmatrix}</me>
+			</p>
+</statement>
+
+</exercise>
+<exercise>
+<statement>
+			<p>
+				Find the eigenvalues and corresponding eigenvectors of the matrix <me>\begin{bmatrix}
+-4 &amp; 0 &amp; -14 \\ 
+5 &amp; -1 &amp; -6 \\ 
+3 &amp; 0 &amp; 9 \\ 
+\end{bmatrix}</me>
+			</p>
+</statement>
+
+</exercise>
+<exercise>
+<statement>
+			<p>
 				Find the eigenvalues and corresponding eigenvectors of the matrix <me>\begin{bmatrix} 5 &amp; 3 &amp; 6 \\ 2 &amp; 2 &amp; 2 \\ -3 &amp; -2 &amp; -3 \end{bmatrix}</me>
 			</p>
 </statement>
@@ -665,7 +689,7 @@ A = \begin{bmatrix}
 </statement>
 
 </exercise>
-<exercise>
+<exercise xml:id="ex-diagonalization">
 <statement>
 			<p>
 				 We say that a matrix <m>A</m> is <em></em> if there exist matrices <m>D</m> and <m>P</m> so that <m>PDP^{-1} = A</m>. This really means that <m>A</m> can be represented by a diagonal matrix in a different basis (as opposed to the standard basis). One way this can be done is with eigenvalues.
@@ -700,7 +724,7 @@ A = \begin{bmatrix}
 </answer>
 </exercise>
 
-<exercise>
+<exercise xml:id="ex-jordanform">
 <statement>
 			<p>
 				 The diagonalization process decribed in Exercise <xref ref="ex-diagonalization" /> works for any case where there are real and distinct eigenvalues, as well as complex eigenvalues (but the algebra with the complex numbers gets complicated). It may or may not work in the case of repeated eigenvalues, and it fails whenever there are defective eigenvalues. Consider the matrix <me>\begin{bmatrix} 4 &amp; -1 \\ 1 &amp; 2 \end{bmatrix}</me>

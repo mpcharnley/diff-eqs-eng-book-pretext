@@ -12,26 +12,26 @@
 
 			<p>
 				We have solved linear constant coefficient homogeneous equations. What about nonhomogeneous linear ODEs? For example, the equations for forced mechanical vibrations, where we add a <q>forcing</q> term, which is a function on the right-hand side of the equation. That is, suppose we have an equation such as 
-<men xml:id="eq3.5-nh">
+<men xml:id="3-5-eq-nh">
  y'' + 5y'+ 6y = 2x+1 .
 </men>
 			</p>
 
 			<p>
-				We will write <m>L[y] = 2x+1</m>, where <m>L[y]</m> represents the entire left-hand side of <m>y'' + 5y' + 6y</m>, when the exact form of the operator is not important. We solve <xref ref="eq3.5-nh" /> in the following manner. First, we find the general solution <m>y_c</m> to the <em></em> 
-<men xml:id="eq3.5-h">
+				We will write <m>L[y] = 2x+1</m>, where <m>L[y]</m> represents the entire left-hand side of <m>y'' + 5y' + 6y</m>, when the exact form of the operator is not important. We solve <xref ref="3-5-eq-nh" /> in the following manner. First, we find the general solution <m>y_c</m> to the <em></em> 
+<men xml:id="3-5-eq-h">
  y'' + 5y'+ 6y = 0 .
 </men>
-We call <m>y_c</m> the <em></em>. Next, we find a single <em></em> <m>y_p</m> to <xref ref="eq3.5-nh" /> in some way (that is the point of this section). Then 
+We call <m>y_c</m> the <em></em>. Next, we find a single <em></em> <m>y_p</m> to <xref ref="3-5-eq-nh" /> in some way (that is the point of this section). Then 
 <me>
 y = y_c + y_p
 </me>
- is the general solution to <xref ref="eq3.5-nh" />. We have <m>L[y_c] = 0</m> and <m>L[y_p] = 2x+1</m>. As <m>L</m> is a <em></em> we verify that <m>y</m> is a solution, <m>L[y] = L [y_c + y_p] = L[y_c] + L[y_p] = 0
+ is the general solution to <xref ref="3-5-eq-nh" />. We have <m>L[y_c] = 0</m> and <m>L[y_p] = 2x+1</m>. As <m>L</m> is a <em></em> we verify that <m>y</m> is a solution, <m>L[y] = L [y_c + y_p] = L[y_c] + L[y_p] = 0
 + (2x+1)</m>. Let us see why we obtain the <em>general</em> solution.
 			</p>
 
 			<p>
-				Let <m>y_p</m> and <m>\tilde{y}_p</m> be two different particular solutions to <xref ref="eq3.5-nh" />. Write the difference as <m>w = y_p - \tilde{y}_p</m>. Then plug <m>w</m> into the left-hand side of the equation to get 
+				Let <m>y_p</m> and <m>\tilde{y}_p</m> be two different particular solutions to <xref ref="3-5-eq-nh" />. Write the difference as <m>w = y_p - \tilde{y}_p</m>. Then plug <m>w</m> into the left-hand side of the equation to get 
 <me>
 w'' + 5w'+ 6w =
 (y_p'' + 5y_p'+ 6y_p) -
@@ -44,7 +44,7 @@ L[w] = L[y_p - \tilde{y}_p] =
 L[y_p] - L[\tilde{y}_p] =
 (2x+1)-(2x+1) = 0 .
 </me>
- So <m>w = y_p - \tilde{y}_p</m> is a solution to <xref ref="eq3.5-h" />, that is <m>Lw = 0</m>. However, we know what all solutions to <m>Lw = 0</m> look like, as this is a homogeneous equation that we have solved previously. Therefore, any two solutions of <xref ref="eq3.5-nh" /> differ by a solution to the homogeneous equation <xref ref="eq3.5-h" />. The solution <m>y = y_c + y_p</m> includes <em>all</em> solutions to <xref ref="eq3.5-nh" />, since <m>y_c</m> is the general solution to the associated homogeneous equation.
+ So <m>w = y_p - \tilde{y}_p</m> is a solution to <xref ref="3-5-eq-h" />, that is <m>Lw = 0</m>. However, we know what all solutions to <m>Lw = 0</m> look like, as this is a homogeneous equation that we have solved previously. Therefore, any two solutions of <xref ref="3-5-eq-nh" /> differ by a solution to the homogeneous equation <xref ref="3-5-eq-h" />. The solution <m>y = y_c + y_p</m> includes <em>all</em> solutions to <xref ref="3-5-eq-nh" />, since <m>y_c</m> is the general solution to the associated homogeneous equation.
 			</p>
 
 <!-- div attr= class="theorem1"-->
@@ -62,11 +62,11 @@ y = y_c + y_p.
 
 		</subsection>
 
-		<subsection xml:id="undetermined-coefficients">
+		<subsection xml:id="undetermined-coefficients-eqns">
 			<title>Undetermined coefficients</title>
 
 			<p>
-				The trick is to somehow, in a smart way, guess one particular solution to <xref ref="eq3.5-nh" />. Note that <m>2x+1</m> is a polynomial, and the left-hand side of the equation (with all of the derivatives) will still be a polynomial if we let <m>y</m> be a polynomial of the same degree. Let us try 
+				The trick is to somehow, in a smart way, guess one particular solution to <xref ref="3-5-eq-nh" />. Note that <m>2x+1</m> is a polynomial, and the left-hand side of the equation (with all of the derivatives) will still be a polynomial if we let <m>y</m> be a polynomial of the same degree. Let us try 
 <me>
 y_p = Ax + B .
 </me>
@@ -84,7 +84,7 @@ y_p'' + 5y_p'+ 6y_p &amp; =
 <me>
 y_c = C_1 e^{-2x} + C_2 e^{-3x}.
 </me>
- Hence the general solution to <xref ref="eq3.5-nh" /> is 
+ Hence the general solution to <xref ref="3-5-eq-nh" /> is 
 <me>
 y = C_1 e^{-2x} + C_2 e^{-3x} + \frac{3x-1}{9} .
 </me>
@@ -105,7 +105,7 @@ y(x) = \frac{1}{3} e^{-2x} - \frac{2}{9} e^{-3x} + \frac{3x-1}{9} =
 <exercise>
 <statement>
 			<p>
-				Check that <m>y</m> really solves the equation <xref ref="eq3.5-nh" /> and the given initial conditions.
+				Check that <m>y</m> really solves the equation <xref ref="3-5-eq-nh" /> and the given initial conditions.
 			</p>
 </statement>
 
@@ -381,7 +381,7 @@ y(x) = -\frac{31}{425}e^{4x} - \frac{57}{25}e^{-x} - \frac{2}{5}xe^{-x} - \frac{
 </exercise>
 		</subsection>
 
-		<subsection xml:id="variation-of-parameters">
+		<subsection xml:id="variation-of-parameters-eqns">
 			<title>Variation of parameters</title>
 
 			<p>
@@ -586,7 +586,7 @@ y(x) &amp;= e^{-x}\left( \frac{1}{8}e^{4x} + e^x + C_1 \right) + e^{-3x}\left(-\
 </statement>
 
 <answer>			<p>
-				 <m>C_1e^{3x} + C_2e^{-2x} - \frac{1}{4}e^{2x}</m> 
+				 <m>-\frac{1}{4}e^{2x}</m> 
 			</p>
 </answer>
 </exercise>
@@ -599,7 +599,7 @@ y(x) &amp;= e^{-x}\left( \frac{1}{8}e^{4x} + e^x + C_1 \right) + e^{-3x}\left(-\
 </statement>
 
 <answer>			<p>
-				 <m>C_1e^{2x} + C_2xe^{2x} + \frac{1}{2}x^2e^{2x}</m> 
+				 <m>\frac{1}{2}x^2e^{2x}</m> 
 			</p>
 </answer>
 </exercise>
@@ -839,7 +839,7 @@ y(x) &amp;= e^{-x}\left( \frac{1}{8}e^{4x} + e^x + C_1 \right) + e^{-3x}\left(-\
 <exercise>
 <statement>
 			<p>
-				Use variation of parameters to find a particular solution of <m>y''-y = \frac{1}{e^x+e^{-x}}</m>.
+				Use variation of parameters to find a particular solution of <m>y''-y = \frac{1}{e^x+e^{-x}}</m>.<!-- linebreak --><em>Hint:</em> To make this problem easier, you can use <m>C_1 (e^x + e^{-x}) + C_2 (e^{x} - e^{-x})</m> as the general solution to the homogeneous problem.
 			</p>
 </statement>
 
@@ -852,7 +852,7 @@ y(x) &amp;= e^{-x}\left( \frac{1}{8}e^{4x} + e^x + C_1 \right) + e^{-3x}\left(-\
 
 <!-- div attr= class="tasks"-->
 			<p>
-				Solve <m>t^2y''-2ty'-10y=0</m>. Let <m>y_1</m> and <m>y_2</m> be a fundamental set for the above equation. Use the variation of parameters equations <m>\displaystyle u_1=-\int \frac{y_2\, g(t)}{y_1y_2' - y_2y_1'}\,dt</m>, <m>\displaystyle y_2=\int \frac{y_1\, g(t)}{y_1y_2' - y_2y_1'}\,dt</m> to solve the non-homogeneous equation <m>\displaystyle y''-\frac{2}{t} - \frac{10}{t^2}=t^3</m>. (Do not attempt method of undetermined coefficients instead; it won’t work.)
+				Solve <m>t^2y''-2ty'-10y=0</m>. Let <m>y_1</m> and <m>y_2</m> be the two linearly independent parts of a general solution for the above equation, so that the general solution is <m>C_1y_1 + C_2y_2</m>. Use the variation of parameters equations <m>\displaystyle u_1=-\int \frac{y_2\, g(t)}{y_1y_2' - y_2y_1'}\,dt</m>, <m>\displaystyle y_2=\int \frac{y_1\, g(t)}{y_1y_2' - y_2y_1'}\,dt</m> to solve the non-homogeneous equation <m>\displaystyle y''-\frac{2}{t} - \frac{10}{t^2}=t^3</m>. (Do not attempt method of undetermined coefficients instead; it won’t work.)
 			</p><!--</div attr= class="tasks">-->
 </statement>
 

@@ -75,7 +75,8 @@ x^2 &amp; \text{if } \; x \geq 0,\\
 			What we see here is a significant problem for trying to represent physical situations. In the first there is no solution at <m>x=0</m>, so if our physical scenario had wanted one, that would be an issue. Similarly, for the second, we do have solutions, but we have two of them, so we can’t use this to predict what is going to happen to a physical situation modeled by this equation over time. So, we need both existence and uniqueness to hold for our modeling equation in order to use differential equations to accurately model situations. Thankfully, these properties do apply to most equations, and we have fairly straight-forward criteria that can be used to determine if these properties are true for a given differential equation. For a first-order linear differential equation, the theorem is fairly straight-forward.
 		</p>
 
-<!-- div attr= class="theorem1"-->
+<theorem xml:id= "exist-lin1thm" >
+	<statement>
 		<p>
 			Assume that we have the first-order linear differential equation given by 
 <me>
@@ -86,7 +87,9 @@ y' + p(x)y = g(x).
 y' + p(x)y = g(x) \qquad y(x_0) = y_0
 </me>
  has a unique solution. This solution exists and is unique on the entire interval <m>I</m>.
-		</p><!--</div attr= class="theorem1">-->
+		</p>
+	</statement>
+	</theorem>
 
 		<p>
 			The idea and proof of this theorem comes from the fact that we have an explicit method for solving these equations no matter what <m>p</m> and <m>g</m> are. We can always find an integrating factor for the equation, convert the left-hand side into a product rule term, take a definite integral of both sides, and then solve for <m>y</m>. Since we have this explicit formula, the solution will exist and be defined on the entire interval where the functions <m>p</m> and <m>g</m> are continuous. This also means that we can answer questions about where and for what values of <m>x</m> the solution to a differential equation exists.

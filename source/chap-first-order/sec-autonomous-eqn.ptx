@@ -5,28 +5,49 @@
 
 	<section xml:id="auteq-section">
 		<title>Autonomous equations</title>
+		<objectives>
+		<introduction>
+			<p>
+				After this section, you will be able to: </p>
+		</introduction>
+		<ul>
+			<li>
+				<p>
+					Identify autonomous first order differential equations,
+				</p>
+			</li>
+			<li> <p> Find critical points or equilibrium solutions for autonomous equations, and </p> </li>
+			<li>
+				<p>
+					Sketch a phase line for these equations.
+				</p>
+			</li>
+		</ul>
+	</objectives>
 <subsection xml:id="subsec-autoIntro">
-	<title>autoIntro</title>
+	<title>Introduction and Definition</title>
 	
 
-<!-- div attr= class="definition"-->
+<definition xml:id="def-autonomous">
+	<statement>
 		<p>
-			 An equation of the form 
+			An equation of the form 
 <men xml:id="eq-basicAutonomous">
 \frac{dx}{dt} = f(x) , </men>
-where the derivative of solutions depends only on <m>x</m> (the dependent variable) is called an <em>autonomous equation</em>. If we think of <m>t</m> as time, the naming comes from the fact that the equation is independent of time.
-		</p><!--</div attr= class="definition">-->
-
+where the derivative of solutions depends only on <m>x</m> (the dependent variable) is called an <term>autonomous equation</term>. If we think of <m>t</m> as time, the naming comes from the fact that the equation is independent of time.
+		</p>
+	</statement>
+</definition>
 		<p>
-			We return to the cooling coffee problem (). says 
+			We return to the cooling coffee problem (<xref ref="ex-coffeeCooling"/>). Newton's law of cooling says 
 <me>
 \frac{dx}{dt} = k (A-x) ,
 </me>
- where <m>x</m> is the temperature, <m>t</m> is time, <m>k</m> is some positive constant, and <m>A</m> is the ambient temperature. See for an example with <m>k=0.3</m> and <m>A=5</m>.
+ where <m>x</m> is the temperature, <m>t</m> is time, <m>k</m> is some positive constant, and <m>A</m> is the ambient temperature. See <xref ref="sintro-coffeefig"/> for an example with <m>k=0.3</m> and <m>A=5</m>.
 		</p>
 
 		<p>
-			Note the solution <m>x(t)=A</m> (in the figure <m>x=5</m>). We call these constant solutions the <em>equilibrium solutions</em>. The points on the <m>x</m>-axis where <m>f(x) = 0</m> are called <em>critical points</em> of the differential equation <xref ref="eq-basicAutonomous" />. The point <m>x=A</m> is a critical point. In fact, each critical point corresponds to an equilibrium solution.
+			Note the solution <m>x(t)=A</m> (in the figure <m>x=5</m>). We call these constant solutions the <term>equilibrium solutions</term>. The points on the <m>x</m>-axis where <m>f(x) = 0</m> are called <term>critical points</term> of the differential equation <xref ref="eq-basicAutonomous" />. The point <m>x=A</m> is a critical point. In fact, each critical point corresponds to an equilibrium solution.
 		</p>
 
 		<p>
@@ -41,11 +62,26 @@ where the derivative of solutions depends only on <m>x</m> (the dependent variab
 			The last of these options may seem strange at first, and that is because stable critical points are not possible for autonomous equations with one unknown function. If a solution does not move towards or away from a critical point, that means it doesn’t move anywhere, and so is a critical point on its own. However, when we get to autonomous systems in and , we will see that in two dimensions, this is possible (think of a circle that does not spiral into or away from the center point).
 		</p>
 
-<!-- div attr= class="myfig"-->
-<!--</div attr= class="myfig">-->
+<figure xml:id="fig-autonomousSolnsOne">
+	<caption>Two graphs showing solutions to autonomous equations.</caption>
+	<sidebyside>
+		<figure xml:id="fig-2-2-coffee">
+			<caption>The slope field and some solution of <m>x' = 0.5(5-x)</m>.</caption>
+			<image source="2-2-coffee.png">
+				<description> <p> A graph showing several solution curves, including one that is a horizontal line at <m>5</m>. All of the solution curves exponentially approach <m>5</m> as <m>t \rightarrow \infty</m>. </p> </description>
+			</image>
+		</figure>
+		<figure xml:id="fig-2-2-logistic">
+			<caption>The slope field and some solutions of <m>x' = 0.1 x (5-x)</m>.</caption>
+			<image source="2-2-logistic.png">
+				<description> <p> A graph showing several solution curves, including horizontal lines at <m>0</m> and <m>5</m>. The solutions that start below zero head downward off the edge of the graph. The solutions that start between <m>0</m> and <m>5</m>, as well as the ones that start above <m>5</m>, converge to <m>5</m> as <m>t \rightarrow \infty</m>.</p></description>
+			</image>
+		</figure>
+	</sidebyside>
+</figure>
 
 		<p>
-			Consider now the <em></em> 
+			Consider now the <term>logistic equation</term>
 <me>
 \frac{dx}{dt} = kx(M-x) ,
 </me>
@@ -53,7 +89,7 @@ where the derivative of solutions depends only on <m>x</m> (the dependent variab
 		</p>
 
 		<p>
-			See for an example, <m>x' = 0.1 x(5-x)</m>. There are two critical points, <m>x=0</m> and <m>x=5</m>. The critical point at <m>x=5</m> is asymptotically stable, while the critical point at <m>x=0</m> is unstable.
+			See <xref ref="fig-2-2-logistic"/> for an example, <m>x' = 0.1 x(5-x)</m>. There are two critical points, <m>x=0</m> and <m>x=5</m>. The critical point at <m>x=5</m> is asymptotically stable, while the critical point at <m>x=0</m> is unstable.
 		</p>
 
 		<p>
@@ -70,12 +106,13 @@ where the derivative of solutions depends only on <m>x</m> (the dependent variab
 		</p>
 
 		<p>
-			If we are interested only in the long term behavior of the solution, we would be doing unnecessary work if we solved the equation exactly. We could draw the slope field, but it is easier to just look at the <em></em> or <em></em>, which is a simple way to visualize the behavior of autonomous equations. The phase line for this equation is visible in . In this case there is one dependent variable <m>x</m>. We draw the <m>x</m>-axis, we mark all the critical points, and then we draw arrows in between. Since <m>x</m> is the dependent variable we draw the axis vertically, as it appears in the slope field diagrams above. If <m>f(x) &gt; 0</m>, we draw an up arrow. If <m>f(x) &lt; 0</m>, we draw a down arrow. To figure this out, we could just plug in some <m>x</m> between the critical points, <m>f(x)</m> will have the same sign at all <m>x</m> between two critical points as long <m>f(x)</m> is continuous. For example, <m>f(6) = -0.6 &lt; 0</m>, so <m>f(x) &lt; 0</m> for <m>x &gt; 5</m>, and the arrow above <m>x=5</m> is a down arrow. Next, <m>f(1) = 0.4 &gt; 0</m>, so <m>f(x) &gt; 0</m> whenever <m>0 &lt; x &lt; 5</m>, and the arrow points up. Finally, <m>f(-1) = -0.6 &lt; 0</m> so <m>f(x) &lt; 0</m> when <m>x &lt;
+			If we are interested only in the long term behavior of the solution, we would be doing unnecessary work if we solved the equation exactly. We could draw the slope field, but it is easier to just look at the <term>phase diagram</term> or <term>phase line</term>, which is a simple way to visualize the behavior of autonomous equations. The phase line for this equation is visible in . In this case there is one dependent variable <m>x</m>. We draw the <m>x</m>-axis, we mark all the critical points, and then we draw arrows in between. Since <m>x</m> is the dependent variable we draw the axis vertically, as it appears in the slope field diagrams above. If <m>f(x) &gt; 0</m>, we draw an up arrow. If <m>f(x) &lt; 0</m>, we draw a down arrow. To figure this out, we could just plug in some <m>x</m> between the critical points, <m>f(x)</m> will have the same sign at all <m>x</m> between two critical points as long <m>f(x)</m> is continuous. For example, <m>f(6) = -0.6 &lt; 0</m>, so <m>f(x) &lt; 0</m> for <m>x &gt; 5</m>, and the arrow above <m>x=5</m> is a down arrow. Next, <m>f(1) = 0.4 &gt; 0</m>, so <m>f(x) &gt; 0</m> whenever <m>0 &lt; x &lt; 5</m>, and the arrow points up. Finally, <m>f(-1) = -0.6 &lt; 0</m> so <m>f(x) &lt; 0</m> when <m>x &lt;
 0</m>, and the arrow points down.
 		</p>
 
-<!-- div attr= class="myfig"-->
-<!--</div attr= class="myfig">-->
+<p>
+	NEED TO MAKE NEW PHASE LINE IMAGE HERE
+</p>
 
 		<p>
 			Armed with the phase diagram, it is easy to sketch the solutions approximately: As time <m>t</m> moves from left to right, the graph of a solution goes up if the arrow is up, and it goes down if the arrow is down.
@@ -87,12 +124,11 @@ where the derivative of solutions depends only on <m>x</m> (the dependent variab
 			Try sketching a few solutions simply from looking at the phase diagram. Check with the preceding graphs to see if you are getting the types of curves that match the solutions.
 		</p>
 </statement>
-
-<answer>		<p>
+</exercise>
+		<p>
 			Once we draw the phase diagram, we can use it to classify critical points as asymptotically stable, semistable, or unstable based on whether the <q>arrows</q> point into or away from the critical point on each side. Two arrows in means that the critical point is asymptotically stable, two arrows away means unstable, and one in one out means semistable.
 		</p>
-</answer>
-</exercise>
+
 
 
 <example>
@@ -119,8 +155,14 @@ f(5) &amp;= (5)(3)^2(8)(1) &gt; 0.
  This lets us draw the phase line and determine the stability of each critical point. Thus, we see that <m>x=-3</m> is an unstable critical point, <m>x=0</m> is asymptotically stable, <m>x=2</m> is semistable, and <m>x=4</m> is unstable. A set of sample solution curves also validates these conclusions.
 		</p>
 
-<!-- div attr= class="myfig"-->
-<!--</div attr= class="myfig">-->
+<figure xml:id="fig-Auto_PL_SS">
+	<caption>Phase line for the differential equation <m>\frac{dx}{dt} = x(x-2)^2(x+3)(x-4)</m> and a plot of some solutions to this equation.</caption>
+	<image source="Auto_PL_SS.png">
+		<description><p>
+			A two-part plot showing a phase line on the left side and a sketch of solution curves on the right. The phase line shows that 4 is unstable, 2 is semistable, 0 is asymptotically stable, and -3 is unstable. The solution curve sketches also show this, with graphs converging to 0 and converging to 2 from above.
+		</p></description>
+	</image>
+</figure>
 </solution>
 </example>
 </subsection>
@@ -144,14 +186,29 @@ f(5) &amp;= (5)(3)^2(8)(1) &gt; 0.
 			</p>
 
 			<p>
-				Let’s see what this looks like in action. Take the logistic equation <m>x' = 0.1x(5-x)</m>, whose solutions are plotted in . shows the graph of <m>f(x)</m> as a function of <m>x</m> for this scenario. When do <m>f</m> and <m>f'</m> have the same sign? Well, this happens when <m>f</m> is both positive and increasing, or negative and decreasing. This happens between <m>0</m> and the vertex, as well as for <m>x&gt; 5</m>. The vertex here is at <m>x=2.5</m>, and so we conlude that the solution should be concave up when <m>x</m> is on the intervals <m>(0, 2.5)</m> and <m>(5, \infty)</m>, and be concave down otherwise. Looking back at , this is exactly what we observe. All of the solutions between <m>0</m> and <m>5</m> seem to <q>flip over</q> to be concave down when <m>x</m> crosses <m>2.5</m>.
+				Let's see what this looks like in action. Take the logistic equation <m>x' = 0.1x(5-x)</m>, whose solutions are plotted in . shows the graph of <m>f(x)</m> as a function of <m>x</m> for this scenario. When do <m>f</m> and <m>f'</m> have the same sign? Well, this happens when <m>f</m> is both positive and increasing, or negative and decreasing. This happens between <m>0</m> and the vertex, as well as for <m>x&gt; 5</m>. The vertex here is at <m>x=2.5</m>, and so we conlude that the solution should be concave up when <m>x</m> is on the intervals <m>(0, 2.5)</m> and <m>(5, \infty)</m>, and be concave down otherwise. Looking back at , this is exactly what we observe. All of the solutions between <m>0</m> and <m>5</m> seem to <q>flip over</q> to be concave down when <m>x</m> crosses <m>2.5</m>.
 			</p>
 
-<!-- div attr= class="myfig"-->
-<!--</div attr= class="myfig">-->
+<figure xml:id="fig-autonomousSolnsConcavity">
+	<caption>Two graphs showing plots of the function <m>f(x)</m> that defines an autonomous equation.</caption>
+	<sidebyside>
+		<figure xml:id="fig-Auto_fGraph1">
+			<caption>Plot of <m>x</m> vs. <m>f(x)</m> for the differential equation <m>\frac{dx}{dt} = 0.1 x (5-x)</m>.</caption>
+			<image source="Auto_fGraph1.png">
+				<description> <p> A graph showing a downward facing parabola that crosses the horizontal axis at <m>0</m> and <m>5</m>. </p> </description>
+			</image>
+		</figure>
+		<figure xml:id="fig-Auto_fGraph2">
+			<caption>Plot of <m>x</m> vs. <m>f(x)</m> for the differential equation <m>\frac{dx}{dt} = x(x-2)^2(x+3)(x-4)</m>.</caption>
+			<image source="Auto_fGraph2.png">
+				<description> <p> The graph of a high degree polynomial that starts by increasing through the first root at <m>-3</m>. It has other roots at <m>0</m>, a double root at <m>2</m>, and a root at <m>4</m>.</p></description>
+			</image>
+		</figure>
+	</sidebyside>
+</figure>
 
 			<p>
-				The same can be seen for solutions to <xref ref="autoexample-eqn" />, even though we can’t compute the extreme values explicitly. shows the graph of <m>f(x)</m> vs. <m>x</m> for this situation. Between each pair of equilibrium solutions there is a critical point of <m>f</m> (in the Calculus 1 sense) where the derivative is zero, and at this point, the derivative changes sign, and since the function value does not change sign, the concavity of the solution to the differential equation flips at this point. Comparing this graph and these points where concavity shifts with the solutions drawn in again validates these results.
+				The same can be seen for solutions to <xref ref="autoexample-eqn" />, even though we can't compute the extreme values explicitly. shows the graph of <m>f(x)</m> vs. <m>x</m> for this situation. Between each pair of equilibrium solutions there is a critical point of <m>f</m> (in the Calculus 1 sense) where the derivative is zero, and at this point, the derivative changes sign, and since the function value does not change sign, the concavity of the solution to the differential equation flips at this point. Comparing this graph and these points where concavity shifts with the solutions drawn in <xref ref="fig-Auto_PL_SS"/> again validates these results.
 			</p>
 
 		</subsection>

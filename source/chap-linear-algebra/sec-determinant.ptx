@@ -528,10 +528,13 @@ a_{ij} \det (A_{ij}) .
  Neither <m>\det(A)</m> nor <m>\det(B)</m> can be zero. This fact is an extremely useful property of the determinant, and one which is used often in this book:
 		</p>
 
-<!-- div attr= class="theorem1"-->
+<theorem xml:id="thm-detInv">
+	<statement>
 		<p>
 			An <m>n \times n</m> matrix <m>A</m> is invertible if and only if <m>\det (A) \not= 0</m>.
-		</p><!--</div attr= class="theorem1">-->
+		</p>
+	</statement>
+</theorem>
 
 		<p>
 			In fact, <m>\det(A^{-1}) \det(A) = 1</m> says that 
@@ -585,7 +588,8 @@ c &amp; d
 			<em>Note:</em> This is an example of an <em>equivalence</em> theorem, which is fairly common in mathematics. It means that if any one of the statements are true, then we know that all of the others are true as well. It means it’s harder to prove, but once we have such a theorem, it is very powerful in how we can use it going forward.
 		</p>
 
-<!-- div attr= class="theorem1"-->
+<theorem xml:id="thm-bigLinAlg">
+	<statement>
 		<p>
 			Let <m>A</m> be an <m>n \times n</m> matrix. The following are equivalent:
 		</p>
@@ -627,13 +631,14 @@ c &amp; d
 					</p>
 			</li>
 
-		</ol></p><!--</div attr= class="theorem1">-->
-
-<!-- div attr= class="proof"-->
+		</ol></p>
+	</statement>
+	<proof>
 		<p>
-			<em>Proof.</em> Why is all of this true? For (a) and (b), we have Theorem <xref ref="thm-detInv" /> to say that they are equivalent. For (c), if <m>A</m> is invertible, then the unique solution to <m>A\vec{x} = \vec{b}</m> is <m>\vec{x} = A^{-1}\vec{b}</m>. If we take <m>\vec{b} = \vec{0}</m> here, we get (d), that the solution is <m>\vec{x} = A^{-1}\vec{0} = \vec{0}</m>. This means that reducing the system of equations <m>A\vec{x} = 0</m> gives <m>x_1 = 0</m>, <m>x_2 = 0</m>, ..., <m>x_n = 0</m>, which means the reduced row echelon form of <m>A</m> is just the identity matrix, which is (e). Finally, this means that every column is a pivot column, so that all of the columns are linearly independent, giving (f). ◻
-		</p><!--</div attr= class="proof">-->
-
+			Why is all of this true? For (a) and (b), we have Theorem <xref ref="thm-detInv" /> to say that they are equivalent. For (c), if <m>A</m> is invertible, then the unique solution to <m>A\vec{x} = \vec{b}</m> is <m>\vec{x} = A^{-1}\vec{b}</m>. If we take <m>\vec{b} = \vec{0}</m> here, we get (d), that the solution is <m>\vec{x} = A^{-1}\vec{0} = \vec{0}</m>. This means that reducing the system of equations <m>A\vec{x} = 0</m> gives <m>x_1 = 0</m>, <m>x_2 = 0</m>, ..., <m>x_n = 0</m>, which means the reduced row echelon form of <m>A</m> is just the identity matrix, which is (e). Finally, this means that every column is a pivot column, so that all of the columns are linearly independent, giving (f). ◻
+		</p>
+	</proof>
+</theorem>
 		<p>
 			This is a massive theorem that forms most of the backbone of linear algebra. We will only be using a few parts of it later and we can also add some other parts to it with different definitions from linear algebra, but since we have seen all of these components, it is nice to see them all put together into one complete statement.
 		</p>

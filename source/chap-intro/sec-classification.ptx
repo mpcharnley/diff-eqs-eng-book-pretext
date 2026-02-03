@@ -129,7 +129,7 @@ y \frac{\partial y}{\partial x} =
 is a nonlinear first order differential equation as there is a second power of the dependent variable <m>x</m>.
 		</p>
 
-<definition xml:id="def-">
+<definition xml:id="def-homogeneousClass">
 	<statement>
 		<p>
 			A linear equation may further be called <term>homogeneous</term> if all terms depend on the dependent variable. That is, if no term is a function of the independent variables alone. Otherwise, the equation is called <term>nonhomogeneous</term> or <term>inhomogeneous</term>.

@@ -5,11 +5,11 @@
 
 	<section xml:id="sec-matrix">
 		<title>Matrices and linear systems</title>
-		<introduction>
+
 		<p>
 			This section is meant to summarize the parts of linear algebra that will be necessary in the process of developing and solving linear systems of differential equations. All of this information is covered in more detail in , so you can find more information there. If you went through that chapter already, this section will serve as a review.
 		</p>
-	</introduction>
+
 
 		<subsection xml:id="matrices-and-vectors">
 			<title>Matrices and vectors</title>
@@ -96,7 +96,7 @@ c(A+B) &amp; = cA+cB, \\
 
 		</subsection>
 
-		<subsection xml:id="matrix-multiplication">
+		<subsection xml:id="matrix-multiplication-rev">
 			<title>Matrix multiplication</title>
 
 			<p>

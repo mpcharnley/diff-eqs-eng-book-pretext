@@ -12,7 +12,7 @@
 
 <!-- div attr= class="definition"-->
 		<p>
-			A first order equation is <em>linear</em> if we can put it into the form: 
+			A first order equation is <term>linear</term> if we can put it into the form: 
 <men xml:id="lineq-eq1">
  y' + p(x) y = f(x) .
 </men>

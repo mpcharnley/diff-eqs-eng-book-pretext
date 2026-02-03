@@ -5,9 +5,7 @@
 
 	<section xml:id="sec-mv">
 		<title>Mechanical vibrations</title>
-<subsection xml:id="subsec-mechgeneral">
-	<title>mechgeneral</title>
-	
+
 		<p>
 			In the last few sections, we have discussed all of the different possible solutions to constant coefficient second order differential equations, whether the roots of the characteristic polynomial real and distinct, complex, or repeated. Now, we want to look at applications of these equations, now that we know how to solve them. Since Newton’s Second Law <m>F = ma</m> involves the second derivative of position (acceleration), it is reasonable that a lot of physical systems will be defined by second order differential equations.
 		</p>
@@ -115,7 +113,7 @@ L I''(t) + R I'(t) + \frac{1}{C} I(t) = E'(t) .
 			In real-world problems it is often necessary to make these types of simplifications. We must understand both the mathematics and the physics of the situation to see if the simplification is valid in the context of the questions we are trying to answer.
 		</p>
 
-	</subsection>
+
 		<subsection xml:id="free-undamped-motion">
 			<title>Free undamped motion</title>
 
@@ -225,7 +223,7 @@ x(t) = A \cos (\omega_0 t) + B \sin (\omega_0 t) ,
 
 		<subsection xml:id="free-damped-motion">
 			<title>Free damped motion</title>
-<introduction>
+
 			<p>
 				Let us now focus on motion. Let us rewrite the equation 
 <me>
@@ -254,7 +252,7 @@ p^2 - \omega_0^2 = {\left( \frac{\gamma}{2m} \right)}^2 - \frac{k}{m}
 </me>
  The sign of <m>p^2-\omega_0^2</m> is the same as the sign of <m>\gamma^2 - 4km</m>. Thus we get real roots if and only if <m>\gamma^2-4km</m> is nonnegative, or in other words if <m>\gamma^2 \geq 4km</m>. If these look familiar, that is not surprising, as they are the same as the conditions we had for the different types of roots in second order constant coefficient equations.
 			</p>
-		</introduction>
+
 
 			<subsubsection xml:id="overdamping">
 				<title>Overdamping</title>
@@ -364,9 +362,9 @@ x(t) = C e^{-pt} \cos ( \omega_1 t - \delta ) .
 				</p>
 
 				<p>
-					Notice that the angular <em></em><fn>				
+					Notice that the angular <em></em><fn>				<p>
 					We do not call <m>\omega_1</m> a frequency since the solution <m>x(t)</m> is not really a periodic function.
-				</fn> or <em></em> becomes smaller when the damping <m>\gamma</m> (and hence <m>p</m>) becomes larger. This makes sense. When we change the damping just a little bit, we do not expect the behavior of the solution to change dramatically. If we keep making <m>\gamma</m> larger, then at some point the solution should start looking like the solution for critical damping or overdamping, where no oscillation happens. So if <m>\gamma^2</m> approaches <m>4km</m>, we want <m>\omega_1</m> to approach 0. Since <m>\omega_1 = \sqrt{\omega_0^2 - p^2}</m> with <m>p = \frac{\gamma}{2m}</m> and <m>\omega_0 = \sqrt{\frac{k}{m}}</m>, we have that 
+				</p></fn> or <em></em> becomes smaller when the damping <m>\gamma</m> (and hence <m>p</m>) becomes larger. This makes sense. When we change the damping just a little bit, we do not expect the behavior of the solution to change dramatically. If we keep making <m>\gamma</m> larger, then at some point the solution should start looking like the solution for critical damping or overdamping, where no oscillation happens. So if <m>\gamma^2</m> approaches <m>4km</m>, we want <m>\omega_1</m> to approach 0. Since <m>\omega_1 = \sqrt{\omega_0^2 - p^2}</m> with <m>p = \frac{\gamma}{2m}</m> and <m>\omega_0 = \sqrt{\frac{k}{m}}</m>, we have that 
 <me>
 \omega_1 = \sqrt{\frac{k}{m} - \frac{\gamma^2}{4m^2}} = \sqrt{\frac{4mk - \gamma^2}{4m^2}},
 </me>
@@ -380,10 +378,55 @@ x(t) = C e^{-pt} \cos ( \omega_1 t - \delta ) .
 			</subsubsection>
 		</subsection>
 
+		<subsection xml:id="physical-applications-and-vertical-mass-spring-systems">
+			<title>Physical Applications and Vertical Mass-Spring Systems</title>
+
+			<p>
+				The topics and terms discussed above can all be used to answer interesting questions involving physical systems. For example, the <em></em> can tell how long you have to wait until a capacitor has less than a certain amount of charge on it, or until a mass-spring oscillation gets within a small threshold. The reason why this helps here is because the equation we need to solve for the end time value is much simpler and only has one solution. If <m>x_T</m> is our threshold distance, then trying to solve 
+<me>
+x_T = C e^{-pt} \cos ( \omega_1 t - \delta )
+</me>
+ for a value of <m>t</m> will likely have many solutions, while the equation 
+<me>
+x_T = C e^{-pt} 
+</me>
+ will only have one. The <em></em> can tell at what rate a damped mass-spring system will oscillate and can allow us to solve for any of the related coefficients in the problem if the other ones are known. The different types of damping phenomena allow general phenomena to be analyzed without explicitly solving the entire problem.
+			</p>
+
+			<p>
+				In some cases, like the bungee jump mentioned before, the mass-spring system is oriented vertically instead of horizontally. In this scenario, it feels like the force of gravity is an applied force, which would make the equation non-homogeneous (and thus impossible to solve at this point). However, it we set up our coordinates correctly, this does not happen.
+			</p>
+
+<!-- div attr= class="mywrapfigsimp"-->
+			<p>
+				1.9in2.3in
+			</p><!--</div attr= class="mywrapfigsimp">-->
+
+			<p>
+				Assume that we have a mass-spring system, but oriented vertically. From a physics class, the formula 
+<me>
+F = k \Delta x
+</me>
+ may be familiar for the force required to extend a spring by <m>\Delta x</m> in length. If a mass is hanging on this spring, then the force we are applying is the force of gravity. Thus, we know that 
+<me>
+mg = k L
+</me>
+ where <m>m</m> is the mass and <m>L</m> is the length it extends the spring. If we start with our normal mass-spring system, we will get an equation that looks like 
+<me>
+mx'' + \gamma x' + kx = mg = kL
+</me>
+ where we are taking the orientation that <m>x &gt; 0</m> when you extend the spring, i.e., in the downward direction. However, if we subtract the <m>kL</m> to the other side, we can rewrite this as 
+<me>
+mx'' + \gamma x' + k(x-L) = 0 \qquad \Rightarrow \qquad my'' + \gamma y' + ky = 0
+</me>
+ where <m>y = x-L</m>. Physically, we are choosing our zero point to be where the mass will eventually equilibrate (the place where it would hang if you let it go slowly) instead of where the spring would sit with no mass. Since we’ve chosen the point where the mass wants to stop and all of our solutions for unforced damped oscillations eventually go to zero, this lines up with this being a proper homogeneous problem that we are able to solve.
+			</p>
+
+		</subsection>
+
 <exercises>
 			<title>Exercises</title>
 
-<!-- div attr= class="samepage"-->
 <exercise>
 <statement>
 			<p>
@@ -428,7 +471,7 @@ x(t) = C e^{-pt} \cos ( \omega_1 t - \delta ) .
 </statement>
 
 <answer>			<p>
-				 a)  6.317 kg b)  <m>m = \frac{(2\pi \omega)^2}{4}</m>. 
+				 a) <m>\frac{4}{(2\pi (0.8))^2}</m> kg <m>\approx .158</m> kg b)  <m>m = \frac{4}{(2\pi \omega)^2} = \frac{1}{\omega^2 \pi^2}</m>. 
 			</p>
 </answer>
 </exercise>

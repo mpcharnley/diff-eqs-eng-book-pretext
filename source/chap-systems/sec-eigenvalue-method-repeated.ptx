@@ -5,13 +5,13 @@
 
 	<section xml:id="eigenmethod-repeat-section">
 		<title>Eigenvalue method with repeated eigenvalues</title>
-<introduction>
-			<p>
+
+		<p>
 			There is one remaining case for the two-component first-order linear system: repeated eigenvalues. As we have seen previously, it may happen that a matrix <m>A</m> has some eigenvalues. That is, the characteristic equation <m>\det(A-\lambda I) = 0</m> may have repeated roots. This is actually unlikely to happen for a random matrix. If we take a small perturbation of <m>A</m> (we change the entries of <m>A</m> slightly), we get a matrix with distinct eigenvalues. As any system we want to solve in practice is an approximation to reality anyway, it is not absolutely indispensable to know how to solve these corner cases. On the other hand, these cases do come up in applications from time to time. Furthermore, if we have distinct but very close eigenvalues, the behavior is similar to that of repeated eigenvalues, and so understanding that case will give us insight into what is going on.
 		</p>
-</introduction>
 
-		<subsection xml:id="geometric-multiplicity">
+
+		<subsubsection xml:id="geometric-multiplicity">
 			<title>Geometric multiplicity</title>
 
 			<p>
@@ -64,8 +64,8 @@ c_n \vec{v}_n e^{\lambda_n t} .
 \lambda \vec{v}</m>. We pick specific values for those free variables to obtain eigenvectors. If you pick different values, you may get different eigenvectors.
 			</p>
 
-		</subsection>
-			<subsection xml:id="defective-eigenvalues">
+
+			<subsubsection xml:id="defective-eigenvalues">
 				<title>Defective eigenvalues</title>
 
 				<p>
@@ -198,7 +198,6 @@ c_2 e^{3t}
 c_1 3 e^{3t}+c_2 e^{3t} + 3 c_2 te^{3t} = 3 x_1 + x_2</m>. Good. Now <m>x_2' = 3 c_2 e^{3t} = 3x_2</m>. Good.
 				</p>
 </statement>
-</example>
 				<p>
 					In the example, if we plug <m>(A-3I)\vec{v}_2 = \vec{v}_1</m> into <m>(A-3I)\vec{v}_1 = \vec{0}</m> we find 
 <me>
@@ -213,7 +212,7 @@ c_1 3 e^{3t}+c_2 e^{3t} + 3 c_2 te^{3t} = 3 x_1 + x_2</m>. Good. Now <m>x_2' = 3
 					Note that the system <m>{\vec{x}}' = A \vec{x}</m> has a simpler solution since <m>A</m> is a so-called <em></em>, that is every entry below the diagonal is zero. In particular, the equation for <m>x_2</m> does not depend on <m>x_1</m>. Mind you, not every defective matrix is triangular.
 				</p>
 
-<exercise>
+</example><exercise>
 <statement>
 				<p>
 					Solve <m>{\vec{x}}' = \left[ \begin{smallmatrix}
@@ -469,9 +468,10 @@ e^{2t}
 
 				</p>
 
-			</subsection>
+			</subsubsection>
+		</subsubsection>
 
-		<subsection xml:id="phase-portraits">
+		<subsection xml:id="phase-portraits-repeated">
 			<title>Phase Portraits</title>
 
 			<p>
@@ -491,6 +491,22 @@ e^{2t}
 
 <!-- div attr= class="myfig"-->
 <!--</div attr= class="myfig">-->
+
+			<p>
+				We also need to think about the direction of rotation for these improper nodes as well, as they somewhat act both like spirals and nodes. There are two ways of analyzing these phase portrait graphs again, and they follow the same tricks as their spiral counterparts.
+			</p>
+
+			<p>
+				For the first method, we need the general solution. For the solution drawn in , which has differential equation <me>{\vec{x}}' = \begin{bmatrix} 4 &amp; -1 \\ 1 &amp; 2 \end{bmatrix} \vec{x},</me> the general solution is given by <me>\vec{x}(t) = C_1 \begin{bmatrix} 1 \\ 1 \end{bmatrix}e^{3t} + C_2\left( \begin{bmatrix} 1 \\ 1 \end{bmatrix}te^{3t} + \begin{bmatrix} 1 \\ 0 \end{bmatrix}e^{3t}\right).</me> The <m>C_1</m> term gives our straight-line solution, so we need to consider the <m>C_2</m> term. We can rewrite this term as <m>e^{3t}\left(\left[\begin{smallmatrix} 1 \\ 1 \end{smallmatrix}\right]t + \left[\begin{smallmatrix} 1 \\ 0 \end{smallmatrix}\right] \right)</m>. At <m>t=0</m>, this term is at <m>\left[\begin{smallmatrix} 1 \\ 0 \end{smallmatrix}\right]</m>, and as <m>t \rightarrow \infty</m>, the solution ends up in the direction of <m>\left[\begin{smallmatrix} 1 \\ 1 \end{smallmatrix}\right]</m>, so it is in the first quadrant. Therefore, our solution starts at the point <m>(1,0)</m> and ends up in the first quadrant as <m>t \rightarrow \infty</m>. Since this is an improper source, this means the solution is also going away from the origin as <m>t \rightarrow \infty</m>. Therefore, the solution goes off to <m>\infty</m> in the first quadrant (along the straight line solution) as <m>t\rightarrow \infty</m>, and going backwards, it has to flip around to the opposite side of the straight-line solution. This gives the sketch that we see in .
+			</p>
+
+			<p>
+				The second method again involves the bottom-left entry of the matrix. Again, this is positive, which means that our rotation is in the counter-clockwise direction. It is a little trickier to prove in this case (you need to use the structure of the generalized eigenvector), but it works out in the same way. This means that below the <m>\left[\begin{smallmatrix} 1 \\ 1 \end{smallmatrix}\right]</m> straight-line solution, the solution spirals counter-clockwise as <m>t</m> gets larger, which means that it has to leave the origin along the <m>\left[\begin{smallmatrix} -1 \\ -1 \end{smallmatrix}\right]</m> direction, rotate around counter-clockwise, and head away from the origin along the <m>\left[\begin{smallmatrix} 1 \\ 1 \end{smallmatrix}\right]</m> direction. That’s the only way it can rotate counter-clockwise.
+			</p>
+
+			<p>
+				In both of these cases, the curve on the other side of the straight-line solution must mirror it. This puts together the entire sketch of the phase portrait for these improper nodes. The other point to be especially careful about is that having an improper nodal source and improper nodal sink look opposite, even if they have the same direction of rotation. The direction always refers to <m>t</m> increasing, not going into or away from the origin.
+			</p>
 
 		</subsection>
 

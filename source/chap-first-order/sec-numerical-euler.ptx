@@ -43,6 +43,11 @@ x_{i+1} = x_i + h , \qquad y_{i+1}  = y_i + h\, f(x_i,y_i) .
 
 <!-- div attr= class="myfig"-->
 <!--</div attr= class="myfig">-->
+<figure xml:id="euler-step12-fig">
+</figure>
+
+<figure xml:id="euler-step12-sol-fig">
+</figure>
 
 		<p>
 			We continue with the equation <m>y' = \nicefrac{y^2}{3}</m>, <m>y(0)=1</m>. Let us try to approximate <m>y(2)</m> using Euler’s method. In Figures <xref ref="euler-step12-fig" /> and <xref ref="euler-step12-sol-fig" /> we have graphically approximated <m>y(2)</m> with step size 1. With step size 1, we have <m>y(2) \approx 1.926</m>. The real answer is 3. We are approximately 1.074 off. Let us halve the step size. Computing <m>y_4</m> with <m>h=0.5</m>, we find that <m>y(2) \approx 2.209</m>, so an error of about 0.791. gives the values computed for various parameters.
