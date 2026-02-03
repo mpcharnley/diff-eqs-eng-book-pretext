@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Differentiation and Integration Techniques</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Differential Equations">
+<meta property="book:author" content="Matt Charnley">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.11.12';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.0d5f811896ddeac1.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.e2abc79debce15fd.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Differential Equations</span> <span class="subtitle">An Introduction for Engineers</span></a></h1>
+<p class="byline">Matt Charnley</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-complexNums.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="chap-prereq.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="intro-chapter.html" class="internal"><span class="codenumber">0</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introde-section.html" class="internal"><span class="codenumber">0.1</span> <span class="title">Introduction to differential equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#differential-equations" class="internal"><span class="title">Differential equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#solutions-of-differential-equations" class="internal"><span class="title">Solutions of differential equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#differential-equations-in-practice" class="internal"><span class="title">Differential equations in practice</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#subsection-fourfundamental" class="internal"><span class="title">Four fundamental equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="introde-section.html#introde-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="classification-section.html" class="internal"><span class="codenumber">0.2</span> <span class="title">Classification of differential equations</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="classification-section.html#classification-section-16" class="internal"><span class="codenumber">0.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="fo-chapter.html" class="internal"><span class="codenumber">1</span> <span class="title">First Order Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="integralsols-section.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Integrals as solutions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="integralsols-section.html#integralsols-section-14" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="slopefields-section.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Slope fields</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slopefields-section.html#slope-fields" class="internal"><span class="title">Slope fields</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="slopefields-section.html#slopefields-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="separable-section.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Separable equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable-section.html#separable-equations" class="internal"><span class="title">Separable equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable-section.html#implicit-solutions" class="internal"><span class="title">Implicit solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable-section.html#examples-of-separable-equations" class="internal"><span class="title">Examples of separable equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="separable-section.html#separable-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="intfactor-section.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Linear equations and the integrating factor</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="intfactor-section.html#intfactor-section-18" class="internal"><span class="codenumber">1.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="existunique-section.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Existence and Uniqueness of Solutions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="existunique-section.html#existunique-section-18" class="internal"><span class="codenumber">1.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="numer-section.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Numerical methods: Euler’s method</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="numer-section.html#numer-section-23" class="internal"><span class="codenumber">1.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="auteq-section.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Autonomous equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auteq-section.html#subsec-autoIntro" class="internal"><span class="title">Introduction and Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auteq-section.html#concavity-of-solutions" class="internal"><span class="title">Concavity of Solutions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="auteq-section.html#auteq-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="bifDiag-section.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Bifurcation diagrams</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="bifDiag-section.html#bifDiag-section-13" class="internal"><span class="codenumber">1.8</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="exact-section.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Exact equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact-section.html#subsec-exactIntro" class="internal"><span class="title">exactIntro</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact-section.html#solving-exact-equations" class="internal"><span class="title">Solving exact equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact-section.html#integrating-factors" class="internal"><span class="title">Integrating factors</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exact-section.html#exact-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="modelfirst-section.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Modeling with First Order Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="modelfirst-section.html#principles-of-mathematical-modeling" class="internal"><span class="title">Principles of Mathematical Modeling</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="modelfirst-section.html#the-accumulation-equation" class="internal"><span class="title">The Accumulation Equation</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="modelfirst-section.html#modelfirst-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="modelfirstestim-section.html" class="internal"><span class="codenumber">1.11</span> <span class="title">Modeling and Parameter Estimation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="modelfirstestim-section.html#modelfirstestim-section-10" class="internal"><span class="codenumber">1.11</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="substitution-section.html" class="internal"><span class="codenumber">1.12</span> <span class="title">Substitution</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution-section.html#bernoulli-equations" class="internal"><span class="title">Bernoulli equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution-section.html#homogeneous-equations" class="internal"><span class="title">Homogeneous equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="substitution-section.html#substitution-section-10" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ho-chapter.html" class="internal"><span class="codenumber">2</span> <span class="title">Higher Order Linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="solinear-section.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Second order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#intial-value-problems" class="internal"><span class="title">Intial Value Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#constant-coefficient-equations---real-and-distinct-roots" class="internal"><span class="title">Constant Coefficient Equations - Real and Distinct Roots</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#linear-independence-soeq" class="internal"><span class="title">Linear Independence</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="solinear-section.html#solinear-section-17" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="complexroots-section.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Complex Roots and Euler’s Formula</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="complexroots-section.html#complex-roots" class="internal"><span class="title">Complex roots</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="complexroots-section.html#complexroots-section-13" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="reproots-section.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Repeated Roots and Reduction of Order</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="reproots-section.html#reproots-section-11" class="internal"><span class="codenumber">2.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-mv.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Mechanical vibrations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-mv.html#free-undamped-motion" class="internal"><span class="title">Free undamped motion</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-mv.html#free-damped-motion" class="internal"><span class="title">Free damped motion</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-mv.html#overdamping" class="internal"><span class="title">Overdamping</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-mv.html#critical-damping" class="internal"><span class="title">Critical damping</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-mv.html#underdamping" class="internal"><span class="title">Underdamping</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-mv.html#physical-applications-and-vertical-mass-spring-systems" class="internal"><span class="title">Physical Applications and Vertical Mass-Spring Systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-mv.html#sec-mv-20" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-nonhom.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Nonhomogeneous equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#solving-nonhomogeneous-equations" class="internal"><span class="title">Solving nonhomogeneous equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#undetermined-coefficients-eqns" class="internal"><span class="title">Undetermined coefficients</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#variation-of-parameters-eqns" class="internal"><span class="title">Variation of parameters</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-nonhom.html#sec-nonhom-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="forcedo-section.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Forced oscillations and resonance</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="forcedo-section.html#undamped-forced-motion-and-resonance" class="internal"><span class="title">Undamped forced motion and resonance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="forcedo-section.html#damped-forced-motion-and-practical-resonance" class="internal"><span class="title">Damped forced motion and practical resonance</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="forcedo-section.html#forcedo-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-hol.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Higher order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#linear-independence-hoeq" class="internal"><span class="title">Linear independence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#constant-coefficient-higher-order-odes" class="internal"><span class="title">Constant coefficient higher order ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#non-homogeneous-equations" class="internal"><span class="title">Non-Homogeneous Equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-hol.html#sec-hol-11" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="linalg-appendix.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="vecsandmaps-section.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Vectors, mappings, and matrices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="vecsandmaps-section.html#vectors-and-operations-on-vectors" class="internal"><span class="title">Vectors and operations on vectors</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#linear-combinations-and-linear-independence" class="internal"><span class="title">Linear Combinations and Linear Independence</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#matrices" class="internal"><span class="title">Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#linear-mappings-and-matrices" class="internal"><span class="title">Linear mappings and matrices</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="vecsandmaps-section.html#vecsandmaps-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="matalg-section.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Matrix algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#one-by-one-matrices" class="internal"><span class="title">One-by-one matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#matrix-addition-and-scalar-multiplication" class="internal"><span class="title">Matrix addition and scalar multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#matrix-multiplication" class="internal"><span class="title">Matrix multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#some-rules-of-matrix-algebra" class="internal"><span class="title">Some rules of matrix algebra</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#inverse" class="internal"><span class="title">Inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#special-types-of-matrices" class="internal"><span class="title">Special types of matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#transpose" class="internal"><span class="title">Transpose</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="matalg-section.html#matalg-section-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="elim-section.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Elimination</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#linear-systems-of-equations" class="internal"><span class="title">Linear systems of equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#row-echelon-form-and-elementary-operations" class="internal"><span class="title">Row echelon form and elementary operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#non-unique-solutions-and-inconsistent-systems" class="internal"><span class="title">Non-unique solutions and inconsistent systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="elim-section.html#elim-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="det-section.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Determinant</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="det-section.html#det-section-32" class="internal"><span class="codenumber">3.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eig-section.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Eigenvalues and Eigenvectors</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#finding-eigenvalues-and-eigenvectors" class="internal"><span class="title">Finding Eigenvalues and Eigenvectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#real-eigenvalues" class="internal"><span class="title">Real Eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#complex-eigenvalues" class="internal"><span class="title">Complex Eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#repeated-eigenvalues" class="internal"><span class="title">Repeated Eigenvalues</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eig-section.html#eig-section-11" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-kernel.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Related Topics in Linear Algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#subspaces-and-span" class="internal"><span class="title">Subspaces and span</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#basis-and-dimension" class="internal"><span class="title">Basis and dimension</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#rank" class="internal"><span class="title">Rank</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#kernel" class="internal"><span class="title">Kernel</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#computing-the-inverse-adv" class="internal"><span class="title">Computing the inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#trace-and-determinant-of-matrices" class="internal"><span class="title">Trace and Determinant of Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#extension-of-previous-theorem" class="internal"><span class="title">Extension of Previous Theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-kernel.html#sec-kernel-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="sys-chapter.html" class="internal"><span class="codenumber">4</span> <span class="title">Systems of ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-introtosys.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Introduction to systems of ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#systems" class="internal"><span class="title">Systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#applications" class="internal"><span class="title">Applications</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#changing-to-first-order" class="internal"><span class="title">Changing to first order</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#autonomous-systems-and-vector-fields" class="internal"><span class="title">Autonomous systems and vector fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#picards-theorem" class="internal"><span class="title">Picard’s theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-introtosys.html#sec-introtosys-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-matrix.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Matrices and linear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#matrices-and-vectors" class="internal"><span class="title">Matrices and vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#matrix-multiplication-rev" class="internal"><span class="title">Matrix multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#the-determinant" class="internal"><span class="title">The determinant</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#solving-linear-systems" class="internal"><span class="title">Solving linear systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#computing-the-inverse" class="internal"><span class="title">Computing the inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#eigenvalues-and-eigenvectors-of-a-matrix" class="internal"><span class="title">Eigenvalues and eigenvectors of a matrix</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matrix.html#sec-matrix-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linsystems-section.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Linear systems of ODEs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linsystems-section.html#linsystems-section-17" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod-section.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Eigenvalue method</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-section.html#the-eigenvalue-method-with-distinct-real-eigenvalues" class="internal"><span class="title">The eigenvalue method with distinct real eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-section.html#phase-portraits-real" class="internal"><span class="title">Phase Portraits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-section.html#eigenmethod-section-10" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod-cplx-section.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Eigenvalue method with complex eigenvalues</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-cplx-section.html#phase-portraits-complex" class="internal"><span class="title">Phase Portraits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-cplx-section.html#eigenmethod-cplx-section-16" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod-repeat-section.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Eigenvalue method with repeated eigenvalues</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection">
+<div class="toc-title-box"><a href="eigenmethod-repeat-section.html#geometric-multiplicity" class="internal"><span class="title">Geometric multiplicity</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#defective-eigenvalues" class="internal"><span class="title">Defective eigenvalues</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#phase-portraits-repeated" class="internal"><span class="title">Phase Portraits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#eigenmethod-repeat-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-twodimaut.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Two-dimensional systems and their vector fields</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-twodimaut.html#trace-determinant-analysis" class="internal"><span class="title">Trace-Determinant Analysis</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-twodimaut.html#sec-twodimaut-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nonhomogsys-section.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Nonhomogeneous systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys-section.html#first-order-constant-coefficient" class="internal"><span class="title">First order constant coefficient</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys-section.html#diagonalization" class="internal"><span class="title">Diagonalization</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys-section.html#undetermined-coefficients-sys" class="internal"><span class="title">Undetermined coefficients</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys-section.html#first-order-variable-coefficient" class="internal"><span class="title">First order variable coefficient</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys-section.html#variation-of-parameters-sys" class="internal"><span class="title">Variation of parameters</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nonhomogsys-section.html#nonhomogsys-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sol-section.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Second order systems and applications</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol-section.html#undamped-mass-spring-systems" class="internal"><span class="title">Undamped mass-spring systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol-section.html#examples" class="internal"><span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol-section.html#forced-oscillations" class="internal"><span class="title">Forced oscillations</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sol-section.html#non-homogeneous-solutions" class="internal"><span class="title">Non-Homogeneous Solutions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sol-section.html#undetermined-coefficients-secondsys" class="internal"><span class="title">Undetermined coefficients</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sol-section.html#eigenvector-decomposition" class="internal"><span class="title">Eigenvector decomposition</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sol-section.html#sol-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-matexp.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Matrix exponentials</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#definition" class="internal"><span class="title">Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#simple-cases" class="internal"><span class="title">Simple cases</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#general-matrices" class="internal"><span class="title">General matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#fundamental-matrix-solutions" class="internal"><span class="title">Fundamental matrix solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#approximations" class="internal"><span class="title">Approximations</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-matexp.html#non-homogeneous-systems" class="internal"><span class="title">Non-Homogeneous Systems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-matexp.html#integrating-factor" class="internal"><span class="title">Integrating factor</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matexp.html#sec-matexp-8" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="nlin-chapter.html" class="internal"><span class="codenumber">5</span> <span class="title">Nonlinear Systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linearization-section.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Linearization, critical points, and stability</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#autonomous-systems-and-phase-plane-analysis" class="internal"><span class="title">Autonomous systems and phase plane analysis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#linearization" class="internal"><span class="title">Linearization</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#isolated-critical-points-and-almost-linear-systems" class="internal"><span class="title">Isolated critical points and almost linear systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#stability-and-classification-of-isolated-critical-points" class="internal"><span class="title">Stability and classification of isolated critical points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#the-trouble-with-centers" class="internal"><span class="title">The trouble with centers</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linearization-section.html#linearization-section-12" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nlinHamiltonian-section.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Behavior of non-linear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#conservative-equations" class="internal"><span class="title">Conservative equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#hamiltonian-systems" class="internal"><span class="title">Hamiltonian Systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#separatrices-and-basins-of-attractions" class="internal"><span class="title">Separatrices and Basins of Attractions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#nullclines" class="internal"><span class="title">Nullclines</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#nlinHamiltonian-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nlinapps-section.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Applications of nonlinear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#pendulum" class="internal"><span class="title">Pendulum</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#predator-prey-or-lotkavolterra-systems" class="internal"><span class="title">Predator-prey or Lotka–Volterra systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#competing-species-systems" class="internal"><span class="title">Competing Species systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinapps-section.html#nlinapps-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="limitcycles-section.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Limit cycles</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="limitcycles-section.html#limitcycles-section-28" class="internal"><span class="codenumber">5.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-chaos.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Chaos</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaos.html#duffing-equation-and-strange-attractors" class="internal"><span class="title">Duffing equation and strange attractors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaos.html#the-lorenz-system" class="internal"><span class="title">The Lorenz system</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-chaos.html#sec-chaos-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="matlab-appendix.html" class="internal"><span class="codenumber">6</span> <span class="title">Introduction to MATLAB</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="the-matlab-interface.html" class="internal"><span class="codenumber">6.1</span> <span class="title">The MATLAB Interface</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="file-structure.html" class="internal"><span class="codenumber">6.2</span> <span class="title">File Structure</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="computation-in-matlab.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Computation in MATLAB</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="variables-and-arrays.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Variables and Arrays</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="funMat-section.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Functions and Anonymous Functions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="loops-and-branching-statements.html" class="internal"><span class="codenumber">6.6</span> <span class="title">Loops and Branching Statements</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="loops-and-branching-statements.html#for-loops" class="internal"><span class="title">For Loops</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="loops-and-branching-statements.html#if-statements" class="internal"><span class="title">If Statements</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="plotting-in-matlab.html" class="internal"><span class="codenumber">6.7</span> <span class="title">Plotting in MATLAB</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="supplemental-code-files.html" class="internal"><span class="codenumber">6.8</span> <span class="title">Supplemental Code Files</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="chap-prereq.html" class="internal"><span class="codenumber">7</span> <span class="title">Prerequisite Material</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-polys.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Polynomials and Factoring</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#definitions-and-operations" class="internal"><span class="title">Definitions and Operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#polynomial-long-division" class="internal"><span class="title">Polynomial Long Division</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#synthetic-division" class="internal"><span class="title">Synthetic Division</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-complexNums.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Complex Numbers</span></a></div></li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec-derivInt.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Differentiation and Integration Techniques</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivInt.html#derivative-and-integral-formulas" class="internal"><span class="title">Derivative and Integral Formulas</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-derivInt.html#derivative-rules" class="internal"><span class="title">Derivative Rules</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#linearity-of-the-derivative-and-integral" class="internal"><span class="title">Linearity of the Derivative and Integral</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#product-and-quotient-rule" class="internal"><span class="title">Product and Quotient Rule</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#chain-rule" class="internal"><span class="title">Chain Rule</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-derivInt.html#integration-techniques" class="internal"><span class="title">Integration Techniques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#substitution" class="internal"><span class="title">Substitution</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#integration-by-parts" class="internal"><span class="title">Integration by Parts</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#partial-fractions" class="internal"><span class="title">Partial Fractions</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-references"><div class="toc-title-box"><a href="references.html" class="internal"><span class="title">References</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-3.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-derivInt"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Differentiation and Integration Techniques</span>
+</h2>
+<section class="introduction" id="sec-derivInt-2"><div class="para" id="sec-derivInt-2-1">In this section, we will cover some of the basic derivative and integral formulas that will be necessary for success in Differential Equations. In order to be able to deal with equations that involve derivatives, we need to be able to take derivatives as well as remove them.<div class="autopermalink" data-description="Paragraph"><a href="#sec-derivInt-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><section class="subsection" id="derivative-and-integral-formulas"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Derivative and Integral Formulas</span>
+</h3>
+<div class="para" id="derivative-and-integral-formulas-2">The following is a table of some of the basic derivative formulas covered in a Calculus 1 course.<div class="autopermalink" data-description="Paragraph"><a href="#derivative-and-integral-formulas-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="derivative-and-integral-formulas-3"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.3.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Table 7.3.1: "><a href="#derivative-and-integral-formulas-3" title="Copy heading and permalink for Table 7.3.1: " aria-label="Copy heading and permalink for Table 7.3.1: ">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b0 r0 l0 t0 lines"><dfn class="terminology">Function <span class="process-math">\(f(x)\)</span></dfn></th>
+<th scope="col" class="c m b0 r0 l0 t0 lines"><dfn class="terminology">Derivative <span class="process-math">\(f'(x)\)</span></dfn></th>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">
+<span class="process-math">\(x^n\)</span>   any <span class="process-math">\(n\)</span>
+</td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(nx^{n-1}\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\ln(x)\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{1}{x} = x^{-1}\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">
+<span class="process-math">\(C\)</span> constant</td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(e^x\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(e^x\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(e^{ax}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(ae^{ax}\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\sin(x)\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cos(x)\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cos(x)\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(-\sin(x)\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\tan(x)\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\sec^2(x)\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\arctan(x) = \tan^{-1}(x)\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{1}{x^2 + 1}\)</span></td>
+</tr>
+</table></div></figure><div class="para" id="derivative-and-integral-formulas-4">Similarly, we have a table for some basic integral formulas. As integration is the inverse operation to differentiation, this table will look like the reverse version of the previous table.<div class="autopermalink" data-description="Paragraph"><a href="#derivative-and-integral-formulas-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="derivative-and-integral-formulas-5"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.3.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Table 7.3.2: "><a href="#derivative-and-integral-formulas-5" title="Copy heading and permalink for Table 7.3.2: " aria-label="Copy heading and permalink for Table 7.3.2: ">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b0 r0 l0 t0 lines"><dfn class="terminology">Function <span class="process-math">\(f(x)\)</span></dfn></th>
+<th scope="col" class="c m b0 r0 l0 t0 lines"><dfn class="terminology">Integral <span class="process-math">\(\int f(x)\ dx\)</span></dfn></th>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">
+<span class="process-math">\(x^n\)</span> any <span class="process-math">\(n \neq -1\)</span>
+</td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{1}{n+1}x^{n+1} + C\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{1}{x}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\ln(|x|) + C\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(e^x\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(e^x + C\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(e^{ax}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{1}{a}e^{ax} + C\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\sin(x)\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(-\cos(x) + C\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cos(x)\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\sin(x) + C\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{1}{x^2 + 1}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines">
+<span class="process-math">\(\arctan(x) + C\)</span> or <span class="process-math">\(\tan^{-1}(x) + C\)</span>
+</td>
+</tr>
+</table></div></figure><div class="autopermalink" data-description="Subsection: Derivative and Integral Formulas"><a href="#derivative-and-integral-formulas" title="Copy heading and permalink for Subsection: Derivative and Integral Formulas" aria-label="Copy heading and permalink for Subsection: Derivative and Integral Formulas">🔗</a></div></section><section class="subsection" id="derivative-rules"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Derivative Rules</span>
+</h3>
+<section class="introduction" id="derivative-rules-2"><div class="para" id="derivative-rules-2-1">The tables above only list a few simple functions for which we know how to compute the derivative and integral. However, there are some nice properties of derivatives and integrals that make this enough for our needs.<div class="autopermalink" data-description="Paragraph"><a href="#derivative-rules-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><section class="subsubsection" id="linearity-of-the-derivative-and-integral"><h4 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Linearity of the Derivative and Integral</span>
+</h4>
+<div class="para logical" id="linearity-of-the-derivative-and-integral-2">
+<div class="para">The derivative and integral are both linear operators. This means that if we have two functions <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(g(x)\text{,}\)</span> and two constants <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> then</div>
+<div class="displaymath process-math" id="linearity-of-the-derivative-and-integral-2-5">
+\begin{equation*}
+\frac{d}{dx}\left( af(x) + bg(x)\right) = a\frac{df}{dx} + b\frac{dg}{dx}.
+\end{equation*}
+</div>
+<div class="para">That is, we can move constants and addition and subtractions out of the differentiation, reducing a complicated function down to simpler functions that we know how to differentiate.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#linearity-of-the-derivative-and-integral-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="linearity-of-the-derivative-and-integral-3">
+<div class="para">The same is true for integration or antidifferentiation; if we have functions <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(g(x)\)</span> and constants <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> then</div>
+<div class="displaymath process-math" id="linearity-of-the-derivative-and-integral-3-5">
+\begin{equation*}
+\int af(x) + bg(x) \ dx = a\int f(x)\ dx + b\int g(x)\ dx.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#linearity-of-the-derivative-and-integral-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="linearity-of-the-derivative-and-integral-4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.3.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h5></summary><article class="example example-like knowl__content"><div class="para" id="linearity-of-the-derivative-and-integral-4-2-1">Compute the following derivatives and integrals using linearity and the table of known formulas.<div class="autopermalink" data-description="Paragraph"><a href="#linearity-of-the-derivative-and-integral-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="linearity-of-the-derivative-and-integral-4-2-2">
+<ol class="decimal" id="linearity-of-the-derivative-and-integral-4-2-2-1">
+<li id="linearity-of-the-derivative-and-integral-4-2-2-1-1">
+<div class="para" id="linearity-of-the-derivative-and-integral-4-2-2-1-1-1">
+<span class="process-math">\(\displaystyle \frac{d}{dx}\left(x^3 + \frac{4}{x^2} + 3e^{x} \right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#linearity-of-the-derivative-and-integral-4-2-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#linearity-of-the-derivative-and-integral-4-2-2-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="linearity-of-the-derivative-and-integral-4-2-2-1-2">
+<div class="para" id="linearity-of-the-derivative-and-integral-4-2-2-1-2-1">
+<span class="process-math">\(\displaystyle \frac{d}{dx}\left( \sin(x) - 2\cos(x) + 5\ln(x) \right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#linearity-of-the-derivative-and-integral-4-2-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#linearity-of-the-derivative-and-integral-4-2-2-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="linearity-of-the-derivative-and-integral-4-2-2-1-3">
+<div class="para" id="linearity-of-the-derivative-and-integral-4-2-2-1-3-1">
+<span class="process-math">\(\displaystyle \int \frac{2x^3 + 4x}{x^2}\ dx\)</span><div class="autopermalink" data-description="Paragraph"><a href="#linearity-of-the-derivative-and-integral-4-2-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#linearity-of-the-derivative-and-integral-4-2-2-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="linearity-of-the-derivative-and-integral-4-2-2-1-4">
+<div class="para" id="linearity-of-the-derivative-and-integral-4-2-2-1-4-1">
+<span class="process-math">\(\displaystyle \int 2\cos(x) - \frac{3}{x^2 + 1}\ dx\)</span><div class="autopermalink" data-description="Paragraph"><a href="#linearity-of-the-derivative-and-integral-4-2-2-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#linearity-of-the-derivative-and-integral-4-2-2-1-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#linearity-of-the-derivative-and-integral-4-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="linearity-of-the-derivative-and-integral-4-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="linearity-of-the-derivative-and-integral-4-3-1">
+<ol class="decimal" id="linearity-of-the-derivative-and-integral-4-3-1-1">
+<li id="linearity-of-the-derivative-and-integral-4-3-1-1-1">
+<div class="para logical" id="linearity-of-the-derivative-and-integral-4-3-1-1-1-1">
+<div class="para">For this, we can use linearity and our formulas to write</div>
+<div class="displaymath process-math" id="linearity-of-the-derivative-and-integral-4-3-1-1-1-1-1">
+\begin{equation*}
+\begin{split}
+\frac{d}{dx}\left(x^3 + \frac{4}{x^2} + 3e^{x} \right) &amp;= \frac{d}{dx}\left( x^3 \right) + \frac{d}{dx}\left(\frac{4}{x^2} \right) + \frac{d}{dx}\left(3e^x \right) \\
+&amp;= \frac{d}{dx}\left( x^3\right) + 4\frac{d}{dx}\left( x^{-2}\right) + 3\frac{d}{dx}\left( e^x\right) \\
+&amp;= 3x^2 - 8x^{-3} + 3e^x.
+\end{split}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#linearity-of-the-derivative-and-integral-4-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#linearity-of-the-derivative-and-integral-4-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="linearity-of-the-derivative-and-integral-4-3-1-1-2">
+<div class="para logical" id="linearity-of-the-derivative-and-integral-4-3-1-1-2-1">
+<div class="para">This one gives</div>
+<div class="displaymath process-math" id="linearity-of-the-derivative-and-integral-4-3-1-1-2-1-1">
+\begin{equation*}
+\begin{split}
+\frac{d}{dx}\left( \sin(x) - 2\cos(x) + 5\ln(x) \right) &amp;= \frac{d}{dx}\left( \sin(x)\right) - \frac{d}{dx}\left(2 \cos(x) \right) + \frac{d}{dx}\left( 5\ln(x)\right) \\ 
+&amp;= \frac{d}{dx}\left( \sin(x)\right) - 2\frac{d}{dx}\left(\cos(x) \right) + 5\frac{d}{dx}\left( \ln(x)\right) \\
+&amp;= \cos(x) + 2\sin(x) + \frac{5}{x}.
+\end{split}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#linearity-of-the-derivative-and-integral-4-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#linearity-of-the-derivative-and-integral-4-3-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="linearity-of-the-derivative-and-integral-4-3-1-1-3">
+<div class="para logical" id="linearity-of-the-derivative-and-integral-4-3-1-1-3-1">
+<div class="para">For this problem, we first want to simplify the expression algebraically, then integrate each term using linearity.</div>
+<div class="displaymath process-math" id="linearity-of-the-derivative-and-integral-4-3-1-1-3-1-1">
+\begin{equation*}
+\begin{split}
+\int \frac{2x^3 + 4x}{x^2}\ dx &amp;= \int \frac{2x^3}{x^2} + \frac{4x}{x^2}\ dx \\
+&amp;= \int 2x + \frac{4}{x}\ dx \\
+&amp;= 2\int x\ dx + 4\int \frac{1}{x}\ dx \\
+&amp;= x^2 + 4\ln(|x|) + C.
+\end{split}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#linearity-of-the-derivative-and-integral-4-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#linearity-of-the-derivative-and-integral-4-3-1-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="linearity-of-the-derivative-and-integral-4-3-1-1-4">
+<div class="para logical" id="linearity-of-the-derivative-and-integral-4-3-1-1-4-1">
+<div class="para">This problem uses standard linearity to get to the final answer.</div>
+<div class="displaymath process-math" id="linearity-of-the-derivative-and-integral-4-3-1-1-4-1-1">
+\begin{equation*}
+\begin{split}
+\int 2\cos(x) - \frac{3}{x^2 + 1}\ dx &amp;= 2 \int \cos(x)\ dx - 3 \int \frac{1}{x^2 + 1}\ dx \\
+&amp;= 2 \sin(x) - 3\arctan(x) + C. \qedhere
+\end{split}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#linearity-of-the-derivative-and-integral-4-3-1-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#linearity-of-the-derivative-and-integral-4-3-1-1-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#linearity-of-the-derivative-and-integral-4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.3.3.1"><a href="#linearity-of-the-derivative-and-integral-4-3" title="Copy heading and permalink for Solution 7.3.3.1" aria-label="Copy heading and permalink for Solution 7.3.3.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 7.3.3: "><a href="#linearity-of-the-derivative-and-integral-4" title="Copy heading and permalink for Example 7.3.3: " aria-label="Copy heading and permalink for Example 7.3.3: ">🔗</a></div></article></details><div class="autopermalink" data-description="Subsubsection: Linearity of the Derivative and Integral"><a href="#linearity-of-the-derivative-and-integral" title="Copy heading and permalink for Subsubsection: Linearity of the Derivative and Integral" aria-label="Copy heading and permalink for Subsubsection: Linearity of the Derivative and Integral">🔗</a></div></section><section class="subsubsection" id="product-and-quotient-rule"><h4 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Product and Quotient Rule</span>
+</h4>
+<div class="para logical" id="product-and-quotient-rule-2">
+<div class="para">Linearity gives us a way to handle sums and differences of derivatives. What about products? It turns out that doesn’t work as simply, but there is still as nice formula to work it out. This gives us the Product Rule. If we have two functions <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(g(x)\text{,}\)</span> then</div>
+<div class="displaymath process-math" id="product-and-quotient-rule-2-3">
+\begin{equation*}
+\frac{d}{dx}\left( f(x)g(x) \right) = f(x)\frac{dg}{dx} + \frac{df}{dx}g(x).
+\end{equation*}
+</div>
+<div class="para">That is, the derivative has two terms, the first function times the derivative of the second, and the derivative of the first function times the second function. The product rule can also be used to compute the product of more than two functions; the general formula is that only one function is differentiated at a time and each function should be differentiated once. That is, for three functions, the formula is</div>
+<div class="displaymath process-math" id="product-and-quotient-rule-2-4">
+\begin{equation*}
+\frac{d}{dx}\left( f(x)g(x)h(x)\right) = \frac{df}{dx}g(x)h(x) + f(x)\frac{dg}{dx}h(x) + f(x)g(x)\frac{dh}{dx}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#product-and-quotient-rule-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="product-and-quotient-rule-3">
+<div class="para">The Quotient Rule gives us a way to do the same thing, but with quotients. The formula here is that</div>
+<div class="displaymath process-math" id="product-and-quotient-rule-3-1">
+\begin{equation*}
+\frac{d}{dx}\left(\frac{f(x)}{g(x)}\right) = \frac{g(x) \frac{df}{dx} - f(x)\frac{dg}{dx}}{(g(x))^2}.
+\end{equation*}
+</div>
+<div class="para">This can also be derived using the product rule and the chain rule. It is important to get the order of the numerator correct, as there is a subtraction on top. For the product rule, the addition means that the order doesn’t matter, but if the order for the quotient rule is incorrect, there will be an additional minus sign in the answer.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#product-and-quotient-rule-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="product-and-quotient-rule-4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.3.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h5></summary><article class="example example-like knowl__content"><div class="para" id="product-and-quotient-rule-4-2-1">Compute the following derivatives.<div class="autopermalink" data-description="Paragraph"><a href="#product-and-quotient-rule-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="product-and-quotient-rule-4-2-2">
+<ol class="decimal" id="product-and-quotient-rule-4-2-2-1">
+<li id="product-and-quotient-rule-4-2-2-1-1">
+<div class="para" id="product-and-quotient-rule-4-2-2-1-1-1">
+<span class="process-math">\(\displaystyle \frac{d}{dx}\left(e^x \cos(x) \right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#product-and-quotient-rule-4-2-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#product-and-quotient-rule-4-2-2-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="product-and-quotient-rule-4-2-2-1-2">
+<div class="para" id="product-and-quotient-rule-4-2-2-1-2-1">
+<span class="process-math">\(\displaystyle \frac{d}{dx}\left(\frac{\sin(x)}{x^2}\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#product-and-quotient-rule-4-2-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#product-and-quotient-rule-4-2-2-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="product-and-quotient-rule-4-2-2-1-3">
+<div class="para" id="product-and-quotient-rule-4-2-2-1-3-1">
+<span class="process-math">\(\frac{d}{dx}\left(\frac{x^3e^x}{\tan(x)}\right)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#product-and-quotient-rule-4-2-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#product-and-quotient-rule-4-2-2-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#product-and-quotient-rule-4-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="product-and-quotient-rule-4-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="product-and-quotient-rule-4-3-1">
+<ol class="decimal" id="product-and-quotient-rule-4-3-1-1">
+<li id="product-and-quotient-rule-4-3-1-1-1">
+<div class="para logical" id="product-and-quotient-rule-4-3-1-1-1-1">
+<div class="para">This is a direct application of the product rule.</div>
+<div class="displaymath process-math" id="product-and-quotient-rule-4-3-1-1-1-1-1">
+\begin{equation*}
+\begin{split}
+\frac{d}{dx}\left( e^x \cos(x) \right) &amp;= e^x \frac{d}{dx}\left(\cos(x)\right) + \frac{d}{dx}\left(e^x \right)\cos(x) \\
+&amp;= e^x (-\sin(x)) + (e^x) \cos(x) \\
+&amp;= e^x(\cos(x) - \sin(x)).
+\end{split}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#product-and-quotient-rule-4-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#product-and-quotient-rule-4-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="product-and-quotient-rule-4-3-1-1-2">
+<div class="para logical" id="product-and-quotient-rule-4-3-1-1-2-1">
+<div class="para">This is a direct application of the quotient rule.</div>
+<div class="displaymath process-math" id="product-and-quotient-rule-4-3-1-1-2-1-1">
+\begin{equation*}
+\begin{split}
+\frac{d}{dx}\left(\frac{\sin(x)}{x^2}\right) &amp;= \frac{x^2 \frac{d}{dx}\left(\sin(x)\right) - \sin(x) \frac{d}{dx}\left(x^2\right)}{(x^2)^2} \\
+&amp;= \frac{x^2 \cos(x) - \sin(x)(2x)}{x^4} \\
+&amp;= \frac{x\cos(x) - 2\sin(x)}{x^3}.
+\end{split}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#product-and-quotient-rule-4-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#product-and-quotient-rule-4-3-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="product-and-quotient-rule-4-3-1-1-3">
+<div class="para logical" id="product-and-quotient-rule-4-3-1-1-3-1">
+<div class="para">For this problem, we need to apply both the product rule and the quotient rule. Since the quotient rule is on the outside, we apply it first.</div>
+<div class="displaymath process-math" id="product-and-quotient-rule-4-3-1-1-3-1-1">
+\begin{equation*}
+\begin{split}
+\frac{d}{dx}\left(\frac{x^3e^x}{\tan(x)}\right) &amp;= \frac{\tan(x) \frac{d}{dx}\left(x^3e^x\right) - x^3e^x \frac{d}{dx}\left(\tan(x)\right)}{(\tan(x))^2} \\
+&amp;= \frac{\tan(x)\left(x^3 \frac{d}{dx}\left(e^x\right) + \frac{d}{dx}\left(x^3\right)e^x\right) - x^3e^x\sec^2(x)}{\tan^2(x)} \\
+&amp;= \frac{\tan(x) \left(x^3e^x + 3x^2e^x\right) - x^3e^x\sec^2(x)}{\tan^2(x)} \\
+&amp;= \frac{e^x(x^3 + 3x^2)}{\tan(x)} - \frac{x^3e^x}{\sin^2(x)}.
+\end{split}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#product-and-quotient-rule-4-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#product-and-quotient-rule-4-3-1-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#product-and-quotient-rule-4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.3.4.1"><a href="#product-and-quotient-rule-4-3" title="Copy heading and permalink for Solution 7.3.4.1" aria-label="Copy heading and permalink for Solution 7.3.4.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 7.3.4: "><a href="#product-and-quotient-rule-4" title="Copy heading and permalink for Example 7.3.4: " aria-label="Copy heading and permalink for Example 7.3.4: ">🔗</a></div></article></details><div class="autopermalink" data-description="Subsubsection: Product and Quotient Rule"><a href="#product-and-quotient-rule" title="Copy heading and permalink for Subsubsection: Product and Quotient Rule" aria-label="Copy heading and permalink for Subsubsection: Product and Quotient Rule">🔗</a></div></section><section class="subsubsection" id="chain-rule"><h4 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Chain Rule</span>
+</h4>
+<div class="para logical" id="chain-rule-2">
+<div class="para">The only type of function we haven’t discussed yet for differentiation is composite functions, and that is handled by the Chain Rule. For example, we don’t have a direct way (yet) to differentiate functions like <span class="process-math">\(\sin(3x)\)</span> or <span class="process-math">\(\frac{1}{x^3 + 4x + 1}\text{,}\)</span> and the Chain Rule lets us to do that. This rule tells us that, for functions <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(g(x)\text{,}\)</span> we can compute the derivative of the composition <span class="process-math">\((f \circ g)(x)\)</span> or <span class="process-math">\(f(g(x))\)</span> is</div>
+<div class="displaymath process-math" id="chain-rule-2-7">
+\begin{equation*}
+\frac{d}{dx}(f(g(x)) = f'(g(x))g'(x).
+\end{equation*}
+</div>
+<div class="para">This means that we differentiate the “outside” function <span class="process-math">\(f\text{,}\)</span> plug in the inside function, and then multiply this by the derivative of the “inside” function <span class="process-math">\(g\text{.}\)</span> It requires us to identify what the “inner” and “outer” functions are, and then the formula gives what the derivative should be. This can be done in a few different ways, either moving from outside in, or moving from inside out. These problems are conventionally written with <span class="process-math">\(u(x)\)</span> as the inside function, but any letter can be used.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chain-rule-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="chain-rule-3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.3.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h5></summary><article class="example example-like knowl__content"><div class="para" id="chain-rule-3-2-1">Compute the derivative of each of the following functions.<div class="autopermalink" data-description="Paragraph"><a href="#chain-rule-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="chain-rule-3-2-2">
+<ol class="decimal" id="chain-rule-3-2-2-1">
+<li id="chain-rule-3-2-2-1-1">
+<div class="para" id="chain-rule-3-2-2-1-1-1">
+<span class="process-math">\(\displaystyle f_1(x) = (x^3 + 5x + 1)^5\)</span><div class="autopermalink" data-description="Paragraph"><a href="#chain-rule-3-2-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#chain-rule-3-2-2-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="chain-rule-3-2-2-1-2">
+<div class="para" id="chain-rule-3-2-2-1-2-1">
+<span class="process-math">\(\displaystyle f_2(x) = \cos(3x^2 + 1)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#chain-rule-3-2-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#chain-rule-3-2-2-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="chain-rule-3-2-2-1-3">
+<div class="para" id="chain-rule-3-2-2-1-3-1">
+<span class="process-math">\(\displaystyle f_3(x) = (1 + \sin(3x))^4\)</span><div class="autopermalink" data-description="Paragraph"><a href="#chain-rule-3-2-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#chain-rule-3-2-2-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#chain-rule-3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="chain-rule-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="chain-rule-3-3-1">
+<ol class="decimal" id="chain-rule-3-3-1-1">
+<li id="chain-rule-3-3-1-1-1">
+<div class="para logical" id="chain-rule-3-3-1-1-1-1">
+<div class="para">For this problem, we take <span class="process-math">\(f(u) = u^5\)</span> and <span class="process-math">\(u(x) = x^3 + 5x + 1\text{,}\)</span> which gives that composing these functions gives the <span class="process-math">\(f_1\)</span> that we started with. Therefore, since <span class="process-math">\(f'(u) = 5u^4\)</span> and <span class="process-math">\(u'(x) = 3x^2 + 5\text{,}\)</span> we have that</div>
+<div class="displaymath process-math" id="chain-rule-3-3-1-1-1-1-6">
+\begin{equation*}
+f_1'(x) = f'(u)u'(x) = 5u^4(3x^2 + 5) = 5(x^3 + 5x + 1)^4(3x^2 + 5).
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chain-rule-3-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#chain-rule-3-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="chain-rule-3-3-1-1-2">
+<div class="para logical" id="chain-rule-3-3-1-1-2-1">
+<div class="para">For this case, the outside function is <span class="process-math">\(\cos(u)\)</span> and the inner function is <span class="process-math">\(u(x) = 3x^2 + 1\text{.}\)</span> Using the same process, we get that</div>
+<div class="displaymath process-math" id="chain-rule-3-3-1-1-2-1-3">
+\begin{equation*}
+f_2'(x) = -\sin(u)(6x) = -6x\sin(3x^2 + 1).
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chain-rule-3-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#chain-rule-3-3-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="chain-rule-3-3-1-1-3">
+<div class="para logical" id="chain-rule-3-3-1-1-3-1">
+<div class="para">Starting from the outside, we see that we can take <span class="process-math">\(f(u) = u^4\text{.}\)</span> This makes <span class="process-math">\(u(x) = 1 + \sin(3x)\text{,}\)</span> but we can’t differentiate this directly; it requires another iteration of the Chain Rule. Taking <span class="process-math">\(u(x) = 1 + \sin(v)\)</span> for <span class="process-math">\(v(x) = 3x\text{,}\)</span> we can then compute the derivative of each of these functions, and our original function <span class="process-math">\(f_3(x) = f(u(v(x)))\text{.}\)</span> We can extend the Chain Rule to apply to three functions by taking it one step at a time. The result of this process is that</div>
+<div class="displaymath process-math" id="chain-rule-3-3-1-1-3-1-6">
+\begin{equation*}
+\frac{d}{dx}(f(u(v(x)))) = f'(u(v(x))\frac{d}{dx}(u(v(x))) = f'(u(v(x)))u'(v(x))v'(x),
+\end{equation*}
+</div>
+<div class="para">so you need to pull off one derivative at time to get to the correct computation. Thus, for this problem, we get that</div>
+<div class="displaymath process-math" id="chain-rule-3-3-1-1-3-1-7">
+\begin{equation*}
+f_3'(x) = 4u^3(\cos(v))(3) = 12u^3\cos(v) = 12(1 + \sin(3x))^3\cos(3x).
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chain-rule-3-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#chain-rule-3-3-1-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#chain-rule-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.3.5.1"><a href="#chain-rule-3-3" title="Copy heading and permalink for Solution 7.3.5.1" aria-label="Copy heading and permalink for Solution 7.3.5.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 7.3.5: "><a href="#chain-rule-3" title="Copy heading and permalink for Example 7.3.5: " aria-label="Copy heading and permalink for Example 7.3.5: ">🔗</a></div></article></details><div class="autopermalink" data-description="Subsubsection: Chain Rule"><a href="#chain-rule" title="Copy heading and permalink for Subsubsection: Chain Rule" aria-label="Copy heading and permalink for Subsubsection: Chain Rule">🔗</a></div></section><div class="autopermalink" data-description="Subsection: Derivative Rules"><a href="#derivative-rules" title="Copy heading and permalink for Subsection: Derivative Rules" aria-label="Copy heading and permalink for Subsection: Derivative Rules">🔗</a></div></section><section class="subsection" id="integration-techniques"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Integration Techniques</span>
+</h3>
+<section class="introduction" id="integration-techniques-2"><div class="para" id="integration-techniques-2-1">Another main topic that will be needed throughout study of differential equations is various integration techniques. When trying to solve questions that involve derivatives, integration will be a very important step in that process.<div class="autopermalink" data-description="Paragraph"><a href="#integration-techniques-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><section class="subsubsection" id="substitution"><h4 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Substitution</span>
+</h4>
+<div class="para logical" id="substitution-2">
+<div class="para">The substitution method for integration serves as the inverse operation to the Chain Rule for differentiation. Since</div>
+<div class="displaymath process-math" id="substitution-2-1">
+\begin{equation*}
+\frac{d}{dx}(f(u(x))) = f'(u(x))u'(x),
+\end{equation*}
+</div>
+<div class="para">the definition of the integral as an antiderivative gives that</div>
+<div class="displaymath process-math" id="substitution-2-2">
+\begin{equation*}
+\int f'(u(x))u'(x)\ dx = f(u(x)) + C.
+\end{equation*}
+</div>
+<div class="para">Integrals of this form can be computed using this formula, but it is often easier to think of this process in terms of “changing variables.” This means the following: If we have an integral that looks like</div>
+<div class="displaymath process-math" id="substitution-2-4">
+\begin{equation*}
+\int f'(u(x))u'(x)\ dx
+\end{equation*}
+</div>
+<div class="para">then we can define the variable <span class="process-math">\(u\)</span> to represent the entire function <span class="process-math">\(u(x)\text{.}\)</span> Then the differential <span class="process-math">\(du\)</span> is defined by</div>
+<div class="displaymath process-math" id="substitution-2-8">
+\begin{equation*}
+du = u'(x) dx.
+\end{equation*}
+</div>
+<div class="para">Then we can substitute both <span class="process-math">\(u\)</span> and <span class="process-math">\(du\)</span> into the original expression to get that</div>
+<div class="displaymath process-math" id="substitution-2-11">
+\begin{equation*}
+\int f'(u(x))u'(x)\ dx = \int f'(u)\ du = f(u) + C = f(u(x)) + C.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#substitution-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="substitution-3">
+<div class="para">The last component of this process is changing the limits of integration if a definite integral is being computed. The idea is that an integral in <span class="process-math">\(x\)</span> (denoted by <span class="process-math">\(dx\)</span>) has its limits also in terms of <span class="process-math">\(x\text{,}\)</span> where as the <span class="process-math">\(du\)</span> integral has endpoints given in terms of <span class="process-math">\(u\text{.}\)</span> The main way this comes up in problems is that</div>
+<div class="displaymath process-math" id="substitution-3-6">
+\begin{equation*}
+\int_a^b f(u(x))u'(x)\ dx = \int_{u(a)}^{u(b)} f(u)\ du
+\end{equation*}
+</div>
+<div class="para">because we know that <span class="process-math">\(u\)</span> is written in terms of <span class="process-math">\(x\)</span> as <span class="process-math">\(u = u(x)\text{.}\)</span> Thus if we plug the <span class="process-math">\(x\)</span> endpoints into this function, we will be the new <span class="process-math">\(u\)</span> endpoints.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#substitution-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="substitution-4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.3.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h5></summary><article class="example example-like knowl__content"><div class="para" id="substitution-4-2-1">Compute the following integrals using substitution.<div class="autopermalink" data-description="Paragraph"><a href="#substitution-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="substitution-4-2-2">
+<ol class="decimal" id="substitution-4-2-2-1">
+<li id="substitution-4-2-2-1-1">
+<div class="para" id="substitution-4-2-2-1-1-1">
+<span class="process-math">\(\displaystyle \displaystyle \int \cos(4x)\ dx\)</span><div class="autopermalink" data-description="Paragraph"><a href="#substitution-4-2-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#substitution-4-2-2-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="substitution-4-2-2-1-2">
+<div class="para" id="substitution-4-2-2-1-2-1">
+<span class="process-math">\(\displaystyle \displaystyle \int x\sin(3x^2 + 1)\ dx\)</span><div class="autopermalink" data-description="Paragraph"><a href="#substitution-4-2-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#substitution-4-2-2-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="substitution-4-2-2-1-3">
+<div class="para" id="substitution-4-2-2-1-3-1">
+<span class="process-math">\(\displaystyle \displaystyle \int_0^2 \frac{3x^2}{x^3 + 4}\ dx\)</span><div class="autopermalink" data-description="Paragraph"><a href="#substitution-4-2-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#substitution-4-2-2-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#substitution-4-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="substitution-4-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="substitution-4-3-1">
+<ol class="decimal" id="substitution-4-3-1-1">
+<li id="substitution-4-3-1-1-1">
+<div class="para logical" id="substitution-4-3-1-1-1-1">
+<div class="para">For this situation we want to set <span class="process-math">\(u = 4x\text{,}\)</span> because then the integrand, once we make the change of variables, will be <span class="process-math">\(\cos(u)\text{,}\)</span> which we know how to integrate. With this, we have <span class="process-math">\(du = 4\ dx\text{,}\)</span> which we can rewrite as <span class="process-math">\(dx = \frac{1}{4}\ du\text{.}\)</span> Plugging all of this in gives that</div>
+<div class="displaymath process-math" id="substitution-4-3-1-1-1-1-5">
+\begin{equation*}
+\int \cos(4x)\ dx = \int \cos(u) \frac{1}{4}\ du = \frac{1}{4} \int cos(u)\ du = \frac{1}{4}\sin(u) + C = \frac{1}{4}\sin(4x) + C.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#substitution-4-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#substitution-4-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="substitution-4-3-1-1-2">
+<div class="para logical" id="substitution-4-3-1-1-2-1">
+<div class="para">For the same reason, we want to set <span class="process-math">\(u = 3x^2 + 1\)</span> to make the resulting integral <span class="process-math">\(\sin(u)\ du\text{.}\)</span> In this case, we have <span class="process-math">\(du = 6x\  dx\)</span> or <span class="process-math">\(x\ dx = \frac{1}{6}\ du\text{.}\)</span> Plugging all of this in, we get</div>
+<div class="displaymath process-math" id="substitution-4-3-1-1-2-1-5">
+\begin{equation*}
+\int x\sin(3x^2 + 1)\ dx = \int \sin(u) \frac{1}{6}\ du = \frac{1}{6}\int \sin(u)\ du = -\frac{1}{6}\cos(u) + C = -\frac{1}{6}\cos(3x^2 + 1) + C.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#substitution-4-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#substitution-4-3-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="substitution-4-3-1-1-3">
+<div class="para logical" id="substitution-4-3-1-1-3-1">
+<div class="para">We can follow the same logic here as for the previous examples, but since we have a definite integral, we also need to switch the limits of integration. In this case, we want to pick <span class="process-math">\(u = x^3 + 4\text{,}\)</span> which gives <span class="process-math">\(du = 3x^2\ dx\text{.}\)</span> This gives the resulting integral as</div>
+<div class="displaymath process-math" id="substitution-4-3-1-1-3-1-3">
+\begin{equation*}
+\int \frac{3x^2}{x^3 + 4}\ dx = \int \frac{1}{u}\ du.
+\end{equation*}
+</div>
+<div class="para">For the limits of integration, we take the function <span class="process-math">\(u(x) = x^3 + 4\)</span> and plug in the original values of <span class="process-math">\(0\)</span> and <span class="process-math">\(2\text{.}\)</span> This gives the value <span class="process-math">\(4\)</span> and <span class="process-math">\(x=0\)</span> and the value <span class="process-math">\(12\)</span> at <span class="process-math">\(x=2\text{.}\)</span> Therefore, the result of this computation is</div>
+<div class="displaymath process-math" id="substitution-4-3-1-1-3-1-11">
+\begin{equation*}
+\int_0^2 \frac{3x^2}{x^3 + 4}\ dx = \int_4^{12} \frac{1}{u}\ du = \ln(|u|)\mid_4^{12} = \ln(12) - \ln(4) = \ln(3).
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#substitution-4-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#substitution-4-3-1-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#substitution-4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.3.6.1"><a href="#substitution-4-3" title="Copy heading and permalink for Solution 7.3.6.1" aria-label="Copy heading and permalink for Solution 7.3.6.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 7.3.6: "><a href="#substitution-4" title="Copy heading and permalink for Example 7.3.6: " aria-label="Copy heading and permalink for Example 7.3.6: ">🔗</a></div></article></details><div class="para" id="substitution-5">There can be some cases where these techniques will not work, because the <span class="process-math">\(u'\)</span> term that you are looking for doesn’t quite appear in the expression you are trying to integrate. In cases like this, you may need to use some more complicated methods (like trigonometric substitution) or connect to inverse trigonometric integrals or other known formulas.<div class="autopermalink" data-description="Paragraph"><a href="#substitution-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsubsection: Substitution"><a href="#substitution" title="Copy heading and permalink for Subsubsection: Substitution" aria-label="Copy heading and permalink for Subsubsection: Substitution">🔗</a></div></section><section class="subsubsection" id="integration-by-parts"><h4 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Integration by Parts</span>
+</h4>
+<div class="para logical" id="integration-by-parts-2">
+<div class="para">Integration by parts is the method used to handle integrals of a product of functions. Like the substitution method is the inverse of the Chain Rule, integration by parts is the inverse of the product rule. There are two main formulas that are used for this process. For two differentiable functions <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(g(x)\text{,}\)</span> we have</div>
+<div class="displaymath process-math" id="integration-by-parts-2-3">
+\begin{equation*}
+\int f(x) g'(x)\ dx = f(x)g(x) - \int g(x) f'(x) dx.
+\end{equation*}
+</div>
+<div class="para">The other form is</div>
+<div class="displaymath process-math" id="integration-by-parts-2-4">
+\begin{equation*}
+\int u\ dv = uv - \int v\ du,
+\end{equation*}
+</div>
+<div class="para">which matches the original form after setting <span class="process-math">\(u = f(x)\)</span> and <span class="process-math">\(v = g(x)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#integration-by-parts-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="integration-by-parts-3">The most important part of this process is picking the appropriate functions for <span class="process-math">\(u\)</span> and <span class="process-math">\(v\)</span> in this formula. The general rule is given by the following list<div class="autopermalink" data-description="Paragraph"><a href="#integration-by-parts-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="integration-by-parts-4">
+<ul class="disc" id="integration-by-parts-4-1">
+<li id="integration-by-parts-4-1-1">
+<div class="para" id="integration-by-parts-4-1-1-1">Logarithmic functions<div class="autopermalink" data-description="Paragraph"><a href="#integration-by-parts-4-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#integration-by-parts-4-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="integration-by-parts-4-1-2">
+<div class="para" id="integration-by-parts-4-1-2-1">Inverse Functions<div class="autopermalink" data-description="Paragraph"><a href="#integration-by-parts-4-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#integration-by-parts-4-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="integration-by-parts-4-1-3">
+<div class="para" id="integration-by-parts-4-1-3-1">Algebraic or Polynomial Functions<div class="autopermalink" data-description="Paragraph"><a href="#integration-by-parts-4-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#integration-by-parts-4-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="integration-by-parts-4-1-4">
+<div class="para" id="integration-by-parts-4-1-4-1">Trigonometric Functions (sine and cosine)<div class="autopermalink" data-description="Paragraph"><a href="#integration-by-parts-4-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#integration-by-parts-4-1-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="integration-by-parts-4-1-5">
+<div class="para" id="integration-by-parts-4-1-5-1">Exponential Functions<div class="autopermalink" data-description="Paragraph"><a href="#integration-by-parts-4-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#integration-by-parts-4-1-5" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#integration-by-parts-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="integration-by-parts-5">and you want to make <span class="process-math">\(u\text{,}\)</span> the function that you are differentiating, the one that is higher on the list. The main reason for this list is that integration is much harder than differentiation, and so we generally want to integrate the part of the product that we have a formula for. This is why logarithms and inverses are on the top; we know how to differentiate them, but integration is difficult or impossible. Polynomials are good for both differentiation and integrals, but the benefit of differentiating them is that they eventually disappear, leaving us with an integral that we know how to solve. For example, <span class="process-math">\(x^2\)</span> becomes <span class="process-math">\(2x\text{,}\)</span> and then differentiating a second time gives <span class="process-math">\(2\text{,}\)</span> which is just a constant and can be removed from the integral. Trigonometric and Exponential functions are interchangeable, they are easy to differentiate and integrate, and they don’t go away if we keep applying either operation.<div class="autopermalink" data-description="Paragraph"><a href="#integration-by-parts-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="integration-by-parts-6">This method can also be performed mutliple times by redefining <span class="process-math">\(u\)</span> and <span class="process-math">\(v\)</span> and applying the same process to the integral that remains on the right-hand side. When doing this, it is important not to reverse the roles of <span class="process-math">\(u\)</span> and <span class="process-math">\(v\text{,}\)</span> because then the process will just undo what was done in the first step. There are also some cases where circular reasoning is used, integrating by parts twice to get to the same expression on both sides of the equal sign, which can then be solved for. One of those will be shown in the examples below.<div class="autopermalink" data-description="Paragraph"><a href="#integration-by-parts-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="integration-by-parts-7" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.3.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h5></summary><article class="example example-like knowl__content"><div class="para" id="integration-by-parts-7-2-1">Compute the following integrals.<div class="autopermalink" data-description="Paragraph"><a href="#integration-by-parts-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="integration-by-parts-7-2-2">
+<ol class="decimal" id="integration-by-parts-7-2-2-1">
+<li id="integration-by-parts-7-2-2-1-1">
+<div class="para" id="integration-by-parts-7-2-2-1-1-1">
+<span class="process-math">\(\displaystyle \int x\sin(2x)\ dx\)</span><div class="autopermalink" data-description="Paragraph"><a href="#integration-by-parts-7-2-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#integration-by-parts-7-2-2-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="integration-by-parts-7-2-2-1-2">
+<div class="para" id="integration-by-parts-7-2-2-1-2-1">
+<span class="process-math">\(\displaystyle \int 3x^2e^{4x}\ dx\)</span><div class="autopermalink" data-description="Paragraph"><a href="#integration-by-parts-7-2-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#integration-by-parts-7-2-2-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="integration-by-parts-7-2-2-1-3">
+<div class="para" id="integration-by-parts-7-2-2-1-3-1">
+<span class="process-math">\(\displaystyle \int e^{2x}\cos(3x)\ dx\)</span><div class="autopermalink" data-description="Paragraph"><a href="#integration-by-parts-7-2-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#integration-by-parts-7-2-2-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#integration-by-parts-7-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="integration-by-parts-7-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="integration-by-parts-7-3-1">
+<ol class="decimal" id="integration-by-parts-7-3-1-1">
+<li id="integration-by-parts-7-3-1-1-1">
+<div class="para logical" id="integration-by-parts-7-3-1-1-1-1">
+<div class="para">Based on our list, we should choose <span class="process-math">\(u = x\text{,}\)</span> as it is a polynomial function. This means that <span class="process-math">\(dv = \sin(2x)\ dx\text{.}\)</span> From this, we get that <span class="process-math">\(du = dx\)</span> and we compute <span class="process-math">\(v\)</span> by integrating <span class="process-math">\(\sin(2x)\ dx\text{,}\)</span> which requires a substitution. This results in <span class="process-math">\(v = -\frac{1}{2}\cos(2x)\text{.}\)</span> Thus, the integration by parts formula gives</div>
+<div class="displaymath process-math" id="integration-by-parts-7-3-1-1-1-1-7">
+\begin{equation*}
+\int x\sin(2x)\ dx = x \left(-\frac{1}{2}\cos(2x)\right) - \int \left(-\frac{1}{2}\cos(2x) \right) dx.
+\end{equation*}
+</div>
+<div class="para">This last integral we can compute directly, again requiring a substitution. Thus, the final answer is</div>
+<div class="displaymath process-math" id="integration-by-parts-7-3-1-1-1-1-8">
+\begin{equation*}
+\int x\sin(2x)\ dx = -\frac{x}{2}\cos(2x) + \frac{1}{4}\sin(2x) + C.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#integration-by-parts-7-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#integration-by-parts-7-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="integration-by-parts-7-3-1-1-2">
+<div class="para logical" id="integration-by-parts-7-3-1-1-2-1">
+<div class="para">By the same argument as the first example, we want to pick <span class="process-math">\(u = 3x^2\)</span> so then <span class="process-math">\(dv = e^{4x} dx\text{.}\)</span> We can then compute that <span class="process-math">\(du = 6x\ dx\)</span> and <span class="process-math">\(v = \frac{1}{4}e^{4x}\text{.}\)</span> Thus, integration by parts gives</div>
+<div class="displaymath process-math" id="integration-by-parts-7-3-1-1-2-1-5">
+\begin{equation*}
+\int 3x^2e^{4x}\ dx = 3x^2\left(\frac{1}{4}e^{4x}\right) - \int \left(\frac{1}{4}e^{4x}\right) (6x \ dx) = \frac{3}{4}x^2e^{4x}- \int \frac{3}{2} xe^{4x}\ dx.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#integration-by-parts-7-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="integration-by-parts-7-3-1-1-2-2">
+<div class="para">This last integral is not something that we know how to compute. However, it looks like a product, so we should be able to work it out using integration by parts. We can set <span class="process-math">\(u = \frac{3}{2}x\)</span> and <span class="process-math">\(dv = e^{4x}\ dx\text{.}\)</span> This is the same <span class="process-math">\(dv\)</span> as before, which is good. If we had picked <span class="process-math">\(dv = \frac{3}{2}x\ dx\text{,}\)</span> we would have just gotten back to where we started. From these choices, we get that <span class="process-math">\(du = \frac{3}{2}\ dx\)</span> and <span class="process-math">\(v = \frac{1}{4} e^{4x}\text{.}\)</span> Integration by parts then gives that</div>
+<div class="displaymath process-math" id="integration-by-parts-7-3-1-1-2-2-7">
+\begin{equation*}
+\int \frac{3}{2} xe^{4x}\ dx = \frac{3}{8}xe^{4x} - \int \frac{3}{8}e^{4x}\ dx.
+\end{equation*}
+</div>
+<div class="para">Now we can compute this last integral, which will give another factor of <span class="process-math">\(\frac{1}{4}\text{,}\)</span> resulting in</div>
+<div class="displaymath process-math" id="integration-by-parts-7-3-1-1-2-2-9">
+\begin{equation*}
+\int \frac{3}{2} xe^{4x}\ dx = \frac{3}{8}xe^{4x} - \frac{3}{32}e^{4x} + C.
+\end{equation*}
+</div>
+<div class="para">Finally, we can combine this with our first integration by parts step to get that</div>
+<div class="displaymath process-math" id="integration-by-parts-7-3-1-1-2-2-10">
+\begin{equation*}
+\int 3x^2e^{4x}\ dx =  \frac{3}{4}x^2e^{4x}- \frac{3}{8}xe^{4x} + \frac{3}{32}e^{4x} + C.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#integration-by-parts-7-3-1-1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#integration-by-parts-7-3-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="integration-by-parts-7-3-1-1-3">
+<div class="para logical" id="integration-by-parts-7-3-1-1-3-1">
+<div class="para">For this example, we have both an exponential and a trigonometric function. We can pick either one to be <span class="process-math">\(u\)</span> and <span class="process-math">\(dv\text{,}\)</span> and as long as we are consistent with that choice, we will get to the correct answer. For this, we will choose <span class="process-math">\(u = e^{2x}\)</span> and <span class="process-math">\(dv = \cos(3x)\ dx\text{.}\)</span> From these, we can compute that <span class="process-math">\(du = 2e^{2x}\ dx\)</span> and <span class="process-math">\(v = \frac{1}{3}\sin(3x)\text{.}\)</span> Thus, integration by parts tells us that</div>
+<div class="displaymath process-math" id="integration-by-parts-7-3-1-1-3-1-7">
+\begin{equation*}
+\int e^{2x}\cos(3x)\ dx = \frac{1}{3}e^{2x}\sin(3x) - \int \frac{2}{3}e^{2x}\sin(3x)\ dx.
+\end{equation*}
+</div>
+<div class="para">This new integral is again a product, so we need to handle it using integration by parts. To do this, we are going to pick <span class="process-math">\(u = \frac{2}{3}e^{2x}\)</span> and <span class="process-math">\(dv = \sin(3x)\ dx\text{.}\)</span> <em class="emphasis">Note:</em> If you pick <span class="process-math">\(u = \sin(3x)\)</span> and <span class="process-math">\(dv = \frac{2}{3}e^{2x}\ dx\text{,}\)</span> the second integration by parts will just give that</div>
+<div class="displaymath process-math" id="integration-by-parts-7-3-1-1-3-1-13">
+\begin{equation*}
+\int e^{2x}\cos(3x) \ dx = \int e^{2x}\cos(3x)\ dx
+\end{equation*}
+</div>
+<div class="para">which does not help in solving the problem. With the correct choice of <span class="process-math">\(u\)</span> and <span class="process-math">\(dv\text{,}\)</span> <span class="process-math">\(u = \frac{2}{3}e^{2x}\)</span> and <span class="process-math">\(dv = \sin(3x)\ dx\text{,}\)</span> we have that <span class="process-math">\(du = \frac{4}{3}e^{2x}\ dx\)</span> and <span class="process-math">\(v = -\frac{1}{3}\cos(3x)\text{,}\)</span> so that integration by parts tells us that</div>
+<div class="displaymath process-math" id="integration-by-parts-7-3-1-1-3-1-20">
+\begin{equation*}
+\int \frac{2}{3}e^{2x}\sin(3x)\ dx = -\frac{2}{9}e^{2x}\cos(3x) - \int - \frac{4}{9}e^{2x}\cos(3x)\ dx.
+\end{equation*}
+</div>
+<div class="para">Combining this with our first integration by parts gives</div>
+<div class="displaymath process-math" id="integration-by-parts-7-3-1-1-3-1-21">
+\begin{equation*}
+\begin{split}
+\int e^{2x}\cos(3x)\ dx &amp;= \frac{1}{3}e^{2x}\sin(3x) - \int \frac{2}{3}e^{2x}\sin(3x)\ dx \\
+&amp;= \frac{1}{3}e^{2x}\sin(3x)  + \frac{2}{9}e^{2x}\cos(3x) - \int \frac{4}{9}e^{2x}\cos(3x)\ dx \\
+\int e^{2x}\cos(3x)\ dx &amp;= \frac{1}{3}e^{2x}\sin(3x)  + \frac{2}{9}e^{2x}\cos(3x)- \frac{4}{9}\int e^{2x}\cos(3x)\ dx.
+\end{split}
+\end{equation*}
+</div>
+<div class="para">In this case, we can see that the integral on the left matches the integral on the right. If we combine these on the left side, we get</div>
+<div class="displaymath process-math" id="integration-by-parts-7-3-1-1-3-1-22">
+\begin{equation*}
+\frac{13}{9} \int e^{2x}\cos(3x)\ dx = \frac{1}{3}e^{2x}\sin(3x)  + \frac{2}{9}e^{2x}\cos(3x)
+\end{equation*}
+</div>
+<div class="para">which then allows us to solve for the answers as</div>
+<div class="displaymath process-math" id="integration-by-parts-7-3-1-1-3-1-23">
+\begin{equation*}
+\int e^{2x}\cos(3x)\ dx = \frac{3}{13}e^{2x}\sin(3x)  + \frac{2}{13}e^{2x}\cos(3x).
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#integration-by-parts-7-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#integration-by-parts-7-3-1-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#integration-by-parts-7-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.3.7.1"><a href="#integration-by-parts-7-3" title="Copy heading and permalink for Solution 7.3.7.1" aria-label="Copy heading and permalink for Solution 7.3.7.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 7.3.7: "><a href="#integration-by-parts-7" title="Copy heading and permalink for Example 7.3.7: " aria-label="Copy heading and permalink for Example 7.3.7: ">🔗</a></div></article></details><div class="autopermalink" data-description="Subsubsection: Integration by Parts"><a href="#integration-by-parts" title="Copy heading and permalink for Subsubsection: Integration by Parts" aria-label="Copy heading and permalink for Subsubsection: Integration by Parts">🔗</a></div></section><section class="subsubsection" id="partial-fractions"><h4 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Partial Fractions</span>
+</h4>
+<div class="para logical" id="partial-fractions-2">
+<div class="para">Another integration technique that shows up frequently when dealing with rational functions is the method of partial fractions. This method works around decomposing a rational function into forms that we are able to integrate. For example, we do not have a formula or method to compute the integral</div>
+<div class="displaymath process-math" id="partial-fractions-2-1">
+\begin{equation*}
+\int \frac{3}{x^2 - x - 2} \ dx.
+\end{equation*}
+</div>
+<div class="para">since there is no simple function whose derivative is <span class="process-math">\(\frac{3}{x^2 - x - 2}\text{.}\)</span> What functions like this can we integrate?</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="partial-fractions-3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.3.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h5></summary><article class="example example-like knowl__content"><div class="para logical" id="partial-fractions-3-2-1">
+<div class="para">Compute the following antiderivatives</div>
+<div class="displaymath process-math" id="partial-fractions-3-2-1-1">
+\begin{equation*}
+\text{(a) } \int \frac{1}{x-2} \ dx \qquad \text{(b) } \int \frac{1}{x^2 + 4}\ dx \qquad \text{(c) } \int \frac{x}{x^2 + 9}\ dx.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="partial-fractions-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="partial-fractions-3-3-1">
+<ol class="decimal" id="partial-fractions-3-3-1-1">
+<li id="partial-fractions-3-3-1-1-1">
+<div class="para logical" id="partial-fractions-3-3-1-1-1-1">
+<div class="para">This integral can be computed by a substitution <span class="process-math">\(u = x-2\text{,}\)</span>
+</div>
+<div class="displaymath process-math" id="partial-fractions-3-3-1-1-1-1-2">
+\begin{equation*}
+\int \frac{1}{x-2}\ dx = \int \frac{1}{u}\ du = \ln|x-2| + C.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-3-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#partial-fractions-3-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="partial-fractions-3-3-1-1-2">
+<div class="para logical" id="partial-fractions-3-3-1-1-2-1">
+<div class="para">This integral is another substitution, but the goal here is arctangent, not a logarithm. We let <span class="process-math">\(u = \nicefrac{x}{2}\text{,}\)</span> so that <span class="process-math">\(du = \nicefrac{1}{2}\ dx\text{,}\)</span> and then</div>
+<div class="displaymath process-math" id="partial-fractions-3-3-1-1-2-1-3">
+\begin{equation*}
+\int \frac{1}{x^2 + 4}\ dx = \int \frac{1}{4u^2 + 4} 2\ du = \frac{1}{2} \int \frac{1}{u^2 + 1}\ du = \frac{1}{2} \arctan\left( \frac{x}{2} \right) + C.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-3-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#partial-fractions-3-3-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="partial-fractions-3-3-1-1-3">
+<div class="para logical" id="partial-fractions-3-3-1-1-3-1">
+<div class="para">With an <span class="process-math">\(x\)</span> on top of the expression, we can now use a substitution <span class="process-math">\(u = x^2 + 9\)</span> to solve the integral.</div>
+<div class="displaymath process-math" id="partial-fractions-3-3-1-1-3-1-3">
+\begin{equation*}
+\int \frac{x}{x^2 + 9}\ dx = \frac{1}{2} \int \frac{1}{u}\ du = \frac{1}{2} \ln|x^2 + 9| + C.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-3-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#partial-fractions-3-3-1-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.3.8.1"><a href="#partial-fractions-3-3" title="Copy heading and permalink for Solution 7.3.8.1" aria-label="Copy heading and permalink for Solution 7.3.8.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 7.3.8: "><a href="#partial-fractions-3" title="Copy heading and permalink for Example 7.3.8: " aria-label="Copy heading and permalink for Example 7.3.8: ">🔗</a></div></article></details><div class="para" id="partial-fractions-4">So, we can handle these types of integrals, but that doesn’t necessarily help us with the initial one. Let’s take a look at another example.<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="partial-fractions-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.3.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h5></summary><article class="example example-like knowl__content"><div class="para logical" id="partial-fractions-5-2-1">
+<div class="para">Compute</div>
+<div class="displaymath process-math" id="partial-fractions-5-2-1-1">
+\begin{equation*}
+\int \frac{1}{x-2} - \frac{1}{x+1}\ dx.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="partial-fractions-5-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="partial-fractions-5-3-1">
+<div class="para">This integral can be computed by splitting it into the two terms present. Each of those we know how to evaluate using the previous example. Thus, we have that</div>
+<div class="displaymath process-math" id="partial-fractions-5-3-1-1">
+\begin{equation*}
+\int \frac{1}{x-2} - \frac{1}{x+1}\ dx = \ln(|x-2|) - \ln(|x+1|) + C = \ln\left(\frac{|x-2|}{|x+1|}\right) + C.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-5-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.3.9.1"><a href="#partial-fractions-5-3" title="Copy heading and permalink for Solution 7.3.9.1" aria-label="Copy heading and permalink for Solution 7.3.9.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 7.3.9: "><a href="#partial-fractions-5" title="Copy heading and permalink for Example 7.3.9: " aria-label="Copy heading and permalink for Example 7.3.9: ">🔗</a></div></article></details><div class="para logical" id="partial-fractions-6">
+<div class="para">This is great! However, we can compute that, by adding fractions</div>
+<div class="displaymath process-math" id="partial-fractions-6-1">
+\begin{equation*}
+\frac{1}{x-2} - \frac{1}{x+1} = \frac{(x+1)-(x-2)}{(x-2)(x+1)} = \frac{3}{x^2 - x - 2}.
+\end{equation*}
+</div>
+<div class="para">So this gives us a way to compute the original integral of this section, and we now know that</div>
+<div class="displaymath process-math" id="partial-fractions-6-2">
+\begin{equation*}
+\int \frac{3}{x^2 - x - 2} \ dx = \ln\left(\frac{|x-2|}{|x+1|}\right) + C.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="partial-fractions-7">
+<div class="para">This gives an idea for how we may be able to evaluate integrals of rational functions. In the case of the integral above, we would need to figure out a way to convert between</div>
+<div class="displaymath process-math" id="partial-fractions-7-1">
+\begin{equation*}
+\frac{3}{x^2 - x - 2} \text{ and } \frac{1}{x-2} - \frac{1}{x+1},
+\end{equation*}
+</div>
+<div class="para">that is, we need to split the complicated fraction into the smaller, simpler that we can integrate. Based on our work in , we know that we can integrate functions that have a linear term in the denominator and a quadratic term in the denominator, and the process of putting these fractions together into a single term involves multiplying the individual denominators together. This gives the motivation for the method of partial fractions for integrating rational functions:</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="partial-fractions-8">
+<ol class="decimal" id="partial-fractions-8-1">
+<li id="partial-fractions-8-1-1">
+<div class="para" id="partial-fractions-8-1-1-1">Factor the denominator of the function we need to integrate. Any polynomial can be factored into linear terms (terms like <span class="process-math">\(x-a\)</span>) or irreducible quadratic terms (terms like <span class="process-math">\(x^2 + 4\)</span> or <span class="process-math">\(x^2 + 2x + 5\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-8-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#partial-fractions-8-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="partial-fractions-8-1-2">
+<div class="para" id="partial-fractions-8-1-2-1">Write an expression with unknown coefficients for each factor in the expression. If it is a linear term, it will need just a single constant, but if there is a quadratic term, it needs a numerator of the form <span class="process-math">\(Ax + B\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-8-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#partial-fractions-8-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="partial-fractions-8-1-3">
+<div class="para" id="partial-fractions-8-1-3-1">Solve for the necessary constants (more on this later).<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-8-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#partial-fractions-8-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="partial-fractions-8-1-4">
+<div class="para" id="partial-fractions-8-1-4-1">Integrate each of the resulting expressions, which are all forms where we know the antiderivative.<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-8-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#partial-fractions-8-1-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+<li id="partial-fractions-8-1-5">
+<div class="para" id="partial-fractions-8-1-5-1">Combine the terms into a single expression.<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-8-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5"><a href="#partial-fractions-8-1-5" title="Copy heading and permalink for Item 5" aria-label="Copy heading and permalink for Item 5">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="partial-fractions-9">The process is best shown through an example.<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="partial-fractions-10" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.3.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h5></summary><article class="example example-like knowl__content"><div class="para logical" id="partial-fractions-10-2-1">
+<div class="para">Compute</div>
+<div class="displaymath process-math" id="partial-fractions-10-2-1-1">
+\begin{equation*}
+\int \frac{3x + 1}{x^3 - x^2 - 12x}\ dx.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-10-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="partial-fractions-10-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="partial-fractions-10-3-1">
+<div class="para">We start by factoring the denominator. We can factor an <span class="process-math">\(x\)</span> out of each term, and then the resulting quadratic can be factored. Since</div>
+<div class="displaymath process-math" id="partial-fractions-10-3-1-2">
+\begin{equation*}
+x^3 - x^2 - 12x = x(x+3)(x-4)
+\end{equation*}
+</div>
+<div class="para">we want to figure out coefficients <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\text{,}\)</span> and <span class="process-math">\(C\)</span> so that</div>
+<div class="displaymath process-math" id="partial-fractions-10-3-1-6">
+\begin{equation*}
+\frac{3x + 1}{x^3 - x^2 - 12x} = \frac{A}{x} + \frac{B}{x+3} + \frac{C}{x-4} 
+\end{equation*}
+</div>
+<div class="para">where we have one term per factor of the denominator. In order to find these constants, our first trick is to multiply both sides of this equation by the entire denominator on the left. This gives</div>
+<div class="displaymath process-math" id="eq-PFSetup1">
+\begin{equation}
+3x+1 = A(x+3)(x-4) + B(x)(x-4) + C(x)(x+3)\tag{7.3.1}
+\end{equation}
+</div>
+<div class="para">where we have cancelled the appropriate terms from the top and bottom of each expression. One way to go from here to the constants is to expand out the right-hand side and recognize that for these two sides to be equal for all <span class="process-math">\(x\text{,}\)</span> the coefficient of <span class="process-math">\(x^2\text{,}\)</span> <span class="process-math">\(x\text{,}\)</span> and the constant term must match. This will result in solve a system of 3 equations.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-10-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="partial-fractions-10-3-2">
+<div class="para">An easier approach to doing this is to plug values for <span class="process-math">\(x\)</span> into each side, and to pick those values cleverly. One clever choice for <a href="sec-derivInt.html#eq-PFSetup1" class="xref" data-knowl="./knowl/xref/eq-PFSetup1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 7.3.1">(7.3.1)</a> is to set <span class="process-math">\(x=0\text{.}\)</span> If we do that, both the <span class="process-math">\(B\)</span> and <span class="process-math">\(C\)</span> terms will go away, because they are multiplied by zero. Thus, if we plug in zero, we get</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-PFSetup1.html" id="partial-fractions-10-3-2-6">
+\begin{equation*}
+1 = -12A + 0 + 0
+\end{equation*}
+</div>
+<div class="para">which implies that <span class="process-math">\(A = -\nicefrac{1}{12}\text{.}\)</span> For the next term, we can plug in <span class="process-math">\(-3\)</span> to make the <span class="process-math">\(x+3\)</span> terms go away, resulting in</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-PFSetup1.html" id="partial-fractions-10-3-2-10">
+\begin{equation*}
+-8 = B(-3)(-7)
+\end{equation*}
+</div>
+<div class="para">so that <span class="process-math">\(B = -\nicefrac{8}{21}\text{.}\)</span> Plugging in <span class="process-math">\(x=4\)</span> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-PFSetup1.html" id="partial-fractions-10-3-2-13">
+\begin{equation*}
+13 = C(4)(7)
+\end{equation*}
+</div>
+<div class="para">so that <span class="process-math">\(C = \nicefrac{13}{28}\text{.}\)</span> Therefore, we can write that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-PFSetup1.html" id="partial-fractions-10-3-2-15">
+\begin{equation*}
+\frac{3x + 1}{x^3 - x^2 - 12x} = \frac{-\nicefrac{1}{12}}{x} + \frac{ -\nicefrac{8}{21}}{x+3} + \frac{\nicefrac{13}{28}}{x-4}
+\end{equation*}
+</div>
+<div class="para">Then, we can integrate both sides to get that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-PFSetup1.html" id="partial-fractions-10-3-2-16">
+\begin{equation*}
+\int \frac{3x + 1}{x^3 - x^2 - 12x}\ dx = -\frac{1}{12}\ln(|x|) - \frac{8}{21}\ln(|x+3|) + \frac{13}{28} \ln(|x-4|) + C.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-10-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.3.10.1"><a href="#partial-fractions-10-3" title="Copy heading and permalink for Solution 7.3.10.1" aria-label="Copy heading and permalink for Solution 7.3.10.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 7.3.10: "><a href="#partial-fractions-10" title="Copy heading and permalink for Example 7.3.10: " aria-label="Copy heading and permalink for Example 7.3.10: ">🔗</a></div></article></details><div class="para" id="partial-fractions-11">The same type of approach applies if there are irreducible quadratics in the expression.<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="partial-fractions-12" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.3.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h5></summary><article class="example example-like knowl__content"><div class="para logical" id="partial-fractions-12-2-1">
+<div class="para">Compute</div>
+<div class="displaymath process-math" id="partial-fractions-12-2-1-1">
+\begin{equation*}
+\int \frac{2x^2 - 6}{x^3 - x^2 + 4x - 4}\ dx.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-12-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="partial-fractions-12-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="partial-fractions-12-3-1">
+<div class="para">The denominator can be factored as <span class="process-math">\((x^2 + 4)(x-1)\text{,}\)</span> which can be determined by grouping. This means that to do the partial fraction decomposition, we need to find coefficients <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\text{,}\)</span> and <span class="process-math">\(C\)</span> so that</div>
+<div class="displaymath process-math" id="partial-fractions-12-3-1-5">
+\begin{equation*}
+\frac{2x^2 - 6}{x^3 - x^2 + 4x - 4} = \frac{Ax + B}{x^2 + 4} + \frac{C}{x-1}.
+\end{equation*}
+</div>
+<div class="para">Note that the <span class="process-math">\(x^2 + 4\)</span> term has <span class="process-math">\(Ax + B\)</span> on top instead of just <span class="process-math">\(A\text{.}\)</span> This is because the term on the bottom is a quadratic, and there will always be a number of coefficients on top that matches the degree of the term in the denominator. By multiplying both sides by the denominator will give the equation</div>
+<div class="displaymath process-math" id="partial-fractions-12-3-1-9">
+\begin{equation*}
+2x^2 - 6 = (Ax + B)(x-1) + C(x^2 + 4)
+\end{equation*}
+</div>
+<div class="para">where we need to find the appropriate constants. In this case, we can plug in <span class="process-math">\(x=1\)</span> to determine that <span class="process-math">\(-4 = 5C\)</span> or <span class="process-math">\(C = -\nicefrac{4}{5}\text{.}\)</span> However, there is no value we can plug in to make <span class="process-math">\(x^2 + 4 = 0\text{.}\)</span> We could use complex numbers here, but assuming we don’t want to do that, we can plug in any two numbers and go from there. Plugging in <span class="process-math">\(x=0\)</span> is nice because it makes the <span class="process-math">\(A\)</span> term go away, resulting in</div>
+<div class="displaymath process-math" id="partial-fractions-12-3-1-16">
+\begin{equation*}
+-6 = B(-1) + C(4) = -B - \frac{16}{5}
+\end{equation*}
+</div>
+<div class="para">which we can solve to get <span class="process-math">\(B = \nicefrac{14}{5}\text{.}\)</span> Finally, we can plug in any other number for <span class="process-math">\(x\)</span> to get an equation to solve for <span class="process-math">\(A\text{.}\)</span> Let’s use <span class="process-math">\(-1\)</span> to give that</div>
+<div class="displaymath process-math" id="partial-fractions-12-3-1-21">
+\begin{equation*}
+-4 = \left(-A + \frac{14}{5}\right)(-2) + \left(-\frac{4}{5}\right)(5) = 2A - \frac{28}{5} - 4
+\end{equation*}
+</div>
+<div class="para">which gives that <span class="process-math">\(A = -\nicefrac{14}{5}\text{.}\)</span> Therefore, we can write</div>
+<div class="displaymath process-math" id="partial-fractions-12-3-1-23">
+\begin{equation*}
+\frac{2x^2 - 6}{x^3 - x^2 + 4x - 4} = \frac{-\nicefrac{14}{5}x + \nicefrac{14}{5}}{x^2 + 4} + \frac{-\nicefrac{4}{5}}{x-1}.
+\end{equation*}
+</div>
+<div class="para">Therefore, we can write the integral we want to compute as</div>
+<div class="displaymath process-math" id="partial-fractions-12-3-1-24">
+\begin{equation*}
+\begin{split}
+\int \frac{2x^2 - 6}{x^3 - x^2 + 4x - 4}\ dx &amp;= \int  \frac{-\nicefrac{14}{5}x + \nicefrac{14}{5}}{x^2 + 4} + \frac{-\nicefrac{4}{5}}{x-1}\ dx \\
+&amp;= -\frac{14}{5} \int \frac{x}{x^2 + 4}\ dx + \frac{14}{5} \int \frac{1}{x^2 + 4}\ dx - \frac{4}{5} \int \frac{1}{x-1}\ dx \\
+&amp;= -\frac{7}{5}\ln(|x^2 + 4|) + \frac{7}{5} \arctan\left(\frac{x}{2}\right) - \frac{4}{5}\ln(|x-1|) + C
+\end{split}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-12-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.3.11.1"><a href="#partial-fractions-12-3" title="Copy heading and permalink for Solution 7.3.11.1" aria-label="Copy heading and permalink for Solution 7.3.11.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 7.3.11: "><a href="#partial-fractions-12" title="Copy heading and permalink for Example 7.3.11: " aria-label="Copy heading and permalink for Example 7.3.11: ">🔗</a></div></article></details><div class="para" id="partial-fractions-13">There are a few extra complications that can result from using this method.<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="partial-fractions-14">
+<ol class="decimal" id="partial-fractions-14-1">
+<li id="partial-fractions-14-1-1">
+<div class="para" id="partial-fractions-14-1-1-1">If there is an irreducible quadratic like <span class="process-math">\(x^2 + 2x + 5\)</span> in the denominator, we will want to separate that out and complete the square before integrating. In this case, we have <span class="process-math">\(x^2 + 2x + 5 = (x+1)^2 + 4\text{,}\)</span> so we will want to use <span class="process-math">\(A(x+1) + B\)</span> when solving for coefficients (to make the u-substitution work better), and will get a slightly more complicated result.<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-14-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#partial-fractions-14-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="partial-fractions-14-1-2">
+<div class="para logical" id="partial-fractions-14-1-2-1">
+<div class="para">If there are repeated factors, like <span class="process-math">\((x-1)^2\)</span> in the denominator, we need to include one term in the partial fraction expansion for every power of that factor. For instance, the expansion should look like</div>
+<div class="displaymath process-math" id="partial-fractions-14-1-2-1-2">
+\begin{equation*}
+\frac{1}{(x+1)(x-3)^3} = \frac{A}{x+1} + \frac{B}{x-3} + \frac{C}{(x-3)^2} + \frac{D}{(x-3)^3}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-14-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#partial-fractions-14-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="partial-fractions-14-1-3">
+<div class="para" id="partial-fractions-14-1-3-1">If the rational function has an equal or higher degree in the numerator than in the denominator, we will need to do long division to remove a standard polynomial (which we know how to integrate) and a proper rational function that can be integrated using partial fractions.<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-14-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#partial-fractions-14-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="partial-fractions-15">Combining all of these techniques together will allow us to integrate pretty much any rational function that we need for a given application.<div class="autopermalink" data-description="Paragraph"><a href="#partial-fractions-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsubsection: Partial Fractions"><a href="#partial-fractions" title="Copy heading and permalink for Subsubsection: Partial Fractions" aria-label="Copy heading and permalink for Subsubsection: Partial Fractions">🔗</a></div></section><div class="autopermalink" data-description="Subsection: Integration Techniques"><a href="#integration-techniques" title="Copy heading and permalink for Subsection: Integration Techniques" aria-label="Copy heading and permalink for Subsection: Integration Techniques">🔗</a></div></section><div class="autopermalink" data-description="Section 7.3: Differentiation and Integration Techniques"><a href="#sec-derivInt" title="Copy heading and permalink for Section 7.3: Differentiation and Integration Techniques" aria-label="Copy heading and permalink for Section 7.3: Differentiation and Integration Techniques">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec-complexNums.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

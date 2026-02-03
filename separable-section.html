@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Separable equations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Differential Equations">
+<meta property="book:author" content="Matt Charnley">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.11.12';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.0d5f811896ddeac1.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.e2abc79debce15fd.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Differential Equations</span> <span class="subtitle">An Introduction for Engineers</span></a></h1>
+<p class="byline">Matt Charnley</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="slopefields-section.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="fo-chapter.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="intfactor-section.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="intro-chapter.html" class="internal"><span class="codenumber">0</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introde-section.html" class="internal"><span class="codenumber">0.1</span> <span class="title">Introduction to differential equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#differential-equations" class="internal"><span class="title">Differential equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#solutions-of-differential-equations" class="internal"><span class="title">Solutions of differential equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#differential-equations-in-practice" class="internal"><span class="title">Differential equations in practice</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#subsection-fourfundamental" class="internal"><span class="title">Four fundamental equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="introde-section.html#introde-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="classification-section.html" class="internal"><span class="codenumber">0.2</span> <span class="title">Classification of differential equations</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="classification-section.html#classification-section-16" class="internal"><span class="codenumber">0.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="fo-chapter.html" class="internal"><span class="codenumber">1</span> <span class="title">First Order Differential Equations</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="integralsols-section.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Integrals as solutions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="integralsols-section.html#integralsols-section-14" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="slopefields-section.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Slope fields</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slopefields-section.html#slope-fields" class="internal"><span class="title">Slope fields</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="slopefields-section.html#slopefields-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="separable-section.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Separable equations</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable-section.html#separable-equations" class="internal"><span class="title">Separable equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable-section.html#implicit-solutions" class="internal"><span class="title">Implicit solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable-section.html#examples-of-separable-equations" class="internal"><span class="title">Examples of separable equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="separable-section.html#separable-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="intfactor-section.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Linear equations and the integrating factor</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="intfactor-section.html#intfactor-section-18" class="internal"><span class="codenumber">1.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="existunique-section.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Existence and Uniqueness of Solutions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="existunique-section.html#existunique-section-18" class="internal"><span class="codenumber">1.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="numer-section.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Numerical methods: Euler’s method</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="numer-section.html#numer-section-23" class="internal"><span class="codenumber">1.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="auteq-section.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Autonomous equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auteq-section.html#subsec-autoIntro" class="internal"><span class="title">Introduction and Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auteq-section.html#concavity-of-solutions" class="internal"><span class="title">Concavity of Solutions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="auteq-section.html#auteq-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="bifDiag-section.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Bifurcation diagrams</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="bifDiag-section.html#bifDiag-section-13" class="internal"><span class="codenumber">1.8</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="exact-section.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Exact equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact-section.html#subsec-exactIntro" class="internal"><span class="title">exactIntro</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact-section.html#solving-exact-equations" class="internal"><span class="title">Solving exact equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact-section.html#integrating-factors" class="internal"><span class="title">Integrating factors</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exact-section.html#exact-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="modelfirst-section.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Modeling with First Order Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="modelfirst-section.html#principles-of-mathematical-modeling" class="internal"><span class="title">Principles of Mathematical Modeling</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="modelfirst-section.html#the-accumulation-equation" class="internal"><span class="title">The Accumulation Equation</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="modelfirst-section.html#modelfirst-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="modelfirstestim-section.html" class="internal"><span class="codenumber">1.11</span> <span class="title">Modeling and Parameter Estimation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="modelfirstestim-section.html#modelfirstestim-section-10" class="internal"><span class="codenumber">1.11</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="substitution-section.html" class="internal"><span class="codenumber">1.12</span> <span class="title">Substitution</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution-section.html#bernoulli-equations" class="internal"><span class="title">Bernoulli equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution-section.html#homogeneous-equations" class="internal"><span class="title">Homogeneous equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="substitution-section.html#substitution-section-10" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ho-chapter.html" class="internal"><span class="codenumber">2</span> <span class="title">Higher Order Linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="solinear-section.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Second order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#intial-value-problems" class="internal"><span class="title">Intial Value Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#constant-coefficient-equations---real-and-distinct-roots" class="internal"><span class="title">Constant Coefficient Equations - Real and Distinct Roots</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#linear-independence-soeq" class="internal"><span class="title">Linear Independence</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="solinear-section.html#solinear-section-17" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="complexroots-section.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Complex Roots and Euler’s Formula</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="complexroots-section.html#complex-roots" class="internal"><span class="title">Complex roots</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="complexroots-section.html#complexroots-section-13" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="reproots-section.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Repeated Roots and Reduction of Order</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="reproots-section.html#reproots-section-11" class="internal"><span class="codenumber">2.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-mv.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Mechanical vibrations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-mv.html#free-undamped-motion" class="internal"><span class="title">Free undamped motion</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-mv.html#free-damped-motion" class="internal"><span class="title">Free damped motion</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-mv.html#overdamping" class="internal"><span class="title">Overdamping</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-mv.html#critical-damping" class="internal"><span class="title">Critical damping</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-mv.html#underdamping" class="internal"><span class="title">Underdamping</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-mv.html#physical-applications-and-vertical-mass-spring-systems" class="internal"><span class="title">Physical Applications and Vertical Mass-Spring Systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-mv.html#sec-mv-20" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-nonhom.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Nonhomogeneous equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#solving-nonhomogeneous-equations" class="internal"><span class="title">Solving nonhomogeneous equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#undetermined-coefficients-eqns" class="internal"><span class="title">Undetermined coefficients</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#variation-of-parameters-eqns" class="internal"><span class="title">Variation of parameters</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-nonhom.html#sec-nonhom-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="forcedo-section.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Forced oscillations and resonance</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="forcedo-section.html#undamped-forced-motion-and-resonance" class="internal"><span class="title">Undamped forced motion and resonance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="forcedo-section.html#damped-forced-motion-and-practical-resonance" class="internal"><span class="title">Damped forced motion and practical resonance</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="forcedo-section.html#forcedo-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-hol.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Higher order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#linear-independence-hoeq" class="internal"><span class="title">Linear independence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#constant-coefficient-higher-order-odes" class="internal"><span class="title">Constant coefficient higher order ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#non-homogeneous-equations" class="internal"><span class="title">Non-Homogeneous Equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-hol.html#sec-hol-11" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="linalg-appendix.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="vecsandmaps-section.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Vectors, mappings, and matrices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="vecsandmaps-section.html#vectors-and-operations-on-vectors" class="internal"><span class="title">Vectors and operations on vectors</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#linear-combinations-and-linear-independence" class="internal"><span class="title">Linear Combinations and Linear Independence</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#matrices" class="internal"><span class="title">Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#linear-mappings-and-matrices" class="internal"><span class="title">Linear mappings and matrices</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="vecsandmaps-section.html#vecsandmaps-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="matalg-section.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Matrix algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#one-by-one-matrices" class="internal"><span class="title">One-by-one matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#matrix-addition-and-scalar-multiplication" class="internal"><span class="title">Matrix addition and scalar multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#matrix-multiplication" class="internal"><span class="title">Matrix multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#some-rules-of-matrix-algebra" class="internal"><span class="title">Some rules of matrix algebra</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#inverse" class="internal"><span class="title">Inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#special-types-of-matrices" class="internal"><span class="title">Special types of matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#transpose" class="internal"><span class="title">Transpose</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="matalg-section.html#matalg-section-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="elim-section.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Elimination</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#linear-systems-of-equations" class="internal"><span class="title">Linear systems of equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#row-echelon-form-and-elementary-operations" class="internal"><span class="title">Row echelon form and elementary operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#non-unique-solutions-and-inconsistent-systems" class="internal"><span class="title">Non-unique solutions and inconsistent systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="elim-section.html#elim-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="det-section.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Determinant</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="det-section.html#det-section-32" class="internal"><span class="codenumber">3.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eig-section.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Eigenvalues and Eigenvectors</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#finding-eigenvalues-and-eigenvectors" class="internal"><span class="title">Finding Eigenvalues and Eigenvectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#real-eigenvalues" class="internal"><span class="title">Real Eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#complex-eigenvalues" class="internal"><span class="title">Complex Eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#repeated-eigenvalues" class="internal"><span class="title">Repeated Eigenvalues</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eig-section.html#eig-section-11" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-kernel.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Related Topics in Linear Algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#subspaces-and-span" class="internal"><span class="title">Subspaces and span</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#basis-and-dimension" class="internal"><span class="title">Basis and dimension</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#rank" class="internal"><span class="title">Rank</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#kernel" class="internal"><span class="title">Kernel</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#computing-the-inverse-adv" class="internal"><span class="title">Computing the inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#trace-and-determinant-of-matrices" class="internal"><span class="title">Trace and Determinant of Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#extension-of-previous-theorem" class="internal"><span class="title">Extension of Previous Theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-kernel.html#sec-kernel-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="sys-chapter.html" class="internal"><span class="codenumber">4</span> <span class="title">Systems of ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-introtosys.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Introduction to systems of ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#systems" class="internal"><span class="title">Systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#applications" class="internal"><span class="title">Applications</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#changing-to-first-order" class="internal"><span class="title">Changing to first order</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#autonomous-systems-and-vector-fields" class="internal"><span class="title">Autonomous systems and vector fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#picards-theorem" class="internal"><span class="title">Picard’s theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-introtosys.html#sec-introtosys-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-matrix.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Matrices and linear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#matrices-and-vectors" class="internal"><span class="title">Matrices and vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#matrix-multiplication-rev" class="internal"><span class="title">Matrix multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#the-determinant" class="internal"><span class="title">The determinant</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#solving-linear-systems" class="internal"><span class="title">Solving linear systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#computing-the-inverse" class="internal"><span class="title">Computing the inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#eigenvalues-and-eigenvectors-of-a-matrix" class="internal"><span class="title">Eigenvalues and eigenvectors of a matrix</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matrix.html#sec-matrix-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linsystems-section.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Linear systems of ODEs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linsystems-section.html#linsystems-section-17" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod-section.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Eigenvalue method</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-section.html#the-eigenvalue-method-with-distinct-real-eigenvalues" class="internal"><span class="title">The eigenvalue method with distinct real eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-section.html#phase-portraits-real" class="internal"><span class="title">Phase Portraits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-section.html#eigenmethod-section-10" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod-cplx-section.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Eigenvalue method with complex eigenvalues</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-cplx-section.html#phase-portraits-complex" class="internal"><span class="title">Phase Portraits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-cplx-section.html#eigenmethod-cplx-section-16" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod-repeat-section.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Eigenvalue method with repeated eigenvalues</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection">
+<div class="toc-title-box"><a href="eigenmethod-repeat-section.html#geometric-multiplicity" class="internal"><span class="title">Geometric multiplicity</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#defective-eigenvalues" class="internal"><span class="title">Defective eigenvalues</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#phase-portraits-repeated" class="internal"><span class="title">Phase Portraits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#eigenmethod-repeat-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-twodimaut.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Two-dimensional systems and their vector fields</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-twodimaut.html#trace-determinant-analysis" class="internal"><span class="title">Trace-Determinant Analysis</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-twodimaut.html#sec-twodimaut-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nonhomogsys-section.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Nonhomogeneous systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys-section.html#first-order-constant-coefficient" class="internal"><span class="title">First order constant coefficient</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys-section.html#diagonalization" class="internal"><span class="title">Diagonalization</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys-section.html#undetermined-coefficients-sys" class="internal"><span class="title">Undetermined coefficients</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys-section.html#first-order-variable-coefficient" class="internal"><span class="title">First order variable coefficient</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys-section.html#variation-of-parameters-sys" class="internal"><span class="title">Variation of parameters</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nonhomogsys-section.html#nonhomogsys-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sol-section.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Second order systems and applications</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol-section.html#undamped-mass-spring-systems" class="internal"><span class="title">Undamped mass-spring systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol-section.html#examples" class="internal"><span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol-section.html#forced-oscillations" class="internal"><span class="title">Forced oscillations</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sol-section.html#non-homogeneous-solutions" class="internal"><span class="title">Non-Homogeneous Solutions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sol-section.html#undetermined-coefficients-secondsys" class="internal"><span class="title">Undetermined coefficients</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sol-section.html#eigenvector-decomposition" class="internal"><span class="title">Eigenvector decomposition</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sol-section.html#sol-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-matexp.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Matrix exponentials</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#definition" class="internal"><span class="title">Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#simple-cases" class="internal"><span class="title">Simple cases</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#general-matrices" class="internal"><span class="title">General matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#fundamental-matrix-solutions" class="internal"><span class="title">Fundamental matrix solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#approximations" class="internal"><span class="title">Approximations</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-matexp.html#non-homogeneous-systems" class="internal"><span class="title">Non-Homogeneous Systems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-matexp.html#integrating-factor" class="internal"><span class="title">Integrating factor</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matexp.html#sec-matexp-8" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="nlin-chapter.html" class="internal"><span class="codenumber">5</span> <span class="title">Nonlinear Systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linearization-section.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Linearization, critical points, and stability</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#autonomous-systems-and-phase-plane-analysis" class="internal"><span class="title">Autonomous systems and phase plane analysis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#linearization" class="internal"><span class="title">Linearization</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#isolated-critical-points-and-almost-linear-systems" class="internal"><span class="title">Isolated critical points and almost linear systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#stability-and-classification-of-isolated-critical-points" class="internal"><span class="title">Stability and classification of isolated critical points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#the-trouble-with-centers" class="internal"><span class="title">The trouble with centers</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linearization-section.html#linearization-section-12" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nlinHamiltonian-section.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Behavior of non-linear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#conservative-equations" class="internal"><span class="title">Conservative equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#hamiltonian-systems" class="internal"><span class="title">Hamiltonian Systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#separatrices-and-basins-of-attractions" class="internal"><span class="title">Separatrices and Basins of Attractions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#nullclines" class="internal"><span class="title">Nullclines</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#nlinHamiltonian-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nlinapps-section.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Applications of nonlinear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#pendulum" class="internal"><span class="title">Pendulum</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#predator-prey-or-lotkavolterra-systems" class="internal"><span class="title">Predator-prey or Lotka–Volterra systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#competing-species-systems" class="internal"><span class="title">Competing Species systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinapps-section.html#nlinapps-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="limitcycles-section.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Limit cycles</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="limitcycles-section.html#limitcycles-section-28" class="internal"><span class="codenumber">5.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-chaos.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Chaos</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaos.html#duffing-equation-and-strange-attractors" class="internal"><span class="title">Duffing equation and strange attractors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaos.html#the-lorenz-system" class="internal"><span class="title">The Lorenz system</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-chaos.html#sec-chaos-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="matlab-appendix.html" class="internal"><span class="codenumber">6</span> <span class="title">Introduction to MATLAB</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="the-matlab-interface.html" class="internal"><span class="codenumber">6.1</span> <span class="title">The MATLAB Interface</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="file-structure.html" class="internal"><span class="codenumber">6.2</span> <span class="title">File Structure</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="computation-in-matlab.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Computation in MATLAB</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="variables-and-arrays.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Variables and Arrays</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="funMat-section.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Functions and Anonymous Functions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="loops-and-branching-statements.html" class="internal"><span class="codenumber">6.6</span> <span class="title">Loops and Branching Statements</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="loops-and-branching-statements.html#for-loops" class="internal"><span class="title">For Loops</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="loops-and-branching-statements.html#if-statements" class="internal"><span class="title">If Statements</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="plotting-in-matlab.html" class="internal"><span class="codenumber">6.7</span> <span class="title">Plotting in MATLAB</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="supplemental-code-files.html" class="internal"><span class="codenumber">6.8</span> <span class="title">Supplemental Code Files</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-prereq.html" class="internal"><span class="codenumber">7</span> <span class="title">Prerequisite Material</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-polys.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Polynomials and Factoring</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#definitions-and-operations" class="internal"><span class="title">Definitions and Operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#polynomial-long-division" class="internal"><span class="title">Polynomial Long Division</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#synthetic-division" class="internal"><span class="title">Synthetic Division</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-complexNums.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Complex Numbers</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-derivInt.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Differentiation and Integration Techniques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivInt.html#derivative-and-integral-formulas" class="internal"><span class="title">Derivative and Integral Formulas</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-derivInt.html#derivative-rules" class="internal"><span class="title">Derivative Rules</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#linearity-of-the-derivative-and-integral" class="internal"><span class="title">Linearity of the Derivative and Integral</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#product-and-quotient-rule" class="internal"><span class="title">Product and Quotient Rule</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#chain-rule" class="internal"><span class="title">Chain Rule</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-derivInt.html#integration-techniques" class="internal"><span class="title">Integration Techniques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#substitution" class="internal"><span class="title">Substitution</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#integration-by-parts" class="internal"><span class="title">Integration by Parts</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#partial-fractions" class="internal"><span class="title">Partial Fractions</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-references"><div class="toc-title-box"><a href="references.html" class="internal"><span class="title">References</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-3.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="separable-section"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Separable equations</span>
+</h2>
+<article class="objectives goal-like" id="separable-section-2"><h3 class="heading"><span class="type">Objectives</span></h3>
+<div class="introduction" id="separable-section-2-1"><div class="para" id="separable-section-2-1-1">After this section, you will be able to:<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<ul class="disc" id="separable-section-2-2">
+<li id="separable-section-2-2-1">
+<div class="para" id="separable-section-2-2-1-1">Identify when a differential equation is separable.<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#separable-section-2-2-1" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="separable-section-2-2-2">
+<div class="para" id="separable-section-2-2-2-1">Find the general solution of a separable differential equation, and<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#separable-section-2-2-2" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="separable-section-2-2-3">
+<div class="para" id="separable-section-2-2-3-1">Solve initial value problems for separable differential equations.<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#separable-section-2-2-3" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Objectives 1.3"><a href="#separable-section-2" title="Copy heading and permalink for Objectives 1.3" aria-label="Copy heading and permalink for Objectives 1.3">🔗</a></div></article><section class="introduction" id="separable-section-3"><div class="para" id="separable-section-3-1">As mentioned in <a href="integralsols-section.html" class="internal" title="Section 1.1: Integrals as solutions">Section 1.1</a>, when a differential equation is of the form <span class="process-math">\(y' = f(x)\text{,}\)</span> we can just integrate: <span class="process-math">\(y = \int f(x) \,dx + C\text{.}\)</span> Unfortunately this method no longer works for the general form of the equation <span class="process-math">\(y' =
+f(x,y)\text{.}\)</span> Integrating both sides yields<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="separable-section-3-2">
+<div class="displaymath process-math" id="separable-section-3-2-1">
+\begin{equation*}
+y = \int f(x,y) \, dx + C\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="separable-section-3-3">Notice the dependence on <span class="process-math">\(y\)</span> in the integral. Since <span class="process-math">\(y\)</span> is a function of <span class="process-math">\(x\text{,}\)</span> this expression is really of the form<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="separable-section-3-4">
+<div class="displaymath process-math" id="separable-section-3-4-1">
+\begin{equation*}
+y = \int f(x, y(x))\, dx + C
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="separable-section-3-5">and without knowing what <span class="process-math">\(y(x)\)</span> is in advance (which we don’t, because that’s what we are trying to solve for) we can’t compute this integral. Note that while you may have seen integrals of the form<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="separable-section-3-6">
+<div class="displaymath process-math" id="separable-section-3-6-1">
+\begin{equation*}
+\int f(x,y)\, dx
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-3-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="separable-section-3-7">in Calculus 3, this is not the same situation. In that class, <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> were both independent variables, so we could integrate this expression in <span class="process-math">\(x\text{,}\)</span> treating <span class="process-math">\(y\)</span> as a constant. However, here <span class="process-math">\(y\)</span> is a function of <span class="process-math">\(x\text{,}\)</span> so they are not both independent variables and <span class="process-math">\(y\)</span> can not be treated like a constant. If <span class="process-math">\(y\)</span> is a function of <span class="process-math">\(x\)</span> and any <span class="process-math">\(y\)</span> shows up in the integral, you can not compute it.<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-3-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><section class="subsection" id="separable-equations"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Separable equations</span>
+</h3>
+<div class="para" id="separable-equations-2">One particular type of differential equation that we can evaluate using a technique very similar to direct integration is separable equations.<div class="autopermalink" data-description="Paragraph"><a href="#separable-equations-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-separableeqn"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="def-separableeqn-1-1">We say a differential equation is <dfn class="terminology">separable</dfn> if we can write it as<div class="autopermalink" data-description="Paragraph"><a href="#def-separableeqn-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="def-separableeqn-1-2">
+<div class="displaymath process-math" id="def-separableeqn-1-2-1">
+\begin{equation*}
+y' = f(x)g(y)\text{,}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-separableeqn-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="def-separableeqn-1-3">for some functions <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(g(y)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def-separableeqn-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.3.1"><a href="#def-separableeqn" title="Copy heading and permalink for Definition 1.3.1" aria-label="Copy heading and permalink for Definition 1.3.1">🔗</a></div></article><div class="para logical" id="separable-equations-4">
+<div class="para">So a simple, short equality such as <span class="process-math">\(x=2\)</span> should not cause a problem, but if you want to claim that the probability distribution of the normal distribution has the right scaling factors, <span class="process-math">\(\int_{-\infty}^{\infty}\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}\frac{\left(x-\mu\right)^2}{\sigma}} dx = 1\text{,}\)</span> there is a good chance it will do less harm to your paragraph of you display it</div>
+<div class="displaymath process-math" id="separable-equations-4-3">
+\begin{equation*}
+\int_{-\infty}^{\infty}\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}\frac{\left(x-\mu\right)^2}{\sigma}} dx = 1
+\end{equation*}
+</div>
+<div class="para">using the <code class="code-inline tex2jax_ignore">&lt;md&gt;</code> element described next.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#separable-equations-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="separable-equations-5">
+<div class="displaymath process-math" id="separable-equations-5-1">
+\begin{equation*}
+\frac{d}{dx} \int_1^x \frac{1}{t}\, dt = \frac{1}{x}
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="separable-equations-5-2">
+\begin{equation*}
+\int_a^b f(x)\, dx = F(b) - F(a)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#separable-equations-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="separable-equations-6">
+<div class="para">Let us write the equation in the</div>
+<div class="displaymath process-math" id="separable-equations-6-1">
+\begin{equation*}
+\frac{dy}{dx} = f(x)g(y)\text{.}
+\end{equation*}
+</div>
+<div class="para">Then we rewrite the equation as</div>
+<div class="displaymath process-math" id="separable-equations-6-2">
+\begin{equation*}
+\frac{dy}{g(y)} = f(x) \,dx\text{.}
+\end{equation*}
+</div>
+<div class="para">It looks like we just separated the derivative as a fraction. The actual reasoning here is the differential from Calculus 1. This is the fact that for <span class="process-math">\(y\)</span> a function of <span class="process-math">\(x\text{,}\)</span> we know that</div>
+<div class="displaymath process-math" id="separable-equations-6-5">
+\begin{equation*}
+dy = \frac{dy}{dx} dx\text{.}
+\end{equation*}
+</div>
+<div class="para">This means that we can take the equation</div>
+<div class="displaymath process-math" id="separable-equations-6-6">
+\begin{equation*}
+\frac{dy}{dx} = f(x)g(y)\text{,}
+\end{equation*}
+</div>
+<div class="para">rearrange it as</div>
+<div class="displaymath process-math" id="separable-equations-6-7">
+\begin{equation*}
+\frac{1}{g(y)} \frac{dy}{dx} = f(x)
+\end{equation*}
+</div>
+<div class="para">and then multiply both sides by <span class="process-math">\(dx\)</span> to get</div>
+<div class="displaymath process-math" id="separable-equations-6-9">
+\begin{equation*}
+\frac{1}{g(y)} \frac{dy}{dx}\ dx = f(x) dx
+\end{equation*}
+</div>
+<div class="para">which leads to the rewritten equation above. Both sides look like something we can integrate. We obtain</div>
+<div class="displaymath process-math" id="separable-equations-6-10">
+\begin{equation*}
+\int \frac{dy}{g(y)} = \int f(x) \,dx + C\text{.}
+\end{equation*}
+</div>
+<div class="para">If we can find closed form expressions for these two integrals, we can, perhaps, solve for <span class="process-math">\(y\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#separable-equations-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="separable-equations-7" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="separable-equations-7-1-1">
+<div class="para">Solve the equation</div>
+<div class="displaymath process-math" id="separable-equations-7-1-1-1">
+\begin{equation*}
+y' = xy\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#separable-equations-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-equations-7-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="separable-equations-7-2-1">
+<div class="para">Note that <span class="process-math">\(y=0\)</span> is a solution. We will remember that fact and assume <span class="process-math">\(y
+\not =0\)</span> from now on, so that we can divide by <span class="process-math">\(y\text{.}\)</span> Write the equation as <span class="process-math">\(\frac{dy}{dx} = xy\text{.}\)</span> Then</div>
+<div class="displaymath process-math" id="separable-equations-7-2-1-5">
+\begin{equation*}
+\int \frac{dy}{y} = \int x\,dx + C\text{.}
+\end{equation*}
+</div>
+<div class="para">We compute the antiderivatives to get</div>
+<div class="displaymath process-math" id="separable-equations-7-2-1-6">
+\begin{equation*}
+\ln \, \lvert y\rvert = \frac{x^2}{2} + C\text{,}
+\end{equation*}
+</div>
+<div class="para">or</div>
+<div class="displaymath process-math" id="separable-equations-7-2-1-7">
+\begin{equation*}
+\lvert y \rvert = e^{\frac{x^2}{2} + C} = e^{\frac{x^2}{2}} e^C = D
+e^{\frac{x^2}{2}}\text{,}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(D &gt; 0\)</span> is some constant. Because <span class="process-math">\(y=0\)</span> is also a solution and because of the absolute value we can write:</div>
+<div class="displaymath process-math" id="separable-equations-7-2-1-10">
+\begin{equation*}
+y = D e^{\frac{x^2}{2}}\text{,}
+\end{equation*}
+</div>
+<div class="para">for any number <span class="process-math">\(D\)</span> (including zero or negative).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#separable-equations-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="separable-equations-7-2-2">
+<div class="para">We check:</div>
+<div class="displaymath process-math" id="separable-equations-7-2-2-1">
+\begin{equation*}
+y' = D x e^{\frac{x^2}{2}} = x \left( D e^{\frac{x^2}{2}} \right) = xy\text{.}
+\end{equation*}
+</div>
+<div class="para">Yay!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#separable-equations-7-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.3.2.1"><a href="#separable-equations-7-2" title="Copy heading and permalink for Solution 1.3.2.1" aria-label="Copy heading and permalink for Solution 1.3.2.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.3.2"><a href="#separable-equations-7" title="Copy heading and permalink for Example 1.3.2" aria-label="Copy heading and permalink for Example 1.3.2">🔗</a></div></article></details><div class="para logical" id="separable-equations-8">
+<div class="para">One particular case in which this method works very well is if the function <span class="process-math">\(f(x,y)\)</span> is only a function of <span class="process-math">\(y\text{.}\)</span> With this, we can explicitly complete the solution to equations like</div>
+<div class="displaymath process-math" id="separable-equations-8-3">
+\begin{equation*}
+y' = ky\text{.}
+\end{equation*}
+</div>
+<div class="para">reaching the solution <span class="process-math">\(y(x) = e^{kx}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#separable-equations-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="separable-equations-9">
+<div class="para">We should be a little bit more careful with this method. You may be worried that we integrated in two different variables. We seemingly did a different operation to each side. Let us work through this method more rigorously. Take</div>
+<div class="displaymath process-math" id="separable-equations-9-1">
+\begin{equation*}
+\frac{dy}{dx} = f(x)g(y)\text{.}
+\end{equation*}
+</div>
+<div class="para">We rewrite the equation as follows. Note that <span class="process-math">\(y =
+y(x)\)</span> is a function of <span class="process-math">\(x\)</span> and so is <span class="process-math">\(\frac{dy}{dx}\text{!}\)</span>
+</div>
+<div class="displaymath process-math" id="separable-equations-9-5">
+\begin{equation*}
+\frac{1}{g(y)}\,\frac{dy}{dx} = f(x)\text{.}
+\end{equation*}
+</div>
+<div class="para">We integrate both sides with respect to <span class="process-math">\(x\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="separable-equations-9-7">
+\begin{equation*}
+\int \frac{1}{g(y)}\,\frac{dy}{dx} \,dx = \int f(x) \,dx + C\text{.}
+\end{equation*}
+</div>
+<div class="para">We use the change of variables formula (substitution) on the left hand side:</div>
+<div class="displaymath process-math" id="separable-equations-9-8">
+\begin{equation*}
+\int \frac{1}{g(y)}\,dy = \int f(x) \,dx + C\text{.}
+\end{equation*}
+</div>
+<div class="para">And we are done.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#separable-equations-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="separable-equations-10">
+<div class="para">However, in some cases there are some special solutions to these problems as well that don’t fit the same formula. Assume we have</div>
+<div class="displaymath process-math" id="separable-equations-10-1">
+\begin{equation*}
+\frac{dy}{dx} = f(x)g(y)
+\end{equation*}
+</div>
+<div class="para">and we have a value <span class="process-math">\(y_0\)</span> such that <span class="process-math">\(g(y_0) = 0\text{.}\)</span> Then, the function <span class="process-math">\(y(x) = y_0\)</span> is a solution, provided <span class="process-math">\(f(x)\)</span> is defined everywhere. (Plug this in and check!) This fills in the issue for having <span class="process-math">\(\frac{1}{g(y)}\)</span> in our integral expression, which is not defined when <span class="process-math">\(g(y) = 0\text{.}\)</span> These are called <dfn class="terminology">singular solutions</dfn>, and the next example will showcase one of them.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#separable-equations-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: Separable equations"><a href="#separable-equations" title="Copy heading and permalink for Subsection: Separable equations" aria-label="Copy heading and permalink for Subsection: Separable equations">🔗</a></div></section><section class="subsection" id="implicit-solutions"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Implicit solutions</span>
+</h3>
+<div class="para logical" id="implicit-solutions-2">
+<div class="para">We sometimes get stuck even if we can do the integration. Consider the separable equation</div>
+<div class="displaymath process-math" id="implicit-solutions-2-1">
+\begin{equation*}
+y' = \frac{xy}{y^2+1} .
+\end{equation*}
+</div>
+<div class="para">We separate variables,</div>
+<div class="displaymath process-math" id="implicit-solutions-2-2">
+\begin{equation*}
+\frac{y^2+1}{y}\,dy = \left(y+\frac{1}{y}\right)\,dy = x\,dx\text{.}
+\end{equation*}
+</div>
+<div class="para">We integrate to get</div>
+<div class="displaymath process-math" id="implicit-solutions-2-3">
+\begin{equation*}
+\frac{y^2}{2} + \ln \, \lvert y \rvert = \frac{x^2}{2} + C\text{,}
+\end{equation*}
+</div>
+<div class="para">or perhaps the easier looking expression (where <span class="process-math">\(D = 2C\)</span>)</div>
+<div class="displaymath process-math" id="implicit-solutions-2-5">
+\begin{equation*}
+y^2 + 2 \ln \, \lvert y\rvert = x^2 + D\text{.}
+\end{equation*}
+</div>
+<div class="para">It is not easy to find the solution explicitly as it is hard to solve for <span class="process-math">\(y\text{.}\)</span> We, therefore, leave the solution in this form and call it an <dfn class="terminology">implicit solution</dfn>. It is still easy to check that an implicit solution satisfies the differential equation. In this case, we differentiate with respect to <span class="process-math">\(x\text{,}\)</span> and remember that <span class="process-math">\(y\)</span> is a function of <span class="process-math">\(x\text{,}\)</span> to get</div>
+<div class="displaymath process-math" id="implicit-solutions-2-11">
+\begin{equation*}
+y'\left(2y + \frac{2}{y}\right) = 2x\text{.}
+\end{equation*}
+</div>
+<div class="para">Multiply both sides by <span class="process-math">\(y\)</span> and divide by <span class="process-math">\(2(y^2+1)\)</span> and you will get exactly the differential equation. We leave this computation to the reader.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#implicit-solutions-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="implicit-solutions-3">If you have an implicit solution, and you want to compute values for <span class="process-math">\(y\text{,}\)</span> you might have to be tricky. You might get multiple solutions <span class="process-math">\(y\)</span> for each <span class="process-math">\(x\text{,}\)</span> so you have to pick one. Sometimes you can graph <span class="process-math">\(x\)</span> as a function of <span class="process-math">\(y\text{,}\)</span> and then flip your paper. Sometimes you have to do more.<div class="autopermalink" data-description="Paragraph"><a href="#implicit-solutions-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="implicit-solutions-4">Computers are also good at some of these tricks. More advanced mathematical software usually has some way of plotting solutions to implicit equations, which makes these solutions just as good for visualizing or graphing as explicit solutions. For example, for <span class="process-math">\(C=0\)</span> if you plot all the points <span class="process-math">\((x,y)\)</span> that are solutions to <span class="process-math">\(y^2+2\ln|y|=x^2\text{,}\)</span> you find the two curves in <a href="separable-section.html#implicitsols-fig" class="xref" data-knowl="./knowl/xref/implicitsols-fig.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.3.3">Figure 1.3.3</a>. This is not quite a graph of a function. For each <span class="process-math">\(x\)</span> there are two choices of <span class="process-math">\(y\text{.}\)</span> To find a function you would have to pick one of these two curves. You pick the one that satisfies your initial condition if you have one. For example, the top curve satisfies the condition <span class="process-math">\(y(1)=1\text{.}\)</span> So for each <span class="process-math">\(C\)</span> we really got two solutions. As you can see, computing values from an implicit solution can be somewhat tricky, but sometimes, an implicit solution is the best we can do.<div class="autopermalink" data-description="Paragraph"><a href="#implicit-solutions-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="implicitsols-fig"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;">
+<img src="external/implicitsols.png" class="contained" alt="A graph showing two curves, both representing the same implicit solution. The graph is somewhat parabolic, one pointing up and one pointing down."><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="implicitsols-fig-2-description"><div class="para" id="implicitsols-fig-2-2-1">The graph shows two different curves, both composing the implicit solution <span class="process-math">\(y^2 + 2\ln\lvert y \rvert = x^2\text{.}\)</span> One comes in from the top left, coming to a minimum at <span class="process-math">\(x=0\)</span> and then leaving to the top right. The second curve comes in from the bottom left, hits a maximum at <span class="process-math">\(x=0\)</span> and then leaves to the bottom right.<div class="autopermalink" data-description="Paragraph"><a href="#implicitsols-fig-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The implicit solution <span class="process-math">\(y^2 + 2\ln\lvert y \rvert = x^2\)</span> to <span class="process-math">\(y' = \frac{xy}{y^2 + 1}\text{.}\)</span><div class="autopermalink" data-description="Figure 1.3.3"><a href="#implicitsols-fig" title="Copy heading and permalink for Figure 1.3.3" aria-label="Copy heading and permalink for Figure 1.3.3">🔗</a></div></figcaption></figure><div class="para logical" id="implicit-solutions-6">
+<div class="para">The equation above also has the solution <span class="process-math">\(y=0\text{.}\)</span> Since our function</div>
+<div class="displaymath process-math" id="implicit-solutions-6-2">
+\begin{equation*}
+g(y) =
+\frac{y}{y^2 + 1}
+\end{equation*}
+</div>
+<div class="para">is zero at <span class="process-math">\(y=0\text{,}\)</span> and gives an additional solution to the problem. The function <span class="process-math">\(y(x) = 0\)</span> satisfies <span class="process-math">\(y'(x) = 0\)</span> and <span class="process-math">\(\frac{xy}{y^2 +
+1} = 0\)</span> for all <span class="process-math">\(x\text{,}\)</span> which is the right-hand side of the equation. So the general solution is</div>
+<div class="displaymath process-math" id="implicit-solutions-6-8">
+\begin{equation*}
+y^2 + 2 \ln \, \lvert y \rvert = x^2 + C, \qquad \text{and} \qquad y=0.
+\end{equation*}
+</div>
+<div class="para">These outlying solutions such as <span class="process-math">\(y=0\)</span> are sometimes called <em class="emphasis">singular solutions</em>, as mentioned previously.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#implicit-solutions-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: Implicit solutions"><a href="#implicit-solutions" title="Copy heading and permalink for Subsection: Implicit solutions" aria-label="Copy heading and permalink for Subsection: Implicit solutions">🔗</a></div></section><section class="subsection" id="examples-of-separable-equations"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Examples of separable equations</span>
+</h3>
+<details id="examples-of-separable-equations-2" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="examples-of-separable-equations-2-1-1">Solve <span class="process-math">\(x^2y' = 1 - x^2+y^2 - x^2y^2\text{,}\)</span> <span class="process-math">\(y(1) = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#examples-of-separable-equations-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="examples-of-separable-equations-2-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="examples-of-separable-equations-2-2-1">
+<div class="para">Factor the right-hand side</div>
+<div class="displaymath process-math" id="examples-of-separable-equations-2-2-1-1">
+\begin{equation*}
+x^2y' = (1 - x^2)(1+y^2)\text{.}
+\end{equation*}
+</div>
+<div class="para">Separate variables, integrate, and solve for <span class="process-math">\(y\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="examples-of-separable-equations-2-2-1-3">
+\begin{align*}
+\frac{y'}{1+y^2}  \amp = \frac{1 - x^2}{x^2}\\
+\frac{y'}{1+y^2} \amp =  \frac{1}{x^2} - 1  \\
+\operatorname{arctan} (y) \amp = \frac{-1}{x} - x + C\\
+y \amp = \tan \left(\frac{-1}{x} - x + C\right) 
+\end{align*}
+</div>
+<div class="para">Solve for the initial condition, <span class="process-math">\(0 = \tan(-2+C)\)</span> to get <span class="process-math">\(C=2\)</span> (or <span class="process-math">\(C = 2 +
+\pi\text{,}\)</span> or <span class="process-math">\(C = 2 + 2\pi\text{,}\)</span> etc.). The particular solution we seek is, therefore,</div>
+<div class="displaymath process-math" id="examples-of-separable-equations-2-2-1-8">
+\begin{equation*}
+y = \tan \left(\frac{-1}{x} - x + 2 \right)\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#examples-of-separable-equations-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.3.4.1"><a href="#examples-of-separable-equations-2-2" title="Copy heading and permalink for Solution 1.3.4.1" aria-label="Copy heading and permalink for Solution 1.3.4.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.3.4"><a href="#examples-of-separable-equations-2" title="Copy heading and permalink for Example 1.3.4" aria-label="Copy heading and permalink for Example 1.3.4">🔗</a></div></article></details><details id="ex-coffeeCooling" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A first modeling problem.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-coffeeCooling-2-1">Bob made a cup of coffee, and Bob likes to drink coffee only once reaches 60 degrees Celsius and will not burn him. Initially at time <span class="process-math">\(t=0\)</span> minutes, Bob measured the temperature and the coffee was 89 degrees Celsius. One minute later, Bob measured the coffee again and it had 85 degrees. The temperature of the room (the ambient temperature) is 22 degrees. When should Bob start drinking?<div class="autopermalink" data-description="Paragraph"><a href="#ex-coffeeCooling-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex-coffeeCooling-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-coffeeCooling-3-1">
+<div class="para">Let <span class="process-math">\(T\)</span> be the temperature of the coffee in degrees Celsius, and let <span class="process-math">\(A\)</span> be the ambient (room) temperature, also in degrees Celsius. states that the rate at which the temperature of the coffee is changing is proportional to the difference between the ambient temperature and the temperature of the coffee. That is,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sintro-coffeefig.html" id="ex-coffeeCooling-3-1-3">
+\begin{equation*}
+\frac{dT}{dt} = k(A-T) ,
+\end{equation*}
+</div>
+<div class="para">for some constant <span class="process-math">\(k\text{.}\)</span> For our setup <span class="process-math">\(A=22\text{,}\)</span> <span class="process-math">\(T(0) = 89\text{,}\)</span> <span class="process-math">\(T(1) = 85\text{.}\)</span> We separate variables and integrate (let <span class="process-math">\(C\)</span> and <span class="process-math">\(D\)</span> denote arbitrary constants):</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sintro-coffeefig.html" id="ex-coffeeCooling-3-1-10">
+\begin{align*}
+\frac{1}{T-A} \, \frac{dT}{dt} &amp; = -k \\
+\ln (T-A) &amp;= -kt + C , \qquad \text{(note that } T-A &gt; 0 \text{)} \\
+T-A &amp;= D\, e^{-kt} \\
+T &amp;= A + D\, e^{-kt} \text{.}
+\end{align*}
+</div>
+<div class="para">That is, <span class="process-math">\(T = 22 + D\, e^{-kt}\text{.}\)</span> We plug in the first condition: <span class="process-math">\(89 = T(0) = 22 +
+D\text{,}\)</span> and hence <span class="process-math">\(D = 67\text{.}\)</span> So <span class="process-math">\(T = 22 + 67\, e^{-kt}\text{.}\)</span> The second condition says <span class="process-math">\(85 = T(1) =
+22 + 67\, e^{-k}\text{.}\)</span> Solving for <span class="process-math">\(k\)</span> we get <span class="process-math">\(k = - \ln
+\frac{85-22}{67} \approx 0.0616\text{.}\)</span> Now we solve for the time <span class="process-math">\(t\)</span> that gives us a temperature of 60 degrees. Namely, we solve</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sintro-coffeefig.html" id="ex-coffeeCooling-3-1-19">
+\begin{equation*}
+60 = 22 + 67 e^{-0.0616t}
+\end{equation*}
+</div>
+<div class="para">to get <span class="process-math">\(t = - \frac{\ln\frac{60-22}{67}}{0.0616} \approx 9.21\)</span> minutes. So Bob can begin to drink the coffee at just over 9 minutes from the time Bob made it. That is probably about the amount of time it took us to calculate how long it would take. See <a href="separable-section.html#sintro-coffeefig" class="xref" data-knowl="./knowl/xref/sintro-coffeefig.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.3.6">Figure 1.3.6</a>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-coffeeCooling-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="sintro-coffeefig"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;">
+<img src="external/coffeefig-1-2.png" class="contained" alt="described in detail following the image" aria-describedby="sintro-coffeefig-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="sintro-coffeefig-2-description"><div class="para" id="sintro-coffeefig-2-1-1">The left graph shows the decaying temperature of the coffee over the time range of 0 to 12.5 minutes, with markings for 89, 85, and 60 degrees as described in the caption. The plot on the right shows the same curve over the range of 0 to 90 minutes to show the long-time behavior approaching 22.<div class="autopermalink" data-description="Paragraph"><a href="#sintro-coffeefig-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Graphs of the coffee temperature function <span class="process-math">\(T(t)\text{.}\)</span> On the left, horizontal lines are drawn at temperatures 60, 85, and 89.  Vertical lines are drawn at <span class="process-math">\(t=1\)</span> and <span class="process-math">\(t=9.21\text{.}\)</span>  Notice that the temperature of the coffee hits 85 at <span class="process-math">\(t=1\text{,}\)</span> and 60 at <span class="process-math">\(t \approx 9.21\text{.}\)</span>  On the right, the graph is over a longer period of time, with a horizontal line at the ambient temperature 22.<div class="autopermalink" data-description="Figure 1.3.6"><a href="#sintro-coffeefig" title="Copy heading and permalink for Figure 1.3.6" aria-label="Copy heading and permalink for Figure 1.3.6">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Solution 1.3.5.1"><a href="#ex-coffeeCooling-3" title="Copy heading and permalink for Solution 1.3.5.1" aria-label="Copy heading and permalink for Solution 1.3.5.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.3.5: A first modeling problem"><a href="#ex-coffeeCooling" title="Copy heading and permalink for Example 1.3.5: A first modeling problem" aria-label="Copy heading and permalink for Example 1.3.5: A first modeling problem">🔗</a></div></article></details><details id="examples-of-separable-equations-4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example with singular solutions.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="examples-of-separable-equations-4-2-1">Find the general solution to <span class="process-math">\(y' = \frac{-xy^2}{3}\)</span> (including singular solutions).<div class="autopermalink" data-description="Paragraph"><a href="#examples-of-separable-equations-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="examples-of-separable-equations-4-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="examples-of-separable-equations-4-3-1">
+<div class="para">First note that <span class="process-math">\(y=0\)</span> is a solution (a singular solution). Now assume that <span class="process-math">\(y
+\not= 0\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="examples-of-separable-equations-4-3-1-3">
+\begin{align*}
+\frac{-3}{y^2} y' &amp; = x\\
+\frac{3}{y} &amp; = \frac{x^2}{2} + C\\
+y &amp; = \frac{3}{\frac{x^2}{2} + C}= \frac{6}{x^2 + 2C} \text{.}
+\end{align*}
+</div>
+<div class="para">So the general solution is,</div>
+<div class="displaymath process-math" id="examples-of-separable-equations-4-3-1-4">
+\begin{equation*}
+y = \frac{6}{x^2 + 2C}, \qquad \text{and} \qquad y=0\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#examples-of-separable-equations-4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.3.7.1"><a href="#examples-of-separable-equations-4-3" title="Copy heading and permalink for Solution 1.3.7.1" aria-label="Copy heading and permalink for Solution 1.3.7.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.3.7: Example with singular solutions"><a href="#examples-of-separable-equations-4" title="Copy heading and permalink for Example 1.3.7: Example with singular solutions" aria-label="Copy heading and permalink for Example 1.3.7: Example with singular solutions">🔗</a></div></article></details><details id="examples-of-separable-equations-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="examples-of-separable-equations-5-1-1">
+<div class="para">Find the general solution to</div>
+<div class="displaymath process-math" id="examples-of-separable-equations-5-1-1-1">
+\begin{equation*}
+\frac{dy}{dx} = (x^2 + e^x)(y^2 - 3y - 4).
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#examples-of-separable-equations-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="examples-of-separable-equations-5-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="examples-of-separable-equations-5-2-1">
+<div class="para">Using the methods of separable equations, we can rewrite this differential equation as</div>
+<div class="displaymath process-math" id="examples-of-separable-equations-5-2-1-1">
+\begin{equation*}
+\frac{dy}{y^2 - 3y - 4} = (x^2 + e^x) \ dx
+\end{equation*}
+</div>
+<div class="para">and we can integrate both sides to solve. This leads to</div>
+<div class="displaymath process-math" id="examples-of-separable-equations-5-2-1-2">
+\begin{equation*}
+\int \frac{dy}{y^2 - 3y + 4} =
+\int x^2 + e^x\ dx.
+\end{equation*}
+</div>
+<div class="para">The right-hand side of this can be integrated normally to give</div>
+<div class="displaymath process-math" id="examples-of-separable-equations-5-2-1-3">
+\begin{equation*}
+\int x^2 + e^x\ dx = \frac{x^3}{3} + e^x + C
+\end{equation*}
+</div>
+<div class="para">and the left-hand side requires partial fractions in order to integrate correctly. If you are not familiar with this technique of partial fractions, it is reviewed in .</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#examples-of-separable-equations-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="examples-of-separable-equations-5-2-2">
+<div class="para">Using the method of partial fractions, we want to rewrite</div>
+<div class="displaymath process-math" id="examples-of-separable-equations-5-2-2-1">
+\begin{equation*}
+\frac{1}{y^2 - 3y
+- 4} = \frac{A}{y-4} + \frac{B}{y+1}
+\end{equation*}
+</div>
+<div class="para">and solve for <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{,}\)</span> which gives</div>
+<div class="displaymath process-math" id="examples-of-separable-equations-5-2-2-4">
+\begin{equation*}
+\frac{1}{y^2 - 3y - 4} = \frac{1/5}{y-4} - \frac{1/5}{y+1}.
+\end{equation*}
+</div>
+<div class="para">Therefore, we can compute the integral</div>
+<div class="displaymath process-math" id="examples-of-separable-equations-5-2-2-5">
+\begin{align*}
+\int \frac{dy}{y^2 - 3y - 4} \amp = \int
+\frac{1/5}{y-4} - \frac{1/5}{y+1} dy \\
+\amp = \frac{1}{5} \ln(|y-4|) - \frac{1}{5}
+\ln(|y+1|) + C\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#examples-of-separable-equations-5-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="examples-of-separable-equations-5-2-3">
+<div class="para">Therefore, we can write the general solution as</div>
+<div class="displaymath process-math" id="examples-of-separable-equations-5-2-3-1">
+\begin{equation*}
+\frac{1}{5}
+\ln{\left(\frac{|y-4|}{|y+1|} \right)} = \frac{x^3}{3} + e^x + C.
+\end{equation*}
+</div>
+<div class="para">We could solve this out for <span class="process-math">\(y\)</span> as an explicit function, but that is not necessary for a problem like this.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#examples-of-separable-equations-5-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="examples-of-separable-equations-5-2-4">There are also two singular solutions here at <span class="process-math">\(y=4\)</span> and <span class="process-math">\(y=-1\text{.}\)</span> Notice that the implicit solution that we found previously is not defined at either of these values, because they involve taking the natural log of <span class="process-math">\(0\text{,}\)</span> which is not defined.<div class="autopermalink" data-description="Paragraph"><a href="#examples-of-separable-equations-5-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.3.8.1"><a href="#examples-of-separable-equations-5-2" title="Copy heading and permalink for Solution 1.3.8.1" aria-label="Copy heading and permalink for Solution 1.3.8.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.3.8"><a href="#examples-of-separable-equations-5" title="Copy heading and permalink for Example 1.3.8" aria-label="Copy heading and permalink for Example 1.3.8">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection: Examples of separable equations"><a href="#examples-of-separable-equations" title="Copy heading and permalink for Subsection: Examples of separable equations" aria-label="Copy heading and permalink for Subsection: Examples of separable equations">🔗</a></div></section><section class="exercises" id="separable-section-7"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="separable-section-7-2"><h4 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-2-1-1">Solve <span class="process-math">\(y' = y^3\)</span> for <span class="process-math">\(y(0)=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-2-2-1">
+<span class="process-math">\(y = \frac{1}{\sqrt{1-2x}}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 1.1"><a href="#separable-section-7-2-2" title="Copy heading and permalink for Answer 1.1" aria-label="Copy heading and permalink for Answer 1.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 1"><a href="#separable-section-7-2" title="Copy heading and permalink for Exercise 1" aria-label="Copy heading and permalink for Exercise 1">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-3"><h4 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-3-1-1">Solve <span class="process-math">\(x' = \frac{1}{x^2}\text{,}\)</span> <span class="process-math">\(x(1)=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 2"><a href="#separable-section-7-3" title="Copy heading and permalink for Exercise 2" aria-label="Copy heading and permalink for Exercise 2">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-4"><h4 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-4-1-1">Solve <span class="process-math">\(y' = (y-1)(y+1)\)</span> for <span class="process-math">\(y(0)=3\text{.}\)</span> (Note: Requires partial fractions)<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-4-2-1">
+<span class="process-math">\(y = \frac{2 + e^{2t}}{2 - e^{2t}}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 3.1"><a href="#separable-section-7-4-2" title="Copy heading and permalink for Answer 3.1" aria-label="Copy heading and permalink for Answer 3.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 3"><a href="#separable-section-7-4" title="Copy heading and permalink for Exercise 3" aria-label="Copy heading and permalink for Exercise 3">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-5"><h4 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-5-1-1">Solve <span class="process-math">\(x' = \frac{1}{\cos(x)}\text{,}\)</span> <span class="process-math">\(x(0)=\frac{\pi}{2}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 4"><a href="#separable-section-7-5" title="Copy heading and permalink for Exercise 4" aria-label="Copy heading and permalink for Exercise 4">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-6"><h4 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-6-1-1">Solve <span class="process-math">\(\frac{dy}{dx} = \frac{1}{y+1}\)</span> for <span class="process-math">\(y(0)=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-6-2-1">
+<span class="process-math">\(y = -1 + \sqrt{1+2x}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.1"><a href="#separable-section-7-6-2" title="Copy heading and permalink for Answer 5.1" aria-label="Copy heading and permalink for Answer 5.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 5"><a href="#separable-section-7-6" title="Copy heading and permalink for Exercise 5" aria-label="Copy heading and permalink for Exercise 5">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-7"><h4 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-7-1-1">Solve <span class="process-math">\(y' = \frac{x}{y}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-7-2-1">
+<span class="process-math">\(y = \pm \sqrt{2C + x^2}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 6.1"><a href="#separable-section-7-7-2" title="Copy heading and permalink for Answer 6.1" aria-label="Copy heading and permalink for Answer 6.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 6"><a href="#separable-section-7-7" title="Copy heading and permalink for Exercise 6" aria-label="Copy heading and permalink for Exercise 6">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-8"><h4 class="heading"><span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-8-1-1">Solve <span class="process-math">\(y' = x^2y\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-8-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-8-2-1">
+<span class="process-math">\(y = De^{\frac{x^3}{3}}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 7.1"><a href="#separable-section-7-8-2" title="Copy heading and permalink for Answer 7.1" aria-label="Copy heading and permalink for Answer 7.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 7"><a href="#separable-section-7-8" title="Copy heading and permalink for Exercise 7" aria-label="Copy heading and permalink for Exercise 7">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-9"><h4 class="heading"><span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="introduction" id="separable-section-7-9-1"><div class="para logical" id="separable-section-7-9-1-1">
+<div class="para">Consider the differential equation</div>
+<div class="displaymath process-math" id="separable-section-7-9-1-1-1">
+\begin{equation*}
+\frac{dy}{dx} = \frac{2x}{y}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="separable-section-7-9-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="separable-section-7-9-2-1-1">Find the general solution as an implicit function.<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-9-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-9-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-9-2-2-1">
+<span class="process-math">\(\frac{y^2}{2} = x^2 + C\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-9-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 8.a.1"><a href="#separable-section-7-9-2-2" title="Copy heading and permalink for Answer 8.a.1" aria-label="Copy heading and permalink for Answer 8.a.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 8.a"><a href="#separable-section-7-9-2" title="Copy heading and permalink for Task 8.a" aria-label="Copy heading and permalink for Task 8.a">🔗</a></div></article><article class="task exercise-like" id="separable-section-7-9-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="separable-section-7-9-3-1-1">Find the solution to this differential equation as an <em class="emphasis">explicit</em> function with <span class="process-math">\(y(1) = 4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-9-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-9-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-9-3-2-1">
+<span class="process-math">\(y = \sqrt{2x^2 + 14}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-9-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 8.b.1"><a href="#separable-section-7-9-3-2" title="Copy heading and permalink for Answer 8.b.1" aria-label="Copy heading and permalink for Answer 8.b.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 8.b"><a href="#separable-section-7-9-3" title="Copy heading and permalink for Task 8.b" aria-label="Copy heading and permalink for Task 8.b">🔗</a></div></article><article class="task exercise-like" id="separable-section-7-9-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="separable-section-7-9-4-1-1">Find the solution to this differential equation as an <em class="emphasis">explicit</em> function with <span class="process-math">\(y(0) = -2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-9-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-9-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-9-4-2-1">
+<span class="process-math">\(y = -\sqrt{2x^2 + 4}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-9-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 8.c.1"><a href="#separable-section-7-9-4-2" title="Copy heading and permalink for Answer 8.c.1" aria-label="Copy heading and permalink for Answer 8.c.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 8.c"><a href="#separable-section-7-9-4" title="Copy heading and permalink for Task 8.c" aria-label="Copy heading and permalink for Task 8.c">🔗</a></div></article><div class="autopermalink" data-description="Exercise 8"><a href="#separable-section-7-9" title="Copy heading and permalink for Exercise 8" aria-label="Copy heading and permalink for Exercise 8">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-10"><h4 class="heading"><span class="codenumber">9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-10-1-1">Solve <span class="process-math">\(y' = y^n\text{,}\)</span> <span class="process-math">\(y(0) = 1\text{,}\)</span> where <span class="process-math">\(n\)</span> is a positive integer. Hint: You have to consider different cases.<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 9"><a href="#separable-section-7-10" title="Copy heading and permalink for Exercise 9" aria-label="Copy heading and permalink for Exercise 9">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-11"><h4 class="heading"><span class="codenumber">10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-11-1-1">Solve <span class="process-math">\(\dfrac{dx}{dt} = (x^2-1)\,t\text{,}\)</span> for <span class="process-math">\(x(0) = 0\text{.}\)</span> (Note: Requires partial fractions)<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-11-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-11-2-1">
+<span class="process-math">\(x = \frac{1 - e^{t^2}}{1 + e^{t^2}}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-11-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 10.1"><a href="#separable-section-7-11-2" title="Copy heading and permalink for Answer 10.1" aria-label="Copy heading and permalink for Answer 10.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 10"><a href="#separable-section-7-11" title="Copy heading and permalink for Exercise 10" aria-label="Copy heading and permalink for Exercise 10">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-12"><h4 class="heading"><span class="codenumber">11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-12-1-1">Solve <span class="process-math">\(\dfrac{dx}{dt} = x\,\sin(t)\text{,}\)</span> for <span class="process-math">\(x(0) = 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-12-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-12-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-12-2-1">
+<span class="process-math">\(x = e^{1-\cos(t)}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-12-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 11.1"><a href="#separable-section-7-12-2" title="Copy heading and permalink for Answer 11.1" aria-label="Copy heading and permalink for Answer 11.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 11"><a href="#separable-section-7-12" title="Copy heading and permalink for Exercise 11" aria-label="Copy heading and permalink for Exercise 11">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-13"><h4 class="heading"><span class="codenumber">12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-13-1-1">Solve <span class="process-math">\(y'=2xy\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-13-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 12"><a href="#separable-section-7-13" title="Copy heading and permalink for Exercise 12" aria-label="Copy heading and permalink for Exercise 12">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-14"><h4 class="heading"><span class="codenumber">13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-14-1-1">Solve <span class="process-math">\(y' = ye^{2x}\)</span> with <span class="process-math">\(y(0) = 4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-14-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-14-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-14-2-1">
+<span class="process-math">\(y = 4e^{\frac{1}{2}(e^{2x} - 1)}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-14-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 13.1"><a href="#separable-section-7-14-2" title="Copy heading and permalink for Answer 13.1" aria-label="Copy heading and permalink for Answer 13.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 13"><a href="#separable-section-7-14" title="Copy heading and permalink for Exercise 13" aria-label="Copy heading and permalink for Exercise 13">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-15"><h4 class="heading"><span class="codenumber">14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-15-1-1">Solve <span class="process-math">\(\dfrac{dy}{dx} = xy+x+y+1\text{.}\)</span> Hint: Factor the right-hand side.<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-15-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-15-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-15-2-1">
+<span class="process-math">\(y = Ce^{\frac{x^2}{2} + x} - 1\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-15-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 14.1"><a href="#separable-section-7-15-2" title="Copy heading and permalink for Answer 14.1" aria-label="Copy heading and permalink for Answer 14.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 14"><a href="#separable-section-7-15" title="Copy heading and permalink for Exercise 14" aria-label="Copy heading and permalink for Exercise 14">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-16"><h4 class="heading"><span class="codenumber">15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-16-1-1">Solve <span class="process-math">\(x'=3xt^2-3t^2\text{,}\)</span> <span class="process-math">\(x(0)=2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-16-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 15"><a href="#separable-section-7-16" title="Copy heading and permalink for Exercise 15" aria-label="Copy heading and permalink for Exercise 15">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-17"><h4 class="heading"><span class="codenumber">16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-17-1-1">Find the general solution of <span class="process-math">\(y' = e^x\text{,}\)</span> and then <span class="process-math">\(y' = e^y\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-17-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-17-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-17-2-1">
+<span class="process-math">\(y = e^x + C\text{,}\)</span> <span class="process-math">\(y= -\ln(|-x-C|)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-17-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 16.1"><a href="#separable-section-7-17-2" title="Copy heading and permalink for Answer 16.1" aria-label="Copy heading and permalink for Answer 16.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 16"><a href="#separable-section-7-17" title="Copy heading and permalink for Exercise 16" aria-label="Copy heading and permalink for Exercise 16">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-18"><h4 class="heading"><span class="codenumber">17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-18-1-1">Solve <span class="process-math">\(xy' = y + 2x^2 y\text{,}\)</span> where <span class="process-math">\(y(1) = 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-18-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-18-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-18-2-1">
+<span class="process-math">\(y = xe^{x^2 - 1}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-18-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 17.1"><a href="#separable-section-7-18-2" title="Copy heading and permalink for Answer 17.1" aria-label="Copy heading and permalink for Answer 17.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 17"><a href="#separable-section-7-18" title="Copy heading and permalink for Exercise 17" aria-label="Copy heading and permalink for Exercise 17">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-19"><h4 class="heading"><span class="codenumber">18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-19-1-1">Find an implicit solution for <span class="process-math">\(x'=\frac{1}{3x^2+1}\text{,}\)</span> <span class="process-math">\(x(0)=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-19-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 18"><a href="#separable-section-7-19" title="Copy heading and permalink for Exercise 18" aria-label="Copy heading and permalink for Exercise 18">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-20"><h4 class="heading"><span class="codenumber">19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-20-1-1">Solve <span class="process-math">\(\dfrac{dy}{dx} = \dfrac{y^2+1}{x^2+1}\text{,}\)</span> for <span class="process-math">\(y(0) = 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-20-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-20-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-20-2-1">
+<span class="process-math">\(y = \tan\left(\tan^{-1}(x) + \frac{\pi}{4}\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-20-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 19.1"><a href="#separable-section-7-20-2" title="Copy heading and permalink for Answer 19.1" aria-label="Copy heading and permalink for Answer 19.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 19"><a href="#separable-section-7-20" title="Copy heading and permalink for Exercise 19" aria-label="Copy heading and permalink for Exercise 19">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-21"><h4 class="heading"><span class="codenumber">20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-21-1-1">Find an implicit solution for <span class="process-math">\(\dfrac{dy}{dx} = \dfrac{x^2+1}{y^2+1}\text{,}\)</span> for <span class="process-math">\(y(0)
+= 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-21-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-21-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-21-2-1">
+<span class="process-math">\(\frac{y^3}{3} + y = \frac{x^3}{3} + x + \frac{4}{3}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-21-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 20.1"><a href="#separable-section-7-21-2" title="Copy heading and permalink for Answer 20.1" aria-label="Copy heading and permalink for Answer 20.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 20"><a href="#separable-section-7-21" title="Copy heading and permalink for Exercise 20" aria-label="Copy heading and permalink for Exercise 20">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-22"><h4 class="heading"><span class="codenumber">21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-22-1-1">Find an implicit solution to <span class="process-math">\(y' = \frac{\sin(x)}{\cos(y)}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-22-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 21"><a href="#separable-section-7-22" title="Copy heading and permalink for Exercise 21" aria-label="Copy heading and permalink for Exercise 21">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-23"><h4 class="heading"><span class="codenumber">22<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-23-1-1">Find an implicit solution for <span class="process-math">\(xy' = \frac{x^2 + 1}{y^2 - 1}\)</span> with <span class="process-math">\(y(3)
+= 2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-23-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-23-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-23-2-1">
+<span class="process-math">\(\frac{y^3}{3} - y = \frac{x^2}{2} +\ln(|x|) + 4 - \ln(2)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-23-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 22.1"><a href="#separable-section-7-23-2" title="Copy heading and permalink for Answer 22.1" aria-label="Copy heading and permalink for Answer 22.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 22"><a href="#separable-section-7-23" title="Copy heading and permalink for Exercise 22" aria-label="Copy heading and permalink for Exercise 22">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-24"><h4 class="heading"><span class="codenumber">23<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-24-1-1">Find an explicit solution for <span class="process-math">\(y' = xe^{-y}\text{,}\)</span> <span class="process-math">\(y(0)=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-24-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-24-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-24-2-1">
+<span class="process-math">\(y = \ln\left(\frac{x^2}{2} + e \right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-24-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 23.1"><a href="#separable-section-7-24-2" title="Copy heading and permalink for Answer 23.1" aria-label="Copy heading and permalink for Answer 23.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 23"><a href="#separable-section-7-24" title="Copy heading and permalink for Exercise 23" aria-label="Copy heading and permalink for Exercise 23">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-25"><h4 class="heading"><span class="codenumber">24<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-25-1-1">Find an explicit solution to <span class="process-math">\(x y' = y^2\text{,}\)</span> <span class="process-math">\(y(1) = 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-25-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 24"><a href="#separable-section-7-25" title="Copy heading and permalink for Exercise 24" aria-label="Copy heading and permalink for Exercise 24">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-26"><h4 class="heading"><span class="codenumber">25<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-26-1-1">Find an explicit solution for <span class="process-math">\(xy' = e^{-y}\text{,}\)</span> for <span class="process-math">\(y(1)=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-26-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-26-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-26-2-1">
+<span class="process-math">\(y = \ln|\ln(|x|) + e|\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-26-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 25.1"><a href="#separable-section-7-26-2" title="Copy heading and permalink for Answer 25.1" aria-label="Copy heading and permalink for Answer 25.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 25"><a href="#separable-section-7-26" title="Copy heading and permalink for Exercise 25" aria-label="Copy heading and permalink for Exercise 25">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-27"><h4 class="heading"><span class="codenumber">26<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-27-1-1">Find an explicit solution for <span class="process-math">\(y' = y^2(x^4 + 1)\)</span> with <span class="process-math">\(y(1) = 2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-27-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-27-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-27-2-1">
+<span class="process-math">\(y = \frac{1}{\frac{17}{10} - x - \frac{x^5}{5}}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-27-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 26.1"><a href="#separable-section-7-27-2" title="Copy heading and permalink for Answer 26.1" aria-label="Copy heading and permalink for Answer 26.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 26"><a href="#separable-section-7-27" title="Copy heading and permalink for Exercise 26" aria-label="Copy heading and permalink for Exercise 26">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-28"><h4 class="heading"><span class="codenumber">27<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-28-1-1">Find an explicit solution for <span class="process-math">\(y' = \frac{\cos(x)+ 1}{y}\)</span> with <span class="process-math">\(y(0) = 4\)</span> .<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-28-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-28-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-28-2-1">
+<span class="process-math">\(y = \sqrt{2\sin(x) + 2x + 16}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-28-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 27.1"><a href="#separable-section-7-28-2" title="Copy heading and permalink for Answer 27.1" aria-label="Copy heading and permalink for Answer 27.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 27"><a href="#separable-section-7-28" title="Copy heading and permalink for Exercise 27" aria-label="Copy heading and permalink for Exercise 27">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-29"><h4 class="heading"><span class="codenumber">28<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-29-1-1">Find an explicit solution for <span class="process-math">\(y' = ye^{-x^2}\text{,}\)</span> <span class="process-math">\(y(0)=1\text{.}\)</span> It is alright to leave a definite integral in your answer.<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-29-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-29-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-29-2-1">
+<span class="process-math">\(y = e^{\int_0^x e^{-s^2}\ ds}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-29-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 28.1"><a href="#separable-section-7-29-2" title="Copy heading and permalink for Answer 28.1" aria-label="Copy heading and permalink for Answer 28.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 28"><a href="#separable-section-7-29" title="Copy heading and permalink for Exercise 28" aria-label="Copy heading and permalink for Exercise 28">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-30"><h4 class="heading"><span class="codenumber">29<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-30-1-1">Is the equation <span class="process-math">\(y' = x+y+1\)</span> separable? If so, find the general solution, if not, explain why.<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-30-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-30-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-30-2-1">No<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-30-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 29.1"><a href="#separable-section-7-30-2" title="Copy heading and permalink for Answer 29.1" aria-label="Copy heading and permalink for Answer 29.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 29"><a href="#separable-section-7-30" title="Copy heading and permalink for Exercise 29" aria-label="Copy heading and permalink for Exercise 29">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-31"><h4 class="heading"><span class="codenumber">30<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-31-1-1">Is the equation <span class="process-math">\(y' = ty^2 + t\)</span> separable? If so, find the general solution, if not, explain why.<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-31-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-31-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-31-2-1">Yes. <span class="process-math">\(y = \tan\left(\frac{t^2}{2} + C\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-31-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 30.1"><a href="#separable-section-7-31-2" title="Copy heading and permalink for Answer 30.1" aria-label="Copy heading and permalink for Answer 30.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 30"><a href="#separable-section-7-31" title="Copy heading and permalink for Exercise 30" aria-label="Copy heading and permalink for Exercise 30">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-32"><h4 class="heading"><span class="codenumber">31<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-32-1-1">Is the equation <span class="process-math">\(y' = xy^2 + 3y^2 - 4x - 12\)</span> separable? If so, find the general solution, if not, explain why. (Note: Requires partial fractions)<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-32-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-32-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-32-2-1">Yes. <span class="process-math">\(\frac{1}{2\sqrt{3}}\ln\left(\left| \frac{y -
+\sqrt{3}}{y+\sqrt{3}}\right|\right) = \frac{x^2}{2} + 3x + C\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-32-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 31.1"><a href="#separable-section-7-32-2" title="Copy heading and permalink for Answer 31.1" aria-label="Copy heading and permalink for Answer 31.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 31"><a href="#separable-section-7-32" title="Copy heading and permalink for Exercise 31" aria-label="Copy heading and permalink for Exercise 31">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-33"><h4 class="heading"><span class="codenumber">32<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-33-1-1">Suppose a cup of coffee is at 100 degrees Celsius at time <span class="process-math">\(t=0\text{,}\)</span> it is at 70 degrees at <span class="process-math">\(t=10\)</span> minutes, and it is at 50 degrees at <span class="process-math">\(t=20\)</span> minutes. Compute the ambient temperature.<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-33-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-33-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-33-2-1">10 C<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-33-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 32.1"><a href="#separable-section-7-33-2" title="Copy heading and permalink for Answer 32.1" aria-label="Copy heading and permalink for Answer 32.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 32"><a href="#separable-section-7-33" title="Copy heading and permalink for Exercise 32" aria-label="Copy heading and permalink for Exercise 32">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-34"><h4 class="heading"><span class="codenumber">33<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="separable-section-7-34-1-1">Take with the same numbers: 89 degrees at <span class="process-math">\(t=0\text{,}\)</span> 85 degrees at <span class="process-math">\(t=1\text{,}\)</span> and ambient temperature of 22 degrees. Suppose these temperatures were measured with precision of <span class="process-math">\(\pm 0.5\)</span> degrees. Given this imprecision, the time it takes the coffee to cool to (exactly) 60 degrees is also only known in a certain range. Find this range. Hint: Think about what kind of error makes the cooling time longer and what shorter.<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-34-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 33"><a href="#separable-section-7-34" title="Copy heading and permalink for Exercise 33" aria-label="Copy heading and permalink for Exercise 33">🔗</a></div></article><article class="exercise exercise-like" id="separable-section-7-35"><h4 class="heading"><span class="codenumber">34<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="introduction" id="separable-section-7-35-1"><div class="para" id="separable-section-7-35-1-1">A population <span class="process-math">\(x\)</span> of rabbits on an island is modeled by <span class="process-math">\(x' = x-
+\bigl(\frac{1}{1000} \bigr) x^2\text{,}\)</span> where the independent variable is time in months. At time <span class="process-math">\(t=0\text{,}\)</span> there are 40 rabbits on the island.<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-35-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="separable-section-7-35-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="separable-section-7-35-2-1-1">Find the solution to the equation with the initial condition.<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-35-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-35-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-35-2-2-1">
+<span class="process-math">\(x = \frac{1000e^t}{e^t+24}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-35-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 34.a.1"><a href="#separable-section-7-35-2-2" title="Copy heading and permalink for Answer 34.a.1" aria-label="Copy heading and permalink for Answer 34.a.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 34.a"><a href="#separable-section-7-35-2" title="Copy heading and permalink for Task 34.a" aria-label="Copy heading and permalink for Task 34.a">🔗</a></div></article><article class="task exercise-like" id="separable-section-7-35-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="separable-section-7-35-3-1-1">How many rabbits are on the island in 1 month, 5 months, 10 months, 15 months (round to the	nearest integer).<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-35-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="separable-section-7-35-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="separable-section-7-35-3-2-1">102 rabbits after one month, 861 after 5 months, 999 after 10 months, 1000 after 15 months.<div class="autopermalink" data-description="Paragraph"><a href="#separable-section-7-35-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 34.b.1"><a href="#separable-section-7-35-3-2" title="Copy heading and permalink for Answer 34.b.1" aria-label="Copy heading and permalink for Answer 34.b.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 34.b"><a href="#separable-section-7-35-3" title="Copy heading and permalink for Task 34.b" aria-label="Copy heading and permalink for Task 34.b">🔗</a></div></article><div class="autopermalink" data-description="Exercise 34"><a href="#separable-section-7-35" title="Copy heading and permalink for Exercise 34" aria-label="Copy heading and permalink for Exercise 34">🔗</a></div></article><div class="autopermalink" data-description="Exercises: Exercises"><a href="#separable-section-7" title="Copy heading and permalink for Exercises: Exercises" aria-label="Copy heading and permalink for Exercises: Exercises">🔗</a></div></section><div class="autopermalink" data-description="Section 1.3: Separable equations"><a href="#separable-section" title="Copy heading and permalink for Section 1.3: Separable equations" aria-label="Copy heading and permalink for Section 1.3: Separable equations">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="slopefields-section.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="intfactor-section.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

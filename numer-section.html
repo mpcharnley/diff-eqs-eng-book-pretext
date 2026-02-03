@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Numerical methods: Euler’s method</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Differential Equations">
+<meta property="book:author" content="Matt Charnley">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.11.12';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.0d5f811896ddeac1.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.e2abc79debce15fd.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Differential Equations</span> <span class="subtitle">An Introduction for Engineers</span></a></h1>
+<p class="byline">Matt Charnley</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="existunique-section.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="fo-chapter.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="auteq-section.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="intro-chapter.html" class="internal"><span class="codenumber">0</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introde-section.html" class="internal"><span class="codenumber">0.1</span> <span class="title">Introduction to differential equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#differential-equations" class="internal"><span class="title">Differential equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#solutions-of-differential-equations" class="internal"><span class="title">Solutions of differential equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#differential-equations-in-practice" class="internal"><span class="title">Differential equations in practice</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#subsection-fourfundamental" class="internal"><span class="title">Four fundamental equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="introde-section.html#introde-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="classification-section.html" class="internal"><span class="codenumber">0.2</span> <span class="title">Classification of differential equations</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="classification-section.html#classification-section-16" class="internal"><span class="codenumber">0.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="fo-chapter.html" class="internal"><span class="codenumber">1</span> <span class="title">First Order Differential Equations</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="integralsols-section.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Integrals as solutions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="integralsols-section.html#integralsols-section-14" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="slopefields-section.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Slope fields</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slopefields-section.html#slope-fields" class="internal"><span class="title">Slope fields</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="slopefields-section.html#slopefields-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="separable-section.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Separable equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable-section.html#separable-equations" class="internal"><span class="title">Separable equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable-section.html#implicit-solutions" class="internal"><span class="title">Implicit solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable-section.html#examples-of-separable-equations" class="internal"><span class="title">Examples of separable equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="separable-section.html#separable-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="intfactor-section.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Linear equations and the integrating factor</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="intfactor-section.html#intfactor-section-18" class="internal"><span class="codenumber">1.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="existunique-section.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Existence and Uniqueness of Solutions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="existunique-section.html#existunique-section-18" class="internal"><span class="codenumber">1.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="numer-section.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Numerical methods: Euler’s method</span></a></div>
+<ul class="structural toc-item-list active"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="numer-section.html#numer-section-23" class="internal"><span class="codenumber">1.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="auteq-section.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Autonomous equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auteq-section.html#subsec-autoIntro" class="internal"><span class="title">Introduction and Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auteq-section.html#concavity-of-solutions" class="internal"><span class="title">Concavity of Solutions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="auteq-section.html#auteq-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="bifDiag-section.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Bifurcation diagrams</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="bifDiag-section.html#bifDiag-section-13" class="internal"><span class="codenumber">1.8</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="exact-section.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Exact equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact-section.html#subsec-exactIntro" class="internal"><span class="title">exactIntro</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact-section.html#solving-exact-equations" class="internal"><span class="title">Solving exact equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact-section.html#integrating-factors" class="internal"><span class="title">Integrating factors</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exact-section.html#exact-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="modelfirst-section.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Modeling with First Order Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="modelfirst-section.html#principles-of-mathematical-modeling" class="internal"><span class="title">Principles of Mathematical Modeling</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="modelfirst-section.html#the-accumulation-equation" class="internal"><span class="title">The Accumulation Equation</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="modelfirst-section.html#modelfirst-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="modelfirstestim-section.html" class="internal"><span class="codenumber">1.11</span> <span class="title">Modeling and Parameter Estimation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="modelfirstestim-section.html#modelfirstestim-section-10" class="internal"><span class="codenumber">1.11</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="substitution-section.html" class="internal"><span class="codenumber">1.12</span> <span class="title">Substitution</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution-section.html#bernoulli-equations" class="internal"><span class="title">Bernoulli equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution-section.html#homogeneous-equations" class="internal"><span class="title">Homogeneous equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="substitution-section.html#substitution-section-10" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ho-chapter.html" class="internal"><span class="codenumber">2</span> <span class="title">Higher Order Linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="solinear-section.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Second order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#intial-value-problems" class="internal"><span class="title">Intial Value Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#constant-coefficient-equations---real-and-distinct-roots" class="internal"><span class="title">Constant Coefficient Equations - Real and Distinct Roots</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#linear-independence-soeq" class="internal"><span class="title">Linear Independence</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="solinear-section.html#solinear-section-17" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="complexroots-section.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Complex Roots and Euler’s Formula</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="complexroots-section.html#complex-roots" class="internal"><span class="title">Complex roots</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="complexroots-section.html#complexroots-section-13" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="reproots-section.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Repeated Roots and Reduction of Order</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="reproots-section.html#reproots-section-11" class="internal"><span class="codenumber">2.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-mv.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Mechanical vibrations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-mv.html#free-undamped-motion" class="internal"><span class="title">Free undamped motion</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-mv.html#free-damped-motion" class="internal"><span class="title">Free damped motion</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-mv.html#overdamping" class="internal"><span class="title">Overdamping</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-mv.html#critical-damping" class="internal"><span class="title">Critical damping</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-mv.html#underdamping" class="internal"><span class="title">Underdamping</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-mv.html#physical-applications-and-vertical-mass-spring-systems" class="internal"><span class="title">Physical Applications and Vertical Mass-Spring Systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-mv.html#sec-mv-20" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-nonhom.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Nonhomogeneous equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#solving-nonhomogeneous-equations" class="internal"><span class="title">Solving nonhomogeneous equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#undetermined-coefficients-eqns" class="internal"><span class="title">Undetermined coefficients</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#variation-of-parameters-eqns" class="internal"><span class="title">Variation of parameters</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-nonhom.html#sec-nonhom-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="forcedo-section.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Forced oscillations and resonance</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="forcedo-section.html#undamped-forced-motion-and-resonance" class="internal"><span class="title">Undamped forced motion and resonance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="forcedo-section.html#damped-forced-motion-and-practical-resonance" class="internal"><span class="title">Damped forced motion and practical resonance</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="forcedo-section.html#forcedo-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-hol.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Higher order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#linear-independence-hoeq" class="internal"><span class="title">Linear independence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#constant-coefficient-higher-order-odes" class="internal"><span class="title">Constant coefficient higher order ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#non-homogeneous-equations" class="internal"><span class="title">Non-Homogeneous Equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-hol.html#sec-hol-11" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="linalg-appendix.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="vecsandmaps-section.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Vectors, mappings, and matrices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="vecsandmaps-section.html#vectors-and-operations-on-vectors" class="internal"><span class="title">Vectors and operations on vectors</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#linear-combinations-and-linear-independence" class="internal"><span class="title">Linear Combinations and Linear Independence</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#matrices" class="internal"><span class="title">Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#linear-mappings-and-matrices" class="internal"><span class="title">Linear mappings and matrices</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="vecsandmaps-section.html#vecsandmaps-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="matalg-section.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Matrix algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#one-by-one-matrices" class="internal"><span class="title">One-by-one matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#matrix-addition-and-scalar-multiplication" class="internal"><span class="title">Matrix addition and scalar multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#matrix-multiplication" class="internal"><span class="title">Matrix multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#some-rules-of-matrix-algebra" class="internal"><span class="title">Some rules of matrix algebra</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#inverse" class="internal"><span class="title">Inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#special-types-of-matrices" class="internal"><span class="title">Special types of matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#transpose" class="internal"><span class="title">Transpose</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="matalg-section.html#matalg-section-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="elim-section.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Elimination</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#linear-systems-of-equations" class="internal"><span class="title">Linear systems of equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#row-echelon-form-and-elementary-operations" class="internal"><span class="title">Row echelon form and elementary operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#non-unique-solutions-and-inconsistent-systems" class="internal"><span class="title">Non-unique solutions and inconsistent systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="elim-section.html#elim-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="det-section.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Determinant</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="det-section.html#det-section-32" class="internal"><span class="codenumber">3.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eig-section.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Eigenvalues and Eigenvectors</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#finding-eigenvalues-and-eigenvectors" class="internal"><span class="title">Finding Eigenvalues and Eigenvectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#real-eigenvalues" class="internal"><span class="title">Real Eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#complex-eigenvalues" class="internal"><span class="title">Complex Eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#repeated-eigenvalues" class="internal"><span class="title">Repeated Eigenvalues</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eig-section.html#eig-section-11" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-kernel.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Related Topics in Linear Algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#subspaces-and-span" class="internal"><span class="title">Subspaces and span</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#basis-and-dimension" class="internal"><span class="title">Basis and dimension</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#rank" class="internal"><span class="title">Rank</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#kernel" class="internal"><span class="title">Kernel</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#computing-the-inverse-adv" class="internal"><span class="title">Computing the inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#trace-and-determinant-of-matrices" class="internal"><span class="title">Trace and Determinant of Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#extension-of-previous-theorem" class="internal"><span class="title">Extension of Previous Theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-kernel.html#sec-kernel-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="sys-chapter.html" class="internal"><span class="codenumber">4</span> <span class="title">Systems of ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-introtosys.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Introduction to systems of ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#systems" class="internal"><span class="title">Systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#applications" class="internal"><span class="title">Applications</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#changing-to-first-order" class="internal"><span class="title">Changing to first order</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#autonomous-systems-and-vector-fields" class="internal"><span class="title">Autonomous systems and vector fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#picards-theorem" class="internal"><span class="title">Picard’s theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-introtosys.html#sec-introtosys-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-matrix.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Matrices and linear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#matrices-and-vectors" class="internal"><span class="title">Matrices and vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#matrix-multiplication-rev" class="internal"><span class="title">Matrix multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#the-determinant" class="internal"><span class="title">The determinant</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#solving-linear-systems" class="internal"><span class="title">Solving linear systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#computing-the-inverse" class="internal"><span class="title">Computing the inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#eigenvalues-and-eigenvectors-of-a-matrix" class="internal"><span class="title">Eigenvalues and eigenvectors of a matrix</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matrix.html#sec-matrix-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linsystems-section.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Linear systems of ODEs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linsystems-section.html#linsystems-section-17" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod-section.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Eigenvalue method</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-section.html#the-eigenvalue-method-with-distinct-real-eigenvalues" class="internal"><span class="title">The eigenvalue method with distinct real eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-section.html#phase-portraits-real" class="internal"><span class="title">Phase Portraits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-section.html#eigenmethod-section-10" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod-cplx-section.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Eigenvalue method with complex eigenvalues</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-cplx-section.html#phase-portraits-complex" class="internal"><span class="title">Phase Portraits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-cplx-section.html#eigenmethod-cplx-section-16" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod-repeat-section.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Eigenvalue method with repeated eigenvalues</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection">
+<div class="toc-title-box"><a href="eigenmethod-repeat-section.html#geometric-multiplicity" class="internal"><span class="title">Geometric multiplicity</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#defective-eigenvalues" class="internal"><span class="title">Defective eigenvalues</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#phase-portraits-repeated" class="internal"><span class="title">Phase Portraits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#eigenmethod-repeat-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-twodimaut.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Two-dimensional systems and their vector fields</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-twodimaut.html#trace-determinant-analysis" class="internal"><span class="title">Trace-Determinant Analysis</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-twodimaut.html#sec-twodimaut-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nonhomogsys-section.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Nonhomogeneous systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys-section.html#first-order-constant-coefficient" class="internal"><span class="title">First order constant coefficient</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys-section.html#diagonalization" class="internal"><span class="title">Diagonalization</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys-section.html#undetermined-coefficients-sys" class="internal"><span class="title">Undetermined coefficients</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys-section.html#first-order-variable-coefficient" class="internal"><span class="title">First order variable coefficient</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys-section.html#variation-of-parameters-sys" class="internal"><span class="title">Variation of parameters</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nonhomogsys-section.html#nonhomogsys-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sol-section.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Second order systems and applications</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol-section.html#undamped-mass-spring-systems" class="internal"><span class="title">Undamped mass-spring systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol-section.html#examples" class="internal"><span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol-section.html#forced-oscillations" class="internal"><span class="title">Forced oscillations</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sol-section.html#non-homogeneous-solutions" class="internal"><span class="title">Non-Homogeneous Solutions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sol-section.html#undetermined-coefficients-secondsys" class="internal"><span class="title">Undetermined coefficients</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sol-section.html#eigenvector-decomposition" class="internal"><span class="title">Eigenvector decomposition</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sol-section.html#sol-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-matexp.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Matrix exponentials</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#definition" class="internal"><span class="title">Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#simple-cases" class="internal"><span class="title">Simple cases</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#general-matrices" class="internal"><span class="title">General matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#fundamental-matrix-solutions" class="internal"><span class="title">Fundamental matrix solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#approximations" class="internal"><span class="title">Approximations</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-matexp.html#non-homogeneous-systems" class="internal"><span class="title">Non-Homogeneous Systems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-matexp.html#integrating-factor" class="internal"><span class="title">Integrating factor</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matexp.html#sec-matexp-8" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="nlin-chapter.html" class="internal"><span class="codenumber">5</span> <span class="title">Nonlinear Systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linearization-section.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Linearization, critical points, and stability</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#autonomous-systems-and-phase-plane-analysis" class="internal"><span class="title">Autonomous systems and phase plane analysis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#linearization" class="internal"><span class="title">Linearization</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#isolated-critical-points-and-almost-linear-systems" class="internal"><span class="title">Isolated critical points and almost linear systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#stability-and-classification-of-isolated-critical-points" class="internal"><span class="title">Stability and classification of isolated critical points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#the-trouble-with-centers" class="internal"><span class="title">The trouble with centers</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linearization-section.html#linearization-section-12" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nlinHamiltonian-section.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Behavior of non-linear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#conservative-equations" class="internal"><span class="title">Conservative equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#hamiltonian-systems" class="internal"><span class="title">Hamiltonian Systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#separatrices-and-basins-of-attractions" class="internal"><span class="title">Separatrices and Basins of Attractions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#nullclines" class="internal"><span class="title">Nullclines</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#nlinHamiltonian-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nlinapps-section.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Applications of nonlinear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#pendulum" class="internal"><span class="title">Pendulum</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#predator-prey-or-lotkavolterra-systems" class="internal"><span class="title">Predator-prey or Lotka–Volterra systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#competing-species-systems" class="internal"><span class="title">Competing Species systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinapps-section.html#nlinapps-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="limitcycles-section.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Limit cycles</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="limitcycles-section.html#limitcycles-section-28" class="internal"><span class="codenumber">5.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-chaos.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Chaos</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaos.html#duffing-equation-and-strange-attractors" class="internal"><span class="title">Duffing equation and strange attractors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaos.html#the-lorenz-system" class="internal"><span class="title">The Lorenz system</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-chaos.html#sec-chaos-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="matlab-appendix.html" class="internal"><span class="codenumber">6</span> <span class="title">Introduction to MATLAB</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="the-matlab-interface.html" class="internal"><span class="codenumber">6.1</span> <span class="title">The MATLAB Interface</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="file-structure.html" class="internal"><span class="codenumber">6.2</span> <span class="title">File Structure</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="computation-in-matlab.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Computation in MATLAB</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="variables-and-arrays.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Variables and Arrays</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="funMat-section.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Functions and Anonymous Functions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="loops-and-branching-statements.html" class="internal"><span class="codenumber">6.6</span> <span class="title">Loops and Branching Statements</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="loops-and-branching-statements.html#for-loops" class="internal"><span class="title">For Loops</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="loops-and-branching-statements.html#if-statements" class="internal"><span class="title">If Statements</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="plotting-in-matlab.html" class="internal"><span class="codenumber">6.7</span> <span class="title">Plotting in MATLAB</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="supplemental-code-files.html" class="internal"><span class="codenumber">6.8</span> <span class="title">Supplemental Code Files</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-prereq.html" class="internal"><span class="codenumber">7</span> <span class="title">Prerequisite Material</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-polys.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Polynomials and Factoring</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#definitions-and-operations" class="internal"><span class="title">Definitions and Operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#polynomial-long-division" class="internal"><span class="title">Polynomial Long Division</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#synthetic-division" class="internal"><span class="title">Synthetic Division</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-complexNums.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Complex Numbers</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-derivInt.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Differentiation and Integration Techniques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivInt.html#derivative-and-integral-formulas" class="internal"><span class="title">Derivative and Integral Formulas</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-derivInt.html#derivative-rules" class="internal"><span class="title">Derivative Rules</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#linearity-of-the-derivative-and-integral" class="internal"><span class="title">Linearity of the Derivative and Integral</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#product-and-quotient-rule" class="internal"><span class="title">Product and Quotient Rule</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#chain-rule" class="internal"><span class="title">Chain Rule</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-derivInt.html#integration-techniques" class="internal"><span class="title">Integration Techniques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#substitution" class="internal"><span class="title">Substitution</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#integration-by-parts" class="internal"><span class="title">Integration by Parts</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#partial-fractions" class="internal"><span class="title">Partial Fractions</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-references"><div class="toc-title-box"><a href="references.html" class="internal"><span class="title">References</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-3.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="numer-section"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Numerical methods: Euler’s method</span>
+</h2>
+<div class="para logical" id="numer-section-2">
+<div class="para">Unless <span class="process-math">\(f(x,y)\)</span> is of a special form, it is generally very hard if not impossible to get a nice formula for the solution of the problem</div>
+<div class="displaymath process-math" id="numer-section-2-2">
+\begin{equation*}
+y' = f(x,y), \qquad y(x_0) = y_0 .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="numer-section-3">If the equation can be solved in closed form, we should do that. But what if we have an equation that cannot be solved in closed form? What if we want to find the value of the solution at some particular <span class="process-math">\(x\text{?}\)</span> Or perhaps we want to produce a graph of the solution to inspect the behavior. In this section we will learn about the basics of numerical approximation of solutions.<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="numer-section-4">
+<div class="para">The simplest method for approximating a solution is <em class="emphasis"><details class="ptx-footnote" aria-live="polite" id="numer-section-4-1-1"><summary class="ptx-footnote__number" title="Footnote 1.6.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="numer-section-4-1-1"><div class="para" id="numer-section-4-1-1-1">Named after the Swiss mathematician <a class="external" href="https://en.wikipedia.org/wiki/Euler" target="_blank">Leonhard Paul Euler</a> (1707–1783). The correct pronunciation of the name sounds more like<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-4-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details></em>. It works as follows: Take <span class="process-math">\(x_0\)</span> and compute the slope <span class="process-math">\(k = f(x_0,y_0)\text{.}\)</span> The slope is the change in <span class="process-math">\(y\)</span> per unit change in <span class="process-math">\(x\text{.}\)</span> Follow the line for an interval of length <span class="process-math">\(h\)</span> on the <span class="process-math">\(x\)</span>-axis. Hence if <span class="process-math">\(y = y_0\)</span> at <span class="process-math">\(x_0\text{,}\)</span> then we say that <span class="process-math">\(y_1\)</span> (the approximate value of <span class="process-math">\(y\)</span> at <span class="process-math">\(x_1 = x_0 + h\)</span>) is <span class="process-math">\(y_1 = y_0 + h k\text{.}\)</span> Rinse, repeat! Let <span class="process-math">\(k = f(x_1,y_1)\text{,}\)</span> and then compute <span class="process-math">\(x_2 = x_1 + h\text{,}\)</span> and <span class="process-math">\(y_2 = y_1 + h k\text{.}\)</span> Now compute <span class="process-math">\(x_3\)</span> and <span class="process-math">\(y_3\)</span> using <span class="process-math">\(x_2\)</span> and <span class="process-math">\(y_2\text{,}\)</span> etc. Consider the equation <span class="process-math">\(y' = \nicefrac{y^2}{3}\text{,}\)</span> <span class="process-math">\(y(0)=1\text{,}\)</span> and <span class="process-math">\(h=1\text{.}\)</span> Then <span class="process-math">\(x_0=0\)</span> and <span class="process-math">\(y_0 = 1\text{.}\)</span> We compute</div>
+<div class="displaymath process-math" id="numer-section-4-26">
+\begin{equation*}
+\begin{align*}
+&amp; x_1 = x_0 + h = 0 + 1 = 1, &amp; &amp; y_1 = y_0 + h \, f(x_0,y_0) = 1 + 1 \cdot
+\nicefrac{1^2}{3} = \nicefrac{4}{3} \approx 1.333,\\
+&amp; x_2 = x_1 + h = 1 + 1 = 2, &amp; &amp; y_2 = y_1 + h \, f(x_1,y_1) =
+\nicefrac{4}{3} + 1 \cdot \frac{{(\nicefrac{4}{3})}^2}{3} =
+\nicefrac{52}{27} \approx 1.926.
+\end{align*}
+\end{equation*}
+</div>
+<div class="para">We then draw an approximate graph of the solution by connecting the points <span class="process-math">\((x_0,y_0)\text{,}\)</span> <span class="process-math">\((x_1,y_1)\text{,}\)</span> <span class="process-math">\((x_2,y_2)\text{,}\)</span>…. For the first two steps of the method see .</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="numer-section-5">
+<div class="para">More abstractly, for any <span class="process-math">\(i=0,1,2,3,\ldots\text{,}\)</span> we compute</div>
+<div class="displaymath process-math" id="numer-section-5-2">
+\begin{equation*}
+x_{i+1} = x_i + h , \qquad y_{i+1}  = y_i + h\, f(x_i,y_i) .
+\end{equation*}
+</div>
+<div class="para">This can be worked out by hand for a few steps, but the formulas here lend themselves very well to being coded into a looping structure for more involved processes. The line segments we get are an approximate graph of the solution. Generally it is not exactly the solution. See for the plot of the real solution and the approximation.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="euler-step12-fig"><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 1.6.1"><a href="#euler-step12-fig" title="Copy heading and permalink for Figure 1.6.1" aria-label="Copy heading and permalink for Figure 1.6.1">🔗</a></div></figcaption></figure><figure class="figure figure-like" id="euler-step12-sol-fig"><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 1.6.2"><a href="#euler-step12-sol-fig" title="Copy heading and permalink for Figure 1.6.2" aria-label="Copy heading and permalink for Figure 1.6.2">🔗</a></div></figcaption></figure><div class="para" id="numer-section-8">We continue with the equation <span class="process-math">\(y' = \nicefrac{y^2}{3}\text{,}\)</span> <span class="process-math">\(y(0)=1\text{.}\)</span> Let us try to approximate <span class="process-math">\(y(2)\)</span> using Euler’s method. In Figures <a href="numer-section.html#euler-step12-fig" class="xref" data-knowl="./knowl/xref/euler-step12-fig.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.6.1">Figure 1.6.1</a> and <a href="numer-section.html#euler-step12-sol-fig" class="xref" data-knowl="./knowl/xref/euler-step12-sol-fig.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.6.2">Figure 1.6.2</a> we have graphically approximated <span class="process-math">\(y(2)\)</span> with step size 1. With step size 1, we have <span class="process-math">\(y(2) \approx 1.926\text{.}\)</span> The real answer is 3. We are approximately 1.074 off. Let us halve the step size. Computing <span class="process-math">\(y_4\)</span> with <span class="process-math">\(h=0.5\text{,}\)</span> we find that <span class="process-math">\(y(2) \approx 2.209\text{,}\)</span> so an error of about 0.791. gives the values computed for various parameters.<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="numer-section-9" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="numer-section-9-1-1">Solve this equation exactly and show that <span class="process-math">\(y(2) = 3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer-section-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="numer-section-9-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="numer-section-9-2-1">The difference between the actual solution and the approximate solution is called the error. We usually talk about just the size of the error and we do not care much about its sign. The point is, we usually do not know the real solution, so we only have a vague understanding of the error. If we knew the error exactly …what is the point of doing the approximation?<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 1.6.3.1"><a href="#numer-section-9-2" title="Copy heading and permalink for Answer 1.6.3.1" aria-label="Copy heading and permalink for Answer 1.6.3.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Checkpoint 1.6.3"><a href="#numer-section-9" title="Copy heading and permalink for Checkpoint 1.6.3" aria-label="Copy heading and permalink for Checkpoint 1.6.3">🔗</a></div></article></details><figure class="table table-like" id="numer-section-10"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Euler’s method approximation of <span class="process-math">\(y(2)\)</span> where of <span class="process-math">\(y'=\nicefrac{y^2}{3}\text{,}\)</span> <span class="process-math">\(y(0)=1\text{.}\)</span><div class="autopermalink" data-description="Table 1.6.4: Euler’s method approximation of y(2) where of y'=\nicefrac{y^2}{3} y(0)=1"><a href="#numer-section-10" title="Copy heading and permalink for Table 1.6.4: Euler’s method approximation of y(2) where of y'=\nicefrac{y^2}{3} y(0)=1" aria-label="Copy heading and permalink for Table 1.6.4: Euler’s method approximation of y(2) where of y'=\nicefrac{y^2}{3} y(0)=1">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="r m b0 r0 l0 t0 lines"><span class="process-math">\(h\)</span></th>
+<th scope="col" class="r m b0 r0 l0 t0 lines">Approximate <span class="process-math">\(y(2)\)</span>
+</th>
+<th scope="col" class="r m b0 r0 l0 t0 lines">Error</th>
+<th scope="col" class="r m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{\text{Error}}{\text{Previous error}}\)</span></th>
+</tr>
+<tr>
+<td class="r m b0 r0 l0 t0 lines">1</td>
+<td class="r m b0 r0 l0 t0 lines">1.92593</td>
+<td class="r m b0 r0 l0 t0 lines">1.07407</td>
+<td class="r m b0 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="r m b0 r0 l0 t0 lines">0.5</td>
+<td class="r m b0 r0 l0 t0 lines">2.20861</td>
+<td class="r m b0 r0 l0 t0 lines">0.79139</td>
+<td class="r m b0 r0 l0 t0 lines">0.73681</td>
+</tr>
+<tr>
+<td class="r m b0 r0 l0 t0 lines">0.25</td>
+<td class="r m b0 r0 l0 t0 lines">2.47250</td>
+<td class="r m b0 r0 l0 t0 lines">0.52751</td>
+<td class="r m b0 r0 l0 t0 lines">0.66656</td>
+</tr>
+<tr>
+<td class="r m b0 r0 l0 t0 lines">0.125</td>
+<td class="r m b0 r0 l0 t0 lines">2.68034</td>
+<td class="r m b0 r0 l0 t0 lines">0.31966</td>
+<td class="r m b0 r0 l0 t0 lines">0.60599</td>
+</tr>
+<tr>
+<td class="r m b0 r0 l0 t0 lines">0.0625</td>
+<td class="r m b0 r0 l0 t0 lines">2.82040</td>
+<td class="r m b0 r0 l0 t0 lines">0.17960</td>
+<td class="r m b0 r0 l0 t0 lines">0.56184</td>
+</tr>
+<tr>
+<td class="r m b0 r0 l0 t0 lines">0.03125</td>
+<td class="r m b0 r0 l0 t0 lines">2.90412</td>
+<td class="r m b0 r0 l0 t0 lines">0.09588</td>
+<td class="r m b0 r0 l0 t0 lines">0.53385</td>
+</tr>
+<tr>
+<td class="r m b0 r0 l0 t0 lines">0.015625</td>
+<td class="r m b0 r0 l0 t0 lines">2.95035</td>
+<td class="r m b0 r0 l0 t0 lines">0.04965</td>
+<td class="r m b0 r0 l0 t0 lines">0.51779</td>
+</tr>
+<tr>
+<td class="r m b0 r0 l0 t0 lines">0.0078125</td>
+<td class="r m b0 r0 l0 t0 lines">2.97472</td>
+<td class="r m b0 r0 l0 t0 lines">0.02528</td>
+<td class="r m b0 r0 l0 t0 lines">0.50913</td>
+</tr>
+</table></div></figure><div class="para" id="numer-section-11">Notice that except for the first few times, every time we halved the step size the error approximately halved. This halving of the error is a general feature of Euler’s method as it is a <em class="emphasis"></em>. There exists an improved Euler method, see the exercises, which is a . A second order method reduces the error to approximately one quarter every time we halve the interval. The meaning of order is the squaring in <span class="process-math">\(\nicefrac{1}{4} = \nicefrac{1}{2} \times
+\nicefrac{1}{2} = {(\nicefrac{1}{2})}^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer-section-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="numer-section-12">To get the error to be within 0.1 of the answer we had to already do 64 steps. To get it to within 0.01 we would have to halve another three or four times, meaning doing 512 to 1024 steps. That is quite a bit to do by hand. The improved Euler method from the exercises should quarter the error every time we halve the interval, so we would have to approximately do half as many to get the same error. This reduction can be a big deal. With 10 halvings (starting at <span class="process-math">\(h=1\)</span>) we have 1024 steps, whereas with 5 halvings we only have to do 32 steps, assuming that the error was comparable to start with. A computer may not care about this difference for a problem this simple, but suppose each step would take a second to compute (the function may be substantially more difficult to compute than <span class="process-math">\(\nicefrac{y^2}{3}\)</span>). Then the difference is 32 seconds versus about 17 minutes. We are not being altogether fair, a second order method would probably double the time to do each step. Even so, it is 1 minute versus 17 minutes. Next, suppose that we have to repeat such a calculation for different parameters a thousand times. You get the idea.<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="numer-section-13">Note that in practice we do not know how large the error is! How do we know what is the right step size? Well, essentially we keep halving the interval, and if we are lucky, we can estimate the error from a few of these calculations and the assumption that the error goes down by a factor of one half each time (if we are using standard Euler).<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="numer-section-14" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="numer-section-14-1-1">In the table above, suppose you do not know the error. Take the approximate values of the function in the last two lines, assume that the error goes down by a factor of 2. Can you estimate the error in the last time from this? Does it (approximately) agree with the table? Now do it for the first two rows. Does this agree with the table?<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-14-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="numer-section-14-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="numer-section-14-2-1">Let us talk a little bit more about the example <span class="process-math">\(y' = \frac{y^2}{3}\text{,}\)</span> <span class="process-math">\(y(0) =
+1\text{.}\)</span> Suppose that instead of the value <span class="process-math">\(y(2)\)</span> we wish to find <span class="process-math">\(y(3)\text{.}\)</span> The results of this effort are listed in for successive halvings of <span class="process-math">\(h\text{.}\)</span> What is going on here? Well, you should solve the equation exactly and you will notice that the solution does not exist at <span class="process-math">\(x=3\text{.}\)</span> In fact, the solution goes to infinity when you approach <span class="process-math">\(x=3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer-section-14-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 1.6.5.1"><a href="#numer-section-14-2" title="Copy heading and permalink for Answer 1.6.5.1" aria-label="Copy heading and permalink for Answer 1.6.5.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Checkpoint 1.6.5"><a href="#numer-section-14" title="Copy heading and permalink for Checkpoint 1.6.5" aria-label="Copy heading and permalink for Checkpoint 1.6.5">🔗</a></div></article></details><figure class="table table-like" id="numer-section-15"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Attempts to use Euler’s to approximate <span class="process-math">\(y(3)\)</span> where of <span class="process-math">\(y'=\nicefrac{y^2}{3}\text{,}\)</span> <span class="process-math">\(y(0)=1\text{.}\)</span><div class="autopermalink" data-description="Table 1.6.6: Attempts to use Euler’s to approximate y(3) where of y'=\nicefrac{y^2}{3} y(0)=1"><a href="#numer-section-15" title="Copy heading and permalink for Table 1.6.6: Attempts to use Euler’s to approximate y(3) where of y'=\nicefrac{y^2}{3} y(0)=1" aria-label="Copy heading and permalink for Table 1.6.6: Attempts to use Euler’s to approximate y(3) where of y'=\nicefrac{y^2}{3} y(0)=1">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="r m b0 r0 l0 t0 lines"><span class="process-math">\(h\)</span></th>
+<th scope="col" class="r m b0 r0 l0 t0 lines">Approximate <span class="process-math">\(y(3)\)</span>
+</th>
+</tr>
+<tr>
+<td class="r m b0 r0 l0 t0 lines">1</td>
+<td class="r m b0 r0 l0 t0 lines">3.16232</td>
+</tr>
+<tr>
+<td class="r m b0 r0 l0 t0 lines">0.5</td>
+<td class="r m b0 r0 l0 t0 lines">4.54329</td>
+</tr>
+<tr>
+<td class="r m b0 r0 l0 t0 lines">0.25</td>
+<td class="r m b0 r0 l0 t0 lines">6.86079</td>
+</tr>
+<tr>
+<td class="r m b0 r0 l0 t0 lines">0.125</td>
+<td class="r m b0 r0 l0 t0 lines">10.80321</td>
+</tr>
+<tr>
+<td class="r m b0 r0 l0 t0 lines">0.0625</td>
+<td class="r m b0 r0 l0 t0 lines">17.59893</td>
+</tr>
+<tr>
+<td class="r m b0 r0 l0 t0 lines">0.03125</td>
+<td class="r m b0 r0 l0 t0 lines">29.46004</td>
+</tr>
+<tr>
+<td class="r m b0 r0 l0 t0 lines">0.015625</td>
+<td class="r m b0 r0 l0 t0 lines">50.40121</td>
+</tr>
+<tr>
+<td class="r m b0 r0 l0 t0 lines">0.0078125</td>
+<td class="r m b0 r0 l0 t0 lines">87.75769</td>
+</tr>
+</table></div></figure><div class="para" id="numer-section-16">Another case where things go bad is if the solution oscillates wildly near some point. The solution may exist at all points, but even a much better numerical method than Euler would need an insanely small step size to approximate the solution with reasonable precision. And computers might not be able to easily handle such a small step size.<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="numer-section-17">In real applications we would not use a simple method such as Euler’s. The simplest method that would probably be used in a real application is the standard Runge–Kutta method (see exercises). That is a , meaning that if we halve the interval, the error generally goes down by a factor of 16 (it is fourth order as <span class="process-math">\(\nicefrac{1}{16} =
+\nicefrac{1}{2} \times \nicefrac{1}{2}
+\times \nicefrac{1}{2} \times \nicefrac{1}{2}\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="numer-section-18">Choosing the right method to use and the right step size can be very tricky. There are several competing factors to consider.<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="numer-section-19">
+<ul class="disc" id="numer-section-19-1">
+<li id="numer-section-19-1-1">
+<div class="para" id="numer-section-19-1-1-1">Computational time: Each step takes computer time. Even if the function <span class="process-math">\(f\)</span> is simple to compute, we do it many times over. Large step size means faster computation, but perhaps not the right precision.<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-19-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#numer-section-19-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="numer-section-19-1-2">
+<div class="para" id="numer-section-19-1-2-1">Roundoff errors: Computers only compute with a certain number of significant digits. Errors introduced by rounding numbers off during our computations become noticeable when the step size becomes too small relative to the quantities we are working with. So reducing step size may in fact make errors worse. There is a certain optimum step size such that the precision increases as we approach it, but then starts getting worse as we make our step size smaller still. Trouble is: this optimum may be hard to find.<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-19-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#numer-section-19-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="numer-section-19-1-3">
+<div class="para" id="numer-section-19-1-3-1">Stability: Certain equations may be numerically unstable. What may happen is that the numbers never seem to stabilize no matter how many times we halve the interval. We may need a ridiculously small interval size, which may not be practical due to roundoff errors or computational time considerations. Such problems are sometimes called <em class="emphasis">stiff</em>. In the worst case, the numerical computations might be giving us bogus numbers that look like a correct answer. Just because the numbers seem to have stabilized after successive halving, does not mean that we must have the right answer.<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-19-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#numer-section-19-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="numer-section-20">We have seen just the beginnings of the challenges that appear in real applications. Numerical approximation of solutions to differential equations is an active research area for engineers and mathematicians. For example, the general purpose method used for the ODE solver in Matlab and Octave (as of this writing) is a method that appeared in the literature only in the 1980s.<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="numer-section-21">
+<div class="para">The method used in Matlab and Octave is a fair bit different from the methods discussed previously. We don’t need to go too much in detail about it, but some information will be helpful. The main difference that will be visible when running these methods is that they are <em class="emphasis">adaptive</em> method. This means that they adjust the step-size based on what the differential equation looks like at a given point. Euler’s method, along with the improved Euler and Runge-Kutta methods, is a fixed step-size method, where the steps are always the same no matter what. Adaptive methods are harder to write and optimize, but can solve many problems faster because the adaptive nature of the method allows them to get similar accuracy to fixed step methods, but at many fewer steps. In the example below, the initial value problem</div>
+<div class="displaymath process-math" id="numer-section-21-2">
+\begin{equation*}
+\frac{dy}{dt} = y \qquad y(0) = 1
+\end{equation*}
+</div>
+<div class="para">is solved with an Euler’s method and Matlab’s built-in <code class="code-inline tex2jax_ignore">ode45</code> method. Both of the solutions are plotted along with the actual solution <span class="process-math">\(y = e^t\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="numer-section-22">The Euler’s method takes 60 steps in this computation, but is still not as accurate as the <code class="code-inline tex2jax_ignore">ode45</code> method, which only takes 45 steps. In addition, the black diamonds, representing the different values computed by <code class="code-inline tex2jax_ignore">ode45</code> are not evenly spaced, illustrating the adaptive nature of this solver, while the red stars are all evenly spaced in the <span class="process-math">\(t\)</span>-direction, as is expected from Euler’s method.<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="exercises" id="numer-section-23"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="numer-section-23-2"><h4 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="numer-section-23-2-1-1">Consider <span class="process-math">\(\dfrac{dx}{dt} = {(2t-x)}^2\text{,}\)</span> <span class="process-math">\(x(0)=2\text{.}\)</span> Use Euler’s method with step size <span class="process-math">\(h=0.5\)</span> to approximate <span class="process-math">\(x(1)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer-section-23-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="numer-section-23-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="numer-section-23-2-2-1">17/2<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-23-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 1.6.1.1"><a href="#numer-section-23-2-2" title="Copy heading and permalink for Answer 1.6.1.1" aria-label="Copy heading and permalink for Answer 1.6.1.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 1.6.1"><a href="#numer-section-23-2" title="Copy heading and permalink for Exercise 1.6.1" aria-label="Copy heading and permalink for Exercise 1.6.1">🔗</a></div></article><article class="exercise exercise-like" id="numer-section-23-3"><h4 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="numer-section-23-3-1-1">Consider the differential equation <span class="process-math">\(\frac{dy}{dt} = t^2 - 3y + 1\)</span> with <span class="process-math">\(y(1) = 4\text{.}\)</span> Approximate the solution at <span class="process-math">\(t=3\)</span> using Euler’s method with a step size of <span class="process-math">\(h=1\)</span> and <span class="process-math">\(h=0.5\text{.}\)</span> Compare these values with the actual solution at <span class="process-math">\(t=3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer-section-23-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="numer-section-23-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="numer-section-23-3-2-1">
+<span class="process-math">\(h=1\text{:}\)</span> 17, <span class="process-math">\(h=0.5\text{:}\)</span> 85/32, Actual: <span class="process-math">\(\frac{52}{27} + \frac{94}{27}e^{-6} \approx 1.9346\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer-section-23-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 1.6.2.1"><a href="#numer-section-23-3-2" title="Copy heading and permalink for Answer 1.6.2.1" aria-label="Copy heading and permalink for Answer 1.6.2.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 1.6.2"><a href="#numer-section-23-3" title="Copy heading and permalink for Exercise 1.6.2" aria-label="Copy heading and permalink for Exercise 1.6.2">🔗</a></div></article><article class="exercise exercise-like" id="numer-section-23-4"><h4 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="numer-section-23-4-1-1">Consider the differential equation <span class="process-math">\(\frac{dy}{dt} = 2ty + y^2\)</span> with <span class="process-math">\(y(0) = 1\text{.}\)</span> Approximate the solution at <span class="process-math">\(t=2\)</span> using Euler’s method with a step size of <span class="process-math">\(h=1\)</span> and <span class="process-math">\(h=0.5\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer-section-23-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="numer-section-23-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="numer-section-23-4-2-1">
+<span class="process-math">\(h=1\text{:}\)</span> 10, <span class="process-math">\(h=0.5\text{:}\)</span> <span class="process-math">\(y(2) \approx 108.56\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer-section-23-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 1.6.3.1"><a href="#numer-section-23-4-2" title="Copy heading and permalink for Answer 1.6.3.1" aria-label="Copy heading and permalink for Answer 1.6.3.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 1.6.3"><a href="#numer-section-23-4" title="Copy heading and permalink for Exercise 1.6.3" aria-label="Copy heading and permalink for Exercise 1.6.3">🔗</a></div></article><article class="exercise exercise-like" id="numer-section-23-5"><h4 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="numer-section-23-5-1-1">Consider <span class="process-math">\(\dfrac{dx}{dt} = t-x\text{,}\)</span> <span class="process-math">\(x(0)=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer-section-23-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="numer-section-23-5-1-2">Use Euler’s method with step sizes <span class="process-math">\(h = 1, \nicefrac{1}{2}, \nicefrac{1}{4}, \nicefrac{1}{8}\)</span> to approximate <span class="process-math">\(x(1)\text{.}\)</span> Solve the equation exactly. Describe what happens to the errors for each <span class="process-math">\(h\)</span> you used. That is, find the factor by which the error changed each time you halved the interval.<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-23-5-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="numer-section-23-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="numer-section-23-5-2-1">a)  <span class="process-math">\(h=1\text{,}\)</span> 0. <span class="process-math">\(h=\nicefrac{1}{2}\text{,}\)</span> 0.5. <span class="process-math">\(h = \nicefrac{1}{4}\text{,}\)</span><span class="process-math">\(\frac{81}{128}\text{.}\)</span> <span class="process-math">\(h = \nicefrac{1}{8}\)</span> <span class="process-math">\(x(1) \approx .6872\text{.}\)</span>b) <span class="process-math">\(x(t) = t-1+2e^{-t}\)</span>c) Error decreases by factors of 0.32, 0.4365, 0.4723.<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-23-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 1.6.4.1"><a href="#numer-section-23-5-2" title="Copy heading and permalink for Answer 1.6.4.1" aria-label="Copy heading and permalink for Answer 1.6.4.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 1.6.4"><a href="#numer-section-23-5" title="Copy heading and permalink for Exercise 1.6.4" aria-label="Copy heading and permalink for Exercise 1.6.4">🔗</a></div></article><article class="exercise exercise-like" id="numer-section-23-6"><h4 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="numer-section-23-6-1-1">Let <span class="process-math">\(x' = \sin(xt)\text{,}\)</span> and <span class="process-math">\(x(0)=1\text{.}\)</span> Approximate <span class="process-math">\(x(1)\)</span> using Euler’s method with step sizes 1, 0.5, 0.25. Use a calculator and compute up to 4 decimal digits.<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-23-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 1.6.5"><a href="#numer-section-23-6" title="Copy heading and permalink for Exercise 1.6.5" aria-label="Copy heading and permalink for Exercise 1.6.5">🔗</a></div></article><article class="exercise exercise-like" id="numer-section-23-7"><h4 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="numer-section-23-7-1-1">Approximate the value of <span class="process-math">\(e\)</span> by looking at the initial value problem <span class="process-math">\(y'=y\)</span> with <span class="process-math">\(y(0)=1\)</span> and approximating <span class="process-math">\(y(1)\)</span> using Euler’s method with a step size of <span class="process-math">\(0.2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer-section-23-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="numer-section-23-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="numer-section-23-7-2-1">2.4883<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-23-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 1.6.6.1"><a href="#numer-section-23-7-2" title="Copy heading and permalink for Answer 1.6.6.1" aria-label="Copy heading and permalink for Answer 1.6.6.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 1.6.6"><a href="#numer-section-23-7" title="Copy heading and permalink for Exercise 1.6.6" aria-label="Copy heading and permalink for Exercise 1.6.6">🔗</a></div></article><article class="exercise exercise-like" id="numer-section-23-8"><h4 class="heading"><span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="numer-section-23-8-1-1">Let <span class="process-math">\(x' = 2t\text{,}\)</span> and <span class="process-math">\(x(0)=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer-section-23-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="numer-section-23-8-1-2">Approximate <span class="process-math">\(x(4)\)</span> using Euler’s method with step sizes 4, 2, and 1. Solve exactly, and compute the errors. Compute the factor by which the errors changed.<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-23-8-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 1.6.7"><a href="#numer-section-23-8" title="Copy heading and permalink for Exercise 1.6.7" aria-label="Copy heading and permalink for Exercise 1.6.7">🔗</a></div></article><article class="exercise exercise-like" id="numer-section-23-9"><h4 class="heading"><span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="numer-section-23-9-1-1">Let <span class="process-math">\(x' = x e^{xt+1}\text{,}\)</span> and <span class="process-math">\(x(0)=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer-section-23-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="numer-section-23-9-1-2">Approximate <span class="process-math">\(x(4)\)</span> using Euler’s method with step sizes 4, 2, and 1. Guess an exact solution based on part a) and compute the errors.<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-23-9-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 1.6.8"><a href="#numer-section-23-9" title="Copy heading and permalink for Exercise 1.6.8" aria-label="Copy heading and permalink for Exercise 1.6.8">🔗</a></div></article><article class="exercise exercise-like" id="numer-section-23-10"><h4 class="heading"><span class="codenumber">9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="numer-section-23-10-1-1">Example of numerical instability: Take <span class="process-math">\(y' = -5y\text{,}\)</span> <span class="process-math">\(y(0) = 1\text{.}\)</span> We know that the solution should decay to zero as <span class="process-math">\(x\)</span> grows. Using Euler’s method, start with <span class="process-math">\(h=1\)</span> and compute <span class="process-math">\(y_1, y_2, y_3, y_4\)</span> to try to approximate <span class="process-math">\(y(4)\text{.}\)</span> What happened? Now halve the interval. Keep halving the interval and approximating <span class="process-math">\(y(4)\)</span> until the numbers you are getting start to stabilize (that is, until they start going towards zero). Note: You might want to use a calculator.<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-23-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="numer-section-23-10-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="numer-section-23-10-2-1">For <span class="process-math">\(h=1\text{,}\)</span> <span class="process-math">\(y_4 = 256\text{.}\)</span> <span class="process-math">\(h=0.5\text{,}\)</span> <span class="process-math">\(y_4 = 25.6289\text{,}\)</span> <span class="process-math">\(h=0.25\)</span> goes to zero, but oscillates. <span class="process-math">\(h=0.125\)</span> just goes to zero.<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-23-10-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 1.6.9.1"><a href="#numer-section-23-10-2" title="Copy heading and permalink for Answer 1.6.9.1" aria-label="Copy heading and permalink for Answer 1.6.9.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 1.6.9"><a href="#numer-section-23-10" title="Copy heading and permalink for Exercise 1.6.9" aria-label="Copy heading and permalink for Exercise 1.6.9">🔗</a></div></article><article class="exercise exercise-like" id="numer-section-23-11"><h4 class="heading"><span class="codenumber">10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="numer-section-23-11-1-1">
+<div class="para">There is a simple way to improve Euler’s method to make it a second order method by doing just one extra step. Consider <span class="process-math">\(\frac{dy}{dx}=f(x,y)\text{,}\)</span> <span class="process-math">\(y(x_0) = y_0\text{,}\)</span> and a step size <span class="process-math">\(h\text{.}\)</span> What we do is to pretend we compute the next step as in Euler, that is, we start with <span class="process-math">\((x_i,y_i)\text{,}\)</span> we compute a slope <span class="process-math">\(k_1 = f(x_i,y_i)\text{,}\)</span> and then look at the point <span class="process-math">\((x_i+h,y_i + k_1h)\text{.}\)</span> Instead of letting our new point be <span class="process-math">\((x_i+h,y_i + k_1h)\text{,}\)</span> we compute the slope at that point, call it <span class="process-math">\(k_2\text{,}\)</span> and then take the average of <span class="process-math">\(k_1\)</span> and <span class="process-math">\(k_2\text{,}\)</span> hoping that the average is going to be closer to the actual slope on the interval from <span class="process-math">\(x_i\)</span> to <span class="process-math">\(x_i+h\text{.}\)</span> And we are correct, if we halve the step, the error should go down by a factor of <span class="process-math">\(2^2 = 4\text{.}\)</span> To summarize, the setup is the same as for regular Euler, except the computation of <span class="process-math">\(y_{i+1}\)</span> and <span class="process-math">\(x_{i+1}\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="numer-section-23-11-1-1-16">
+\begin{equation*}
+\begin{align*}
+&amp; k_1 = f(x_i,y_i) , &amp; &amp; 
+x_{i+1} = x_i + h , \\
+&amp; k_2 = f(x_i + h,y_i + k_1h) ,
+&amp; &amp; y_{i+1} = y_i + \frac{k_1+k_2}{2}\,h .
+\end{align*}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-23-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="numer-section-23-11-1-2">Consider <span class="process-math">\(\dfrac{dy}{dx} = x+y\text{,}\)</span> <span class="process-math">\(y(0)=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer-section-23-11-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="numer-section-23-11-1-3">Use the improved Euler’s method (see above) with step sizes <span class="process-math">\(h=\nicefrac{1}{4}\)</span> and <span class="process-math">\(h=\nicefrac{1}{8}\)</span> to approximate <span class="process-math">\(y(1)\text{.}\)</span> Use Euler’s method with <span class="process-math">\(h=\nicefrac{1}{4}\)</span> and <span class="process-math">\(h=\nicefrac{1}{8}\text{.}\)</span> Solve exactly, find the exact value of <span class="process-math">\(y(1)\text{.}\)</span> Compute the errors, and the factors by which the errors changed.<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-23-11-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="numer-section-23-11-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para logical" id="numer-section-23-11-2-1">
+<div class="para">The simplest method used in practice is the <em class="emphasis"></em>. Consider <span class="process-math">\(\frac{dy}{dx}=f(x,y)\text{,}\)</span> <span class="process-math">\(y(x_0) = y_0\text{,}\)</span> and a step size <span class="process-math">\(h\text{.}\)</span> Everything is the same as in Euler’s method, except the computation of <span class="process-math">\(y_{i+1}\)</span> and <span class="process-math">\(x_{i+1}\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="numer-section-23-11-2-1-7">
+\begin{equation*}
+\begin{align*}
+&amp; k_1 = f(x_i,y_i) , &amp; &amp; \\
+&amp; k_2 = f\bigl(x_i + \nicefrac{h}{2},y_i + k_1 (\nicefrac{h}{2})\bigr) ,
+&amp; &amp; 
+x_{i+1} = x_i + h , \\
+&amp; k_3 = f\bigl(x_i + \nicefrac{h}{2},y_i + k_2 (\nicefrac{h}{2})\bigr) ,
+&amp; &amp;
+y_{i+1} = y_i + \frac{k_1 + 2k_2 + 2k_3 + k_4}{6}\,h ,  \\
+&amp; k_4 = f(x_i + h,y_i + k_3 h) .
+\end{align*}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-23-11-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 1.6.10.1"><a href="#numer-section-23-11-2" title="Copy heading and permalink for Answer 1.6.10.1" aria-label="Copy heading and permalink for Answer 1.6.10.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 1.6.10"><a href="#numer-section-23-11" title="Copy heading and permalink for Exercise 1.6.10" aria-label="Copy heading and permalink for Exercise 1.6.10">🔗</a></div></article><article class="exercise exercise-like" id="numer-section-23-12"><h4 class="heading"><span class="codenumber">11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="numer-section-23-12-1-1">Consider <span class="process-math">\(\dfrac{dy}{dx} = yx^2\text{,}\)</span> <span class="process-math">\(y(0)=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer-section-23-12-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="numer-section-23-12-1-2">Use Runge–Kutta (see above) with step sizes <span class="process-math">\(h=1\)</span> and <span class="process-math">\(h=\nicefrac{1}{2}\)</span> to approximate <span class="process-math">\(y(1)\text{.}\)</span> Use Euler’s method with <span class="process-math">\(h=1\)</span> and <span class="process-math">\(h=\nicefrac{1}{2}\text{.}\)</span> Solve exactly, find the exact value of <span class="process-math">\(y(1)\text{,}\)</span> and compare.<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-23-12-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="numer-section-23-12-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="numer-section-23-12-2-1">a)  <span class="process-math">\(h=1\)</span> gives 1.3906. <span class="process-math">\(h=0.5\)</span> gives 1.3953. b)  <span class="process-math">\(h=1\)</span> gives 1. <span class="process-math">\(h=0.5\)</span> gives 1.125. c)  Exact: 1.3956. Runge–Kutta matches three decimal places at <span class="process-math">\(h=0.5\text{.}\)</span> Euler needs to go to <span class="process-math">\(h=0.005\)</span> to get the first two decimals right.<div class="autopermalink" data-description="Paragraph"><a href="#numer-section-23-12-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 1.6.11.1"><a href="#numer-section-23-12-2" title="Copy heading and permalink for Answer 1.6.11.1" aria-label="Copy heading and permalink for Answer 1.6.11.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 1.6.11"><a href="#numer-section-23-12" title="Copy heading and permalink for Exercise 1.6.11" aria-label="Copy heading and permalink for Exercise 1.6.11">🔗</a></div></article><div class="autopermalink" data-description="Exercises 1.6: Exercises"><a href="#numer-section-23" title="Copy heading and permalink for Exercises 1.6: Exercises" aria-label="Copy heading and permalink for Exercises 1.6: Exercises">🔗</a></div></section><div class="autopermalink" data-description="Section 1.6: Numerical methods: Euler’s method"><a href="#numer-section" title="Copy heading and permalink for Section 1.6: Numerical methods: Euler’s method" aria-label="Copy heading and permalink for Section 1.6: Numerical methods: Euler’s method">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="existunique-section.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="auteq-section.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Eigenvalue method with repeated eigenvalues</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Differential Equations">
+<meta property="book:author" content="Matt Charnley">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.11.12';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.0d5f811896ddeac1.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.e2abc79debce15fd.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Differential Equations</span> <span class="subtitle">An Introduction for Engineers</span></a></h1>
+<p class="byline">Matt Charnley</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="eigenmethod-cplx-section.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="sys-chapter.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-twodimaut.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="intro-chapter.html" class="internal"><span class="codenumber">0</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introde-section.html" class="internal"><span class="codenumber">0.1</span> <span class="title">Introduction to differential equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#differential-equations" class="internal"><span class="title">Differential equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#solutions-of-differential-equations" class="internal"><span class="title">Solutions of differential equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#differential-equations-in-practice" class="internal"><span class="title">Differential equations in practice</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#subsection-fourfundamental" class="internal"><span class="title">Four fundamental equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="introde-section.html#introde-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="classification-section.html" class="internal"><span class="codenumber">0.2</span> <span class="title">Classification of differential equations</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="classification-section.html#classification-section-16" class="internal"><span class="codenumber">0.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="fo-chapter.html" class="internal"><span class="codenumber">1</span> <span class="title">First Order Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="integralsols-section.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Integrals as solutions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="integralsols-section.html#integralsols-section-14" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="slopefields-section.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Slope fields</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slopefields-section.html#slope-fields" class="internal"><span class="title">Slope fields</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="slopefields-section.html#slopefields-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="separable-section.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Separable equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable-section.html#separable-equations" class="internal"><span class="title">Separable equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable-section.html#implicit-solutions" class="internal"><span class="title">Implicit solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable-section.html#examples-of-separable-equations" class="internal"><span class="title">Examples of separable equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="separable-section.html#separable-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="intfactor-section.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Linear equations and the integrating factor</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="intfactor-section.html#intfactor-section-18" class="internal"><span class="codenumber">1.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="existunique-section.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Existence and Uniqueness of Solutions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="existunique-section.html#existunique-section-18" class="internal"><span class="codenumber">1.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="numer-section.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Numerical methods: Euler’s method</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="numer-section.html#numer-section-23" class="internal"><span class="codenumber">1.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="auteq-section.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Autonomous equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auteq-section.html#subsec-autoIntro" class="internal"><span class="title">Introduction and Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auteq-section.html#concavity-of-solutions" class="internal"><span class="title">Concavity of Solutions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="auteq-section.html#auteq-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="bifDiag-section.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Bifurcation diagrams</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="bifDiag-section.html#bifDiag-section-13" class="internal"><span class="codenumber">1.8</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="exact-section.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Exact equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact-section.html#subsec-exactIntro" class="internal"><span class="title">exactIntro</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact-section.html#solving-exact-equations" class="internal"><span class="title">Solving exact equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact-section.html#integrating-factors" class="internal"><span class="title">Integrating factors</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exact-section.html#exact-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="modelfirst-section.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Modeling with First Order Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="modelfirst-section.html#principles-of-mathematical-modeling" class="internal"><span class="title">Principles of Mathematical Modeling</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="modelfirst-section.html#the-accumulation-equation" class="internal"><span class="title">The Accumulation Equation</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="modelfirst-section.html#modelfirst-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="modelfirstestim-section.html" class="internal"><span class="codenumber">1.11</span> <span class="title">Modeling and Parameter Estimation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="modelfirstestim-section.html#modelfirstestim-section-10" class="internal"><span class="codenumber">1.11</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="substitution-section.html" class="internal"><span class="codenumber">1.12</span> <span class="title">Substitution</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution-section.html#bernoulli-equations" class="internal"><span class="title">Bernoulli equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution-section.html#homogeneous-equations" class="internal"><span class="title">Homogeneous equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="substitution-section.html#substitution-section-10" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ho-chapter.html" class="internal"><span class="codenumber">2</span> <span class="title">Higher Order Linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="solinear-section.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Second order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#intial-value-problems" class="internal"><span class="title">Intial Value Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#constant-coefficient-equations---real-and-distinct-roots" class="internal"><span class="title">Constant Coefficient Equations - Real and Distinct Roots</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#linear-independence-soeq" class="internal"><span class="title">Linear Independence</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="solinear-section.html#solinear-section-17" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="complexroots-section.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Complex Roots and Euler’s Formula</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="complexroots-section.html#complex-roots" class="internal"><span class="title">Complex roots</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="complexroots-section.html#complexroots-section-13" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="reproots-section.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Repeated Roots and Reduction of Order</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="reproots-section.html#reproots-section-11" class="internal"><span class="codenumber">2.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-mv.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Mechanical vibrations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-mv.html#free-undamped-motion" class="internal"><span class="title">Free undamped motion</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-mv.html#free-damped-motion" class="internal"><span class="title">Free damped motion</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-mv.html#overdamping" class="internal"><span class="title">Overdamping</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-mv.html#critical-damping" class="internal"><span class="title">Critical damping</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-mv.html#underdamping" class="internal"><span class="title">Underdamping</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-mv.html#physical-applications-and-vertical-mass-spring-systems" class="internal"><span class="title">Physical Applications and Vertical Mass-Spring Systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-mv.html#sec-mv-20" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-nonhom.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Nonhomogeneous equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#solving-nonhomogeneous-equations" class="internal"><span class="title">Solving nonhomogeneous equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#undetermined-coefficients-eqns" class="internal"><span class="title">Undetermined coefficients</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#variation-of-parameters-eqns" class="internal"><span class="title">Variation of parameters</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-nonhom.html#sec-nonhom-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="forcedo-section.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Forced oscillations and resonance</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="forcedo-section.html#undamped-forced-motion-and-resonance" class="internal"><span class="title">Undamped forced motion and resonance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="forcedo-section.html#damped-forced-motion-and-practical-resonance" class="internal"><span class="title">Damped forced motion and practical resonance</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="forcedo-section.html#forcedo-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-hol.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Higher order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#linear-independence-hoeq" class="internal"><span class="title">Linear independence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#constant-coefficient-higher-order-odes" class="internal"><span class="title">Constant coefficient higher order ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#non-homogeneous-equations" class="internal"><span class="title">Non-Homogeneous Equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-hol.html#sec-hol-11" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="linalg-appendix.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="vecsandmaps-section.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Vectors, mappings, and matrices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="vecsandmaps-section.html#vectors-and-operations-on-vectors" class="internal"><span class="title">Vectors and operations on vectors</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#linear-combinations-and-linear-independence" class="internal"><span class="title">Linear Combinations and Linear Independence</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#matrices" class="internal"><span class="title">Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#linear-mappings-and-matrices" class="internal"><span class="title">Linear mappings and matrices</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="vecsandmaps-section.html#vecsandmaps-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="matalg-section.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Matrix algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#one-by-one-matrices" class="internal"><span class="title">One-by-one matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#matrix-addition-and-scalar-multiplication" class="internal"><span class="title">Matrix addition and scalar multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#matrix-multiplication" class="internal"><span class="title">Matrix multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#some-rules-of-matrix-algebra" class="internal"><span class="title">Some rules of matrix algebra</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#inverse" class="internal"><span class="title">Inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#special-types-of-matrices" class="internal"><span class="title">Special types of matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#transpose" class="internal"><span class="title">Transpose</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="matalg-section.html#matalg-section-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="elim-section.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Elimination</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#linear-systems-of-equations" class="internal"><span class="title">Linear systems of equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#row-echelon-form-and-elementary-operations" class="internal"><span class="title">Row echelon form and elementary operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#non-unique-solutions-and-inconsistent-systems" class="internal"><span class="title">Non-unique solutions and inconsistent systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="elim-section.html#elim-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="det-section.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Determinant</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="det-section.html#det-section-32" class="internal"><span class="codenumber">3.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eig-section.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Eigenvalues and Eigenvectors</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#finding-eigenvalues-and-eigenvectors" class="internal"><span class="title">Finding Eigenvalues and Eigenvectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#real-eigenvalues" class="internal"><span class="title">Real Eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#complex-eigenvalues" class="internal"><span class="title">Complex Eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#repeated-eigenvalues" class="internal"><span class="title">Repeated Eigenvalues</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eig-section.html#eig-section-11" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-kernel.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Related Topics in Linear Algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#subspaces-and-span" class="internal"><span class="title">Subspaces and span</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#basis-and-dimension" class="internal"><span class="title">Basis and dimension</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#rank" class="internal"><span class="title">Rank</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#kernel" class="internal"><span class="title">Kernel</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#computing-the-inverse-adv" class="internal"><span class="title">Computing the inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#trace-and-determinant-of-matrices" class="internal"><span class="title">Trace and Determinant of Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#extension-of-previous-theorem" class="internal"><span class="title">Extension of Previous Theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-kernel.html#sec-kernel-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="sys-chapter.html" class="internal"><span class="codenumber">4</span> <span class="title">Systems of ODEs</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-introtosys.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Introduction to systems of ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#systems" class="internal"><span class="title">Systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#applications" class="internal"><span class="title">Applications</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#changing-to-first-order" class="internal"><span class="title">Changing to first order</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#autonomous-systems-and-vector-fields" class="internal"><span class="title">Autonomous systems and vector fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#picards-theorem" class="internal"><span class="title">Picard’s theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-introtosys.html#sec-introtosys-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-matrix.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Matrices and linear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#matrices-and-vectors" class="internal"><span class="title">Matrices and vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#matrix-multiplication-rev" class="internal"><span class="title">Matrix multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#the-determinant" class="internal"><span class="title">The determinant</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#solving-linear-systems" class="internal"><span class="title">Solving linear systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#computing-the-inverse" class="internal"><span class="title">Computing the inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#eigenvalues-and-eigenvectors-of-a-matrix" class="internal"><span class="title">Eigenvalues and eigenvectors of a matrix</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matrix.html#sec-matrix-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linsystems-section.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Linear systems of ODEs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linsystems-section.html#linsystems-section-17" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod-section.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Eigenvalue method</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-section.html#the-eigenvalue-method-with-distinct-real-eigenvalues" class="internal"><span class="title">The eigenvalue method with distinct real eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-section.html#phase-portraits-real" class="internal"><span class="title">Phase Portraits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-section.html#eigenmethod-section-10" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod-cplx-section.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Eigenvalue method with complex eigenvalues</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-cplx-section.html#phase-portraits-complex" class="internal"><span class="title">Phase Portraits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-cplx-section.html#eigenmethod-cplx-section-16" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="eigenmethod-repeat-section.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Eigenvalue method with repeated eigenvalues</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsubsection">
+<div class="toc-title-box"><a href="eigenmethod-repeat-section.html#geometric-multiplicity" class="internal"><span class="title">Geometric multiplicity</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#defective-eigenvalues" class="internal"><span class="title">Defective eigenvalues</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#phase-portraits-repeated" class="internal"><span class="title">Phase Portraits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#eigenmethod-repeat-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-twodimaut.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Two-dimensional systems and their vector fields</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-twodimaut.html#trace-determinant-analysis" class="internal"><span class="title">Trace-Determinant Analysis</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-twodimaut.html#sec-twodimaut-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nonhomogsys-section.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Nonhomogeneous systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys-section.html#first-order-constant-coefficient" class="internal"><span class="title">First order constant coefficient</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys-section.html#diagonalization" class="internal"><span class="title">Diagonalization</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys-section.html#undetermined-coefficients-sys" class="internal"><span class="title">Undetermined coefficients</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys-section.html#first-order-variable-coefficient" class="internal"><span class="title">First order variable coefficient</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys-section.html#variation-of-parameters-sys" class="internal"><span class="title">Variation of parameters</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nonhomogsys-section.html#nonhomogsys-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sol-section.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Second order systems and applications</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol-section.html#undamped-mass-spring-systems" class="internal"><span class="title">Undamped mass-spring systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol-section.html#examples" class="internal"><span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol-section.html#forced-oscillations" class="internal"><span class="title">Forced oscillations</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sol-section.html#non-homogeneous-solutions" class="internal"><span class="title">Non-Homogeneous Solutions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sol-section.html#undetermined-coefficients-secondsys" class="internal"><span class="title">Undetermined coefficients</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sol-section.html#eigenvector-decomposition" class="internal"><span class="title">Eigenvector decomposition</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sol-section.html#sol-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-matexp.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Matrix exponentials</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#definition" class="internal"><span class="title">Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#simple-cases" class="internal"><span class="title">Simple cases</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#general-matrices" class="internal"><span class="title">General matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#fundamental-matrix-solutions" class="internal"><span class="title">Fundamental matrix solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#approximations" class="internal"><span class="title">Approximations</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-matexp.html#non-homogeneous-systems" class="internal"><span class="title">Non-Homogeneous Systems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-matexp.html#integrating-factor" class="internal"><span class="title">Integrating factor</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matexp.html#sec-matexp-8" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="nlin-chapter.html" class="internal"><span class="codenumber">5</span> <span class="title">Nonlinear Systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linearization-section.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Linearization, critical points, and stability</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#autonomous-systems-and-phase-plane-analysis" class="internal"><span class="title">Autonomous systems and phase plane analysis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#linearization" class="internal"><span class="title">Linearization</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#isolated-critical-points-and-almost-linear-systems" class="internal"><span class="title">Isolated critical points and almost linear systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#stability-and-classification-of-isolated-critical-points" class="internal"><span class="title">Stability and classification of isolated critical points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#the-trouble-with-centers" class="internal"><span class="title">The trouble with centers</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linearization-section.html#linearization-section-12" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nlinHamiltonian-section.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Behavior of non-linear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#conservative-equations" class="internal"><span class="title">Conservative equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#hamiltonian-systems" class="internal"><span class="title">Hamiltonian Systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#separatrices-and-basins-of-attractions" class="internal"><span class="title">Separatrices and Basins of Attractions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#nullclines" class="internal"><span class="title">Nullclines</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#nlinHamiltonian-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nlinapps-section.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Applications of nonlinear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#pendulum" class="internal"><span class="title">Pendulum</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#predator-prey-or-lotkavolterra-systems" class="internal"><span class="title">Predator-prey or Lotka–Volterra systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#competing-species-systems" class="internal"><span class="title">Competing Species systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinapps-section.html#nlinapps-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="limitcycles-section.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Limit cycles</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="limitcycles-section.html#limitcycles-section-28" class="internal"><span class="codenumber">5.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-chaos.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Chaos</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaos.html#duffing-equation-and-strange-attractors" class="internal"><span class="title">Duffing equation and strange attractors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaos.html#the-lorenz-system" class="internal"><span class="title">The Lorenz system</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-chaos.html#sec-chaos-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="matlab-appendix.html" class="internal"><span class="codenumber">6</span> <span class="title">Introduction to MATLAB</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="the-matlab-interface.html" class="internal"><span class="codenumber">6.1</span> <span class="title">The MATLAB Interface</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="file-structure.html" class="internal"><span class="codenumber">6.2</span> <span class="title">File Structure</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="computation-in-matlab.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Computation in MATLAB</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="variables-and-arrays.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Variables and Arrays</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="funMat-section.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Functions and Anonymous Functions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="loops-and-branching-statements.html" class="internal"><span class="codenumber">6.6</span> <span class="title">Loops and Branching Statements</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="loops-and-branching-statements.html#for-loops" class="internal"><span class="title">For Loops</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="loops-and-branching-statements.html#if-statements" class="internal"><span class="title">If Statements</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="plotting-in-matlab.html" class="internal"><span class="codenumber">6.7</span> <span class="title">Plotting in MATLAB</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="supplemental-code-files.html" class="internal"><span class="codenumber">6.8</span> <span class="title">Supplemental Code Files</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-prereq.html" class="internal"><span class="codenumber">7</span> <span class="title">Prerequisite Material</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-polys.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Polynomials and Factoring</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#definitions-and-operations" class="internal"><span class="title">Definitions and Operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#polynomial-long-division" class="internal"><span class="title">Polynomial Long Division</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#synthetic-division" class="internal"><span class="title">Synthetic Division</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-complexNums.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Complex Numbers</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-derivInt.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Differentiation and Integration Techniques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivInt.html#derivative-and-integral-formulas" class="internal"><span class="title">Derivative and Integral Formulas</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-derivInt.html#derivative-rules" class="internal"><span class="title">Derivative Rules</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#linearity-of-the-derivative-and-integral" class="internal"><span class="title">Linearity of the Derivative and Integral</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#product-and-quotient-rule" class="internal"><span class="title">Product and Quotient Rule</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#chain-rule" class="internal"><span class="title">Chain Rule</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-derivInt.html#integration-techniques" class="internal"><span class="title">Integration Techniques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#substitution" class="internal"><span class="title">Substitution</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#integration-by-parts" class="internal"><span class="title">Integration by Parts</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#partial-fractions" class="internal"><span class="title">Partial Fractions</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-references"><div class="toc-title-box"><a href="references.html" class="internal"><span class="title">References</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-3.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="eigenmethod-repeat-section"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Eigenvalue method with repeated eigenvalues</span>
+</h2>
+<div class="para" id="eigenmethod-repeat-section-2">There is one remaining case for the two-component first-order linear system: repeated eigenvalues. As we have seen previously, it may happen that a matrix <span class="process-math">\(A\)</span> has some eigenvalues. That is, the characteristic equation <span class="process-math">\(\det(A-\lambda I) = 0\)</span> may have repeated roots. This is actually unlikely to happen for a random matrix. If we take a small perturbation of <span class="process-math">\(A\)</span> (we change the entries of <span class="process-math">\(A\)</span> slightly), we get a matrix with distinct eigenvalues. As any system we want to solve in practice is an approximation to reality anyway, it is not absolutely indispensable to know how to solve these corner cases. On the other hand, these cases do come up in applications from time to time. Furthermore, if we have distinct but very close eigenvalues, the behavior is similar to that of repeated eigenvalues, and so understanding that case will give us insight into what is going on.<div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="subsubsection" id="geometric-multiplicity"><h3 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Geometric multiplicity</span>
+</h3>
+<div class="para logical" id="geometric-multiplicity-2">
+<div class="para">Take the diagonal matrix</div>
+<div class="displaymath process-math" id="geometric-multiplicity-2-1">
+\begin{equation*}
+A =
+\begin{bmatrix}
+3 &amp; 0 \\ 0 &amp; 3
+\end{bmatrix} .
+\end{equation*}
+</div>
+<div class="para">
+<span class="process-math">\(A\)</span> has an eigenvalue 3 of multiplicity 2. We call the multiplicity of the eigenvalue in the characteristic equation the <em class="emphasis"></em>. In this case, there also exist 2 linearly independent eigenvectors, <span class="process-math">\(\left[ \begin{smallmatrix} 1 \\ 0 \end{smallmatrix} \right]\)</span> and <span class="process-math">\(\left[ \begin{smallmatrix} 0 \\ 1 \end{smallmatrix} \right]\)</span> corresponding to the eigenvalue 3. This means that the so-called <em class="emphasis"></em> of this eigenvalue is also 2. These terms have all been discussed previously in .</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#geometric-multiplicity-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="geometric-multiplicity-3">
+<div class="para">In all the theorems where we required a matrix to have <span class="process-math">\(n\)</span> distinct eigenvalues, we only really needed to have <span class="process-math">\(n\)</span> linearly independent eigenvectors. For example, <span class="process-math">\({\vec{x}}' = A\vec{x}\)</span> has the general solution</div>
+<div class="displaymath process-math" id="geometric-multiplicity-3-4">
+\begin{equation*}
+\vec{x} = 
+c_1 \begin{bmatrix} 1 \\ 0 \end{bmatrix} e^{3t}
++ c_2 \begin{bmatrix} 0 \\ 1 \end{bmatrix} e^{3t} .
+\end{equation*}
+</div>
+<div class="para">Let us restate the theorem about real eigenvalues. In the following theorem we will repeat eigenvalues according to (algebraic) multiplicity. So for the matrix <span class="process-math">\(A\)</span> above, we would say that it has eigenvalues 3 and 3.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#geometric-multiplicity-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="geometric-multiplicity-4">
+<div class="para">Suppose the <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(P\)</span> has <span class="process-math">\(n\)</span> real eigenvalues (not necessarily distinct), <span class="process-math">\(\lambda_1\text{,}\)</span> <span class="process-math">\(\lambda_2\text{,}\)</span> …, <span class="process-math">\(\lambda_n\text{,}\)</span> and there are <span class="process-math">\(n\)</span> linearly independent corresponding eigenvectors <span class="process-math">\(\vec{v}_1\text{,}\)</span> <span class="process-math">\(\vec{v}_2\text{,}\)</span> …, <span class="process-math">\(\vec{v}_n\text{.}\)</span> Then the general solution to <span class="process-math">\({\vec{x}}' = P\vec{x}\)</span> can be written as</div>
+<div class="displaymath process-math" id="geometric-multiplicity-4-12">
+\begin{equation*}
+\vec{x} = c_1 \vec{v}_1 e^{\lambda_1 t} +
+c_2 \vec{v}_2 e^{\lambda_2 t} + \cdots +
+c_n \vec{v}_n e^{\lambda_n t} .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#geometric-multiplicity-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="geometric-multiplicity-5">The main difference in the statement here from the theorem in is that we are no longer assuming that we have <span class="process-math">\(n\)</span> <em class="emphasis">distinct</em> eigenvalues. Instead, we need to assume that we end up with <span class="process-math">\(n\)</span> linearly independent eigenvectors, which we get for free if the eigenvalues are all distinct, but we might also have that if we do not have all distinct eigenvalues.<div class="autopermalink" data-description="Paragraph"><a href="#geometric-multiplicity-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="geometric-multiplicity-6">The <em class="emphasis">geometric multiplicity</em> of an eigenvalue of algebraic multiplicity <span class="process-math">\(n\)</span> is equal to the number of corresponding linearly independent eigenvectors. The geometric multiplicity is always less than or equal to the algebraic multiplicity. The theorem handles the case when these two multiplicities are equal for all eigenvalues. If for an eigenvalue the geometric multiplicity is equal to the algebraic multiplicity, then we say the eigenvalue is <em class="emphasis">complete</em>.<div class="autopermalink" data-description="Paragraph"><a href="#geometric-multiplicity-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="geometric-multiplicity-7">In other words, the hypothesis of the theorem could be stated as saying that if all the eigenvalues of <span class="process-math">\(P\)</span> are complete, then there are <span class="process-math">\(n\)</span> linearly independent eigenvectors and thus we have the given general solution.<div class="autopermalink" data-description="Paragraph"><a href="#geometric-multiplicity-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="geometric-multiplicity-8">If the geometric multiplicity of an eigenvalue is 2 or greater, then the set of linearly independent eigenvectors is not unique up to multiples as it was before. For example, for the diagonal matrix <span class="process-math">\(A =
+\left[ \begin{smallmatrix} 3 &amp; 0 \\ 0 &amp; 3 \end{smallmatrix} \right]\)</span> we could also pick eigenvectors <span class="process-math">\(\left[ \begin{smallmatrix} 1 \\ 1 \end{smallmatrix} \right]\)</span> and <span class="process-math">\(\left[ \begin{smallmatrix} 1 \\ -1 \end{smallmatrix} \right]\text{,}\)</span> or in fact any pair of two linearly independent vectors. The number of linearly independent eigenvectors corresponding to <span class="process-math">\(\lambda\)</span> is the number of free variables we obtain when solving <span class="process-math">\(A\vec{v} =
+\lambda \vec{v}\text{.}\)</span> We pick specific values for those free variables to obtain eigenvectors. If you pick different values, you may get different eigenvectors.<div class="autopermalink" data-description="Paragraph"><a href="#geometric-multiplicity-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="subsubsection" id="defective-eigenvalues"><h4 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Defective eigenvalues</span>
+</h4>
+<div class="para" id="defective-eigenvalues-2">If an <span class="process-math">\(n \times n\)</span> matrix has less than <span class="process-math">\(n\)</span> linearly independent eigenvectors, it is said to be <em class="emphasis">deficient</em>. Then there is at least one eigenvalue with an algebraic multiplicity that is higher than its geometric multiplicity. We call this eigenvalue <em class="emphasis">defective</em> and the difference between the two multiplicities we call the <em class="emphasis"></em>.<div class="autopermalink" data-description="Paragraph"><a href="#defective-eigenvalues-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="defective-eigenvalues-3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.6.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h5></summary><article class="example example-like knowl__content"><div class="para logical" id="defective-eigenvalues-3-2-1">
+<div class="para">The matrix</div>
+<div class="displaymath process-math" id="defective-eigenvalues-3-2-1-1">
+\begin{equation*}
+\begin{bmatrix}
+3 &amp; 1 \\ 0 &amp; 3
+\end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">has an eigenvalue 3 of algebraic multiplicity 2. Let us try to compute eigenvectors.</div>
+<div class="displaymath process-math" id="defective-eigenvalues-3-2-1-2">
+\begin{equation*}
+\begin{bmatrix}
+0 &amp; 1 \\ 0 &amp; 0
+\end{bmatrix}
+\begin{bmatrix}
+v_1 \\ v_2
+\end{bmatrix}
+= \vec{0} .
+\end{equation*}
+</div>
+<div class="para">We must have that <span class="process-math">\(v_2 = 0\text{.}\)</span> Hence any eigenvector is of the form <span class="process-math">\(\left[ \begin{smallmatrix} v_1 \\ 0 \end{smallmatrix} \right]\text{.}\)</span> Any two such vectors are linearly dependent, and hence the geometric multiplicity of the eigenvalue is 1. Therefore, the defect is 1, and we can no longer apply the eigenvalue method directly to a system of ODEs with such a coefficient matrix.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#defective-eigenvalues-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="defective-eigenvalues-3-2-2">Roughly, the key observation is that if <span class="process-math">\(\lambda\)</span> is an eigenvalue of <span class="process-math">\(A\)</span> of algebraic multiplicity <span class="process-math">\(m\text{,}\)</span> then we can find certain <span class="process-math">\(m\)</span> linearly independent vectors solving <span class="process-math">\({(A-\lambda I)}^k \vec{v} = \vec{0}\)</span> for various powers <span class="process-math">\(k\text{.}\)</span> We will call these <em class="emphasis"></em>.<div class="autopermalink" data-description="Paragraph"><a href="#defective-eigenvalues-3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="defective-eigenvalues-3-2-3">
+<div class="para">Let us continue with the example <span class="process-math">\(A = \left[ \begin{smallmatrix}
+3 &amp; 1 \\ 0 &amp; 3
+\end{smallmatrix} \right]\)</span> and the equation <span class="process-math">\({\vec{x}}' = A\vec{x}\text{.}\)</span> We found an eigenvalue <span class="process-math">\(\lambda=3\)</span> of (algebraic) multiplicity 2 and defect 1. We found one eigenvector <span class="process-math">\(\vec{v} = \left[ \begin{smallmatrix} 1 \\ 0 \end{smallmatrix} \right]\text{.}\)</span> We have one solution</div>
+<div class="displaymath process-math" id="defective-eigenvalues-3-2-3-5">
+\begin{equation*}
+\vec{x}_1 = \vec{v} e^{3t} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} e^{3t} .
+\end{equation*}
+</div>
+<div class="para">We are now stuck, we get no other solutions from standard eigenvectors. But we need two linearly independent solutions to find the general solution of the equation.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#defective-eigenvalues-3-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="defective-eigenvalues-3-2-4">
+<div class="para">Let us try (in the spirit of repeated roots of the characteristic equation for a single equation) another solution of the form</div>
+<div class="displaymath process-math" id="defective-eigenvalues-3-2-4-1">
+\begin{equation*}
+\vec{x}_2 = \vec{v}_1 te^{3t},
+\end{equation*}
+</div>
+<div class="para">since our modified guess for repeated roots from second order equations was <span class="process-math">\(te^{3t}\text{.}\)</span> If we plug this guess into the equation, we get that</div>
+<div class="displaymath process-math" id="defective-eigenvalues-3-2-4-3">
+\begin{equation*}
+\vec{x}_2' = \vec{v}_1 e^{3t} + 3\vec{v}_1te^{3t}
+\end{equation*}
+</div>
+<div class="para">and since the right-hand side of the equation is <span class="process-math">\(A\vec{v}_1te^{3t}\text{,}\)</span> we need <span class="process-math">\(v_1\)</span> to satisfy</div>
+<div class="displaymath process-math" id="defective-eigenvalues-3-2-4-6">
+\begin{equation*}
+\vec{v}_1 e^{3t} + 3\vec{v}_1te^{3t} = A\vec{v}_1te^{3t}.
+\end{equation*}
+</div>
+<div class="para">Since there is no <span class="process-math">\(e^{3t}\)</span> term on the right-hand side of the equation, we are forced to pick <span class="process-math">\(\vec{v}_1 = \vec{0}\text{,}\)</span> and so we get the solution <span class="process-math">\(\vec{x}_2 = \vec{0}\text{,}\)</span> which is not good. This guess did not work.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#defective-eigenvalues-3-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="defective-eigenvalues-3-2-5">
+<div class="para">The issue here is that we didn’t have enough flexibility to actually get another solution to the differential equation, so we need something a little more complicated to make it work. To this end, we take a new guess of the form</div>
+<div class="displaymath process-math" id="defective-eigenvalues-3-2-5-1">
+\begin{equation*}
+\vec{x}_2 = ( \vec{v}_2 +  \vec{v}_1 t )\, e^{3t} .
+\end{equation*}
+</div>
+<div class="para">We differentiate to get</div>
+<div class="displaymath process-math" id="defective-eigenvalues-3-2-5-2">
+\begin{equation*}
+{\vec{x}_2}' =
+\vec{v}_1 e^{3t} +
+3 ( \vec{v}_2 +  \vec{v}_1 t )\, e^{3t}
+=
+( 3 \vec{v}_2 + \vec{v}_1 )\, e^{3t} +  3 \vec{v}_1 t e^{3t} .
+\end{equation*}
+</div>
+<div class="para">As we are assuming that <span class="process-math">\(\vec{x}_2\)</span> is a solution, <span class="process-math">\({\vec{x}_2}'\)</span> must equal <span class="process-math">\(A \vec{x}_2\text{.}\)</span> So let’s compute <span class="process-math">\(A \vec{x}_2\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="defective-eigenvalues-3-2-5-7">
+\begin{equation*}
+A \vec{x}_2 = 
+A ( \vec{v}_2 +  \vec{v}_1 t )\, e^{3t}
+=
+A \vec{v}_2 e^{3t} +  A \vec{v}_1 t e^{3t} .
+\end{equation*}
+</div>
+<div class="para">By looking at the coefficients of <span class="process-math">\(e^{3t}\)</span> and <span class="process-math">\(t e^{3t}\)</span> we see <span class="process-math">\(3 \vec{v}_2 + \vec{v}_1 = A \vec{v}_2\)</span> and <span class="process-math">\(3 \vec{v}_1 = A \vec{v}_1\text{.}\)</span> This means that</div>
+<div class="displaymath process-math" id="defective-eigenvalues-3-2-5-12">
+\begin{equation*}
+(A-3I)\vec{v}_2 = \vec{v}_1,
+\qquad \text{and} \qquad
+(A-3I)\vec{v}_1 = \vec{0}.
+\end{equation*}
+</div>
+<div class="para">Therefore, <span class="process-math">\(\vec{x}_2\)</span> is a solution if these two equations are satisfied. The second equation is satisfied if <span class="process-math">\(\vec{v}_1\)</span> is an eigenvector, and we found the eigenvector above, so let <span class="process-math">\(\vec{v}_1 = 
+\left[ \begin{smallmatrix} 1 \\ 0 \end{smallmatrix} \right]\text{.}\)</span> So, if we can find a <span class="process-math">\(\vec{v}_2\)</span> that solves <span class="process-math">\((A-3I)\vec{v}_2 = \vec{v}_1\text{,}\)</span> then we are done. This is just a bunch of linear equations to solve and we are by now very good at that. Let us solve <span class="process-math">\((A-3I)\vec{v}_2 = \vec{v}_1\text{.}\)</span> Write</div>
+<div class="displaymath process-math" id="defective-eigenvalues-3-2-5-19">
+\begin{equation*}
+\begin{bmatrix}
+0 &amp; 1 \\ 0 &amp; 0
+\end{bmatrix}
+\begin{bmatrix}
+a \\ b
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 \\ 0
+\end{bmatrix} .
+\end{equation*}
+</div>
+<div class="para">By inspection we see that letting <span class="process-math">\(a=0\)</span> (<span class="process-math">\(a\)</span> could be anything in fact) and <span class="process-math">\(b=1\)</span> does the job. Hence we can take <span class="process-math">\(\vec{v}_2 = 
+\left[ \begin{smallmatrix} 0 \\ 1 \end{smallmatrix} \right]\text{.}\)</span> Our general solution to <span class="process-math">\({\vec{x}}' = A\vec{x}\)</span> is</div>
+<div class="displaymath process-math" id="defective-eigenvalues-3-2-5-25">
+\begin{equation*}
+\vec{x} =
+c_1 
+\begin{bmatrix}
+1 \\ 0
+\end{bmatrix}
+e^{3t}
++
+c_2
+\left(
+\begin{bmatrix}
+0 \\ 1
+\end{bmatrix}
++
+\begin{bmatrix}
+1 \\ 0
+\end{bmatrix}
+t
+\right)
+\,
+e^{3t}
+=
+\begin{bmatrix}
+c_1 e^{3t}+c_2 te^{3t} \\
+c_2 e^{3t}
+\end{bmatrix} .
+\end{equation*}
+</div>
+<div class="para">Let us check that we really do have the solution. First <span class="process-math">\(x_1' = 
+c_1 3 e^{3t}+c_2 e^{3t} + 3 c_2 te^{3t} = 3 x_1 + x_2\text{.}\)</span> Good. Now <span class="process-math">\(x_2' = 3 c_2 e^{3t} = 3x_2\text{.}\)</span> Good.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#defective-eigenvalues-3-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 4.6.1: "><a href="#defective-eigenvalues-3" title="Copy heading and permalink for Example 4.6.1: " aria-label="Copy heading and permalink for Example 4.6.1: ">🔗</a></div></article></details><details id="defective-eigenvalues-4" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.6.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h5></summary><article class="exercise exercise-like knowl__content"><div class="para" id="defective-eigenvalues-4-1-1">Solve <span class="process-math">\({\vec{x}}' = \left[ \begin{smallmatrix}
+3 &amp; 1 \\ 0 &amp; 3
+\end{smallmatrix} \right] \vec{x}\)</span> by first solving for <span class="process-math">\(x_2\)</span> and then for <span class="process-math">\(x_1\)</span> independently. Check that you got the same solution as we did above.<div class="autopermalink" data-description="Paragraph"><a href="#defective-eigenvalues-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="defective-eigenvalues-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para logical" id="defective-eigenvalues-4-2-1">
+<div class="para">Let us describe the general algorithm. Suppose that <span class="process-math">\(\lambda\)</span> is an eigenvalue of multiplicity 2, defect 1. First find an eigenvector <span class="process-math">\(\vec{v}_1\)</span> of <span class="process-math">\(\lambda\text{.}\)</span> That is, <span class="process-math">\(\vec{v}_1\)</span> solves <span class="process-math">\((A-\lambda I)\vec{v}_1  = \vec{0}\text{.}\)</span> Then, find a vector <span class="process-math">\(\vec{v}_2\)</span> such that</div>
+<div class="displaymath process-math" id="defective-eigenvalues-4-2-1-7">
+\begin{equation*}
+%{(A-\lambda I)}^2\vec{v}_2 &amp; = \vec{0} , \\
+(A-\lambda I)\vec{v}_2 = \vec{v}_1 .
+\end{equation*}
+</div>
+<div class="para">This gives us two linearly independent solutions</div>
+<div class="displaymath process-math" id="defective-eigenvalues-4-2-1-8">
+\begin{equation*}
+\begin{align*}
+\vec{x}_1 &amp; = \vec{v}_1 e^{\lambda t} , \\
+\vec{x}_2 &amp; = \left( \vec{v}_2 + \vec{v}_1 t \right) e^{\lambda t},
+\end{align*}
+\end{equation*}
+</div>
+<div class="para">and so our general solution to the differential equation is</div>
+<div class="displaymath process-math" id="defective-eigenvalues-4-2-1-9">
+\begin{equation*}
+\vec{x}(t) = c_1\vec{v}_1e^{\lambda t} + c_2\left(\vec{v}_2 + \vec{v}_1 t \right) e^{\lambda t}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#defective-eigenvalues-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 4.6.2.1"><a href="#defective-eigenvalues-4-2" title="Copy heading and permalink for Answer 4.6.2.1" aria-label="Copy heading and permalink for Answer 4.6.2.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Checkpoint 4.6.2"><a href="#defective-eigenvalues-4" title="Copy heading and permalink for Checkpoint 4.6.2" aria-label="Copy heading and permalink for Checkpoint 4.6.2">🔗</a></div></article></details><details id="defective-eigenvalues-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.6.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h5></summary><article class="example example-like knowl__content"><div class="para logical" id="defective-eigenvalues-5-2-1">
+<div class="para">Solve the initial value problem</div>
+<div class="displaymath process-math" id="defective-eigenvalues-5-2-1-1">
+\begin{equation*}
+\vec{x}' = \begin{bmatrix} -2 &amp; 3 \\ -3 &amp; 4 \end{bmatrix}\vec{x} \qquad \vec{x}(0) = \begin{bmatrix} 2 \\ -1 \end{bmatrix}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#defective-eigenvalues-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="defective-eigenvalues-5-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="defective-eigenvalues-5-3-1">
+<div class="para">First, we need to look for the eigenvalues of the coefficient matrix. These are found by</div>
+<div class="displaymath process-math" id="defective-eigenvalues-5-3-1-1">
+\begin{equation*}
+\det(A - \lambda I) = (-2-\lambda)(4-\lambda) - (3)(-3) = \lambda^2 - 2\lambda + 1 = 0.
+\end{equation*}
+</div>
+<div class="para">Since this polynomial is <span class="process-math">\((\lambda - 1)^2\text{,}\)</span> this has a double root at <span class="process-math">\(\lambda = 1\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#defective-eigenvalues-5-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="defective-eigenvalues-5-3-2">
+<div class="para">For <span class="process-math">\(\lambda = 1\text{,}\)</span> we can hunt for the eigenvector as solutions to</div>
+<div class="displaymath process-math" id="defective-eigenvalues-5-3-2-2">
+\begin{equation*}
+(A - I)\vec{v} = \begin{bmatrix} -3 &amp; 3 \\ -3 &amp; 3 \end{bmatrix} \vec{v} = 0.
+\end{equation*}
+</div>
+<div class="para">These two equations are redundant, and the first equation is <span class="process-math">\(-3v_1 + 3v_2 = 0\text{,}\)</span> which can be solved by <span class="process-math">\(v_1 = v_2 = 1\text{.}\)</span> Therefore, and an eigenvector for <span class="process-math">\(\lambda = 1\)</span> is <span class="process-math">\(\left[ \begin{smallmatrix} 1 \\ 1 \end{smallmatrix} \right]\text{.}\)</span> Thus, we have a solution to this system of the form</div>
+<div class="displaymath process-math" id="defective-eigenvalues-5-3-2-7">
+\begin{equation*}
+\vec{x}_1(t) = \begin{bmatrix} 1 \\ 1 \end{bmatrix} e^t.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#defective-eigenvalues-5-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="defective-eigenvalues-5-3-3">
+<div class="para">Since we only found one eigenvector, we need to look for a generalized eigenvector as well. To do this, we want to solve the equation</div>
+<div class="displaymath process-math" id="defective-eigenvalues-5-3-3-1">
+\begin{equation*}
+(A - I)\vec{w} = \vec{v}
+\end{equation*}
+</div>
+<div class="para">for the eigenvector <span class="process-math">\(\vec{v}\)</span> that we found previously. This means we need to solve</div>
+<div class="displaymath process-math" id="defective-eigenvalues-5-3-3-3">
+\begin{equation*}
+\begin{bmatrix} -3 &amp; 3 \\ -3 &amp; 3 \end{bmatrix} \vec{w} = \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">and both rows of the vector equation result in the equation <span class="process-math">\(-3w_1 + 3w_2 = 1\)</span> for <span class="process-math">\(\vec{w}\text{.}\)</span> We can pick <em class="emphasis">any</em> value of <span class="process-math">\(w_1\)</span> and <span class="process-math">\(w_2\)</span> to make this work. For the sake of this example, we will pick <span class="process-math">\(w_1 = 0\)</span> and <span class="process-math">\(w_2 = \nicefrac{1}{3}\text{.}\)</span> Then, we have that our second linearly independent solution to the differential equation is</div>
+<div class="displaymath process-math" id="defective-eigenvalues-5-3-3-11">
+\begin{equation*}
+\vec{x}_2(t) = \left(\begin{bmatrix} 0 \\ 1/3 \end{bmatrix} + \begin{bmatrix} 1 \\ 1 \end{bmatrix} t \right) e^{t}
+\end{equation*}
+</div>
+<div class="para">and so the general solution to this system is</div>
+<div class="displaymath process-math" id="defective-eigenvalues-5-3-3-12">
+\begin{equation*}
+\vec{x}(t) = c_1 \begin{bmatrix} 1 \\ 1 \end{bmatrix} e^t + c_2 \left(\begin{bmatrix} 0 \\ 1/3 \end{bmatrix} + \begin{bmatrix} 1 \\ 1 \end{bmatrix} t \right) e^{t}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#defective-eigenvalues-5-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="defective-eigenvalues-5-3-4">
+<div class="para">Finally, we can solve the initial value problem. Plugging in <span class="process-math">\(t=0\)</span> gives</div>
+<div class="displaymath process-math" id="defective-eigenvalues-5-3-4-2">
+\begin{equation*}
+\vec{x}(0) = c_1 \begin{bmatrix} 1 \\ 1 \end{bmatrix} + c_2 \begin{bmatrix} 0 \\ 1/3 \end{bmatrix} = \begin{bmatrix} 2 \\ -1 \end{bmatrix},
+\end{equation*}
+</div>
+<div class="para">which gives that <span class="process-math">\(c_1 = 2\)</span> and then <span class="process-math">\(2 + \nicefrac{1}{3}c_2 = -1\text{,}\)</span> or <span class="process-math">\(c_2 = -9\text{.}\)</span> Therefore, the solution to the initial value problem is</div>
+<div class="displaymath process-math" id="defective-eigenvalues-5-3-4-6">
+\begin{equation*}
+\vec{x}(t) = 2 \begin{bmatrix} 1 \\ 1 \end{bmatrix} e^t - 9 \left(\begin{bmatrix} 0 \\ 1/3 \end{bmatrix} + \begin{bmatrix} 1 \\ 1 \end{bmatrix} t \right) e^{t}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#defective-eigenvalues-5-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.6.3.1"><a href="#defective-eigenvalues-5-3" title="Copy heading and permalink for Solution 4.6.3.1" aria-label="Copy heading and permalink for Solution 4.6.3.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 4.6.3: "><a href="#defective-eigenvalues-5" title="Copy heading and permalink for Example 4.6.3: " aria-label="Copy heading and permalink for Example 4.6.3: ">🔗</a></div></article></details><details id="defective-eigenvalues-6" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.6.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h5></summary><article class="exercise exercise-like knowl__content"><div class="para" id="defective-eigenvalues-6-1-1">We could have also chosen <span class="process-math">\(w_1 = -\nicefrac{1}{3}\)</span> and <span class="process-math">\(w_2 = 0\)</span> for the vector <span class="process-math">\(\vec{w}\text{.}\)</span> Use this to get a different looking general solution. Then solve the same initial value problem to see that you end up with the same answer at the end of the process.<div class="autopermalink" data-description="Paragraph"><a href="#defective-eigenvalues-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 4.6.4"><a href="#defective-eigenvalues-6" title="Copy heading and permalink for Checkpoint 4.6.4" aria-label="Copy heading and permalink for Checkpoint 4.6.4">🔗</a></div></article></details><details id="defective-eigenvalues-7" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.6.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h5></summary><article class="example example-like knowl__content"><div class="para logical" id="defective-eigenvalues-7-2-1">
+<div class="para">Consider the system</div>
+<div class="displaymath process-math" id="defective-eigenvalues-7-2-1-1">
+\begin{equation*}
+\vec{x}' =
+\begin{bmatrix}
+2 &amp; -5 &amp; 0 \\
+0 &amp; 2 &amp; 0 \\
+-1 &amp; 4 &amp; 1
+\end{bmatrix}
+\vec{x} .
+\end{equation*}
+</div>
+<div class="para">Find the general solution to this system using eigenvalues and eigenvectors.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#defective-eigenvalues-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="defective-eigenvalues-7-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="defective-eigenvalues-7-3-1">
+<div class="para">Even though this is a three-component system, the process is exactly the same: find the eigenvalues, compute corresponding eigenvectors, then build them together into a general solution. Compute the eigenvalues,</div>
+<div class="displaymath process-math" id="defective-eigenvalues-7-3-1-1">
+\begin{equation*}
+0 =
+\det(A-\lambda I) = 
+\det\left(
+\begin{bmatrix}
+2-\lambda &amp; -5 &amp; 0 \\
+0 &amp; 2-\lambda &amp; 0 \\
+-1 &amp; 4 &amp; 1-\lambda
+\end{bmatrix}
+\right)
+= (2-\lambda)^2(1-\lambda) .
+\end{equation*}
+</div>
+<div class="para">The eigenvalues are 1 and 2, where 2 has multiplicity 2. We leave it to the reader to find that <span class="process-math">\(\left[ \begin{smallmatrix} 0 \\ 0 \\ 1 \end{smallmatrix} \right]\)</span> is an eigenvector for the eigenvalue <span class="process-math">\(\lambda = 1\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#defective-eigenvalues-7-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="defective-eigenvalues-7-3-2">
+<div class="para">Let’s focus on <span class="process-math">\(\lambda = 2\text{.}\)</span> We compute eigenvectors:</div>
+<div class="displaymath process-math" id="defective-eigenvalues-7-3-2-2">
+\begin{equation*}
+\vec{0} =
+(A - 2 I) \vec{v}
+=
+\begin{bmatrix}
+0 &amp; -5 &amp; 0 \\
+0 &amp; 0 &amp; 0 \\
+-1 &amp; 4 &amp; -1
+\end{bmatrix}
+\begin{bmatrix}
+v_1 \\ v_2 \\ v_3
+\end{bmatrix}
+.
+\end{equation*}
+</div>
+<div class="para">The first equation says that <span class="process-math">\(v_2 = 0\text{,}\)</span> so the last equation is <span class="process-math">\(-v_1 -v_3 = 0\text{.}\)</span> Let <span class="process-math">\(v_3\)</span> be the free variable to find that <span class="process-math">\(v_1 = -v_3\text{.}\)</span> Perhaps let <span class="process-math">\(v_3 = -1\)</span> to find an eigenvector <span class="process-math">\(\left[ \begin{smallmatrix} 1 \\ 0 \\ -1 \end{smallmatrix} \right]\text{.}\)</span> Problem is that setting <span class="process-math">\(v_3\)</span> to anything else just gets multiples of this vector and so we have a defect of 1. Let <span class="process-math">\(\vec{v}_1\)</span> be the eigenvector and let’s look for a generalized eigenvector <span class="process-math">\(\vec{v}_2\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="defective-eigenvalues-7-3-2-12">
+\begin{equation*}
+(A - 2 I) \vec{v}_2 = \vec{v}_1 , 
+\end{equation*}
+</div>
+<div class="para">or</div>
+<div class="displaymath process-math" id="defective-eigenvalues-7-3-2-13">
+\begin{equation*}
+\begin{bmatrix}
+0 &amp; -5 &amp; 0 \\
+0 &amp; 0 &amp; 0 \\
+-1 &amp; 4 &amp; -1
+\end{bmatrix}
+\begin{bmatrix}
+a \\ b \\ c
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 \\ 0 \\ -1
+\end{bmatrix} ,
+\end{equation*}
+</div>
+<div class="para">where we used <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> <span class="process-math">\(c\)</span> as components of <span class="process-math">\(\vec{v}_2\)</span> for simplicity. The first equation says <span class="process-math">\(-5b = 1\)</span> so <span class="process-math">\(b = \nicefrac{-1}{5}\text{.}\)</span> The second equation says nothing. The last equation is <span class="process-math">\(-a + 4b - c = -1\text{,}\)</span> or <span class="process-math">\(a + \nicefrac{4}{5} + c = 1\text{,}\)</span> or <span class="process-math">\(a + c = \nicefrac{1}{5}\text{.}\)</span> We let <span class="process-math">\(c\)</span> be the free variable and we choose <span class="process-math">\(c=0\text{.}\)</span> We find <span class="process-math">\(\vec{v}_2 = \left[ \begin{smallmatrix} \nicefrac{1}{5} \\ \nicefrac{-1}{5}
+\\ 0 \end{smallmatrix} \right]\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#defective-eigenvalues-7-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="defective-eigenvalues-7-3-3">
+<div class="para">The general solution is therefore,</div>
+<div class="displaymath process-math" id="defective-eigenvalues-7-3-3-1">
+\begin{equation*}
+\vec{x} =
+c_1
+\begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}
+e^t
++
+c_2 
+\begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix}
+e^{2t}
++
+c_3
+\left(
+\begin{bmatrix} \nicefrac{1}{5} \\ \nicefrac{-1}{5} \\ 0 \end{bmatrix}
++
+\begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix}
+t
+\right)
+e^{2t}
+.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#defective-eigenvalues-7-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.6.5.1"><a href="#defective-eigenvalues-7-3" title="Copy heading and permalink for Solution 4.6.5.1" aria-label="Copy heading and permalink for Solution 4.6.5.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 4.6.5: "><a href="#defective-eigenvalues-7" title="Copy heading and permalink for Example 4.6.5: " aria-label="Copy heading and permalink for Example 4.6.5: ">🔗</a></div></article></details><div class="para logical" id="defective-eigenvalues-8">
+<div class="para">This machinery can also be generalized to higher multiplicities and higher defects. We will not go over this method in detail, but let us just sketch the ideas. Suppose that <span class="process-math">\(A\)</span> has an eigenvalue <span class="process-math">\(\lambda\)</span> of multiplicity <span class="process-math">\(m\text{.}\)</span> We find vectors such that</div>
+<div class="displaymath process-math" id="defective-eigenvalues-8-4">
+\begin{equation*}
+{(A - \lambda I)}^k \vec{v}_k = \vec{0},
+\qquad \text{but} \qquad
+{(A - \lambda I)}^{k-1} \vec{v}_k \not= \vec{0}.
+\end{equation*}
+</div>
+<div class="para">Such vectors are called <em class="emphasis"></em> (then <span class="process-math">\(\vec{v}_1 = {(A - \lambda I)}^{k-1} \vec{v}_k\)</span> is an eigenvector). For the eigenvector <span class="process-math">\(\vec{v}_1\)</span> there is a chain of generalized eigenvectors <span class="process-math">\(\vec{v}_2\)</span> through <span class="process-math">\(\vec{v}_k\)</span> such that:</div>
+<div class="displaymath process-math" id="defective-eigenvalues-8-10">
+\begin{equation*}
+\begin{align*}
+(A - \lambda I) \vec{v}_1 &amp; = \vec{0} , \\
+(A - \lambda I) \vec{v}_2 &amp; = \vec{v}_1 , \\
+&amp; ~~\vdots \\
+(A - \lambda I) \vec{v}_k &amp; = \vec{v}_{k-1} .
+\end{align*}
+\end{equation*}
+</div>
+<div class="para">Really once you find the <span class="process-math">\(\vec{v}_k\)</span> such that <span class="process-math">\({(A - \lambda I)}^k \vec{v}_k = \vec{0}\)</span> but <span class="process-math">\({(A - \lambda I)}^{k-1} \vec{v}_k \not= \vec{0}\text{,}\)</span> you find the entire chain since you can compute the rest, <span class="process-math">\(\vec{v}_{k-1} = (A - \lambda I) \vec{v}_k\text{,}\)</span> <span class="process-math">\(\vec{v}_{k-2} = (A - \lambda I) \vec{v}_{k-1}\text{,}\)</span> etc. We form the linearly independent solutions</div>
+<div class="displaymath process-math" id="defective-eigenvalues-8-16">
+\begin{equation*}
+\begin{align*}
+\vec{x}_1 &amp; = \vec{v}_1 e^{\lambda t} , \\
+\vec{x}_2 &amp; = ( \vec{v}_2 + \vec{v}_1 t ) \, e^{\lambda t} , \\
+&amp; ~~\vdots \\
+\vec{x}_k &amp; = \left( \vec{v}_k + \vec{v}_{k-1} t +
+\vec{v}_{k-2} \frac{t^2}{2} +
+\cdots + \vec{v}_2 \frac{t^{k-2}}{(k-2)!} + \vec{v}_1 \frac{t^{k-1}}{(k-1)!}
+\right) \, e^{\lambda t} .
+\end{align*}
+\end{equation*}
+</div>
+<div class="para">Recall that <span class="process-math">\(k! = 1 \cdot 2 \cdot 3 \cdots (k-1) \cdot k\)</span> is the factorial. If you have an eigenvalue of geometric multiplicity <span class="process-math">\(\ell\text{,}\)</span> you will have to find <span class="process-math">\(\ell\)</span> such chains (some of them might be short: just the single eigenvector equation). We go until we form <span class="process-math">\(m\)</span> linearly independent solutions where <span class="process-math">\(m\)</span> is the algebraic multiplicity. We don’t quite know which specific eigenvectors go with which chain, so start by finding <span class="process-math">\(\vec{v}_k\)</span> first for the longest possible chain and go from there.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#defective-eigenvalues-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="defective-eigenvalues-9">
+<div class="para">For example, if <span class="process-math">\(\lambda\)</span> is an eigenvalue of <span class="process-math">\(A\)</span> of algebraic multiplicity 3 and defect 2, then solve</div>
+<div class="displaymath process-math" id="defective-eigenvalues-9-3">
+\begin{equation*}
+(A - \lambda I) \vec{v}_1 = \vec{0} , \qquad
+(A - \lambda I) \vec{v}_2 = \vec{v}_1 , \qquad
+(A - \lambda I) \vec{v}_3 = \vec{v}_2 .
+\end{equation*}
+</div>
+<div class="para">That is, find <span class="process-math">\(\vec{v}_3\)</span> such that <span class="process-math">\({(A - \lambda I)}^3 \vec{v}_3 = \vec{0}\text{,}\)</span> but <span class="process-math">\({(A - \lambda I)}^2 \vec{v}_3 \not= \vec{0}\text{.}\)</span> Then you are done as <span class="process-math">\(\vec{v}_2 = (A - \lambda I) \vec{v}_3\)</span> and <span class="process-math">\(\vec{v}_1 = (A - \lambda I) \vec{v}_2\text{.}\)</span> The 3 linearly independent solutions are</div>
+<div class="displaymath process-math" id="defective-eigenvalues-9-9">
+\begin{equation*}
+\vec{x}_1 = \vec{v}_1 e^{\lambda t} , \qquad
+\vec{x}_2 = ( \vec{v}_2 + \vec{v}_1 t ) \, e^{\lambda t} , \qquad
+\vec{x}_3 = \left( \vec{v}_3 + \vec{v}_2 t +
+\vec{v}_{1} \frac{t^2}{2} \right) \, e^{\lambda t} .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#defective-eigenvalues-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="defective-eigenvalues-10">
+<div class="para">If on the other hand <span class="process-math">\(A\)</span> has an eigenvalue <span class="process-math">\(\lambda\)</span> of algebraic multiplicity 3 and defect 1, then solve</div>
+<div class="displaymath process-math" id="defective-eigenvalues-10-3">
+\begin{equation*}
+(A - \lambda I) \vec{v}_1 = \vec{0} , \qquad
+(A - \lambda I) \vec{v}_2 = \vec{0} , \qquad
+(A - \lambda I) \vec{v}_3 = \vec{v}_2 .
+\end{equation*}
+</div>
+<div class="para">Here <span class="process-math">\(\vec{v}_1\)</span> and <span class="process-math">\(\vec{v}_2\)</span> are actual honest eigenvectors, and <span class="process-math">\(\vec{v}_3\)</span> is a generalized eigenvector. So there are two chains. To solve, first find a <span class="process-math">\(\vec{v}_3\)</span> such that <span class="process-math">\({(A - \lambda I)}^2 \vec{v}_3 = \vec{0}\text{,}\)</span> but <span class="process-math">\((A - \lambda I) \vec{v}_3 \not= \vec{0}\text{.}\)</span> Then <span class="process-math">\(\vec{v}_2 = (A - \lambda I) \vec{v}_3\)</span> is going to be an eigenvector. Then solve for an eigenvector <span class="process-math">\(\vec{v}_1\)</span> that is linearly independent from <span class="process-math">\(\vec{v}_2\text{.}\)</span> You get 3 linearly independent solutions</div>
+<div class="displaymath process-math" id="defective-eigenvalues-10-13">
+\begin{equation*}
+\vec{x}_1 = \vec{v}_1 e^{\lambda t} , \qquad
+\vec{x}_2 = \vec{v}_2 e^{\lambda t} , \qquad
+\vec{x}_3 = ( \vec{v}_3 + \vec{v}_2 t ) \, e^{\lambda t} .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#defective-eigenvalues-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsubsection: Defective eigenvalues"><a href="#defective-eigenvalues" title="Copy heading and permalink for Subsubsection: Defective eigenvalues" aria-label="Copy heading and permalink for Subsubsection: Defective eigenvalues">🔗</a></div></section><div class="autopermalink" data-description="Subsubsection: Geometric multiplicity"><a href="#geometric-multiplicity" title="Copy heading and permalink for Subsubsection: Geometric multiplicity" aria-label="Copy heading and permalink for Subsubsection: Geometric multiplicity">🔗</a></div></section><section class="subsection" id="phase-portraits-repeated"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Phase Portraits</span>
+</h3>
+<div class="para" id="phase-portraits-repeated-2">We also want to look at the phase portraits and direction field diagrams for repeated eigenvalues. There are two different options here, depending on if there are two linearly independent eigenvectors or not.<div class="autopermalink" data-description="Paragraph"><a href="#phase-portraits-repeated-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="phase-portraits-repeated-3">
+<div class="para">
+<em class="emphasis">Case 1.</em> If we have a repeated eigenvalue with two linearly independent eigenvectors, this means that our matrix <span class="process-math">\(A\)</span> is of the form</div>
+<div class="displaymath process-math" id="phase-portraits-repeated-3-3">
+\begin{equation*}
+A = \begin{bmatrix} \lambda &amp; 0 \\ 0 &amp; \lambda \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">for the repeated eigenvalue <span class="process-math">\(\lambda\text{.}\)</span> This means that <span class="process-math">\(A \vec{v} = \lambda \vec{v}\)</span> for all vectors <span class="process-math">\(\vec{v}\text{.}\)</span> So, every vector is part of a straight line solution, and so every solution goes either directly towards or directly away from the origin. This gives a <em class="emphasis"></em> which can be a sink or a source depending on whether the eigenvalue is positive or negative.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#phase-portraits-repeated-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="phase-portraits-repeated-4">
+<div class="para">
+<em class="emphasis">Case 2.</em> If we have a repeated eigenvalue with only one linearly independent eigenvector, then we only have one straight-line solution. For instance, the matrix</div>
+<div class="displaymath process-math" id="phase-portraits-repeated-4-2">
+\begin{equation*}
+A = \begin{bmatrix} 4 &amp; -1 \\ 1 &amp; 2 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">has only one eigenvector of <span class="process-math">\(\begin{bmatrix} 1 \\ 1 \end{bmatrix}\)</span> for eigenvalue <span class="process-math">\(3\text{.}\)</span> Like the nodal sources and sinks, the solutions will go to zero and infinity along the straight line solutions. In this case, because there is only one straight line, the phase portrait looks somewhere between a node and a spiral. This gives an <em class="emphasis"></em> which can be a source or sink depending on the sign of the eigenvalue.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#phase-portraits-repeated-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="phase-portraits-repeated-5">We also need to think about the direction of rotation for these improper nodes as well, as they somewhat act both like spirals and nodes. There are two ways of analyzing these phase portrait graphs again, and they follow the same tricks as their spiral counterparts.<div class="autopermalink" data-description="Paragraph"><a href="#phase-portraits-repeated-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="phase-portraits-repeated-6">
+<div class="para">For the first method, we need the general solution. For the solution drawn in , which has differential equation</div>
+<div class="displaymath process-math" id="phase-portraits-repeated-6-1">
+\begin{equation*}
+{\vec{x}}' = \begin{bmatrix} 4 &amp; -1 \\ 1 &amp; 2 \end{bmatrix} \vec{x},
+\end{equation*}
+</div>
+<div class="para">the general solution is given by</div>
+<div class="displaymath process-math" id="phase-portraits-repeated-6-2">
+\begin{equation*}
+\vec{x}(t) = C_1 \begin{bmatrix} 1 \\ 1 \end{bmatrix}e^{3t} + C_2\left( \begin{bmatrix} 1 \\ 1 \end{bmatrix}te^{3t} + \begin{bmatrix} 1 \\ 0 \end{bmatrix}e^{3t}\right).
+\end{equation*}
+</div>
+<div class="para">The <span class="process-math">\(C_1\)</span> term gives our straight-line solution, so we need to consider the <span class="process-math">\(C_2\)</span> term. We can rewrite this term as <span class="process-math">\(e^{3t}\left(\left[\begin{smallmatrix} 1 \\ 1 \end{smallmatrix}\right]t + \left[\begin{smallmatrix} 1 \\ 0 \end{smallmatrix}\right] \right)\text{.}\)</span> At <span class="process-math">\(t=0\text{,}\)</span> this term is at <span class="process-math">\(\left[\begin{smallmatrix} 1 \\ 0 \end{smallmatrix}\right]\text{,}\)</span> and as <span class="process-math">\(t \rightarrow \infty\text{,}\)</span> the solution ends up in the direction of <span class="process-math">\(\left[\begin{smallmatrix} 1 \\ 1 \end{smallmatrix}\right]\text{,}\)</span> so it is in the first quadrant. Therefore, our solution starts at the point <span class="process-math">\((1,0)\)</span> and ends up in the first quadrant as <span class="process-math">\(t \rightarrow \infty\text{.}\)</span> Since this is an improper source, this means the solution is also going away from the origin as <span class="process-math">\(t \rightarrow \infty\text{.}\)</span> Therefore, the solution goes off to <span class="process-math">\(\infty\)</span> in the first quadrant (along the straight line solution) as <span class="process-math">\(t\rightarrow \infty\text{,}\)</span> and going backwards, it has to flip around to the opposite side of the straight-line solution. This gives the sketch that we see in .</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#phase-portraits-repeated-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="phase-portraits-repeated-7">The second method again involves the bottom-left entry of the matrix. Again, this is positive, which means that our rotation is in the counter-clockwise direction. It is a little trickier to prove in this case (you need to use the structure of the generalized eigenvector), but it works out in the same way. This means that below the <span class="process-math">\(\left[\begin{smallmatrix} 1 \\ 1 \end{smallmatrix}\right]\)</span> straight-line solution, the solution spirals counter-clockwise as <span class="process-math">\(t\)</span> gets larger, which means that it has to leave the origin along the <span class="process-math">\(\left[\begin{smallmatrix} -1 \\ -1 \end{smallmatrix}\right]\)</span> direction, rotate around counter-clockwise, and head away from the origin along the <span class="process-math">\(\left[\begin{smallmatrix} 1 \\ 1 \end{smallmatrix}\right]\)</span> direction. That’s the only way it can rotate counter-clockwise.<div class="autopermalink" data-description="Paragraph"><a href="#phase-portraits-repeated-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="phase-portraits-repeated-8">In both of these cases, the curve on the other side of the straight-line solution must mirror it. This puts together the entire sketch of the phase portrait for these improper nodes. The other point to be especially careful about is that having an improper nodal source and improper nodal sink look opposite, even if they have the same direction of rotation. The direction always refers to <span class="process-math">\(t\)</span> increasing, not going into or away from the origin.<div class="autopermalink" data-description="Paragraph"><a href="#phase-portraits-repeated-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: Phase Portraits"><a href="#phase-portraits-repeated" title="Copy heading and permalink for Subsection: Phase Portraits" aria-label="Copy heading and permalink for Subsection: Phase Portraits">🔗</a></div></section><section class="exercises" id="eigenmethod-repeat-section-5"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="eigenmethod-repeat-section-5-2"><h4 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="eigenmethod-repeat-section-5-2-1-1">Compute eigenvalues and eigenvectors of <span class="process-math">\(\left[ \begin{smallmatrix}
+-2 &amp; -1 &amp; -1 \\
+3 &amp; 2 &amp; 1 \\
+-3 &amp; -1 &amp; 0 \\
+\end{smallmatrix} \right]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eigenmethod-repeat-section-5-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="eigenmethod-repeat-section-5-2-2-1">
+<span class="process-math">\(\lambda_1 = -2\text{,}\)</span> <span class="process-math">\(\vec{v}_1 = \left[\begin{smallmatrix} -1 \\ 1 \\ -1 \end{smallmatrix}\right]\text{.}\)</span> <span class="process-math">\(\lambda_2 = 1\text{,}\)</span> two-dimensional space of eigenvectors, options: <span class="process-math">\(\left\{ \left[\begin{smallmatrix} -1 \\ 0 \\ 3 \end{smallmatrix}\right],\ \left[\begin{smallmatrix} -1 \\ 3 \\ 0 \end{smallmatrix}\right]\right\}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 1.1"><a href="#eigenmethod-repeat-section-5-2-2" title="Copy heading and permalink for Answer 1.1" aria-label="Copy heading and permalink for Answer 1.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 1"><a href="#eigenmethod-repeat-section-5-2" title="Copy heading and permalink for Exercise 1" aria-label="Copy heading and permalink for Exercise 1">🔗</a></div></article><article class="exercise exercise-like" id="eigenmethod-repeat-section-5-3"><h4 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="eigenmethod-repeat-section-5-3-1-1">Let <span class="process-math">\(A = \left[ \begin{smallmatrix} 5 &amp; -3 \\ 3 &amp; -1 \end{smallmatrix} \right]\text{.}\)</span> Find the general solution of <span class="process-math">\({\vec{x}}' = A \vec{x}\)</span> and sketch the corresponding phase portrait.<div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eigenmethod-repeat-section-5-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="eigenmethod-repeat-section-5-3-2-1">
+<span class="process-math">\(\vec{x}(t) = C_1 \left[\begin{smallmatrix}  1\\ 1 \end{smallmatrix}\right]e^{2t} + C_2\left( \left[\begin{smallmatrix} 1\\1 \end{smallmatrix}\right]te^{2t} + \left[\begin{smallmatrix} 1/3 \\ 0 \end{smallmatrix}\right]e^{2t}\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.1"><a href="#eigenmethod-repeat-section-5-3-2" title="Copy heading and permalink for Answer 2.1" aria-label="Copy heading and permalink for Answer 2.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 2"><a href="#eigenmethod-repeat-section-5-3" title="Copy heading and permalink for Exercise 2" aria-label="Copy heading and permalink for Exercise 2">🔗</a></div></article><article class="exercise exercise-like" id="eigenmethod-repeat-section-5-4"><h4 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="eigenmethod-repeat-section-5-4-1-1">
+<div class="para">Solve the initial value problem</div>
+<div class="displaymath process-math" id="eigenmethod-repeat-section-5-4-1-1-1">
+\begin{equation*}
+{\vec{x}}' = \begin{bmatrix} -3 &amp; 2 \\ 0 &amp; -3 \end{bmatrix} \vec{x} \qquad \vec{x}(0) = \begin{bmatrix} 2 \\ 1 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">and sketch the phase portrait for this system.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eigenmethod-repeat-section-5-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="eigenmethod-repeat-section-5-4-2-1">
+<span class="process-math">\(\vec{x}(t) = \left[\begin{smallmatrix} (2t+2)e^{-3t} \\ (2t+1)e^{-3t} \end{smallmatrix}\right]\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 3.1"><a href="#eigenmethod-repeat-section-5-4-2" title="Copy heading and permalink for Answer 3.1" aria-label="Copy heading and permalink for Answer 3.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 3"><a href="#eigenmethod-repeat-section-5-4" title="Copy heading and permalink for Exercise 3" aria-label="Copy heading and permalink for Exercise 3">🔗</a></div></article><article class="exercise exercise-like" id="eigenmethod-repeat-section-5-5"><h4 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="eigenmethod-repeat-section-5-5-1-1">
+<div class="para">Solve the initial value problem</div>
+<div class="displaymath process-math" id="eigenmethod-repeat-section-5-5-1-1-1">
+\begin{equation*}
+{\vec{x}}' = \begin{bmatrix} -5 &amp; -2 \\ 8 &amp; 3 \end{bmatrix} \vec{x} \qquad \vec{x}(0) = \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">and sketch the phase portrait for this system.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eigenmethod-repeat-section-5-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="eigenmethod-repeat-section-5-5-2-1">
+<span class="process-math">\(\vec{x}(t) = \left[\begin{smallmatrix} (-6t+1)e^{-t} \\ (12t+1)e^{-t} \end{smallmatrix}\right]\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 4.1"><a href="#eigenmethod-repeat-section-5-5-2" title="Copy heading and permalink for Answer 4.1" aria-label="Copy heading and permalink for Answer 4.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 4"><a href="#eigenmethod-repeat-section-5-5" title="Copy heading and permalink for Exercise 4" aria-label="Copy heading and permalink for Exercise 4">🔗</a></div></article><article class="exercise exercise-like" id="eigenmethod-repeat-section-5-6"><h4 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="eigenmethod-repeat-section-5-6-1-1">
+<div class="para">Solve the initial value problem</div>
+<div class="displaymath process-math" id="eigenmethod-repeat-section-5-6-1-1-1">
+\begin{equation*}
+{\vec{x}}' = \begin{bmatrix} -3 &amp; -12 \\ 3 &amp; 9 \end{bmatrix}\vec{x} \qquad \vec{x}(0) = \begin{bmatrix} 3 \\ 2  \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">and sketch the phase portrait for this system.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eigenmethod-repeat-section-5-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="eigenmethod-repeat-section-5-6-2-1">
+<span class="process-math">\(\vec{x}(t) = \left[\begin{smallmatrix} (-42t+3)e^{3t} \\ (21t + 2)e^{3t} \end{smallmatrix}\right]\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.1"><a href="#eigenmethod-repeat-section-5-6-2" title="Copy heading and permalink for Answer 5.1" aria-label="Copy heading and permalink for Answer 5.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 5"><a href="#eigenmethod-repeat-section-5-6" title="Copy heading and permalink for Exercise 5" aria-label="Copy heading and permalink for Exercise 5">🔗</a></div></article><article class="exercise exercise-like" id="eigenmethod-repeat-section-5-7"><h4 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="eigenmethod-repeat-section-5-7-1-1">
+<div class="para">Assume <span class="process-math">\(A\)</span> is a <span class="process-math">\(3\times 3\)</span> matrix. The row-reduced echelon forms of <span class="process-math">\(A-\lambda I\)</span> are given for three different values of <span class="process-math">\(\lambda\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="eigenmethod-repeat-section-5-7-1-1-5">
+\begin{equation*}
+A-3I \rightsquigarrow \begin{pmatrix} 1&amp;0&amp;0\\ 0&amp;1&amp;0\\ 0&amp;0&amp;1 \end{pmatrix} \qquad\qquad 
+A-5I \rightsquigarrow \begin{pmatrix} 1&amp;4&amp;0\\ 0&amp;0&amp;1\\ 0&amp;0&amp;0 \end{pmatrix}\qquad\qquad
+A-7I \rightsquigarrow \begin{pmatrix} 1&amp;-1&amp;1/2\\ 0&amp;0&amp;0\\ 0&amp;0&amp;0 \end{pmatrix}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="eigenmethod-repeat-section-5-7-1-2">Find the general solution of the homogeneous system <span class="process-math">\(\vec{x}'=A\vec{x}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-7-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eigenmethod-repeat-section-5-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="eigenmethod-repeat-section-5-7-2-1">
+<span class="process-math">\(\vec{x}(t) = C_1\left[\begin{smallmatrix} 4 \\ -1 \\ 0 \end{smallmatrix}\right]e^{5t} + C_2\left[\begin{smallmatrix} 1 \\ 1 \\ 0 \end{smallmatrix}\right]e^{7t} + C_2\left[\begin{smallmatrix} -1/2 \\ 0 \\ 1 \end{smallmatrix}\right]e^{7t}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 6.1"><a href="#eigenmethod-repeat-section-5-7-2" title="Copy heading and permalink for Answer 6.1" aria-label="Copy heading and permalink for Answer 6.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 6"><a href="#eigenmethod-repeat-section-5-7" title="Copy heading and permalink for Exercise 6" aria-label="Copy heading and permalink for Exercise 6">🔗</a></div></article><article class="exercise exercise-like" id="eigenmethod-repeat-section-5-8"><h4 class="heading"><span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="eigenmethod-repeat-section-5-8-1-1">Consider the matrix <span class="process-math">\(A=\displaystyle \begin{pmatrix} 
+7 &amp; 5 &amp; -6 \\
+0 &amp; -3 &amp; 2 \\
+0  &amp; -4 &amp; 1 \end{pmatrix}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="eigenmethod-repeat-section-5-8-1-2">Determine the characteristic polynomial of <span class="process-math">\(A\)</span> and give its eigenvalues. How many (linearly independent) straight-line solutions does the system <span class="process-math">\({\vec{x}}'=A\vec{x}\)</span> have? How do you know, without solving?<div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-8-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eigenmethod-repeat-section-5-8-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="eigenmethod-repeat-section-5-8-2-1">a) <span class="process-math">\(\lambda = 7,\ -1\pm 2i\)</span> b) Only 1<div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 7.1"><a href="#eigenmethod-repeat-section-5-8-2" title="Copy heading and permalink for Answer 7.1" aria-label="Copy heading and permalink for Answer 7.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 7"><a href="#eigenmethod-repeat-section-5-8" title="Copy heading and permalink for Exercise 7" aria-label="Copy heading and permalink for Exercise 7">🔗</a></div></article><article class="exercise exercise-like" id="eigenmethod-repeat-section-5-9"><h4 class="heading"><span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="eigenmethod-repeat-section-5-9-1-1">Let <span class="process-math">\(A=\begin{bmatrix} 1&amp;5&amp;-18\\ 2&amp;-1&amp;-5 \\ 1&amp;1&amp;-6 \end{bmatrix}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="eigenmethod-repeat-section-5-9-1-2">Show directly that <span class="process-math">\(\vec{v}_1=\begin{bmatrix} 1\\3\\1 \end{bmatrix}\)</span> is an eigenvector of <span class="process-math">\(A\text{.}\)</span> All eigenvalues of <span class="process-math">\(A\)</span> are the same. Find the general solution to <span class="process-math">\({\vec{x}}'=A\vec{x}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-9-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eigenmethod-repeat-section-5-9-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="eigenmethod-repeat-section-5-9-2-1">b) <span class="process-math">\(\vec{x}(t) = C_1\left[\begin{smallmatrix} 1 \\ 3 \\1 \end{smallmatrix}\right]e^{-2t} + C_2\left(\left[\begin{smallmatrix} 1 \\ 3 \\ 1 \end{smallmatrix}\right] te^{-2t} + \left[\begin{smallmatrix} 2 \\ -1 \\ 0 \end{smallmatrix}\right]e^{-2t}\right) + C_3\left( \left[\begin{smallmatrix} 1 \\ 3 \\1 \end{smallmatrix}\right] \frac{t^2}{2}e^{-2t} + \left[\begin{smallmatrix} 2 \\ -1 \\ 0 \end{smallmatrix}\right]te^{-2t} + \left[\begin{smallmatrix} -1 \\ 1 \\ 0 \end{smallmatrix}\right] e^{-2t}\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 8.1"><a href="#eigenmethod-repeat-section-5-9-2" title="Copy heading and permalink for Answer 8.1" aria-label="Copy heading and permalink for Answer 8.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 8"><a href="#eigenmethod-repeat-section-5-9" title="Copy heading and permalink for Exercise 8" aria-label="Copy heading and permalink for Exercise 8">🔗</a></div></article><article class="exercise exercise-like" id="eigenmethod-repeat-section-5-10"><h4 class="heading"><span class="codenumber">9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="eigenmethod-repeat-section-5-10-1-1">Let <span class="process-math">\(A = \left[ \begin{smallmatrix}
+5 &amp; -4 &amp; 4 \\
+0 &amp; 3 &amp; 0 \\
+-2 &amp; 4 &amp; -1
+\end{smallmatrix} \right]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="eigenmethod-repeat-section-5-10-1-2">What are the eigenvalues? What is/are the defect(s) of the eigenvalue(s)? Find the general solution of <span class="process-math">\({\vec{x}}' = A \vec{x}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-10-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eigenmethod-repeat-section-5-10-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="eigenmethod-repeat-section-5-10-2-1">a) 3,1,1 b) No defects c)  <span class="process-math">\(\vec{x}(t) = C_1\left[\begin{smallmatrix} 1 \\ 0 \\ -1 \end{smallmatrix}\right]e^t + C_2\left[\begin{smallmatrix} 2 \\ 1 \\ 0 \end{smallmatrix}\right]e^{3t} + C_3\left[\begin{smallmatrix} -2 \\ 0 \\ 1 \end{smallmatrix}\right]e^{3t}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-10-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 9.1"><a href="#eigenmethod-repeat-section-5-10-2" title="Copy heading and permalink for Answer 9.1" aria-label="Copy heading and permalink for Answer 9.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 9"><a href="#eigenmethod-repeat-section-5-10" title="Copy heading and permalink for Exercise 9" aria-label="Copy heading and permalink for Exercise 9">🔗</a></div></article><article class="exercise exercise-like" id="eigenmethod-repeat-section-5-11"><h4 class="heading"><span class="codenumber">10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="eigenmethod-repeat-section-5-11-1-1">Let <span class="process-math">\(A =
+\left[ \begin{smallmatrix}
+1 &amp; 1 &amp; 1 \\
+1 &amp; 1 &amp; 1 \\
+1 &amp; 1 &amp; 1 
+\end{smallmatrix}\right]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="eigenmethod-repeat-section-5-11-1-2">What are the eigenvalues? What is/are the defect(s) of the eigenvalue(s)? Find the general solution of <span class="process-math">\(\vec{x}\,' = A\vec{x}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-11-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 10"><a href="#eigenmethod-repeat-section-5-11" title="Copy heading and permalink for Exercise 10" aria-label="Copy heading and permalink for Exercise 10">🔗</a></div></article><article class="exercise exercise-like" id="eigenmethod-repeat-section-5-12"><h4 class="heading"><span class="codenumber">11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="eigenmethod-repeat-section-5-12-1-1">Let <span class="process-math">\(A = \left[ \begin{smallmatrix} 2 &amp; 1 &amp; 0 \\ 0 &amp; 2 &amp; 0 \\ 0 &amp; 0 &amp; 2 \end{smallmatrix} \right]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-12-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="eigenmethod-repeat-section-5-12-1-2">What are the eigenvalues? What is/are the defect(s) of the eigenvalue(s)? Find the general solution of <span class="process-math">\({\vec{x}}' = A \vec{x}\)</span> in two different ways and verify you get the same answer.<div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-12-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eigenmethod-repeat-section-5-12-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="eigenmethod-repeat-section-5-12-2-1">a) 2 b) Defect 1 c) <span class="process-math">\(\vec{x}(t) = C_1 \left[\begin{smallmatrix} 1 \\ 0 \\ 0 \end{smallmatrix}\right]e^{2t} + C_2\left[\begin{smallmatrix} 0 \\ 0 \\ 1 \end{smallmatrix}\right]e^{2t} + C_3\left(\left[\begin{smallmatrix} 1 \\ 0 \\ 0 \end{smallmatrix}\right]te^{2t} + \left[\begin{smallmatrix} 0 \\ 1 \\ 0 \end{smallmatrix}\right]e^{2t}\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-12-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 11.1"><a href="#eigenmethod-repeat-section-5-12-2" title="Copy heading and permalink for Answer 11.1" aria-label="Copy heading and permalink for Answer 11.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 11"><a href="#eigenmethod-repeat-section-5-12" title="Copy heading and permalink for Exercise 11" aria-label="Copy heading and permalink for Exercise 11">🔗</a></div></article><article class="exercise exercise-like" id="eigenmethod-repeat-section-5-13"><h4 class="heading"><span class="codenumber">12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="eigenmethod-repeat-section-5-13-1-1">Let <span class="process-math">\(A =
+\left[ \begin{smallmatrix}
+1 &amp; 3 &amp; 3 \\
+1 &amp; 1 &amp; 0 \\
+-1 &amp; 1 &amp; 2 \\
+\end{smallmatrix}\right]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-13-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="eigenmethod-repeat-section-5-13-1-2">What are the eigenvalues? What is/are the defect(s) of the eigenvalue(s)? Find the general solution of <span class="process-math">\(\vec{x}\,' = A\vec{x}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-13-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 12"><a href="#eigenmethod-repeat-section-5-13" title="Copy heading and permalink for Exercise 12" aria-label="Copy heading and permalink for Exercise 12">🔗</a></div></article><article class="exercise exercise-like" id="eigenmethod-repeat-section-5-14"><h4 class="heading"><span class="codenumber">13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="eigenmethod-repeat-section-5-14-1-1">Let <span class="process-math">\(A = \left[ \begin{smallmatrix}
+0 &amp; 1 &amp; 2 \\
+-1 &amp; -2 &amp; -2 \\
+-4 &amp; 4 &amp; 7
+\end{smallmatrix} \right]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-14-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="eigenmethod-repeat-section-5-14-1-2">What are the eigenvalues? What is/are the defect(s) of the eigenvalue(s)? Find the general solution of <span class="process-math">\({\vec{x}}' = A \vec{x}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-14-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eigenmethod-repeat-section-5-14-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="eigenmethod-repeat-section-5-14-2-1">a) -1, 3b) 3 has defect 1 c) <span class="process-math">\(\vec{x}(t) = C_1\left[\begin{smallmatrix} -2 \\ 0 \\ 1 \end{smallmatrix}\right]e^{-t} + C_2\left[\begin{smallmatrix} 1 \\ -1 \\ 2 \end{smallmatrix}\right]e^{3t} + C_3\left(\left[\begin{smallmatrix} 1 \\ -1 \\ 2 \end{smallmatrix}\right]te^{3t} + \left[\begin{smallmatrix} 0 \\ 0 \\ 1/2 \end{smallmatrix}\right]e^{3t}\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-14-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 13.1"><a href="#eigenmethod-repeat-section-5-14-2" title="Copy heading and permalink for Answer 13.1" aria-label="Copy heading and permalink for Answer 13.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 13"><a href="#eigenmethod-repeat-section-5-14" title="Copy heading and permalink for Exercise 13" aria-label="Copy heading and permalink for Exercise 13">🔗</a></div></article><article class="exercise exercise-like" id="eigenmethod-repeat-section-5-15"><h4 class="heading"><span class="codenumber">14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="eigenmethod-repeat-section-5-15-1-1">Let <span class="process-math">\(A =
+\left[ \begin{smallmatrix}
+2 &amp; 0 &amp; 0 \\
+-1 &amp; -1 &amp; 9 \\
+0 &amp; -1 &amp; 5
+\end{smallmatrix}\right]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-15-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="eigenmethod-repeat-section-5-15-1-2">What are the eigenvalues? What is/are the defect(s) of the eigenvalue(s)? Find the general solution of <span class="process-math">\(\vec{x}\,' = A\vec{x}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-15-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 14"><a href="#eigenmethod-repeat-section-5-15" title="Copy heading and permalink for Exercise 14" aria-label="Copy heading and permalink for Exercise 14">🔗</a></div></article><article class="exercise exercise-like" id="eigenmethod-repeat-section-5-16"><h4 class="heading"><span class="codenumber">15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="eigenmethod-repeat-section-5-16-1-1">Let <span class="process-math">\(A = \left[ \begin{smallmatrix}
+0 &amp; 4 &amp; -2 \\
+-1 &amp; -4 &amp; 1 \\
+0 &amp; 0 &amp; -2
+\end{smallmatrix} \right]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-16-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="eigenmethod-repeat-section-5-16-1-2">What are the eigenvalues? What is/are the defect(s) of the eigenvalue(s)? Find the general solution of <span class="process-math">\({\vec{x}}' = A \vec{x}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-16-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eigenmethod-repeat-section-5-16-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="eigenmethod-repeat-section-5-16-2-1">a) -2 b) Defect 1 c) <span class="process-math">\(\vec{x}(t) = C_1 \left[\begin{smallmatrix} 1 \\ 0 \\ 1 \end{smallmatrix}\right]e^{-2t} + C_2\left[\begin{smallmatrix} 0 \\1 \\ 2 \end{smallmatrix}\right]e^{-2t} + C_3\left( \left[\begin{smallmatrix} 2 \\ -1 \\ 0 \end{smallmatrix}\right]te^{-2t} + \left[\begin{smallmatrix} 1 \\ 0 \\ 0 \end{smallmatrix}\right]e^{-2t}\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-16-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 15.1"><a href="#eigenmethod-repeat-section-5-16-2" title="Copy heading and permalink for Answer 15.1" aria-label="Copy heading and permalink for Answer 15.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 15"><a href="#eigenmethod-repeat-section-5-16" title="Copy heading and permalink for Exercise 15" aria-label="Copy heading and permalink for Exercise 15">🔗</a></div></article><article class="exercise exercise-like" id="eigenmethod-repeat-section-5-17"><h4 class="heading"><span class="codenumber">16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="eigenmethod-repeat-section-5-17-1-1">Let <span class="process-math">\(A = \left[ \begin{smallmatrix}
+2 &amp; 1 &amp; -1 \\
+-1 &amp; 0 &amp; 2 \\
+-1 &amp; -2 &amp; 4
+\end{smallmatrix} \right]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-17-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="eigenmethod-repeat-section-5-17-1-2">What are the eigenvalues? What is/are the defect(s) of the eigenvalue(s)? Find the general solution of <span class="process-math">\({\vec{x}}' = A \vec{x}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-17-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eigenmethod-repeat-section-5-17-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="eigenmethod-repeat-section-5-17-2-1">a) 2 b)  Defect of 2c)  <span class="process-math">\(\vec{x}(t) = C_1 \left[\begin{smallmatrix} 0 \\ 1 \\ 1 \end{smallmatrix}\right]e^{2t} + C_2\left(\left[\begin{smallmatrix} 0 \\1 \\ 1 \end{smallmatrix}\right]te^{2t} + \left[\begin{smallmatrix} -1 \\ 0 \\ 0 \end{smallmatrix}\right]e^{2t}\right) + C_3\left(\left[\begin{smallmatrix} 0 \\1 \\ 1 \end{smallmatrix}\right]\frac{t^2}{2}e^{2t} + \left[\begin{smallmatrix} -1 \\ 0 \\ 0 \end{smallmatrix}\right]te^{2t} + \left[\begin{smallmatrix} -1 \\-1 \\0 \end{smallmatrix}\right]e^{2t}\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-17-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 16.1"><a href="#eigenmethod-repeat-section-5-17-2" title="Copy heading and permalink for Answer 16.1" aria-label="Copy heading and permalink for Answer 16.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 16"><a href="#eigenmethod-repeat-section-5-17" title="Copy heading and permalink for Exercise 16" aria-label="Copy heading and permalink for Exercise 16">🔗</a></div></article><article class="exercise exercise-like" id="eigenmethod-repeat-section-5-18"><h4 class="heading"><span class="codenumber">17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="eigenmethod-repeat-section-5-18-1-1">Suppose that <span class="process-math">\(A\)</span> is a <span class="process-math">\(2 \times 2\)</span> matrix with a repeated eigenvalue <span class="process-math">\(\lambda\text{.}\)</span> Suppose that there are two linearly independent eigenvectors. Show that <span class="process-math">\(A = \lambda I\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-18-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eigenmethod-repeat-section-5-18-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="eigenmethod-repeat-section-5-18-2-1">Hint: This means everything is an eigenvector. Or, this can be set up as a system of equations.<div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-18-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 17.1"><a href="#eigenmethod-repeat-section-5-18-2" title="Copy heading and permalink for Answer 17.1" aria-label="Copy heading and permalink for Answer 17.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 17"><a href="#eigenmethod-repeat-section-5-18" title="Copy heading and permalink for Exercise 17" aria-label="Copy heading and permalink for Exercise 17">🔗</a></div></article><article class="exercise exercise-like" id="eigenmethod-repeat-section-5-19"><h4 class="heading"><span class="codenumber">18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="eigenmethod-repeat-section-5-19-1-1">Let <span class="process-math">\(A =
+\left[ \begin{smallmatrix}
+a &amp; a \\
+b &amp; c
+\end{smallmatrix}\right]\text{,}\)</span> where <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\)</span> are unknowns. Suppose that <span class="process-math">\(5\)</span> is a doubled eigenvalue of defect 1, and suppose that <span class="process-math">\(\left[ \begin{smallmatrix}
+1 \\ 0
+\end{smallmatrix}\right]\)</span> is a corresponding eigenvector. Find <span class="process-math">\(A\)</span> and show that there is only one such matrix <span class="process-math">\(A\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-19-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 18"><a href="#eigenmethod-repeat-section-5-19" title="Copy heading and permalink for Exercise 18" aria-label="Copy heading and permalink for Exercise 18">🔗</a></div></article><article class="exercise exercise-like" id="eigenmethod-repeat-section-5-20"><h4 class="heading"><span class="codenumber">19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="eigenmethod-repeat-section-5-20-1-1">For each system, (i) classify the system according to type as one of sink/source/saddle/center/ spiral source/spiral sink; (ii) solve the systems; (iii) sketch the phase portrait. Both real and complex eigenvalues appear.<div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-20-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="eigenmethod-repeat-section-5-20-1-2">2<div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-20-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="eigenmethod-repeat-section-5-20-1-3">
+<span class="process-math">\(\vec{x}'=\begin{pmatrix} 2&amp;0 \\ 1&amp;1 \end{pmatrix}\vec{x}\)</span> <span class="process-math">\(\vec{x}'=\begin{pmatrix} -2&amp; -2\\ 8&amp; -2\end{pmatrix}\vec{x}\)</span> <span class="process-math">\(\vec{x}'=\begin{pmatrix} 3&amp; 5\\ -5&amp; -3  \end{pmatrix}\vec{x}\)</span> <span class="process-math">\(\vec{x}' = \begin{pmatrix} -1 &amp; -3 \\ 3 &amp; -7 \end{pmatrix}\vec{x}\)</span> <span class="process-math">\(\vec{x}'=\begin{pmatrix} 3&amp; 2\\ 0&amp;-2 \end{pmatrix}\vec{x}\)</span> <span class="process-math">\(\vec{x}'=\begin{pmatrix} 2&amp; 1/2 \\-1 &amp; 1  \end{pmatrix}\vec{x}\)</span> <span class="process-math">\(\vec{x}'=\begin{pmatrix} 3&amp; 3/2\\ 3/2 &amp; -1 \end{pmatrix}\vec{x}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-20-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 19"><a href="#eigenmethod-repeat-section-5-20" title="Copy heading and permalink for Exercise 19" aria-label="Copy heading and permalink for Exercise 19">🔗</a></div></article><article class="exercise exercise-like" id="eigenmethod-repeat-section-5-21"><h4 class="heading"><span class="codenumber">20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="eigenmethod-repeat-section-5-21-1-1">
+<div class="para">Consider the second order equation given by</div>
+<div class="displaymath process-math" id="eigenmethod-repeat-section-5-21-1-1-1">
+\begin{equation*}
+y'' + 2y' - 8y = 0.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-21-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="eigenmethod-repeat-section-5-21-1-2">Find the general solution of this problem using the methods of . Convert this equation into a first order linear system using the transformation <span class="process-math">\(\vec{x} = \left[ \begin{smallmatrix} y \\ y' \end{smallmatrix} \right]\text{.}\)</span> Find the eigenvalues and eigenvalues of the coefficient matrix and use that to find the general solution to the system. Extract the first component of the general solution and compare that to the solution from part (a). How do they relate? Look back through the work. How do the equation used to find the roots in (a) and the eigenvalues in (c) relate to each other?<div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-21-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eigenmethod-repeat-section-5-21-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="eigenmethod-repeat-section-5-21-2-1">b) <span class="process-math">\({\vec{x}}' = \left[\begin{smallmatrix} 0 &amp; 1 \\8 &amp; -2 \end{smallmatrix}\right]\vec{x}\)</span> d) It’s the same!<div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-21-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 20.1"><a href="#eigenmethod-repeat-section-5-21-2" title="Copy heading and permalink for Answer 20.1" aria-label="Copy heading and permalink for Answer 20.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 20"><a href="#eigenmethod-repeat-section-5-21" title="Copy heading and permalink for Exercise 20" aria-label="Copy heading and permalink for Exercise 20">🔗</a></div></article><article class="exercise exercise-like" id="eigenmethod-repeat-section-5-22"><h4 class="heading"><span class="codenumber">21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="eigenmethod-repeat-section-5-22-1-1">
+<div class="para">Consider the second order equation given by</div>
+<div class="displaymath process-math" id="eigenmethod-repeat-section-5-22-1-1-1">
+\begin{equation*}
+y'' + 4y' + 5y = 0.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-22-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="eigenmethod-repeat-section-5-22-1-2">Find the general solution of this problem using the methods of . Convert this equation into a first order linear system using the transformation <span class="process-math">\(\vec{x} = \left[ \begin{smallmatrix} y \\ y' \end{smallmatrix} \right]\text{.}\)</span> Find the eigenvalues and eigenvalues of the coefficient matrix and use that to find the general solution to the system. Extract the first component of the general solution and compare that to the solution from part (a). How do they relate? Look back through the work. How do the equation used to find the roots in (a) and the eigenvalues in (c) relate to each other?<div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-22-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eigenmethod-repeat-section-5-22-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="eigenmethod-repeat-section-5-22-2-1">b) <span class="process-math">\({\vec{x}}' = \left[\begin{smallmatrix} 0 &amp; 1 \\-4 &amp; -4 \end{smallmatrix}\right]\vec{x}\)</span> d) It’s the same, up to potentially needing to rename the constants (<span class="process-math">\(D_1 = 2C_1 + C_2\)</span> and <span class="process-math">\(D_2 = 2C_2 - C_1\)</span>)<div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-22-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 21.1"><a href="#eigenmethod-repeat-section-5-22-2" title="Copy heading and permalink for Answer 21.1" aria-label="Copy heading and permalink for Answer 21.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 21"><a href="#eigenmethod-repeat-section-5-22" title="Copy heading and permalink for Exercise 21" aria-label="Copy heading and permalink for Exercise 21">🔗</a></div></article><article class="exercise exercise-like" id="eigenmethod-repeat-section-5-23"><h4 class="heading"><span class="codenumber">22<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="eigenmethod-repeat-section-5-23-1-1">
+<div class="para">Consider the second order equation given by</div>
+<div class="displaymath process-math" id="eigenmethod-repeat-section-5-23-1-1-1">
+\begin{equation*}
+y'' - 4y' + 4y = 0.
+\end{equation*}
+</div>
+<div class="para">for <span class="process-math">\(b\)</span> and <span class="process-math">\(c\)</span> two real numbers.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-23-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="eigenmethod-repeat-section-5-23-1-2">Find the general solution of this problem using the methods of . Convert this equation into a first order linear system using the transformation <span class="process-math">\(\vec{x} = \left[ \begin{smallmatrix} y \\ y' \end{smallmatrix} \right]\text{.}\)</span> Find the eigenvalues and eigenvalues of the coefficient matrix and use that to find the general solution to the system. Extract the first component of the general solution and compare that to the solution from part (a). How do they relate? Look back through the work. How do the equation used to find the roots in (a) and the eigenvalues in (c) relate to each other?<div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-23-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eigenmethod-repeat-section-5-23-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="eigenmethod-repeat-section-5-23-2-1">b) <span class="process-math">\({\vec{x}}' = \left[\begin{smallmatrix} 0 &amp; 1 \\-4 &amp; 4 \end{smallmatrix}\right]\vec{x}\)</span> d) It’s the same, up to potentially renaming the constants.<div class="autopermalink" data-description="Paragraph"><a href="#eigenmethod-repeat-section-5-23-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 22.1"><a href="#eigenmethod-repeat-section-5-23-2" title="Copy heading and permalink for Answer 22.1" aria-label="Copy heading and permalink for Answer 22.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 22"><a href="#eigenmethod-repeat-section-5-23" title="Copy heading and permalink for Exercise 22" aria-label="Copy heading and permalink for Exercise 22">🔗</a></div></article><div class="autopermalink" data-description="Exercises: Exercises"><a href="#eigenmethod-repeat-section-5" title="Copy heading and permalink for Exercises: Exercises" aria-label="Copy heading and permalink for Exercises: Exercises">🔗</a></div></section><div class="autopermalink" data-description="Section 4.6: Eigenvalue method with repeated eigenvalues"><a href="#eigenmethod-repeat-section" title="Copy heading and permalink for Section 4.6: Eigenvalue method with repeated eigenvalues" aria-label="Copy heading and permalink for Section 4.6: Eigenvalue method with repeated eigenvalues">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="eigenmethod-cplx-section.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-twodimaut.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

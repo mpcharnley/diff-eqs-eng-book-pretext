@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Applications of nonlinear systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Differential Equations">
+<meta property="book:author" content="Matt Charnley">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.11.12';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.0d5f811896ddeac1.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.e2abc79debce15fd.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Differential Equations</span> <span class="subtitle">An Introduction for Engineers</span></a></h1>
+<p class="byline">Matt Charnley</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="nlinHamiltonian-section.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="nlin-chapter.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="limitcycles-section.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="intro-chapter.html" class="internal"><span class="codenumber">0</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introde-section.html" class="internal"><span class="codenumber">0.1</span> <span class="title">Introduction to differential equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#differential-equations" class="internal"><span class="title">Differential equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#solutions-of-differential-equations" class="internal"><span class="title">Solutions of differential equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#differential-equations-in-practice" class="internal"><span class="title">Differential equations in practice</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#subsection-fourfundamental" class="internal"><span class="title">Four fundamental equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="introde-section.html#introde-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="classification-section.html" class="internal"><span class="codenumber">0.2</span> <span class="title">Classification of differential equations</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="classification-section.html#classification-section-16" class="internal"><span class="codenumber">0.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="fo-chapter.html" class="internal"><span class="codenumber">1</span> <span class="title">First Order Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="integralsols-section.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Integrals as solutions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="integralsols-section.html#integralsols-section-14" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="slopefields-section.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Slope fields</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slopefields-section.html#slope-fields" class="internal"><span class="title">Slope fields</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="slopefields-section.html#slopefields-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="separable-section.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Separable equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable-section.html#separable-equations" class="internal"><span class="title">Separable equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable-section.html#implicit-solutions" class="internal"><span class="title">Implicit solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable-section.html#examples-of-separable-equations" class="internal"><span class="title">Examples of separable equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="separable-section.html#separable-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="intfactor-section.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Linear equations and the integrating factor</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="intfactor-section.html#intfactor-section-18" class="internal"><span class="codenumber">1.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="existunique-section.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Existence and Uniqueness of Solutions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="existunique-section.html#existunique-section-18" class="internal"><span class="codenumber">1.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="numer-section.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Numerical methods: Euler’s method</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="numer-section.html#numer-section-23" class="internal"><span class="codenumber">1.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="auteq-section.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Autonomous equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auteq-section.html#subsec-autoIntro" class="internal"><span class="title">Introduction and Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auteq-section.html#concavity-of-solutions" class="internal"><span class="title">Concavity of Solutions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="auteq-section.html#auteq-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="bifDiag-section.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Bifurcation diagrams</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="bifDiag-section.html#bifDiag-section-13" class="internal"><span class="codenumber">1.8</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="exact-section.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Exact equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact-section.html#subsec-exactIntro" class="internal"><span class="title">exactIntro</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact-section.html#solving-exact-equations" class="internal"><span class="title">Solving exact equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact-section.html#integrating-factors" class="internal"><span class="title">Integrating factors</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exact-section.html#exact-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="modelfirst-section.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Modeling with First Order Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="modelfirst-section.html#principles-of-mathematical-modeling" class="internal"><span class="title">Principles of Mathematical Modeling</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="modelfirst-section.html#the-accumulation-equation" class="internal"><span class="title">The Accumulation Equation</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="modelfirst-section.html#modelfirst-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="modelfirstestim-section.html" class="internal"><span class="codenumber">1.11</span> <span class="title">Modeling and Parameter Estimation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="modelfirstestim-section.html#modelfirstestim-section-10" class="internal"><span class="codenumber">1.11</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="substitution-section.html" class="internal"><span class="codenumber">1.12</span> <span class="title">Substitution</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution-section.html#bernoulli-equations" class="internal"><span class="title">Bernoulli equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution-section.html#homogeneous-equations" class="internal"><span class="title">Homogeneous equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="substitution-section.html#substitution-section-10" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ho-chapter.html" class="internal"><span class="codenumber">2</span> <span class="title">Higher Order Linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="solinear-section.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Second order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#intial-value-problems" class="internal"><span class="title">Intial Value Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#constant-coefficient-equations---real-and-distinct-roots" class="internal"><span class="title">Constant Coefficient Equations - Real and Distinct Roots</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#linear-independence-soeq" class="internal"><span class="title">Linear Independence</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="solinear-section.html#solinear-section-17" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="complexroots-section.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Complex Roots and Euler’s Formula</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="complexroots-section.html#complex-roots" class="internal"><span class="title">Complex roots</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="complexroots-section.html#complexroots-section-13" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="reproots-section.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Repeated Roots and Reduction of Order</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="reproots-section.html#reproots-section-11" class="internal"><span class="codenumber">2.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-mv.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Mechanical vibrations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-mv.html#free-undamped-motion" class="internal"><span class="title">Free undamped motion</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-mv.html#free-damped-motion" class="internal"><span class="title">Free damped motion</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-mv.html#overdamping" class="internal"><span class="title">Overdamping</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-mv.html#critical-damping" class="internal"><span class="title">Critical damping</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-mv.html#underdamping" class="internal"><span class="title">Underdamping</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-mv.html#physical-applications-and-vertical-mass-spring-systems" class="internal"><span class="title">Physical Applications and Vertical Mass-Spring Systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-mv.html#sec-mv-20" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-nonhom.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Nonhomogeneous equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#solving-nonhomogeneous-equations" class="internal"><span class="title">Solving nonhomogeneous equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#undetermined-coefficients-eqns" class="internal"><span class="title">Undetermined coefficients</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#variation-of-parameters-eqns" class="internal"><span class="title">Variation of parameters</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-nonhom.html#sec-nonhom-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="forcedo-section.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Forced oscillations and resonance</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="forcedo-section.html#undamped-forced-motion-and-resonance" class="internal"><span class="title">Undamped forced motion and resonance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="forcedo-section.html#damped-forced-motion-and-practical-resonance" class="internal"><span class="title">Damped forced motion and practical resonance</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="forcedo-section.html#forcedo-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-hol.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Higher order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#linear-independence-hoeq" class="internal"><span class="title">Linear independence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#constant-coefficient-higher-order-odes" class="internal"><span class="title">Constant coefficient higher order ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#non-homogeneous-equations" class="internal"><span class="title">Non-Homogeneous Equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-hol.html#sec-hol-11" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="linalg-appendix.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="vecsandmaps-section.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Vectors, mappings, and matrices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="vecsandmaps-section.html#vectors-and-operations-on-vectors" class="internal"><span class="title">Vectors and operations on vectors</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#linear-combinations-and-linear-independence" class="internal"><span class="title">Linear Combinations and Linear Independence</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#matrices" class="internal"><span class="title">Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#linear-mappings-and-matrices" class="internal"><span class="title">Linear mappings and matrices</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="vecsandmaps-section.html#vecsandmaps-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="matalg-section.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Matrix algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#one-by-one-matrices" class="internal"><span class="title">One-by-one matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#matrix-addition-and-scalar-multiplication" class="internal"><span class="title">Matrix addition and scalar multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#matrix-multiplication" class="internal"><span class="title">Matrix multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#some-rules-of-matrix-algebra" class="internal"><span class="title">Some rules of matrix algebra</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#inverse" class="internal"><span class="title">Inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#special-types-of-matrices" class="internal"><span class="title">Special types of matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#transpose" class="internal"><span class="title">Transpose</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="matalg-section.html#matalg-section-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="elim-section.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Elimination</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#linear-systems-of-equations" class="internal"><span class="title">Linear systems of equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#row-echelon-form-and-elementary-operations" class="internal"><span class="title">Row echelon form and elementary operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#non-unique-solutions-and-inconsistent-systems" class="internal"><span class="title">Non-unique solutions and inconsistent systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="elim-section.html#elim-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="det-section.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Determinant</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="det-section.html#det-section-32" class="internal"><span class="codenumber">3.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eig-section.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Eigenvalues and Eigenvectors</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#finding-eigenvalues-and-eigenvectors" class="internal"><span class="title">Finding Eigenvalues and Eigenvectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#real-eigenvalues" class="internal"><span class="title">Real Eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#complex-eigenvalues" class="internal"><span class="title">Complex Eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#repeated-eigenvalues" class="internal"><span class="title">Repeated Eigenvalues</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eig-section.html#eig-section-11" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-kernel.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Related Topics in Linear Algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#subspaces-and-span" class="internal"><span class="title">Subspaces and span</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#basis-and-dimension" class="internal"><span class="title">Basis and dimension</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#rank" class="internal"><span class="title">Rank</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#kernel" class="internal"><span class="title">Kernel</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#computing-the-inverse-adv" class="internal"><span class="title">Computing the inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#trace-and-determinant-of-matrices" class="internal"><span class="title">Trace and Determinant of Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#extension-of-previous-theorem" class="internal"><span class="title">Extension of Previous Theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-kernel.html#sec-kernel-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="sys-chapter.html" class="internal"><span class="codenumber">4</span> <span class="title">Systems of ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-introtosys.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Introduction to systems of ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#systems" class="internal"><span class="title">Systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#applications" class="internal"><span class="title">Applications</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#changing-to-first-order" class="internal"><span class="title">Changing to first order</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#autonomous-systems-and-vector-fields" class="internal"><span class="title">Autonomous systems and vector fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#picards-theorem" class="internal"><span class="title">Picard’s theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-introtosys.html#sec-introtosys-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-matrix.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Matrices and linear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#matrices-and-vectors" class="internal"><span class="title">Matrices and vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#matrix-multiplication-rev" class="internal"><span class="title">Matrix multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#the-determinant" class="internal"><span class="title">The determinant</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#solving-linear-systems" class="internal"><span class="title">Solving linear systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#computing-the-inverse" class="internal"><span class="title">Computing the inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#eigenvalues-and-eigenvectors-of-a-matrix" class="internal"><span class="title">Eigenvalues and eigenvectors of a matrix</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matrix.html#sec-matrix-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linsystems-section.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Linear systems of ODEs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linsystems-section.html#linsystems-section-17" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod-section.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Eigenvalue method</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-section.html#the-eigenvalue-method-with-distinct-real-eigenvalues" class="internal"><span class="title">The eigenvalue method with distinct real eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-section.html#phase-portraits-real" class="internal"><span class="title">Phase Portraits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-section.html#eigenmethod-section-10" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod-cplx-section.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Eigenvalue method with complex eigenvalues</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-cplx-section.html#phase-portraits-complex" class="internal"><span class="title">Phase Portraits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-cplx-section.html#eigenmethod-cplx-section-16" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod-repeat-section.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Eigenvalue method with repeated eigenvalues</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection">
+<div class="toc-title-box"><a href="eigenmethod-repeat-section.html#geometric-multiplicity" class="internal"><span class="title">Geometric multiplicity</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#defective-eigenvalues" class="internal"><span class="title">Defective eigenvalues</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#phase-portraits-repeated" class="internal"><span class="title">Phase Portraits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#eigenmethod-repeat-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-twodimaut.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Two-dimensional systems and their vector fields</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-twodimaut.html#trace-determinant-analysis" class="internal"><span class="title">Trace-Determinant Analysis</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-twodimaut.html#sec-twodimaut-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nonhomogsys-section.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Nonhomogeneous systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys-section.html#first-order-constant-coefficient" class="internal"><span class="title">First order constant coefficient</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys-section.html#diagonalization" class="internal"><span class="title">Diagonalization</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys-section.html#undetermined-coefficients-sys" class="internal"><span class="title">Undetermined coefficients</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys-section.html#first-order-variable-coefficient" class="internal"><span class="title">First order variable coefficient</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys-section.html#variation-of-parameters-sys" class="internal"><span class="title">Variation of parameters</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nonhomogsys-section.html#nonhomogsys-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sol-section.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Second order systems and applications</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol-section.html#undamped-mass-spring-systems" class="internal"><span class="title">Undamped mass-spring systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol-section.html#examples" class="internal"><span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol-section.html#forced-oscillations" class="internal"><span class="title">Forced oscillations</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sol-section.html#non-homogeneous-solutions" class="internal"><span class="title">Non-Homogeneous Solutions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sol-section.html#undetermined-coefficients-secondsys" class="internal"><span class="title">Undetermined coefficients</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sol-section.html#eigenvector-decomposition" class="internal"><span class="title">Eigenvector decomposition</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sol-section.html#sol-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-matexp.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Matrix exponentials</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#definition" class="internal"><span class="title">Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#simple-cases" class="internal"><span class="title">Simple cases</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#general-matrices" class="internal"><span class="title">General matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#fundamental-matrix-solutions" class="internal"><span class="title">Fundamental matrix solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#approximations" class="internal"><span class="title">Approximations</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-matexp.html#non-homogeneous-systems" class="internal"><span class="title">Non-Homogeneous Systems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-matexp.html#integrating-factor" class="internal"><span class="title">Integrating factor</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matexp.html#sec-matexp-8" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="nlin-chapter.html" class="internal"><span class="codenumber">5</span> <span class="title">Nonlinear Systems</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linearization-section.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Linearization, critical points, and stability</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#autonomous-systems-and-phase-plane-analysis" class="internal"><span class="title">Autonomous systems and phase plane analysis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#linearization" class="internal"><span class="title">Linearization</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#isolated-critical-points-and-almost-linear-systems" class="internal"><span class="title">Isolated critical points and almost linear systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#stability-and-classification-of-isolated-critical-points" class="internal"><span class="title">Stability and classification of isolated critical points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#the-trouble-with-centers" class="internal"><span class="title">The trouble with centers</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linearization-section.html#linearization-section-12" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nlinHamiltonian-section.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Behavior of non-linear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#conservative-equations" class="internal"><span class="title">Conservative equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#hamiltonian-systems" class="internal"><span class="title">Hamiltonian Systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#separatrices-and-basins-of-attractions" class="internal"><span class="title">Separatrices and Basins of Attractions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#nullclines" class="internal"><span class="title">Nullclines</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#nlinHamiltonian-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="nlinapps-section.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Applications of nonlinear systems</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#pendulum" class="internal"><span class="title">Pendulum</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#predator-prey-or-lotkavolterra-systems" class="internal"><span class="title">Predator-prey or Lotka–Volterra systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#competing-species-systems" class="internal"><span class="title">Competing Species systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinapps-section.html#nlinapps-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="limitcycles-section.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Limit cycles</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="limitcycles-section.html#limitcycles-section-28" class="internal"><span class="codenumber">5.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-chaos.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Chaos</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaos.html#duffing-equation-and-strange-attractors" class="internal"><span class="title">Duffing equation and strange attractors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaos.html#the-lorenz-system" class="internal"><span class="title">The Lorenz system</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-chaos.html#sec-chaos-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="matlab-appendix.html" class="internal"><span class="codenumber">6</span> <span class="title">Introduction to MATLAB</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="the-matlab-interface.html" class="internal"><span class="codenumber">6.1</span> <span class="title">The MATLAB Interface</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="file-structure.html" class="internal"><span class="codenumber">6.2</span> <span class="title">File Structure</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="computation-in-matlab.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Computation in MATLAB</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="variables-and-arrays.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Variables and Arrays</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="funMat-section.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Functions and Anonymous Functions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="loops-and-branching-statements.html" class="internal"><span class="codenumber">6.6</span> <span class="title">Loops and Branching Statements</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="loops-and-branching-statements.html#for-loops" class="internal"><span class="title">For Loops</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="loops-and-branching-statements.html#if-statements" class="internal"><span class="title">If Statements</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="plotting-in-matlab.html" class="internal"><span class="codenumber">6.7</span> <span class="title">Plotting in MATLAB</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="supplemental-code-files.html" class="internal"><span class="codenumber">6.8</span> <span class="title">Supplemental Code Files</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-prereq.html" class="internal"><span class="codenumber">7</span> <span class="title">Prerequisite Material</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-polys.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Polynomials and Factoring</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#definitions-and-operations" class="internal"><span class="title">Definitions and Operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#polynomial-long-division" class="internal"><span class="title">Polynomial Long Division</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#synthetic-division" class="internal"><span class="title">Synthetic Division</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-complexNums.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Complex Numbers</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-derivInt.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Differentiation and Integration Techniques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivInt.html#derivative-and-integral-formulas" class="internal"><span class="title">Derivative and Integral Formulas</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-derivInt.html#derivative-rules" class="internal"><span class="title">Derivative Rules</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#linearity-of-the-derivative-and-integral" class="internal"><span class="title">Linearity of the Derivative and Integral</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#product-and-quotient-rule" class="internal"><span class="title">Product and Quotient Rule</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#chain-rule" class="internal"><span class="title">Chain Rule</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-derivInt.html#integration-techniques" class="internal"><span class="title">Integration Techniques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#substitution" class="internal"><span class="title">Substitution</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#integration-by-parts" class="internal"><span class="title">Integration by Parts</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#partial-fractions" class="internal"><span class="title">Partial Fractions</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-references"><div class="toc-title-box"><a href="references.html" class="internal"><span class="title">References</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-3.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="nlinapps-section"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Applications of nonlinear systems</span>
+</h2>
+<div class="para" id="nlinapps-section-2">In this section we study two very standard examples of nonlinear systems. First, we look at the nonlinear pendulum equation. We saw the pendulum equation’s linearization before, but we noted it was only valid for small angles and short times. Now we find out what happens for large angles. Next, we look at the predator-prey equation, which finds various applications in modeling problems in biology, chemistry, economics, and elsewhere.<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="subsection" id="pendulum"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Pendulum</span>
+</h3>
+<div class="para" id="pendulum-2">The first example we study is the pendulum equation <span class="process-math">\(\theta''+\frac{g}{L} \sin \theta = 0\text{.}\)</span> Here, <span class="process-math">\(\theta\)</span> is the angular displacement, <span class="process-math">\(g\)</span> is the gravitational acceleration, and <span class="process-math">\(L\)</span> is the length of the pendulum. In this equation we disregard friction, so we are talking about an idealized pendulum.<div class="autopermalink" data-description="Paragraph"><a href="#pendulum-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="pendulum-3">1.45in1.75in<div class="autopermalink" data-description="Paragraph"><a href="#pendulum-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="pendulum-4">
+<div class="para">This equation is a conservative equation, so we can use our analysis of conservative equations from the previous section. Let us change the equation to a two-dimensional system in variables <span class="process-math">\((\theta,\omega)\)</span> by introducing the new variable <span class="process-math">\(\omega\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="pendulum-4-3">
+\begin{equation*}
+\begin{bmatrix}
+\theta \\ \omega
+\end{bmatrix} '
+=
+\begin{bmatrix}
+\omega \\
+- \frac{g}{L} \sin \theta
+\end{bmatrix} .
+\end{equation*}
+</div>
+<div class="para">The critical points of this system are when <span class="process-math">\(\omega = 0\)</span> and <span class="process-math">\(-\frac{g}{L}
+\sin \theta = 0\text{,}\)</span> or in other words if <span class="process-math">\(\sin \theta = 0\text{.}\)</span> So the critical points are when <span class="process-math">\(\omega = 0\)</span> and <span class="process-math">\(\theta\)</span> is a multiple of <span class="process-math">\(\pi\text{.}\)</span> That is, the points are <span class="process-math">\(\ldots (-2\pi,0), (-\pi,0), (0,0), (\pi,0), (2\pi,0)
+\ldots\text{.}\)</span> While there are infinitely many critical points, they are all isolated. Let us compute the Jacobian matrix:</div>
+<div class="displaymath process-math" id="pendulum-4-11">
+\begin{equation*}
+\begin{bmatrix}
+\frac{\partial}{\partial \theta} \Bigl( \omega \Bigr) &amp; 
+\frac{\partial}{\partial \omega} \Bigl( \omega \Bigr) \\
+\frac{\partial}{\partial \theta} \Bigl( - \frac{g}{L} \sin \theta \Bigr) &amp; 
+\frac{\partial}{\partial \omega} \Bigl( - \frac{g}{L} \sin \theta \Bigr)
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 &amp; 1 \\
+- \frac{g}{L} \cos \theta &amp; 0
+\end{bmatrix} .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#pendulum-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="pendulum-5">For conservative equations, there are two types of critical points. Either stable centers, or saddle points. The eigenvalues of the Jacobian matrix are <span class="process-math">\(\lambda = \pm \sqrt{-\frac{g}{L}\cos \theta}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#pendulum-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="pendulum-6">The eigenvalues are going to be real when <span class="process-math">\(\cos \theta &lt; 0\text{.}\)</span> This happens at the odd multiples of <span class="process-math">\(\pi\text{.}\)</span> The eigenvalues are going to be purely imaginary when <span class="process-math">\(\cos \theta &gt; 0\text{.}\)</span> This happens at the even multiples of <span class="process-math">\(\pi\text{.}\)</span> Therefore the system has a stable center at the points <span class="process-math">\(\ldots (-2\pi,0), (0,0), (2\pi,0) \ldots\text{,}\)</span> and it has an unstable saddle at the points <span class="process-math">\(\ldots (-3\pi,0), (-\pi,0), (\pi,0), (3\pi,0) \ldots\text{.}\)</span> Look at the phase diagram in , where for simplicity we let <span class="process-math">\(\frac{g}{L} = 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#pendulum-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="pendulum-7">Since this is a pendulum without friction, we can characterize the two differnet types of trajectories here. There are the curves running along the top and bottom of the phase portrait that look somewhat like sine waves. These graphs never cross the <span class="process-math">\(x\)</span>-axis, which is the line <span class="process-math">\(\omega = 0\text{.}\)</span> Therefore, these are trajectories where the pendulum never stops moving; it just keeps spinning around in full circles forever, crossing through all possible values of <span class="process-math">\(\theta\text{.}\)</span> The other type of trajectory are the ellipses around each of the stable equilibrium solutions. In these cases, the graph only spans a specific range of <span class="process-math">\(\theta\)</span> values, represented by the reduced <span class="process-math">\(x\)</span> range of the ellipse, and cycles there forever. This represents a pendulum that does not have enough energy to make a full circle, and just oscillates back-and-forth to a fixed height forever.<div class="autopermalink" data-description="Paragraph"><a href="#pendulum-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="pendulum-8">In the linearized equation we have only a single critical point, the center at <span class="process-math">\((0,0)\text{.}\)</span> Now we see more clearly what we meant when we said the linearization is good for small angles. The horizontal axis is the deflection angle. The vertical axis is the angular velocity of the pendulum. Suppose we start at <span class="process-math">\(\theta = 0\)</span> (no deflection), and we start with a small angular velocity <span class="process-math">\(\omega\text{.}\)</span> Then the trajectory keeps going around the critical point <span class="process-math">\((0,0)\)</span> in an approximate circle. This corresponds to short swings of the pendulum back and forth. When <span class="process-math">\(\theta\)</span> stays small, the trajectories really look like circles and hence are very close to our linearization.<div class="autopermalink" data-description="Paragraph"><a href="#pendulum-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="pendulum-9">When we give the pendulum a big enough push, it goes across the top and keeps spinning about its axis. This behavior corresponds to the wavy curves that do not cross the horizontal axis in the phase diagram. Let us suppose we look at the top curves, when the angular velocity <span class="process-math">\(\omega\)</span> is large and positive. Then the pendulum is going around and around its axis. The velocity is going to be large when the pendulum is near the bottom, and the velocity is the smallest when the pendulum is close to the top of its loop.<div class="autopermalink" data-description="Paragraph"><a href="#pendulum-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="pendulum-10">At each critical point, there is an equilibrium solution. Consider the solution <span class="process-math">\(\theta = 0\text{;}\)</span> the pendulum is not moving and is hanging straight down. This is a stable place for the pendulum to be, hence this is a <em class="emphasis">stable</em> equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#pendulum-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="pendulum-11">The other type of equilibrium solution is at the unstable point, for example <span class="process-math">\(\theta = \pi\text{.}\)</span> Here the pendulum is upside down. Sure you can balance the pendulum this way and it will stay, but this is an <em class="emphasis">unstable</em> equilibrium. Even the tiniest push will make the pendulum start swinging wildly.<div class="autopermalink" data-description="Paragraph"><a href="#pendulum-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="pendulum-12">See for a diagram. The first picture is the stable equilibrium <span class="process-math">\(\theta = 0\text{.}\)</span> The second picture corresponds to those in the phase diagram around <span class="process-math">\(\theta =0\)</span> when the angular velocity is small. The next picture is the unstable equilibrium <span class="process-math">\(\theta =
+\pi\text{.}\)</span> The last picture corresponds to the wavy lines for large angular velocities.<div class="autopermalink" data-description="Paragraph"><a href="#pendulum-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="pendulum-13">
+<div class="para">The quantity</div>
+<div class="displaymath process-math" id="pendulum-13-1">
+\begin{equation*}
+\frac{1}{2} \omega^2  - \frac{g}{L} \cos \theta 
+\end{equation*}
+</div>
+<div class="para">is conserved by any solution. This is the energy or the Hamiltonian of the system.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#pendulum-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="pendulum-14">
+<div class="para">We have a conservative equation and so (exercise) the trajectories are given by</div>
+<div class="displaymath process-math" id="pendulum-14-1">
+\begin{equation*}
+\omega = \pm \sqrt{ \frac{2g}{L} \cos \theta + C} ,
+\end{equation*}
+</div>
+<div class="para">for various values of <span class="process-math">\(C\text{.}\)</span> Let us look at the initial condition of <span class="process-math">\((\theta_0,0)\text{,}\)</span> that is, we take the pendulum to angle <span class="process-math">\(\theta_0\text{,}\)</span> and just let it go (initial angular velocity 0). We plug the initial conditions into the above and solve for <span class="process-math">\(C\)</span> to obtain</div>
+<div class="displaymath process-math" id="pendulum-14-6">
+\begin{equation*}
+C = - \frac{2g}{L} \cos \theta_0 .
+\end{equation*}
+</div>
+<div class="para">Thus the expression for the trajectory is</div>
+<div class="displaymath process-math" id="pendulum-14-7">
+\begin{equation*}
+\omega = \pm \sqrt{ \frac{2g}{L}} \sqrt{ \cos \theta - \cos \theta_0 } .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#pendulum-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="pendulum-15">Let us figure out the period. That is, the time it takes for the pendulum to swing back and forth. We notice that the trajectory about the origin in the phase plane is symmetric about both the <span class="process-math">\(\theta\)</span> and the <span class="process-math">\(\omega\)</span>-axis. That is, in terms of <span class="process-math">\(\theta\text{,}\)</span> the time it takes from <span class="process-math">\(\theta_0\)</span> to <span class="process-math">\(-\theta_0\)</span> is the same as it takes from <span class="process-math">\(-\theta_0\)</span> back to <span class="process-math">\(\theta_0\text{.}\)</span> Furthermore, the time it takes from <span class="process-math">\(-\theta_0\)</span> to <span class="process-math">\(0\)</span> is the same as to go from <span class="process-math">\(0\)</span> to <span class="process-math">\(\theta_0\text{.}\)</span> Therefore, let us find how long it takes for the pendulum to go from angle 0 to angle <span class="process-math">\(\theta_0\text{,}\)</span> which is a quarter of the full oscillation and then multiply by 4.<div class="autopermalink" data-description="Paragraph"><a href="#pendulum-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="pendulum-16">
+<div class="para">We figure out this time by finding <span class="process-math">\(\frac{dt}{d\theta}\)</span> and integrating from <span class="process-math">\(0\)</span> to <span class="process-math">\(\theta_0\text{.}\)</span> The period is four times this integral. Let us stay in the region where <span class="process-math">\(\omega\)</span> is positive. Since <span class="process-math">\(\omega = \frac{d\theta}{dt}\text{,}\)</span> inverting we get</div>
+<div class="displaymath process-math" id="pendulum-16-6">
+\begin{equation*}
+\frac{dt}{d\theta} = \sqrt{\frac{L}{2g}} \frac{1}{\sqrt{\cos \theta - \cos \theta_0 }} .
+\end{equation*}
+</div>
+<div class="para">Therefore the period <span class="process-math">\(T\)</span> is given by</div>
+<div class="displaymath process-math" id="pendulum-16-8">
+\begin{equation*}
+T = 4 \sqrt{\frac{L}{2g}} \int_0^{\theta_0} \frac{1}{\sqrt{\cos \theta -
+\cos \theta_0 }}\, d\theta .
+\end{equation*}
+</div>
+<div class="para">The integral is an improper integral, and we cannot in general evaluate it symbolically. We must resort to numerical approximation if we want to compute a particular <span class="process-math">\(T\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#pendulum-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="pendulum-17">
+<div class="para">Recall from , the linearized equation <span class="process-math">\(\theta''+\frac{g}{L}\theta
+= 0\)</span> has period</div>
+<div class="displaymath process-math" id="pendulum-17-2">
+\begin{equation*}
+T_{\text{linear}} = 2\pi \sqrt{\frac{L}{g}} .
+\end{equation*}
+</div>
+<div class="para">We plot <span class="process-math">\(T\text{,}\)</span> <span class="process-math">\(T_{\text{linear}}\text{,}\)</span> and the relative error <span class="process-math">\(\frac{T-T_{\text{linear}}}{T}\)</span> in . The relative error says how far is our approximation from the real period percentage-wise. Note that <span class="process-math">\(T_{\text{linear}}\)</span> is simply a constant, it does not change with the initial angle <span class="process-math">\(\theta_0\text{.}\)</span> The actual period <span class="process-math">\(T\)</span> gets larger and larger as <span class="process-math">\(\theta_0\)</span> gets larger. Notice how the relative error is small when <span class="process-math">\(\theta_0\)</span> is small. It is still only <span class="process-math">\(15\%\)</span> when <span class="process-math">\(\theta_0 = \frac{\pi}{2}\text{,}\)</span> that is, a 90 degree angle. The error is <span class="process-math">\(3.8\%\)</span> when starting at <span class="process-math">\(\frac{\pi}{4}\text{,}\)</span> a 45 degree angle. At a 5 degree initial angle, the error is only <span class="process-math">\(0.048 \%\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#pendulum-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="pendulum-18">
+<div class="para">While it is not immediately obvious from the formula, it is true that</div>
+<div class="displaymath process-math" id="pendulum-18-1">
+\begin{equation*}
+\lim_{\theta_0 \uparrow \pi} T = \infty .
+\end{equation*}
+</div>
+<div class="para">That is, the period goes to infinity as the initial angle approaches the unstable equilibrium point. So if we put the pendulum almost upside down it may take a very long time before it gets down. This is consistent with the limiting behavior, where the exactly upside down pendulum never makes an oscillation, so we could think of that as infinite period.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#pendulum-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: Pendulum"><a href="#pendulum" title="Copy heading and permalink for Subsection: Pendulum" aria-label="Copy heading and permalink for Subsection: Pendulum">🔗</a></div></section><section class="subsection" id="predator-prey-or-lotkavolterra-systems"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Predator-prey or Lotka–Volterra systems</span>
+</h3>
+<div class="para" id="predator-prey-or-lotkavolterra-systems-2">One of the most common simple applications of nonlinear systems are the so-called <em class="emphasis"></em> or <em class="emphasis"></em> <details class="ptx-footnote" aria-live="polite" id="predator-prey-or-lotkavolterra-systems-2-3"><summary class="ptx-footnote__number" title="Footnote 5.3.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="predator-prey-or-lotkavolterra-systems-2-3"><div class="para" id="predator-prey-or-lotkavolterra-systems-2-3-1">Named for the American mathematician, chemist, and statistician <a class="external" href="https://en.wikipedia.org/wiki/Alfred_J._Lotka" target="_blank">Alfred James Lotka</a> (1880–1949) and the Italian mathematician and physicist <a class="external" href="https://en.wikipedia.org/wiki/Vito_Volterra" target="_blank">Vito Volterra</a> (1860–1940).<div class="autopermalink" data-description="Paragraph"><a href="#predator-prey-or-lotkavolterra-systems-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details> systems. For example, these systems arise when two species interact, one as the prey and one as the predator. It is then no surprise that the equations also see applications in economics. The system also arises in chemical reactions. In biology, this system of equations explains the natural periodic variations of populations of different species in nature. Before the application of differential equations, these periodic variations in the population baffled biologists.<div class="autopermalink" data-description="Paragraph"><a href="#predator-prey-or-lotkavolterra-systems-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="predator-prey-or-lotkavolterra-systems-3">
+<div class="para">We keep with the classical example of hares and foxes in a forest, it is the easiest to understand.</div>
+<div class="displaymath process-math" id="predator-prey-or-lotkavolterra-systems-3-1">
+\begin{equation*}
+\begin{aligned}
+&amp; x = \# \text{ of hares (the prey),} \\
+&amp; y = \# \text{ of foxes (the predator).}
+\end{aligned}
+\end{equation*}
+</div>
+<div class="para">When there are a lot of hares, there is plenty of food for the foxes, so the fox population grows. However, when the fox population grows, the foxes eat more hares, so when there are lots of foxes, the hare population should go down, and vice versa. The Lotka–Volterra model proposes that this behavior is described by the system of equations</div>
+<div class="displaymath process-math" id="predator-prey-or-lotkavolterra-systems-3-2">
+\begin{equation*}
+\begin{aligned}
+&amp; x' = (a-by)x, \\
+&amp; y' = (cx-d)y,
+\end{aligned}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(a,b,c,d\)</span> are some parameters that describe the interaction of the foxes and hares<details class="ptx-footnote" aria-live="polite" id="predator-prey-or-lotkavolterra-systems-3-4"><summary class="ptx-footnote__number" title="Footnote 5.3.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="predator-prey-or-lotkavolterra-systems-3-4"><div class="para" id="predator-prey-or-lotkavolterra-systems-3-4-1">This interaction does not end well for the hare.<div class="autopermalink" data-description="Paragraph"><a href="#predator-prey-or-lotkavolterra-systems-3-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>. In this model, these are all positive numbers.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#predator-prey-or-lotkavolterra-systems-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="predator-prey-or-lotkavolterra-systems-4">
+<div class="para">Let us analyze the idea behind this model. The model is a slightly more complicated idea based on the exponential population model. First expand,</div>
+<div class="displaymath process-math" id="predator-prey-or-lotkavolterra-systems-4-1">
+\begin{equation*}
+x' = (a-by)x = ax - byx .
+\end{equation*}
+</div>
+<div class="para">The hares are expected to simply grow exponentially in the absence of foxes, that is where the <span class="process-math">\(ax\)</span> term comes in, the growth in population is proportional to the population itself. We are assuming the hares always find enough food and have enough space to reproduce. However, there is another component <span class="process-math">\(-byx\text{,}\)</span> that is, the population also is decreasing proportionally to the number of foxes. Together we can write the equation as <span class="process-math">\((a-by)x\text{,}\)</span> so it is like exponential growth or decay but the constant depends on the number of foxes.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#predator-prey-or-lotkavolterra-systems-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="predator-prey-or-lotkavolterra-systems-5">
+<div class="para">The equation for foxes is very similar, expand again</div>
+<div class="displaymath process-math" id="predator-prey-or-lotkavolterra-systems-5-1">
+\begin{equation*}
+y' = (cx-d)y = cxy-dy .
+\end{equation*}
+</div>
+<div class="para">The foxes need food (hares) to reproduce: the more food, the bigger the rate of growth, hence the <span class="process-math">\(cxy\)</span> term. On the other hand, there are natural deaths in the fox population, and hence the <span class="process-math">\(-dy\)</span> term.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#predator-prey-or-lotkavolterra-systems-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="predator-prey-or-lotkavolterra-systems-6">
+<div class="para">Without further delay, let us start with an explicit example. Suppose the equations are</div>
+<div class="displaymath process-math" id="predator-prey-or-lotkavolterra-systems-6-1">
+\begin{equation*}
+x' = (0.4-0.01y)x, \qquad y' = (0.003x-0.3)y .
+\end{equation*}
+</div>
+<div class="para">See for the phase portrait. In this example it makes sense to also plot <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> as graphs with respect to time. Therefore the second graph in is the graph of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> on the vertical axis (the prey <span class="process-math">\(x\)</span> is the thinner blue line with taller peaks), against time on the horizontal axis. The particular solution graphed was with initial conditions of 20 foxes and 50 hares.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#predator-prey-or-lotkavolterra-systems-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="predator-prey-or-lotkavolterra-systems-7">Let us analyze what we see on the graphs. We work in the general setting rather than putting in specific numbers. We start with finding the critical points. Set <span class="process-math">\((a-by)x = 0\text{,}\)</span> and <span class="process-math">\((cx-d)y = 0\text{.}\)</span> The first equation is satisfied if either <span class="process-math">\(x=0\)</span> or <span class="process-math">\(y=\nicefrac{a}{b}\text{.}\)</span> If <span class="process-math">\(x=0\text{,}\)</span> the second equation implies <span class="process-math">\(y=0\text{.}\)</span> If <span class="process-math">\(y= \nicefrac{a}{b}\text{,}\)</span> the second equation implies <span class="process-math">\(x=\nicefrac{d}{c}\text{.}\)</span> There are two equilibria: at <span class="process-math">\((0,0)\)</span> when there are no animals at all, and at <span class="process-math">\((\nicefrac{d}{c},\nicefrac{a}{b})\text{.}\)</span> In our specific example <span class="process-math">\(x = \nicefrac{d}{c} = 100\text{,}\)</span> and <span class="process-math">\(y = \nicefrac{a}{b} = 40\text{.}\)</span> This is the point where there are 100 hares and 40 foxes.<div class="autopermalink" data-description="Paragraph"><a href="#predator-prey-or-lotkavolterra-systems-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="predator-prey-or-lotkavolterra-systems-8">
+<div class="para">We compute the Jacobian matrix:</div>
+<div class="displaymath process-math" id="predator-prey-or-lotkavolterra-systems-8-1">
+\begin{equation*}
+\begin{bmatrix}
+a-by &amp; -bx \\
+cy &amp; cx-d
+\end{bmatrix} .
+\end{equation*}
+</div>
+<div class="para">At the origin <span class="process-math">\((0,0)\)</span> we get the matrix <span class="process-math">\(\left[ \begin{smallmatrix}
+a &amp; 0 \\
+0 &amp; -d
+\end{smallmatrix} \right]\text{,}\)</span> so the eigenvalues are <span class="process-math">\(a\)</span> and <span class="process-math">\(-d\text{,}\)</span> hence real and of opposite signs. So the critical point at the origin is a saddle. This makes sense. If you started with some foxes but no hares, then the foxes would go extinct, that is, you would approach the origin. If you started with no foxes and a few hares, then the hares would keep multiplying without check, and so you would go away from the origin.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#predator-prey-or-lotkavolterra-systems-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="predator-prey-or-lotkavolterra-systems-9">
+<div class="para">OK, how about the other critical point at <span class="process-math">\((\nicefrac{d}{c},\nicefrac{a}{b})\text{.}\)</span> Here the Jacobian matrix becomes</div>
+<div class="displaymath process-math" id="predator-prey-or-lotkavolterra-systems-9-2">
+\begin{equation*}
+\begin{bmatrix}
+0 &amp; -\frac{bd}{c} \\
+\frac{ac}{b} &amp; 0
+\end{bmatrix} .
+\end{equation*}
+</div>
+<div class="para">The eigenvalues satisfy <span class="process-math">\(\lambda^2 + ad = 0\text{.}\)</span> In other words, <span class="process-math">\(\lambda = \pm i \sqrt{ad}\text{.}\)</span> The eigenvalues being purely imaginary, we are in the case where we cannot quite decide using only linearization. We could have a stable center, spiral sink, or a spiral source. That is, the equilibrium could be asymptotically stable, stable, or unstable. Of course I gave you a picture above that seems to imply it is a stable center. But never trust a picture only. Perhaps the oscillations are getting larger and larger, but only <em class="emphasis">very</em> slowly. Of course this would be bad as it would imply something will go wrong with our population sooner or later. And I only graphed a very specific example with very specific trajectories.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#predator-prey-or-lotkavolterra-systems-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="predator-prey-or-lotkavolterra-systems-10">
+<div class="para">How can we be sure we are in the stable situation? As we said before, in the case of purely imaginary eigenvalues, we have to do a bit more work. The main approach that can be used here is to directly solve for the trajectories. We can determine a differential equation that relates <span class="process-math">\(x\)</span> to <span class="process-math">\(y\)</span> by writing</div>
+<div class="displaymath process-math" id="predator-prey-or-lotkavolterra-systems-10-3">
+\begin{equation*}
+\frac{dy}{dx} = \frac{dy/dt}{dx/dt} = \frac{(cx-d)y}{(a-by)x}.
+\end{equation*}
+</div>
+<div class="para">This is a separable first order equation, which we can rewrite as</div>
+<div class="displaymath process-math" id="predator-prey-or-lotkavolterra-systems-10-4">
+\begin{equation*}
+\frac{a-by}{y} dy = \frac{cx-d}{x} dx.
+\end{equation*}
+</div>
+<div class="para">After simplifying the fractions, we can integrate this to obtain the implicit solution</div>
+<div class="displaymath process-math" id="predator-prey-or-lotkavolterra-systems-10-5">
+\begin{equation*}
+a\ln(y) - by = cx - d\ln(x) + C
+\end{equation*}
+</div>
+<div class="para">or</div>
+<div class="displaymath process-math" id="eq-predPreyTraj">
+\begin{equation}
+C = a\ln(y) + d\ln(x) - cx - by.\tag{5.3.1}
+\end{equation}
+</div>
+<div class="para">Since we ended up finding a trajectory here that sketches out a closed curve, and we know that our solutions must lie on these trajectories, that tells us that, for a fact, we do have closed loops here, and the critical point is stable.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#predator-prey-or-lotkavolterra-systems-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="predator-prey-or-lotkavolterra-systems-11">
+<div class="para">However, we can go a bit farther than this with our discussion here. If we let <span class="process-math">\(D = e^C\)</span> in <a href="nlinapps-section.html#eq-predPreyTraj" class="xref" data-knowl="./knowl/xref/eq-predPreyTraj.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.3.1">(5.3.1)</a>, we can rearrange the expression to get that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-predPreyTraj.html" id="predator-prey-or-lotkavolterra-systems-11-3">
+\begin{equation*}
+D = \frac{y^a x^d}{e^{cx+by}} = y^a x^d e^{-cx-by},
+\end{equation*}
+</div>
+<div class="para">and based on how our trajectory setup works, we know that this <span class="process-math">\(D\)</span> will be conserved along the flow of the solution. That is, if the initial condition has a specific value of <span class="process-math">\(D\text{,}\)</span> the solution will continue to have that same value for all <span class="process-math">\(t\text{.}\)</span> This idea came up before in the idea of conservative or Hamiltonian systems in . Such a quantity is called the <em class="emphasis"></em>, and this forces the trajectory to go in closed loops. Let us check <span class="process-math">\(D\)</span> really is a constant of motion. How do we check, you say? Well, a constant is something that does not change with time, so let us compute the derivative with respect to time:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-predPreyTraj.html" id="predator-prey-or-lotkavolterra-systems-11-9">
+\begin{equation*}
+D' = 
+a y^{a-1}y' x^d e^{-cx-by}
++
+y^a d x^{d-1} x' e^{-cx-by}
++
+y^a x^d e^{-cx-by} (-cx'-by') .
+\end{equation*}
+</div>
+<div class="para">Our equations give us what <span class="process-math">\(x'\)</span> and <span class="process-math">\(y'\)</span> are so let us plug those in:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-predPreyTraj.html" id="predator-prey-or-lotkavolterra-systems-11-12">
+\begin{equation*}
+\begin{split}
+D' &amp; = 
+a y^{a-1} (cx-d)y x^d e^{-cx-by}
++
+y^a d x^{d-1} (a-by)x e^{-cx-by}
+\\
+&amp; \phantom{mm} +
+y^a x^d e^{-cx-by} \bigl(-c(a-by)x-b(cx-d)y\bigr)
+\\
+&amp; =
+y^a x^d e^{-cx-by}
+\Bigl(
+a (cx-d)
++
+d (a-by)
++
+\bigl(-c(a-by)x-b(cx-d)y\bigr) \Bigr)
+\\
+&amp; = 
+0 .
+\end{split}
+\end{equation*}
+</div>
+<div class="para">So along the trajectories <span class="process-math">\(D\)</span> is constant. In fact, the expression <span class="process-math">\(D =
+\frac{y^a x^d}{e^{cx+by}}\)</span> gives us an implicit equation for the trajectories. In any case, once we have found this constant of motion, it must be true that the trajectories are simple curves, that is, the level curves of <span class="process-math">\(\frac{y^a x^d}{e^{cx+by}}\text{.}\)</span> It turns out, the critical point at <span class="process-math">\((\nicefrac{d}{c},\nicefrac{a}{b})\)</span> is a maximum for <span class="process-math">\(D\)</span> (left as an exercise). So <span class="process-math">\((\nicefrac{d}{c},\nicefrac{a}{b})\)</span> is a stable equilibrium point, and we do not have to worry about the foxes and hares going extinct or their populations exploding.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#predator-prey-or-lotkavolterra-systems-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="predator-prey-or-lotkavolterra-systems-12">One blemish on this wonderful model is that the number of foxes and hares are discrete quantities and we are modeling with continuous variables. Our model has no problem with there being 0.1 fox in the forest for example, while in reality that makes no sense. The approximation is a reasonable one as long as the number of foxes and hares are large, but it does not make much sense for small numbers. One must be careful in interpreting any results from such a model.<div class="autopermalink" data-description="Paragraph"><a href="#predator-prey-or-lotkavolterra-systems-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="predator-prey-or-lotkavolterra-systems-13">An interesting consequence (perhaps counterintuitive) of this model is that adding animals to the forest might lead to extinction, because the variations will get too big, and one of the populations will get close to zero. For example, suppose there are 20 foxes and 50 hares as before, but now we bring in more foxes, bringing their number to 200. If we run the computation, we find the number of hares will plummet to just slightly more than 1 hare in the whole forest. In reality that most likely means the hares die out, and then the foxes will die out as well as they will have nothing to eat.<div class="autopermalink" data-description="Paragraph"><a href="#predator-prey-or-lotkavolterra-systems-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="predator-prey-or-lotkavolterra-systems-14" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.3.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="predator-prey-or-lotkavolterra-systems-14-2-1">
+<div class="para">Consider the system</div>
+<div class="displaymath process-math" id="predator-prey-or-lotkavolterra-systems-14-2-1-1">
+\begin{equation*}
+x' = (2y - 6)x \qquad y' = (2 - x)y.
+\end{equation*}
+</div>
+<div class="para">This fits the description of a predator-prey model. Which species is the predator? Find and analyze the critical points of this system, and draw a sketch of the phase portrait, with arrows to indicate the direction of flow around this portrait.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#predator-prey-or-lotkavolterra-systems-14-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="predator-prey-or-lotkavolterra-systems-14-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="predator-prey-or-lotkavolterra-systems-14-3-1">
+<div class="para">If we expand out the equations in the model, we get</div>
+<div class="displaymath process-math" id="predator-prey-or-lotkavolterra-systems-14-3-1-1">
+\begin{equation*}
+x' = 2xy - 6x \qquad y' = 2y - xy.
+\end{equation*}
+</div>
+<div class="para">These equations show that, if <span class="process-math">\(y=0\text{,}\)</span> <span class="process-math">\(x\)</span> would decay away in time, and if <span class="process-math">\(x=0\text{,}\)</span> <span class="process-math">\(y\)</span> would grow indefinitely. This means that <span class="process-math">\(x\)</span> is the predator and <span class="process-math">\(y\)</span> is the prey in this relationship. For critical points, we can look back at the factored version of the equations to see that we get one critical point at <span class="process-math">\((0,0)\)</span> and one critical point at <span class="process-math">\((2, 3)\text{.}\)</span> Since this is a predator-prey model, we know that we will have cycles around the critical point at <span class="process-math">\((2,3)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#predator-prey-or-lotkavolterra-systems-14-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="predator-prey-or-lotkavolterra-systems-14-3-2">The direction of these cycles is determined by the predator-prey relationship. If we start with <span class="process-math">\(x\)</span> large (greater than 2) and <span class="process-math">\(y\)</span> small (less than 3), then there are a lot of predators and few prey. This implies that the next thing to happen is that the predator population will decrease because there is not enough prey. We can also see this from the equations; if <span class="process-math">\(x \geq 2\)</span> and <span class="process-math">\(y \leq 3\text{,}\)</span> then both <span class="process-math">\(\frac{dx}{dt}\)</span> and <span class="process-math">\(\frac{dy}{dt}\)</span> will be negative. Similarly, if <span class="process-math">\(y\)</span> is large and <span class="process-math">\(x\)</span> is small, there are a lot of prey and few predators, so the prey population will continue to grow, while the predators also grow because of the excess of food. This means that the populations will follow these trajectories in a clockwise direction.<div class="autopermalink" data-description="Paragraph"><a href="#predator-prey-or-lotkavolterra-systems-14-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="predator-prey-or-lotkavolterra-systems-14-3-3">
+<div class="para">For the actual trajectories, we can solve for them in the same way as the calculations before this example. We can rewrite this system to give a differential equation for the trajectories as</div>
+<div class="displaymath process-math" id="predator-prey-or-lotkavolterra-systems-14-3-3-1">
+\begin{equation*}
+\frac{dy}{dx} = \frac{(2-x)y}{(2y-6)x}
+\end{equation*}
+</div>
+<div class="para">which can be rearranged as a separable equation to</div>
+<div class="displaymath process-math" id="predator-prey-or-lotkavolterra-systems-14-3-3-2">
+\begin{equation*}
+\left(2 - \frac{6}{y}\right) dy = \left(\frac{2}{x} - 1\right) dx.
+\end{equation*}
+</div>
+<div class="para">Solving this gives</div>
+<div class="displaymath process-math" id="predator-prey-or-lotkavolterra-systems-14-3-3-3">
+\begin{equation*}
+2y - 6\ln(y) + C = 2\ln(x) - x
+\end{equation*}
+</div>
+<div class="para">or</div>
+<div class="displaymath process-math" id="predator-prey-or-lotkavolterra-systems-14-3-3-4">
+\begin{equation*}
+C = 2\ln(x) + 6\ln(y) - x - 2y.
+\end{equation*}
+</div>
+<div class="para">This will be used to draw the trajectories in .</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#predator-prey-or-lotkavolterra-systems-14-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="predator-prey-or-lotkavolterra-systems-14-3-4">This can also be seen using a nullcline analysis. The nullclines we need to draw are <span class="process-math">\(x=0\text{,}\)</span> <span class="process-math">\(y=0\text{,}\)</span> <span class="process-math">\(x=2\)</span> and <span class="process-math">\(y=3\text{.}\)</span> Our discussion previously shows that the arrow in the bottom-right quadrant should point to the lower left, and the arrow in the top left should point up and right. We can fill in the other two quadrants to see that the solution should move around the circle in a clockwise direction. shows the nullcline image and trajectory curves for this example.<div class="autopermalink" data-description="Paragraph"><a href="#predator-prey-or-lotkavolterra-systems-14-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.3.1.1"><a href="#predator-prey-or-lotkavolterra-systems-14-3" title="Copy heading and permalink for Solution 5.3.1.1" aria-label="Copy heading and permalink for Solution 5.3.1.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 5.3.1: "><a href="#predator-prey-or-lotkavolterra-systems-14" title="Copy heading and permalink for Example 5.3.1: " aria-label="Copy heading and permalink for Example 5.3.1: ">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection: Predator-prey or Lotka–Volterra systems"><a href="#predator-prey-or-lotkavolterra-systems" title="Copy heading and permalink for Subsection: Predator-prey or Lotka–Volterra systems" aria-label="Copy heading and permalink for Subsection: Predator-prey or Lotka–Volterra systems">🔗</a></div></section><section class="subsection" id="competing-species-systems"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Competing Species systems</span>
+</h3>
+<div class="para logical" id="competing-species-systems-2">
+<div class="para">Another application of non-linear systems that also works with population models is a competing species interaction. The setup is that there are two species that live in the same environment, and need to compete over resources. This means that both species will grow on their own, but when the two species interact, it is negative for both species. This gives rise to a system of differential equations of the form</div>
+<div class="displaymath process-math" id="competing-species-systems-2-1">
+\begin{equation*}
+\begin{split}
+\frac{dx}{dt}&amp;= ax - bxy \\
+\frac{dy}{dt}&amp;= cy - dxy  
+\end{split}
+\end{equation*}
+</div>
+<div class="para">if both populations grow exponentially, or</div>
+<div class="displaymath process-math" id="competing-species-systems-2-2">
+\begin{equation*}
+\begin{split}
+\frac{dx}{dt}&amp;= ax(K-x) - bxy \\
+\frac{dy}{dt}&amp;= cy(M-y) - dxy  
+\end{split}
+\end{equation*}
+</div>
+<div class="para">if both species grow logistically. The numbers here are all positive constants that explain how the different populations affect growth rates. For the logistic model, let’s look at the equilibrium solutions. For this, we need</div>
+<div class="displaymath process-math" id="competing-species-systems-2-3">
+\begin{equation*}
+x(aK - ax - by) = 0 \qquad y(cM - cy - dx) = 0
+\end{equation*}
+</div>
+<div class="para">which gives equilibrium solutions at <span class="process-math">\((0,0)\text{,}\)</span> <span class="process-math">\((0, M)\text{,}\)</span> and <span class="process-math">\((K, 0)\text{,}\)</span> all of which result in one (or both) of the species being extinct. The other equilibrium solution is more interesting, because it involves both species coexisting. This happens when</div>
+<div class="displaymath process-math" id="competing-species-systems-2-7">
+\begin{equation*}
+by = aK - ax \qquad cy = cM - dx.
+\end{equation*}
+</div>
+<div class="para">Solving this gives a critical point with <span class="process-math">\(x &gt; 0\)</span> and <span class="process-math">\(y&gt;0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#competing-species-systems-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="competing-species-systems-3">
+<div class="para">The Jacobian matrix for this system is</div>
+<div class="displaymath process-math" id="competing-species-systems-3-1">
+\begin{equation*}
+J(x,y) = \begin{bmatrix} aK - 2ax - by &amp; -bx \\ -dy &amp; cM - 2cy - dx \end{bmatrix} .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#competing-species-systems-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="competing-species-systems-4">Unlike the predator-prey system that always had the same type of equilibriums solution every time, there are multiple options for how this system can behave based on the values of <span class="process-math">\(a,\ b,\ c,\ d,\ K\text{,}\)</span> and <span class="process-math">\(M\text{.}\)</span> It is possible that the coexistence equilibrium solution will be a nodal sink, so that all nearby solutions will converge to it over time, and the species will continue to exist in harmony. However, it is also possible that the coexistence solution is a saddle and the solutions at <span class="process-math">\((K,0)\)</span> and <span class="process-math">\((0,M)\)</span> are sinks. This means that coexistence is unstable, and that over time, the populations will converge to one of the other two equilibrium solutions, meaning that one of the species will die out as time goes on. Determining which will survive will require a numerical model since these equations can not be solved analytically.<div class="autopermalink" data-description="Paragraph"><a href="#competing-species-systems-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="competing-species-systems-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.3.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="competing-species-systems-5-2-1">
+<div class="para">Analyze the competing species model given by the system of differential equations</div>
+<div class="displaymath process-math" id="competing-species-systems-5-2-1-1">
+\begin{equation*}
+x' = x(4-x-2y) \qquad y' = y(7 - y - 3x).
+\end{equation*}
+</div>
+<div class="para">Is the coexistence solution stable or unstable? What will happen to the populations over time?</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#competing-species-systems-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="competing-species-systems-5-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="competing-species-systems-5-3-1">
+<div class="para">Solving for the equilibrium solutions gives <span class="process-math">\((0,0)\text{,}\)</span> <span class="process-math">\((4, 0)\text{,}\)</span> <span class="process-math">\((0, 7)\text{,}\)</span> and the coexistence solution where</div>
+<div class="displaymath process-math" id="competing-species-systems-5-3-1-4">
+\begin{equation*}
+4 - x = 2y \qquad y = 7-3x.
+\end{equation*}
+</div>
+<div class="para">Simplifying this gives</div>
+<div class="displaymath process-math" id="competing-species-systems-5-3-1-5">
+\begin{equation*}
+4 - x = 14 - 6x
+\end{equation*}
+</div>
+<div class="para">or <span class="process-math">\(x=2\text{.}\)</span> The second equation then implies that <span class="process-math">\(y=1\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#competing-species-systems-5-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="competing-species-systems-5-3-2">
+<div class="para">The Jacobian for this system is</div>
+<div class="displaymath process-math" id="competing-species-systems-5-3-2-1">
+\begin{equation*}
+J(x,y) = \begin{bmatrix} 4 - 2x - 2y &amp; -2x \\ -3y &amp; 7 - 2y - 3x \end{bmatrix}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#competing-species-systems-5-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="competing-species-systems-5-3-3">
+<div class="para">Evaluating this matrix at the point <span class="process-math">\((2,1)\)</span> gives</div>
+<div class="displaymath process-math" id="competing-species-systems-5-3-3-2">
+\begin{equation*}
+\begin{bmatrix} -2 &amp; -4 \\ -3 &amp; -1 \end{bmatrix},
+\end{equation*}
+</div>
+<div class="para">which we need to find the eigenvalues to classify what type of linearized solution we have here. These are determined by</div>
+<div class="displaymath process-math" id="competing-species-systems-5-3-3-3">
+\begin{equation*}
+(-2-\lambda)(-1-\lambda) - 12 = \lambda^2 + 3\lambda - 9 = 0.
+\end{equation*}
+</div>
+<div class="para">Thus, the eigenvalues are given by</div>
+<div class="displaymath process-math" id="competing-species-systems-5-3-3-4">
+\begin{equation*}
+\lambda = \frac{-3 \pm \sqrt{9 + 36}}{2}
+\end{equation*}
+</div>
+<div class="para">which will be real with opposite signs. Therefore, this equilibrium solution is a saddle, and unstable. To confirm this, we can also check the equilibrium solutions at <span class="process-math">\((4,0)\)</span> and <span class="process-math">\((0,7)\text{.}\)</span> For <span class="process-math">\((4,0)\text{,}\)</span> we get the matrix</div>
+<div class="displaymath process-math" id="competing-species-systems-5-3-3-8">
+\begin{equation*}
+\begin{bmatrix} -8 &amp; -8 \\ 0 &amp; -1 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">which is a nodal sink. For <span class="process-math">\((0,7)\text{,}\)</span> we get</div>
+<div class="displaymath process-math" id="competing-species-systems-5-3-3-10">
+\begin{equation*}
+\begin{bmatrix} -10 &amp; 0 \\ -21 &amp; -7 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">which is also a nodal sink. Thus, we see that the coexistence equilibrium solution is unstable, and both of the equilibrium solutions with one species extinct are stable. Therefore, over time, one of the two species will die off depending on the initial population.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#competing-species-systems-5-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.3.2.1"><a href="#competing-species-systems-5-3" title="Copy heading and permalink for Solution 5.3.2.1" aria-label="Copy heading and permalink for Solution 5.3.2.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 5.3.2: "><a href="#competing-species-systems-5" title="Copy heading and permalink for Example 5.3.2: " aria-label="Copy heading and permalink for Example 5.3.2: ">🔗</a></div></article></details><div class="para" id="competing-species-systems-6">Showing that a system of equations has a stable solution can be a very difficult problem. When Isaac Newton put forth his laws of planetary motions, he proved that a single planet orbiting a single sun is a stable system. But any solar system with more than 1 planet proved very difficult indeed. In fact, such a system behaves chaotically (see ), meaning small changes in initial conditions lead to very different long-term outcomes. From numerical experimentation and measurements, we know the earth will not fly out into the empty space or crash into the sun, for at least some millions of years or so. But we do not know what happens beyond that.<div class="autopermalink" data-description="Paragraph"><a href="#competing-species-systems-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: Competing Species systems"><a href="#competing-species-systems" title="Copy heading and permalink for Subsection: Competing Species systems" aria-label="Copy heading and permalink for Subsection: Competing Species systems">🔗</a></div></section><section class="exercises" id="nlinapps-section-6"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="nlinapps-section-6-2"><h4 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="nlinapps-section-6-2-1-1">Take the <em class="emphasis"></em> <span class="process-math">\(\theta '' + \mu \theta' +
+(\nicefrac{g}{L})
+\sin \theta = 0\)</span> for some <span class="process-math">\(\mu &gt; 0\)</span> (that is, there is some friction).<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="nlinapps-section-6-2-1-2">Suppose <span class="process-math">\(\mu = 1\)</span> and <span class="process-math">\(\nicefrac{g}{L} = 1\)</span> for simplicity, find and classify the critical points. Do the same for any <span class="process-math">\(\mu &gt; 0\)</span> and any <span class="process-math">\(g\)</span> and <span class="process-math">\(L\text{,}\)</span> but such that the damping is small, in particular, <span class="process-math">\(\mu^2 &lt;
+4(\nicefrac{g}{L})\text{.}\)</span> Explain what your findings mean, and if it agrees with what you expect in reality.<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-2-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="nlinapps-section-6-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="nlinapps-section-6-2-2-1">a)  <span class="process-math">\((n\pi, 0)\text{,}\)</span> <span class="process-math">\(n\)</span> is odd is a saddle, <span class="process-math">\(n\)</span> is even is a spiral sink. b) Same is true under those conditions. c)  Oscillates decaying to <span class="process-math">\(\theta = 0\text{,}\)</span> which makes sense.<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 1.1"><a href="#nlinapps-section-6-2-2" title="Copy heading and permalink for Answer 1.1" aria-label="Copy heading and permalink for Answer 1.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 1"><a href="#nlinapps-section-6-2" title="Copy heading and permalink for Exercise 1" aria-label="Copy heading and permalink for Exercise 1">🔗</a></div></article><article class="exercise exercise-like" id="nlinapps-section-6-3"><h4 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="nlinapps-section-6-3-1-1">Take the damped nonlinear pendulum equation <span class="process-math">\(\theta '' + \mu \theta' +
+(\nicefrac{g}{L})
+\sin \theta = 0\)</span> for some <span class="process-math">\(\mu &gt; 0\)</span> (that is, there is friction). Suppose the friction is large, in particular <span class="process-math">\(\mu^2 &gt; 4 (\nicefrac{g}{L})\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="nlinapps-section-6-3-1-2">Find and classify the critical points. Explain what your findings mean, and if it agrees with what you expect in reality.<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-3-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 2"><a href="#nlinapps-section-6-3" title="Copy heading and permalink for Exercise 2" aria-label="Copy heading and permalink for Exercise 2">🔗</a></div></article><article class="exercise exercise-like" id="nlinapps-section-6-4"><h4 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="nlinapps-section-6-4-1-1">
+<div class="para">Suppose the hares do not grow exponentially, but logistically. In particular consider</div>
+<div class="displaymath process-math" id="nlinapps-section-6-4-1-1-1">
+\begin{equation*}
+x' = (0.4-0.01y)x - \gamma x^2, \qquad y' = (0.003x-0.3)y .
+\end{equation*}
+</div>
+<div class="para">For the following two values of <span class="process-math">\(\gamma\text{,}\)</span> find and classify all the critical points in the positive quadrant, that is, for <span class="process-math">\(x \geq 0\)</span> and <span class="process-math">\(y \geq 0\text{.}\)</span> Then sketch the phase diagram. Discuss the implication for the long term behavior of the population.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="nlinapps-section-6-4-1-2">(2) <span class="process-math">\(\gamma=0.001\text{,}\)</span> <span class="process-math">\(\gamma=0.01\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-4-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="nlinapps-section-6-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="nlinapps-section-6-4-2-1">a)  <span class="process-math">\((0,0)\)</span> saddle, <span class="process-math">\((400, 0)\)</span> saddle, <span class="process-math">\((100, 30)\)</span> spiral sink. Both species survive. b)  <span class="process-math">\((0,0)\)</span> saddle, <span class="process-math">\((40,0)\)</span> nodal sink. Foxes die out.<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 3.1"><a href="#nlinapps-section-6-4-2" title="Copy heading and permalink for Answer 3.1" aria-label="Copy heading and permalink for Answer 3.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 3"><a href="#nlinapps-section-6-4" title="Copy heading and permalink for Exercise 3" aria-label="Copy heading and permalink for Exercise 3">🔗</a></div></article><article class="exercise exercise-like" id="nlinapps-section-6-5"><h4 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="nlinapps-section-6-5-1-1">Suppose we have the system predator-prey system where the foxes are also killed at a constant rate <span class="process-math">\(h\)</span> (<span class="process-math">\(h\)</span> foxes killed per unit time): <span class="process-math">\(x' = (a-by)x,\)</span> <span class="process-math">\(y' = (cx-d)y - h\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="nlinapps-section-6-5-1-2">Find the critical points and the Jacobian matrices of the system. Put in the constants <span class="process-math">\(a=0.4\text{,}\)</span> <span class="process-math">\(b=0.01\text{,}\)</span> <span class="process-math">\(c=0.003\text{,}\)</span> <span class="process-math">\(d=0.3\text{,}\)</span> <span class="process-math">\(h=10\text{.}\)</span> Analyze the critical points. What do you think it says about the forest?<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-5-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 4"><a href="#nlinapps-section-6-5" title="Copy heading and permalink for Exercise 4" aria-label="Copy heading and permalink for Exercise 4">🔗</a></div></article><article class="exercise exercise-like" id="nlinapps-section-6-6"><h4 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="nlinapps-section-6-6-1-1">Suppose the foxes never die. That is, we have the system <span class="process-math">\(x' = (a-by)x,\)</span> <span class="process-math">\(y' = cxy\text{.}\)</span> Find the critical points and notice they are not isolated. What will happen to the population in the forest if it starts at some positive numbers. Hint: Think of the constant of motion.<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5"><a href="#nlinapps-section-6-6" title="Copy heading and permalink for Exercise 5" aria-label="Copy heading and permalink for Exercise 5">🔗</a></div></article><article class="exercise exercise-like" id="nlinapps-section-6-7"><h4 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="nlinapps-section-6-7-1-1">
+<div class="para">The following system of differential equations models a pair of populations interacting.</div>
+<div class="displaymath process-math" id="nlinapps-section-6-7-1-1-1">
+\begin{equation*}
+\frac{dx}{dt} = 4x - 2xy \qquad \frac{dy}{dt} = 3xy - y
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="nlinapps-section-6-7-1-2">Does this system of differential equations represent a competing species model or a predator-prey model? If it is predator-prey, which species is the predator? Find and classify the critical point (if it exists) with both <span class="process-math">\(x&gt;0\)</span> and <span class="process-math">\(y&gt;0\text{.}\)</span> Describe what is going to happen to the population of these species over time. If this depends on the initial condition, say so.<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-7-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="nlinapps-section-6-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="nlinapps-section-6-7-2-1">a) Predator-prey, <span class="process-math">\(x\)</span> is prey b) <span class="process-math">\((2, 1/3)\)</span> is a center c) Oscillates around this point<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 6.1"><a href="#nlinapps-section-6-7-2" title="Copy heading and permalink for Answer 6.1" aria-label="Copy heading and permalink for Answer 6.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 6"><a href="#nlinapps-section-6-7" title="Copy heading and permalink for Exercise 6" aria-label="Copy heading and permalink for Exercise 6">🔗</a></div></article><article class="exercise exercise-like" id="nlinapps-section-6-8"><h4 class="heading"><span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="nlinapps-section-6-8-1-1">
+<div class="para">The following system of differential equations models a pair of populations interacting.</div>
+<div class="displaymath process-math" id="nlinapps-section-6-8-1-1-1">
+\begin{equation*}
+\frac{dx}{dt} = x(6 - 3y - 2x)  \qquad \frac{dy}{dt} = y(4 - y - 3x)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="nlinapps-section-6-8-1-2">Does this system of differential equations better fit with a competing species model or a predator-prey model? If it is predator-prey, which species is the predator? Find and classify the critical point (if it exists) with both <span class="process-math">\(x&gt;0\)</span> and <span class="process-math">\(y&gt;0\text{.}\)</span> Describe what is going to happen to the population of these species over time. It this depends on the initial condition, say so.<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-8-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="nlinapps-section-6-8-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="nlinapps-section-6-8-2-1">a) Competing Speciesb)  <span class="process-math">\(\left(\frac{6}{7}, \frac{10}{7}\right)\)</span> is a saddle c) One of the two species will die off eventually, depending on the initial condition<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 7.1"><a href="#nlinapps-section-6-8-2" title="Copy heading and permalink for Answer 7.1" aria-label="Copy heading and permalink for Answer 7.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 7"><a href="#nlinapps-section-6-8" title="Copy heading and permalink for Exercise 7" aria-label="Copy heading and permalink for Exercise 7">🔗</a></div></article><article class="exercise exercise-like" id="nlinapps-section-6-9"><h4 class="heading"><span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="nlinapps-section-6-9-1-1">
+<div class="para">The following system of differential equations models a pair of populations interacting.</div>
+<div class="displaymath process-math" id="nlinapps-section-6-9-1-1-1">
+\begin{equation*}
+\frac{dx}{dt} = x(5 - x - 2y)\qquad \frac{dy}{dt} = y(7 - x - 3y)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="nlinapps-section-6-9-1-2">Does this system of differential equations better fit with a competing species model or a predator-prey model? If it is predator-prey, which species is the predator? Find and classify the critical point (if it exists) with both <span class="process-math">\(x&gt;0\)</span> and <span class="process-math">\(y&gt;0\text{.}\)</span> Describe what is going to happen to the population of these species over time. It this depends on the initial condition, say so.<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-9-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="nlinapps-section-6-9-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="nlinapps-section-6-9-2-1">a) Competing Speciesb) <span class="process-math">\((1,2)\)</span> is a nodal sink c) Tends towards coexistence equilibrium at <span class="process-math">\((1,2)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 8.1"><a href="#nlinapps-section-6-9-2" title="Copy heading and permalink for Answer 8.1" aria-label="Copy heading and permalink for Answer 8.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 8"><a href="#nlinapps-section-6-9" title="Copy heading and permalink for Exercise 8" aria-label="Copy heading and permalink for Exercise 8">🔗</a></div></article><article class="exercise exercise-like" id="nlinapps-section-6-10"><h4 class="heading"><span class="codenumber">9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4> <div class="para" id="nlinapps-section-6-10-1-1">Suppose <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> are positive variables. Show <span class="process-math">\(\frac{y x}{e^{x+y}}\)</span> attains a maximum at <span class="process-math">\((1,1)\text{.}\)</span> Suppose <span class="process-math">\(a,b,c,d\)</span> are positive constants, and also suppose <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> are positive variables. Show <span class="process-math">\(\frac{y^a x^d}{e^{cx+by}}\)</span> attains a maximum at <span class="process-math">\((\nicefrac{d}{c},\nicefrac{a}{b})\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="nlinapps-section-6-10-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="nlinapps-section-6-10-2-1">Hint: Look at where the gradient is zero for the critical point, and look at the eigenvalues of the Hessian to determine if it is a maximum. Two negative eigenvalues means it is a maximum.<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-10-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 9.1"><a href="#nlinapps-section-6-10-2" title="Copy heading and permalink for Answer 9.1" aria-label="Copy heading and permalink for Answer 9.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 9"><a href="#nlinapps-section-6-10" title="Copy heading and permalink for Exercise 9" aria-label="Copy heading and permalink for Exercise 9">🔗</a></div></article><article class="exercise exercise-like" id="nlinapps-section-6-11"><h4 class="heading"><span class="codenumber">10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="nlinapps-section-6-11-1-1">Suppose that for the pendulum equation we take a trajectory giving the spinning-around motion, for example <span class="process-math">\(\omega = \sqrt{\frac{2g}{L} \cos \theta
++ \frac{2g}{L} + \omega_0^2}\text{.}\)</span> This is the trajectory where the lowest angular velocity is <span class="process-math">\(\omega_0^2\text{.}\)</span> Find an integral expression for how long it takes the pendulum to go all the way around.<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="nlinapps-section-6-11-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="nlinapps-section-6-11-2-1">
+<span class="process-math">\(T = \int_0^{2\pi} \frac{1}{\sqrt{\frac{2g}{L}\cos(\theta) + \frac{2g}{L} + \omega_0^2}}\ d\theta\)</span><div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-11-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 10.1"><a href="#nlinapps-section-6-11-2" title="Copy heading and permalink for Answer 10.1" aria-label="Copy heading and permalink for Answer 10.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 10"><a href="#nlinapps-section-6-11" title="Copy heading and permalink for Exercise 10" aria-label="Copy heading and permalink for Exercise 10">🔗</a></div></article><article class="exercise exercise-like" id="nlinapps-section-6-12"><h4 class="heading"><span class="codenumber">11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="nlinapps-section-6-12-1-1">
+<div class="para">Consider a predator-prey interaction where humans have gotten involved. The idea is that at least one of the species is valuable for food or another resource, and the two species still intact in their normal predator-prey manner. The first version of this will deal with “constant effort harvesting,” which means that humans will remove animals from the populations are a rate proportional to the population. This results in equations of the form</div>
+<div class="displaymath process-math" id="nlinapps-section-6-12-1-1-2">
+\begin{equation*}
+\frac{dx}{dt} = x(a - by - E_1) \qquad \frac{dy}{dt} = y(-d + cx - E_2)
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(E_1\)</span> and <span class="process-math">\(E_2\)</span> denote the amount of harvesting done.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-12-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="nlinapps-section-6-12-1-2">There is a single equilibrium solution with <span class="process-math">\(x &gt; 0\)</span> and <span class="process-math">\(y&gt;0\)</span> in the case of no harvesting, that is, <span class="process-math">\(E_1 = E_2 = 0\text{.}\)</span> Find this equilibrium solution. Without doing any mathematical work, what do you think will happen to the equilibrium solution if just the prey is harvested? What if just the predator is harvested? What if both are harvested? Find the location of the equilibrium system in each of the three cases in the previous part. Do this in terms of the constants <span class="process-math">\(E_1\)</span> and <span class="process-math">\(E_2\)</span> for all three cases.<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-12-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="nlinapps-section-6-12-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="nlinapps-section-6-12-2-1">a) <span class="process-math">\((\frac{d}{c},\ \frac{a}{b})\)</span>b) It will change the effective values of <span class="process-math">\(a\)</span> and <span class="process-math">\(d\text{.}\)</span> c) <span class="process-math">\(\left(\frac{d+E_2}{c}, \frac{a-E_1}{b}\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-12-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 11.1"><a href="#nlinapps-section-6-12-2" title="Copy heading and permalink for Answer 11.1" aria-label="Copy heading and permalink for Answer 11.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 11"><a href="#nlinapps-section-6-12" title="Copy heading and permalink for Exercise 11" aria-label="Copy heading and permalink for Exercise 11">🔗</a></div></article><article class="exercise exercise-like" id="nlinapps-section-6-13"><h4 class="heading"><span class="codenumber">12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="nlinapps-section-6-13-1-1">
+<div class="para">The second version of this will deal with “constant yield harvesting,” which means that humans will remove animals from the populations at a fixed rate, no matter their population. This results in equations of the form</div>
+<div class="displaymath process-math" id="nlinapps-section-6-13-1-1-2">
+\begin{equation*}
+\frac{dx}{dt} = x(a - by) - H_1 \qquad \frac{dy}{dt} = y(-d + cx) - H_2
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(H_1\)</span> and <span class="process-math">\(H_2\)</span> denote the amount of harvesting done.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-13-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="nlinapps-section-6-13-1-2">There is a single equilibrium solution with <span class="process-math">\(x &gt; 0\)</span> and <span class="process-math">\(y&gt;0\)</span> in the case of no harvesting, that is, <span class="process-math">\(H_1 = H_2 = 0\text{.}\)</span> Find this equilibrium solution. Without doing any mathematical work, what do you think will happen to the equilibrium solution if just the prey is harvested? What if just the predator is harvested? What if both are harvested? Find the location of the equilibrium system in each of the three cases in the previous part. Do this in terms of the constants <span class="process-math">\(H_1\)</span> and <span class="process-math">\(H_2\)</span> for all three cases.<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-13-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="nlinapps-section-6-13-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="nlinapps-section-6-13-2-1">a) <span class="process-math">\((\frac{d}{c},\ \frac{a}{b})\)</span>b) Any harvesting should increase the <span class="process-math">\(x\)</span> value and decrease the <span class="process-math">\(y\)</span> value.c)  <span class="process-math">\(\left( \frac{ad+bH_2 + cH_1 + \sqrt{(ad+bH_2 + cH_1)^2 - 4acdH_1}}{2ac}, \frac{ad-cH_1 - bH_2 + \sqrt{(ad-cH_1 - bH_2)^2 +4abdH_2}}{2bd}\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-13-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 12.1"><a href="#nlinapps-section-6-13-2" title="Copy heading and permalink for Answer 12.1" aria-label="Copy heading and permalink for Answer 12.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 12"><a href="#nlinapps-section-6-13" title="Copy heading and permalink for Exercise 12" aria-label="Copy heading and permalink for Exercise 12">🔗</a></div></article><article class="exercise exercise-like" id="nlinapps-section-6-14"><h4 class="heading"><span class="codenumber">13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="nlinapps-section-6-14-1-1">
+<div class="para">The general competing species model has the form</div>
+<div class="displaymath process-math" id="nlinapps-section-6-14-1-1-1">
+\begin{equation*}
+\frac{dx}{dt} = x(\rho_1 - \gamma_1 y - M_1 x) \qquad \frac{dy}{dt} = y(\rho_2 - \gamma_2 x - M_2 y)
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\rho\)</span> indicates the growth rate, <span class="process-math">\(M\)</span> is related to the carrying capacity, and <span class="process-math">\(\gamma\)</span> is connected to the interaction term. Assume that this model is being used to represent species A and B of fish living in a pond at time <span class="process-math">\(t\text{,}\)</span> which is initially stocked with both species of fish. We want to analyze the behavior of this equation under different sets of coefficients.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-14-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="nlinapps-section-6-14-1-2">If <span class="process-math">\(\rho_2/\gamma_2 &gt; \rho_1/M_1\)</span> and <span class="process-math">\(\rho_2/M_2 &gt; \rho_1/\gamma_1\text{,}\)</span> show that the only equilibrium populations in the pond are no fish, no fish of species A, or no fish of species B. What happens for large values of <span class="process-math">\(t\text{?}\)</span> If <span class="process-math">\(\rho_1/M_1 &gt; \rho_2/\gamma_2\)</span> and <span class="process-math">\(\rho_1/\gamma_1 &gt; \rho_2/M_2\text{,}\)</span> show that the only equilibrium populations in the pond are no fish, no fish of species A, or no fish of species B. What happens for large values of <span class="process-math">\(t\text{?}\)</span> Suppose that <span class="process-math">\(\rho_2/\gamma_2 &gt; \rho_1/M_1\)</span> and <span class="process-math">\(\rho_1/\gamma_1 &gt; \rho_2/M_2\text{.}\)</span> Show that there is a stable equilibrium where both species coexist.<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-14-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="nlinapps-section-6-14-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="nlinapps-section-6-14-2-1">Hint: Solve for the critical point with neither population zero in terms of all of the parameters. Then, you want to classify the critical points at this non-zero value, as well as at <span class="process-math">\((0, y)\)</span> and <span class="process-math">\((x,0)\)</span> for the appropriate values of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span> This should give you enough to know what happens over time. For c), think about what these two inequalities tell you about <span class="process-math">\(M_1M_2 - \gamma_1\gamma_2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-14-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 13.1"><a href="#nlinapps-section-6-14-2" title="Copy heading and permalink for Answer 13.1" aria-label="Copy heading and permalink for Answer 13.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 13"><a href="#nlinapps-section-6-14" title="Copy heading and permalink for Exercise 13" aria-label="Copy heading and permalink for Exercise 13">🔗</a></div></article><article class="exercise exercise-like" id="nlinapps-section-6-15"><h4 class="heading"><span class="codenumber">14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="nlinapps-section-6-15-1-1">Take the pendulum, suppose the initial position is <span class="process-math">\(\theta = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-15-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="nlinapps-section-6-15-1-2">Find the expression for <span class="process-math">\(\omega\)</span> giving the trajectory with initial condition <span class="process-math">\((0,\omega_0)\text{.}\)</span> Hint: Figure out what <span class="process-math">\(C\)</span> should be in terms of <span class="process-math">\(\omega_0\text{.}\)</span> Find the crucial angular velocity <span class="process-math">\(\omega_1\text{,}\)</span> such that for any higher initial angular velocity, the pendulum will keep going around its axis, and for any lower initial angular velocity, the pendulum will simply swing back and forth. Hint: When the pendulum doesn’t go over the top the expression for <span class="process-math">\(\omega\)</span> will be undefined for some <span class="process-math">\(\theta\)</span>s. What do you think happens if the initial condition is <span class="process-math">\((0,\omega_1)\text{,}\)</span> that is, the initial angle is 0, and the initial angular velocity is exactly <span class="process-math">\(\omega_1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-15-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="nlinapps-section-6-15-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="nlinapps-section-6-15-2-1">a) <span class="process-math">\(\omega = \sqrt{\frac{2g}{L}\cos(\theta) - \frac{2g}{L} + \omega_0^2}\)</span> b) <span class="process-math">\(\omega_0 &lt; 2\sqrt{\frac{g}{L}}\)</span> c) It stops at the top.<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps-section-6-15-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 14.1"><a href="#nlinapps-section-6-15-2" title="Copy heading and permalink for Answer 14.1" aria-label="Copy heading and permalink for Answer 14.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 14"><a href="#nlinapps-section-6-15" title="Copy heading and permalink for Exercise 14" aria-label="Copy heading and permalink for Exercise 14">🔗</a></div></article><div class="autopermalink" data-description="Exercises: Exercises"><a href="#nlinapps-section-6" title="Copy heading and permalink for Exercises: Exercises" aria-label="Copy heading and permalink for Exercises: Exercises">🔗</a></div></section><div class="autopermalink" data-description="Section 5.3: Applications of nonlinear systems"><a href="#nlinapps-section" title="Copy heading and permalink for Section 5.3: Applications of nonlinear systems" aria-label="Copy heading and permalink for Section 5.3: Applications of nonlinear systems">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="nlinHamiltonian-section.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="limitcycles-section.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

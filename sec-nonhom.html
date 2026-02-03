@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Nonhomogeneous equations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Differential Equations">
+<meta property="book:author" content="Matt Charnley">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.11.12';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.0d5f811896ddeac1.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.e2abc79debce15fd.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Differential Equations</span> <span class="subtitle">An Introduction for Engineers</span></a></h1>
+<p class="byline">Matt Charnley</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-mv.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ho-chapter.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="forcedo-section.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="intro-chapter.html" class="internal"><span class="codenumber">0</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introde-section.html" class="internal"><span class="codenumber">0.1</span> <span class="title">Introduction to differential equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#differential-equations" class="internal"><span class="title">Differential equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#solutions-of-differential-equations" class="internal"><span class="title">Solutions of differential equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#differential-equations-in-practice" class="internal"><span class="title">Differential equations in practice</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#subsection-fourfundamental" class="internal"><span class="title">Four fundamental equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="introde-section.html#introde-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="classification-section.html" class="internal"><span class="codenumber">0.2</span> <span class="title">Classification of differential equations</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="classification-section.html#classification-section-16" class="internal"><span class="codenumber">0.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="fo-chapter.html" class="internal"><span class="codenumber">1</span> <span class="title">First Order Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="integralsols-section.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Integrals as solutions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="integralsols-section.html#integralsols-section-14" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="slopefields-section.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Slope fields</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slopefields-section.html#slope-fields" class="internal"><span class="title">Slope fields</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="slopefields-section.html#slopefields-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="separable-section.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Separable equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable-section.html#separable-equations" class="internal"><span class="title">Separable equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable-section.html#implicit-solutions" class="internal"><span class="title">Implicit solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable-section.html#examples-of-separable-equations" class="internal"><span class="title">Examples of separable equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="separable-section.html#separable-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="intfactor-section.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Linear equations and the integrating factor</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="intfactor-section.html#intfactor-section-18" class="internal"><span class="codenumber">1.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="existunique-section.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Existence and Uniqueness of Solutions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="existunique-section.html#existunique-section-18" class="internal"><span class="codenumber">1.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="numer-section.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Numerical methods: Euler’s method</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="numer-section.html#numer-section-23" class="internal"><span class="codenumber">1.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="auteq-section.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Autonomous equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auteq-section.html#subsec-autoIntro" class="internal"><span class="title">Introduction and Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auteq-section.html#concavity-of-solutions" class="internal"><span class="title">Concavity of Solutions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="auteq-section.html#auteq-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="bifDiag-section.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Bifurcation diagrams</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="bifDiag-section.html#bifDiag-section-13" class="internal"><span class="codenumber">1.8</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="exact-section.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Exact equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact-section.html#subsec-exactIntro" class="internal"><span class="title">exactIntro</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact-section.html#solving-exact-equations" class="internal"><span class="title">Solving exact equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact-section.html#integrating-factors" class="internal"><span class="title">Integrating factors</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exact-section.html#exact-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="modelfirst-section.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Modeling with First Order Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="modelfirst-section.html#principles-of-mathematical-modeling" class="internal"><span class="title">Principles of Mathematical Modeling</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="modelfirst-section.html#the-accumulation-equation" class="internal"><span class="title">The Accumulation Equation</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="modelfirst-section.html#modelfirst-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="modelfirstestim-section.html" class="internal"><span class="codenumber">1.11</span> <span class="title">Modeling and Parameter Estimation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="modelfirstestim-section.html#modelfirstestim-section-10" class="internal"><span class="codenumber">1.11</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="substitution-section.html" class="internal"><span class="codenumber">1.12</span> <span class="title">Substitution</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution-section.html#bernoulli-equations" class="internal"><span class="title">Bernoulli equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution-section.html#homogeneous-equations" class="internal"><span class="title">Homogeneous equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="substitution-section.html#substitution-section-10" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ho-chapter.html" class="internal"><span class="codenumber">2</span> <span class="title">Higher Order Linear ODEs</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="solinear-section.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Second order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#intial-value-problems" class="internal"><span class="title">Intial Value Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#constant-coefficient-equations---real-and-distinct-roots" class="internal"><span class="title">Constant Coefficient Equations - Real and Distinct Roots</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#linear-independence-soeq" class="internal"><span class="title">Linear Independence</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="solinear-section.html#solinear-section-17" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="complexroots-section.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Complex Roots and Euler’s Formula</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="complexroots-section.html#complex-roots" class="internal"><span class="title">Complex roots</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="complexroots-section.html#complexroots-section-13" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="reproots-section.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Repeated Roots and Reduction of Order</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="reproots-section.html#reproots-section-11" class="internal"><span class="codenumber">2.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-mv.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Mechanical vibrations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-mv.html#free-undamped-motion" class="internal"><span class="title">Free undamped motion</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-mv.html#free-damped-motion" class="internal"><span class="title">Free damped motion</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-mv.html#overdamping" class="internal"><span class="title">Overdamping</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-mv.html#critical-damping" class="internal"><span class="title">Critical damping</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-mv.html#underdamping" class="internal"><span class="title">Underdamping</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-mv.html#physical-applications-and-vertical-mass-spring-systems" class="internal"><span class="title">Physical Applications and Vertical Mass-Spring Systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-mv.html#sec-mv-20" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec-nonhom.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Nonhomogeneous equations</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#solving-nonhomogeneous-equations" class="internal"><span class="title">Solving nonhomogeneous equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#undetermined-coefficients-eqns" class="internal"><span class="title">Undetermined coefficients</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#variation-of-parameters-eqns" class="internal"><span class="title">Variation of parameters</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-nonhom.html#sec-nonhom-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="forcedo-section.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Forced oscillations and resonance</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="forcedo-section.html#undamped-forced-motion-and-resonance" class="internal"><span class="title">Undamped forced motion and resonance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="forcedo-section.html#damped-forced-motion-and-practical-resonance" class="internal"><span class="title">Damped forced motion and practical resonance</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="forcedo-section.html#forcedo-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-hol.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Higher order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#linear-independence-hoeq" class="internal"><span class="title">Linear independence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#constant-coefficient-higher-order-odes" class="internal"><span class="title">Constant coefficient higher order ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#non-homogeneous-equations" class="internal"><span class="title">Non-Homogeneous Equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-hol.html#sec-hol-11" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="linalg-appendix.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="vecsandmaps-section.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Vectors, mappings, and matrices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="vecsandmaps-section.html#vectors-and-operations-on-vectors" class="internal"><span class="title">Vectors and operations on vectors</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#linear-combinations-and-linear-independence" class="internal"><span class="title">Linear Combinations and Linear Independence</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#matrices" class="internal"><span class="title">Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#linear-mappings-and-matrices" class="internal"><span class="title">Linear mappings and matrices</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="vecsandmaps-section.html#vecsandmaps-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="matalg-section.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Matrix algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#one-by-one-matrices" class="internal"><span class="title">One-by-one matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#matrix-addition-and-scalar-multiplication" class="internal"><span class="title">Matrix addition and scalar multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#matrix-multiplication" class="internal"><span class="title">Matrix multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#some-rules-of-matrix-algebra" class="internal"><span class="title">Some rules of matrix algebra</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#inverse" class="internal"><span class="title">Inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#special-types-of-matrices" class="internal"><span class="title">Special types of matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#transpose" class="internal"><span class="title">Transpose</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="matalg-section.html#matalg-section-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="elim-section.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Elimination</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#linear-systems-of-equations" class="internal"><span class="title">Linear systems of equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#row-echelon-form-and-elementary-operations" class="internal"><span class="title">Row echelon form and elementary operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#non-unique-solutions-and-inconsistent-systems" class="internal"><span class="title">Non-unique solutions and inconsistent systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="elim-section.html#elim-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="det-section.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Determinant</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="det-section.html#det-section-32" class="internal"><span class="codenumber">3.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eig-section.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Eigenvalues and Eigenvectors</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#finding-eigenvalues-and-eigenvectors" class="internal"><span class="title">Finding Eigenvalues and Eigenvectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#real-eigenvalues" class="internal"><span class="title">Real Eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#complex-eigenvalues" class="internal"><span class="title">Complex Eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#repeated-eigenvalues" class="internal"><span class="title">Repeated Eigenvalues</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eig-section.html#eig-section-11" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-kernel.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Related Topics in Linear Algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#subspaces-and-span" class="internal"><span class="title">Subspaces and span</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#basis-and-dimension" class="internal"><span class="title">Basis and dimension</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#rank" class="internal"><span class="title">Rank</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#kernel" class="internal"><span class="title">Kernel</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#computing-the-inverse-adv" class="internal"><span class="title">Computing the inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#trace-and-determinant-of-matrices" class="internal"><span class="title">Trace and Determinant of Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#extension-of-previous-theorem" class="internal"><span class="title">Extension of Previous Theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-kernel.html#sec-kernel-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="sys-chapter.html" class="internal"><span class="codenumber">4</span> <span class="title">Systems of ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-introtosys.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Introduction to systems of ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#systems" class="internal"><span class="title">Systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#applications" class="internal"><span class="title">Applications</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#changing-to-first-order" class="internal"><span class="title">Changing to first order</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#autonomous-systems-and-vector-fields" class="internal"><span class="title">Autonomous systems and vector fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#picards-theorem" class="internal"><span class="title">Picard’s theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-introtosys.html#sec-introtosys-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-matrix.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Matrices and linear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#matrices-and-vectors" class="internal"><span class="title">Matrices and vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#matrix-multiplication-rev" class="internal"><span class="title">Matrix multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#the-determinant" class="internal"><span class="title">The determinant</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#solving-linear-systems" class="internal"><span class="title">Solving linear systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#computing-the-inverse" class="internal"><span class="title">Computing the inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#eigenvalues-and-eigenvectors-of-a-matrix" class="internal"><span class="title">Eigenvalues and eigenvectors of a matrix</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matrix.html#sec-matrix-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linsystems-section.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Linear systems of ODEs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linsystems-section.html#linsystems-section-17" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod-section.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Eigenvalue method</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-section.html#the-eigenvalue-method-with-distinct-real-eigenvalues" class="internal"><span class="title">The eigenvalue method with distinct real eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-section.html#phase-portraits-real" class="internal"><span class="title">Phase Portraits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-section.html#eigenmethod-section-10" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod-cplx-section.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Eigenvalue method with complex eigenvalues</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-cplx-section.html#phase-portraits-complex" class="internal"><span class="title">Phase Portraits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-cplx-section.html#eigenmethod-cplx-section-16" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod-repeat-section.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Eigenvalue method with repeated eigenvalues</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection">
+<div class="toc-title-box"><a href="eigenmethod-repeat-section.html#geometric-multiplicity" class="internal"><span class="title">Geometric multiplicity</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#defective-eigenvalues" class="internal"><span class="title">Defective eigenvalues</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#phase-portraits-repeated" class="internal"><span class="title">Phase Portraits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#eigenmethod-repeat-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-twodimaut.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Two-dimensional systems and their vector fields</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-twodimaut.html#trace-determinant-analysis" class="internal"><span class="title">Trace-Determinant Analysis</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-twodimaut.html#sec-twodimaut-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nonhomogsys-section.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Nonhomogeneous systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys-section.html#first-order-constant-coefficient" class="internal"><span class="title">First order constant coefficient</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys-section.html#diagonalization" class="internal"><span class="title">Diagonalization</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys-section.html#undetermined-coefficients-sys" class="internal"><span class="title">Undetermined coefficients</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys-section.html#first-order-variable-coefficient" class="internal"><span class="title">First order variable coefficient</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys-section.html#variation-of-parameters-sys" class="internal"><span class="title">Variation of parameters</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nonhomogsys-section.html#nonhomogsys-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sol-section.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Second order systems and applications</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol-section.html#undamped-mass-spring-systems" class="internal"><span class="title">Undamped mass-spring systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol-section.html#examples" class="internal"><span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol-section.html#forced-oscillations" class="internal"><span class="title">Forced oscillations</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sol-section.html#non-homogeneous-solutions" class="internal"><span class="title">Non-Homogeneous Solutions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sol-section.html#undetermined-coefficients-secondsys" class="internal"><span class="title">Undetermined coefficients</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sol-section.html#eigenvector-decomposition" class="internal"><span class="title">Eigenvector decomposition</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sol-section.html#sol-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-matexp.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Matrix exponentials</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#definition" class="internal"><span class="title">Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#simple-cases" class="internal"><span class="title">Simple cases</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#general-matrices" class="internal"><span class="title">General matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#fundamental-matrix-solutions" class="internal"><span class="title">Fundamental matrix solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#approximations" class="internal"><span class="title">Approximations</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-matexp.html#non-homogeneous-systems" class="internal"><span class="title">Non-Homogeneous Systems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-matexp.html#integrating-factor" class="internal"><span class="title">Integrating factor</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matexp.html#sec-matexp-8" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="nlin-chapter.html" class="internal"><span class="codenumber">5</span> <span class="title">Nonlinear Systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linearization-section.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Linearization, critical points, and stability</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#autonomous-systems-and-phase-plane-analysis" class="internal"><span class="title">Autonomous systems and phase plane analysis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#linearization" class="internal"><span class="title">Linearization</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#isolated-critical-points-and-almost-linear-systems" class="internal"><span class="title">Isolated critical points and almost linear systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#stability-and-classification-of-isolated-critical-points" class="internal"><span class="title">Stability and classification of isolated critical points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#the-trouble-with-centers" class="internal"><span class="title">The trouble with centers</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linearization-section.html#linearization-section-12" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nlinHamiltonian-section.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Behavior of non-linear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#conservative-equations" class="internal"><span class="title">Conservative equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#hamiltonian-systems" class="internal"><span class="title">Hamiltonian Systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#separatrices-and-basins-of-attractions" class="internal"><span class="title">Separatrices and Basins of Attractions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#nullclines" class="internal"><span class="title">Nullclines</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#nlinHamiltonian-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nlinapps-section.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Applications of nonlinear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#pendulum" class="internal"><span class="title">Pendulum</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#predator-prey-or-lotkavolterra-systems" class="internal"><span class="title">Predator-prey or Lotka–Volterra systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#competing-species-systems" class="internal"><span class="title">Competing Species systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinapps-section.html#nlinapps-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="limitcycles-section.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Limit cycles</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="limitcycles-section.html#limitcycles-section-28" class="internal"><span class="codenumber">5.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-chaos.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Chaos</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaos.html#duffing-equation-and-strange-attractors" class="internal"><span class="title">Duffing equation and strange attractors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaos.html#the-lorenz-system" class="internal"><span class="title">The Lorenz system</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-chaos.html#sec-chaos-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="matlab-appendix.html" class="internal"><span class="codenumber">6</span> <span class="title">Introduction to MATLAB</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="the-matlab-interface.html" class="internal"><span class="codenumber">6.1</span> <span class="title">The MATLAB Interface</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="file-structure.html" class="internal"><span class="codenumber">6.2</span> <span class="title">File Structure</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="computation-in-matlab.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Computation in MATLAB</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="variables-and-arrays.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Variables and Arrays</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="funMat-section.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Functions and Anonymous Functions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="loops-and-branching-statements.html" class="internal"><span class="codenumber">6.6</span> <span class="title">Loops and Branching Statements</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="loops-and-branching-statements.html#for-loops" class="internal"><span class="title">For Loops</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="loops-and-branching-statements.html#if-statements" class="internal"><span class="title">If Statements</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="plotting-in-matlab.html" class="internal"><span class="codenumber">6.7</span> <span class="title">Plotting in MATLAB</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="supplemental-code-files.html" class="internal"><span class="codenumber">6.8</span> <span class="title">Supplemental Code Files</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-prereq.html" class="internal"><span class="codenumber">7</span> <span class="title">Prerequisite Material</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-polys.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Polynomials and Factoring</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#definitions-and-operations" class="internal"><span class="title">Definitions and Operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#polynomial-long-division" class="internal"><span class="title">Polynomial Long Division</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#synthetic-division" class="internal"><span class="title">Synthetic Division</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-complexNums.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Complex Numbers</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-derivInt.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Differentiation and Integration Techniques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivInt.html#derivative-and-integral-formulas" class="internal"><span class="title">Derivative and Integral Formulas</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-derivInt.html#derivative-rules" class="internal"><span class="title">Derivative Rules</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#linearity-of-the-derivative-and-integral" class="internal"><span class="title">Linearity of the Derivative and Integral</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#product-and-quotient-rule" class="internal"><span class="title">Product and Quotient Rule</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#chain-rule" class="internal"><span class="title">Chain Rule</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-derivInt.html#integration-techniques" class="internal"><span class="title">Integration Techniques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#substitution" class="internal"><span class="title">Substitution</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#integration-by-parts" class="internal"><span class="title">Integration by Parts</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#partial-fractions" class="internal"><span class="title">Partial Fractions</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-references"><div class="toc-title-box"><a href="references.html" class="internal"><span class="title">References</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-3.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-nonhom"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Nonhomogeneous equations</span>
+</h2>
+<section class="subsection" id="solving-nonhomogeneous-equations"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Solving nonhomogeneous equations</span>
+</h3>
+<div class="para logical" id="solving-nonhomogeneous-equations-2">
+<div class="para">We have solved linear constant coefficient homogeneous equations. What about nonhomogeneous linear ODEs? For example, the equations for forced mechanical vibrations, where we add a “forcing” term, which is a function on the right-hand side of the equation. That is, suppose we have an equation such as</div>
+<div class="displaymath process-math" id="3-5-eq-nh">
+\begin{equation}
+y'' + 5y'+ 6y = 2x+1 .\tag{2.5.1}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#solving-nonhomogeneous-equations-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="solving-nonhomogeneous-equations-3">
+<div class="para">We will write <span class="process-math">\(L[y] = 2x+1\text{,}\)</span> where <span class="process-math">\(L[y]\)</span> represents the entire left-hand side of <span class="process-math">\(y'' + 5y' + 6y\text{,}\)</span> when the exact form of the operator is not important. We solve <a href="sec-nonhom.html#3-5-eq-nh" class="xref" data-knowl="./knowl/xref/3-5-eq-nh.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.5.1">(2.5.1)</a> in the following manner. First, we find the general solution <span class="process-math">\(y_c\)</span> to the <em class="emphasis"></em>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/3-5-eq-nh.html ./knowl/xref/3-5-eq-nh.html ./knowl/xref/3-5-eq-nh.html" id="3-5-eq-h">
+\begin{equation}
+y'' + 5y'+ 6y = 0 .\tag{2.5.2}
+\end{equation}
+</div>
+<div class="para">We call <span class="process-math">\(y_c\)</span> the <em class="emphasis"></em>. Next, we find a single <em class="emphasis"></em> <span class="process-math">\(y_p\)</span> to <a href="sec-nonhom.html#3-5-eq-nh" class="xref" data-knowl="./knowl/xref/3-5-eq-nh.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.5.1">(2.5.1)</a> in some way (that is the point of this section). Then</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/3-5-eq-nh.html ./knowl/xref/3-5-eq-nh.html ./knowl/xref/3-5-eq-nh.html" id="solving-nonhomogeneous-equations-3-13">
+\begin{equation*}
+y = y_c + y_p
+\end{equation*}
+</div>
+<div class="para">is the general solution to <a href="sec-nonhom.html#3-5-eq-nh" class="xref" data-knowl="./knowl/xref/3-5-eq-nh.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.5.1">(2.5.1)</a>. We have <span class="process-math">\(L[y_c] = 0\)</span> and <span class="process-math">\(L[y_p] = 2x+1\text{.}\)</span> As <span class="process-math">\(L\)</span> is a <em class="emphasis"></em> we verify that <span class="process-math">\(y\)</span> is a solution, <span class="process-math">\(L[y] = L [y_c + y_p] = L[y_c] + L[y_p] = 0
++ (2x+1)\text{.}\)</span> Let us see why we obtain the <em class="emphasis">general</em> solution.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#solving-nonhomogeneous-equations-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="solving-nonhomogeneous-equations-4">
+<div class="para">Let <span class="process-math">\(y_p\)</span> and <span class="process-math">\(\tilde{y}_p\)</span> be two different particular solutions to <a href="sec-nonhom.html#3-5-eq-nh" class="xref" data-knowl="./knowl/xref/3-5-eq-nh.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.5.1">(2.5.1)</a>. Write the difference as <span class="process-math">\(w = y_p - \tilde{y}_p\text{.}\)</span> Then plug <span class="process-math">\(w\)</span> into the left-hand side of the equation to get</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/3-5-eq-nh.html ./knowl/xref/3-5-eq-h.html ./knowl/xref/3-5-eq-nh.html ./knowl/xref/3-5-eq-h.html ./knowl/xref/3-5-eq-nh.html" id="solving-nonhomogeneous-equations-4-6">
+\begin{equation*}
+w'' + 5w'+ 6w =
+(y_p'' + 5y_p'+ 6y_p) -
+(\tilde{y}_p'' + 5\tilde{y}_p'+ 6\tilde{y}_p) =
+(2x+1) - (2x+1) = 0 .
+\end{equation*}
+</div>
+<div class="para">Using the operator notation the calculation becomes simpler. As <span class="process-math">\(L\)</span> is a linear operator we write</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/3-5-eq-nh.html ./knowl/xref/3-5-eq-h.html ./knowl/xref/3-5-eq-nh.html ./knowl/xref/3-5-eq-h.html ./knowl/xref/3-5-eq-nh.html" id="solving-nonhomogeneous-equations-4-8">
+\begin{equation*}
+L[w] = L[y_p - \tilde{y}_p] =
+L[y_p] - L[\tilde{y}_p] =
+(2x+1)-(2x+1) = 0 .
+\end{equation*}
+</div>
+<div class="para">So <span class="process-math">\(w = y_p - \tilde{y}_p\)</span> is a solution to <a href="sec-nonhom.html#3-5-eq-h" class="xref" data-knowl="./knowl/xref/3-5-eq-h.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.5.2">(2.5.2)</a>, that is <span class="process-math">\(Lw = 0\text{.}\)</span> However, we know what all solutions to <span class="process-math">\(Lw = 0\)</span> look like, as this is a homogeneous equation that we have solved previously. Therefore, any two solutions of <a href="sec-nonhom.html#3-5-eq-nh" class="xref" data-knowl="./knowl/xref/3-5-eq-nh.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.5.1">(2.5.1)</a> differ by a solution to the homogeneous equation <a href="sec-nonhom.html#3-5-eq-h" class="xref" data-knowl="./knowl/xref/3-5-eq-h.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.5.2">(2.5.2)</a>. The solution <span class="process-math">\(y = y_c + y_p\)</span> includes <em class="emphasis">all</em> solutions to <a href="sec-nonhom.html#3-5-eq-nh" class="xref" data-knowl="./knowl/xref/3-5-eq-nh.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.5.1">(2.5.1)</a>, since <span class="process-math">\(y_c\)</span> is the general solution to the associated homogeneous equation.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#solving-nonhomogeneous-equations-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="solving-nonhomogeneous-equations-5">
+<div class="para">Let <span class="process-math">\(L[y]=f(x)\)</span> be a linear ODE (not necessarily constant coefficient). Let <span class="process-math">\(y_c\)</span> be the complementary solution (the general solution to the associated homogeneous equation <span class="process-math">\(L[y] = 0\)</span>) and let <span class="process-math">\(y_p\)</span> be any particular solution to <span class="process-math">\(L[y]=f(x)\text{.}\)</span> Then the general solution to <span class="process-math">\(L[y]=f(x)\)</span> is</div>
+<div class="displaymath process-math" id="solving-nonhomogeneous-equations-5-7">
+\begin{equation*}
+y = y_c + y_p.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#solving-nonhomogeneous-equations-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="solving-nonhomogeneous-equations-6">The moral of the story is that we can find the particular solution in any old way. If we find a different particular solution (by a different method, or simply by guessing), then we still get the same general solution. The formula may look different, and the constants we have to choose to satisfy the initial conditions may be different, but it is the same solution.<div class="autopermalink" data-description="Paragraph"><a href="#solving-nonhomogeneous-equations-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: Solving nonhomogeneous equations"><a href="#solving-nonhomogeneous-equations" title="Copy heading and permalink for Subsection: Solving nonhomogeneous equations" aria-label="Copy heading and permalink for Subsection: Solving nonhomogeneous equations">🔗</a></div></section><section class="subsection" id="undetermined-coefficients-eqns"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Undetermined coefficients</span>
+</h3>
+<div class="para logical" id="undetermined-coefficients-eqns-2">
+<div class="para">The trick is to somehow, in a smart way, guess one particular solution to <a href="sec-nonhom.html#3-5-eq-nh" class="xref" data-knowl="./knowl/xref/3-5-eq-nh.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.5.1">(2.5.1)</a>. Note that <span class="process-math">\(2x+1\)</span> is a polynomial, and the left-hand side of the equation (with all of the derivatives) will still be a polynomial if we let <span class="process-math">\(y\)</span> be a polynomial of the same degree. Let us try</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/3-5-eq-nh.html ./knowl/xref/3-5-eq-nh.html" id="undetermined-coefficients-eqns-2-4">
+\begin{equation*}
+y_p = Ax + B .
+\end{equation*}
+</div>
+<div class="para">We plug <span class="process-math">\(y_p\)</span> into the left hand side to obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/3-5-eq-nh.html ./knowl/xref/3-5-eq-nh.html" id="undetermined-coefficients-eqns-2-6">
+\begin{equation*}
+\begin{split}
+y_p'' + 5y_p'+ 6y_p &amp; =
+(Ax+B)'' + 5(Ax+B)' + 6(Ax+B)
+\\
+&amp; = 
+0 + 5A + 6Ax + 6B = 6Ax+ (5A+6B) .
+\end{split}
+\end{equation*}
+</div>
+<div class="para">So <span class="process-math">\(6Ax+(5A+6B) = 2x+1\text{.}\)</span> If we match up the coefficients of <span class="process-math">\(x\)</span> in this equation, we get that <span class="process-math">\(6A = 2\)</span> or <span class="process-math">\(A = \nicefrac{1}{3}\text{.}\)</span> In order for the constant terms to match, we need that <span class="process-math">\(5A + 6B = 1\text{.}\)</span> Since we know the value of <span class="process-math">\(A\text{,}\)</span> this tells us that <span class="process-math">\(B = \nicefrac{-1}{9}\text{.}\)</span> That means <span class="process-math">\(y_p = \frac{1}{3}\, x - \frac{1}{9} = \frac{3x-1}{9}\text{.}\)</span> Solving the complementary problem (exercise!) we get</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/3-5-eq-nh.html ./knowl/xref/3-5-eq-nh.html" id="undetermined-coefficients-eqns-2-15">
+\begin{equation*}
+y_c = C_1 e^{-2x} + C_2 e^{-3x}.
+\end{equation*}
+</div>
+<div class="para">Hence the general solution to <a href="sec-nonhom.html#3-5-eq-nh" class="xref" data-knowl="./knowl/xref/3-5-eq-nh.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.5.1">(2.5.1)</a> is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/3-5-eq-nh.html ./knowl/xref/3-5-eq-nh.html" id="undetermined-coefficients-eqns-2-17">
+\begin{equation*}
+y = C_1 e^{-2x} + C_2 e^{-3x} + \frac{3x-1}{9} .
+\end{equation*}
+</div>
+<div class="para">Now suppose we are further given some initial conditions. For example, <span class="process-math">\(y(0) = 0\)</span> and <span class="process-math">\(y'(0) = \nicefrac{1}{3}\text{.}\)</span> First find <span class="process-math">\(y' = - 2C_1 e^{-2x} - 3C_2 e^{-3x}
++ \nicefrac{1}{3}\text{.}\)</span> Then</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/3-5-eq-nh.html ./knowl/xref/3-5-eq-nh.html" id="undetermined-coefficients-eqns-2-21">
+\begin{equation*}
+0 = y(0) = C_1 + C_2 -\frac{1}{9} , \qquad
+\frac{1}{3} = y'(0) = - 2C_1 - 3C_2 + \frac{1}{3} .
+\end{equation*}
+</div>
+<div class="para">We solve to get <span class="process-math">\(C_1 = \nicefrac{1}{3}\)</span> and <span class="process-math">\(C_2 = \nicefrac{-2}{9}\text{.}\)</span> The particular solution we want is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/3-5-eq-nh.html ./knowl/xref/3-5-eq-nh.html" id="undetermined-coefficients-eqns-2-24">
+\begin{equation*}
+y(x) = \frac{1}{3} e^{-2x} - \frac{2}{9} e^{-3x} + \frac{3x-1}{9} =
+\frac{3 e^{-2x} - 2 e^{-3x} + 3x-1}{9} .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#undetermined-coefficients-eqns-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="undetermined-coefficients-eqns-3" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.5.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="undetermined-coefficients-eqns-3-1-1">Check that <span class="process-math">\(y\)</span> really solves the equation <a href="sec-nonhom.html#3-5-eq-nh" class="xref" data-knowl="./knowl/xref/3-5-eq-nh.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.5.1">(2.5.1)</a> and the given initial conditions.<div class="autopermalink" data-description="Paragraph"><a href="#undetermined-coefficients-eqns-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="undetermined-coefficients-eqns-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="undetermined-coefficients-eqns-3-2-1">Note: A common mistake is to solve for constants using the initial conditions with <span class="process-math">\(y_c\)</span> and only add the particular solution <span class="process-math">\(y_p\)</span> after that. That will <em class="emphasis">not</em> work. You need to first compute <span class="process-math">\(y = y_c + y_p\)</span> and <em class="emphasis">only then</em> solve for the constants using the initial conditions.<div class="autopermalink" data-description="Paragraph"><a href="#undetermined-coefficients-eqns-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.5.1.1"><a href="#undetermined-coefficients-eqns-3-2" title="Copy heading and permalink for Answer 2.5.1.1" aria-label="Copy heading and permalink for Answer 2.5.1.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Checkpoint 2.5.1"><a href="#undetermined-coefficients-eqns-3" title="Copy heading and permalink for Checkpoint 2.5.1" aria-label="Copy heading and permalink for Checkpoint 2.5.1">🔗</a></div></article></details><div class="para" id="undetermined-coefficients-eqns-4">A right-hand side consisting of exponentials, sines, and cosines can be handled similarly.<div class="autopermalink" data-description="Paragraph"><a href="#undetermined-coefficients-eqns-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="undetermined-coefficients-eqns-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.5.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="undetermined-coefficients-eqns-5-2-1">
+<div class="para">One example of this is</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-5-2-1-1">
+\begin{equation*}
+y''+2y'+2y = \cos (2x) .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#undetermined-coefficients-eqns-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="undetermined-coefficients-eqns-5-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="undetermined-coefficients-eqns-5-3-1">
+<div class="para">Let us find some <span class="process-math">\(y_p\text{.}\)</span> We start by guessing that the solution includes some multiple of <span class="process-math">\(\cos(2x)\text{.}\)</span> We try</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-5-3-1-3">
+\begin{equation*}
+y_p = A \cos(2x) .
+\end{equation*}
+</div>
+<div class="para">Plugging this into the differential equation gives</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-5-3-1-4">
+\begin{equation*}
+\underbrace{-4 A \cos (2x)}_{y_p''}
++2 \underbrace{\bigl(-2A \sin (2x)\bigr)}_{y_p'}
++
+2 \underbrace{\bigl(A \cos (2x)\bigr)}_{y_p}
+= \cos (2x).
+\end{equation*}
+</div>
+<div class="para">Simplifying this expression gives</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-5-3-1-5">
+\begin{equation*}
+-2A\cos(2x) - 4A\sin(2x) = \cos(2x)
+\end{equation*}
+</div>
+<div class="para">and we have a problem. Since there is no sine term on the right-hand side, we are forced to pick <span class="process-math">\(A = 0\text{,}\)</span> which means our non-homogeneous solution is zero, and that’s not good. What happened here? In the previous example, when we differentiated a polynomial (as part of the <span class="process-math">\(y_p\)</span> guess) the function stayed a polynomial, and so we did not add any new types of terms. In this case, however, when we differentiate the cosine term in our guess, it becomes a sine, which we did <em class="emphasis">not</em> have in our initial guess.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#undetermined-coefficients-eqns-5-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="undetermined-coefficients-eqns-5-3-2">
+<div class="para">Thus, we will also want to add a multiple of <span class="process-math">\(\sin (2x)\)</span> to our guess since derivatives of cosine are sines. We try</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-5-3-2-2">
+\begin{equation*}
+y_p = A \cos (2x) + B \sin (2x) .
+\end{equation*}
+</div>
+<div class="para">We plug <span class="process-math">\(y_p\)</span> into the equation and we get</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-5-3-2-4">
+\begin{equation*}
+\begin{multline*}
+\underbrace{-4 A \cos (2x) - 4 B \sin (2x)}_{y_p''}
++2 \underbrace{\bigl(-2A \sin (2x) + 2B \cos (2x)\bigr)}_{y_p'}
+\\
++
+2 \underbrace{\bigl(A \cos (2x) + B \sin (2x)\bigr)}_{y_p}
+= \cos (2x) ,
+\end{multline*}
+\end{equation*}
+</div>
+<div class="para">or</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-5-3-2-5">
+\begin{equation*}
+(-4A+4B+2A) \cos(2x) +
+(-4B-4A+2B) \sin(2x)
+= \cos(2x) .
+\end{equation*}
+</div>
+<div class="para">The left-hand side must equal to right-hand side. Namely, <span class="process-math">\(-4A + 4B + 2A = 1\)</span> and <span class="process-math">\(-4B - 4A + 2B = 0\text{.}\)</span> So <span class="process-math">\(-2A+4B =1\)</span> and <span class="process-math">\(2A+B=0\text{.}\)</span> We can solve this system of equations to get that <span class="process-math">\(A=\nicefrac{-1}{10}\)</span> and <span class="process-math">\(B=\nicefrac{1}{5}\text{.}\)</span> So</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-5-3-2-12">
+\begin{equation*}
+y_p = A \cos (2x) + B \sin (2x) = \frac{-\cos (2x) + 2 \sin (2x)}{10} .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#undetermined-coefficients-eqns-5-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.5.2.1"><a href="#undetermined-coefficients-eqns-5-3" title="Copy heading and permalink for Solution 2.5.2.1" aria-label="Copy heading and permalink for Solution 2.5.2.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 2.5.2: "><a href="#undetermined-coefficients-eqns-5" title="Copy heading and permalink for Example 2.5.2: " aria-label="Copy heading and permalink for Example 2.5.2: ">🔗</a></div></article></details><div class="para logical" id="undetermined-coefficients-eqns-6">
+<div class="para">Similarly, if the right-hand side contains exponentials we try exponentials. If</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-6-1">
+\begin{equation*}
+L[y] = e^{3x},
+\end{equation*}
+</div>
+<div class="para">we try <span class="process-math">\(y = A e^{3x}\)</span> as our guess and try to solve for <span class="process-math">\(A\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#undetermined-coefficients-eqns-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="undetermined-coefficients-eqns-7">
+<div class="para">When the right-hand side is a multiple of sines, cosines, exponentials, and polynomials, we can use the product rule for differentiation to come up with a guess. We need to guess a form for <span class="process-math">\(y_p\)</span> such that <span class="process-math">\(L[y_p]\)</span> is of the same form, and has all the terms needed to for the right-hand side. For example,</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-7-3">
+\begin{equation*}
+L[y] = (1+3x^2)\,e^{-x}\cos (\pi x) .
+\end{equation*}
+</div>
+<div class="para">For this equation, we guess</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-7-4">
+\begin{equation*}
+y_p = (A + Bx + Cx^2)\,e^{-x} \cos (\pi x) + 
+(D + Ex + Fx^2)\,e^{-x} \sin (\pi x) .
+\end{equation*}
+</div>
+<div class="para">We plug in and then hopefully get equations that we can solve for <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\text{,}\)</span> <span class="process-math">\(C\text{,}\)</span> <span class="process-math">\(D\text{,}\)</span> <span class="process-math">\(E\text{,}\)</span> and <span class="process-math">\(F\text{.}\)</span> As you can see this can make for a very long and calculation very quickly. C’est !</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#undetermined-coefficients-eqns-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="undetermined-coefficients-eqns-8">
+<div class="para">There is one hiccup in all this. It could be that our guess actually solves the associated homogeneous equation. That is, suppose we have</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-8-1">
+\begin{equation*}
+y'' - 9y = e^{3x} .
+\end{equation*}
+</div>
+<div class="para">We would love to guess <span class="process-math">\(y = Ae^{3x}\text{,}\)</span> but if we plug this into the left-hand side of the equation we get</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-8-3">
+\begin{equation*}
+y''-9y = 9Ae^{3x} - 9Ae^{3x} = 0 \not= e^{3x} .
+\end{equation*}
+</div>
+<div class="para">There is no way we can choose <span class="process-math">\(A\)</span> to make the left-hand side be <span class="process-math">\(e^{3x}\text{.}\)</span> The trick in this case is to multiply our guess by <span class="process-math">\(x\)</span> to get rid of duplication with the complementary solution. That is first we compute <span class="process-math">\(y_c\)</span> (solution to <span class="process-math">\(L[y] =
+0\)</span>)</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-8-9">
+\begin{equation*}
+y_c = C_1 e^{-3x} + C_2 e^{3x} ,
+\end{equation*}
+</div>
+<div class="para">and we note that the <span class="process-math">\(e^{3x}\)</span> term is a duplicate with our desired guess. We modify our guess to <span class="process-math">\(y = Axe^{3x}\)</span> so that there is no duplication anymore. Let us try: <span class="process-math">\(y' = Ae^{3x} + 3Axe^{3x}\)</span> and <span class="process-math">\(y'' = 6Ae^{3x} + 9Axe^{3x}\text{,}\)</span> so</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-8-14">
+\begin{equation*}
+y'' -9y = 6Ae^{3x} + 9Axe^{3x} - 9Axe^{3x} = 
+6Ae^{3x} .
+\end{equation*}
+</div>
+<div class="para">Thus <span class="process-math">\(6Ae^{3x}\)</span> is supposed to equal <span class="process-math">\(e^{3x}\text{.}\)</span> Hence, <span class="process-math">\(6A = 1\)</span> and so <span class="process-math">\(A=\nicefrac{1}{6}\text{.}\)</span> We can now write the general solution as</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-8-19">
+\begin{equation*}
+y = y_c + y_p = 
+C_1 e^{-3x} + C_2 e^{3x} + \frac{1}{6}\,xe^{3x} .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#undetermined-coefficients-eqns-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="undetermined-coefficients-eqns-9">Notice that the term of the form <span class="process-math">\(xe^{3x}\)</span> does not show up on the left-hand side after differentiating the equation, and the only term that survives is the <span class="process-math">\(e^{3x}\)</span> term that showed up from the derivatives. This works out because <span class="process-math">\(e^{3x}\)</span> solves the homogeneous problem. With that though, make sure to remember to include the <span class="process-math">\(xe^{3x}\)</span> when you write out the general solution at the end of the problem, because it does appear there.<div class="autopermalink" data-description="Paragraph"><a href="#undetermined-coefficients-eqns-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="undetermined-coefficients-eqns-10">
+<div class="para">It is possible that multiplying by <span class="process-math">\(x\)</span> does not get rid of all duplication. For example,</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-10-2">
+\begin{equation*}
+y''-6y'+9y = e^{3x} .
+\end{equation*}
+</div>
+<div class="para">The complementary solution is <span class="process-math">\(y_c = C_1 e^{3x} + C_2 x e^{3x}\text{.}\)</span> Guessing <span class="process-math">\(y=A xe^{3x}\)</span> would not get us anywhere. In this case we want to guess <span class="process-math">\(y_p = Ax^2e^{3x}\text{.}\)</span> Basically, we want to multiply our guess by <span class="process-math">\(x\)</span> until all duplication is gone. <em class="emphasis">But no more!</em> Multiplying too many times will not work (in that case, the derivatives won’t actually get down to the plain <span class="process-math">\(e^{3x}\)</span> term that you need in order to solve the problem).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#undetermined-coefficients-eqns-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="undetermined-coefficients-eqns-11">
+<div class="para">Finally, what if the right-hand side has several terms, such as</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-11-1">
+\begin{equation*}
+L[y] = e^{2x} + \cos x .
+\end{equation*}
+</div>
+<div class="para">In this case we find <span class="process-math">\(u\)</span> that solves <span class="process-math">\(L[u] = e^{2x}\)</span> and <span class="process-math">\(v\)</span> that solves <span class="process-math">\(L[v] = \cos x\)</span> (that is, do each term separately). Then note that if <span class="process-math">\(y = u+ v\text{,}\)</span> then <span class="process-math">\(L[y] = e^{2x} + \cos x\text{.}\)</span> This is because <span class="process-math">\(L\)</span> is linear; we have <span class="process-math">\(L[y] = L[u+v] = L[u] + L[v] = e^{2x} + \cos x\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#undetermined-coefficients-eqns-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="undetermined-coefficients-eqns-12">To summarize all of this, we can make a table of the different guesses we should make given the form of the right hand side.<div class="autopermalink" data-description="Paragraph"><a href="#undetermined-coefficients-eqns-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="undetermined-coefficients-eqns-13"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.5.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Table 2.5.3: "><a href="#undetermined-coefficients-eqns-13" title="Copy heading and permalink for Table 2.5.3: " aria-label="Copy heading and permalink for Table 2.5.3: ">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b0 r0 l0 t0 lines"><dfn class="terminology">Right hand side</dfn></th>
+<th scope="col" class="c m b0 r0 l0 t0 lines"><dfn class="terminology">Guess</dfn></th>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(a_nx^n + a_{n-1}x^{n-1} + \cdots  + a_1x + a_0\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(Ax^n + Bx^{n-1} + \cdots + Nx + P\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(e^{ax}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(Ae^{ax}\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cos{ax}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(A\cos{ax} + B\sin{ax}\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\sin{ax}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(A\cos{ax} + B\sin{ax}\)</span></td>
+</tr>
+</table></div></figure><div class="para logical" id="undetermined-coefficients-eqns-14">
+<ul class="disc" id="undetermined-coefficients-eqns-14-1">
+<li id="undetermined-coefficients-eqns-14-1-1">
+<div class="para" id="undetermined-coefficients-eqns-14-1-1-1">If there is a product of above terms, guess the product of the guesses. So, for a right hand side of <span class="process-math">\(xe^{ax}\text{,}\)</span> the guess should be <span class="process-math">\((Ax + B)e^{ax}\text{,}\)</span> and for a right hand side of <span class="process-math">\(x\cos{ax}\text{,}\)</span> the guess should be <span class="process-math">\((Ax + B)\cos{ax} + (Cx+D)\sin{ax}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#undetermined-coefficients-eqns-14-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#undetermined-coefficients-eqns-14-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="undetermined-coefficients-eqns-14-1-2">
+<div class="para" id="undetermined-coefficients-eqns-14-1-2-1">If any part solves the homogeneous problem, multiply that entire component by <span class="process-math">\(x\)</span> until nothing does.<div class="autopermalink" data-description="Paragraph"><a href="#undetermined-coefficients-eqns-14-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#undetermined-coefficients-eqns-14-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#undetermined-coefficients-eqns-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="undetermined-coefficients-eqns-15" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.5.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="undetermined-coefficients-eqns-15-2-1">
+<div class="para">Find the solution to the initial value problem</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-15-2-1-1">
+\begin{equation*}
+y'' - 3y' - 4y = 2e^{-x} + 4 \sin(x) \qquad y(0) = -2,\ y'(0) = 1
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#undetermined-coefficients-eqns-15-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="undetermined-coefficients-eqns-15-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="undetermined-coefficients-eqns-15-3-1">
+<div class="para">To start this problem, we look for the solution to the homogeneous problem. The characteristic equation for the left hand side is <span class="process-math">\(r^2 - 3r - 4\text{,}\)</span> which factors as <span class="process-math">\((r-4)(r+1)\text{.}\)</span> Therefore the general solution to the homogeneous problem (or the complementary solution) is</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-15-3-1-3">
+\begin{equation*}
+y_c(x) = C_1e^{4x} + C_2e^{-x} .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#undetermined-coefficients-eqns-15-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="undetermined-coefficients-eqns-15-3-2">
+<div class="para">Next, we want to use undetermined coefficients to solve the non-homogeneous problem. Note that we have to wait until after this part to meet the initial conditions. Since our right-hand side is <span class="process-math">\(2e^{-x} + 4 \sin(x)\text{,}\)</span> we need to guess two components for the two different terms in this function. For the first term, we would want to guess <span class="process-math">\(Ae^{-x}\text{,}\)</span> but this function solves the homogeneous problem. Therefore, we need to multiply by <span class="process-math">\(x\)</span> to use <span class="process-math">\(Axe^{-x}\)</span> as our guess. For the sine term, we need to guess both sine and cosine, so we add <span class="process-math">\(B\sin(x) + C\cos(x)\)</span> to our guess. Therefore, our total guess for the non-homogeneous solution is</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-15-3-2-6">
+\begin{equation*}
+y_p(x) = Axe^{-x} + B\sin(x) + C\cos(x).
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#undetermined-coefficients-eqns-15-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="undetermined-coefficients-eqns-15-3-3">
+<div class="para">We take two derivatives of this function and then plug it into the differential equation</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-15-3-3-1">
+\begin{equation*}
+\begin{split}
+y_p(x) &amp;= Axe^{-x} + B\sin(x) + C\cos(x) \\
+y_p'(x) &amp;= Ae^{-x} - Axe^{-x} + B\cos(x) - C\sin(x) \\
+y_p''(x) &amp;= Axe^{-x} - 2Ae^{-x} - B\sin(x) - C\cos(x)
+\end{split}
+\end{equation*}
+</div>
+<div class="para">so that</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-15-3-3-2">
+\begin{equation*}
+\begin{split}
+y_p'' - 3y_p' - 4y_p &amp;= (Axe^{-x} - 2Ae^{-x} - B\sin(x) - C\cos(x))\\
+&amp;\ \ - 3(Ae^{-x} - Axe^{-x} + B\cos(x) - C\sin(x))\\
+&amp; \ \  - 4(Axe^{-x} + B\sin(x) + C\cos(x))
+\end{split}
+\end{equation*}
+</div>
+<div class="para">which can be simplified to</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-15-3-3-3">
+\begin{equation*}
+y_p'' - 3y_p' - 4y_p = -5Ae^{-x} + (3C - 5B)\sin(x) + (-3B-5C)\cos(x).
+\end{equation*}
+</div>
+<div class="para">Since we want this to equal <span class="process-math">\(2e^{-x} + 4\sin(x)\text{,}\)</span> this means that we need <span class="process-math">\(-5A = 2\text{,}\)</span> so <span class="process-math">\(A = -\nicefrac{2}{5}\text{,}\)</span> as well as <span class="process-math">\(3C - 5B = 4\)</span> and <span class="process-math">\(-3B-5C = 0\text{.}\)</span> The second of these implies that <span class="process-math">\(3B = -5C\text{,}\)</span> or <span class="process-math">\(B = -\nicefrac{5}{3}C\text{,}\)</span> so that the first equation gives <span class="process-math">\(3C - 5(-\nicefrac{5}{3}C) = 4\text{.}\)</span> This implies that <span class="process-math">\((3 + \nicefrac{25}{3})C = 4\)</span> so that</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-15-3-3-13">
+\begin{equation*}
+C = \frac{4}{(3 + \frac{25}{3})} = \frac{4}{\frac{34}{3}} = \frac{6}{17}.
+\end{equation*}
+</div>
+<div class="para">We can then find <span class="process-math">\(B\)</span> as</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-15-3-3-15">
+\begin{equation*}
+B = -\frac{5}{3}C = -\frac{5}{3} \cdot \frac{6}{17} = -\frac{10}{17}.
+\end{equation*}
+</div>
+<div class="para">Therefore, the general solution to this non-homogeneous problem is</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-15-3-3-16">
+\begin{equation*}
+y(x) = C_1e^{4x} + C_2e^{-x} - \frac{2}{5}xe^{-x} - \frac{10}{17}\sin(x) + \frac{6}{17}\cos(x).
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#undetermined-coefficients-eqns-15-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="undetermined-coefficients-eqns-15-3-4">
+<div class="para">Now we can look to meet the initial conditions. We want to differentiate this expression to get</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-15-3-4-1">
+\begin{equation*}
+y'(x) = 4C_1e^{4x} - C_2e^{-x} - \frac{2}{5}e^{-x} + \frac{2}{5}xe^{-x} - \frac{10}{17}\cos(x) - \frac{6}{17}\sin(x)
+\end{equation*}
+</div>
+<div class="para">and then plug zero into both <span class="process-math">\(y\)</span> and <span class="process-math">\(y'\)</span> to get that</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-15-3-4-4">
+\begin{equation*}
+\begin{split}
+y(0) &amp;= C_1 + C_2 + \frac{6}{17} = -2 \\
+y'(0) &amp;= 4C_1 - C_2 - \frac{2}{5} - \frac{10}{17} = 1
+\end{split}
+\end{equation*}
+</div>
+<div class="para">which gives rise to the system</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-15-3-4-5">
+\begin{equation*}
+C_1 + C_2 = -\frac{40}{17} \qquad 4C_1 - C_2 = \frac{169}{85}.
+\end{equation*}
+</div>
+<div class="para">Adding the equations together gives <span class="process-math">\(5C_1 = - \frac{31}{85}\)</span> so that <span class="process-math">\(C_1 = -\frac{31}{425}\)</span> and then <span class="process-math">\(C_2 = -\frac{969}{425} = -\frac{57}{25}\text{.}\)</span> Therefore the solution to the initial value problem is</div>
+<div class="displaymath process-math" id="undetermined-coefficients-eqns-15-3-4-9">
+\begin{equation*}
+y(x) = -\frac{31}{425}e^{4x} - \frac{57}{25}e^{-x} - \frac{2}{5}xe^{-x} - \frac{10}{17}\sin(x) + \frac{6}{17}\cos(x).
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#undetermined-coefficients-eqns-15-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.5.4.1"><a href="#undetermined-coefficients-eqns-15-3" title="Copy heading and permalink for Solution 2.5.4.1" aria-label="Copy heading and permalink for Solution 2.5.4.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 2.5.4: "><a href="#undetermined-coefficients-eqns-15" title="Copy heading and permalink for Example 2.5.4: " aria-label="Copy heading and permalink for Example 2.5.4: ">🔗</a></div></article></details><details id="undetermined-coefficients-eqns-16" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.5.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="undetermined-coefficients-eqns-16-1-1">Verify that this <span class="process-math">\(y(x)\)</span> solves the initial value problem!<div class="autopermalink" data-description="Paragraph"><a href="#undetermined-coefficients-eqns-16-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.5.5"><a href="#undetermined-coefficients-eqns-16" title="Copy heading and permalink for Checkpoint 2.5.5" aria-label="Copy heading and permalink for Checkpoint 2.5.5">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection: Undetermined coefficients"><a href="#undetermined-coefficients-eqns" title="Copy heading and permalink for Subsection: Undetermined coefficients" aria-label="Copy heading and permalink for Subsection: Undetermined coefficients">🔗</a></div></section><section class="subsection" id="variation-of-parameters-eqns"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Variation of parameters</span>
+</h3>
+<div class="para logical" id="variation-of-parameters-eqns-2">
+<div class="para">The method of undetermined coefficients works for many basic problems that crop up. But it does not work all the time. It only works when the right-hand side of the equation <span class="process-math">\(L[y] = f(x)\)</span> has finitely many linearly independent derivatives, so that we can write a guess that consists of them all. Some equations are a bit tougher. Consider</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-2-2">
+\begin{equation*}
+y''+y = \tan x .
+\end{equation*}
+</div>
+<div class="para">Each new derivative of <span class="process-math">\(\tan x\)</span> looks completely different and cannot be written as a linear combination of the previous derivatives. If we start differentiating <span class="process-math">\(\tan x\text{,}\)</span> we get:</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-2-5">
+\begin{equation*}
+\begin{multline*}
+\sec^2 x, \quad
+2\sec^2 x \, \tan x, \quad
+4 \sec^2 x \, \tan^2 x + 2 \sec^4 x, \\
+8 \sec^2 x \, \tan^3 x + 16 \sec^4 x \, \tan x, \quad
+16\sec^2 x \, \tan^4 x + 88 \sec^4 x \tan^2 x + 16 \sec^6 x, \quad
+\ldots
+\end{multline*}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#variation-of-parameters-eqns-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="variation-of-parameters-eqns-3">This equation calls for a different method. We present the method of <em class="emphasis"></em>, which handles any equation of the form <span class="process-math">\(L[y] = f(x)\text{,}\)</span> provided we can solve certain integrals. For simplicity, we restrict ourselves to second order constant coefficient equations, but the method works for higher order equations just as well (the computations become more ). The method also works for equations with nonconstant coefficients, provided we can solve the associated homogeneous equation.<div class="autopermalink" data-description="Paragraph"><a href="#variation-of-parameters-eqns-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="variation-of-parameters-eqns-4">
+<div class="para">Perhaps it is best to explain this method by example. Let us try to solve the equation</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-4-1">
+\begin{equation*}
+L[y] = y''+y = \tan x .
+\end{equation*}
+</div>
+<div class="para">First we find the complementary solution (solution to <span class="process-math">\(L[y_c] = 0\)</span>). We get <span class="process-math">\(y_c = C_1 y_1 + C_2 y_2\text{,}\)</span> where <span class="process-math">\(y_1 = \cos x\)</span> and <span class="process-math">\(y_2 = \sin x\text{.}\)</span> To find a particular solution to the nonhomogeneous equation we try</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-4-6">
+\begin{equation*}
+y_p = y = u_1 y_1 + u_2 y_2 ,
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(u_1\)</span> and <span class="process-math">\(u_2\)</span> are <em class="emphasis">functions</em> and not constants. We are trying to satisfy <span class="process-math">\(L[y] = \tan x\text{.}\)</span> That gives us one condition on the functions <span class="process-math">\(u_1\)</span> and <span class="process-math">\(u_2\text{.}\)</span> Compute (note the product rule!)</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-4-13">
+\begin{equation*}
+y' = (u_1' y_1 + u_2' y_2) + (u_1 y_1' + u_2 y_2').
+\end{equation*}
+</div>
+<div class="para">We can still impose one more condition at our discretion to simplify computations (we have two unknown functions, so we should be allowed two conditions). We require that <span class="process-math">\((u_1' y_1 + u_2' y_2) = 0\text{.}\)</span> This makes computing the second derivative easier.</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-4-15">
+\begin{equation*}
+\begin{align*}
+&amp; y' = u_1 y_1' + u_2 y_2' , \\
+&amp; y'' = (u_1' y_1' + u_2' y_2') + (u_1 y_1'' + u_2 y_2'') .
+\end{align*}
+\end{equation*}
+</div>
+<div class="para">Since <span class="process-math">\(y_1\)</span> and <span class="process-math">\(y_2\)</span> are solutions to <span class="process-math">\(y''+y = 0\text{,}\)</span> we find <span class="process-math">\(y_1'' = - y_1\)</span> and <span class="process-math">\(y_2'' = - y_2\text{.}\)</span> (If the equation was a more general <span class="process-math">\(y''+p(x)y' +q(x)y = 0\text{,}\)</span> we would have <span class="process-math">\(y_i'' = -p(x)y_i' -q(x)y_i\text{.}\)</span>) So</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-4-23">
+\begin{equation*}
+y'' = (u_1' y_1' + u_2' y_2') - (u_1 y_1 + u_2 y_2) .
+\end{equation*}
+</div>
+<div class="para">We have <span class="process-math">\((u_1 y_1 + u_2 y_2) = y\)</span> and so</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-4-25">
+\begin{equation*}
+y'' = (u_1' y_1' + u_2' y_2') - y ,
+\end{equation*}
+</div>
+<div class="para">and hence</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-4-26">
+\begin{equation*}
+y'' + y = L[y] = u_1' y_1' + u_2' y_2' .
+\end{equation*}
+</div>
+<div class="para">For <span class="process-math">\(y\)</span> to satisfy <span class="process-math">\(L[y] = f(x)\)</span> we must have <span class="process-math">\(f(x) = u_1' y_1' + u_2' y_2'\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#variation-of-parameters-eqns-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="variation-of-parameters-eqns-5">
+<div class="para">What we need to solve are the two equations (conditions) we imposed on <span class="process-math">\(u_1\)</span> and <span class="process-math">\(u_2\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-5-3">
+\begin{equation*}
+\mybxbg{~~
+\begin{aligned}
+&amp; u_1' y_1 + u_2' y_2 = 0 ,\\
+&amp; u_1' y_1' + u_2' y_2' = f(x) .
+\end{aligned}
+~~}
+\end{equation*}
+</div>
+<div class="para">We solve for <span class="process-math">\(u_1'\)</span> and <span class="process-math">\(u_2'\)</span> in terms of <span class="process-math">\(f(x)\text{,}\)</span> <span class="process-math">\(y_1\)</span> and <span class="process-math">\(y_2\text{.}\)</span> We always get these formulas for any <span class="process-math">\(L[y] = f(x)\text{,}\)</span> where <span class="process-math">\(L[y] =
+y''+p(x)y'+q(x)y\text{.}\)</span> There is a general formula for the solution we could just plug into, but instead of memorizing that, it is better, and easier, to just repeat what we do below. In our case the two equations are</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-5-11">
+\begin{equation*}
+\begin{align*}
+u_1' \cos (x) + u_2' \sin (x) &amp;= 0 ,\\
+-u_1' \sin (x) + u_2' \cos (x) &amp;= \tan (x) .
+\end{align*}
+\end{equation*}
+</div>
+<div class="para">Hence</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-5-12">
+\begin{equation*}
+\begin{align*}
+u_1' \cos (x) \sin (x) + u_2' \sin^2 (x) &amp; = 0 ,\\
+-u_1' \sin (x) \cos (x) + u_2' \cos^2 (x) &amp; = \tan (x) \cos (x) = \sin (x) .
+\end{align*}
+\end{equation*}
+</div>
+<div class="para">And thus</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-5-13">
+\begin{equation*}
+\begin{align*}
+&amp; u_2' \bigl(\sin^2 (x) + \cos^2 (x)\bigr) = \sin (x) , \\
+&amp; u_2' = \sin (x) , \\
+&amp; u_1' = \frac{- \sin^2 (x)}{\cos (x)} = - \tan (x) \sin (x) .
+\end{align*}
+\end{equation*}
+</div>
+<div class="para">We integrate <span class="process-math">\(u_1'\)</span> and <span class="process-math">\(u_2'\)</span> to get <span class="process-math">\(u_1\)</span> and <span class="process-math">\(u_2\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-5-18">
+\begin{equation*}
+\begin{align*}
+&amp; u_1 = \int u_1'\,dx 
+= \int - \tan (x) \sin (x)\,dx
+= \frac{1}{2}
+\ln \left\lvert \frac{\sin (x)-1}{\sin (x) + 1} \right\rvert
++ \sin (x) , \\
+&amp; u_2 = \int u_2'\,dx 
+= \int \sin (x)\,dx = -\cos (x) .
+\end{align*}
+\end{equation*}
+</div>
+<div class="para">So our particular solution is</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-5-19">
+\begin{equation*}
+\begin{multline*}
+y_p = u_1 y_1 + u_2 y_2 =
+\frac{1}{2} \cos (x) \ln \left\lvert \frac{\sin (x)-1}{\sin (x) + 1}
+\right\rvert
++ \cos (x) \sin (x)
+-\cos (x) \sin (x)
+= \\ =
+\frac{1}{2} \cos (x) \ln \left\lvert \frac{\sin (x)-1}{\sin (x) + 1}
+\right\rvert .
+\end{multline*}
+\end{equation*}
+</div>
+<div class="para">The general solution to <span class="process-math">\(y'' + y = \tan x\)</span> is, therefore,</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-5-21">
+\begin{equation*}
+y = C_1 \cos (x) + C_2 \sin (x) +
+\frac{1}{2} \cos (x) \ln \left\lvert \frac{\sin (x)-1}{\sin (x) + 1}
+\right\rvert .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#variation-of-parameters-eqns-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="variation-of-parameters-eqns-6">
+<div class="para">In more generality, we can take the system of equations</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-6-1">
+\begin{equation*}
+\mybxbg{~~
+\begin{aligned}
+&amp; u_1' y_1 + u_2' y_2 = 0 ,\\
+&amp; u_1' y_1' + u_2' y_2' = f(x) .
+\end{aligned}
+~~}
+\end{equation*}
+</div>
+<div class="para">and solve out for <span class="process-math">\(u_1'\)</span> and <span class="process-math">\(u_2'\)</span> using elimination. If we do that, we get that</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-6-4">
+\begin{equation*}
+u_1' = -\frac{y_2(x)f(x)}{y_1(x)y_2'(x) - y_1'(x)y_2(x)} \qquad u_2' = \frac{y_1(x)f(x)}{y_1(x)y_2'(x) - y_1'(x)y_2(x)}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#variation-of-parameters-eqns-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="variation-of-parameters-eqns-7">
+<div class="para">We know that solving the equations this way will work out because we start with the assumption that <span class="process-math">\(y_1\)</span> and <span class="process-math">\(y_2\)</span> are linearly independent solutions, and the denominator of both of these fractions is exactly what we know is not zero from this assumption. Therefore, both of these functions can be written this way, we can integrate both of them, and set up our particular solution of the form <span class="process-math">\(y_p(x) = u_1y_1 + u_2y_2\)</span> to get</div>
+<div class="displaymath process-math" id="varpar-eqn">
+\begin{equation}
+y_p(x) = -y_1(x)\int_{x_0}^x \frac{y_2(r)f(r)}{y_1(r)y_2'(r) - y_1'(r)y_2(r)}\ dr + y_2(x)\int_{x_0}^x \frac{y_1(r)f(r)}{y_1(r)y_2'(r) - y_1'(r)y_2(r)}\ dr\tag{2.5.3}
+\end{equation}
+</div>
+<div class="para">where <span class="process-math">\(x_0\)</span> is any conveniently chosen value (usually zero). Notice the use of <span class="process-math">\(r\)</span> as a dummy variable here to separate the functions being integrated from the actual variable that shows up in the solution. This formula will always work for finding a particular solution to a non-homogeneous equation given that we know the solution to the homogeneous equation, but we may not be able to work out the integrals explicitly. This is the downside of this method, it may always work, but can be very tedious and may not result in nice, closed-form expressions like we might get from other methods.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#variation-of-parameters-eqns-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="variation-of-parameters-eqns-8" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.5.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="variation-of-parameters-eqns-8-2-1">
+<div class="para">Find the general solution to the differential equation</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-8-2-1-1">
+\begin{equation*}
+y'' + 4y' + 3y = e^{3x} + 2
+\end{equation*}
+</div>
+<div class="para">using both undetermined coefficients and variation of parameters.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#variation-of-parameters-eqns-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="variation-of-parameters-eqns-8-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="variation-of-parameters-eqns-8-3-1">
+<div class="para">For both methods of solving non-homogeneous equations, we need the solution to the homogeneous problem. For this equation, the characteristic polynomial is <span class="process-math">\(r^2 + 4r + 3\text{,}\)</span> which factors as <span class="process-math">\((r+1)(r+3)\text{,}\)</span> so the general solution to the homogeneous problem is</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-8-3-1-3">
+\begin{equation*}
+y_c(x) = C_1 e^{-x} + C_2e^{-3x}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#variation-of-parameters-eqns-8-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="variation-of-parameters-eqns-8-3-2">
+<div class="para">To use undetermined coefficients, we need to get the appropriate guess for the right-hand side, which in this case is <span class="process-math">\(y_p(x) = Ae^{3x} + B\text{.}\)</span> Plugging this in to the differential equation gives</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-8-3-2-2">
+\begin{equation*}
+9Ae^{3x} + 4(3Ae^{3x}) + 3(Ae^{3x} + B) = e^{3x} + 2
+\end{equation*}
+</div>
+<div class="para">which simplifies to</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-8-3-2-3">
+\begin{equation*}
+24Ae^{3x} + 3B = e^{3x} + 2
+\end{equation*}
+</div>
+<div class="para">so that <span class="process-math">\(A = \nicefrac{1}{24}\)</span> and <span class="process-math">\(B = \nicefrac{2}{3}\text{.}\)</span> Thus, the general solution to the non-homogeneous equation is</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-8-3-2-6">
+\begin{equation*}
+y(x) = C_1e^{-x} + C_2e^{-3x} + \frac{1}{24}e^{3x} + \frac{2}{3}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#variation-of-parameters-eqns-8-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="variation-of-parameters-eqns-8-3-3">
+<div class="para">In order to use variation of parameters, we let <span class="process-math">\(y_1(x) = e^{-x}\)</span> and <span class="process-math">\(y_2(x) = e^{-3x}\)</span> be the two linearly independent solutions that we found to the homogeneous problem. Our right-hand side function is <span class="process-math">\(f(x) = e^{3x} + 2\)</span> and we can compute the expression</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-8-3-3-4">
+\begin{equation*}
+y_1(x)y_2'(x) - y_1'(x)y_2(x) = e^{-x}(-3e^{-3x}) - (-e^{-x})e^{-3x} = -2e^{-4x}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#variation-of-parameters-eqns-8-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="variation-of-parameters-eqns-8-3-4">
+<div class="para">Therefore, we can use the formulas from the method of variation of parameters to compute that</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-8-3-4-1">
+\begin{equation*}
+\begin{split}
+u_1' &amp;= -\frac{y_2(x)f(x)}{y_1(x)y_2'(x) - y_1'(x)y_2(x)} = -\frac{e^{-3x}(e^{3x} + 2)}{-2e^{-4x}} = \frac{1}{2}e^{4x} + e^x \\
+u_2' &amp;= \frac{y_1(x)f(x)}{y_1(x)y_2'(x) - y_1'(x)y_2(x)} = \frac{e^{-x}(e^{3x} + 2)}{-2e^{-4x}} = -\frac{1}{2}e^{6x} - e^{3x}.
+\end{split}
+\end{equation*}
+</div>
+<div class="para">Then we can compute</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-8-3-4-2">
+\begin{equation*}
+u_1 = \frac{1}{8}e^{4x} + e^x + C_1 \qquad u_2 = -\frac{1}{12}e^{6x} - \frac{1}{3}e^{3x} + C_2.
+\end{equation*}
+</div>
+<div class="para">Then, we can write out the full general solution as <span class="process-math">\(y(x) = u_1(x)y_1(x) + u_2(x)y_2(x)\)</span> or</div>
+<div class="displaymath process-math" id="variation-of-parameters-eqns-8-3-4-4">
+\begin{equation*}
+\begin{split}
+y(x) &amp;= e^{-x}\left( \frac{1}{8}e^{4x} + e^x + C_1 \right) + e^{-3x}\left(-\frac{1}{12}e^{6x} - \frac{1}{3}e^{3x} + C_2 \right) \\
+&amp;= \frac{1}{8}e^{3x} + 1 + C_1e^{-x} - \frac{1}{12}e^{3x} - \frac{1}{3} + C_2e^{-3x}
+\end{split}
+\end{equation*}
+</div>
+<div class="para">which, after combining the terms, is the same as the solution that we obtained via undetermined coefficients.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#variation-of-parameters-eqns-8-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.5.6.1"><a href="#variation-of-parameters-eqns-8-3" title="Copy heading and permalink for Solution 2.5.6.1" aria-label="Copy heading and permalink for Solution 2.5.6.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 2.5.6: "><a href="#variation-of-parameters-eqns-8" title="Copy heading and permalink for Example 2.5.6: " aria-label="Copy heading and permalink for Example 2.5.6: ">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection: Variation of parameters"><a href="#variation-of-parameters-eqns" title="Copy heading and permalink for Subsection: Variation of parameters" aria-label="Copy heading and permalink for Subsection: Variation of parameters">🔗</a></div></section><section class="exercises" id="sec-nonhom-5"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="sec-nonhom-5-2"><h4 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-nonhom-5-2-1-1">Find a particular solution of <span class="process-math">\(y''-y' -6y = e^{2x}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-nonhom-5-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-nonhom-5-2-2-1">
+<span class="process-math">\(-\frac{1}{4}e^{2x}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 1.1"><a href="#sec-nonhom-5-2-2" title="Copy heading and permalink for Answer 1.1" aria-label="Copy heading and permalink for Answer 1.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 1"><a href="#sec-nonhom-5-2" title="Copy heading and permalink for Exercise 1" aria-label="Copy heading and permalink for Exercise 1">🔗</a></div></article><article class="exercise exercise-like" id="sec-nonhom-5-3"><h4 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-nonhom-5-3-1-1">Find a particular solution of <span class="process-math">\(y''-4y' +4y = e^{2x}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-nonhom-5-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-nonhom-5-3-2-1">
+<span class="process-math">\(\frac{1}{2}x^2e^{2x}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.1"><a href="#sec-nonhom-5-3-2" title="Copy heading and permalink for Answer 2.1" aria-label="Copy heading and permalink for Answer 2.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 2"><a href="#sec-nonhom-5-3" title="Copy heading and permalink for Exercise 2" aria-label="Copy heading and permalink for Exercise 2">🔗</a></div></article><article class="exercise exercise-like" id="sec-nonhom-5-4"><h4 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-nonhom-5-4-1-1">Find a particular solution to <span class="process-math">\(y''-y'+y=2\sin(3x)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3"><a href="#sec-nonhom-5-4" title="Copy heading and permalink for Exercise 3" aria-label="Copy heading and permalink for Exercise 3">🔗</a></div></article><article class="exercise exercise-like" id="sec-nonhom-5-5"><h4 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-nonhom-5-5-1-1">Solve the initial value problem <span class="process-math">\(y''+9y = \cos (3x) + \sin (3x)\)</span> for <span class="process-math">\(y(0) = 2\text{,}\)</span> <span class="process-math">\(y'(0) = 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-nonhom-5-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-nonhom-5-5-2-1">
+<span class="process-math">\(y(x) = 2\cos(3x) + \frac{7}{18}\sin(3x) - \frac{1}{6}x\cos(3x) + \frac{1}{6}x\sin(3x)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 4.1"><a href="#sec-nonhom-5-5-2" title="Copy heading and permalink for Answer 4.1" aria-label="Copy heading and permalink for Answer 4.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 4"><a href="#sec-nonhom-5-5" title="Copy heading and permalink for Exercise 4" aria-label="Copy heading and permalink for Exercise 4">🔗</a></div></article><article class="exercise exercise-like" id="sec-nonhom-5-6"><h4 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-nonhom-5-6-1-1">Set up the form of the particular solution but do not solve for the coefficients for <span class="process-math">\(y^{(4)}-2y'''+y'' = e^x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-nonhom-5-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-nonhom-5-6-2-1">
+<span class="process-math">\(Ax^2e^x\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.1"><a href="#sec-nonhom-5-6-2" title="Copy heading and permalink for Answer 5.1" aria-label="Copy heading and permalink for Answer 5.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 5"><a href="#sec-nonhom-5-6" title="Copy heading and permalink for Exercise 5" aria-label="Copy heading and permalink for Exercise 5">🔗</a></div></article><article class="exercise exercise-like" id="sec-nonhom-5-7"><h4 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-nonhom-5-7-1-1">Set up the form of the particular solution but do not solve for the coefficients for <span class="process-math">\(y^{(4)}-2y'''+y'' = e^x + x + \sin x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-nonhom-5-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-nonhom-5-7-2-1">
+<span class="process-math">\(Ax^3 + Bx^2 + Cx^2e^x + D\sin(x) + E\cos(x)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 6.1"><a href="#sec-nonhom-5-7-2" title="Copy heading and permalink for Answer 6.1" aria-label="Copy heading and permalink for Answer 6.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 6"><a href="#sec-nonhom-5-7" title="Copy heading and permalink for Exercise 6" aria-label="Copy heading and permalink for Exercise 6">🔗</a></div></article><article class="exercise exercise-like" id="sec-nonhom-5-8"><h4 class="heading"><span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-nonhom-5-8-1-1">Solve <span class="process-math">\(y''+2y'+y = x^2\text{,}\)</span> <span class="process-math">\(y(0)=1\text{,}\)</span> <span class="process-math">\(y'(0)=2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 7"><a href="#sec-nonhom-5-8" title="Copy heading and permalink for Exercise 7" aria-label="Copy heading and permalink for Exercise 7">🔗</a></div></article><article class="exercise exercise-like" id="sec-nonhom-5-9"><h4 class="heading"><span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-nonhom-5-9-1-1">Use the <em class="emphasis">method of undetermined coefficients</em> to solve the DE <span class="process-math">\(y''+4y'=2t+30\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-nonhom-5-9-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-nonhom-5-9-2-1">
+<span class="process-math">\(y(t) = C_1 + C_2e^{-4t} + \frac{1}{4}t + \frac{59}{8}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 8.1"><a href="#sec-nonhom-5-9-2" title="Copy heading and permalink for Answer 8.1" aria-label="Copy heading and permalink for Answer 8.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 8"><a href="#sec-nonhom-5-9" title="Copy heading and permalink for Exercise 8" aria-label="Copy heading and permalink for Exercise 8">🔗</a></div></article><article class="exercise exercise-like" id="sec-nonhom-5-10"><h4 class="heading"><span class="codenumber">9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4> <div class="para" id="sec-nonhom-5-10-1-1">Using variation of parameters find a particular solution of <span class="process-math">\(y''-2y'+y = e^x\text{.}\)</span> Find a particular solution using undetermined coefficients. Are the two solutions you found the same? See also .<div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-nonhom-5-10-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-nonhom-5-10-2-1">
+<span class="process-math">\(\frac{x^2}{2}e^x\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-10-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 9.1"><a href="#sec-nonhom-5-10-2" title="Copy heading and permalink for Answer 9.1" aria-label="Copy heading and permalink for Answer 9.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 9"><a href="#sec-nonhom-5-10" title="Copy heading and permalink for Exercise 9" aria-label="Copy heading and permalink for Exercise 9">🔗</a></div></article><article class="exercise exercise-like" id="sec-nonhom-5-11"><h4 class="heading"><span class="codenumber">10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4> <div class="para" id="sec-nonhom-5-11-1-1">Find a particular solution to <span class="process-math">\(y''+2y=e^x + x^3\text{.}\)</span> Find the general solution.<div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 10"><a href="#sec-nonhom-5-11" title="Copy heading and permalink for Exercise 10" aria-label="Copy heading and permalink for Exercise 10">🔗</a></div></article><article class="exercise exercise-like" id="sec-nonhom-5-12"><h4 class="heading"><span class="codenumber">11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-nonhom-5-12-1-1">Find the general solution to <span class="process-math">\(y'' - 3y' - 4y = e^{2t} + 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-12-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-nonhom-5-12-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-nonhom-5-12-2-1">
+<span class="process-math">\(y(t) = C_1e^{4t} + C_2e^{-t} - \frac{1}{6}e^{2t} - \frac{1}{4}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-12-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 11.1"><a href="#sec-nonhom-5-12-2" title="Copy heading and permalink for Answer 11.1" aria-label="Copy heading and permalink for Answer 11.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 11"><a href="#sec-nonhom-5-12" title="Copy heading and permalink for Exercise 11" aria-label="Copy heading and permalink for Exercise 11">🔗</a></div></article><article class="exercise exercise-like" id="sec-nonhom-5-13"><h4 class="heading"><span class="codenumber">12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-nonhom-5-13-1-1">Find the general solution to <span class="process-math">\(y'' - 2y' + 5y = \sin(3t) + 2\cos(3t)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-13-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-nonhom-5-13-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-nonhom-5-13-2-1">
+<span class="process-math">\(y(t) = C_1e^t\cos(2t) + C_2e^t\sin(2t) - \frac{4}{13}\sin(3t) - \frac{1}{26}\cos(3t)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-13-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 12.1"><a href="#sec-nonhom-5-13-2" title="Copy heading and permalink for Answer 12.1" aria-label="Copy heading and permalink for Answer 12.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 12"><a href="#sec-nonhom-5-13" title="Copy heading and permalink for Exercise 12" aria-label="Copy heading and permalink for Exercise 12">🔗</a></div></article><article class="exercise exercise-like" id="sec-nonhom-5-14"><h4 class="heading"><span class="codenumber">13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-nonhom-5-14-1-1">Find the general solution to <span class="process-math">\(y'' - 4y' - 21y = e^{-3t} + e^{4t}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-14-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-nonhom-5-14-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-nonhom-5-14-2-1">
+<span class="process-math">\(y(t) = C_1e^{7t} + C_2e^{-3t} - \frac{1}{10}te^{-3t} - \frac{1}{21}e^{4t}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-14-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 13.1"><a href="#sec-nonhom-5-14-2" title="Copy heading and permalink for Answer 13.1" aria-label="Copy heading and permalink for Answer 13.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 13"><a href="#sec-nonhom-5-14" title="Copy heading and permalink for Exercise 13" aria-label="Copy heading and permalink for Exercise 13">🔗</a></div></article><article class="exercise exercise-like" id="sec-nonhom-5-15"><h4 class="heading"><span class="codenumber">14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-nonhom-5-15-1-1">Find the general solution to <span class="process-math">\(y'' - 2y' + y = e^t - t\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-15-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-nonhom-5-15-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-nonhom-5-15-2-1">
+<span class="process-math">\(y(t) = C_1e^t + C_2te^t + \frac{1}{2}t^2e^t - t - 2\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-15-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 14.1"><a href="#sec-nonhom-5-15-2" title="Copy heading and permalink for Answer 14.1" aria-label="Copy heading and permalink for Answer 14.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 14"><a href="#sec-nonhom-5-15" title="Copy heading and permalink for Exercise 14" aria-label="Copy heading and permalink for Exercise 14">🔗</a></div></article><article class="exercise exercise-like" id="sec-nonhom-5-16"><h4 class="heading"><span class="codenumber">15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-nonhom-5-16-1-1">Find the general solution to <span class="process-math">\(y'' + 4y = \sec(2t)\)</span> using variation of parameters.<div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-16-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-nonhom-5-16-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-nonhom-5-16-2-1">
+<span class="process-math">\(y(t) = C_1\cos(2t) + C_2\sin(2t) + \frac{1}{4}\cos(2t)\ln(\cos(2t)) + \frac{1}{2}t\sin(2t)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-16-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 15.1"><a href="#sec-nonhom-5-16-2" title="Copy heading and permalink for Answer 15.1" aria-label="Copy heading and permalink for Answer 15.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 15"><a href="#sec-nonhom-5-16" title="Copy heading and permalink for Exercise 15" aria-label="Copy heading and permalink for Exercise 15">🔗</a></div></article><article class="exercise exercise-like" id="sec-nonhom-5-17"><h4 class="heading"><span class="codenumber">16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-nonhom-5-17-1-1">Find the solution of the initial value problem <span class="process-math">\(y'' - 2y' - 15y = e^{5t} + 3\text{,}\)</span> <span class="process-math">\(y(0) = 2\text{,}\)</span> <span class="process-math">\(y'(0) = -1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-17-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-nonhom-5-17-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-nonhom-5-17-2-1">
+<span class="process-math">\(y(t) = \frac{219}{320}e^{5t} + \frac{97}{64}e^{-3t} + \frac{1}{8}te^{5t} - \frac{1}{5}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-17-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 16.1"><a href="#sec-nonhom-5-17-2" title="Copy heading and permalink for Answer 16.1" aria-label="Copy heading and permalink for Answer 16.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 16"><a href="#sec-nonhom-5-17" title="Copy heading and permalink for Exercise 16" aria-label="Copy heading and permalink for Exercise 16">🔗</a></div></article><article class="exercise exercise-like" id="sec-nonhom-5-18"><h4 class="heading"><span class="codenumber">17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-nonhom-5-18-1-1">Find the solution of the initial value problem <span class="process-math">\(y'' + 4y' + 5y = \cos(3t) + t\text{,}\)</span> <span class="process-math">\(y(0) = 0\text{,}\)</span> <span class="process-math">\(y'(0) = 2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-18-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-nonhom-5-18-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-nonhom-5-18-2-1">
+<span class="process-math">\(y(t) = \frac{37}{200}e^{-2t}\cos(t) + \frac{389}{200}e^{-2t}\sin(t) - \frac{1}{40}\cos(3t) + \frac{3}{40}\sin(3t) + \frac{t}{5} - \frac{4}{25}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-18-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 17.1"><a href="#sec-nonhom-5-18-2" title="Copy heading and permalink for Answer 17.1" aria-label="Copy heading and permalink for Answer 17.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 17"><a href="#sec-nonhom-5-18" title="Copy heading and permalink for Exercise 17" aria-label="Copy heading and permalink for Exercise 17">🔗</a></div></article><article class="exercise exercise-like" id="sec-nonhom-5-19"><h4 class="heading"><span class="codenumber">18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-nonhom-5-19-1-1">The following differential equations are all related. Find the general solution to each of them and compare and contrast the different solutions and the methods used to approach them.<div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-19-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="sec-nonhom-5-19-1-2">
+<span class="process-math">\(y'' - 2y' - 15y = e^t + 5e^{-4t}\)</span> <span class="process-math">\(y'' - 2y' - 15y = 2e^{2t} + 3e^{-t}\)</span> <span class="process-math">\(y'' - 2y' - 15y = 3\cos(2t)\)</span> <span class="process-math">\(y'' - 2y' - 15y = 2e^{5t} - \sin(t)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-19-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-nonhom-5-19-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-nonhom-5-19-2-1">a) <span class="process-math">\(C_1e^{5t} + C_2e^{-3t}  - \frac{1}{16}e^t + \frac{5}{9}e^{-4t}\)</span> b) <span class="process-math">\(C_1e^{5t} + C_2e^{-3t}  - \frac{2}{15}e^{2t} - \frac{3}{13}e^{-t}\)</span>c) <span class="process-math">\(C_1e^{5t} + C_2e^{-3t}  - \frac{57}{377}\cos(2t) - \frac{12}{377}\sin(2t)\)</span> d) <span class="process-math">\(C_1e^{5t} + C_2e^{-3t}  + \frac{1}{4}te^{5t} - \frac{1}{130}\cos(t) + \frac{4}{65}\sin(t)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-19-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 18.1"><a href="#sec-nonhom-5-19-2" title="Copy heading and permalink for Answer 18.1" aria-label="Copy heading and permalink for Answer 18.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 18"><a href="#sec-nonhom-5-19" title="Copy heading and permalink for Exercise 18" aria-label="Copy heading and permalink for Exercise 18">🔗</a></div></article><article class="exercise exercise-like" id="sec-nonhom-5-20"><h4 class="heading"><span class="codenumber">19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-nonhom-5-20-1-1">The following differential equations are all related. Find the general solution to each of them and compare and contrast the different solutions and the methods used to approach them.<div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-20-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="sec-nonhom-5-20-1-2">
+<span class="process-math">\(y'' + 4y' + 3y = e^{2t} + 3e^{4t}\)</span> <span class="process-math">\(y'' - 2y' + 5y = e^{2t} + 3e^{4t}\)</span> <span class="process-math">\(y'' + 3y' - 10y = e^{2t} + 3e^{4t}\)</span> <span class="process-math">\(y'' - 8y'  + 16y = e^{2t} + 3e^{4t}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-20-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-nonhom-5-20-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-nonhom-5-20-2-1">a) <span class="process-math">\(C_1e^{-t} + C_2e^{-3t} + \frac{1}{11}e^{2t} + \frac{3}{35}e^{4t}\)</span> b) <span class="process-math">\(C_1e^{t}\cos(2t) + C_2e^t\sin(2t) + \frac{1}{20}e^{2t} + \frac{3}{13}e^{4t}\)</span>c) <span class="process-math">\(C_1e^{-5t} + C_2e^{2t} + \frac{1}{7}te^{2t} - \frac{1}{2}e^{4t}\)</span> d) <span class="process-math">\(C_1e^{4t} + C_2te^{4t} - \frac{1}{28}e^{2t} + \frac{3}{2}t^2e^{4t}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-20-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 19.1"><a href="#sec-nonhom-5-20-2" title="Copy heading and permalink for Answer 19.1" aria-label="Copy heading and permalink for Answer 19.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 19"><a href="#sec-nonhom-5-20" title="Copy heading and permalink for Exercise 19" aria-label="Copy heading and permalink for Exercise 19">🔗</a></div></article><article class="exercise exercise-like" id="sec-nonhom-5-21"><h4 class="heading"><span class="codenumber">20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-nonhom-5-21-1-1">Find a particular solution of <span class="process-math">\(y''-2y' +y = \sin (x^2)\text{.}\)</span> It is OK to leave the answer as a definite integral.<div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-21-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-nonhom-5-21-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-nonhom-5-21-2-1">
+<span class="process-math">\(e^x\int_0^x se^{-s}\sin(s^2)\ ds + xe^x\int_0^xe^{-s}\sin(s^2)\ ds\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-21-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 20.1"><a href="#sec-nonhom-5-21-2" title="Copy heading and permalink for Answer 20.1" aria-label="Copy heading and permalink for Answer 20.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 20"><a href="#sec-nonhom-5-21" title="Copy heading and permalink for Exercise 20" aria-label="Copy heading and permalink for Exercise 20">🔗</a></div></article><article class="exercise exercise-like" id="sec-nonhom-5-22"><h4 class="heading"><span class="codenumber">21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-nonhom-5-22-1-1">Use variation of parameters to find a particular solution of <span class="process-math">\(y''-y = \frac{1}{e^x+e^{-x}}\text{.}\)</span><em class="emphasis">Hint:</em> To make this problem easier, you can use <span class="process-math">\(C_1 (e^x + e^{-x}) + C_2 (e^{x} - e^{-x})\)</span> as the general solution to the homogeneous problem.<div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-22-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 21"><a href="#sec-nonhom-5-22" title="Copy heading and permalink for Exercise 21" aria-label="Copy heading and permalink for Exercise 21">🔗</a></div></article><article class="exercise exercise-like" id="sec-nonhom-5-23"><h4 class="heading"><span class="codenumber">22<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-nonhom-5-23-1-1">Recall that a homogeneous <em class="emphasis"></em> is one of the form <span class="process-math">\(t^2y'' + aty' + by = 0\)</span> and is solved by using the guess <span class="process-math">\(y(t) = t^r\)</span> and solving for the potential values of <span class="process-math">\(r\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-23-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="sec-nonhom-5-23-1-2">Solve <span class="process-math">\(t^2y''-2ty'-10y=0\text{.}\)</span> Let <span class="process-math">\(y_1\)</span> and <span class="process-math">\(y_2\)</span> be the two linearly independent parts of a general solution for the above equation, so that the general solution is <span class="process-math">\(C_1y_1 + C_2y_2\text{.}\)</span> Use the variation of parameters equations <span class="process-math">\(\displaystyle u_1=-\int \frac{y_2\, g(t)}{y_1y_2' - y_2y_1'}\,dt\text{,}\)</span> <span class="process-math">\(\displaystyle y_2=\int \frac{y_1\, g(t)}{y_1y_2' - y_2y_1'}\,dt\)</span> to solve the non-homogeneous equation <span class="process-math">\(\displaystyle y''-\frac{2}{t} - \frac{10}{t^2}=t^3\text{.}\)</span> (Do not attempt method of undetermined coefficients instead; it won’t work.)<div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-23-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-nonhom-5-23-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-nonhom-5-23-2-1">a) <span class="process-math">\(y(t) = C_1t^5 + C_2t^{-2}\)</span> b) <span class="process-math">\(y(t) = C_1t^5 + C_2t^{-2} + t^5\left(\frac{1}{7}\ln(|t|) - \frac{1}{49}\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-23-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 22.1"><a href="#sec-nonhom-5-23-2" title="Copy heading and permalink for Answer 22.1" aria-label="Copy heading and permalink for Answer 22.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 22"><a href="#sec-nonhom-5-23" title="Copy heading and permalink for Exercise 22" aria-label="Copy heading and permalink for Exercise 22">🔗</a></div></article><article class="exercise exercise-like" id="sec-nonhom-5-24"><h4 class="heading"><span class="codenumber">23<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-nonhom-5-24-1-1">For an arbitrary constant <span class="process-math">\(c\)</span> find the general solution to <span class="process-math">\(y''-2y=\sin(x+c)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-24-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 23"><a href="#sec-nonhom-5-24" title="Copy heading and permalink for Exercise 23" aria-label="Copy heading and permalink for Exercise 23">🔗</a></div></article><article class="exercise exercise-like" id="sec-nonhom-5-25"><h4 class="heading"><span class="codenumber">24<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-nonhom-5-25-1-1">For an arbitrary constant <span class="process-math">\(c\)</span> find a particular solution to <span class="process-math">\(y''-y=e^{cx}\text{.}\)</span> Hint: Make sure to handle every possible real <span class="process-math">\(c\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-25-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-nonhom-5-25-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-nonhom-5-25-2-1">
+<span class="process-math">\(c\neq \pm1\text{:}\)</span> <span class="process-math">\(C_1e^x + C_2e^{-x} + \frac{1}{c^2 - 1}e^{cx}\text{,}\)</span>  <span class="process-math">\(c=1\text{:}\)</span> <span class="process-math">\(C_1e^x + C_2e^{-x} + \frac{1}{2}xe^x\text{,}\)</span>  <span class="process-math">\(c=-1\text{:}\)</span> <span class="process-math">\(C_1e^x + C_2e^{-x} - \frac{1}{2}xe^{-x}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-25-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 24.1"><a href="#sec-nonhom-5-25-2" title="Copy heading and permalink for Answer 24.1" aria-label="Copy heading and permalink for Answer 24.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 24"><a href="#sec-nonhom-5-25" title="Copy heading and permalink for Exercise 24" aria-label="Copy heading and permalink for Exercise 24">🔗</a></div></article><article class="exercise exercise-like" id="sec-nonhom-5-26"><h4 class="heading"><span class="codenumber">25<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-nonhom-5-26-1-1"><div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-26-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>  <div class="para" id="sec-nonhom-5-26-1-2">Using variation of parameters find a particular solution of <span class="process-math">\(y''-y = e^x\text{.}\)</span> Find a particular solution using undetermined coefficients. Are the two solutions you found the same? What is going on?<div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-26-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-nonhom-5-26-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-nonhom-5-26-2-1">a) <span class="process-math">\(\frac{1}{2}xe^x - \frac{1}{4}e^x\)</span> b) <span class="process-math">\(\frac{1}{2}xe^x\)</span> c) They differ by a <span class="process-math">\(Ce^x\)</span> term<div class="autopermalink" data-description="Paragraph"><a href="#sec-nonhom-5-26-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 25.1"><a href="#sec-nonhom-5-26-2" title="Copy heading and permalink for Answer 25.1" aria-label="Copy heading and permalink for Answer 25.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 25"><a href="#sec-nonhom-5-26" title="Copy heading and permalink for Exercise 25" aria-label="Copy heading and permalink for Exercise 25">🔗</a></div></article><div class="autopermalink" data-description="Exercises: Exercises"><a href="#sec-nonhom-5" title="Copy heading and permalink for Exercises: Exercises" aria-label="Copy heading and permalink for Exercises: Exercises">🔗</a></div></section><div class="autopermalink" data-description="Section 2.5: Nonhomogeneous equations"><a href="#sec-nonhom" title="Copy heading and permalink for Section 2.5: Nonhomogeneous equations" aria-label="Copy heading and permalink for Section 2.5: Nonhomogeneous equations">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec-mv.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="forcedo-section.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

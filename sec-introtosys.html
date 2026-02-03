@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Introduction to systems of ODEs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Differential Equations">
+<meta property="book:author" content="Matt Charnley">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.11.12';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.0d5f811896ddeac1.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.e2abc79debce15fd.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Differential Equations</span> <span class="subtitle">An Introduction for Engineers</span></a></h1>
+<p class="byline">Matt Charnley</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sys-chapter.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="sys-chapter.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-matrix.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="intro-chapter.html" class="internal"><span class="codenumber">0</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introde-section.html" class="internal"><span class="codenumber">0.1</span> <span class="title">Introduction to differential equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#differential-equations" class="internal"><span class="title">Differential equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#solutions-of-differential-equations" class="internal"><span class="title">Solutions of differential equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#differential-equations-in-practice" class="internal"><span class="title">Differential equations in practice</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#subsection-fourfundamental" class="internal"><span class="title">Four fundamental equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="introde-section.html#introde-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="classification-section.html" class="internal"><span class="codenumber">0.2</span> <span class="title">Classification of differential equations</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="classification-section.html#classification-section-16" class="internal"><span class="codenumber">0.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="fo-chapter.html" class="internal"><span class="codenumber">1</span> <span class="title">First Order Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="integralsols-section.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Integrals as solutions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="integralsols-section.html#integralsols-section-14" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="slopefields-section.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Slope fields</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slopefields-section.html#slope-fields" class="internal"><span class="title">Slope fields</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="slopefields-section.html#slopefields-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="separable-section.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Separable equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable-section.html#separable-equations" class="internal"><span class="title">Separable equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable-section.html#implicit-solutions" class="internal"><span class="title">Implicit solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable-section.html#examples-of-separable-equations" class="internal"><span class="title">Examples of separable equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="separable-section.html#separable-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="intfactor-section.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Linear equations and the integrating factor</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="intfactor-section.html#intfactor-section-18" class="internal"><span class="codenumber">1.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="existunique-section.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Existence and Uniqueness of Solutions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="existunique-section.html#existunique-section-18" class="internal"><span class="codenumber">1.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="numer-section.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Numerical methods: Euler’s method</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="numer-section.html#numer-section-23" class="internal"><span class="codenumber">1.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="auteq-section.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Autonomous equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auteq-section.html#subsec-autoIntro" class="internal"><span class="title">Introduction and Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auteq-section.html#concavity-of-solutions" class="internal"><span class="title">Concavity of Solutions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="auteq-section.html#auteq-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="bifDiag-section.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Bifurcation diagrams</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="bifDiag-section.html#bifDiag-section-13" class="internal"><span class="codenumber">1.8</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="exact-section.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Exact equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact-section.html#subsec-exactIntro" class="internal"><span class="title">exactIntro</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact-section.html#solving-exact-equations" class="internal"><span class="title">Solving exact equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact-section.html#integrating-factors" class="internal"><span class="title">Integrating factors</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exact-section.html#exact-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="modelfirst-section.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Modeling with First Order Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="modelfirst-section.html#principles-of-mathematical-modeling" class="internal"><span class="title">Principles of Mathematical Modeling</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="modelfirst-section.html#the-accumulation-equation" class="internal"><span class="title">The Accumulation Equation</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="modelfirst-section.html#modelfirst-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="modelfirstestim-section.html" class="internal"><span class="codenumber">1.11</span> <span class="title">Modeling and Parameter Estimation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="modelfirstestim-section.html#modelfirstestim-section-10" class="internal"><span class="codenumber">1.11</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="substitution-section.html" class="internal"><span class="codenumber">1.12</span> <span class="title">Substitution</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution-section.html#bernoulli-equations" class="internal"><span class="title">Bernoulli equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution-section.html#homogeneous-equations" class="internal"><span class="title">Homogeneous equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="substitution-section.html#substitution-section-10" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ho-chapter.html" class="internal"><span class="codenumber">2</span> <span class="title">Higher Order Linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="solinear-section.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Second order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#intial-value-problems" class="internal"><span class="title">Intial Value Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#constant-coefficient-equations---real-and-distinct-roots" class="internal"><span class="title">Constant Coefficient Equations - Real and Distinct Roots</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#linear-independence-soeq" class="internal"><span class="title">Linear Independence</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="solinear-section.html#solinear-section-17" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="complexroots-section.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Complex Roots and Euler’s Formula</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="complexroots-section.html#complex-roots" class="internal"><span class="title">Complex roots</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="complexroots-section.html#complexroots-section-13" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="reproots-section.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Repeated Roots and Reduction of Order</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="reproots-section.html#reproots-section-11" class="internal"><span class="codenumber">2.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-mv.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Mechanical vibrations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-mv.html#free-undamped-motion" class="internal"><span class="title">Free undamped motion</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-mv.html#free-damped-motion" class="internal"><span class="title">Free damped motion</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-mv.html#overdamping" class="internal"><span class="title">Overdamping</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-mv.html#critical-damping" class="internal"><span class="title">Critical damping</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-mv.html#underdamping" class="internal"><span class="title">Underdamping</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-mv.html#physical-applications-and-vertical-mass-spring-systems" class="internal"><span class="title">Physical Applications and Vertical Mass-Spring Systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-mv.html#sec-mv-20" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-nonhom.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Nonhomogeneous equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#solving-nonhomogeneous-equations" class="internal"><span class="title">Solving nonhomogeneous equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#undetermined-coefficients-eqns" class="internal"><span class="title">Undetermined coefficients</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#variation-of-parameters-eqns" class="internal"><span class="title">Variation of parameters</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-nonhom.html#sec-nonhom-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="forcedo-section.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Forced oscillations and resonance</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="forcedo-section.html#undamped-forced-motion-and-resonance" class="internal"><span class="title">Undamped forced motion and resonance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="forcedo-section.html#damped-forced-motion-and-practical-resonance" class="internal"><span class="title">Damped forced motion and practical resonance</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="forcedo-section.html#forcedo-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-hol.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Higher order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#linear-independence-hoeq" class="internal"><span class="title">Linear independence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#constant-coefficient-higher-order-odes" class="internal"><span class="title">Constant coefficient higher order ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#non-homogeneous-equations" class="internal"><span class="title">Non-Homogeneous Equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-hol.html#sec-hol-11" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="linalg-appendix.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="vecsandmaps-section.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Vectors, mappings, and matrices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="vecsandmaps-section.html#vectors-and-operations-on-vectors" class="internal"><span class="title">Vectors and operations on vectors</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#linear-combinations-and-linear-independence" class="internal"><span class="title">Linear Combinations and Linear Independence</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#matrices" class="internal"><span class="title">Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#linear-mappings-and-matrices" class="internal"><span class="title">Linear mappings and matrices</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="vecsandmaps-section.html#vecsandmaps-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="matalg-section.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Matrix algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#one-by-one-matrices" class="internal"><span class="title">One-by-one matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#matrix-addition-and-scalar-multiplication" class="internal"><span class="title">Matrix addition and scalar multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#matrix-multiplication" class="internal"><span class="title">Matrix multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#some-rules-of-matrix-algebra" class="internal"><span class="title">Some rules of matrix algebra</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#inverse" class="internal"><span class="title">Inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#special-types-of-matrices" class="internal"><span class="title">Special types of matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#transpose" class="internal"><span class="title">Transpose</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="matalg-section.html#matalg-section-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="elim-section.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Elimination</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#linear-systems-of-equations" class="internal"><span class="title">Linear systems of equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#row-echelon-form-and-elementary-operations" class="internal"><span class="title">Row echelon form and elementary operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#non-unique-solutions-and-inconsistent-systems" class="internal"><span class="title">Non-unique solutions and inconsistent systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="elim-section.html#elim-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="det-section.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Determinant</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="det-section.html#det-section-32" class="internal"><span class="codenumber">3.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eig-section.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Eigenvalues and Eigenvectors</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#finding-eigenvalues-and-eigenvectors" class="internal"><span class="title">Finding Eigenvalues and Eigenvectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#real-eigenvalues" class="internal"><span class="title">Real Eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#complex-eigenvalues" class="internal"><span class="title">Complex Eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#repeated-eigenvalues" class="internal"><span class="title">Repeated Eigenvalues</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eig-section.html#eig-section-11" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-kernel.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Related Topics in Linear Algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#subspaces-and-span" class="internal"><span class="title">Subspaces and span</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#basis-and-dimension" class="internal"><span class="title">Basis and dimension</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#rank" class="internal"><span class="title">Rank</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#kernel" class="internal"><span class="title">Kernel</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#computing-the-inverse-adv" class="internal"><span class="title">Computing the inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#trace-and-determinant-of-matrices" class="internal"><span class="title">Trace and Determinant of Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#extension-of-previous-theorem" class="internal"><span class="title">Extension of Previous Theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-kernel.html#sec-kernel-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="sys-chapter.html" class="internal"><span class="codenumber">4</span> <span class="title">Systems of ODEs</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec-introtosys.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Introduction to systems of ODEs</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#systems" class="internal"><span class="title">Systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#applications" class="internal"><span class="title">Applications</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#changing-to-first-order" class="internal"><span class="title">Changing to first order</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#autonomous-systems-and-vector-fields" class="internal"><span class="title">Autonomous systems and vector fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#picards-theorem" class="internal"><span class="title">Picard’s theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-introtosys.html#sec-introtosys-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-matrix.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Matrices and linear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#matrices-and-vectors" class="internal"><span class="title">Matrices and vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#matrix-multiplication-rev" class="internal"><span class="title">Matrix multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#the-determinant" class="internal"><span class="title">The determinant</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#solving-linear-systems" class="internal"><span class="title">Solving linear systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#computing-the-inverse" class="internal"><span class="title">Computing the inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#eigenvalues-and-eigenvectors-of-a-matrix" class="internal"><span class="title">Eigenvalues and eigenvectors of a matrix</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matrix.html#sec-matrix-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linsystems-section.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Linear systems of ODEs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linsystems-section.html#linsystems-section-17" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod-section.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Eigenvalue method</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-section.html#the-eigenvalue-method-with-distinct-real-eigenvalues" class="internal"><span class="title">The eigenvalue method with distinct real eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-section.html#phase-portraits-real" class="internal"><span class="title">Phase Portraits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-section.html#eigenmethod-section-10" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod-cplx-section.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Eigenvalue method with complex eigenvalues</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-cplx-section.html#phase-portraits-complex" class="internal"><span class="title">Phase Portraits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-cplx-section.html#eigenmethod-cplx-section-16" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod-repeat-section.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Eigenvalue method with repeated eigenvalues</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection">
+<div class="toc-title-box"><a href="eigenmethod-repeat-section.html#geometric-multiplicity" class="internal"><span class="title">Geometric multiplicity</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#defective-eigenvalues" class="internal"><span class="title">Defective eigenvalues</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#phase-portraits-repeated" class="internal"><span class="title">Phase Portraits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#eigenmethod-repeat-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-twodimaut.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Two-dimensional systems and their vector fields</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-twodimaut.html#trace-determinant-analysis" class="internal"><span class="title">Trace-Determinant Analysis</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-twodimaut.html#sec-twodimaut-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nonhomogsys-section.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Nonhomogeneous systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys-section.html#first-order-constant-coefficient" class="internal"><span class="title">First order constant coefficient</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys-section.html#diagonalization" class="internal"><span class="title">Diagonalization</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys-section.html#undetermined-coefficients-sys" class="internal"><span class="title">Undetermined coefficients</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys-section.html#first-order-variable-coefficient" class="internal"><span class="title">First order variable coefficient</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys-section.html#variation-of-parameters-sys" class="internal"><span class="title">Variation of parameters</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nonhomogsys-section.html#nonhomogsys-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sol-section.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Second order systems and applications</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol-section.html#undamped-mass-spring-systems" class="internal"><span class="title">Undamped mass-spring systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol-section.html#examples" class="internal"><span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol-section.html#forced-oscillations" class="internal"><span class="title">Forced oscillations</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sol-section.html#non-homogeneous-solutions" class="internal"><span class="title">Non-Homogeneous Solutions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sol-section.html#undetermined-coefficients-secondsys" class="internal"><span class="title">Undetermined coefficients</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sol-section.html#eigenvector-decomposition" class="internal"><span class="title">Eigenvector decomposition</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sol-section.html#sol-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-matexp.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Matrix exponentials</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#definition" class="internal"><span class="title">Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#simple-cases" class="internal"><span class="title">Simple cases</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#general-matrices" class="internal"><span class="title">General matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#fundamental-matrix-solutions" class="internal"><span class="title">Fundamental matrix solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#approximations" class="internal"><span class="title">Approximations</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-matexp.html#non-homogeneous-systems" class="internal"><span class="title">Non-Homogeneous Systems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-matexp.html#integrating-factor" class="internal"><span class="title">Integrating factor</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matexp.html#sec-matexp-8" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="nlin-chapter.html" class="internal"><span class="codenumber">5</span> <span class="title">Nonlinear Systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linearization-section.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Linearization, critical points, and stability</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#autonomous-systems-and-phase-plane-analysis" class="internal"><span class="title">Autonomous systems and phase plane analysis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#linearization" class="internal"><span class="title">Linearization</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#isolated-critical-points-and-almost-linear-systems" class="internal"><span class="title">Isolated critical points and almost linear systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#stability-and-classification-of-isolated-critical-points" class="internal"><span class="title">Stability and classification of isolated critical points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#the-trouble-with-centers" class="internal"><span class="title">The trouble with centers</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linearization-section.html#linearization-section-12" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nlinHamiltonian-section.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Behavior of non-linear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#conservative-equations" class="internal"><span class="title">Conservative equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#hamiltonian-systems" class="internal"><span class="title">Hamiltonian Systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#separatrices-and-basins-of-attractions" class="internal"><span class="title">Separatrices and Basins of Attractions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#nullclines" class="internal"><span class="title">Nullclines</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#nlinHamiltonian-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nlinapps-section.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Applications of nonlinear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#pendulum" class="internal"><span class="title">Pendulum</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#predator-prey-or-lotkavolterra-systems" class="internal"><span class="title">Predator-prey or Lotka–Volterra systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#competing-species-systems" class="internal"><span class="title">Competing Species systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinapps-section.html#nlinapps-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="limitcycles-section.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Limit cycles</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="limitcycles-section.html#limitcycles-section-28" class="internal"><span class="codenumber">5.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-chaos.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Chaos</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaos.html#duffing-equation-and-strange-attractors" class="internal"><span class="title">Duffing equation and strange attractors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaos.html#the-lorenz-system" class="internal"><span class="title">The Lorenz system</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-chaos.html#sec-chaos-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="matlab-appendix.html" class="internal"><span class="codenumber">6</span> <span class="title">Introduction to MATLAB</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="the-matlab-interface.html" class="internal"><span class="codenumber">6.1</span> <span class="title">The MATLAB Interface</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="file-structure.html" class="internal"><span class="codenumber">6.2</span> <span class="title">File Structure</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="computation-in-matlab.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Computation in MATLAB</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="variables-and-arrays.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Variables and Arrays</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="funMat-section.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Functions and Anonymous Functions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="loops-and-branching-statements.html" class="internal"><span class="codenumber">6.6</span> <span class="title">Loops and Branching Statements</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="loops-and-branching-statements.html#for-loops" class="internal"><span class="title">For Loops</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="loops-and-branching-statements.html#if-statements" class="internal"><span class="title">If Statements</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="plotting-in-matlab.html" class="internal"><span class="codenumber">6.7</span> <span class="title">Plotting in MATLAB</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="supplemental-code-files.html" class="internal"><span class="codenumber">6.8</span> <span class="title">Supplemental Code Files</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-prereq.html" class="internal"><span class="codenumber">7</span> <span class="title">Prerequisite Material</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-polys.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Polynomials and Factoring</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#definitions-and-operations" class="internal"><span class="title">Definitions and Operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#polynomial-long-division" class="internal"><span class="title">Polynomial Long Division</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#synthetic-division" class="internal"><span class="title">Synthetic Division</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-complexNums.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Complex Numbers</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-derivInt.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Differentiation and Integration Techniques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivInt.html#derivative-and-integral-formulas" class="internal"><span class="title">Derivative and Integral Formulas</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-derivInt.html#derivative-rules" class="internal"><span class="title">Derivative Rules</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#linearity-of-the-derivative-and-integral" class="internal"><span class="title">Linearity of the Derivative and Integral</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#product-and-quotient-rule" class="internal"><span class="title">Product and Quotient Rule</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#chain-rule" class="internal"><span class="title">Chain Rule</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-derivInt.html#integration-techniques" class="internal"><span class="title">Integration Techniques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#substitution" class="internal"><span class="title">Substitution</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#integration-by-parts" class="internal"><span class="title">Integration by Parts</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#partial-fractions" class="internal"><span class="title">Partial Fractions</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-references"><div class="toc-title-box"><a href="references.html" class="internal"><span class="title">References</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-3.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-introtosys"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Introduction to systems of ODEs</span>
+</h2>
+<section class="subsection" id="systems"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Systems</span>
+</h3>
+<div class="para" id="systems-2">Often we do not have just one dependent variable and one equation. For instance, we may be looking at multiple populations that are changing over time, or watching how the amount of support for multiple candidates develops leading up to an election. And as we will see, we may end up with systems of several equations and several dependent variables even if we start with a single equation.<div class="autopermalink" data-description="Paragraph"><a href="#systems-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="systems-3">
+<div class="para">If we have several dependent variables, suppose <span class="process-math">\(y_1\text{,}\)</span> <span class="process-math">\(y_2\text{,}\)</span> …, <span class="process-math">\(y_n\text{,}\)</span> then we can have a differential equation involving all of them and their derivatives with respect to one independent variable <span class="process-math">\(x\text{.}\)</span> For example, <span class="process-math">\(y_1'' = f(y_1',y_2',y_1,y_2,x)\text{.}\)</span> Usually, when we have two dependent variables we have two equations such as</div>
+<div class="displaymath process-math" id="systems-3-6">
+\begin{equation*}
+\begin{align*}
+y_1'' &amp; = f_1(y_1',y_2',y_1,y_2,x) , \\
+y_2'' &amp; = f_2(y_1',y_2',y_1,y_2,x) ,
+\end{align*}
+\end{equation*}
+</div>
+<div class="para">for some functions <span class="process-math">\(f_1\)</span> and <span class="process-math">\(f_2\text{.}\)</span> We call the above a <em class="emphasis"></em>. More precisely, the above is a <em class="emphasis"></em> of ODEs as second order derivatives appear. The system</div>
+<div class="displaymath process-math" id="systems-3-11">
+\begin{equation*}
+\begin{align*}
+x_1' &amp; = g_1(x_1,x_2,x_3,t) , \\
+x_2' &amp; = g_2(x_1,x_2,x_3,t) , \\
+x_3' &amp; = g_3(x_1,x_2,x_3,t) ,
+\end{align*}
+\end{equation*}
+</div>
+<div class="para">is a <em class="emphasis"></em>, where <span class="process-math">\(x_1,x_2,x_3\)</span> are the dependent variables, and <span class="process-math">\(t\)</span> is the independent variable.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#systems-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="systems-4">
+<div class="para">The terminology for systems is essentially the same as for single equations. For the system above, a <em class="emphasis">solution</em> is a set of three functions <span class="process-math">\(x_1(t)\text{,}\)</span> <span class="process-math">\(x_2(t)\text{,}\)</span> <span class="process-math">\(x_3(t)\text{,}\)</span> such that</div>
+<div class="displaymath process-math" id="systems-4-5">
+\begin{equation*}
+\begin{align*}
+x_1'(t) &amp;= g_1\bigl(x_1(t),x_2(t),x_3(t),t\bigr) , \\
+x_2'(t) &amp;= g_2\bigl(x_1(t),x_2(t),x_3(t),t\bigr) , \\
+x_3'(t) &amp;= g_3\bigl(x_1(t),x_2(t),x_3(t),t\bigr) .
+\end{align*}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#systems-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="systems-5">In order to verify that something is a solution, we plug the different components into the solution to see that all of the equations are satisfied; if any one of the equations is not satisfied, then this set of functions is not a solution. We usually also have an <em class="emphasis">initial condition</em>. Just like for single equations we specify <span class="process-math">\(x_1\text{,}\)</span> <span class="process-math">\(x_2\text{,}\)</span> and <span class="process-math">\(x_3\)</span> for some fixed <span class="process-math">\(t\text{.}\)</span> For example, <span class="process-math">\(x_1(0) = a_1\text{,}\)</span> <span class="process-math">\(x_2(0) = a_2\text{,}\)</span> <span class="process-math">\(x_3(0) = a_3\)</span> for some constants <span class="process-math">\(a_1\text{,}\)</span> <span class="process-math">\(a_2\text{,}\)</span> and <span class="process-math">\(a_3\text{.}\)</span> For the second order system we would also specify the first derivatives at that same initial time point. And if we find a solution with constants in it, where by solving for the constants we find a solution for any initial condition, we call this solution the <em class="emphasis">general solution</em>. Best to look at a simple example.<div class="autopermalink" data-description="Paragraph"><a href="#systems-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="systems-6" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="systems-6-2-1">
+<div class="para">Sometimes a system is easy to solve by solving for one variable and then for the second variable. Take the first order system</div>
+<div class="displaymath process-math" id="systems-6-2-1-1">
+\begin{equation*}
+\begin{align*}
+y_1' &amp; = y_1 , \\
+y_2' &amp; = y_1 - y_2 ,
+\end{align*}
+\end{equation*}
+</div>
+<div class="para">with <span class="process-math">\(y_1\text{,}\)</span> <span class="process-math">\(y_2\)</span> as the dependent variables and <span class="process-math">\(x\)</span> as the independent variable. Consider initial conditions <span class="process-math">\(y_1(0) = 1\text{,}\)</span> <span class="process-math">\(y_2(0) = 2\)</span> and solve the initial value problem.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#systems-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="systems-6-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="systems-6-3-1">
+<div class="para">We note that <span class="process-math">\(y_1 = C_1 e^x\)</span> is the general solution of the first equation, which we can get because this equation does not involve <span class="process-math">\(y_2\)</span> at all and we can get a solution via our normal first order equation methods. We then plug this <span class="process-math">\(y_1\)</span> into the second equation and get the equation <span class="process-math">\(y_2' = C_1e^x - y_2\text{,}\)</span> which is a linear first order equation that is easily solved for <span class="process-math">\(y_2\text{.}\)</span> By the method of integrating factor we get</div>
+<div class="displaymath process-math" id="systems-6-3-1-6">
+\begin{equation*}
+e^x y_2 = \frac{C_1}{2}e^{2x} + C_2 ,
+\end{equation*}
+</div>
+<div class="para">or <span class="process-math">\(y_2 = \frac{C_1}{2}e^{x} + C_2e^{-x}\text{.}\)</span> The general solution to the system is, therefore,</div>
+<div class="displaymath process-math" id="systems-6-3-1-8">
+\begin{equation*}
+y_1 = C_1 e^x , \qquad
+y_2 = \frac{C_1}{2}e^{x} + C_2e^{-x} .
+\end{equation*}
+</div>
+<div class="para">We solve for <span class="process-math">\(C_1\)</span> and <span class="process-math">\(C_2\)</span> given the initial conditions. We substitute <span class="process-math">\(x=0\)</span> and find that <span class="process-math">\(C_1=1\)</span> and <span class="process-math">\(C_2=\nicefrac{3}{2}\text{.}\)</span> Thus the solution is <span class="process-math">\(y_1 = e^x\text{,}\)</span> and <span class="process-math">\(y_2 = (\nicefrac{1}{2}) e^x + (\nicefrac{3}{2}) e^{-x}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#systems-6-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.1.1.1"><a href="#systems-6-3" title="Copy heading and permalink for Solution 4.1.1.1" aria-label="Copy heading and permalink for Solution 4.1.1.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 4.1.1: "><a href="#systems-6" title="Copy heading and permalink for Example 4.1.1: " aria-label="Copy heading and permalink for Example 4.1.1: ">🔗</a></div></article></details><div class="para" id="systems-7">Generally, we will not be so lucky to be able to solve for each variable separately as in the example above, and we will have to solve for all variables at once. While we won’t generally be able to solve for one variable and then the next, we will try to salvage as much as possible from this technique. It will turn out that in a certain sense we will still (try to) solve a bunch of single equations and put their solutions together. Let’s not worry right now about how to solve systems yet.<div class="autopermalink" data-description="Paragraph"><a href="#systems-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="systems-8">
+<div class="para">We will mostly consider <em class="emphasis"></em>. The example above is an example of a <em class="emphasis"></em>. It is linear as none of the dependent variables or their derivatives appear in nonlinear functions or with powers higher than one (<span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\text{,}\)</span> <span class="process-math">\(x'\)</span> and <span class="process-math">\(y'\text{,}\)</span> constants, and functions of <span class="process-math">\(t\)</span> can appear, but not <span class="process-math">\(xy\)</span> or <span class="process-math">\({(y')}^2\)</span> or <span class="process-math">\(x^3\)</span>). A more complicated example of a second order linear system is</div>
+<div class="displaymath process-math" id="systems-8-11">
+\begin{equation*}
+\begin{align*}
+y_1'' &amp;= e^t y_1' + t^2 y_1 + 5 y_2 + \sin(t), \\
+y_2'' &amp;= t y_1'-y_2' + 2 y_1 + \cos(t).
+\end{align*}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#systems-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: Systems"><a href="#systems" title="Copy heading and permalink for Subsection: Systems" aria-label="Copy heading and permalink for Subsection: Systems">🔗</a></div></section><section class="subsection" id="applications"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Applications</span>
+</h3>
+<div class="para" id="applications-2">Let us consider some simple applications of systems and how to set up the equations.<div class="autopermalink" data-description="Paragraph"><a href="#applications-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="applications-3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="applications-3-2-1">First, we consider salt and brine tanks, but this time water flows from one to the other and back. We again consider that the tanks are well-mixed.<div class="autopermalink" data-description="Paragraph"><a href="#applications-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>   <div class="para" id="applications-3-2-2">Suppose we have two tanks, each containing volume <span class="process-math">\(V\)</span> liters of salt brine. The amount of salt in the first tank is <span class="process-math">\(x_1\)</span> grams, and the amount of salt in the second tank is <span class="process-math">\(x_2\)</span> grams. The liquid is perfectly mixed and flows at the rate <span class="process-math">\(r\)</span> liters per second out of each tank into the other. See .<div class="autopermalink" data-description="Paragraph"><a href="#applications-3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="applications-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="applications-3-3-1">
+<div class="para">The rate of change of <span class="process-math">\(x_1\text{,}\)</span> that is <span class="process-math">\(x_1'\text{,}\)</span> is the rate of salt coming in minus the rate going out. The rate coming in is the density of the salt in tank 2, that is <span class="process-math">\(\frac{x_2}{V}\text{,}\)</span> times the rate <span class="process-math">\(r\text{.}\)</span> The rate coming out is the density of the salt in tank 1, that is <span class="process-math">\(\frac{x_1}{V}\text{,}\)</span> times the rate <span class="process-math">\(r\text{.}\)</span> In other words it is</div>
+<div class="displaymath process-math" id="applications-3-3-1-7">
+\begin{equation*}
+x_1' = \frac{x_2}{V} r - \frac{x_1}{V} r =
+\frac{r}{V} x_2 - \frac{r}{V} x_1  = \frac{r}{V} (x_2-x_1).
+\end{equation*}
+</div>
+<div class="para">Similarly we find the rate <span class="process-math">\(x_2'\text{,}\)</span> where the roles of <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_2\)</span> are reversed. All in all, the system of ODEs for this problem is</div>
+<div class="displaymath process-math" id="applications-3-3-1-11">
+\begin{equation*}
+\begin{align*}
+x_1' &amp; = \frac{r}{V} (x_2-x_1), \\
+x_2' &amp; = \frac{r}{V} (x_1-x_2).
+\end{align*}
+\end{equation*}
+</div>
+<div class="para">In this system we cannot solve for <span class="process-math">\(x_1\)</span> or <span class="process-math">\(x_2\)</span> separately. We must solve for both <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_2\)</span> at once, which is intuitively clear since the amount of salt in one tank affects the amount in the other. We can’t know <span class="process-math">\(x_1\)</span> before we know <span class="process-math">\(x_2\text{,}\)</span> and vice versa.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#applications-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="applications-3-3-2">We don’t yet know how to find all the solutions, but intuitively we can at least find some solutions. Suppose we know that initially the tanks have the same amount of salt. That is, we have an initial condition such as <span class="process-math">\(x_1(0)=x_2(0) = C\text{.}\)</span> Then clearly the amount of salt coming and out of each tank is the same, so the amounts are not changing. In other words, <span class="process-math">\(x_1 = C\)</span> and <span class="process-math">\(x_2 = C\)</span> (the constant functions) is a solution: <span class="process-math">\(x_1' = x_2' = 0\text{,}\)</span> and <span class="process-math">\(x_2-x_1 = x_1-x_2 = 0\text{,}\)</span> so the equations are satisfied.<div class="autopermalink" data-description="Paragraph"><a href="#applications-3-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="applications-3-3-3">Let us think about the setup a little bit more without solving it. Suppose the initial conditions are <span class="process-math">\(x_1(0) = A\)</span> and <span class="process-math">\(x_2(0) = B\text{,}\)</span> for two different constants <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{.}\)</span> Since no salt is coming in or out of this closed system, the total amount of salt is constant. That is, <span class="process-math">\(x_1+x_2\)</span> is constant, and so it equals <span class="process-math">\(A+B\text{.}\)</span> Intuitively if <span class="process-math">\(A\)</span> is bigger than <span class="process-math">\(B\text{,}\)</span> then more salt will flow out of tank one than into it. Eventually, after a long time we would then expect the amount of salt in each tank to equalize. In other words, the solutions of both <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_2\)</span> should tend towards <span class="process-math">\(\frac{A+B}{2}\text{.}\)</span> Once you know how to solve systems you will find out that this really is so.<div class="autopermalink" data-description="Paragraph"><a href="#applications-3-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.1.2.1"><a href="#applications-3-3" title="Copy heading and permalink for Solution 4.1.2.1" aria-label="Copy heading and permalink for Solution 4.1.2.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 4.1.2: "><a href="#applications-3" title="Copy heading and permalink for Example 4.1.2: " aria-label="Copy heading and permalink for Example 4.1.2: ">🔗</a></div></article></details><details id="applications-4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="applications-4-2-1">
+<div class="para">Another example that showcases how systems work is different ways that populations of animals can interact. There are two main interactions that we will consider. The first of these is of two “competing species.” The idea here is that there are two species that are trying to coexist in a given area. On their own (without the other species), each one would grow exponentially, but any interaction between the two species is negative for both of them, because they share the types of food and other resources that they need to survive and grow. This gives rise to a system of differential equations of the form</div>
+<div class="displaymath process-math" id="applications-4-2-1-2">
+\begin{equation*}
+\begin{split}
+\frac{dx_1}{dt} &amp;= ax_1 - bx_1x_2 \\
+\frac{dx_2}{dt} &amp;= cx_2 - dx_1x_2.
+\end{split}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#applications-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="applications-4-2-2">
+<div class="para">In the system here, the coefficient <span class="process-math">\(a\)</span> represents the growth rate of species 1 on it’s own, <span class="process-math">\(b\)</span> represents the amount to which the competition for resources affects the growth rate of species 1, <span class="process-math">\(c\)</span> represents the growth rate of species 2, and <span class="process-math">\(d\)</span> represents the magnitude of how the competition affects the growth of species 2. This type of system can also be written to contain logistic growth terms for the two species, resulting in</div>
+<div class="displaymath process-math" id="applications-4-2-2-5">
+\begin{equation*}
+\begin{split}
+\frac{dx_1}{dt} &amp;= ax_1(K_1 - x_1) - bx_1x_2 \\
+\frac{dx_2}{dt} &amp;= cx_2(K_2 - x_2) - dx_1x_2.
+\end{split}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#applications-4-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="applications-4-2-3">
+<div class="para">The other main population model to consider is a “predator-prey” interaction. The key components of this model are that the prey population will grow on it’s own and the interaction between the two populations is negative, because the presence of predator population will cause the prey population to decrease. On the other hand, the predator population will die off on it’s own (without a food source) but the interaction with the prey population causes the predator population to increase. This gives rise to the system of differential equations</div>
+<div class="displaymath process-math" id="applications-4-2-3-2">
+\begin{equation*}
+\begin{split}
+\frac{dx}{dt} &amp;= ax - bxy \\
+\frac{dy}{dt} &amp;= -cy + dxy
+\end{split}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(x\)</span> is the prey population and <span class="process-math">\(y\)</span> is the predator population. We will take another look at both of these examples in once we have more terminology and techniques to discuss them.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#applications-4-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 4.1.3: "><a href="#applications-4" title="Copy heading and permalink for Example 4.1.3: " aria-label="Copy heading and permalink for Example 4.1.3: ">🔗</a></div></article></details><details id="applications-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="applications-5-2-1">Let us look at a second order example. We return to the mass and spring setup, but this time we consider two masses.<div class="autopermalink" data-description="Paragraph"><a href="#applications-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="applications-5-2-2">2.0in2.3in<div class="autopermalink" data-description="Paragraph"><a href="#applications-5-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="applications-5-2-3">
+<div class="para">Consider one spring with constant <span class="process-math">\(k\)</span> and two masses <span class="process-math">\(m_1\)</span> and <span class="process-math">\(m_2\text{.}\)</span> Think of the masses as carts that ride along a straight track with no friction. Let <span class="process-math">\(x_1\)</span> be the displacement of the first cart and <span class="process-math">\(x_2\)</span> be the displacement of the second cart. That is, we put the two carts somewhere with no tension on the spring, and we mark the position of the first and second cart and call those the zero positions. Then <span class="process-math">\(x_1\)</span> measures how far the first cart is from its zero position, and <span class="process-math">\(x_2\)</span> measures how far the second cart is from its zero position. The force exerted by the spring on the first cart is <span class="process-math">\(k(x_2-x_1)\text{,}\)</span> since <span class="process-math">\(x_2-x_1\)</span> is how far the string is stretched (or compressed) from the rest position. The force exerted on the second cart is the opposite, thus the same thing with a negative sign. states that force equals mass times acceleration. So the system of equations is</div>
+<div class="displaymath process-math" id="applications-5-2-3-10">
+\begin{equation*}
+\begin{align*}
+m_1 x_1'' &amp; = k(x_2-x_1) , \\
+m_2 x_2'' &amp; = - k(x_2-x_1) .
+\end{align*}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#applications-5-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="applications-5-2-4">Again, we cannot solve for the <span class="process-math">\(x_1\)</span> or <span class="process-math">\(x_2\)</span> variable separately. That we must solve for both <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_2\)</span> at once is intuitively clear, since where the first cart goes depends on exactly where the second cart goes and vice versa.<div class="autopermalink" data-description="Paragraph"><a href="#applications-5-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 4.1.4: "><a href="#applications-5" title="Copy heading and permalink for Example 4.1.4: " aria-label="Copy heading and permalink for Example 4.1.4: ">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection: Applications"><a href="#applications" title="Copy heading and permalink for Subsection: Applications" aria-label="Copy heading and permalink for Subsection: Applications">🔗</a></div></section><section class="subsection" id="changing-to-first-order"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Changing to first order</span>
+</h3>
+<div class="para logical" id="changing-to-first-order-2">
+<div class="para">Before we talk about how to handle systems, let us note that in some sense we need only consider first order systems. Let us take an <span class="process-math">\(n^{\text{th}}\)</span> order differential equation</div>
+<div class="displaymath process-math" id="changing-to-first-order-2-2">
+\begin{equation*}
+y^{(n)} = F(y^{(n-1)},\ldots,y',y,x)
+\end{equation*}
+</div>
+<div class="para">that we would like to convert into a first order system. To do this, we first consider what a first order system would look like. A first order system consists of a set of equations involving the derivative of each of our variables. Let’s start with the first variable <span class="process-math">\(u_1= y\text{.}\)</span> What is the derivative of <span class="process-math">\(y\text{?}\)</span> Well, it’s <span class="process-math">\(y'\text{,}\)</span> and we don’t have a way to represent this in terms of our variables (<span class="process-math">\(u_1\)</span>) without any derivatives. So, we add a new variable <span class="process-math">\(u_2\)</span> that we define to be <span class="process-math">\(y'\text{,}\)</span> which makes the first equation in our system <span class="process-math">\(u_1' = u_2\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#changing-to-first-order-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="changing-to-first-order-3">Well, now we have <span class="process-math">\(u_2\)</span> and we need to determine what its derivative is. Since <span class="process-math">\(u_2 = y'\text{,}\)</span> <span class="process-math">\(u_2' = y''\text{.}\)</span> If the order of the equation <span class="process-math">\(n\)</span> is 2, we then have an equation to define what <span class="process-math">\(y''\)</span> is in terms of <span class="process-math">\(y'\text{,}\)</span> <span class="process-math">\(y\text{,}\)</span> and <span class="process-math">\(x\text{,}\)</span> which are <span class="process-math">\(u_2\text{,}\)</span> <span class="process-math">\(u_1\text{,}\)</span> and <span class="process-math">\(x\)</span> in our new system. If that’s the case, we’re done, and if not, we need to define a new variable <span class="process-math">\(u_3 = y''\)</span> so that <span class="process-math">\(u_2' = u_3\text{.}\)</span> We can continue this process over and over again.<div class="autopermalink" data-description="Paragraph"><a href="#changing-to-first-order-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="changing-to-first-order-4">
+<div class="para">When do we stop? As illustrated in the previous example with <span class="process-math">\(n=2\text{,}\)</span> we stop when our derivative <span class="process-math">\(u_n'\)</span> is the <span class="process-math">\(n\)</span>th derivative of <span class="process-math">\(y\text{.}\)</span> This works because our equation tells us exactly what <span class="process-math">\(y^{(n)}\)</span> is in terms of lower order terms, which we have already defined variables for. Thus, we define new variables <span class="process-math">\(u_1, u_2, \ldots, u_n\)</span> and write the system</div>
+<div class="displaymath process-math" id="changing-to-first-order-4-7">
+\begin{equation*}
+\begin{align*}
+u_1' &amp; = u_2 , \\
+u_2' &amp; = u_3 , \\
+&amp; ~\, \vdots \\
+u_{n-1}' &amp; = u_n , \\
+u_n' &amp; = F(u_n,u_{n-1},\ldots,u_2,u_1,x) .
+\end{align*}
+\end{equation*}
+</div>
+<div class="para">We solve this system for <span class="process-math">\(u_1\text{,}\)</span> <span class="process-math">\(u_2\text{,}\)</span> …, <span class="process-math">\(u_n\text{.}\)</span> Once we have solved for the <span class="process-math">\(u\)</span>’s, we can discard <span class="process-math">\(u_2\)</span> through <span class="process-math">\(u_n\)</span> and let <span class="process-math">\(y = u_1\text{.}\)</span> This <span class="process-math">\(y\)</span> solves the original equation.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#changing-to-first-order-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="changing-to-first-order-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="changing-to-first-order-5-2-1">Take <span class="process-math">\(x''' = 2x''+ 8x' + x + t\text{.}\)</span> Convert this equation into a first order system.<div class="autopermalink" data-description="Paragraph"><a href="#changing-to-first-order-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="changing-to-first-order-5-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="changing-to-first-order-5-3-1">
+<div class="para">Letting <span class="process-math">\(u_1 = x\text{,}\)</span> <span class="process-math">\(u_2 = x'\text{,}\)</span> <span class="process-math">\(u_3
+= x''\text{,}\)</span> we find the system:</div>
+<div class="displaymath process-math" id="changing-to-first-order-5-3-1-4">
+\begin{equation*}
+u_1' = u_2, \qquad u_2' = u_3, \qquad u_3' = 2u_3 + 8u_2 + u_1 + t.
+\end{equation*}
+</div>
+<div class="para">Since this is a linear system, we can also write this in matrix-vector form, which will be useful for systems that we will analyze later. To do this, we define a vector <span class="process-math">\(\vec{u}\)</span> as</div>
+<div class="displaymath process-math" id="changing-to-first-order-5-3-1-6">
+\begin{equation*}
+\vec{u} = \begin{bmatrix} u_1 \\ u_2 \\ u_3 \end{bmatrix}.
+\end{equation*}
+</div>
+<div class="para">Then, we know that</div>
+<div class="displaymath process-math" id="changing-to-first-order-5-3-1-7">
+\begin{equation*}
+\vec{u}\ ` = \begin{bmatrix} u_1'\\ u_2'\\ u_3' \end{bmatrix} = \begin{bmatrix} u_2 \\ u_3 \\ 2u_3 + 8u_2 + u_1 + t \end{bmatrix}.
+\end{equation*}
+</div>
+<div class="para">We want to rewrite this equation using the vector <span class="process-math">\(\vec{u}\)</span> and a matrix. We can rewrite this last vector as</div>
+<div class="displaymath process-math" id="changing-to-first-order-5-3-1-9">
+\begin{equation*}
+\begin{bmatrix} u_1'\\ u_2'\\ u_3' \end{bmatrix} = \begin{bmatrix} u_2 \\ u_3 \\ u_1 + 8u_2 + 2u_3 \end{bmatrix} + \begin{bmatrix}0 \\ 0 \\ t \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">and the right-hand side of this equation can be written as</div>
+<div class="displaymath process-math" id="changing-to-first-order-5-3-1-10">
+\begin{equation*}
+\vec{u}\ ` =  \begin{bmatrix} u_2 \\ u_3 \\ u_1 + 8u_2 + 2u_3 \end{bmatrix} + \begin{bmatrix}0 \\ 0 \\ t \end{bmatrix} = \begin{bmatrix} 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \\ 1 &amp; 8 &amp; 2 \end{bmatrix} \vec{u} + \begin{bmatrix} 0 \\ 0 \\ t \end{bmatrix}. 
+\end{equation*}
+</div>
+<div class="para">(Verify that the matrix multiplication works out here!) Therefore, we can write this first order system as</div>
+<div class="displaymath process-math" id="changing-to-first-order-5-3-1-11">
+\begin{equation*}
+\vec{u}\ ` = \begin{bmatrix} 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \\ 1 &amp; 8 &amp; 2 \end{bmatrix} \vec{u} + \begin{bmatrix} 0 \\ 0 \\ t \end{bmatrix}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#changing-to-first-order-5-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.1.5.1"><a href="#changing-to-first-order-5-3" title="Copy heading and permalink for Solution 4.1.5.1" aria-label="Copy heading and permalink for Solution 4.1.5.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 4.1.5: "><a href="#changing-to-first-order-5" title="Copy heading and permalink for Example 4.1.5: " aria-label="Copy heading and permalink for Example 4.1.5: ">🔗</a></div></article></details><div class="para" id="changing-to-first-order-6">Note that if the equation above was non-linear, it would not be possible to write the system version in an appropriate matrix form. It is also important to know how to take initial conditions into account with these problems.<div class="autopermalink" data-description="Paragraph"><a href="#changing-to-first-order-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="changing-to-first-order-7" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="changing-to-first-order-7-2-1">
+<div class="para">Convert the initial value problem</div>
+<div class="displaymath process-math" id="changing-to-first-order-7-2-1-1">
+\begin{equation*}
+x''' = 4e^t x'' - 3(x')^2 + t^2\sin(x) + (t^2 + 1) \qquad x(0) = 2,\ x'(0) = -1,\ x''(0) = 4
+\end{equation*}
+</div>
+<div class="para">into a system of first order equations. Simplify the expression as much as possible.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#changing-to-first-order-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="changing-to-first-order-7-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="changing-to-first-order-7-3-1">
+<div class="para">We follow the same procedure as the previous example. We define variables <span class="process-math">\(u_1\text{,}\)</span> <span class="process-math">\(u_2\text{,}\)</span> <span class="process-math">\(u_3\)</span> as</div>
+<div class="displaymath process-math" id="changing-to-first-order-7-3-1-4">
+\begin{equation*}
+u_1 = x \quad u_2 = x' \quad u_3 = x''
+\end{equation*}
+</div>
+<div class="para">so that we have the differential equations</div>
+<div class="displaymath process-math" id="changing-to-first-order-7-3-1-5">
+\begin{equation*}
+u_1' = u_2 \quad u_2' = u_3 \quad u_3' = x''' = 4e^tu_3 - 3u_2^2 + t^2\sin(u_1) + (t^2 + 1)
+\end{equation*}
+</div>
+<div class="para">which we can write in vector form as</div>
+<div class="displaymath process-math" id="changing-to-first-order-7-3-1-6">
+\begin{equation*}
+\vec{u}' = \begin{bmatrix} u_1'\\ u_2'\\ u_3' \end{bmatrix} = \begin{bmatrix} u_2 \\ u_3 \\  4e^tu_3 - 3u_2^2 + t^2\sin(u_1) + (t^2 + 1) \end{bmatrix}.
+\end{equation*}
+</div>
+<div class="para">We would now want to try to convert this into matrix form. However, the matrix that we come up with should not depend on <span class="process-math">\(u\)</span> at all. In this case, it would mean that we want to write this equation as</div>
+<div class="displaymath process-math" id="changing-to-first-order-7-3-1-8">
+\begin{equation*}
+\vec{u}\ ` = \begin{bmatrix} * &amp; * &amp; * \\ * &amp; * &amp; * \\ * &amp; * &amp; * \end{bmatrix} \begin{bmatrix} u_1 \\ u_2 \\ u_3 \end{bmatrix} + \begin{bmatrix} 0 \\ 0 \\ t^2 + 1 \end{bmatrix} 
+\end{equation*}
+</div>
+<div class="para">since the extra term needs to be everything that does not depend on <span class="process-math">\(u\text{.}\)</span> However, while we can determine the first two rows of the matrix, we can not determine the last row. There is no way to pick terms <em class="emphasis">independent of <span class="process-math">\(u\)</span></em> to fill in the three stars in the bottom row in order to make the bottom term in the matrix-vector product to equal <span class="process-math">\(4e^tu_3 - 3u_2^2 + t^2\sin(u_1)\text{.}\)</span> The issue here is that the equation is non-linear; the <span class="process-math">\(u_2^2\)</span> term and the <span class="process-math">\(\sin(u_1)\)</span> term can not be written in this way. Therefore, the best we can do is the vector form, and it can’t be written in matrix form.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#changing-to-first-order-7-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="changing-to-first-order-7-3-2">
+<div class="para">The last thing we need to deal with is the initial conditions. Since the conditions say that</div>
+<div class="displaymath process-math" id="changing-to-first-order-7-3-2-1">
+\begin{equation*}
+x(0) = 2,\ x'(0) = -1,\ x''(0) = 4
+\end{equation*}
+</div>
+<div class="para">and we have that <span class="process-math">\(u_1 = x,\ u_2 = x',\ u_3 = x''\text{,}\)</span> this means that the initial condition should be</div>
+<div class="displaymath process-math" id="changing-to-first-order-7-3-2-3">
+\begin{equation*}
+u_1(0) = 2,\ u_2(0) = -1,\ u_3(0) = 4,
+\end{equation*}
+</div>
+<div class="para">or</div>
+<div class="displaymath process-math" id="changing-to-first-order-7-3-2-4">
+\begin{equation*}
+\vec{u}(0) = \begin{bmatrix} 2 \\ -1 \\ 4 \end{bmatrix}.
+\end{equation*}
+</div>
+<div class="para">Thus, the full way to write this initial value problem in system form is</div>
+<div class="displaymath process-math" id="changing-to-first-order-7-3-2-5">
+\begin{equation*}
+\vec{u}' = \begin{bmatrix} u_2 \\ u_3 \\  4e^tu_3 - 3u_2^2 + t^2\sin(u_1) + (t^2 + 1) \end{bmatrix} \qquad \vec{u}(0) = \begin{bmatrix} 2 \\ -1 \\ 4 \end{bmatrix}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#changing-to-first-order-7-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.1.6.1"><a href="#changing-to-first-order-7-3" title="Copy heading and permalink for Solution 4.1.6.1" aria-label="Copy heading and permalink for Solution 4.1.6.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 4.1.6: "><a href="#changing-to-first-order-7" title="Copy heading and permalink for Example 4.1.6: " aria-label="Copy heading and permalink for Example 4.1.6: ">🔗</a></div></article></details><div class="para" id="changing-to-first-order-8">A similar process can be followed for a system of higher order differential equations. For example, a system of <span class="process-math">\(k\)</span> differential equations in <span class="process-math">\(k\)</span> unknowns, all of order <span class="process-math">\(n\text{,}\)</span> can be transformed into a first order system of <span class="process-math">\(n \times k\)</span> equations and <span class="process-math">\(n \times k\)</span> unknowns.<div class="autopermalink" data-description="Paragraph"><a href="#changing-to-first-order-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="changing-to-first-order-9" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="changing-to-first-order-9-2-1">
+<div class="para">Consider the system from the carts example,</div>
+<div class="displaymath process-math" id="changing-to-first-order-9-2-1-1">
+\begin{equation*}
+m_1 x_1''  = k(x_2-x_1), \qquad m_2 x_2'' = - k(x_2-x_1) .
+\end{equation*}
+</div>
+<div class="para">Let <span class="process-math">\(u_1 = x_1\text{,}\)</span> <span class="process-math">\(u_2 = x_1'\text{,}\)</span> <span class="process-math">\(u_3 = x_2\text{,}\)</span> <span class="process-math">\(u_4 = x_2'\text{.}\)</span> The second order system becomes the first order system</div>
+<div class="displaymath process-math" id="changing-to-first-order-9-2-1-6">
+\begin{equation*}
+u_1' = u_2, \qquad
+m_1 u_2'  = k(u_3-u_1), \qquad
+u_3' = u_4, \qquad
+m_2 u_4' = - k(u_3-u_1) .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#changing-to-first-order-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 4.1.7: "><a href="#changing-to-first-order-9" title="Copy heading and permalink for Example 4.1.7: " aria-label="Copy heading and permalink for Example 4.1.7: ">🔗</a></div></article></details><details id="changing-to-first-order-10" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="changing-to-first-order-10-2-1">
+<div class="para">The idea works in reverse as well. Consider the system</div>
+<div class="displaymath process-math" id="changing-to-first-order-10-2-1-1">
+\begin{equation*}
+x' = 2y-x , \qquad
+y' = x, 
+\end{equation*}
+</div>
+<div class="para">where the independent variable is <span class="process-math">\(t\text{.}\)</span> We wish to solve for the initial conditions <span class="process-math">\(x(0) = 1\text{,}\)</span> <span class="process-math">\(y(0) =0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#changing-to-first-order-10-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="changing-to-first-order-10-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="changing-to-first-order-10-3-1">
+<div class="para">If we differentiate the second equation, we get <span class="process-math">\(y''=x'\text{.}\)</span> We know what <span class="process-math">\(x'\)</span> is in terms of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{,}\)</span> and we know that <span class="process-math">\(x=y'\text{.}\)</span> So,</div>
+<div class="displaymath process-math" id="changing-to-first-order-10-3-1-6">
+\begin{equation*}
+y'' = x' = 2y-x = 2y-y' .
+\end{equation*}
+</div>
+<div class="para">We now have the equation <span class="process-math">\(y''+y'-2y = 0\text{.}\)</span> We know how to solve this equation and we find that <span class="process-math">\(y = C_1 e^{-2t} + C_2 e^t\text{.}\)</span> Once we have <span class="process-math">\(y\text{,}\)</span> we use the equation <span class="process-math">\(y' = x\)</span> to get <span class="process-math">\(x\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="changing-to-first-order-10-3-1-12">
+\begin{equation*}
+x = y' = -2 C_1 e^{-2t} + C_2 e^t .
+\end{equation*}
+</div>
+<div class="para">We solve for the initial conditions <span class="process-math">\(1 = x(0) = -2 C_1 + C_2\)</span> and <span class="process-math">\(0 = y(0) = C_1 + C_2\text{.}\)</span> Hence, <span class="process-math">\(C_1 = -C_2\)</span> and <span class="process-math">\(1 = 3C_2\text{.}\)</span> So <span class="process-math">\(C_1 = \nicefrac{-1}{3}\)</span> and <span class="process-math">\(C_2 = \nicefrac{1}{3}\text{.}\)</span> Our solution is</div>
+<div class="displaymath process-math" id="changing-to-first-order-10-3-1-19">
+\begin{equation*}
+x = \frac{2e^{-2t} + e^t}{3} ,\qquad
+y = \frac{-e^{-2t} + e^t}{3} .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#changing-to-first-order-10-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.1.8.1"><a href="#changing-to-first-order-10-3" title="Copy heading and permalink for Solution 4.1.8.1" aria-label="Copy heading and permalink for Solution 4.1.8.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 4.1.8: "><a href="#changing-to-first-order-10" title="Copy heading and permalink for Example 4.1.8: " aria-label="Copy heading and permalink for Example 4.1.8: ">🔗</a></div></article></details><details id="changing-to-first-order-11" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="changing-to-first-order-11-1-1">Plug in and check that this really is the solution.<div class="autopermalink" data-description="Paragraph"><a href="#changing-to-first-order-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="changing-to-first-order-11-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="changing-to-first-order-11-2-1">It is useful to go back and forth between systems and higher order equations for other reasons. For example, software for solving ODE numerically (approximation) is generally for first order systems. So to use it, you have to take whatever ODE you want to solve and convert it to a first order system. In fact, it is not very hard to adapt computer code for the Euler or Runge–Kutta method for first order equations to handle first order systems. We essentially just treat the dependent variable not as a number but as a vector. In many mathematical computer languages there is almost no distinction in syntax.<div class="autopermalink" data-description="Paragraph"><a href="#changing-to-first-order-11-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 4.1.9.1"><a href="#changing-to-first-order-11-2" title="Copy heading and permalink for Answer 4.1.9.1" aria-label="Copy heading and permalink for Answer 4.1.9.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Checkpoint 4.1.9"><a href="#changing-to-first-order-11" title="Copy heading and permalink for Checkpoint 4.1.9" aria-label="Copy heading and permalink for Checkpoint 4.1.9">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection: Changing to first order"><a href="#changing-to-first-order" title="Copy heading and permalink for Subsection: Changing to first order" aria-label="Copy heading and permalink for Subsection: Changing to first order">🔗</a></div></section><section class="subsection" id="autonomous-systems-and-vector-fields"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Autonomous systems and vector fields</span>
+</h3>
+<div class="para" id="autonomous-systems-and-vector-fields-2">A system where the equations do not depend on the independent variable is called an <em class="emphasis"></em>. For example the system <span class="process-math">\(y'=2y-x\text{,}\)</span> <span class="process-math">\(y'=x\)</span> is autonomous as <span class="process-math">\(t\)</span> is the independent variable but does not appear in the equations.<div class="autopermalink" data-description="Paragraph"><a href="#autonomous-systems-and-vector-fields-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="autonomous-systems-and-vector-fields-3">For autonomous systems we can draw the so-called <em class="emphasis"></em> or <em class="emphasis"></em>, a plot similar to a slope field, but instead of giving a slope at each point, we give a direction (and a magnitude). The previous example, <span class="process-math">\(x' = 2y-x\text{,}\)</span> <span class="process-math">\(y' = x\text{,}\)</span> says that at the point <span class="process-math">\((x,y)\)</span> the direction in which we should travel to satisfy the equations should be the direction of the vector <span class="process-math">\(( 2y-x, x )\)</span> with the speed equal to the magnitude of this vector. So we draw the vector <span class="process-math">\((2y-x,x)\)</span> at the point <span class="process-math">\((x,y)\)</span> and we do this for many points on the <span class="process-math">\(xy\)</span>-plane. For example, at the point <span class="process-math">\((1,2)\)</span> we draw the vector <span class="process-math">\(\bigl(2(2)-1,1\bigr) = (3,1)\text{,}\)</span> a vector pointing to the right and a little bit up, while at the point <span class="process-math">\((2,1)\)</span> we draw the vector <span class="process-math">\(\bigl(2(1)-2,2\bigr) = (0,2)\)</span> a vector that points straight up. When drawing the vectors, we will scale down their size to fit many of them on the same direction field. We are mostly interested in their direction and relative size. See .<div class="autopermalink" data-description="Paragraph"><a href="#autonomous-systems-and-vector-fields-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="autonomous-systems-and-vector-fields-4">We can draw a path of the solution in the plane. Suppose the solution is given by <span class="process-math">\(x = f(t)\text{,}\)</span> <span class="process-math">\(y=g(t)\text{.}\)</span> We pick an interval of <span class="process-math">\(t\)</span> (say <span class="process-math">\(0 \leq t \leq 2\)</span> for our example) and plot all the points <span class="process-math">\(\bigl(f(t),g(t)\bigr)\)</span> for <span class="process-math">\(t\)</span> in the selected range. The resulting picture is called the <em class="emphasis"></em> (or ). The particular curve obtained is called the <em class="emphasis"></em> or <em class="emphasis"></em>. See an example plot in . In the figure the solution starts at <span class="process-math">\((1,0)\)</span> and travels along the vector field for a distance of 2 units of <span class="process-math">\(t\text{.}\)</span> We solved this system precisely, so we compute <span class="process-math">\(x(2)\)</span> and <span class="process-math">\(y(2)\)</span> to find <span class="process-math">\(x(2) \approx 2.475\)</span> and <span class="process-math">\(y(2) \approx 2.457\text{.}\)</span> This point corresponds to the top right end of the plotted solution curve in the figure.<div class="autopermalink" data-description="Paragraph"><a href="#autonomous-systems-and-vector-fields-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="autonomous-systems-and-vector-fields-5">Notice the similarity to the diagrams we drew for autonomous systems in one dimension. But note how much more complicated things become when we allow just one extra dimension.<div class="autopermalink" data-description="Paragraph"><a href="#autonomous-systems-and-vector-fields-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="autonomous-systems-and-vector-fields-6">We can draw phase portraits and trajectories in the <span class="process-math">\(xy\)</span>-plane even if the system is not autonomous. In this case however we cannot draw the direction field, since the field changes as <span class="process-math">\(t\)</span> changes. For each <span class="process-math">\(t\)</span> we would get a different direction field.<div class="autopermalink" data-description="Paragraph"><a href="#autonomous-systems-and-vector-fields-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: Autonomous systems and vector fields"><a href="#autonomous-systems-and-vector-fields" title="Copy heading and permalink for Subsection: Autonomous systems and vector fields" aria-label="Copy heading and permalink for Subsection: Autonomous systems and vector fields">🔗</a></div></section><section class="subsection" id="picards-theorem"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Picard’s theorem</span>
+</h3>
+<div class="para logical" id="picards-theorem-2">
+<div class="para">Perhaps before going further, let us mention that Picard’s theorem on existence and uniqueness still holds for systems of ODE. Let us restate this theorem in the setting of systems. A general first order system is of the form</div>
+<div class="displaymath process-math" id="eq-general-system">
+\begin{equation}
+\begin{aligned}
+x_1' &amp; = F_1(x_1,x_2,\ldots,x_n,t) , \\
+x_2' &amp; = F_2(x_1,x_2,\ldots,x_n,t) , \\
+&amp; \vdots \\
+x_n' &amp; = F_n(x_1,x_2,\ldots,x_n,t) .
+\end{aligned}\tag{4.1.1}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#picards-theorem-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="picards-theorem-3">Picard’s theorem on existence and uniqueness for systems If for every <span class="process-math">\(j=1,2,\ldots,n\)</span> and every <span class="process-math">\(k = 1,2,\ldots,n\)</span> each <span class="process-math">\(F_j\)</span> is continuous and the derivative <span class="process-math">\(\frac{\partial F_j}{\partial x_k}\)</span> exists and is continuous near some <span class="process-math">\((x_1^0,x_2^0,\ldots,x_n^0,t^0)\text{,}\)</span> then a solution to <a href="sec-introtosys.html#eq-general-system" class="xref" data-knowl="./knowl/xref/eq-general-system.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.1.1">(4.1.1)</a> subject to the initial condition <span class="process-math">\(x_1(t^0) = x_1^0\text{,}\)</span> <span class="process-math">\(x_2(t^0) = x_2^0\text{,}\)</span> …, <span class="process-math">\(x_n(t^0) = x_n^0\)</span> exists (at least for some small interval of <span class="process-math">\(t\)</span>’s) and is unique.<div class="autopermalink" data-description="Paragraph"><a href="#picards-theorem-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="picards-theorem-4">That is, a unique solution exists for any initial condition given that the system is reasonable (<span class="process-math">\(F_j\)</span> and its partial derivatives in the <span class="process-math">\(x\)</span> variables are continuous). As for single equations we may not have a solution for all time <span class="process-math">\(t\text{,}\)</span> but at least for some short period of time.<div class="autopermalink" data-description="Paragraph"><a href="#picards-theorem-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="picards-theorem-5">As we can change any <span class="process-math">\(n\)</span>th order ODE into a first order system, then we notice that this theorem provides also the existence and uniqueness of solutions for higher order equations that we have until now not stated explicitly.<div class="autopermalink" data-description="Paragraph"><a href="#picards-theorem-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: Picard’s theorem"><a href="#picards-theorem" title="Copy heading and permalink for Subsection: Picard’s theorem" aria-label="Copy heading and permalink for Subsection: Picard’s theorem">🔗</a></div></section><section class="exercises" id="sec-introtosys-7"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="sec-introtosys-7-2"><h4 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-introtosys-7-2-1-1">Verify that <span class="process-math">\(x_1(t) = 2e^{-t} - 2e^{-2t}\text{,}\)</span> <span class="process-math">\(x_2(t) = e^{-t} - 2e^{-2t}\)</span> solves the system <span class="process-math">\(x_1' = - 2x_2\text{,}\)</span> <span class="process-math">\(x_2' = x_1 - 3x_2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-introtosys-7-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-introtosys-7-2-2-1">It works<div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 1.1"><a href="#sec-introtosys-7-2-2" title="Copy heading and permalink for Answer 1.1" aria-label="Copy heading and permalink for Answer 1.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 1"><a href="#sec-introtosys-7-2" title="Copy heading and permalink for Exercise 1" aria-label="Copy heading and permalink for Exercise 1">🔗</a></div></article><article class="exercise exercise-like" id="sec-introtosys-7-3"><h4 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-introtosys-7-3-1-1">Verify that <span class="process-math">\(x_1(t) = -2te^{-3t} - 2e^{-3t}\text{,}\)</span> <span class="process-math">\(x_2(t) = 2te^{-3t} + 3e^{-3t}\)</span> solves the system <span class="process-math">\(x_1' = -5x_1 - 2x_2\text{,}\)</span> <span class="process-math">\(x_2' = 2x_1 - x_2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-introtosys-7-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-introtosys-7-3-2-1">It works<div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.1"><a href="#sec-introtosys-7-3-2" title="Copy heading and permalink for Answer 2.1" aria-label="Copy heading and permalink for Answer 2.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 2"><a href="#sec-introtosys-7-3" title="Copy heading and permalink for Exercise 2" aria-label="Copy heading and permalink for Exercise 2">🔗</a></div></article><article class="exercise exercise-like" id="sec-introtosys-7-4"><h4 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-introtosys-7-4-1-1">Find the general solution of <span class="process-math">\(x_1' = x_2 - x_1 + t\text{,}\)</span> <span class="process-math">\(x_2' = x_2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-introtosys-7-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-introtosys-7-4-2-1">
+<span class="process-math">\(x_1 = \frac{C_1}{2}e^t + (t-1) + C_2e^{-t}\text{,}\)</span> <span class="process-math">\(x_2 = C_1e^t\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 3.1"><a href="#sec-introtosys-7-4-2" title="Copy heading and permalink for Answer 3.1" aria-label="Copy heading and permalink for Answer 3.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 3"><a href="#sec-introtosys-7-4" title="Copy heading and permalink for Exercise 3" aria-label="Copy heading and permalink for Exercise 3">🔗</a></div></article><article class="exercise exercise-like" id="sec-introtosys-7-5"><h4 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-introtosys-7-5-1-1">Find the general solution of <span class="process-math">\(x_1' = 3 x_1 - x_2 + e^t\text{,}\)</span> <span class="process-math">\(x_2' = x_1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-introtosys-7-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-introtosys-7-5-2-1">
+<span class="process-math">\(x_1 = \frac{3+\sqrt{5}}{2}C_1e^{\frac{3+\sqrt{5}}{2}t} + \frac{3-\sqrt{5}}{2}C_2e^{\frac{3-\sqrt{5}}{2}t} - \frac{1}{2}Ae^t\text{,}\)</span> <span class="process-math">\(x_2 = C_1e^{\frac{3+\sqrt{5}}{2}t} + C_2e^{\frac{3-\sqrt{5}}{2}t} - \frac{1}{2}Ae^t\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 4.1"><a href="#sec-introtosys-7-5-2" title="Copy heading and permalink for Answer 4.1" aria-label="Copy heading and permalink for Answer 4.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 4"><a href="#sec-introtosys-7-5" title="Copy heading and permalink for Exercise 4" aria-label="Copy heading and permalink for Exercise 4">🔗</a></div></article><article class="exercise exercise-like" id="sec-introtosys-7-6"><h4 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-introtosys-7-6-1-1">Find the general solution to <span class="process-math">\(y_1' = 3 y_1\text{,}\)</span> <span class="process-math">\(y_2' = y_1 + y_2\text{,}\)</span> <span class="process-math">\(y_3' = y_1 + y_3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5"><a href="#sec-introtosys-7-6" title="Copy heading and permalink for Exercise 5" aria-label="Copy heading and permalink for Exercise 5">🔗</a></div></article><article class="exercise exercise-like" id="sec-introtosys-7-7"><h4 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-introtosys-7-7-1-1">Solve <span class="process-math">\(y'=2x\text{,}\)</span> <span class="process-math">\(x'=x+y\text{,}\)</span> <span class="process-math">\(x(0)=1\text{,}\)</span> <span class="process-math">\(y(0)=3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 6"><a href="#sec-introtosys-7-7" title="Copy heading and permalink for Exercise 6" aria-label="Copy heading and permalink for Exercise 6">🔗</a></div></article><article class="exercise exercise-like" id="sec-introtosys-7-8"><h4 class="heading"><span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-introtosys-7-8-1-1">Write <span class="process-math">\(ay'' + by' + cy = f(x)\)</span> as a first order system of ODEs.<div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-introtosys-7-8-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-introtosys-7-8-2-1">
+<span class="process-math">\(\vec{x}\ ' = \left[\begin{smallmatrix} 0 &amp; 1 \\ -\frac{c}{a} &amp; -\frac{b}{a} \end{smallmatrix}\right] \vec{x} + \left[\begin{smallmatrix}  0 \\ \frac{1}{a}f(x) \end{smallmatrix}\right]\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 7.1"><a href="#sec-introtosys-7-8-2" title="Copy heading and permalink for Answer 7.1" aria-label="Copy heading and permalink for Answer 7.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 7"><a href="#sec-introtosys-7-8" title="Copy heading and permalink for Exercise 7" aria-label="Copy heading and permalink for Exercise 7">🔗</a></div></article><article class="exercise exercise-like" id="sec-introtosys-7-9"><h4 class="heading"><span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-introtosys-7-9-1-1">Write <span class="process-math">\(x'' + y^2 y' - x^3 = \sin(t)\text{,}\)</span> <span class="process-math">\(y'' + {(x'+y')}^2 -x = 0\)</span> as a first order system of ODEs.<div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-introtosys-7-9-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-introtosys-7-9-2-1">
+<span class="process-math">\(\left[\begin{smallmatrix} u_1 \\ u_2 \\ u_3 \\ u_4 \end{smallmatrix}\right]' = \left[\begin{smallmatrix} u_2 \\ \sin(t) + u_1^3 - u_3^2u_4 \\ u_4 \\ u_1 - (u_3 + u_4)^2 \end{smallmatrix}\right]\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 8.1"><a href="#sec-introtosys-7-9-2" title="Copy heading and permalink for Answer 8.1" aria-label="Copy heading and permalink for Answer 8.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 8"><a href="#sec-introtosys-7-9" title="Copy heading and permalink for Exercise 8" aria-label="Copy heading and permalink for Exercise 8">🔗</a></div></article><article class="exercise exercise-like" id="sec-introtosys-7-10"><h4 class="heading"><span class="codenumber">9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-introtosys-7-10-1-1">Write <span class="process-math">\(x''' = x+t\)</span> as a first order system.<div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 9"><a href="#sec-introtosys-7-10" title="Copy heading and permalink for Exercise 9" aria-label="Copy heading and permalink for Exercise 9">🔗</a></div></article><article class="exercise exercise-like" id="sec-introtosys-7-11"><h4 class="heading"><span class="codenumber">10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-introtosys-7-11-1-1">Write <span class="process-math">\(y_1'' + y_1 + y_2 = t\text{,}\)</span> <span class="process-math">\(y_2'' + y_1 - y_2 = t^2\)</span> as a first order system.<div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 10"><a href="#sec-introtosys-7-11" title="Copy heading and permalink for Exercise 10" aria-label="Copy heading and permalink for Exercise 10">🔗</a></div></article><article class="exercise exercise-like" id="sec-introtosys-7-12"><h4 class="heading"><span class="codenumber">11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-introtosys-7-12-1-1">Write <span class="process-math">\(y^{(4)} - t^2 y''' + e^t y' - (2t+1)y = \cos(t)\)</span> as a first order system.<div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-12-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-introtosys-7-12-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-introtosys-7-12-2-1">
+<span class="process-math">\(\vec{u}' = \left[\begin{smallmatrix}  0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 \\ 2t+1 &amp; -e^t &amp; 0 &amp; t^2 \end{smallmatrix}\right]\vec{u} + \left[\begin{smallmatrix} 0 \\ 0 \\ 0 \\ \cos(t) \end{smallmatrix}\right]\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-12-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 11.1"><a href="#sec-introtosys-7-12-2" title="Copy heading and permalink for Answer 11.1" aria-label="Copy heading and permalink for Answer 11.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 11"><a href="#sec-introtosys-7-12" title="Copy heading and permalink for Exercise 11" aria-label="Copy heading and permalink for Exercise 11">🔗</a></div></article><article class="exercise exercise-like" id="sec-introtosys-7-13"><h4 class="heading"><span class="codenumber">12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="sec-introtosys-7-13-1-1">
+<div class="para">Write the initial value problem</div>
+<div class="displaymath process-math" id="sec-introtosys-7-13-1-1-1">
+\begin{equation*}
+y'' - 2xy' + 3y = \sin(x) \qquad y(0) = 1,\ y'(0) = -2
+\end{equation*}
+</div>
+<div class="para">as an initial value problem for a first order system of ODEs. Make sure to indicate how the initial condition appears as a part of this problem.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-13-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-introtosys-7-13-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-introtosys-7-13-2-1">
+<span class="process-math">\(\vec{u}' = \left[\begin{smallmatrix}  0 &amp; 1 \\ -3 &amp; 2x \end{smallmatrix}\right]\vec{x} + \left[\begin{smallmatrix}  0 \\ \sin(x) \end{smallmatrix}\right]\text{,}\)</span> <span class="process-math">\(\vec{u}(0) = \left[\begin{smallmatrix}  1 \\ -2 \end{smallmatrix}\right]\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-13-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 12.1"><a href="#sec-introtosys-7-13-2" title="Copy heading and permalink for Answer 12.1" aria-label="Copy heading and permalink for Answer 12.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 12"><a href="#sec-introtosys-7-13" title="Copy heading and permalink for Exercise 12" aria-label="Copy heading and permalink for Exercise 12">🔗</a></div></article><article class="exercise exercise-like" id="sec-introtosys-7-14"><h4 class="heading"><span class="codenumber">13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="sec-introtosys-7-14-1-1">
+<div class="para">Write the initial value problem</div>
+<div class="displaymath process-math" id="sec-introtosys-7-14-1-1-1">
+\begin{equation*}
+y'' - (y+1)^2 y' - e^{xy} = \cos(x) \qquad y(0) = -1,\ y'(0) = 5
+\end{equation*}
+</div>
+<div class="para">as an initial value problem for a first order system of ODEs. Make sure to indicate how the initial condition appears as a part of this problem. Can this be written in matrix form? Why or why not?</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-14-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-introtosys-7-14-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-introtosys-7-14-2-1">
+<span class="process-math">\(\vec{u}' = \left[\begin{smallmatrix}  u_2 \\ \cos(x) + e^{xu_1} + (u_1 + 1)^2u_2 \end{smallmatrix}\right]\text{,}\)</span> <span class="process-math">\(\vec{u}(0) = \left[\begin{smallmatrix}  -1 \\ 5 \end{smallmatrix}\right]\text{.}\)</span> Non-linear.<div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-14-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 13.1"><a href="#sec-introtosys-7-14-2" title="Copy heading and permalink for Answer 13.1" aria-label="Copy heading and permalink for Answer 13.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 13"><a href="#sec-introtosys-7-14" title="Copy heading and permalink for Exercise 13" aria-label="Copy heading and permalink for Exercise 13">🔗</a></div></article><article class="exercise exercise-like" id="sec-introtosys-7-15"><h4 class="heading"><span class="codenumber">14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="sec-introtosys-7-15-1-1">
+<div class="para">Write the initial value problem</div>
+<div class="displaymath process-math" id="sec-introtosys-7-15-1-1-1">
+\begin{equation*}
+y^{(4)} + e^x y'' - 4\cos(x)y' + (x^2 + 1)y = \frac{1}{x-3} \qquad y(0) = 2,\ y'(0) = -3,\ y''(0) = 0,\ y^{(3)}(0) = 1
+\end{equation*}
+</div>
+<div class="para">as an initial value problem for a first order system of ODEs. Make sure to indicate how the initial condition appears as a part of this problem.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-15-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-introtosys-7-15-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-introtosys-7-15-2-1">
+<span class="process-math">\(\vec{u}' = \left[\begin{smallmatrix}  0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 \\ -(x^2 + 1) &amp; 4\cos(x) &amp; -e^x &amp; 0 \end{smallmatrix}\right] \vec{u} + \left[\begin{smallmatrix} 0 \\ 0 \\ 0 \\ \frac{1}{x-3} \end{smallmatrix}\right]\text{,}\)</span> <span class="process-math">\(\vec{u}(0) = \left[\begin{smallmatrix} -2 \\ -3 \\ 0 \\ 1 \end{smallmatrix}\right]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-15-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 14.1"><a href="#sec-introtosys-7-15-2" title="Copy heading and permalink for Answer 14.1" aria-label="Copy heading and permalink for Answer 14.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 14"><a href="#sec-introtosys-7-15" title="Copy heading and permalink for Exercise 14" aria-label="Copy heading and permalink for Exercise 14">🔗</a></div></article><article class="exercise exercise-like" id="sec-introtosys-7-16"><h4 class="heading"><span class="codenumber">15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-introtosys-7-16-1-1">Suppose two masses on carts on frictionless surface are at displacements <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_2\)</span> as in . Suppose that a rocket applies force <span class="process-math">\(F\)</span> in the positive direction on cart <span class="process-math">\(x_1\text{.}\)</span> Set up the system of equations.<div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-16-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-introtosys-7-16-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-introtosys-7-16-2-1">
+<span class="process-math">\(mx_1'' = k(x_2 - x_1) + F,\ mx_2''  =-k(x_2 - x_1)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-16-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 15.1"><a href="#sec-introtosys-7-16-2" title="Copy heading and permalink for Answer 15.1" aria-label="Copy heading and permalink for Answer 15.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 15"><a href="#sec-introtosys-7-16" title="Copy heading and permalink for Exercise 15" aria-label="Copy heading and permalink for Exercise 15">🔗</a></div></article><article class="exercise exercise-like" id="sec-introtosys-7-17"><h4 class="heading"><span class="codenumber">16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-introtosys-7-17-1-1">Suppose two masses on carts on frictionless surface are at displacements <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_2\)</span> as in . Suppose initial displacement is <span class="process-math">\(x_1(0)=x_2(0)=0\text{,}\)</span> and initial velocity is <span class="process-math">\(x_1'(0) = x_2'(0) = a\)</span> for some number <span class="process-math">\(a\text{.}\)</span> Use your intuition to solve the system, explain your reasoning.<div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-17-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 16"><a href="#sec-introtosys-7-17" title="Copy heading and permalink for Exercise 16" aria-label="Copy heading and permalink for Exercise 16">🔗</a></div></article><article class="exercise exercise-like" id="sec-introtosys-7-18"><h4 class="heading"><span class="codenumber">17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-introtosys-7-18-1-1">Suppose the tanks are as in , starting both at volume <span class="process-math">\(V\text{,}\)</span> but now the rate of flow from tank 1 to tank 2 is <span class="process-math">\(r_1\text{,}\)</span> and rate of flow from tank 2 to tank 1 is <span class="process-math">\(r_2\text{.}\)</span> In particular, the volumes will now be changing. Set up the system of equations.<div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-18-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec-introtosys-7-18-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec-introtosys-7-18-2-1">
+<span class="process-math">\(V_1(t) = V + (r_2 - r_1)t\text{,}\)</span> <span class="process-math">\(V_2(t) = V + (r_1 - r_2)t\)</span><span class="process-math">\(\frac{dx_1}{dt} = r_2\left(\frac{x_2}{V + (r_1 - r_2)t}\right)  - r_1\left(\frac{x_1}{V + (r_2 - r_1)t}\right)\)</span> <span class="process-math">\(\frac{dx_2}{dt} = r_1\left(\frac{x_1}{V + (r_2 - r_1)t}\right)  - r_2\left(\frac{x_2}{V + (r_1 - r_2)t}\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-18-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 17.1"><a href="#sec-introtosys-7-18-2" title="Copy heading and permalink for Answer 17.1" aria-label="Copy heading and permalink for Answer 17.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 17"><a href="#sec-introtosys-7-18" title="Copy heading and permalink for Exercise 17" aria-label="Copy heading and permalink for Exercise 17">🔗</a></div></article><article class="exercise exercise-like" id="sec-introtosys-7-19"><h4 class="heading"><span class="codenumber">18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec-introtosys-7-19-1-1">Suppose the tanks are as in except that clean water flows in at the rate <span class="process-math">\(s\)</span> liters per second into tank 1, and brine flows out of tank 2 and into the sewer also at the rate of <span class="process-math">\(s\)</span> liters per second. We also adjust the flow rate of the line from tank 1 to tank 2 to be <span class="process-math">\(r+s\)</span> liters per second.<div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-19-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="sec-introtosys-7-19-1-2">Draw the picture. Set up the system of equations. Intuitively, what happens as <span class="process-math">\(t\)</span> goes to infinity, explain.<div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-19-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 18"><a href="#sec-introtosys-7-19" title="Copy heading and permalink for Exercise 18" aria-label="Copy heading and permalink for Exercise 18">🔗</a></div></article><article class="exercise exercise-like" id="sec-introtosys-7-20"><h4 class="heading"><span class="codenumber">19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="sec-introtosys-7-20-1-1">
+<div class="para">Match the systems of differential equations below to their corresponding slope fields. Justify.</div>
+<div class="displaymath process-math" id="sec-introtosys-7-20-1-1-1">
+\begin{equation*}
+(i)\ \begin{cases} \frac{dx}{dt} &amp;= x+y \\ \frac{dy}{dt} &amp;= 2y-x \end{cases} \qquad (ii)\ \begin{cases} \frac{dx}{dt} &amp;= x-y \\ \frac{dy}{dt} &amp;= x^2 + y \end{cases} \qquad (iii)\ \begin{cases} \frac{dx}{dt} &amp;= x^2 - y^2 \\ \frac{dy}{dt} &amp;= 3x-1 \end{cases}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-20-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="sec-introtosys-7-20-1-2">(3)<div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-20-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="sec-introtosys-7-20-1-3"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/Images/sysslopeEx1_1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>image<div class="autopermalink" data-description="Figure 4.1.10"><a href="#sec-introtosys-7-20-1-3" title="Copy heading and permalink for Figure 4.1.10" aria-label="Copy heading and permalink for Figure 4.1.10">🔗</a></div></figcaption></figure> <figure class="figure figure-like" id="sec-introtosys-7-20-1-4"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/Images/sysslopeEx1_3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>image<div class="autopermalink" data-description="Figure 4.1.11"><a href="#sec-introtosys-7-20-1-4" title="Copy heading and permalink for Figure 4.1.11" aria-label="Copy heading and permalink for Figure 4.1.11">🔗</a></div></figcaption></figure> <figure class="figure figure-like" id="sec-introtosys-7-20-1-5"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/Images/sysslopeEx1_2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>image<div class="autopermalink" data-description="Figure 4.1.12"><a href="#sec-introtosys-7-20-1-5" title="Copy heading and permalink for Figure 4.1.12" aria-label="Copy heading and permalink for Figure 4.1.12">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Exercise 19"><a href="#sec-introtosys-7-20" title="Copy heading and permalink for Exercise 19" aria-label="Copy heading and permalink for Exercise 19">🔗</a></div></article><article class="exercise exercise-like" id="sec-introtosys-7-21"><h4 class="heading"><span class="codenumber">20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="sec-introtosys-7-21-1-1">
+<div class="para">Match the systems of differential equations below to their corresponding slope fields. Justify.</div>
+<div class="displaymath process-math" id="sec-introtosys-7-21-1-1-1">
+\begin{equation*}
+(i)\ \begin{cases} \frac{dx}{dt} &amp;= 2x+y \\ \frac{dy}{dt} &amp;= y - x^2 \end{cases} \qquad (ii)\ \begin{cases} \frac{dx}{dt} &amp;= x^2 \\ \frac{dy}{dt} &amp;= x-y \end{cases} \qquad (iii)\ \begin{cases} \frac{dx}{dt} &amp;= y+2 \\ \frac{dy}{dt} &amp;= x+y+1 \end{cases}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-21-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="sec-introtosys-7-21-1-2">(3)<div class="autopermalink" data-description="Paragraph"><a href="#sec-introtosys-7-21-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="sec-introtosys-7-21-1-3"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/Images/sysslopeEx2_3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>image<div class="autopermalink" data-description="Figure 4.1.13"><a href="#sec-introtosys-7-21-1-3" title="Copy heading and permalink for Figure 4.1.13" aria-label="Copy heading and permalink for Figure 4.1.13">🔗</a></div></figcaption></figure> <figure class="figure figure-like" id="sec-introtosys-7-21-1-4"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/Images/sysslopeEx2_2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>image<div class="autopermalink" data-description="Figure 4.1.14"><a href="#sec-introtosys-7-21-1-4" title="Copy heading and permalink for Figure 4.1.14" aria-label="Copy heading and permalink for Figure 4.1.14">🔗</a></div></figcaption></figure> <figure class="figure figure-like" id="sec-introtosys-7-21-1-5"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/Images/sysslopeEx2_1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>image<div class="autopermalink" data-description="Figure 4.1.15"><a href="#sec-introtosys-7-21-1-5" title="Copy heading and permalink for Figure 4.1.15" aria-label="Copy heading and permalink for Figure 4.1.15">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Exercise 20"><a href="#sec-introtosys-7-21" title="Copy heading and permalink for Exercise 20" aria-label="Copy heading and permalink for Exercise 20">🔗</a></div></article><div class="autopermalink" data-description="Exercises: Exercises"><a href="#sec-introtosys-7" title="Copy heading and permalink for Exercises: Exercises" aria-label="Copy heading and permalink for Exercises: Exercises">🔗</a></div></section><div class="autopermalink" data-description="Section 4.1: Introduction to systems of ODEs"><a href="#sec-introtosys" title="Copy heading and permalink for Section 4.1: Introduction to systems of ODEs" aria-label="Copy heading and permalink for Section 4.1: Introduction to systems of ODEs">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sys-chapter.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-matrix.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

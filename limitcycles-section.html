@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Limit cycles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Differential Equations">
+<meta property="book:author" content="Matt Charnley">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.11.12';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.0d5f811896ddeac1.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.e2abc79debce15fd.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Differential Equations</span> <span class="subtitle">An Introduction for Engineers</span></a></h1>
+<p class="byline">Matt Charnley</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="nlinapps-section.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="nlin-chapter.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-chaos.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="intro-chapter.html" class="internal"><span class="codenumber">0</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introde-section.html" class="internal"><span class="codenumber">0.1</span> <span class="title">Introduction to differential equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#differential-equations" class="internal"><span class="title">Differential equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#solutions-of-differential-equations" class="internal"><span class="title">Solutions of differential equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#differential-equations-in-practice" class="internal"><span class="title">Differential equations in practice</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde-section.html#subsection-fourfundamental" class="internal"><span class="title">Four fundamental equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="introde-section.html#introde-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="classification-section.html" class="internal"><span class="codenumber">0.2</span> <span class="title">Classification of differential equations</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="classification-section.html#classification-section-16" class="internal"><span class="codenumber">0.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="fo-chapter.html" class="internal"><span class="codenumber">1</span> <span class="title">First Order Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="integralsols-section.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Integrals as solutions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="integralsols-section.html#integralsols-section-14" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="slopefields-section.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Slope fields</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slopefields-section.html#slope-fields" class="internal"><span class="title">Slope fields</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="slopefields-section.html#slopefields-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="separable-section.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Separable equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable-section.html#separable-equations" class="internal"><span class="title">Separable equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable-section.html#implicit-solutions" class="internal"><span class="title">Implicit solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable-section.html#examples-of-separable-equations" class="internal"><span class="title">Examples of separable equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="separable-section.html#separable-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="intfactor-section.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Linear equations and the integrating factor</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="intfactor-section.html#intfactor-section-18" class="internal"><span class="codenumber">1.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="existunique-section.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Existence and Uniqueness of Solutions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="existunique-section.html#existunique-section-18" class="internal"><span class="codenumber">1.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="numer-section.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Numerical methods: Euler’s method</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="numer-section.html#numer-section-23" class="internal"><span class="codenumber">1.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="auteq-section.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Autonomous equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auteq-section.html#subsec-autoIntro" class="internal"><span class="title">Introduction and Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auteq-section.html#concavity-of-solutions" class="internal"><span class="title">Concavity of Solutions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="auteq-section.html#auteq-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="bifDiag-section.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Bifurcation diagrams</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="bifDiag-section.html#bifDiag-section-13" class="internal"><span class="codenumber">1.8</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="exact-section.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Exact equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact-section.html#subsec-exactIntro" class="internal"><span class="title">exactIntro</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact-section.html#solving-exact-equations" class="internal"><span class="title">Solving exact equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact-section.html#integrating-factors" class="internal"><span class="title">Integrating factors</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exact-section.html#exact-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="modelfirst-section.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Modeling with First Order Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="modelfirst-section.html#principles-of-mathematical-modeling" class="internal"><span class="title">Principles of Mathematical Modeling</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="modelfirst-section.html#the-accumulation-equation" class="internal"><span class="title">The Accumulation Equation</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="modelfirst-section.html#modelfirst-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="modelfirstestim-section.html" class="internal"><span class="codenumber">1.11</span> <span class="title">Modeling and Parameter Estimation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="modelfirstestim-section.html#modelfirstestim-section-10" class="internal"><span class="codenumber">1.11</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="substitution-section.html" class="internal"><span class="codenumber">1.12</span> <span class="title">Substitution</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution-section.html#bernoulli-equations" class="internal"><span class="title">Bernoulli equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution-section.html#homogeneous-equations" class="internal"><span class="title">Homogeneous equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="substitution-section.html#substitution-section-10" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ho-chapter.html" class="internal"><span class="codenumber">2</span> <span class="title">Higher Order Linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="solinear-section.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Second order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#intial-value-problems" class="internal"><span class="title">Intial Value Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#constant-coefficient-equations---real-and-distinct-roots" class="internal"><span class="title">Constant Coefficient Equations - Real and Distinct Roots</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#linear-independence-soeq" class="internal"><span class="title">Linear Independence</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="solinear-section.html#solinear-section-17" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="complexroots-section.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Complex Roots and Euler’s Formula</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="complexroots-section.html#complex-roots" class="internal"><span class="title">Complex roots</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="complexroots-section.html#complexroots-section-13" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="reproots-section.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Repeated Roots and Reduction of Order</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="reproots-section.html#reproots-section-11" class="internal"><span class="codenumber">2.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-mv.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Mechanical vibrations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-mv.html#free-undamped-motion" class="internal"><span class="title">Free undamped motion</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-mv.html#free-damped-motion" class="internal"><span class="title">Free damped motion</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-mv.html#overdamping" class="internal"><span class="title">Overdamping</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-mv.html#critical-damping" class="internal"><span class="title">Critical damping</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-mv.html#underdamping" class="internal"><span class="title">Underdamping</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-mv.html#physical-applications-and-vertical-mass-spring-systems" class="internal"><span class="title">Physical Applications and Vertical Mass-Spring Systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-mv.html#sec-mv-20" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-nonhom.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Nonhomogeneous equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#solving-nonhomogeneous-equations" class="internal"><span class="title">Solving nonhomogeneous equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#undetermined-coefficients-eqns" class="internal"><span class="title">Undetermined coefficients</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#variation-of-parameters-eqns" class="internal"><span class="title">Variation of parameters</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-nonhom.html#sec-nonhom-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="forcedo-section.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Forced oscillations and resonance</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="forcedo-section.html#undamped-forced-motion-and-resonance" class="internal"><span class="title">Undamped forced motion and resonance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="forcedo-section.html#damped-forced-motion-and-practical-resonance" class="internal"><span class="title">Damped forced motion and practical resonance</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="forcedo-section.html#forcedo-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-hol.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Higher order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#linear-independence-hoeq" class="internal"><span class="title">Linear independence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#constant-coefficient-higher-order-odes" class="internal"><span class="title">Constant coefficient higher order ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#non-homogeneous-equations" class="internal"><span class="title">Non-Homogeneous Equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-hol.html#sec-hol-11" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="linalg-appendix.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="vecsandmaps-section.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Vectors, mappings, and matrices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="vecsandmaps-section.html#vectors-and-operations-on-vectors" class="internal"><span class="title">Vectors and operations on vectors</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#linear-combinations-and-linear-independence" class="internal"><span class="title">Linear Combinations and Linear Independence</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#matrices" class="internal"><span class="title">Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#linear-mappings-and-matrices" class="internal"><span class="title">Linear mappings and matrices</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="vecsandmaps-section.html#vecsandmaps-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="matalg-section.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Matrix algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#one-by-one-matrices" class="internal"><span class="title">One-by-one matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#matrix-addition-and-scalar-multiplication" class="internal"><span class="title">Matrix addition and scalar multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#matrix-multiplication" class="internal"><span class="title">Matrix multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#some-rules-of-matrix-algebra" class="internal"><span class="title">Some rules of matrix algebra</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#inverse" class="internal"><span class="title">Inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#special-types-of-matrices" class="internal"><span class="title">Special types of matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#transpose" class="internal"><span class="title">Transpose</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="matalg-section.html#matalg-section-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="elim-section.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Elimination</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#linear-systems-of-equations" class="internal"><span class="title">Linear systems of equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#row-echelon-form-and-elementary-operations" class="internal"><span class="title">Row echelon form and elementary operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#non-unique-solutions-and-inconsistent-systems" class="internal"><span class="title">Non-unique solutions and inconsistent systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="elim-section.html#elim-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="det-section.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Determinant</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="det-section.html#det-section-32" class="internal"><span class="codenumber">3.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eig-section.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Eigenvalues and Eigenvectors</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#finding-eigenvalues-and-eigenvectors" class="internal"><span class="title">Finding Eigenvalues and Eigenvectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#real-eigenvalues" class="internal"><span class="title">Real Eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#complex-eigenvalues" class="internal"><span class="title">Complex Eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#repeated-eigenvalues" class="internal"><span class="title">Repeated Eigenvalues</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eig-section.html#eig-section-11" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-kernel.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Related Topics in Linear Algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#subspaces-and-span" class="internal"><span class="title">Subspaces and span</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#basis-and-dimension" class="internal"><span class="title">Basis and dimension</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#rank" class="internal"><span class="title">Rank</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#kernel" class="internal"><span class="title">Kernel</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#computing-the-inverse-adv" class="internal"><span class="title">Computing the inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#trace-and-determinant-of-matrices" class="internal"><span class="title">Trace and Determinant of Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#extension-of-previous-theorem" class="internal"><span class="title">Extension of Previous Theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-kernel.html#sec-kernel-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="sys-chapter.html" class="internal"><span class="codenumber">4</span> <span class="title">Systems of ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-introtosys.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Introduction to systems of ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#systems" class="internal"><span class="title">Systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#applications" class="internal"><span class="title">Applications</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#changing-to-first-order" class="internal"><span class="title">Changing to first order</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#autonomous-systems-and-vector-fields" class="internal"><span class="title">Autonomous systems and vector fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#picards-theorem" class="internal"><span class="title">Picard’s theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-introtosys.html#sec-introtosys-7" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-matrix.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Matrices and linear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#matrices-and-vectors" class="internal"><span class="title">Matrices and vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#matrix-multiplication-rev" class="internal"><span class="title">Matrix multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#the-determinant" class="internal"><span class="title">The determinant</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#solving-linear-systems" class="internal"><span class="title">Solving linear systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#computing-the-inverse" class="internal"><span class="title">Computing the inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#eigenvalues-and-eigenvectors-of-a-matrix" class="internal"><span class="title">Eigenvalues and eigenvectors of a matrix</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matrix.html#sec-matrix-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linsystems-section.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Linear systems of ODEs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linsystems-section.html#linsystems-section-17" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod-section.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Eigenvalue method</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-section.html#the-eigenvalue-method-with-distinct-real-eigenvalues" class="internal"><span class="title">The eigenvalue method with distinct real eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-section.html#phase-portraits-real" class="internal"><span class="title">Phase Portraits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-section.html#eigenmethod-section-10" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod-cplx-section.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Eigenvalue method with complex eigenvalues</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-cplx-section.html#phase-portraits-complex" class="internal"><span class="title">Phase Portraits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-cplx-section.html#eigenmethod-cplx-section-16" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod-repeat-section.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Eigenvalue method with repeated eigenvalues</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection">
+<div class="toc-title-box"><a href="eigenmethod-repeat-section.html#geometric-multiplicity" class="internal"><span class="title">Geometric multiplicity</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#defective-eigenvalues" class="internal"><span class="title">Defective eigenvalues</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#phase-portraits-repeated" class="internal"><span class="title">Phase Portraits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#eigenmethod-repeat-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-twodimaut.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Two-dimensional systems and their vector fields</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-twodimaut.html#trace-determinant-analysis" class="internal"><span class="title">Trace-Determinant Analysis</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-twodimaut.html#sec-twodimaut-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nonhomogsys-section.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Nonhomogeneous systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys-section.html#first-order-constant-coefficient" class="internal"><span class="title">First order constant coefficient</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys-section.html#diagonalization" class="internal"><span class="title">Diagonalization</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys-section.html#undetermined-coefficients-sys" class="internal"><span class="title">Undetermined coefficients</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys-section.html#first-order-variable-coefficient" class="internal"><span class="title">First order variable coefficient</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys-section.html#variation-of-parameters-sys" class="internal"><span class="title">Variation of parameters</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nonhomogsys-section.html#nonhomogsys-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sol-section.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Second order systems and applications</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol-section.html#undamped-mass-spring-systems" class="internal"><span class="title">Undamped mass-spring systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol-section.html#examples" class="internal"><span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol-section.html#forced-oscillations" class="internal"><span class="title">Forced oscillations</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sol-section.html#non-homogeneous-solutions" class="internal"><span class="title">Non-Homogeneous Solutions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sol-section.html#undetermined-coefficients-secondsys" class="internal"><span class="title">Undetermined coefficients</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sol-section.html#eigenvector-decomposition" class="internal"><span class="title">Eigenvector decomposition</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sol-section.html#sol-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-matexp.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Matrix exponentials</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#definition" class="internal"><span class="title">Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#simple-cases" class="internal"><span class="title">Simple cases</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#general-matrices" class="internal"><span class="title">General matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#fundamental-matrix-solutions" class="internal"><span class="title">Fundamental matrix solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matexp.html#approximations" class="internal"><span class="title">Approximations</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-matexp.html#non-homogeneous-systems" class="internal"><span class="title">Non-Homogeneous Systems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-matexp.html#integrating-factor" class="internal"><span class="title">Integrating factor</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matexp.html#sec-matexp-8" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="nlin-chapter.html" class="internal"><span class="codenumber">5</span> <span class="title">Nonlinear Systems</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linearization-section.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Linearization, critical points, and stability</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#autonomous-systems-and-phase-plane-analysis" class="internal"><span class="title">Autonomous systems and phase plane analysis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#linearization" class="internal"><span class="title">Linearization</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#isolated-critical-points-and-almost-linear-systems" class="internal"><span class="title">Isolated critical points and almost linear systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#stability-and-classification-of-isolated-critical-points" class="internal"><span class="title">Stability and classification of isolated critical points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#the-trouble-with-centers" class="internal"><span class="title">The trouble with centers</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linearization-section.html#linearization-section-12" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nlinHamiltonian-section.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Behavior of non-linear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#conservative-equations" class="internal"><span class="title">Conservative equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#hamiltonian-systems" class="internal"><span class="title">Hamiltonian Systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#separatrices-and-basins-of-attractions" class="internal"><span class="title">Separatrices and Basins of Attractions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#nullclines" class="internal"><span class="title">Nullclines</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#nlinHamiltonian-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nlinapps-section.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Applications of nonlinear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#pendulum" class="internal"><span class="title">Pendulum</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#predator-prey-or-lotkavolterra-systems" class="internal"><span class="title">Predator-prey or Lotka–Volterra systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#competing-species-systems" class="internal"><span class="title">Competing Species systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinapps-section.html#nlinapps-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="limitcycles-section.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Limit cycles</span></a></div>
+<ul class="structural toc-item-list active"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="limitcycles-section.html#limitcycles-section-28" class="internal"><span class="codenumber">5.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-chaos.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Chaos</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaos.html#duffing-equation-and-strange-attractors" class="internal"><span class="title">Duffing equation and strange attractors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaos.html#the-lorenz-system" class="internal"><span class="title">The Lorenz system</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-chaos.html#sec-chaos-9" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="matlab-appendix.html" class="internal"><span class="codenumber">6</span> <span class="title">Introduction to MATLAB</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="the-matlab-interface.html" class="internal"><span class="codenumber">6.1</span> <span class="title">The MATLAB Interface</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="file-structure.html" class="internal"><span class="codenumber">6.2</span> <span class="title">File Structure</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="computation-in-matlab.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Computation in MATLAB</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="variables-and-arrays.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Variables and Arrays</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="funMat-section.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Functions and Anonymous Functions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="loops-and-branching-statements.html" class="internal"><span class="codenumber">6.6</span> <span class="title">Loops and Branching Statements</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="loops-and-branching-statements.html#for-loops" class="internal"><span class="title">For Loops</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="loops-and-branching-statements.html#if-statements" class="internal"><span class="title">If Statements</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="plotting-in-matlab.html" class="internal"><span class="codenumber">6.7</span> <span class="title">Plotting in MATLAB</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="supplemental-code-files.html" class="internal"><span class="codenumber">6.8</span> <span class="title">Supplemental Code Files</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-prereq.html" class="internal"><span class="codenumber">7</span> <span class="title">Prerequisite Material</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-polys.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Polynomials and Factoring</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#definitions-and-operations" class="internal"><span class="title">Definitions and Operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#polynomial-long-division" class="internal"><span class="title">Polynomial Long Division</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#synthetic-division" class="internal"><span class="title">Synthetic Division</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-complexNums.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Complex Numbers</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-derivInt.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Differentiation and Integration Techniques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivInt.html#derivative-and-integral-formulas" class="internal"><span class="title">Derivative and Integral Formulas</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-derivInt.html#derivative-rules" class="internal"><span class="title">Derivative Rules</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#linearity-of-the-derivative-and-integral" class="internal"><span class="title">Linearity of the Derivative and Integral</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#product-and-quotient-rule" class="internal"><span class="title">Product and Quotient Rule</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#chain-rule" class="internal"><span class="title">Chain Rule</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-derivInt.html#integration-techniques" class="internal"><span class="title">Integration Techniques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#substitution" class="internal"><span class="title">Substitution</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#integration-by-parts" class="internal"><span class="title">Integration by Parts</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-derivInt.html#partial-fractions" class="internal"><span class="title">Partial Fractions</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-references"><div class="toc-title-box"><a href="references.html" class="internal"><span class="title">References</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-3.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="limitcycles-section"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limit cycles</span>
+</h2>
+<div class="para" id="limitcycles-section-2">For nonlinear systems, trajectories do not simply need to approach or leave a single point. They may in fact approach a larger set, such as a circle or another closed curve.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="limitcycles-section-3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="limitcycles-section-3-2-1">
+<div class="para">The <em class="emphasis"></em><details class="ptx-footnote" aria-live="polite" id="limitcycles-section-3-2-1-2"><summary class="ptx-footnote__number" title="Footnote 5.4.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="limitcycles-section-3-2-1-2"><div class="para" id="limitcycles-section-3-2-1-2-1">Named for the Dutch physicist <a class="external" href="https://en.wikipedia.org/wiki/Balthasar_van_der_Pol" target="_blank">Balthasar van der Pol</a> (1889–1959).<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-3-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details> is the following equation</div>
+<div class="displaymath process-math" id="limitcycles-section-3-2-1-3">
+\begin{equation*}
+x''-\mu(1-x^2) x' + x = 0,
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\mu\)</span> is some positive constant. The Van der Pol oscillator originated with electrical circuits, but finds applications in diverse fields such as biology, seismology, and other physical sciences.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="limitcycles-section-3-2-2">For simplicity, let us use <span class="process-math">\(\mu = 1\text{.}\)</span> A phase diagram is given in the left-hand plot in . Notice how the trajectories seem to very quickly settle on a closed curve. On the right-hand side is the plot of a single solution for <span class="process-math">\(t=0\)</span> to <span class="process-math">\(t=30\)</span> with initial conditions <span class="process-math">\(x(0) = 0.1\)</span> and <span class="process-math">\(x'(0) = 0.1\text{.}\)</span> The solution quickly tends to a periodic solution.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>   <div class="para" id="limitcycles-section-3-2-3">The Van der Pol oscillator is an example of so-called <em class="emphasis"></em>. The word relaxation comes from the sudden jump (the very steep part of the solution). For larger <span class="process-math">\(\mu\)</span> the steep part becomes even more pronounced, for small <span class="process-math">\(\mu\)</span> the limit cycle looks more like a circle. In fact, setting <span class="process-math">\(\mu = 0\text{,}\)</span> we get <span class="process-math">\(x''+x=0\text{,}\)</span> which is a linear system with a center and all trajectories become circles.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-3-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 5.4.1: "><a href="#limitcycles-section-3" title="Copy heading and permalink for Example 5.4.1: " aria-label="Copy heading and permalink for Example 5.4.1: ">🔗</a></div></article></details><div class="para" id="limitcycles-section-4">What we see in this example is a curve to which many solution seem to head towards as <span class="process-math">\(t\)</span> gets larger. This motivates the following definition.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="limitcycles-section-5">
+<ol class="decimal" id="limitcycles-section-5-1">
+<li id="limitcycles-section-5-1-1">
+<div class="para" id="limitcycles-section-5-1-1-1">A trajectory in the phase portrait that is a closed curve (a curve that is a loop) is called a <em class="emphasis"></em>.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-5-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#limitcycles-section-5-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="limitcycles-section-5-1-2">
+<div class="para" id="limitcycles-section-5-1-2-1">A <em class="emphasis"></em> is a closed trajectory such that at least one other trajectory spirals into it.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-5-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#limitcycles-section-5-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="limitcycles-section-5-1-3">
+<div class="para" id="limitcycles-section-5-1-3-1">If all trajectories that start near the limit cycle spiral into it, the limit cycle is called <em class="emphasis">asymptotically stable</em>.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-5-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#limitcycles-section-5-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="limitcycles-section-6">For example, the closed curve in the phase portrait for the Van der Pol equation is a limit cycle, and the limit cycle in the Van der Pol oscillator is asymptotically stable.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="limitcycles-section-7">Given a closed trajectory on an autonomous system, any solution that starts on it is periodic. Such a curve is called a <em class="emphasis"></em>. More precisely, if <span class="process-math">\(\bigl(x(t),y(t)\bigr)\)</span> is a solution such that for some <span class="process-math">\(t_0\)</span> the point <span class="process-math">\(\bigl(x(t_0),y(t_0)\bigr)\)</span> lies on a periodic orbit, then both <span class="process-math">\(x(t)\)</span> and <span class="process-math">\(y(t)\)</span> are periodic functions (with the same period). That is, there is some number <span class="process-math">\(P\)</span> such that <span class="process-math">\(x(t) = x(t+P)\)</span> and <span class="process-math">\(y(t) = y(t+P)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="limitcycles-section-8">We would like to be able to identify when these sorts of periodic orbits can or can’t happen to understand more about these systems. Thankfully, we have a theorem that gives us some help here.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="limitcycles-section-9">
+<div class="para">Poincaré–Bendixson Consider the system</div>
+<div class="displaymath process-math" id="nlin-gensys">
+\begin{equation}
+x' = f(x,y), \qquad y' = g(x,y) ,\tag{5.4.1}
+\end{equation}
+</div>
+<div class="para">where the functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> have continuous derivatives in some region <span class="process-math">\(R\)</span> in the plane.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="limitcycles-section-10">Suppose <span class="process-math">\(R\)</span> is a closed bounded region (a region in the plane that includes its boundary and does not have points arbitrarily far from the origin). Suppose <span class="process-math">\(\bigl(x(t), y(t)\bigr)\)</span> is a solution of <a href="limitcycles-section.html#nlin-gensys" class="xref" data-knowl="./knowl/xref/nlin-gensys.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.4.1">(5.4.1)</a> in <span class="process-math">\(R\)</span> that exists for all <span class="process-math">\(t \geq t_0\text{.}\)</span> Then either the solution is a periodic function, or the solution tends towards a periodic solution in <span class="process-math">\(R\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="limitcycles-section-11">The main point of the theorem<details class="ptx-footnote" aria-live="polite" id="limitcycles-section-11-1"><summary class="ptx-footnote__number" title="Footnote 5.4.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="limitcycles-section-11-1"><div class="para" id="limitcycles-section-11-1-1">
+<a class="external" href="https://en.wikipedia.org/wiki/Ivar_Otto_Bendixson" target="_blank">Ivar Otto Bendixson</a> (1861–1935) was a Swedish mathematician.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details> is that if you find one solution that exists for all <span class="process-math">\(t\)</span> large enough (that is, as <span class="process-math">\(t\)</span> goes to infinity) and stays within a bounded region, then you have found either a periodic orbit, or a solution that spirals towards a limit cycle or tends to a critical point. That is, in the long term, the behavior is very close to a periodic function. Note that a constant solution at a critical point is periodic (with any period). The theorem is more a qualitative statement rather than something to help us in computations. In practice it is hard to find analytic solutions and so hard to show rigorously that they exist for all time. But if we think the solution exists we numerically solve for a large time to approximate the limit cycle. Another caveat is that the theorem only works in two dimensions. In three dimensions and higher, there is simply too much room.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="limitcycles-section-12">The theorem applies to all solutions in the Van der Pol oscillator. Solutions that start at any point except the origin <span class="process-math">\((0,0)\)</span> will tend to the periodic solution around the limit cycle, and if the initial condition of <span class="process-math">\((0,0)\)</span> will lead to the constant solution <span class="process-math">\(x=0\text{,}\)</span> <span class="process-math">\(y=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="limitcycles-section-13" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="limitcycles-section-13-2-1">
+<div class="para">Consider</div>
+<div class="displaymath process-math" id="limitcycles-section-13-2-1-1">
+\begin{equation*}
+x' = y + {(x^2+y^2-1)}^2 x, \qquad
+y' = -x + {(x^2+y^2-1)}^2 y.
+\end{equation*}
+</div>
+<div class="para">A vector field along with solutions with initial conditions <span class="process-math">\((1.02,0)\text{,}\)</span> <span class="process-math">\((0.9,0)\text{,}\)</span> and <span class="process-math">\((0.1,0)\)</span> are drawn in . Analyze this system to determine what will happen to the solution for a variety of initial conditions.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-13-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="solutions"><details id="limitcycles-section-13-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="limitcycles-section-13-3-1">Notice that points on the unit circle (distance one from the origin) satisfy <span class="process-math">\(x^2+y^2-1=0\text{.}\)</span> And <span class="process-math">\(x(t) = \sin(t)\text{,}\)</span> <span class="process-math">\(y = \cos(t)\)</span> is a solution of the system. Therefore we have a closed trajectory. For points off the unit circle, the second term in <span class="process-math">\(x'\)</span> pushes the solution further away from the <span class="process-math">\(y\)</span>-axis than the system <span class="process-math">\(x' = y\text{,}\)</span> <span class="process-math">\(y' = -x\text{,}\)</span> and <span class="process-math">\(y'\)</span> pushes the solution further away from the <span class="process-math">\(x\)</span>-axis than the linear system <span class="process-math">\(x'=y\text{,}\)</span> <span class="process-math">\(y' = -x\text{.}\)</span> In other words for all other initial conditions the trajectory will spiral out.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-13-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="limitcycles-section-13-3-2">This means that for initial conditions inside the unit circle, the solution spirals out towards the periodic solution on the unit circle, and for initial conditions outside the unit circle the solutions spiral off towards infinity. Therefore the unit circle is a limit cycle, but not an asymptotically stable one. In relation to the terms used for autonomous equations in , we could refer to this as a semistable limit cycle, since on one side (inside) the solutions spiral towards the periodic orbit, while on the other side (outside) the solutions move away. The Poincaré–Bendixson Theorem applies to the initial points inside the unit circle, as those solutions stay bounded, but not to those outside, as those solutions go off to infinity.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-13-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.4.2.1"><a href="#limitcycles-section-13-3" title="Copy heading and permalink for Solution 5.4.2.1" aria-label="Copy heading and permalink for Solution 5.4.2.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 5.4.2: "><a href="#limitcycles-section-13" title="Copy heading and permalink for Example 5.4.2: " aria-label="Copy heading and permalink for Example 5.4.2: ">🔗</a></div></article></details><div class="para logical" id="limitcycles-section-14">
+<div class="para">A very similar analysis applies to the system</div>
+<div class="displaymath process-math" id="limitcycles-section-14-1">
+\begin{equation*}
+x' = y + {(x^2+y^2-1)} x, \qquad
+y' = -x + {(x^2+y^2-1)} y.
+\end{equation*}
+</div>
+<div class="para">We still obtain a closed trajectory on the unit circle, and points outside the unit circle spiral out to infinity, but now points inside the unit circle spiral towards the critical point at the origin. So this system does not have a limit cycle, even though it has a closed trajectory.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="limitcycles-section-15">
+<div class="para">One way to see this more explicitly is by trying to write this all in terms of</div>
+<div class="displaymath process-math" id="limitcycles-section-15-1">
+\begin{equation*}
+r = \sqrt{x^2 + y^2}.
+\end{equation*}
+</div>
+<div class="para">For simplicity here, we will determine everything in terms of</div>
+<div class="displaymath process-math" id="limitcycles-section-15-2">
+\begin{equation*}
+s = r^2 = x^2 + y^2
+\end{equation*}
+</div>
+<div class="para">because as long as <span class="process-math">\(r &gt; 0\text{,}\)</span> <span class="process-math">\(r\)</span> and <span class="process-math">\(s\)</span> always have the same behavior (in terms of increasing and decreasing), and it is easier to compute with <span class="process-math">\(s\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="limitcycles-section-16">
+<div class="para">Using the first example</div>
+<div class="displaymath process-math" id="limitcycles-section-16-1">
+\begin{equation*}
+x' = y + {(x^2+y^2-1)}^2 x, \qquad
+y' = -x + {(x^2+y^2-1)}^2 y.
+\end{equation*}
+</div>
+<div class="para">we see that</div>
+<div class="displaymath process-math" id="limitcycles-section-16-2">
+\begin{equation*}
+\begin{split}
+s' &amp;= 2xx' + 2yy' \\
+&amp;= 2x(y + {(x^2+y^2-1)}^2 x + 2y(-x + {(x^2+y^2-1)}^2 y) \\
+&amp;= 2xy + 2x^2(x^2 + y^2 - 1)^2 - 2xy + 2y^2(x^2 + y^2 - 1)^2 \\
+s' &amp;= 2s(s-1)^2
+\end{split}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="limitcycles-section-17">
+<div class="para">Thus, we are left with the equation</div>
+<div class="displaymath process-math" id="limitcycles-section-17-1">
+\begin{equation*}
+\frac{ds}{dt} = 2s(s-1)^2
+\end{equation*}
+</div>
+<div class="para">which is an autonomous first-order equation that we can analyze. We have two equilibrium solutions in terms of <span class="process-math">\(s\)</span> at <span class="process-math">\(s=0\text{,}\)</span> which corresponds to the origin, and <span class="process-math">\(s=1\text{,}\)</span> which corresponds to the unit circle. We can then plug in values to see that for <span class="process-math">\(s = \frac{1}{2}\text{,}\)</span> <span class="process-math">\(\frac{ds}{dt} &gt; 0\text{,}\)</span> so that the solutions will increase out to the unit circle. For <span class="process-math">\(s&gt;1\text{,}\)</span> <span class="process-math">\(\frac{ds}{dt} &gt; 0\)</span> as well, so solutions move away from the circle outside it. This is the same as the result we obtained in the first example.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="limitcycles-section-18">
+<div class="para">For the second example, we end up with the autonomous equation</div>
+<div class="displaymath process-math" id="limitcycles-section-18-1">
+\begin{equation*}
+\frac{ds}{dt} = 2s(s-1)
+\end{equation*}
+</div>
+<div class="para">which is negative for <span class="process-math">\(0 &lt; s &lt; 1\)</span> and positive for <span class="process-math">\(1 &lt; s\text{,}\)</span> giving that solutions that start inside the unit circle will converge to the origin, and solutions that start outside the circle will move away from it.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="limitcycles-section-19">Due to the Picard theorem () we find that no matter where we are in the plane we can always find a solution a little bit further in time, as long as <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> have continuous derivatives. So if we find a closed trajectory in an autonomous system, then for every initial point inside the closed trajectory, the solution will exist for all time and it will stay bounded (it will stay inside the closed trajectory). Since the closed trajectory is a solution, we can not cross it (by Picard theorem), and so we have to stay trapped inside. So the moment we found the solution above going around the unit circle, we knew that for every initial point inside the circle, the solution exists for all time and the Poincaré–Bendixson theorem applies.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="limitcycles-section-20">Let us next look for conditions when limit cycles (or periodic orbits) do not exist. We assume the equation <a href="limitcycles-section.html#nlin-gensys" class="xref" data-knowl="./knowl/xref/nlin-gensys.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.4.1">(5.4.1)</a> is defined on a <em class="emphasis"></em>, that is, a region with no holes we can go around. For example the entire plane is a simply connected region, and so is the inside of the unit disc. However, the entire plane minus a point is not a simply connected domain as it has a at the origin.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="limitcycles-section-21">
+<div class="para">Bendixson–Dulac  Suppose <span class="process-math">\(R\)</span> is a simply connected region, and the expression <details class="ptx-footnote" aria-live="polite" id="limitcycles-section-21-2"><summary class="ptx-footnote__number" title="Footnote 5.4.3"><sup> 3 </sup></summary><div class="ptx-footnote__contents" id="limitcycles-section-21-2"><div class="para" id="limitcycles-section-21-2-1">Usually the expression in the Bendixson–Dulac Theorem is <span class="process-math">\(\frac{\partial (\varphi f)}{\partial x} + \frac{\partial (\varphi
+g)}{\partial y}\)</span> for some continuously differentiable function <span class="process-math">\(\varphi\text{.}\)</span> For simplicity, let us just consider the case <span class="process-math">\(\varphi = 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-21-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/nlin-gensys.html" id="limitcycles-section-21-3">
+\begin{equation*}
+\frac{\partial f}{\partial x} + \frac{\partial g}{\partial y}
+\end{equation*}
+</div>
+<div class="para">is either always positive or always negative on <span class="process-math">\(R\)</span> (except perhaps a small set such as on isolated points or curves) then the system <a href="limitcycles-section.html#nlin-gensys" class="xref" data-knowl="./knowl/xref/nlin-gensys.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.4.1">(5.4.1)</a> has no closed trajectory inside <span class="process-math">\(R\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="limitcycles-section-22">The theorem<details class="ptx-footnote" aria-live="polite" id="limitcycles-section-22-1"><summary class="ptx-footnote__number" title="Footnote 5.4.4"><sup> 4 </sup></summary><div class="ptx-footnote__contents" id="limitcycles-section-22-1"><div class="para" id="limitcycles-section-22-1-1">
+<a class="external" href="https://en.wikipedia.org/wiki/Henri_Dulac" target="_blank">Henri Dulac</a> (1870–1955) was a French mathematician.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-22-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details> gives us a way of ruling out the existence of a closed trajectory, and hence a way of ruling out limit cycles. The exception about points or curves means that we can allow the expression to be zero at a few points, or perhaps on a curve, but not on any larger set.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="limitcycles-section-23" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para" id="limitcycles-section-23-2-1">Let us look at <span class="process-math">\(x'=y+y^2e^x\text{,}\)</span> <span class="process-math">\(y'=x\)</span> in the entire plane (see ) and try to apply .<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-23-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="limitcycles-section-23-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="limitcycles-section-23-3-1">The entire plane is simply connected and so we can apply the theorem. We compute <span class="process-math">\(\frac{\partial f}{\partial x} + \frac{\partial g}{\partial y} =
+y^2e^x+ 0\text{.}\)</span> The function <span class="process-math">\(y^2e^x\)</span> is always positive except on the line <span class="process-math">\(y=0\text{.}\)</span> Therefore, via the theorem, the system has no closed trajectories.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-23-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.4.3.1"><a href="#limitcycles-section-23-3" title="Copy heading and permalink for Solution 5.4.3.1" aria-label="Copy heading and permalink for Solution 5.4.3.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 5.4.3: "><a href="#limitcycles-section-23" title="Copy heading and permalink for Example 5.4.3: " aria-label="Copy heading and permalink for Example 5.4.3: ">🔗</a></div></article></details><div class="para" id="limitcycles-section-24">In some books (or the internet) the theorem is not stated carefully and it concludes there are no periodic solutions. That is not quite right. The example above has two critical points and hence it has constant solutions, and constant functions are periodic. The conclusion of the theorem should be that there exist no trajectories that form closed curves. Another way to state the conclusion of the theorem would be to say that there exist no nonconstant periodic solutions that stay in <span class="process-math">\(R\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-24" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="limitcycles-section-25">Let us look at a somewhat more complicated example.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-25" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="limitcycles-section-26" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para" id="limitcycles-section-26-2-1">Take the system <span class="process-math">\(x'=-y-x^2\text{,}\)</span> <span class="process-math">\(y'=-x+y^2\)</span> (see ) and look at how works here.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-26-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="limitcycles-section-26-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="limitcycles-section-26-3-1">We compute <span class="process-math">\(\frac{\partial f}{\partial x} + \frac{\partial g}{\partial y} =
+-2x + 2y=2(-x+y)\text{.}\)</span> This expression takes on both signs, so if we are talking about the whole plane we cannot simply apply the theorem. However, we could apply it on the set where <span class="process-math">\(-x+y \geq 0\text{.}\)</span> Via the theorem, there is no closed trajectory in that set. Similarly, there is no closed trajectory in the set <span class="process-math">\(-x+y \leq 0\text{.}\)</span> We cannot conclude (yet) that there is no closed trajectory in the entire plane. Perhaps half of it is in the set where <span class="process-math">\(-x+y \geq 0\)</span> and the other half is in the set where <span class="process-math">\(-x+y \leq 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-26-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="limitcycles-section-26-3-2">The key is to look at the line where <span class="process-math">\(-x+y=0\text{,}\)</span> or <span class="process-math">\(x=y\text{.}\)</span> On this line <span class="process-math">\(x' = -y-x^2 = -x-x^2\)</span> and <span class="process-math">\(y' = -x+y^2 = -x+x^2\text{.}\)</span> In particular, when <span class="process-math">\(x=y\)</span> then <span class="process-math">\(x' \leq y'\text{.}\)</span> That means that the arrows, the vectors <span class="process-math">\((x',y')\text{,}\)</span> always point into the set where <span class="process-math">\(-x+y \geq 0\text{.}\)</span> There is no way we can start in the set where <span class="process-math">\(-x+y \geq 0\)</span> and go into the set where <span class="process-math">\(-x+y \leq 0\text{.}\)</span> Once we are in the set where <span class="process-math">\(-x+y \geq 0\text{,}\)</span> we stay there. So no closed trajectory can have points in both sets.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-26-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.4.4.1"><a href="#limitcycles-section-26-3" title="Copy heading and permalink for Solution 5.4.4.1" aria-label="Copy heading and permalink for Solution 5.4.4.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 5.4.4: "><a href="#limitcycles-section-26" title="Copy heading and permalink for Example 5.4.4: " aria-label="Copy heading and permalink for Example 5.4.4: ">🔗</a></div></article></details><details id="limitcycles-section-27" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="limitcycles-section-27-2-1">
+<div class="para">Consider <span class="process-math">\(x' = y+(x^2+y^2-1)x\text{,}\)</span> <span class="process-math">\(y' = -x +(x^2+y^2-1)y\text{,}\)</span> and consider the region <span class="process-math">\(R\)</span> given by <span class="process-math">\(x^2+y^2 &gt;
+\frac{1}{2}\text{.}\)</span> That is, <span class="process-math">\(R\)</span> is the region outside a circle of radius <span class="process-math">\(\frac{1}{\sqrt{2}}\)</span> centered at the origin. Then there is a closed trajectory in <span class="process-math">\(R\text{,}\)</span> namely <span class="process-math">\(x=\cos(t)\text{,}\)</span> <span class="process-math">\(y=\sin(t)\text{.}\)</span> Furthermore,</div>
+<div class="displaymath process-math" id="limitcycles-section-27-2-1-10">
+\begin{equation*}
+\frac{\partial f}{\partial x} + 
+\frac{\partial g}{\partial x} = 4x^2+4y^2-2 ,
+\end{equation*}
+</div>
+<div class="para">which is always positive on <span class="process-math">\(R\text{.}\)</span> So what is going on? The Bendixson–Dulac theorem does not apply since the region <span class="process-math">\(R\)</span> is not simply connected—it has a hole, the circle we cut out!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-27-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 5.4.5: "><a href="#limitcycles-section-27" title="Copy heading and permalink for Example 5.4.5: " aria-label="Copy heading and permalink for Example 5.4.5: ">🔗</a></div></article></details><section class="exercises" id="limitcycles-section-28"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="limitcycles-section-28-2"><h4 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="limitcycles-section-28-2-1-1">
+<div class="para">Consider the two-dimensional system of differential equation written in polar coordinates as</div>
+<div class="displaymath process-math" id="limitcycles-section-28-2-1-1-1">
+\begin{equation*}
+\frac{dr}{dt} = r(r-1)(r-4)^2 \qquad \frac{d\theta}{dt} = 1.
+\end{equation*}
+</div>
+<div class="para">Determine all limit cycles, periodic solutions, and classify the stability of each of these solutions.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-28-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="limitcycles-section-28-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="limitcycles-section-28-2-2-1">
+<span class="process-math">\(r=0\)</span> is asymptotically stable, <span class="process-math">\(r=1\)</span> is a periodic solution, but not a limit cycle, is unstable, <span class="process-math">\(r=4\)</span> is semistable, limit cycle from the inside.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-28-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.4.1.1"><a href="#limitcycles-section-28-2-2" title="Copy heading and permalink for Answer 5.4.1.1" aria-label="Copy heading and permalink for Answer 5.4.1.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 5.4.1"><a href="#limitcycles-section-28-2" title="Copy heading and permalink for Exercise 5.4.1" aria-label="Copy heading and permalink for Exercise 5.4.1">🔗</a></div></article><article class="exercise exercise-like" id="limitcycles-section-28-3"><h4 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="limitcycles-section-28-3-1-1">
+<div class="para">Consider the two-dimensional system of differential equation written in polar coordinates as</div>
+<div class="displaymath process-math" id="limitcycles-section-28-3-1-1-1">
+\begin{equation*}
+\frac{dr}{dt} = r^2(r-1)^2(r-3) \qquad \frac{d\theta}{dt} = -1.
+\end{equation*}
+</div>
+<div class="para">Determine all limit cycles, periodic solutions, and classify the stability of each of these solutions.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-28-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="limitcycles-section-28-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="limitcycles-section-28-3-2-1">
+<span class="process-math">\(r=0\)</span> asymptotically stable, <span class="process-math">\(r=1\)</span> semistable limit cycle, <span class="process-math">\(r=3\)</span> periodic solution, unstable.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-28-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.4.2.1"><a href="#limitcycles-section-28-3-2" title="Copy heading and permalink for Answer 5.4.2.1" aria-label="Copy heading and permalink for Answer 5.4.2.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 5.4.2"><a href="#limitcycles-section-28-3" title="Copy heading and permalink for Exercise 5.4.2" aria-label="Copy heading and permalink for Exercise 5.4.2">🔗</a></div></article><article class="exercise exercise-like" id="limitcycles-section-28-4"><h4 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="limitcycles-section-28-4-1-1">
+<div class="para">Consider the system of differential equation given by</div>
+<div class="displaymath process-math" id="limitcycles-section-28-4-1-1-1">
+\begin{equation*}
+\frac{dx}{dt} = x(3- 2y^2 - x^2) \qquad \frac{dy}{dt} = y(3-y^2) .
+\end{equation*}
+</div>
+<div class="para">Find and classify all limit cycles by converting to an autonomous equation in <span class="process-math">\(r = \sqrt{x^2 + y^2}\)</span> or <span class="process-math">\(s = x^2 + y^2\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-28-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.4.3"><a href="#limitcycles-section-28-4" title="Copy heading and permalink for Exercise 5.4.3" aria-label="Copy heading and permalink for Exercise 5.4.3">🔗</a></div></article><article class="exercise exercise-like" id="limitcycles-section-28-5"><h4 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="limitcycles-section-28-5-1-1">
+<div class="para">Consider the system of differential equation given by</div>
+<div class="displaymath process-math" id="limitcycles-section-28-5-1-1-1">
+\begin{equation*}
+\frac{dx}{dt} = -x(x^2 + y^2)^2 + 6x(x^2 + y^2) - 8x + 6y \qquad \frac{dy}{dt} = -y(x^2 + y^2)^2 + 6y(x^2 + y^2) - 8y - 6x .
+\end{equation*}
+</div>
+<div class="para">Find and classify all limit cycles by converting to an autonomous equation in <span class="process-math">\(r = \sqrt{x^2 + y^2}\)</span> or <span class="process-math">\(s = x^2 + y^2\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-28-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.4.4"><a href="#limitcycles-section-28-5" title="Copy heading and permalink for Exercise 5.4.4" aria-label="Copy heading and permalink for Exercise 5.4.4">🔗</a></div></article><article class="exercise exercise-like" id="limitcycles-section-28-6"><h4 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="limitcycles-section-28-6-1-1">
+<div class="para">Consider the system</div>
+<div class="displaymath process-math" id="eq-LimitCycleExercise1">
+\begin{equation}
+\begin{bmatrix}\dfrac{dx}{dt}=x+2y+x(x^2+y^2-2\sqrt{x^2+y^2})\\[6pt]
+\dfrac{dy}{dt}=-2x+y+y(x^2+y^2-2\sqrt{x^2+y^2})
+\end{bmatrix}. \tag{5.4.2}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-28-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="limitcycles-section-28-6-1-2">Use polar coordinates to write <span class="process-math">\(\dfrac{dr}{dt}\)</span> as a function of <span class="process-math">\(r\text{.}\)</span> Draw the phase line of the DE <span class="process-math">\(\dfrac{dr}{dt}=f(r)\text{,}\)</span> where <span class="process-math">\(f(r)\)</span> is the function from part a. Does the system <a href="limitcycles-section.html#eq-LimitCycleExercise1" class="xref" data-knowl="./knowl/xref/eq-LimitCycleExercise1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.4.2">(5.4.2)</a> have a limit cycle? If so, find it. If not, explain why not. For each positive root of <span class="process-math">\(f(r)\text{,}\)</span> decide whether the corresponding trajectory one is stable, unstable, or semistable.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-28-6-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="limitcycles-section-28-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="limitcycles-section-28-6-2-1">a) <span class="process-math">\(\frac{dr}{dt} = r(r-1)^2\)</span> c) Limit cycle at <span class="process-math">\(r=1\text{,}\)</span> it is semistable.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-28-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.4.5.1"><a href="#limitcycles-section-28-6-2" title="Copy heading and permalink for Answer 5.4.5.1" aria-label="Copy heading and permalink for Answer 5.4.5.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 5.4.5"><a href="#limitcycles-section-28-6" title="Copy heading and permalink for Exercise 5.4.5" aria-label="Copy heading and permalink for Exercise 5.4.5">🔗</a></div></article><article class="exercise exercise-like" id="limitcycles-section-28-7"><h4 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="limitcycles-section-28-7-1-1">Show that the following systems have no closed trajectories.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-28-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="limitcycles-section-28-7-1-2">(2) <span class="process-math">\(x'=x^3+y,\quad y'=y^3+x^2\text{,}\)</span> <span class="process-math">\(x'=e^{x-y},\quad y'=e^{x+y}\text{,}\)</span> <span class="process-math">\(x'=x+3y^2-y^3,\quad y'=y^3+x^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-28-7-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="limitcycles-section-28-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="limitcycles-section-28-7-2-1">a) <span class="process-math">\(f_x + g_y = 3(x^2 + y^2) &gt; 0\)</span> b) <span class="process-math">\(f_x\text{,}\)</span> <span class="process-math">\(g_y &gt; 0\)</span> c) <span class="process-math">\(f_x + g_y = 1+3y^2 &gt; 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-28-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.4.6.1"><a href="#limitcycles-section-28-7-2" title="Copy heading and permalink for Answer 5.4.6.1" aria-label="Copy heading and permalink for Answer 5.4.6.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 5.4.6"><a href="#limitcycles-section-28-7" title="Copy heading and permalink for Exercise 5.4.6" aria-label="Copy heading and permalink for Exercise 5.4.6">🔗</a></div></article><article class="exercise exercise-like" id="limitcycles-section-28-8"><h4 class="heading"><span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="limitcycles-section-28-8-1-1">Show that the following systems have no closed trajectories.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-28-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>  <div class="para" id="limitcycles-section-28-8-1-2">(2) <span class="process-math">\(x'=x+y^2,\quad y'=y+x^2\text{,}\)</span> <span class="process-math">\(x'=-x\sin^2(y),\quad y'=e^x\text{,}\)</span> <span class="process-math">\(x'=xy,\quad y'=x+x^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-28-8-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.4.7"><a href="#limitcycles-section-28-8" title="Copy heading and permalink for Exercise 5.4.7" aria-label="Copy heading and permalink for Exercise 5.4.7">🔗</a></div></article><article class="exercise exercise-like" id="limitcycles-section-28-9"><h4 class="heading"><span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="limitcycles-section-28-9-1-1">Suppose an autonomous system in the plane has a solution <span class="process-math">\(x=\cos(t)+e^{-t}\text{,}\)</span> <span class="process-math">\(y=\sin(t)+e^{-t}\text{.}\)</span> What can you say about the system (in particular about limit cycles and periodic solutions)?<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-28-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.4.8"><a href="#limitcycles-section-28-9" title="Copy heading and permalink for Exercise 5.4.8" aria-label="Copy heading and permalink for Exercise 5.4.8">🔗</a></div></article><article class="exercise exercise-like" id="limitcycles-section-28-10"><h4 class="heading"><span class="codenumber">9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="limitcycles-section-28-10-1-1">Formulate a condition for a 2-by-2 linear system <span class="process-math">\({\vec{x}}' = A \vec{x}\)</span> to not be a center using the Bendixson–Dulac theorem. That is, the theorem says something about certain elements of <span class="process-math">\(A\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-28-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="limitcycles-section-28-10-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="limitcycles-section-28-10-2-1">
+<span class="process-math">\(a+d \neq 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-28-10-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.4.9.1"><a href="#limitcycles-section-28-10-2" title="Copy heading and permalink for Answer 5.4.9.1" aria-label="Copy heading and permalink for Answer 5.4.9.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 5.4.9"><a href="#limitcycles-section-28-10" title="Copy heading and permalink for Exercise 5.4.9" aria-label="Copy heading and permalink for Exercise 5.4.9">🔗</a></div></article><article class="exercise exercise-like" id="limitcycles-section-28-11"><h4 class="heading"><span class="codenumber">10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="limitcycles-section-28-11-1-1">Explain why the Bendixson–Dulac Theorem does not apply for any conservative system <span class="process-math">\(x''+h(x) = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-28-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="limitcycles-section-28-11-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="limitcycles-section-28-11-2-1">
+<span class="process-math">\(f_x = 0\text{,}\)</span> <span class="process-math">\(g_y = 0\text{,}\)</span> so it’s always zero.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-28-11-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.4.10.1"><a href="#limitcycles-section-28-11-2" title="Copy heading and permalink for Answer 5.4.10.1" aria-label="Copy heading and permalink for Answer 5.4.10.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 5.4.10"><a href="#limitcycles-section-28-11" title="Copy heading and permalink for Exercise 5.4.10" aria-label="Copy heading and permalink for Exercise 5.4.10">🔗</a></div></article><article class="exercise exercise-like" id="limitcycles-section-28-12"><h4 class="heading"><span class="codenumber">11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="limitcycles-section-28-12-1-1">A system such as <span class="process-math">\(x'=x, y'=y\)</span> has solutions that exist for all time <span class="process-math">\(t\text{,}\)</span> yet there are no closed trajectories. Explain why the Poincaré–Bendixson Theorem does not apply.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-28-12-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="limitcycles-section-28-12-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="limitcycles-section-28-12-2-1">The solutions are not bounded.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-28-12-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.4.11.1"><a href="#limitcycles-section-28-12-2" title="Copy heading and permalink for Answer 5.4.11.1" aria-label="Copy heading and permalink for Answer 5.4.11.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 5.4.11"><a href="#limitcycles-section-28-12" title="Copy heading and permalink for Exercise 5.4.11" aria-label="Copy heading and permalink for Exercise 5.4.11">🔗</a></div></article><article class="exercise exercise-like" id="limitcycles-section-28-13"><h4 class="heading"><span class="codenumber">12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="limitcycles-section-28-13-1-1">Show that the limit cycle of the Van der Pol oscillator (for <span class="process-math">\(\mu &gt; 0\)</span>) must not lie completely in the set where <span class="process-math">\(-1 &lt; x &lt; 1\text{.}\)</span> Compare with .<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-28-13-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.4.12"><a href="#limitcycles-section-28-13" title="Copy heading and permalink for Exercise 5.4.12" aria-label="Copy heading and permalink for Exercise 5.4.12">🔗</a></div></article><article class="exercise exercise-like" id="limitcycles-section-28-14"><h4 class="heading"><span class="codenumber">13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="limitcycles-section-28-14-1-1">Differential equations can also be given in different coordinate systems. Suppose we have the system <span class="process-math">\(r' = 1-r^2\text{,}\)</span> <span class="process-math">\(\theta' = 1\)</span> given in polar coordinates. Find all the closed trajectories and check if they are limit cycles and if so, if they are asymptotically stable or not.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-28-14-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="limitcycles-section-28-14-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="limitcycles-section-28-14-2-1">
+<span class="process-math">\(r=0\)</span> is unstable, <span class="process-math">\(r=1\)</span> is asymptotically stable limit cycle<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-28-14-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.4.13.1"><a href="#limitcycles-section-28-14-2" title="Copy heading and permalink for Answer 5.4.13.1" aria-label="Copy heading and permalink for Answer 5.4.13.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 5.4.13"><a href="#limitcycles-section-28-14" title="Copy heading and permalink for Exercise 5.4.13" aria-label="Copy heading and permalink for Exercise 5.4.13">🔗</a></div></article><article class="exercise exercise-like" id="limitcycles-section-28-15"><h4 class="heading"><span class="codenumber">14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="limitcycles-section-28-15-1-1">Suppose we have the system <span class="process-math">\(r' = \sin(r)\text{,}\)</span> <span class="process-math">\(\theta' = 1\)</span> given in polar coordinates. Find all the closed trajectories.<div class="autopermalink" data-description="Paragraph"><a href="#limitcycles-section-28-15-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.4.14"><a href="#limitcycles-section-28-15" title="Copy heading and permalink for Exercise 5.4.14" aria-label="Copy heading and permalink for Exercise 5.4.14">🔗</a></div></article><div class="autopermalink" data-description="Exercises 5.4: Exercises"><a href="#limitcycles-section-28" title="Copy heading and permalink for Exercises 5.4: Exercises" aria-label="Copy heading and permalink for Exercises 5.4: Exercises">🔗</a></div></section><div class="autopermalink" data-description="Section 5.4: Limit cycles"><a href="#limitcycles-section" title="Copy heading and permalink for Section 5.4: Limit cycles" aria-label="Copy heading and permalink for Section 5.4: Limit cycles">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="nlinapps-section.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-chaos.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
