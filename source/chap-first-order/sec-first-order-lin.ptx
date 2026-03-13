@@ -5,21 +5,51 @@
 
 	<section xml:id="intfactor-section">
 		<title>Linear equations and the integrating factor</title>
+		<objectives>
+		<introduction>
+			<p>
+				After this section, you will be able to: </p>
+		</introduction>
+		<ul>
+			<li>
+				<p>
+					Identify a linear first-order differential equation and write a first-order linear
+equation in standard form,
+				</p>
+			</li>
+			<li>
+				<p>
+					Solve initial value problems for first-order linear differential equations by integrating
+factors, and 
+				</p>
+			</li>
+			<li>
+				<p>
+					Write solutions to first-order linear initial value problems in integral form if
+needed.
+				</p>
+			</li>
+		</ul>
+	</objectives>
+
 
 		<p>
-			One of the most important types of equations we will learn how to solve are the so-called <em>linear equations</em>. In fact, the majority of the course is about linear equations. In this section we focus on the <em></em>.
+			One of the most important types of equations we will learn how to solve are the so-called <em>linear equations</em>. In fact, the majority of the course is about linear equations. In this section we focus on the <term>first order linear equations</term>.
 		</p>
 
-<!-- div attr= class="definition"-->
-		<p>
-			A first order equation is <term>linear</term> if we can put it into the form: 
+		<definition xml:id="def-linear-fo-eqn">
+			<statement>
+				<p>
+					A first order equation is <term>linear</term> if we can put it into the form: 
 <men xml:id="lineq-eq1">
  y' + p(x) y = f(x) .
 </men>
-		</p><!--</div attr= class="definition">-->
+				</p>
+			</statement>
+		</definition>
 
 		<p>
-			The word means linear in <m>y</m> and <m>y'</m>; no higher powers nor functions of <m>y</m> or <m>y'</m> appear. The dependence on <m>x</m> can be more complicated.
+			The word "linear" means linear in <m>y</m> and <m>y'</m>; no higher powers nor functions of <m>y</m> or <m>y'</m> appear. The dependence on <m>x</m> can be more complicated.
 		</p>
 
 		<p>
@@ -51,9 +81,7 @@ r'(x) = p(x)r(x).
 <me>
 r(x) = e^{\int p(x) \,dx} .
 </me>
-
-		</p>
-
+</p>
 		<p>
 			With this choice of <m>r(x)</m>, we get that 
 <me>
@@ -63,17 +91,18 @@ r(x) y' + r(x) p(x) y = \frac{d}{dx}\Bigl[ r(x) y \Bigr],
 <me>
  \frac{d}{dx}\Bigl[ r(x) y \Bigr] = r(x)f(x) .
 </me>
- Now we integrate both sides. The right-hand side does not depend on <m>y</m> and the left-hand side is written as a derivative of a function. Afterwards, we solve for <m>y</m>. The function <m>r(x)</m> is called the <em></em> and the method is called the <em></em>.
+ Now we integrate both sides. The right-hand side does not depend on <m>y</m> and the left-hand side is written as a derivative of a function. Afterwards, we solve for <m>y</m>. The function <m>r(x)</m> is called the <term>integrating factor</term> and the method is called the <term>integrating factor method</term>.
 		</p>
 
 		<p>
-			This method works for any first order linear equation, no matter what <m>p(x)</m> and <m>f(x)</m> are. In general, we can compute: <me>\begin{align*}
-y' + p(x) y &amp;= f(x) , \\
-e^{\int p(x) \,dx} y' + e^{\int p(x) \,dx} p(x) y &amp; = e^{\int p(x) \,dx} f(x) , \\
-\frac{d}{dx}\left[ e^{\int p(x) \,dx} y \right] &amp; = e^{\int p(x) \,dx} f(x) , \\
-e^{\int p(x) \,dx} y &amp; = \int e^{\int p(x) \,dx} f(x) \,dx + C , \\
-y &amp; = e^{-\int p(x) \,dx} \left( \int e^{\int p(x) \,dx} f(x) \,dx + C \right) .
-\end{align*}</me>
+			This method works for any first order linear equation, no matter what <m>p(x)</m> and <m>f(x)</m> are. In general, we can compute: 
+<md>
+	<mrow> y' + p(x) y \amp  = f(x)  </mrow>
+	<mrow>  e^{\int p(x) \,dx} y' + e^{\int p(x) \,dx} p(x) y \amp = e^{\int p(x) \,dx} f(x)</mrow>
+	<mrow> \frac{d}{dx}\left[ e^{\int p(x) \,dx} y \right] \amp = e^{\int p(x) \,dx} f(x) </mrow>
+	<mrow> e^{\int p(x) \,dx} y \amp = \int e^{\int p(x) \,dx} f(x) \,dx + C </mrow>
+	<mrow> y \amp = e^{-\int p(x) \,dx} \left( \int e^{\int p(x) \,dx} f(x) \,dx + C \right) </mrow>
+</md>.
 		</p>
 
 		<p>
@@ -86,7 +115,6 @@ y &amp; = e^{-\int p(x) \,dx} \left( \int e^{\int p(x) \,dx} f(x) \,dx + C \righ
 
 
 <example>
-<title> </title>
 <statement>		<p>
 			Solve 
 <me>
@@ -96,18 +124,22 @@ y' + 2xy = e^{x-x^2}, \qquad y(0) = -1 .
 		</p>
 </statement>
 
-<solution>		<p>
-			First note that <m>p(x) = 2x</m> and <m>f(x) = e^{x-x^2}</m>. The integrating factor is <m>r(x) = e^{\int p(x)\, dx} = e^{x^2}</m>. We multiply both sides of the equation by <m>r(x)</m> to get <me>\begin{align*}
-e^{x^2} y' + 2xe^{x^2}y &amp; = e^{x-x^2} e^{x^2} , \\
-\frac{d}{dx} \left[ e^{x^2} y \right] &amp;= e^x .
-\end{align*}</me> We integrate <me>\begin{align*}
-e^{x^2} y &amp;= e^x +C , \\
-y &amp;= e^{x-x^2} + C e^{-x^2} .
-\end{align*}</me> Next, we solve for the initial condition <m>-1 = y(0) = 1 + C</m>, so <m>C=-2</m>. The solution is 
+<solution>		
+	<p>
+			First note that <m>p(x) = 2x</m> and <m>f(x) = e^{x-x^2}</m>. The integrating factor is <m>r(x) = e^{\int p(x)\, dx} = e^{x^2}</m>. We multiply both sides of the equation by <m>r(x)</m> to get
+			<md>
+				<mrow>  e^{x^2} y' + 2xe^{x^2}y \amp = e^{x-x^2} e^{x^2} </mrow>
+				<mrow> \frac{d}{dx} \left[ e^{x^2} y \right]  \amp = e^x </mrow>
+			</md>.
+We integrate
+<md>
+	<mrow> e^{x^2} y \amp = e^x +C </mrow>
+	<mrow> y \amp = e^{x-x^2} + C e^{-x^2}</mrow>
+</md>.
+Next, we solve for the initial condition <m>-1 = y(0) = 1 + C</m>, so <m>C=-2</m>. The solution is 
 <me>
-y = e^{x-x^2} - 2 e^{-x^2} .
-</me>
-
+y = e^{x-x^2} - 2 e^{-x^2}
+</me>.
 		</p>
 </solution>
 </example>
@@ -121,25 +153,21 @@ y = e^{x-x^2} - 2 e^{-x^2} .
 			Try it! Add a constant of integration to the integral in the integrating factor and show that the solution you get in the end is the same as what we got above.
 		</p>
 </statement>
+</exercise>
 
-<answer>		<p>
-			Since we cannot always evaluate the integrals in closed form, it is useful to know how to write the solution in definite integral form. A definite integral is something that you can plug into a computer or a calculator. Suppose we are given 
+<p>
+	Since we cannot always evaluate the integrals in closed form, it is useful to know how to write the solution in definite integral form. A definite integral is something that you can plug into a computer or a calculator. Suppose we are given 
 <me>
 y' + p(x) y = f(x) , \qquad y(x_0) = y_0 .
 </me>
  Look at the solution and write the integrals as definite integrals. 
 <men xml:id="lei-defsol">
- \mybxbg{
-~~
 y(x) = e^{-\int_{x_0}^x p(s)\, ds} \left( \int_{x_0}^x e^{\int_{x_0}^t p(s)\, ds}
 f(t) \,dt + y_0 \right).
-~~
-}
 </men>
 You should be careful to properly use dummy variables here. If you now plug such a formula into a computer or a calculator, it will be happy to give you numerical answers.
 		</p>
-</answer>
-</exercise>
+
 
 <exercise>
 <statement>
@@ -147,11 +175,9 @@ You should be careful to properly use dummy variables here. If you now plug such
 			Check that <m>y(x_0) = y_0</m> in formula <xref ref="lei-defsol" />.
 		</p>
 </statement>
-
 </exercise>
 
 <example>
-<title> </title>
 <statement>		<p>
 			Solve the initial value problem 
 <me>
@@ -192,7 +218,6 @@ y(t) = \frac{t^2}{6} - \frac{1}{4} + \frac{37/12}{t^4}.
 </example>
 
 <example>
-<title> </title>
 <statement>		<p>
 			Solve the initial value problem 
 <me>

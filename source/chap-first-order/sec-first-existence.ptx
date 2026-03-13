@@ -5,6 +5,24 @@
 
 	<section xml:id="existunique-section">
 		<title>Existence and Uniqueness of Solutions</title>
+		<objectives>
+		<introduction>
+			<p>
+				After this section, you will be able to: </p>
+		</introduction>
+		<ul>
+			<li>
+				<p>
+					Understand the terms existence and uniqueness as they apply to differential equations and
+				</p>
+			</li>
+			<li>
+				<p>
+					Find the maximum guaranteed interval of existence for the solution to an initial value problem.
+				</p>
+			</li>
+		</ul>
+	</objectives>
 
 		<p>
 			If we take the differential equation <me>y' = f(x,y) \qquad y(x_0) = y_0,</me> there are two main questions we want to answer about this equation.
@@ -26,30 +44,41 @@
 		</ol></p>
 
 		<p>
-			These are more commonly referred to as (a) of the solution and (b) of the solution. These are especially crucial for equations that we are using to model a physical situation. For physical situations, the solution definitely exists (because the system does something and continues to exist) and the solution is unique, because a given system will always do the same thing given the same setup. Since we know that physical systems obey these properties, the equations we use to model them should have these properties as well. These properties do not necessarily hold for all differential equations, as shown in the examples below.
+			These are more commonly referred to as (a) <term>existence</term> of the solution and (b) <term>uniqueness</term> of the solution. These are especially crucial for equations that we are using to model a physical situation. For physical situations, the solution definitely exists (because the system does something and continues to exist) and the solution is unique, because a given system will always do the same thing given the same setup. Since we know that physical systems obey these properties, the equations we use to model them should have these properties as well. These properties do not necessarily hold for all differential equations, as shown in the examples below.
 		</p>
 
 
 <example>
-<title> </title>
+	<title> Non-Existence of Solution</title>
+	
+	
 <statement>		<p>
 			Attempt to solve: 
 <me>
 y' = \frac{1}{x}, \qquad y(0) = 0 .
 </me>
-
-		</p>
-
-		<p>
-			Integrate to find the general solution <m>y = \ln \, \lvert x \rvert + C</m>. The solution does not exist at <m>x=0</m>. See . The equation may have been written as the seemingly harmless <m>x y' = 1</m>.
-		</p>
-
-<!-- div attr= class="myfig"-->
-<!--</div attr= class="myfig">-->
+</p>
 </statement>
+<answer>
+	<p>
+			Integrate to find the general solution <m>y = \ln \, \lvert x \rvert + C</m>. The solution does not exist at <m>x=0</m>. See <xref ref="fig-1-3-1overxsol"/>. The equation may have been written as the seemingly harmless <m>x y' = 1</m>.
+	</p>
+	<figure xml:id="fig-1-3-1overxsol">
+	<caption> Slope field for <m>y' = \frac{1}{x}</m>. </caption>
+	<image source="1-3-xinv-sol.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+</figure>	
+</answer>
 </example>
+
 <example>
-<title> </title>
+<title>Non-Uniqueness of Solution</title>
 <statement>		<p>
 			 Solve: 
 <me>
@@ -57,9 +86,10 @@ y' = 2 \sqrt{\lvert y \rvert}, \qquad y(0) = 0 .
 </me>
 
 		</p>
-
-		<p>
-			See . Note that <m>y=0</m> is a solution. But another solution is the function 
+	</statement>
+<answer>
+	<p>
+			See <xref ref="fig-1-3-sqrtsols"/>. Note that <m>y=0</m> is a solution. But another solution is the function 
 <me>
 y(x) =
 \begin{cases}
@@ -69,7 +99,19 @@ x^2 &amp; \text{if } \; x \geq 0,\\
 </me>
 
 		</p>
-</statement>
+		<figure xml:id="fig-1-3-sqrtsols">
+	<caption> Slope field for <m>y' = 2 \sqrt{\lvert y \rvert}</m>. </caption>
+	<image source="1-3-sqrt-sol.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+</figure>
+</answer>
+
 </example>
 		<p>
 			What we see here is a significant problem for trying to represent physical situations. In the first there is no solution at <m>x=0</m>, so if our physical scenario had wanted one, that would be an issue. Similarly, for the second, we do have solutions, but we have two of them, so we can’t use this to predict what is going to happen to a physical situation modeled by this equation over time. So, we need both existence and uniqueness to hold for our modeling equation in order to use differential equations to accurately model situations. Thankfully, these properties do apply to most equations, and we have fairly straight-forward criteria that can be used to determine if these properties are true for a given differential equation. For a first-order linear differential equation, the theorem is fairly straight-forward.
@@ -97,7 +139,7 @@ y' + p(x)y = g(x) \qquad y(x_0) = y_0
 
 
 <example>
-<title> </title>
+<title>Existence and Uniqueness for Linear Equations</title>
 <statement>		<p>
 			Consider the differential equation 
 <me>
@@ -123,8 +165,17 @@ y' + \frac{1}{(x-1)(x-5)} y = \frac{e^x}{x-1}.
 			A convenient way to represent this situation is with a number line like that presented in . On this number line, we mark the places where the functions <m>p(x)</m> or <m>g(x)</m> are discontinuous.
 		</p>
 
-<!-- div attr= class="myfig"-->
-<!--</div attr= class="myfig">-->
+		<figure xml:id="fig-lin-eu-numline">
+	<caption> Number line to represent intervals of existence for a linear equation. </caption>
+	<image source="Images/EUNumberLine.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+</figure>
 
 		<p>
 			To interpret this image, we can mark the initial point on the number line, where the point that we mark is the <em>x</em> coordinate of the initial condition. All of the intervals are in terms of <m>x</m>. Then, the existence and uniqueness theorem says that the solution will exist on the entire interval between any marked points on this number line. From that, we can see that the interval of existence for the initial condition <m>y(2) = 6</m> is <m>(1,5)</m>, and the interval for <m>y(-3) = 1</m> is <m>(-\infty, 1)</m>.
@@ -132,19 +183,22 @@ y' + \frac{1}{(x-1)(x-5)} y = \frac{e^x}{x-1}.
 </solution>
 </example>
 		<p>
-			For non-linear equations, we don’t have an explicit method of getting a solution that works for all equations. This means that we can’t fall back on this formula to guarantee existence or uniqueness of solutions. For this reason, we expect to get a result that is not as strong for non-linear equations. Thankfully, we do still get a result, which is known as Picard’s theorem <fn>		<p>
-			Named after the French mathematician <url href="https://en.wikipedia.org/wiki/Charles_%C3%89mile_Picard">Charles Émile Picard</url> (1856–1941)
-		</p></fn>.
+			For non-linear equations, we don't have an explicit method of getting a solution that works for all equations. This means that we can't fall back on this formula to guarantee existence or uniqueness of solutions. For this reason, we expect to get a result that is not as strong for non-linear equations. Thankfully, we do still get a result, which is known as Picard's theorem <fn>
+			Named after the French mathematician <url href="https://en.wikipedia.org/wiki/Charles_%C3%89mile_Picard">Charles Émile Picard</url> (1856-1941)</fn>.
 		</p>
 
-<!-- div attr= class="theorem1"-->
+<theorem xml:id="thm-picard-nl-eu">
+	<title>Picard's theorem on existence and uniqueness</title>
+	<statement>
 		<p>
-			Picard’s theorem on existence and uniqueness If <m>f(x,y)</m> is continuous (as a function of two variables) and <m>\frac{\partial f}{\partial y}</m> exists and is continuous near some <m>(x_0,y_0)</m>, then a solution to 
+			 If <m>f(x,y)</m> is continuous (as a function of two variables) and <m>\frac{\partial f}{\partial y}</m> exists and is continuous near some <m>(x_0,y_0)</m>, then a solution to 
 <me>
 y' = f(x,y), \qquad y(x_0) = y_0,
 </me>
- exists (at least for some small interval of <m>x</m>’s) and is unique.
-		</p><!--</div attr= class="theorem1">-->
+ exists (at least for some small interval of <m>x</m>'s) and is unique.
+		</p>
+	</statement>
+</theorem>
 
 		<p>
 			The main fact that is <q>not as strong</q> about this result is the interval that we get from the theorem. For the linear theorem, we got existence and uniqueness on the entire interval <m>I</m> where <m>p</m> and <m>g</m> are continuous. For the non-linear theorem, we only get existence on <em>some</em> interval around the point <m>x_0</m>. Even if <m>f(x,y)</m> and <m>\frac{\partial f}{\partial y}</m> are really nice functions that are continuous everywhere, we can still only guarantee existence on a small interval (that can depend on the initial condition) around the point <m>x_0</m>.
@@ -152,7 +206,7 @@ y' = f(x,y), \qquad y(x_0) = y_0,
 
 
 <example>
-<title> </title>
+<title>Interval of Existence for Non-Linear Equation</title>
 <statement>		<p>
 			For some constant <m>A</m>, solve: 
 <me>
@@ -175,7 +229,7 @@ y = \frac{1}{\nicefrac{1}{A} - x} .
 <me>
 y = \frac{1}{1-x}
 </me>
- which goes to infinity, and so , at <m>x=1</m>. This solution here exists only on the interval <m>(-\infty, 1)</m>, and hence, the solution does not exist for all <m>x</m> even if the equation is nice everywhere. The equation <m>y' = y^2</m> certainly looks nice.
+ which goes to infinity, and so <q>blows up</q>, at <m>x=1</m>. This solution here exists only on the interval <m>(-\infty, 1)</m>, and hence, the solution does not exist for all <m>x</m> even if the equation is nice everywhere. The equation <m>y' = y^2</m> certainly looks nice.
 		</p>
 
 		<p>
@@ -183,7 +237,7 @@ y = \frac{1}{1-x}
 <me>
 y' = y^2
 </me>
- exists and is unique on <em>some</em> interval containing 0. It does not guarantee that the solution exists everywhere that <m>y^2</m> and its derivative are continuous, only that at each point where this happens, the solution will exist for some interval around that point. The interval <m>(-\infty, 1)</m> is , so the theorem still applies and holds here. See the exercises for more detail on how this process works and how we can illustrate the fact that the interval of existence ise .
+ exists and is unique on <em>some</em> interval containing 0. It does not guarantee that the solution exists everywhere that <m>y^2</m> and its derivative are continuous, only that at each point where this happens, the solution will exist for some interval around that point. The interval <m>(-\infty, 1)</m> is <q>some interval containing zero</q>, so the theorem still applies and holds here. See the exercises for more detail on how this process works and how we can illustrate the fact that the interval of existence is <q>some interval containing zero</q>.
 		</p>
 </solution>
 </example>
@@ -196,16 +250,16 @@ y_1(x_0) = y_0 \qquad y_2(x_0) = y_0.
 <me>
 y' = f(x,y) \qquad y(x_0) = y_0.
 </me>
- However, both <m>y_1</m> and <m>y_2</m> satisfy these two properties. Therefore, <m>y_1</m> and <m>y_2</m> must be the same, which doesn’t make sense because we assumed they were different. So it is impossible for two different solution curves to cross, provided the existence and uniqueness theorem holds. For a comparison, refer back to earlier to see what non-uniqueness looks like, where we do have two solution curves that cross at the point <m>(0,0)</m>.
+ However, both <m>y_1</m> and <m>y_2</m> satisfy these two properties. Therefore, <m>y_1</m> and <m>y_2</m> must be the same, which doesn't make sense because we assumed they were different. So it is impossible for two different solution curves to cross, provided the existence and uniqueness theorem holds. For a comparison, refer back to earlier to see what non-uniqueness looks like, where we do have two solution curves that cross at the point <m>(0,0)</m>.
 		</p>
 
 		<p>
-			This fact is useful for analyzing differential equations in general, but will be particularly useful in in dealing with autonomous equations, where we can use simple solutions to provide boundaries over which other solutions can not cross. This fact will come up again in Chapters <xref ref="sys-chapter" /> and <xref ref="nlin-chapter" /> in sketching trajectories for these solutions as well.
+			This fact is useful for analyzing differential equations in general, but will be particularly useful in in dealing with autonomous equations, where we can use simple solutions to provide boundaries over which other solutions can not cross. This fact will come up again in <xref ref="sys-chapter" /> and <xref ref="nlin-chapter" /> in sketching trajectories for these solutions as well.
 		</p>
 
 
 <example>
-<title> </title>
+<title>Application of Uniqueness</title>
 <statement>		<p>
 			Consider the differential equation 
 <me>
@@ -277,129 +331,362 @@ y' = f(x,y) \qquad y(x_0) = y_0.
 </exercise>
 
 <exercise>
-<statement>
-			<p>
+	<introduction>
+		<p>
 				Consider the differential equation <m>y' + \frac{1}{t-2}y = \frac{1}{t+3}</m>.
-			</p>
-
-<!-- div attr= class="tasks"-->
+		</p>
+	</introduction>
+	<task>
+		<statement>
 			<p>
-				Is this equation linear or non-linear? What is the maximum guaranteed interval of existence for the solution to this equation with initial condition <m>y(0) = 3</m>? What if we start with the initial condition <m>y(4) = 0</m>?
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) Linear b) <m>(-3,2)</m> c) <m>(2,\infty)</m> 
+				Is this equation linear or non-linear?
 			</p>
-</answer>
+		</statement>
+		<answer>
+			<p>
+				Linear
+			</p>
+		</answer>
+	</task>		
+	<task>
+		<statement>
+			<p>
+				What is the maximum guaranteed interval of existence for the solution to this equation with initial condition <m>y(0) = 3</m>? 
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>(-3,2)</m>
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				What if we start with the initial condition <m>y(4) = 0</m>?
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>(2,\infty)</m> 
+			</p>
+		</answer>
+	</task>
 </exercise>
 
 <exercise>
-<statement>
-			<p>
-				Consider the differential equation <m>y' + \frac{1}{t+2}y = \frac{\ln(|t|)}{t-4}</m>.
-			</p>
-
-<!-- div attr= class="tasks"-->
-			<p>
-				Is this equation linear or non-linear? What is the maximum guaranteed interval of existence for the solution to this equation with initial condition <m>y(-3) = 1</m>? What if we start with the initial condition <m>y(2) = 5</m>? What happens if we want to start with <m>y(4) = 3</m>?
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) Linear b) <m>(-\infty, -2)</m> c) <m>(0, 4)</m>d) Nothing is guaranteed. 
-			</p>
-</answer>
+<introduction>
+	<p>
+		Consider the differential equation <m>y' + \frac{1}{t+2}y = \frac{\ln(|t|)}{t-4}</m>.
+	</p>
+</introduction>
+<task>
+	<statement>
+		<p>
+			Is this equation linear or non-linear?
+		</p>
+	</statement>
+	<answer>
+		<p>
+			Linear
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			What is the maximum guaranteed interval of existence for the solution to this equation with initial condition <m>y(-3) = 1</m>?
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>(-\infty, -2)</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			What if we start with the initial condition <m>y(2) = 5</m>? 
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>(0, 4)</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			What happens if we want to start with <m>y(4) = 3</m>?
+		</p>
+	</statement>
+	<answer>
+		<p>
+			Nothing is guaranteed. 
+		</p>
+	</answer>
+</task>
 </exercise>
 
 <exercise>
-<statement>
-			<p>
+<introduction>
+	<p>
 				Consider the differential equation <m>(t+3)y' + t^2 y = \frac{1}{t-2}</m>.
-			</p>
-
-<!-- div attr= class="tasks"-->
-			<p>
-				Is this equation linear or non-linear? What is the maximum guaranteed interval of existence for the solution to this equation with initial condition <m>y(-2) = 1</m>? What if we start with the initial condition <m>y(-4) = 5</m>? What happens if we want to start with <m>y(4) = 2</m>?
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) Linear b) <m>(-3, 2)</m> c) <m>(-\infty, -3)</m>d) <m>(2,\infty)</m> 
-			</p>
-</answer>
+	</p>
+</introduction>
+<task>
+	<statement>
+		<p>
+			Is this equation linear or non-linear?
+		</p>
+	</statement>
+	<answer>
+		<p>
+			Linear
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			What is the maximum guaranteed interval of existence for the solution to this equation with initial condition <m>y(-2) = 1</m>?
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>(-3, 2)</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			What if we start with the initial condition <m>y(-4) = 5</m>?
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>(-\infty, -3)</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			What happens if we want to start with <m>y(4) = 2</m>?
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>(2,\infty)</m> 
+		</p>
+	</answer>
+</task>
 </exercise>
 
 <exercise>
-<statement>
+	<introduction>
+		<p>
+			Consider the differential equation <m>y' = y^2</m>.
+		</p>
+	</introduction>
+	<task>
+		<statement>
 			<p>
-				Consider the differential equation <m>y' = y^2</m>.
+				Is this equation linear or non-linear?
 			</p>
-
-<!-- div attr= class="tasks"-->
+		</statement>
+		<answer>
 			<p>
-				Is this equation linear or non-linear? What is the most we can say about the interval of existence for the solution to this equation with initial condition <m>y(0) = 1</m>? Find the solution to this differential equation with <m>y(0) = 1</m>. Over what values of <m>x</m> does this solution exist? Find the solution to this differential equation with <m>y(0) = 4</m>. Over what values of <m>x</m> does this solution exist? Find the solution to this differential equation with <m>y(0) = -2</m>. Over what values of <m>x</m> does this solution exist? Do any of these contradict your answer in (b)?
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) Non-linear b) It will exist on some interval around <m>t=0</m>.<!-- linebreak -->c)  <m>y = \frac{-1}{t-1}</m>, <m>(-\infty, 1)</m> d)  <m>y = \frac{-1}{t - \frac{1}{4}}</m>, <m>\left(-\infty, \frac{1}{4}\right)</m> e)  <m>y = \frac{-1}{t+2}</m>, <m>(-2, \infty)</m> f)  No. All of these are intervals containing zero. 
+				Non-linear
 			</p>
-</answer>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				What is the most we can say about the interval of existence for the solution to this equation with initial condition <m>y(0) = 1</m>?
+			</p>
+		</statement>
+		<answer>
+			<p>
+				It will exist on some interval around <m>t=0</m>.
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				Find the solution to this differential equation with <m>y(0) = 1</m>. Over what values of <m>x</m> does this solution exist?
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>y = \frac{-1}{t-1}</m>, <m>(-\infty, 1)</m>
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				Find the solution to this differential equation with <m>y(0) = 4</m>. Over what values of <m>x</m> does this solution exist? 
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>y = \frac{-1}{t - \frac{1}{4}}</m>, <m>\left(-\infty, \frac{1}{4}\right)</m>
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				Find the solution to this differential equation with <m>y(0) = -2</m>. Over what values of <m>x</m> does this solution exist?
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>y = \frac{-1}{t+2}</m>, <m>(-2, \infty)</m> 
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				Do any of these contradict your answer in (b)?
+			</p>
+		</statement>
+		<answer>
+			<p>
+				No. All of these are intervals containing zero. 
+			</p>
+		</answer>
+	</task>
 </exercise>
 
 <exercise>
-<statement>
+	<introduction>
+		<p>
+			Consider the differential equation <m>y' = y^2 + 4</m>.
+		</p>
+	</introduction>
+	<task>
+		<statement>
 			<p>
-				Consider the differential equation <m>y' = y^2 + 4</m>.
+				Is this equation linear or non-linear?
 			</p>
-
-<!-- div attr= class="tasks"-->
+		</statement>
+		<answer>
 			<p>
-				Is this equation linear or non-linear? What is the most we can say about the interval of existence for the solution to this equation with initial condition <m>y(0) = 0</m>? Find the solution to this differential equation with <m>y(0) = 0</m>. Over what values of <m>x</m> does this solution exist?
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) Non-linear b) Some interval around zero. c) <m>y = 2\tan(2t)</m>, Exists on <m>\left(-\frac{\pi}{4}, \frac{\pi}{4}\right)</m> 
+				Non-linear
 			</p>
-</answer>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				What is the most we can say about the interval of existence for the solution to this equation with initial condition <m>y(0) = 0</m>?
+			</p>
+		</statement>
+		<answer>
+			<p>
+				Some interval around zero. 
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				Find the solution to this differential equation with <m>y(0) = 0</m>. Over what values of <m>x</m> does this solution exist?
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>y = 2\tan(2t)</m>, Exists on <m>\left(-\frac{\pi}{4}, \frac{\pi}{4}\right)</m> 
+			</p>
+		</answer>
+	</task>
+
 </exercise>
 
 <exercise>
-<statement>
-			<p>
+<introduction>
+	<p>
 				Consider the differential equation <m>y' = x(y+1)^2</m>.
 			</p>
+</introduction>
+<task>
+	<statement>
+		<p>
+			Is this equation linear or non-linear? 
+		</p>
+	</statement>
+	<answer>
+		<p>
+			Non-linear
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			If we set <m>f(x,y) = x(y+1)^2</m>, for what values of <m>x</m> and <m>y</m> are <m>f</m> and <m>\frac{\partial f}{\partial y}</m> continuous? What is the most we can say about the interval of existence for the solution to this equation with initial condition <m>y(0) = 1</m>?
+		</p>
+	</statement>
+	<answer>
+		<p>
+			Some interval around <m>t=0</m> 
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Find the solution to this differential equation with <m>y(0) = 1</m>. Over what values of <m>x</m> does this solution exist?
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>y = \frac{2}{1-x^2} - 1</m>, Exists on <m>(-1, 1)</m> 
+		</p>
+	</answer>
+</task>
 
-<!-- div attr= class="tasks"-->
-			<p>
-				Is this equation linear or non-linear? If we set <m>f(x,y) = x(y+1)^2</m>, for what values of <m>x</m> and <m>y</m> are <m>f</m> and <m>\frac{\partial f}{\partial y}</m> continuous? What is the most we can say about the interval of existence for the solution to this equation with initial condition <m>y(0) = 1</m>? Find the solution to this differential equation with <m>y(0) = 1</m>. Over what values of <m>x</m> does this solution exist?
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) Non-linear b) Some interval around <m>t=0</m> c)  <m>y = \frac{2}{1-x^2} - 1</m>, Exists on <m>(-1, 1)</m> 
-			</p>
-</answer>
 </exercise>
 
 <exercise>
-<statement>
-			<p>
+<introduction>
+	<p>
 				Take <m>(y-x)y' = 0</m>, <m>y(0) = 0</m>.
 			</p>
+</introduction>
+<task>
+	<statement>
+		<p>
+			Find two distinct solutions.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>y=0</m> and <m>y=x</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Explain why this does not violate Picard's theorem.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>f(x,y)</m> is discontinuous when <m>x=y</m>, and <m>(0,0)</m> is one such point. 
+		</p>
+	</answer>
+</task>
 
-<!-- div attr= class="tasks"-->
-			<p>
-				Find two distinct solutions. Explain why this does not violate Picard’s theorem.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) <m>y=0</m> and <m>y=x</m> b) <m>f(x,y)</m> is discontinuous when <m>x=y</m>, and <m>(0,0)</m> is one such point. 
-			</p>
-</answer>
 </exercise>
 
 <exercise>
@@ -416,21 +703,35 @@ y' = f(x,y) \qquad y(x_0) = y_0.
 </exercise>
 
 <exercise>
-<statement>
-			<p>
-				Consider the IVP <m>y'\cos t+y\sin t=1; \, y(\pi/6)=1</m>.
-			</p>
-
-<!-- div attr= class="tasks"-->
-			<p>
-				The Existence and Uniqueness Theorem guarantees a unique solution to this IVP on what interval? Find this solution explicitly.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a)  <m>\left(-\frac{\pi}{2}, \frac{\pi}{2}\right)</m> b) <m>y = \sin(t) + \frac{1}{\sqrt{3}}\cos(t)</m> 
-			</p>
-</answer>
+<introduction>
+	<p>
+		Consider the IVP <m>y'\cos t+y\sin t=1; \, y(\pi/6)=1</m>.
+	</p>
+</introduction>
+<task>
+	<statement>
+		<p>
+			The Existence and Uniqueness Theorem guarantees a unique solution to this IVP on what interval? 
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>\left(-\frac{\pi}{2}, \frac{\pi}{2}\right)</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Find this solution explicitly.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>y = \sin(t) + \frac{1}{\sqrt{3}}\cos(t)</m> 
+		</p>
+	</answer>
+</task>
 </exercise>
 
 <exercise>
@@ -447,57 +748,148 @@ y' = f(x,y) \qquad y(x_0) = y_0.
 </exercise>
 
 <exercise>
-<statement>
-			<p>
-				Consider the differential equation <m>y' = e^x(2-y)</m>.
-			</p>
-
-<!-- div attr= class="tasks"-->
-			<p>
-				Verify that <m>y = 2</m> is a solution to this differential equation. Assume that we look for the solution with <m>y(0) = 0</m>. Is it possible that <m>y(x) = 3</m> for some later time <m>x</m>? Why or why not? Based on this, what do we know about the solution with <m>y(0) = 5</m>?
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) Yes b) No c) Must stay above <m>2</m> for all <m>x</m>. Approaches 2. 
-			</p>
-</answer>
+<introduction>
+	<p>
+		Consider the differential equation <m>y' = e^x(2-y)</m>.
+	</p>
+</introduction>
+<task>
+	<statement>
+		<p>
+			Verify that <m>y = 2</m> is a solution to this differential equation.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			Yes
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Assume that we look for the solution with <m>y(0) = 0</m>. Is it possible that <m>y(x) = 3</m> for some later time <m>x</m>? Why or why not?
+		</p>
+	</statement>
+	<answer>
+		<p>
+			No.
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Based on this, what do we know about the solution with <m>y(0) = 5</m>?
+		</p>
+	</statement>
+	<answer>
+		<p>
+			Must stay above <m>2</m> for all <m>x</m>. Approaches 2. 
+		</p>
+	</answer>
+</task>
 </exercise>
 
 <exercise>
-<statement>
-			<p>
-				Suppose <m>y' = f(x,y)</m> is such that <m>f(x,1) = 0</m> for every <m>x</m>, <m>f</m> is continuous and <m>\frac{\partial f}{\partial y}</m> exists and is continuous for every <m>x</m> and <m>y</m>.
-			</p>
-
-<!-- div attr= class="tasks"-->
-			<p>
-				Guess a solution given the initial condition <m>y(0) = 1</m>. Can graphs of two solutions of the equation for different initial conditions ever intersect? Given <m>y(0) = 0</m>, what can you say about the solution. In particular, can <m>y(x) &gt; 1</m> for any <m>x</m>? Can <m>y(x) = 1</m> for any <m>x</m>? Why or why not?
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) <m>y=1</m> b) No c) Must stay below <m>y=1</m> 
-			</p>
-</answer>
+<introduction>
+	<p>
+		Suppose <m>y' = f(x,y)</m> is such that <m>f(x,1) = 0</m> for every <m>x</m>, <m>f</m> is continuous and <m>\frac{\partial f}{\partial y}</m> exists and is continuous for every <m>x</m> and <m>y</m>.
+	</p>
+</introduction>
+<task>
+	<statement>
+		<p>
+			Guess a solution given the initial condition <m>y(0) = 1</m>.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>y=1</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Can graphs of two solutions of the equation for different initial conditions ever intersect?
+		</p>
+	</statement>
+	<answer>
+		<p>
+			No
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Given <m>y(0) = 0</m>, what can you say about the solution. In particular, can <m>y(x) &gt; 1</m> for any <m>x</m>? Can <m>y(x) = 1</m> for any <m>x</m>? Why or why not?
+		</p>
+	</statement>
+	<answer>
+		<p>
+			Must stay below <m>y=1</m> 
+		</p>
+	</answer>
+</task>
+			
 </exercise>
 
 <exercise>
-<statement>
-			<p>
-				Consider the differential equation <m>y' = y^2 - 4</m>.
-			</p>
-
-<!-- div attr= class="tasks"-->
-			<p>
-				Verify that <m>y=2</m> and <m>y=-2</m> are both solutions to this differential equation. Verify that the hypotheses of Picard’s theorem are satisfies for this equation. Assume that we solve this differential equation with <m>y(0) = 1</m>. Is it possible for the solution to reach <m>y=3</m> at any point? Why or why not? Assume that we solve this differential equation with <m>y(0) = -1</m>. Is it possible for the solution to reach <m>y=-4</m> at any point? Why or why not?
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) Yes b) Yes c) No d) No 
-			</p>
-</answer>
+<introduction>
+	<p>
+		Consider the differential equation <m>y' = y^2 - 4</m>.
+	</p>
+</introduction>
+<task>
+	<statement>
+		<p>
+			Verify that <m>y=2</m> and <m>y=-2</m> are both solutions to this differential equation.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			Yes
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Verify that the hypotheses of Picard’s theorem are satisfies for this equation.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			Yes
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Assume that we solve this differential equation with <m>y(0) = 1</m>. Is it possible for the solution to reach <m>y=3</m> at any point? Why or why not?
+		</p>
+	</statement>
+	<answer>
+		<p>
+			No
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Assume that we solve this differential equation with <m>y(0) = -1</m>. Is it possible for the solution to reach <m>y=-4</m> at any point? Why or why not?
+		</p>
+	</statement>
+	<answer>
+		<p>
+			No
+		</p>
+	</answer>
+</task>
 </exercise>
 
 <exercise>
@@ -506,6 +898,11 @@ y' = f(x,y) \qquad y(x_0) = y_0.
 				Is it possible to solve <m>y' = xy</m> for <m>y(0) = 0</m>? Is the solution unique?
 			</p>
 </statement>
+<answer>
+	<p>
+		Yes. Since <m>f</m> and <m>\frac{\partial f}{\partial y}</m> are both continuouns, this solution will be unique.
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -514,6 +911,11 @@ y' = f(x,y) \qquad y(x_0) = y_0.
 				Is it possible to solve <m>y' = \frac{x}{x^2-1}</m> for <m>y(1) = 0</m>?
 			</p>
 </statement>
+<answer>
+	<p>
+		No. <m>f</m> is not continuous at this initial condition.
+	</p>
+</answer>
 
 </exercise>
 <exercise>

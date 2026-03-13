@@ -5,29 +5,65 @@
 
 	<section xml:id="exact-section">
 		<title>Exact equations</title>
-<subsection xml:id="subsec-exactIntro">
-	<title>exactIntro</title>
-	
 
+	<objectives>
+	<introduction>
 		<p>
-			Another type of equation that comes up quite often in physics and engineering is an <em></em>. Suppose <m>F(x,y)</m> is a function of two variables, which we call the <em></em>. The naming should suggest potential energy, or electric potential. Exact equations and potential functions appear when there is a conservation law at play, such as conservation of energy. Let us make up a simple example. Let 
+			After this section, you will be able to: 
+		</p>
+	</introduction>
+	<ul>
+		<li>
+			<p>
+				Determine if a first order differential equation is exact,
+			</p>
+		</li>
+		<li>
+			<p>
+				 Find the general solution to an exact equation,
+			</p>
+		</li>
+		<li>
+			<p>
+				Solve initial value problems for exact equations, and
+			</p>
+		</li>
+		<li>
+			<p>
+				Use integrating factors to make some non-exact equations exact in order to solve them.
+			</p>
+		</li>
+	</ul>
+</objectives>
+<subsection xml:id="subsec-exact-intro">
+	<title>Introduction</title>
+		<p>
+			Another type of equation that comes up quite often in physics and engineering is an <term>exact equation</term>. Suppose <m>F(x,y)</m> is a function of two variables, which we call the <term>potential function</term>. The naming should suggest potential energy, or electric potential. Exact equations and potential functions appear when there is a conservation law at play, such as conservation of energy. Let us make up a simple example. Let 
 <me>
 F(x,y) = x^2+y^2 .
 </me>
 
 		</p>
 
-<!-- div attr= class="mywrapfig"-->
-		<p>
-			3.25in
-		</p><!--</div attr= class="mywrapfig">-->
+<figure xml:id="exact-circlesfig">
+	<caption> Solutions to <m>F(x,y) = x^2+y^2 = C</m> for various
+<m>C</m>. </caption>
+	<image source="circlesfig.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
 		<p>
 			We are interested in the lines of constant energy, that is lines where the energy is conserved; we want curves where <m>F(x,y) = C</m>, for some constant <m>C</m>, since <m>F</m> represents the energy of the system. In our example, the curves <m>x^2+y^2=C</m> are circles. See .
 		</p>
 
 		<p>
-			We take the <em></em> of <m>F</m>: 
+			We take the <term>total derivative</term> of <m>F</m>: 
 <me>
 dF = \frac{\partial F}{\partial x} dx + \frac{\partial F}{\partial y} dy .
 </me>
@@ -44,12 +80,15 @@ M + N \, \frac{dy}{dx} = 0 .
 
 		</p>
 
-<!-- div attr= class="definition"-->
+<definition xml:id="def-exact-eqn">
+	<statement>
 		<p>
-			An equation of the form <me>M(x,y) + N(x, y)\ \frac{dy}{dx} = 0</me> is called <em>exact</em> if it was obtained as <m>dF = 0</m> for some potential function <m>F</m>.
-		</p><!--</div attr= class="definition">-->
+			An equation of the form <me>M(x,y) + N(x, y)\ \frac{dy}{dx} = 0</me> is called <term>exact</term> if it was obtained as <m>dF = 0</m> for some potential function <m>F</m>.
+		</p>
+	</statement>
+</definition>
 
-		<p>
+<p>
 			In our simple example, we obtain the equation 
 <me>
 2x \, dx + 2y \, dy = 0, \qquad
@@ -64,7 +103,7 @@ y = \pm \sqrt{C^2-x^2} .
 		</p>
 
 		<p>
-			An interpretation of the setup is that at each point in the plane <m>\vec{v} = (M,N)</m> is a vector, that is, a direction and a magnitude. As <m>M</m> and <m>N</m> are functions of <m>(x,y)</m>, we have a <em></em>. The particular vector field <m>\vec{v}</m> that comes from an exact equation is a so-called <em></em>, that is, a vector field that comes with a potential function <m>F(x,y)</m>, such that 
+			An interpretation of the setup is that at each point in the plane <m>\vec{v} = (M,N)</m> is a vector, that is, a direction and a magnitude. As <m>M</m> and <m>N</m> are functions of <m>(x,y)</m>, we have a <term>vector field</term>. The particular vector field <m>\vec{v}</m> that comes from an exact equation is a so-called <term>conservative vector field</term>, that is, a vector field that comes with a potential function <m>F(x,y)</m>, such that 
 <me>
 \vec{v} = \left( \frac{\partial F}{\partial x} ,\frac{\partial F}{\partial
 y} \right) .
@@ -94,7 +133,6 @@ x + y \frac{dy}{dx} = 0 .
 
 
 <example>
-<title> </title>
 <statement>			<p>
 				Let us find the general solution to <m>2x + 2y \frac{dy}{dx} = 0</m>. Forget we knew what <m>F</m> was.
 			</p>
@@ -105,7 +143,7 @@ x + y \frac{dy}{dx} = 0 .
 <men xml:id="eq-exact-fint">
  F(x,y) = x^2 + A(y) ,
 </men>
-for some function <m>A(y)</m>. The function <m>A</m> is the , though it is only constant as far as <m>x</m> is concerned, and may still depend on <m>y</m>. Now differentiate <xref ref="eq-exact-fint" /> in <m>y</m> and set it equal to <m>N</m>, which is what <m>F_y</m> is supposed to be: 
+for some function <m>A(y)</m>. The function <m>A</m> is the <q>constant of integration</q>>, though it is only constant as far as <m>x</m> is concerned, and may still depend on <m>y</m>. Now differentiate <xref ref="eq-exact-fint" /> in <m>y</m> and set it equal to <m>N</m>, which is what <m>F_y</m> is supposed to be: 
 <me>
 2y = F_y (x,y) = A'(y) .
 </me>
@@ -156,7 +194,6 @@ F\bigl(x,y(x)\bigr) = C .
 
 
 <example>
-<title> </title>
 <statement>			<p>
 				Consider now <m>2x+y + xy \frac{dy}{dx} = 0</m>.
 			</p>
@@ -186,9 +223,9 @@ N = xy = F_y (x,y) = x+A'(y) .
 =
 \frac{\partial N}{\partial x} .
 </me>
- Let us state it as a theorem. Usually this is called the Poincaré Lemma<fn>			<p>
-				Named for the French polymath <url href="https://en.wikipedia.org/wiki/Henri_Poincar%C3%A9">Jules Henri Poincaré</url> (1854–1912).
-			</p></fn>.
+ Let us state it as a theorem. Usually this is called the Poincaré Lemma<fn>
+				Named for the French polymath <url href="https://en.wikipedia.org/wiki/Henri_Poincar%C3%A9">Jules Henri Poincaré</url> (1854-1912).
+			</fn>.
 			</p>
 
 <theorem xml:id="thm-Poincare">
@@ -212,7 +249,6 @@ y</m>, which are clearly not equal. The equation is not exact.
 
 
 <example>
-<title> </title>
 <statement>			<p>
 				Solve 
 <me>
@@ -249,7 +285,6 @@ y = \frac{-x^2-1}{x-1} .
 </example>
 
 <example>
-<title> </title>
 <statement>			<p>
 				Solve 
 <me>
@@ -282,13 +317,24 @@ F(x,y) = \operatorname{arctan} \bigl( \nicefrac{y}{x} \bigr) .
 0</m>.
 			</p>
 
-<!-- div attr= class="myfig"-->
-<!--</div attr= class="myfig">-->
+<figure xml:id="exact-y2x-fig">
+	<caption> Solution to 
+<m>-\frac{y}{x^2+y^2} dx + \frac{x}{x^2+y^2} dy = 0</m>, <m>y(1) = 2</m>,
+with initial point marked. </caption>
+	<image source="exact-y2x.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
+
 </solution>
 </example>
 
 <example>
-<title> </title>
 <statement>			<p>
 				 Solve 
 <me>
@@ -390,7 +436,6 @@ u' + \frac{M_y-N_x}{M} u = 0 .
 
 
 <example>
-<title> </title>
 <statement>			<p>
 				Solve 
 <me>
@@ -429,7 +474,6 @@ y = \pm \sqrt{\frac{C-(\nicefrac{1}{3})x^3}{x+1}} .
 </example>
 
 <example>
-<title> </title>
 <statement>			<p>
 				Solve 
 <me>
@@ -479,37 +523,95 @@ xy + \ln y = C .
 <exercises>
 			<title>Exercises</title>
 
+
 <exercise>
-<statement>
-			<p>
+	<introduction>
+		<p>
 				Solve the following exact equations, implicit general solutions will suffice:
 			</p>
-
-<!-- div attr= class="tasks"-->
+	</introduction>
+	<task>
+		<statement>
+			<p> <m>(2 xy + x^2) \, dx + (x^2+y^2+1) \, dy = 0</m>  </p>
+		</statement>
+		<answer>
+			<p> <m>x^2y + \frac{x^3}{3} + \frac{y^3}{3} + y = C</m>  </p>
+		</answer>
+	</task>
+	<task>
+		<statement>
 			<p>
-				(2) <m>(2 xy + x^2) \, dx + (x^2+y^2+1) \, dy = 0</m> <m>x^5 + y^5 \frac{dy}{dx} = 0</m> <m>e^x+y^3 + 3xy^2 \frac{dy}{dx} = 0</m> <m>(x+y)\cos(x)+\sin(x) + \sin(x)y' = 0</m>
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a)  <m>x^2y + \frac{x^3}{3} + \frac{y^3}{3} + y = C</m> b)  <m>\frac{x^6}{6} + \frac{y^6}{6} = C</m> c)  <m>e^x + xy^3 = C</m> d)  <m>(x+y)\sin(x) + \cos(x) = C</m> 
+				<m>x^5 + y^5 \frac{dy}{dx} = 0</m> 
 			</p>
-</answer>
+		</statement>
+		<answer>
+			<p>
+				<m>\frac{x^6}{6} + \frac{y^6}{6} = C</m>
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				<m>e^x+y^3 + 3xy^2 \frac{dy}{dx} = 0</m>
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>e^x + xy^3 = C</m>
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				<m>(x+y)\cos(x)+\sin(x) + \sin(x)y' = 0</m>
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>(x+y)\sin(x) + \cos(x) = C</m> 
+			</p>
+		</answer>
+	</task>
+
 </exercise>
 
 <exercise>
-<statement>
-			<p>
+	<introduction>
+		<p>
 				Solve the following exact equations, implicit general solutions will suffice:
 			</p>
-
-<!-- div attr= class="tasks"-->
+	</introduction>
+	<task>
+		<statement>
+			<p>  <m>\cos(x)+ye^{xy} + xe^{xy} y' = 0</m> </p>
+		</statement>
+	</task>
+	<task>
+		<statement>
 			<p>
-				(2) <m>\cos(x)+ye^{xy} + xe^{xy} y' = 0</m> <m>(2x+y)\, dx + (x-4y) \, dy = 0</m> <m>e^x + e^y \frac{dy}{dx} = 0</m> <m>(3x^2+3y)\,dx + (3y^2+3x)\, dy = 0</m>
-			</p><!--</div attr= class="tasks">-->
-</statement>
+				<m>(2x+y)\, dx + (x-4y) \, dy = 0</m>
+			</p>
+		</statement>
+	</task>
+	<task>
+		<statement>
+			<p>
+				<m>e^x + e^y \frac{dy}{dx} = 0</m>
+			</p>
+		</statement>
+	</task>
+	<task>
+		<statement>
+			<p>
+				<m>(3x^2+3y)\,dx + (3y^2+3x)\, dy = 0</m>
+			</p>
+		</statement>
+	</task>
 
 </exercise>
+
 <exercise>
 <statement>
 			<p>
@@ -576,118 +678,252 @@ xy + \ln y = C .
 </exercise>
 
 <exercise>
-<statement>
-			<p>
+	<introduction>
+		<p>
 				Find the integrating factor for the following equations making them into exact equations. You can either use the formulas in this section or guess what the integrating factor should be.
 			</p>
-
-<!-- div attr= class="tasks"-->
+	</introduction>
+	<task>
+		<statement>
+			<p> <m>e^{xy} \, dx + \frac{y}{x} e^{xy} \, dy = 0</m>  </p>
+		</statement>
+		<answer>
+			<p> <m>xe^{-xy}</m>  </p>
+		</answer>
+	</task>
+	<task>
+		<statement>
 			<p>
-				(2) <m>e^{xy} \, dx + \frac{y}{x} e^{xy} \, dy = 0</m> <m>\frac{e^x+y^3}{y^2} \, dx + 3x \, dy = 0</m> <m>(4x^5 + 9x^4y^2 + 10\frac{y}{x})\, dx + (6x^5y + 3x^2y^2 - 5)\, dy = 0</m> <m>2\sin(y) \, dx + x\cos(y)\, dy = 0</m>
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a)  <m>xe^{-xy}</m> b) <m>y^2</m> c) <m>x^{-2}</m> d) <m>x</m> 
+				<m>\frac{e^x+y^3}{y^2} \, dx + 3x \, dy = 0</m>
 			</p>
-</answer>
+		</statement>
+		<answer>
+			<p>
+				<m>y^2</m> 
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				<m>(4x^5 + 9x^4y^2 + 10\frac{y}{x})\, dx + (6x^5y + 3x^2y^2 - 5)\, dy = 0</m>
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>x^{-2}</m>
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				<m>2\sin(y) \, dx + x\cos(y)\, dy = 0</m>
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>x</m> 
+			</p>
+		</answer>
+	</task>
+
 </exercise>
 
-<!-- div attr= class="samepage"-->
+
 <exercise>
-<statement>
-			<p>
+	<introduction>
+		<p>
 				Find the integrating factor for the following equations making them into exact equations:
 			</p>
-
-<!-- div attr= class="tasks"-->
+	</introduction>
+	<task>
+		<statement>
+			<p> <m>\frac{1}{y}\, dx + 3y \, dy = 0</m>  </p>
+		</statement>
+	</task>
+	<task>
+		<statement>
 			<p>
-				(2) <m>\frac{1}{y}\, dx + 3y \, dy = 0</m> <m>dx - e^{-x-y} \, dy = 0</m> <m>\bigl( \frac{\cos(x)}{y^2} + \frac{1}{y} \bigr) \, dx + \frac{x}{y^2} \, dy = 0</m> <m>\bigl( 2y + \frac{y^2}{x} \bigr) \, dx + ( 2y+x )\, dy = 0</m>
-			</p><!--</div attr= class="tasks">--><!--</div attr= class="samepage">-->
-</statement>
+				<m>dx - e^{-x-y} \, dy = 0</m>
+			</p>
+		</statement>
+	</task>
+	<task>
+		<statement>
+			<p>
+				<m>\bigl( \frac{\cos(x)}{y^2} + \frac{1}{y} \bigr) \, dx + \frac{x}{y^2} \, dy = 0</m>
+			</p>
+		</statement>
+	</task>
+	<task>
+		<statement>
+			<p>
+				<m>\bigl( 2y + \frac{y^2}{x} \bigr) \, dx + ( 2y+x )\, dy = 0</m>
+			</p>
+		</statement>
+	</task>
 
 </exercise>
+
 <exercise>
-<statement>
-			<p>
+	<introduction>
+		<p>
 				Suppose you have an equation of the form: <m>f(x) + g(y) \frac{dy}{dx} = 0</m>.
 			</p>
-
-<!-- div attr= class="tasks"-->
+	</introduction>
+	<task>
+		<statement>
+			<p> Show it is exact.  </p>
+		</statement>
+		<answer>
+			<p> Yes. </p>
+		</answer>
+	</task>
+	<task>
+		<statement>
 			<p>
-				Show it is exact. Find the form of the potential function in terms of <m>f</m> and <m>g</m>.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) Yes. b)  <m>\int f(x)\ dx + \int g(y)\ dy = C</m> 
+				Find the form of the potential function in terms of <m>f</m> and <m>g</m>.
 			</p>
-</answer>
+		</statement>
+		<answer>
+			<p>
+				<m>\int f(x)\ dx + \int g(y)\ dy = C</m>
+			</p>
+		</answer>
+	</task>
+
 </exercise>
 
 <exercise>
-<statement>
-			<p>
+	<introduction>
+		<p>
 				Suppose that we have the equation <m>f(x) \, dx - dy = 0</m>.
 			</p>
-
-<!-- div attr= class="tasks"-->
+	</introduction>
+	<task>
+		<statement>
+			<p> Is this equation exact?  </p>
+		</statement>
+		<answer>
+			<p> Yes. </p>
+		</answer>
+	</task>
+	<task>
+		<statement>
 			<p>
-				Is this equation exact? Find the general solution using a definite integral.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a)  Yes. b) <m>y = \int f(x)\ dx + C</m> 
+				Find the general solution using a definite integral.
 			</p>
-</answer>
+		</statement>
+		<answer>
+			<p>
+				<m>y = \int f(x)\ dx + C</m>
+			</p>
+		</answer>
+	</task>
+
 </exercise>
 
 <exercise>
-<statement>
-			<p>
+	<introduction>
+		<p>
 				Find the potential function <m>F(x,y)</m> of the exact equation <m>\frac{1+xy}{x}\, dx +
 \bigl(\nicefrac{1}{y} + x \bigr) \, dy = 0</m> in two different ways.
 			</p>
-
-<!-- div attr= class="tasks"-->
+	</introduction>
+	<task>
+		<statement>
+			<p> Integrate <m>M</m> in terms of <m>x</m> and then differentiate in <m>y</m> and set to <m>N</m>.  </p>
+		</statement>
+		<answer>
+			<p>  <m>xy + \ln(x) + \ln(y) = C</m>  </p>
+		</answer>
+	</task>
+	<task>
+		<statement>
 			<p>
-				Integrate <m>M</m> in terms of <m>x</m> and then differentiate in <m>y</m> and set to <m>N</m>. Integrate <m>N</m> in terms of <m>y</m> and then differentiate in <m>x</m> and set to <m>M</m>.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 <m>xy + \ln(x) + \ln(y) = C</m> 
+				Integrate <m>N</m> in terms of <m>y</m> and then differentiate in <m>x</m> and set to <m>M</m>.
 			</p>
-</answer>
+		</statement>
+		<answer>
+			<p>
+				<m>xy + \ln(x) + \ln(y) = C</m> 
+			</p>
+		</answer>
+	</task>
+
 </exercise>
 
-<!-- div attr= class="samepage"-->
 <exercise>
-<statement>
-			<p>
-				A function <m>u(x,y)</m> is said to be a <em></em> if <m>u_{xx} + u_{yy} = 0</m>.
+	<introduction>
+		<p>
+				A function <m>u(x,y)</m> is said to be a <term>harmonic function</term> if <m>u_{xx} + u_{yy} = 0</m>.
 			</p>
-
-<!-- div attr= class="tasks"-->
+	</introduction>
+	<task>
+		<statement>
+			<p> Show if <m>u</m> is harmonic, <m>-u_y \, dx + u_x \, dy = 0</m> is an exact equation. So there exists (at least locally) the so-called <term>harmonic conjugate</term> function <m>v(x,y)</m> such that <m>v_x = -u_y</m> and <m>v_y = u_x</m>.  </p>
+		</statement>
+		<answer>
+			<p> <m>M_y = -u_{yy}</m> and <m>N_x = u_{xx}</m>, and the difference is zero, so they are equal.  </p>
+		</answer>
+	</task>
+	<task>
+		<statement>
 			<p>
-				Show if <m>u</m> is harmonic, <m>-u_y \, dx + u_x \, dy = 0</m> is an exact equation. So there exists (at least locally) the so-called <em></em> function <m>v(x,y)</m> such that <m>v_x = -u_y</m> and <m>v_y = u_x</m>.
-			</p><!--</div attr= class="tasks">-->
-
-			<p>
-				Verify that the following <m>u</m> are harmonic and find the corresponding harmonic conjugates <m>v</m>:
+				Verify that the function <m>u = 2xy</m> is harmonic and find the corresponding harmonic conjugate <m>v</m>:
 			</p>
-
-<!-- div attr= class="tasks"-->
+		</statement>
+		<answer>
 			<p>
-				(3) <m>u = 2xy</m> <m>u = e^x \cos y</m> <m>u = x^3-3xy^2</m>
-			</p><!--</div attr= class="tasks">--><!--</div attr= class="samepage">-->
-</statement>
-
-<answer>			<p>
-				 a)  <m>M_y = -u_{yy}</m> and <m>N_x = u_{xx}</m>, and the difference is zero, so they are equal.<!-- linebreak -->b)  (i) <m>y^2 - x^2</m> (ii) <m>e^{x}\sin(y)</m> (iii)  <m>3x^2y - y^3</m> 
+				<m>y^2 - x^2</m>
 			</p>
-</answer>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				Verify that the function <m>u = e^x \cos y</m> is harmonic and find the corresponding harmonic conjugate <m>v</m>:
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>e^{x}\sin(y)</m>
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				Verify that the function <m>u = x^3-3xy^2</m> is harmonic and find the corresponding harmonic conjugate <m>v</m>:
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>3x^2y - y^3</m> 
+			</p>
+		</answer>
+	</task>
+
+</exercise>
+
+<exercise>
+	<introduction>
+		<p> Answer the following about separable and exact equations.</p>
+	</introduction>
+	<task>
+		<statement>
+			<p> Show that every separable equation <m>y' = f(x)g(y)</m> can be written as an exact equation, and verify that it is indeed exact.  </p>
+		</statement>
+	</task>
+	<task>
+		<statement>
+			<p>
+				Using this rewrite <m>y' = xy</m> as an exact equation, solve it and verify that the solution is the same as it was in <xref ref="ex-sep-xy"/>.
+			</p>
+		</statement>
+	</task>
+
 </exercise>
 
 <exercise>
@@ -698,7 +934,7 @@ xy + \ln y = C .
 
 <!-- div attr= class="tasks"-->
 			<p>
-				Show that every separable equation <m>y' = f(x)g(y)</m> can be written as an exact equation, and verify that it is indeed exact. Using this rewrite <m>y' = xy</m> as an exact equation, solve it and verify that the solution is the same as it was in .
+				 
 			</p><!--</div attr= class="tasks">-->
 </statement>
 </exercise></exercises>

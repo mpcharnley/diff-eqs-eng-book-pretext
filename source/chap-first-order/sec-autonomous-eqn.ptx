@@ -55,7 +55,7 @@ where the derivative of solutions depends only on <m>x</m> (the dependent variab
 		</p>
 
 		<p>
-			Note also, by looking at the graph, that the solution <m>x=A</m> is in that small perturbations in <m>x</m> do not lead to substantially different solutions as <m>t</m> grows. If we change the initial condition a little bit, then as <m>t \to \infty</m> we get <m>x(t) \to A</m>. We call such a critical point <em>asymptotically stable</em>. In this simple example, it turns out that all solutions in fact go to <m>A</m> as <m>t \to \infty</m>. If there is a critical point where all nearby solutions move away from the critical point, we say it is <em>unstable</em>. If some nearby solutions go towards the critical point, and some others move away, then we say it is <em>semistable</em>. The final option is that solutions nearby neither move towards nor away from the critical point, and these critical points are called <em>stable</em>.
+			Note also, by looking at the graph, that the solution <m>x=A</m> is <term>stable</term> in that small perturbations in <m>x</m> do not lead to substantially different solutions as <m>t</m> grows. If we change the initial condition a little bit, then as <m>t \to \infty</m> we get <m>x(t) \to A</m>. We call such a critical point <em>asymptotically stable</em>. In this simple example, it turns out that all solutions in fact go to <m>A</m> as <m>t \to \infty</m>. If there is a critical point where all nearby solutions move away from the critical point, we say it is <em>unstable</em>. If some nearby solutions go towards the critical point, and some others move away, then we say it is <em>semistable</em>. The final option is that solutions nearby neither move towards nor away from the critical point, and these critical points are called <em>stable</em>.
 		</p>
 
 		<p>
@@ -102,7 +102,7 @@ where the derivative of solutions depends only on <m>x</m> (the dependent variab
 \text{DNE or } {-\infty} &amp; \text{if } \; x(0) &lt; 0 . \\
 \end{cases}
 </me>
- Here DNE means From just looking at the slope field we cannot quite decide what happens if <m>x(0) &lt; 0</m>. It could be that the solution does not exist for <m>t</m> all the way to <m>\infty</m>. Think of the equation <m>x' = x^2</m>; we have seen that solutions only exist for some finite period of time. Same can happen here. In our example equation above it turns out that the solution does not exist for all time, but to see that we would have to solve the equation. In any case, the solution does go to <m>-\infty</m>, but it may get there rather quickly.
+ Here DNE means <q>does not exist</q>. From just looking at the slope field we cannot quite decide what happens if <m>x(0) &lt; 0</m>. It could be that the solution does not exist for <m>t</m> all the way to <m>\infty</m>. Think of the equation <m>x' = x^2</m>; we have seen that solutions only exist for some finite period of time. Same can happen here. In our example equation above it turns out that the solution does not exist for all time, but to see that we would have to solve the equation. In any case, the solution does go to <m>-\infty</m>, but it may get there rather quickly.
 		</p>
 
 		<p>
@@ -110,9 +110,17 @@ where the derivative of solutions depends only on <m>x</m> (the dependent variab
 0</m>, and the arrow points down.
 		</p>
 
-<p>
-	NEED TO MAKE NEW PHASE LINE IMAGE HERE
-</p>
+<figure xml:id="autEqPhaseLine">
+	<caption> Phase line for the differential equation <m>x' = 0.1x(5-x)</m>. </caption>
+	<image source="autEqnsPhaseLine.png" width="30%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
 		<p>
 			Armed with the phase diagram, it is easy to sketch the solutions approximately: As time <m>t</m> moves from left to right, the graph of a solution goes up if the arrow is up, and it goes down if the arrow is down.
@@ -132,7 +140,6 @@ where the derivative of solutions depends only on <m>x</m> (the dependent variab
 
 
 <example>
-<title> </title>
 <statement>		<p>
 			Consider the autonomous differential equation 
 <men xml:id="autoexample-eqn">
@@ -216,56 +223,106 @@ f(5) &amp;= (5)(3)^2(8)(1) &gt; 0.
 <exercises>
 			<title>Exercises</title>
 
-<!-- div attr= class="samepage"-->
 <exercise>
-<statement>
-			<p>
+	<introduction>
+		<p>
 				Consider <m>x' = x^2</m>.
-			</p>
-
-<!-- div attr= class="tasks"-->
+		</p>
+	</introduction>
+	<task>
+		<statement>
+			<p>Draw the phase diagram, find the critical points, and mark them asymptotically stable, semistable, or unstable. </p>
+		</statement>
+		<answer>
+			<p> 0 is semistable </p>
+		</answer>
+	</task>
+	<task>
+		<statement>
 			<p>
-				Draw the phase diagram, find the critical points, and mark them asymptotically stable, semistable, or unstable. Sketch typical solutions of the equation. Find <m>\displaystyle \lim_{t\to \infty} x(t)</m> for the solution with the initial condition <m>x(0) = -1</m>.
-			</p><!--</div attr= class="tasks">--><!--</div attr= class="samepage">-->
-</statement>
-
-<answer>			<p>
-				 a)  0 is semistable c)  0 
+				Sketch typical solutions of the equation.
 			</p>
-</answer>
+		</statement>
+	</task>
+	<task>
+		<statement>
+			<p>
+				Find <m>\displaystyle \lim_{t\to \infty} x(t)</m> for the solution with the initial condition <m>x(0) = -1</m>.
+			</p>
+		</statement>
+		<answer>
+			<p>
+				0
+			</p>
+		</answer>
+	</task>
+
 </exercise>
 
 <exercise>
-<statement>
-			<p>
+	<introduction>
+		<p>
 				Consider <m>x' = \sin x</m>.
 			</p>
-
-<!-- div attr= class="tasks"-->
+	</introduction>
+	<task>
+		<statement>
+			<p> Draw the phase diagram for <m>-4\pi \leq x \leq 4\pi</m>. On this interval mark the critical points asymptotically stable, semistable, or unstable.  </p>
+		</statement>
+		<answer>
+			<p>  <m>x = n\pi</m> are critical points. <m>n</m> odd is asymptotically stable, <m>n</m> even is unstable. </p>
+		</answer>
+	</task>
+	<task>
+		<statement>
 			<p>
-				Draw the phase diagram for <m>-4\pi \leq x \leq 4\pi</m>. On this interval mark the critical points asymptotically stable, semistable, or unstable. Sketch typical solutions of the equation. Find <m>\displaystyle \lim_{t\to \infty} x(t)</m> for the solution with the initial condition <m>x(0) = 1</m>.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a)  <m>x = n\pi</m> are critical points. <m>n</m> odd is asymptotically stable, <m>n</m> even is unstable. c)  <m>\pi</m> 
+				Sketch typical solutions of the equation.
 			</p>
-</answer>
+		</statement>
+	</task>
+	<task>
+		<statement>
+			<p>
+				Find <m>\displaystyle \lim_{t\to \infty} x(t)</m> for the solution with the initial condition <m>x(0) = 1</m>.
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>\pi</m> 
+			</p>
+		</answer>
+	</task>
+
 </exercise>
 
 <exercise>
-<statement>
-			<p>
+	<introduction>
+		<p>
 				Let <m>x'=(x-1)(x-2)x^2</m>.
 			</p>
-
-<!-- div attr= class="tasks"-->
+	</introduction>
+	<task>
+		<statement>
+			<p> Sketch the phase diagram and find critical points.  </p>
+		</statement>
+	</task>
+	<task>
+		<statement>
 			<p>
-				Sketch the phase diagram and find critical points. Classify the critical points. If <m>x(0)=0.5</m>, then find <m>\displaystyle \lim_{t\to\infty} x(t)</m>.
-			</p><!--</div attr= class="tasks">-->
-</statement>
+				Classify the critical points.
+			</p>
+		</statement>
+	</task>
+	<task>
+		<statement>
+			<p>
+				If <m>x(0)=0.5</m>, then find <m>\displaystyle \lim_{t\to\infty} x(t)</m>.
+			</p>
+		</statement>
+	</task>
 
 </exercise>
+
 <exercise>
 <statement>
 			<p>
@@ -319,76 +376,159 @@ f(5) &amp;= (5)(3)^2(8)(1) &gt; 0.
 </exercise>
 
 <exercise>
-<statement>
-			<p>
+	<introduction>
+		<p>
 				Let <m>x'=e^{-x}</m>.
 			</p>
-
-<!-- div attr= class="tasks"-->
+	</introduction>
+	<task>
+		<statement>
+			<p>Find and classify all critical points.   </p>
+		</statement>
+	</task>
+	<task>
+		<statement>
 			<p>
-				(2) Find and classify all critical points. Find <m>\displaystyle \lim_{t\to\infty} x(t)</m> given any initial condition.
-			</p><!--</div attr= class="tasks">-->
-</statement>
+				Find <m>\displaystyle \lim_{t\to\infty} x(t)</m> given any initial condition.
+			</p>
+		</statement>
+	</task>
 
 </exercise>
+
+
 <exercise>
-<statement>
-			<p>
+	<introduction>
+		<p>
 				Suppose <m>f(x)</m> is positive for <m>0 &lt; x &lt; 1</m>, it is zero when <m>x=0</m> and <m>x=1</m>, and it is negative for all other <m>x</m>.
 			</p>
-
-<!-- div attr= class="tasks"-->
+	</introduction>
+	<task>
+		<statement>
+			<p> Draw the phase diagram for <m>x' = f(x)</m>, find the critical points, and mark them asymptotically stable, semistable, or unstable.   </p>
+		</statement>
+		<answer>
+			<p>  <m>x=1</m> is asymptotically stable, <m>x=0</m> is unstable. </p>
+		</answer>
+	</task>
+	<task>
+		<statement>
 			<p>
-				Draw the phase diagram for <m>x' = f(x)</m>, find the critical points, and mark them asymptotically stable, semistable, or unstable. Sketch typical solutions of the equation. Find <m>\displaystyle \lim_{t\to \infty} x(t)</m> for the solution with the initial condition <m>x(0) = 0.5</m>.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a)  <m>x=1</m> is asymptotically stable, <m>x=0</m> is unstable. c)  Tends to 1. 
+				Sketch typical solutions of the equation.
 			</p>
-</answer>
+		</statement>
+	</task>
+	<task>
+		<statement>
+			<p>
+				Find <m>\displaystyle \lim_{t\to \infty} x(t)</m> for the solution with the initial condition <m>x(0) = 0.5</m>.
+			</p>
+		</statement>
+		<answer>
+			<p>
+				Tends to 1. 
+			</p>
+		</answer>
+	</task>
+
 </exercise>
 
 <exercise>
-<statement>
-			<p>
+	<introduction>
+		<p>   </p>
+	</introduction>
+	<task>
+		<statement>
+			<p>   </p>
+		</statement>
+		<answer>
+			<p>   </p>
+		</answer>
+	</task>
+
+</exercise>
+
+<exercise>
+	<introduction>
+		<p>
 				Suppose <m>\frac{dx}{dt} = (x-\alpha)(x-\beta)</m> for two numbers <m>\alpha &lt;
-\beta</m>.
+\beta</m>. In parts b), c), and d), find <m>\displaystyle \lim_{t\to\infty} x(t)</m> based on the phase diagram.
 			</p>
-
-<!-- div attr= class="tasks"-->
+	</introduction>
+	<task>
+		<statement>
+			<p> Find the critical points, and classify them. </p>
+		</statement>
+		<answer>
+			<p>   </p>
+		</answer>
+	</task>
+	<task>
+		<statement>
 			<p>
-				Find the critical points, and classify them.
-			</p><!--</div attr= class="tasks">-->
-
-			<p>
-				For b), c), d), find <m>\displaystyle \lim_{t\to\infty} x(t)</m> based on the phase diagram.
+				<m>x(0) &lt; \alpha</m>
 			</p>
-
-<!-- div attr= class="tasks"-->
+		</statement>
+	</task>
+	<task>
+		<statement>
 			<p>
-				(3) <m>x(0) &lt; \alpha</m>, <m>\alpha &lt; x(0) &lt; \beta</m>, <m>\beta &lt; x(0)</m>.
-			</p><!--</div attr= class="tasks">-->
-</statement>
+			<m>\alpha &lt; x(0) &lt; \beta</m>	
+			</p>
+		</statement>
+	</task>
+	<task>
+		<statement>
+			<p>
+				<m>\beta &lt; x(0)</m>
+			</p>
+		</statement>
+	</task>
 
 </exercise>
+
+
 <exercise>
-<statement>
-			<p>
+	<introduction>
+		<p>
 				A disease is spreading through the country. Let <m>x</m> be the number of people infected. Let the constant <m>S</m> be the number of people susceptible to infection. The infection rate <m>\frac{dx}{dt}</m> is proportional to the product of already infected people, <m>x</m>, and the number of susceptible but uninfected people, <m>S-x</m>.
 			</p>
-
-<!-- div attr= class="tasks"-->
+	</introduction>
+	<task>
+		<statement>
+			<p> Write down the differential equation.  </p>
+		</statement>
+		<answer>
+			<p> <m>\frac{dx}{dt} = k(x)(S - x)</m>  </p>
+		</answer>
+	</task>
+	<task>
+		<statement>
 			<p>
-				Write down the differential equation. Supposing <m>x(0) &gt; 0</m>, that is, some people are infected at time <m>t=0</m>, what is <m>\displaystyle \lim_{t\to\infty} x(t)</m>. Does the solution to part b) agree with your intuition? Why or why not?
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a)  <m>\frac{dx}{dt} = k(x)(S - x)</m> b)  S c)  Yes, everyone gets it. 
+				Supposing <m>x(0) &gt; 0</m>, that is, some people are infected at time <m>t=0</m>, what is <m>\displaystyle \lim_{t\to\infty} x(t)</m>?
 			</p>
-</answer>
+		</statement>
+		<answer>
+			<p>
+				S
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				Does the solution to part b) agree with your intuition? Why or why not?
+			</p>
+		</statement>
+		<answer>
+			<p>
+				Yes, everyone gets it. 
+			</p>
+		</answer>
+	</task>
+
 </exercise>
+
 </exercises>
 
 	</section>

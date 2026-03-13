@@ -5,7 +5,33 @@
 
 	<section xml:id="substitution-section">
 		<title>Substitution</title>
+		<objectives>
+	<introduction>
+		<p>
+			After this section, you will be able to: 
+		</p>
+	</introduction>
+	<ul>
+		<li>
+			<p>
+				Use substitution to solve more complicated first order equations,
+			</p>
+		</li>
+		<li>
+			<p>
+				Use a Bernoulli substitution to solve appropriate first order equations, and
+			</p>
+		</li>
+		<li>
+			<p>
+				Use a homogeneity transformation to solve appropriate first order equations.
+			</p>
+		</li>
+	</ul>
+</objectives>
 
+<subsection xml:id="subsec-general-sub">
+	<title>General Substitution Methods</title>
 		<p>
 			The equation 
 <me>
@@ -36,37 +62,38 @@ v = x-y+1,
 \frac{1}{1-v^2} \,dv = dx .
 </me>
  So 
-<me>
-\frac{1}{2} \ln \left\lvert  \frac{v+1}{v-1} \right\rvert = x + C ,
-\qquad \text{or} \qquad
-\left\lvert \frac{v+1}{v-1} \right\rvert = e^{2x + 2C} ,
-\qquad \text{or} \qquad
-\frac{v+1}{v-1} = D e^{2x} ,
-</me>
- for some constant <m>D</m>. Note that <m>v=1</m> and <m>v=-1</m> are also solutions; they are the <em></em> in this problem. (This solution method requires partial fractions; for a review of that topic, see .)
+<md>
+	<mrow> \frac{1}{2} \ln \left\lvert  \frac{v+1}{v-1} \right\rvert \amp = x + C  </mrow>
+	<mrow> \text{or} \qquad \left\lvert \frac{v+1}{v-1} \right\rvert \amp = e^{2x + 2C} </mrow>
+	<mrow> \text{or} \qquad \frac{v+1}{v-1} \amp = D e^{2x}</mrow>
+</md>
+ for some constant <m>D</m>. Note that <m>v=1</m> and <m>v=-1</m> are also solutions; they are the <term>singular solutions</term> in this problem. (This solution method requires partial fractions; for a review of that topic, see \<xref ref="sec-derivInt"/>.)
 		</p>
 
 		<p>
-			Now we need to to obtain 
+			Now we need to <q>unsubstitute</q> to obtain 
 <me>
 \frac{x-y+2}{x-y} = D e^{2x} ,
 </me>
- and also the two solutions <m>x-y+1=1</m> or <m>y=x</m>, and <m>x-y+1=-1</m> or <m>y=x+2</m>. We solve the first equation for <m>y</m>. <me>\begin{align*}
-x-y+2 &amp;= (x-y)D e^{2x} , \\
-x-y+2 &amp;= Dx e^{2x}-yD e^{2x} , \\
--y + yD e^{2x} &amp;= Dx e^{2x} - x - 2 , \displaybreak[0]\\
-y\,(-1+ D e^{2x}) &amp;= Dx e^{2x} - x - 2 , \displaybreak[0]\\
-y  &amp;= \frac{Dx e^{2x} - x - 2}{D e^{2x}-1} .
-\end{align*}</me> Note that <m>D=0</m> gives <m>y=x+2</m>, but no value of <m>D</m> gives the solution <m>y=x</m>.
+ and also the two solutions <m>x-y+1=1</m> or <m>y=x</m>, and <m>x-y+1=-1</m> or <m>y=x+2</m>. We solve the first equation for <m>y</m>. 
+
+<md>
+	<mrow> x-y+2 \amp= (x-y)D e^{2x}</mrow>
+	<mrow>x-y+2 \amp= Dx e^{2x}-yD e^{2x} </mrow>
+<mrow> -y + yD e^{2x} \amp= Dx e^{2x} - x - 2 </mrow>
+<mrow> y\,(-1+ D e^{2x}) \amp= Dx e^{2x} - x - 2 </mrow>
+<mrow> y  \amp= \frac{Dx e^{2x} - x - 2}{D e^{2x}-1}</mrow>
+</md>.
+
+Note that <m>D=0</m> gives <m>y=x+2</m>, but no value of <m>D</m> gives the solution <m>y=x</m>.
 		</p>
 
 		<p>
 			Substitution in differential equations is applied in much the same way that it is applied in calculus. You guess. Several different substitutions might work. There are some general patterns to look for. We summarize a few of these in a table.
 		</p>
 
-<!-- div attr= class="center"-->
 		<table>
-			<title></title>
+			<title>Common Substitution Recommendations</title>
 			<tabular>
 			<row header="yes">
 				<cell halign="left">When you see</cell>
@@ -93,20 +120,20 @@ y  &amp;= \frac{Dx e^{2x} - x - 2}{D e^{2x}-1} .
 				<cell halign="left"><m>v=e^y</m></cell>
 			</row>
 			</tabular>
-		</table><!--</div attr= class="center">-->
+		</table>
 
 		<p>
-			Usually you try to substitute in the part of the equation with the hopes of simplifying it. The table above is just a rule of thumb. You might have to modify your guesses. If a substitution does not work (it does not make the equation any simpler), try a different one.
+			Usually you try to substitute in the <q>most complicated</q> part of the equation with the hopes of simplifying it. The table above is just a rule of thumb. You might have to modify your guesses. If a substitution does not work (it does not make the equation any simpler), try a different one.
 		</p>
 
-
+	</subsection>
 		<subsection xml:id="bernoulli-equations">
 			<title>Bernoulli equations</title>
 
 			<p>
-				There are some forms of equations where there is a general rule for substitution that always works. One such example is the so-called <em></em> <fn>			<p>
+				There are some forms of equations where there is a general rule for substitution that always works. One such example is the so-called <term>Bernoulli Equation</term> <fn>
 				There are several things called Bernoulli equations, this is just one of them. The Bernoullis were a prominent Swiss family of mathematicians. These particular equations are named for <url href="https://en.wikipedia.org/wiki/Jacob_Bernoulli">Jacob Bernoulli</url> (1654–1705).
-			</p></fn>: 
+	</fn>: 
 <me>
 y' + p(x)y = q(x)y^n .
 </me>
@@ -115,7 +142,6 @@ y' + p(x)y = q(x)y^n .
 
 
 <example>
-<title> </title>
 <statement>			<p>
 				Find the general solution of 
 <me>
@@ -168,7 +194,6 @@ y(x) = \left(\frac{2}{5}x + \frac{C}{x^4}\right)^{-1/3} = \frac{1}{\sqrt[3]{\fra
 
 
 <example>
-<title> </title>
 <statement>			<p>
 				Solve 
 <me>
@@ -184,25 +209,25 @@ xy'+ y(x+1)+xy^5 = 0, \qquad y(1)=1 .
 v=y^{1-5} = y^{-4}, \qquad
 v' = -4 y^{-5} y' .
 </me>
- In other words, <m>\left( \nicefrac{-1}{4} \right) y^5 v' = y'</m>. So <me>\begin{align*}
-xy'+ y(x+1)+xy^5 &amp; = 0 , \\
-\frac{-xy^5}{4} v'+ y(x+1)+xy^5 &amp; = 0 , \displaybreak[0]\\
-\frac{-x}{4} v'+ y^{-4}(x+1)+x &amp; = 0 , \displaybreak[0]\\
-\frac{-x}{4} v'+ v(x+1)+x &amp; = 0 ,
-\end{align*}</me> and finally 
+ In other words, <m>\left( \nicefrac{-1}{4} \right) y^5 v' = y'</m>. So
+ <md>
+	<mrow> xy'+ y(x+1)+xy^5 \amp = 0 </mrow>
+<mrow> \frac{-xy^5}{4} v'+ y(x+1)+xy^5 \amp = 0 </mrow>
+<mrow> \frac{-x}{4} v'+ y^{-4}(x+1)+x \amp = 0 </mrow>
+<mrow> \frac{-x}{4} v'+ v(x+1)+x \amp = 0 </mrow>
+ </md>
+ and finally 
 <me>
 v'- \frac{4(x+1)}{x} v  = 4 .
 </me>
- The equation is now linear. We can use the integrating factor method. In particular, we use formula <xref ref="lei-defsol" />. Let us assume that <m>x &gt; 0</m> so <m>\lvert x \rvert = x</m>. This assumption is OK, as our initial condition is <m>x=1</m>. Let us compute the integrating factor. Here <m>p(s)</m> from formula <xref ref="lei-defsol" /> is <m>\frac{-4(s+1)}{s}</m>. <me>\begin{align*}
-e^{\int_1^x p(s)\,ds} &amp; = \exp \left( \int_1^x \frac{-4(s+1)}{s} \,ds \right) =
-e^{-4x-4\ln(x)+4} = 
-e^{-4x+4} x^{-4}
-=
-\frac{e^{-4x+4}}{x^4} , \\
-e^{-\int_1^x p(s)\,ds} &amp; =
-e^{4x+4\ln(x)-4} = 
-e^{4x-4} x^4 .
-\end{align*}</me> We now plug in to <xref ref="lei-defsol" /> 
+ The equation is now linear. We can use the integrating factor method. In particular, we use formula <xref ref="lei-defsol" />. Let us assume that <m>x &gt; 0</m> so <m>\lvert x \rvert = x</m>. This assumption is OK, as our initial condition is <m>x=1</m>. Let us compute the integrating factor. Here <m>p(s)</m> from formula <xref ref="lei-defsol" /> is <m>\frac{-4(s+1)}{s}</m>. 
+ <md>
+	<mrow> e^{\int_1^x p(s)\,ds} \amp = \exp \left( \int_1^x \frac{-4(s+1)}{s} \,ds \right) </mrow>
+	<mrow> \amp = e^{-4x-4\ln(x)+4} = e^{-4x+4} x^{-4} </mrow> 
+	<mrow> \amp = \frac{e^{-4x+4}}{x^4}</mrow>
+<mrow> e^{-\int_1^x p(s)\,ds} \amp = e^{4x+4\ln(x)-4} =  e^{4x-4} x^4 </mrow>
+ </md>
+ We now plug in to <xref ref="lei-defsol" /> 
 <me>
 \begin{split}
 v(x) &amp; =
@@ -214,12 +239,13 @@ e^{4x-4} x^4
 + 1 \right) .
 \end{split}
 </me>
- The integral in this expression is not possible to find in closed form. As we said before, it is perfectly fine to have a definite integral in our solution. Now <me>\begin{align*}
- y^{-4} &amp;= e^{4x-4}x^4 \left( 4 \int_1^x \frac{e^{-4t+4}}{t^4} \,dt + 1\right) , \\
- y &amp;= \frac{e^{-x+1}}{x {\left( 4 \int_1^x \frac{e^{-4t+4}}{t^4} \,dt +
-1\right)}^{1/4}} .
-\end{align*}</me>
-			</p>
+ The integral in this expression is not possible to find in closed form. As we said before, it is perfectly fine to have a definite integral in our solution. Now <q>unsubstitute</q> 
+ <md>
+	 <mrow> y^{-4} \amp = e^{4x-4}x^4 \left( 4 \int_1^x \frac{e^{-4t+4}}{t^4} \,dt + 1\right) </mrow>
+ <mrow> y \amp = \frac{e^{-x+1}}{x {\left( 4 \int_1^x \frac{e^{-4t+4}}{t^4} \,dt + 1\right)}^{1/4}} . </mrow>
+ </md>
+
+</p>
 </solution>
 </example>
 		</subsection>
@@ -228,7 +254,7 @@ e^{4x-4} x^4
 			<title>Homogeneous equations</title>
 
 			<p>
-				Another type of equations we can solve by substitution are the so-called <em>homogeneous equations</em>. Note that this is <em>not</em> the same as a homogeneous linear equation. These equations do not have to be linear, and are solved in a very different way. Suppose that we can write the differential equation as 
+				Another type of equations we can solve by substitution are the so-called <term>homogeneous equations</term>. Note that this is <em>not</em> the same as a homogeneous linear equation. These equations do not have to be linear, and are solved in a very different way. Suppose that we can write the differential equation as 
 <me>
 y' = F\left(\frac{y}{x}\right) .
 </me>
@@ -250,7 +276,6 @@ v+ xv' = F(v) \qquad \text{or} \qquad xv' = F(v)-v
 
 
 <example>
-<title> </title>
 <statement>			<p>
 				Solve 
 <me>
@@ -265,14 +290,21 @@ x^2y' = y^2+xy, \qquad y(1)=1.
 <me>
 xv' = v^2+v-v = v^2 ,
 </me>
- which has a solution <me>\begin{align*}
-\int \frac{1}{v^2} \,dv &amp;= \ln \, \lvert x \rvert + C , \\
-\frac{-1}{v} &amp;= \ln \, \lvert x \rvert + C , \\
-v &amp;= \frac{-1}{\ln \, \lvert x \rvert + C} .
-\end{align*}</me> We unsubstitute <me>\begin{align*}
-\frac{y}{x} &amp;= \frac{-1}{\ln \, \lvert x \rvert + C} , \\
-y &amp;= \frac{-x}{\ln \, \lvert x \rvert + C} .
-\end{align*}</me> We want <m>y(1)=1</m>, so 
+ which has a solution 
+ 
+<md>
+	<mrow> \int \frac{1}{v^2} \,dv \amp = \ln \, \lvert x \rvert + C </mrow>
+<mrow> \frac{-1}{v} \amp = \ln \, \lvert x \rvert + C </mrow>
+<mrow> v \amp = \frac{-1}{\ln \, \lvert x \rvert + C}</mrow>
+</md>.
+
+We unsubstitute 
+<md>
+	<mrow> \frac{y}{x} \amp = \frac{-1}{\ln \, \lvert x \rvert + C} </mrow>
+<mrow> y \amp = \frac{-x}{\ln \, \lvert x \rvert + C} </mrow>
+</md>.
+
+We want <m>y(1)=1</m>, so 
 <me>
 1 = y(1) = \frac{-1}{\ln \, \lvert 1 \rvert + C} = \frac{-1}{C} .
 </me>
@@ -289,9 +321,12 @@ y = \frac{-x}{\ln \, \lvert x \rvert -1} .
 <exercises>
 			<title>Exercises</title>
 
-			<p>
-				Hint: Answers need not always be in closed form.
-			</p>
+			<introduction>
+				<p>
+					Hint: Answers need not always be in closed form.
+				</p>
+			</introduction>
+				
 
 <exercise>
 <statement>
@@ -442,25 +477,39 @@ y = \frac{-x}{\ln \, \lvert x \rvert -1} .
 </statement>
 
 </exercise>
+
 <exercise>
-<statement>
-			<p>
+	<introduction>
+		<p>
 				Consider the DE 
 <men xml:id="eq-subsEx1">
 \frac{dy}{dt}=\left( y -\frac{1}{t} \right)^2 - \frac{1}{t^2}. </men>
 			</p>
-
-<!-- div attr= class="tasks"-->
+	</introduction>
+	<task>
+		<statement>
+			<p>  Explain why <xref ref="eq-subsEx1" /> is not a linear equation. </p>
+		</statement>
+		<answer>
+			<p> There is a <m>y^2</m> term  </p>
+		</answer>
+	</task>
+	<task>
+		<statement>
 			<p>
-				Explain why <xref ref="eq-subsEx1" /> is not a linear equation. Use a Bernoulli substitution to solve <xref ref="eq-subsEx1" />.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a)  There is a <m>y^2</m> term b)  <m>y = \frac{1}{t + Ct^2}</m> 
+				Use a Bernoulli substitution to solve <xref ref="eq-subsEx1" />.
 			</p>
-</answer>
+		</statement>
+		<answer>
+			<p>
+				<m>y = \frac{1}{t + Ct^2}</m> 
+			</p>
+		</answer>
+	</task>
+
 </exercise>
+
+
 </exercises>
 
 	</section>

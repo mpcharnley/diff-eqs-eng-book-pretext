@@ -60,7 +60,7 @@
 			know that it must affect the derivative of the velocity in this particular way, so we
 			can write this equation. That’s why we give a name to this function, so that we can use
 			it in writing this equestion, which, since it is an equation involving the derivative of
-			an unknown function <m>v(t)</m>, we call this a . Our goal here would be to use this
+			an unknown function <m>v(t)</m>, we call this a <term>differential equation</term>. Our goal here would be to use this
 			information, plus the fact that the velocity at time zero is <m>v(0) = 2\ \text{m/s}</m>
 			to find the value of <m>v(10)</m>, or, more generally, the function <m>v(t)</m> for any <m>
 			t</m>. </p>
@@ -122,11 +122,10 @@
 
 
 		<example>
-		<title> </title>
 		<statement>
 			<p> All of the below are differential equations <md>
-					<mrow> \frac{dy}{dt} = e^t y \amp z'' + z^2 = t\sin{z}</mrow>
-				<mrow> \frac{d^4f}{dx^4} - 3x \frac{d^2f}{dx^2} = x \amp y''' + (y'')^2 - 3y =
+					<mrow> \frac{dy}{dt} = e^t y \amp \qquad \amp z'' + z^2 = t\sin{z}</mrow>
+				<mrow> \frac{d^4f}{dx^4} - 3x \frac{d^2f}{dx^2} = x \amp \qquad \amp y''' + (y'')^2 - 3y =
 				t^4</mrow>
 				</md>.
 				Note that any letter can be used for the unknown function and its dependent
@@ -232,14 +231,21 @@
 
 	<subsection xml:id="differential-equations-in-practice">
 		<title>Differential equations in practice</title>
-
-				<p>
-					NEED TO MAKE NEW IMAGE HERE WITH ARROWS
-				</p>
+	<figure xml:id="fig-cO-model">
+	<caption> The general process of mathematical modeling. </caption>
+	<image source="c0ModelingIntro.png" width="40%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+</figure>
 
 
 		<p> So how do we use differential equations in science and engineering? The main way this
-			takes place is through the process of mathematical modeling. First, we have some real-world problem
+			takes place is through the process of mathematical modeling. First, we have some <em>real-world problem</em>
 			we wish to understand. We make some simplifying assumptions and create a <term>mathematical model</term>,
 			which is a translation of this real-world problem into a set of differential equations.
 			Think back to the example at the beginning of this section. We took a physical situation
@@ -335,7 +341,7 @@
 		<title>Four fundamental equations</title>
 
 		<p> A few equations appear often and it is useful to know what their solutions are. Let us
-			call them the . Their solutions are reasonably easy to guess by recalling properties of
+			call them the <term>four fundamental equations</term>. Their solutions are reasonably easy to guess by recalling properties of
 			exponentials, sines, and cosines. They are also simple to check, which is something that
 			you should always do. No need to wonder if you remembered the solution correctly. It is
 			good to have these as solutions that you <q>know</q> to build from when we learn

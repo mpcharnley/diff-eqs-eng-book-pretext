@@ -3,6 +3,25 @@
 
 	<section xml:id="modelfirst-section">
 		<title>Modeling with First Order Equations</title>
+		<objectives>
+	<introduction>
+		<p>
+			After this section, you will be able to: 
+		</p>
+	</introduction>
+	<ul>
+		<li>
+			<p>
+				Write a first-order differential equation to model a physical situation and
+			</p>
+		</li>
+		<li>
+			<p>
+				Interpret the solution to a differential equation in the context of a physical problem.
+			</p>
+		</li>
+	</ul>
+</objectives>
 		<introduction>
 		<p>
 			One of the main reasons to study and learn about differential equations, particularly for scientists and engineers, is their application and use in mathematical modeling. Since the derivative of a function represents the rate of change of that quantity, if we can use physical or scientific principles to develop an equation for the rate of change of some quantity in terms of the quantity and time, there's a chance that we can write a differential equation for this quantity and solve it to determine how the quantity will change.
@@ -43,7 +62,6 @@ This may seem fairly simple. However, it shows up in many places in science and 
 
 
 <example>
-<title> </title>
 <statement>			<p>
 				A tank initially contains 70 gallons of water and 5 lbs of salt. A solution with salt concentration 0.2 lbs per gallon flows into the tank at a rate of <m>3</m> gal/min. The tank is well stirred, and water is removed from the tank at a rate of <m>3</m> gal/min. Find the amount of salt in the tank at any time <m>t</m>? What happens as <m>t\rightarrow \infty</m>? Does this make sense?
 			</p>
@@ -62,12 +80,13 @@ This may seem fairly simple. However, it shows up in many places in science and 
 <me>
 \frac{dx}{dt} = \text{rate in} - \text{rate out} = \text{flow in} \times \text{concentration in} - \text{flow out} \times \text{concentration out}
 </me>
- For this problem, we have that <me>\begin{align*}
-\text{flow in} &amp;= 3 , \\
-\text{concentration in} &amp;= 0.2 , \\
-\text{flow out} &amp;= 3 , \\
-\text{concentration out} &amp;= \frac{x}{\text{volume}} = \frac{x}{70}.
-\end{align*}</me> The last of these lines comes from the fact that the tank is <q>well stirred</q> or <q>well-mixed.</q> This implies that the concentration of salt in the water leaving the tank is the same as the concentration in the tank, which we can compute as <m>\frac{x}{\text{volume}}</m>. In this case, since the flow rate in and out are both 3 gal/min, the volume of water in the tank is fixed at <m>70</m> gallons, so we can put this in the equation.
+ For this problem, we have that <md>
+	<mrow> \text{flow in} \amp = 3</mrow>
+	<mrow> \text{concentration in} \amp = 0.2 </mrow>
+	<mrow> \text{flow out} \amp = 3  </mrow>
+	<mrow> \text{concentration out}\amp = \frac{x}{\text{volume}} = \frac{x}{70} </mrow>
+ </md>.
+ The last of these lines comes from the fact that the tank is <q>well-stirred</q> or <q>well-mixed.</q> This implies that the concentration of salt in the water leaving the tank is the same as the concentration in the tank, which we can compute as <m>\frac{x}{\text{volume}}</m>. In this case, since the flow rate in and out are both 3 gal/min, the volume of water in the tank is fixed at <m>70</m> gallons, so we can put this in the equation.
 			</p>
 
 			<p>
@@ -115,14 +134,20 @@ x(t) = 14 - 9e^{-\frac{3}{70} t}.
 				The same principle works for other types of examples, including those where the volume of the tank is not constant in time.
 			</p>
 
-<!-- div attr= class="mywrapfigsimp"-->
+<figure xml:id="model-tank-increase">
+	<caption> Sketch of the modeling problem for a tank where the volume of water increases with time. </caption>
+	<image source="tank-increase-image.png" width="40%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
 			<p>
-				1.55in1.60in
-			</p><!--</div attr= class="mywrapfigsimp">-->
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
 
 <example>
-<title> </title>
 <statement>			<p>
 				A 100 liter tank contains 10 kilograms of salt dissolved in 60 liters of water. Solution of water and salt (brine) with concentration of 0.1 kilograms per liter is flowing in at the rate of 5 liters a minute. The solution in the tank is well stirred and flows out at a rate of 3 liters a minute. How much salt is in the tank when the tank is full?
 			</p>
@@ -135,12 +160,14 @@ x(t) = 14 - 9e^{-\frac{3}{70} t}.
 (\text{flow in} \times \text{concentration in})  - 
 (\text{flow out} \times \text{concentration out}) .
 </me>
- In this example, we have <me>\begin{align*}
-\text{flow in} &amp;= 5 , \\
-\text{concentration in} &amp;= 0.1 , \\
-\text{flow out} &amp;= 3 , \\
-\text{concentration out} &amp;= \frac{x}{\text{volume}} = \frac{x}{60+(5-3)t} .
-\end{align*}</me> Our equation is, therefore, 
+ In this example, we have
+ <md>
+	<mrow> \text{flow in}  \amp = 5 </mrow>
+	<mrow> \text{concentration in} \amp = 0.1 </mrow>
+	<mrow> \text{flow out}  \amp = 3 </mrow>
+	<mrow> \text{concentration out} \amp = \frac{x}{\text{volume}} = \frac{x}{60+(5-3)t} </mrow>
+ </md>
+Our equation is, therefore, 
 <me>
 \frac{dx}{dt} =
 (5 \times 0.1)  - 
@@ -204,10 +231,18 @@ dt
 \end{align*}</me>
 			</p>
 
-<!-- div attr= class="mywrapfig"-->
+<figure xml:id="linear-salt-graph-fig">
+	<caption> Graph of the solution <m>x</m> kilograms of salt in the tank at time
+<m>t</m>. </caption>
+	<image source="linear-salt-graph.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
 			<p>
-				3.25in
-			</p><!--</div attr= class="mywrapfig">-->
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
 			<p>
 				We need to find <m>C</m>. We know that at <m>t=0</m>, <m>x=10</m>. So 
@@ -242,11 +277,11 @@ x(20) &amp; =
 11.86 .
 \end{split}
 </me>
- See for the graph of <m>x</m> over <m>t</m>.
+ See <xref ref="linear-salt-graph-fig"/> for the graph of <m>x</m> over <m>t</m>.
 			</p>
 
 			<p>
-				The concentration when the tank is full is approximately , and we started with <m>\nicefrac{1}{6}</m> or .
+				The concentration when the tank is full is approximately <m>\unitfrac[0.1186]{kg}{liter}</m>, and we started with <m>\nicefrac{1}{6}</m> or <m>\unitfrac[0.167]{kg}{liter}</m>.
 			</p>
 </solution>
 </example>
@@ -264,7 +299,9 @@ x(t) = \frac{60 + 2t}{10} + 1859.03(60+2t)^{-3/2},
 
 
 <example>
-<title> </title>
+	<title>Compounded Interest</title>
+	
+	
 <statement>			<p>
 				A bank account with an interest rate of <m>6\%</m> per year, compounded continuously, starts with a balance of $30000. The owner of the account withdraws $50 from the account each month. Find and solve a differential equation for the account balance over time. What is the largest amount that the owner could withdraw each month without the account eventually reaching $0?
 			</p>
@@ -294,7 +331,9 @@ P &amp;= 10000 + Ce^{0.06t}
 
 
 <example>
-<title> </title>
+	<title>Falling Object</title>
+	
+	
 <statement>			<p>
 				An object falling through the air has its velocity affected by two factors: gravity and a drag force. The velocity downward is increased at a rate of <m>9.8\ m/s^2</m> due to gravity, and it is decreased by a rate equation to <m>0.3</m> times the current velocity of the object. If the ball is initially thrown downwards at a speed of <m>2\ m/s</m>, what will the velocity be 10 seconds later?
 			</p>
@@ -346,40 +385,76 @@ v(10) = \frac{98}{3} - \frac{92}{3}e^{-3} \approx 31.14\ m/s.
 <exercises>
 			<title>Exercises</title>
 
+
 <exercise>
-<statement>
-			<p>
-				Suppose there are two lakes located on a stream. Clean water flows into the first lake, then the water from the first lake flows into the second lake, and then water from the second lake flows further downstream. The in and out flow from each lake is 500 liters per hour. The first lake contains 100 thousand liters of water and the second lake contains 200 thousand liters of water. A truck with kg of toxic substance crashes into the first lake. Assume that the water is being continually mixed perfectly by the stream.
+	<introduction>
+		<p>
+				Suppose there are two lakes located on a stream. Clean water flows into the first lake, then the water from the first lake flows into the second lake, and then water from the second lake flows further downstream. The in and out flow from each lake is 500 liters per hour. The first lake contains 100 thousand liters of water and the second lake contains 200 thousand liters of water. A truck with 500 kg of toxic substance crashes into the first lake. Assume that the water is being continually mixed perfectly by the stream.
 			</p>
 
-<!-- div attr= class="tasks"-->
+	</introduction>
+	<task>
+		<statement>
+			<p>  Find the concentration of toxic substance as a function of time in both lakes. </p>
+		</statement>
+		<answer>
+			<p> <m>c_1(t) = \frac{1}{200}e^{-t/200}</m> <m>c_2(t) = \frac{1}{200}(e^{-t/400} - e^{-t/200})</m>  </p>
+		</answer>
+	</task>
+	<task>
+		<statement>
 			<p>
-				Find the concentration of toxic substance as a function of time in both lakes. When will the concentration in the first lake be below [ 0 001 ] kg per liter ?  When will the concentration in the second lake be maximal ?
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) <m>c_1(t) = \frac{1}{200}e^{-t/200}</m> <m>c_2(t) = \frac{1}{200}(e^{-t/400} - e^{-t/200})</m> b) 321.89 hours c) 277.26 hours 
+				When will the concentration in the first lake be below <m>\unitfrac[0.001]{kg}{liter}</m>?
 			</p>
-</answer>
+		</statement>
+		<answer>
+			<p>
+				321.89 hours
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				When will the concentration in the second lake be maximal?
+			</p>
+		</statement>
+		<answer>
+			<p>
+				277.26 hours 
+			</p>
+		</answer>
+	</task>
+
 </exercise>
 
 <exercise>
-<statement>
-			<p>
-				states that <m>\frac{dx}{dt} = -k(x-A)</m> where <m>x</m> is the temperature, <m>t</m> is time, <m>A</m> is the ambient temperature, and <m>k &gt; 0</m> is a constant. Suppose that <m>A = A_0 \cos (\omega t)</m> for some constants <m>A_0</m> and <m>\omega</m>. That is, the ambient temperature oscillates (for example night and day temperatures).
+	<introduction>
+		<p>
+				<term>Newton's Law of Cooling</term> states that <m>\frac{dx}{dt} = -k(x-A)</m> where <m>x</m> is the temperature, <m>t</m> is time, <m>A</m> is the ambient temperature, and <m>k &gt; 0</m> is a constant. Suppose that <m>A = A_0 \cos (\omega t)</m> for some constants <m>A_0</m> and <m>\omega</m>. That is, the ambient temperature oscillates (for example night and day temperatures).
 			</p>
-
-<!-- div attr= class="tasks"-->
+	</introduction>
+	<task>
+		<statement>
+			<p>  Find the general solution.  </p>
+		</statement>
+		<answer>
+			<p>  <m>x(t) = kA_0 \left(\frac{\omega \sin(\omega t) + k\cos(\omega t)}{\omega^2 + k^2}\right) + Ce^{-kt}</m> </p>
+		</answer>
+	</task>
+	<task>
+		<statement>
 			<p>
-				Find the general solution. In the long term, will the initial conditions make much of a difference? Why or why not?
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) <m>x(t) = kA_0 \left(\frac{\omega \sin(\omega t) + k\cos(\omega t)}{\omega^2 + k^2}\right) + Ce^{-kt}</m> b) No. Only in <m>C</m>. 
+				In the long term, will the initial conditions make much of a difference? Why or why not?
 			</p>
-</answer>
+		</statement>
+		<answer>
+			<p>
+				No. Only in <m>C</m>.
+			</p>
+		</answer>
+	</task>
+
 </exercise>
 
 <exercise>
@@ -411,64 +486,175 @@ v(10) = \frac{98}{3} - \frac{92}{3}e^{-3} \approx 31.14\ m/s.
 <exercise>
 <statement>
 			<p>
-				Suppose a water tank is being pumped out at . The water tank starts at L of clean water. Water with toxic substance is flowing into the tank at , with concentration at time <m>t</m>. When the tank is half empty, how many grams of toxic substance are in the tank (assuming perfect mixing)?
+				Suppose a water tank is being pumped out at <m>\unitfrac[3]{L}{min}</m>. The water tank starts at <m>\unit[10]{L}</m> of clean water. Water with toxic substance is flowing into the tank at <m>\unitfrac[2]{L}{min}</m> , with concentration <m>\unitfrac[$20t$]{g}{L}</m> at time <m>t</m>. When the tank is half empty, how many grams of toxic substance are in the tank (assuming perfect mixing)?
 			</p>
 </statement>
-
+<answer>
+	<p>
+		250 grams.
+	</p>
+</answer>
 </exercise>
+
 <exercise>
-<statement>
-			<p>
+	<introduction>
+		<p>
 				A 300 gallon well-mixed water tank initially starts with 200 gallons of water and 15 lbs of salt. One stream with salt concentration one pound per gallon flows into the tank at a rate of 3 gallons per minute and water is removed from the well-mixed tank at a rate of 2 gallons per minute.
 			</p>
-
-<!-- div attr= class="tasks"-->
+	</introduction>
+	<task>
+		<statement>
+			<p> Write and solve an initial value problem for the volume of water in the tank at any time <m>t</m>.  </p>
+		</statement>
+		<answer>
+			<p> <m>\frac{dV}{dt} = 1</m>, <m>V(0) = 200</m>. <m>V(t) = 200+t</m>.  </p>
+		</answer>
+	</task>
+	<task>
+		<statement>
 			<p>
-				Write and solve an initial value problem for the volume of water in the tank at any time <m>t</m>. Set up an initial value problem for the amount of salt in the tank at any time <m>t</m>. You do not need to solve it (yet), but should make sure to state it fully. Is the solution to this initial value problem a valid representation of the physical model for all times <m>t &gt; 0</m>? If so, use the information in the equation to determine the long-time behavior of the solution. If not, explain why, determine the time when the representation breaks down, and what happens at that point in time. Solve the initial value problem above and compare this to your answer to the previous part.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) <m>\frac{dV}{dt} = 1</m>, <m>V(0) = 200</m>. <m>V(t) = 200+t</m>. b) <m>\frac{dQ}{dt} = 3 - \frac{2Q}{200+t}</m>, <m>Q(0) = 15</m>. c) No. Overflows at <m>t=100</m>. d) <m>Q(t) = (200+t) - \frac{185(200)^2}{(200+t)^2}</m> This function is defined for all positive <m>t</m>. 
+				Set up an initial value problem for the amount of salt in the tank at any time <m>t</m>. You do not need to solve it (yet), but should make sure to state it fully.
 			</p>
-</answer>
+		</statement>
+		<answer>
+			<p>
+				<m>\frac{dQ}{dt} = 3 - \frac{2Q}{200+t}</m>, <m>Q(0) = 15</m>.
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				Is the solution to this initial value problem a valid representation of the physical model for all times <m>t &gt; 0</m>? If so, use the information in the equation to determine the long-time behavior of the solution. If not, explain why, determine the time when the representation breaks down, and what happens at that point in time.
+			</p>
+		</statement>
+		<answer>
+			<p>
+				No. Overflows at <m>t=100</m>.
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				Solve the initial value problem above and compare this to your answer to the previous part.
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>Q(t) = (200+t) - \frac{185(200)^2}{(200+t)^2}</m> This function is defined for all positive <m>t</m>.
+			</p>
+		</answer>
+	</task>
+
 </exercise>
 
 <exercise>
-<statement>
-			<p>
-				A 500 gallon well-mixed water tank initially starts with 300 gallons of water and 200 lbs of salt. One stream with salt concentration of flows into the tank at a rate of and water is removed from the well-mixed tank at a rate of .
+	<introduction>
+		<p>
+				A 500 gallon well-mixed water tank initially starts with 300 gallons of water and 200 lbs of salt. One stream with salt concentration of flows into the tank at a rate of and water is removed from the well-mixed tank at a rate of <m>\unitfrac[7]{gal}{min}</m>.
 			</p>
-
-<!-- div attr= class="tasks"-->
+	</introduction>
+	<task>
+		<statement>
+			<p> Write and solve an initial value problem for the volume of water in the tank at any time <m>t</m>.  </p>
+		</statement>
+		<answer>
+			<p> <m>\frac{dV}{dt} = -2</m>, <m>V(0) = 300</m>. <m>V(t) = 300-2t</m>.   </p>
+		</answer>
+	</task>
+	<task>
+		<statement>
 			<p>
-				Write and solve an initial value problem for the volume of water in the tank at any time <m>t</m>. Set up an initial value problem for the amount of salt in the tank at any time <m>t</m>. You do not need to solve it (yet), but should make sure to state it fully. Is the solution to this initial value problem a valid representation of the physical model for all times <m>t &gt; 0</m>? If so, use the information in the equation to determine the long-time behavior of the solution. If not, explain why, determine the time when the representation breaks down, and what happens at that point in time. Solve the initial value problem above and compare this to your answer to the previous part.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) <m>\frac{dV}{dt} = -2</m>, <m>V(0) = 300</m>. <m>V(t) = 300-2t</m>. b) <m>\frac{dQ}{dt} = 2.5 - \frac{7Q}{300-2t}</m>, <m>Q(0) = 200</m> c) No, tank empties at <m>t = 150</m>. d) <m>Q(t) = 0.5(300-2t) + \frac{50}{(300)^{7/2}}(300-2t)^{7/2}</m>. <m>Q(t)</m> is negative for <m>t &gt; 150</m>. 
+				Set up an initial value problem for the amount of salt in the tank at any time <m>t</m>. You do not need to solve it (yet), but should make sure to state it fully.
 			</p>
-</answer>
+		</statement>
+		<answer>
+			<p>
+				<m>\frac{dQ}{dt} = 2.5 - \frac{7Q}{300-2t}</m>, <m>Q(0) = 200</m> 
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				Is the solution to this initial value problem a valid representation of the physical model for all times <m>t &gt; 0</m>? If so, use the information in the equation to determine the long-time behavior of the solution. If not, explain why, determine the time when the representation breaks down, and what happens at that point in time.
+			</p>
+		</statement>
+		<answer>
+			<p>
+				No, tank empties at <m>t = 150</m>.
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				Solve the initial value problem above and compare this to your answer to the previous part.
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>Q(t) = 0.5(300-2t) + \frac{50}{(300)^{7/2}}(300-2t)^{7/2}</m>. <m>Q(t)</m> is negative for <m>t &gt; 150</m>. 
+			</p>
+		</answer>
+	</task>
+
 </exercise>
 
 <exercise>
-<statement>
-			<p>
-				A 200 gallon well-mixed water tank initially starts with 150 gallons of water and 50 lbs of salt. One stream with salt concentration of flows into the tank at a rate of and water is removed from the well-mixed tank at a rate of .
+	<introduction>
+		<p>
+				A 200 gallon well-mixed water tank initially starts with 150 gallons of water and 50 lbs of salt. One stream with salt concentration of <m>\unitfrac[0.2]{lb}{gal}</m> flows into the tank at a rate of <m>\unitfrac[4]{gal}{min}</m> and water is removed from the well-mixed tank at a rate of <m>\unitfrac[4]{gal}{min}</m>.
 			</p>
-
-<!-- div attr= class="tasks"-->
+	</introduction>
+	<task>
+		<statement>
+			<p> Write and solve an initial value problem for the volume of water in the tank at any time <m>t</m>.  </p>
+		</statement>
+		<answer>
+			<p> <m>\frac{dV}{dt} = 0</m>, <m>V(0) = 150</m>. <m>V(t) = 150</m>.  </p>
+		</answer>
+	</task>
+	<task>
+		<statement>
 			<p>
-				Write and solve an initial value problem for the volume of water in the tank at any time <m>t</m>. Set up an initial value problem for the amount of salt in the tank at any time <m>t</m>. You do not need to solve it (yet), but should make sure to state it fully. Is the solution to this initial value problem a valid representation of the physical model for all times <m>t &gt; 0</m>? If so, use the information in the equation to determine the long-time behavior of the solution. If not, explain why, determine the time when the representation breaks down, and what happens at that point in time. Solve the initial value problem above and compare this to your answer to the previous part.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a)  <m>\frac{dV}{dt} = 0</m>, <m>V(0) = 150</m>. <m>V(t) = 150</m>. b)  <m>\frac{dQ}{dt} = 0.8 - \frac{4}{150}Q</m>, <m>Q(0) = 50</m>. c) Yes. Solution tends towards 30. d)  <m>Q(t) = 30 + 20e^{-2t/75}</m>. Matches. 
+				Set up an initial value problem for the amount of salt in the tank at any time <m>t</m>. You do not need to solve it (yet), but should make sure to state it fully.
 			</p>
-</answer>
+		</statement>
+		<answer>
+			<p>
+				<m>\frac{dQ}{dt} = 0.8 - \frac{4}{150}Q</m>, <m>Q(0) = 50</m>.
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				Is the solution to this initial value problem a valid representation of the physical model for all times <m>t &gt; 0</m>? If so, use the information in the equation to determine the long-time behavior of the solution. If not, explain why, determine the time when the representation breaks down, and what happens at that point in time.
+			</p>
+		</statement>
+		<answer>
+			<p>
+				Yes. Solution tends towards 30.
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				Solve the initial value problem above and compare this to your answer to the previous part.
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>Q(t) = 30 + 20e^{-2t/75}</m>. Matches. 
+			</p>
+		</answer>
+	</task>
+
 </exercise>
+
 
 <exercise>
 <statement>
@@ -476,6 +662,12 @@ v(10) = \frac{98}{3} - \frac{92}{3}e^{-3} \approx 31.14\ m/s.
 				Suppose we have bacteria on a plate and suppose that we are slowly adding a toxic substance such that the rate of growth is slowing down. That is, suppose that <m>\frac{dP}{dt} = (2-0.1\,t)P</m>. If <m>P(0) = 1000</m>, find the population at <m>t=5</m>.
 			</p>
 </statement>
+<answer>
+	<p>
+	 <m>P(5) = 1000 e^{2 \times 5 - 0.05 \times {5}^2} = 1000 e^{8.75} \approx
+6.31 \times {10}^6</m>
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -484,25 +676,55 @@ v(10) = \frac{98}{3} - \frac{92}{3}e^{-3} \approx 31.14\ m/s.
 				A cylindrical water tank has water flowing in at <m>I</m> cubic meters per second. Let <m>A</m> be the area of the cross section of the tank in meters. Suppose water is flowing from the bottom of the tank at a rate proportional to the height of the water level. Set up the differential equation for <m>h</m>, the height of the water, introducing and naming constants that you need. You should also give the units for your constants.
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>Ah' = I - kh</m>, where <m>k</m> is a constant with units <m>\unit{m^2}{s}</m>.
+	</p>
+</answer>
 
 </exercise>
+
 <exercise>
-<statement>
-			<p>
+	<introduction>
+		<p>
 				An object in free fall has a velocity that increases at a rate of 32 <m>ft/s^2</m>. Due to drag, the velocity decreases at a rate of 0.1 times the velocity of the object squared, when written in feet per second.
 			</p>
-
-<!-- div attr= class="tasks"-->
+	</introduction>
+	<task>
+		<statement>
+			<p> Write a differential equation to model the velocity of this object over time.   </p>
+		</statement>
+		<answer>
+			<p>  <m>\frac{dv}{dt} = 32-0.1v^2</m> </p>
+		</answer>
+	</task>
+	<task>
+		<statement>
 			<p>
-				Write a differential equation to model the velocity of this object over time. This equation is autonomous, so draw a phase diagram for this equation and classify all critical points. What will happen to the velocity if the object is dropped at <m>t=0</m>? What about if the object is thrown downwards at a rate of <m>10 ft/s</m>?
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) <m>\frac{dv}{dt} = 32-0.1v^2</m> b)  <m>v = \sqrt{320}</m> is asymptotically stable, <m>v = -\sqrt{320}</m> is unstable. c)  Always tends towards <m>\sqrt{320}</m> 
+				This equation is autonomous, so draw a phase diagram for this equation and classify all critical points. 
 			</p>
-</answer>
+		</statement>
+		<answer>
+			<p>
+				<m>v = \sqrt{320}</m> is asymptotically stable, <m>v = -\sqrt{320}</m> is unstable.
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				What will happen to the velocity if the object is dropped at <m>t=0</m>? What about if the object is thrown downwards at a rate of <m>10 ft/s</m>?
+			</p>
+		</statement>
+		<answer>
+			<p>
+				Always tends towards <m>\sqrt{320}</m>
+			</p>
+		</answer>
+	</task>
+
 </exercise>
+			
 
 <exercise>
 <statement>
@@ -518,39 +740,62 @@ v(10) = \frac{98}{3} - \frac{92}{3}e^{-3} \approx 31.14\ m/s.
 </exercise>
 
 <exercise>
-<statement>
-			<p>
+	<introduction>
+		<p>
 				Newton’s Law of Procrastination states that the rate at which one accomplishes a chore is <em>proportional to the amount of the chore not yet done</em>. Unbeknownst to Newton, this applies to robots too. A Roomba is attempting to vacuum a house measuring 1000 square feet. When none of the house is clean, the roomba can clean 200 square feet per hour. What makes this problem fun is that there is also a dog. It’s whatever kind of dog you like, take your pick. The dog dirties the house at a constant rate of 50 square feet per hour.
 			</p>
-
-<!-- div attr= class="tasks"-->
+	</introduction>
+	<task>
+		<statement>
+			<p>  Assume that none of the house is clean at <m>t=0</m>. Write a DE for the number of square feet that are clean as a function of time, and solve for that quantity. </p>
+		</statement>
+		<answer>
+			<p>  <m>\frac{dy}{dt} = \frac{1}{5}(1000 - y) - 50 = 150 - \frac{1}{5}y</m>. <m>y(t) = 750(1-e^{-t/5})</m> </p>
+		</answer>
+	</task>
+	<task>
+		<statement>
 			<p>
-				Assume that none of the house is clean at <m>t=0</m>. Write a DE for the number of square feet that are clean as a function of time, and solve for that quantity. How long will it take before the house is half clean? Will it ever be entirely clean? (Explain briefly.)
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) <m>\frac{dy}{dt} = \frac{1}{5}(1000 - y) - 50 = 150 - \frac{1}{5}y</m>. <m>y(t) = 750(1-e^{-t/5})</m><!-- linebreak -->b) <m>t = 5\ln(3)</m> for half clean. Never fully clean. 
+				How long will it take before the house is half clean? Will it ever be entirely clean? (Explain briefly.)
 			</p>
-</answer>
+		</statement>
+		<answer>
+			<p>
+				<m>t = 5\ln(3)</m> for half clean. Never fully clean. 
+			</p>
+		</answer>
+	</task>
+
 </exercise>
 
+
 <exercise>
-<statement>
-			<p>
+	<introduction>
+		<p>
 				A student has a loan for $50000 with 5% interest. The student makes $300 payments on the loan each month. The rate here is an annual rate, compounded continuously, and the differential equation you write should be in years.
 			</p>
-
-<!-- div attr= class="tasks"-->
+	</introduction>
+	<task>
+		<statement>
+			<p> With this setup, how long does it take the student to pay off the loan? How much money does the student pay over this period of time?  </p>
+		</statement>
+		<answer>
+			<p>  <m>27.712</m> years or 285 months. Pays approximately $85,500 </p>
+		</answer>
+	</task>
+	<task>
+		<statement>
 			<p>
-				With this setup, how long does it take the student to pay off the loan? How much money does the student pay over this period of time? What is the minimal amount the student should pay each month if they want to pay off the loan within 5 years? How much does the student pay over this period?
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) <m>27.712</m> years or 285 months. Pays approximately $85,500 b)  <m>\approx \$942</m> 
+				What is the minimal amount the student should pay each month if they want to pay off the loan within 5 years? How much does the student pay over this period?
 			</p>
-</answer>
+		</statement>
+		<answer>
+			<p>
+				<m>\approx \$942</m> 
+			</p>
+		</answer>
+	</task>
+
 </exercise>
 
 <exercise>
