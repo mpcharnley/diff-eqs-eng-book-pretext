@@ -41,9 +41,9 @@ needed.
 			<statement>
 				<p>
 					A first order equation is <term>linear</term> if we can put it into the form: 
-<men xml:id="lineq-eq1">
- y' + p(x) y = f(x) .
-</men>
+<md number="yes" xml:id="lineq-eq1">
+ y' + p(x) y = f(x).
+</md>
 				</p>
 			</statement>
 		</definition>
@@ -53,44 +53,44 @@ needed.
 		</p>
 
 		<p>
-			Solutions of linear equations have nice properties. For example, the solution exists wherever <m>p(x)</m> and <m>f(x)</m> are defined, and has the same regularity (read: it is just as nice). We’ll see this in detail in . But most importantly for us right now, there is a method for solving linear first order equations. In , we saw that we could easily solve equations of the form <me>\frac{dy}{dx} = f(x)</me> because we could directly integrate both sides of the equation, since the left hand side was the derivative of something (in this case, <m>y</m>) and the right side was only a function of <m>x</m>. We want to do the same here, but the something on the left will not be the derivative of just <m>y</m>.
+			Solutions of linear equations have nice properties. For example, the solution exists wherever <m>p(x)</m> and <m>f(x)</m> are defined, and has the same regularity (read: it is just as nice). We’ll see this in detail in . But most importantly for us right now, there is a method for solving linear first order equations. In , we saw that we could easily solve equations of the form <md>\frac{dy}{dx} = f(x)</md> because we could directly integrate both sides of the equation, since the left hand side was the derivative of something (in this case, <m>y</m>) and the right side was only a function of <m>x</m>. We want to do the same here, but the something on the left will not be the derivative of just <m>y</m>.
 		</p>
 
 		<p>
 			The trick is to rewrite the left-hand side of <xref ref="lineq-eq1" /> as a derivative of a product of <m>y</m> with another function. Let <m>r(x)</m> be this other function, and we can compute, by the product rule, that 
-<me>
+<md>
 \frac{d}{dx}\Bigl[r(x)y\Bigr] = r(x)y' + r'(x) y.
-</me>
+</md>
  Now, if we multiply <xref ref="lineq-eq1" /> by the function <m>r(x)</m> on both sides, we get 
-<me>
+<md>
 r(x)y' + p(x)r(x)y = f(x)r(x)
-</me>
+</md>
  and the first term on the left here matches the first term from our product rule derivative. To make the second terms match up as well, we need that 
-<me>
+<md>
 r'(x) = p(x)r(x).
-</me>
+</md>
  This equation is separable! We can solve for the <m>r(x)</m> here by separating variables to get that 
-<me>
+<md>
 \frac{dr}{r} = p(x)\, dx
-</me>
+</md>
  so that 
-<me>
+<md>
 \ln{|r|} = \int p(x)\, dx
-</me>
+</md>
  or 
-<me>
+<md>
 r(x) = e^{\int p(x) \,dx} .
-</me>
+</md>
 </p>
 		<p>
 			With this choice of <m>r(x)</m>, we get that 
-<me>
+<md>
 r(x) y' + r(x) p(x) y = \frac{d}{dx}\Bigl[ r(x) y \Bigr], 
-</me>
+</md>
  so that if we multiply <xref ref="lineq-eq1" /> by <m>r(x)</m>, we obtain <m>r(x) y' + r(x) p(x) y</m> on the left-hand side, which we can simplify using our product rule derivative above to obtain 
-<me>
+<md>
  \frac{d}{dx}\Bigl[ r(x) y \Bigr] = r(x)f(x) .
-</me>
+</md>
  Now we integrate both sides. The right-hand side does not depend on <m>y</m> and the left-hand side is written as a derivative of a function. Afterwards, we solve for <m>y</m>. The function <m>r(x)</m> is called the <term>integrating factor</term> and the method is called the <term>integrating factor method</term>.
 		</p>
 
@@ -117,9 +117,9 @@ r(x) y' + r(x) p(x) y = \frac{d}{dx}\Bigl[ r(x) y \Bigr],
 <example>
 <statement>		<p>
 			Solve 
-<me>
+<md>
 y' + 2xy = e^{x-x^2}, \qquad y(0) = -1 .
-</me>
+</md>
 
 		</p>
 </statement>
@@ -137,9 +137,9 @@ We integrate
 	<mrow> y \amp = e^{x-x^2} + C e^{-x^2}</mrow>
 </md>.
 Next, we solve for the initial condition <m>-1 = y(0) = 1 + C</m>, so <m>C=-2</m>. The solution is 
-<me>
+<md>
 y = e^{x-x^2} - 2 e^{-x^2}
-</me>.
+</md>.
 		</p>
 </solution>
 </example>
@@ -157,14 +157,14 @@ y = e^{x-x^2} - 2 e^{-x^2}
 
 <p>
 	Since we cannot always evaluate the integrals in closed form, it is useful to know how to write the solution in definite integral form. A definite integral is something that you can plug into a computer or a calculator. Suppose we are given 
-<me>
+<md>
 y' + p(x) y = f(x) , \qquad y(x_0) = y_0 .
-</me>
+</md>
  Look at the solution and write the integrals as definite integrals. 
-<men xml:id="lei-defsol">
+<md number="yes" xml:id="lei-defsol">
 y(x) = e^{-\int_{x_0}^x p(s)\, ds} \left( \int_{x_0}^x e^{\int_{x_0}^t p(s)\, ds}
 f(t) \,dt + y_0 \right).
-</men>
+</md>
 You should be careful to properly use dummy variables here. If you now plug such a formula into a computer or a calculator, it will be happy to give you numerical answers.
 		</p>
 
@@ -180,38 +180,38 @@ You should be careful to properly use dummy variables here. If you now plug such
 <example>
 <statement>		<p>
 			Solve the initial value problem 
-<me>
+<md>
 ty' + 4y = t^2 - 1 \qquad y(1) = 3.
-</me>
+</md>
 
 		</p>
 </statement>
 
 <solution>		<p>
 			In order to solve this equation, we want to put the equation in standard form, which is 
-<me>
+<md>
 y' + \frac{4}{t}y = t - \frac{1}{t}.
-</me>
- In this form, the coefficient <m>p(t)</m> of <m>y</m> is <m>p(t) = \frac{4}{t}</m>, so that the integrating factor is <me>r(t) = e^{\int p(t)\ dt} = e^{\int \frac{4}{t}\ dt} = e^{4\ln(t)}.</me> Since <m>4\ln(t) = \ln(t^4)</m>, we have that <m>r(t) = t^4</m>. Multiplying both sides of the equation by <m>t^4</m> gives 
-<me>
+</md>
+ In this form, the coefficient <m>p(t)</m> of <m>y</m> is <m>p(t) = \frac{4}{t}</m>, so that the integrating factor is <md>r(t) = e^{\int p(t)\ dt} = e^{\int \frac{4}{t}\ dt} = e^{4\ln(t)}.</md> Since <m>4\ln(t) = \ln(t^4)</m>, we have that <m>r(t) = t^4</m>. Multiplying both sides of the equation by <m>t^4</m> gives 
+<md>
 t^4y' + 4t^3 y = t^5 - t^3
-</me>
+</md>
  where the left hand side is <m>\frac{d}{dt}(t^4y)</m>. Therefore, we can integrate both sides of the equation in <m>t</m> to give 
-<me>
+<md>
 t^4 y = \frac{t^6}{6} - \frac{t^4}{4} + C
-</me>
+</md>
  and we can solve out for <m>y</m> as 
-<me>
+<md>
 y(t) = \frac{t^2}{6} - \frac{1}{4} + \frac{C}{t^4}.
-</me>
+</md>
  To solve for <m>C</m> using the initial condition, we plug in <m>t=1</m> to get that we need 
-<me>
+<md>
 3 = \frac{1}{6} - \frac{1}{4} + C \qquad C = \frac{37}{12}.
-</me>
+</md>
  Therefore, the solution to the initial value problem is 
-<me>
+<md>
 y(t) = \frac{t^2}{6} - \frac{1}{4} + \frac{37/12}{t^4}.
-</me>
+</md>
 
 		</p>
 </solution>
@@ -220,34 +220,34 @@ y(t) = \frac{t^2}{6} - \frac{1}{4} + \frac{37/12}{t^4}.
 <example>
 <statement>		<p>
 			Solve the initial value problem 
-<me>
+<md>
 y' + 2xy = 3 \qquad y(0) = 4.
-</me>
+</md>
 
 		</p>
 </statement>
 
 <solution>		<p>
 			This equation is already in standard form. Since the coefficient of <m>y</m> is <m>p(x) = 2x</m>, we know that the integrating factor is 
-<me>
+<md>
 r(x) = e^{\int p(x)\ dx} = e^{x^2}.
-</me>
+</md>
  We can multiply both sides of the equation by this integrating factor to give 
-<me>
+<md>
 y'e^{x^2} + 2xe^{x^2}y = 3e^{x^2}
-</me>
- and then want to integrate both sides. The left-hand side of the equation is <m>\frac{d}{dx}[e^{x^2}y]</m>, so the antiderivative of that side is just <m>ye^{x^2}</m>. For the right-hand side, we would need to compute <me>\int 3e^{x^2}\ dx,</me> which does not have a closed-form expression. Therefore, we need to represent this as a definite integral. Since our initial condition gives the value of <m>y</m> at zero, we want to use zero as the bottom limit of the integral. Therefore, we can write the solution as <me>ye^{x^2} = \int_0^x 3e^{s^2}\ ds + C</me> and so can solve for <m>y</m> as 
-<me>
+</md>
+ and then want to integrate both sides. The left-hand side of the equation is <m>\frac{d}{dx}[e^{x^2}y]</m>, so the antiderivative of that side is just <m>ye^{x^2}</m>. For the right-hand side, we would need to compute <md>\int 3e^{x^2}\ dx,</md> which does not have a closed-form expression. Therefore, we need to represent this as a definite integral. Since our initial condition gives the value of <m>y</m> at zero, we want to use zero as the bottom limit of the integral. Therefore, we can write the solution as <md>ye^{x^2} = \int_0^x 3e^{s^2}\ ds + C</md> and so can solve for <m>y</m> as 
+<md>
 y(x) = e^{-x^2} \int_0^x 3e^{s^2}\ ds + Ce^{-x^2}.
-</me>
+</md>
  Plugging in the initial condition gives that 
-<me>
+<md>
 y(0) = 4 = e^{-0} \int_0^0 3e^{s^2}\ ds + Ce^{-0} = C.
-</me>
+</md>
  Therefore, the solution to the initial value problem is 
-<me>
+<md>
 y(x) = e^{-x^2} \int_0^x 3e^{s^2}\ ds + 4e^{-x^2}.
-</me>
+</md>
 
 		</p>
 </solution>
@@ -256,9 +256,9 @@ y(x) = e^{-x^2} \int_0^x 3e^{s^2}\ ds + 4e^{-x^2}.
 <statement>
 		<p>
 			Write the solution of the following problem as a definite integral, but try to simplify as far as you can. You will not be able to find the solution in closed form. 
-<me>
+<md>
 y' + y = e^{x^2-x}, \qquad y(0) = 10 .
-</me>
+</md>
 
 		</p>
 </statement>
@@ -478,7 +478,7 @@ y' + y = e^{x^2-x}, \qquad y(0) = 10 .
 <exercise>
 <statement>
 			<p>
-				Consider the initial value problem <me>5y' - 3y = e^{-2t} \qquad y(0) = a</me> for an undetermined value <m>a</m>. Solve the problem and determine the dependence on the value of <m>a</m>. How does the value of the solution as <m>t \rightarrow \infty</m> depend on the value of <m>a</m>?
+				Consider the initial value problem <md>5y' - 3y = e^{-2t} \qquad y(0) = a</md> for an undetermined value <m>a</m>. Solve the problem and determine the dependence on the value of <m>a</m>. How does the value of the solution as <m>t \rightarrow \infty</m> depend on the value of <m>a</m>?
 			</p>
 </statement>
 

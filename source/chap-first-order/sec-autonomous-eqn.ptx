@@ -32,17 +32,17 @@
 	<statement>
 		<p>
 			An equation of the form 
-<men xml:id="eq-basicAutonomous">
-\frac{dx}{dt} = f(x) , </men>
+<md number="yes" xml:id="eq-basicAutonomous">
+\frac{dx}{dt} = f(x) , </md>
 where the derivative of solutions depends only on <m>x</m> (the dependent variable) is called an <term>autonomous equation</term>. If we think of <m>t</m> as time, the naming comes from the fact that the equation is independent of time.
 		</p>
 	</statement>
 </definition>
 		<p>
 			We return to the cooling coffee problem (<xref ref="ex-coffeeCooling"/>). Newton's law of cooling says 
-<me>
+<md>
 \frac{dx}{dt} = k (A-x) ,
-</me>
+</md>
  where <m>x</m> is the temperature, <m>t</m> is time, <m>k</m> is some positive constant, and <m>A</m> is the ambient temperature. See <xref ref="sintro-coffeefig"/> for an example with <m>k=0.3</m> and <m>A=5</m>.
 		</p>
 
@@ -82,9 +82,9 @@ where the derivative of solutions depends only on <m>x</m> (the dependent variab
 
 		<p>
 			Consider now the <term>logistic equation</term>
-<me>
+<md>
 \frac{dx}{dt} = kx(M-x) ,
-</me>
+</md>
  for some positive <m>k</m> and <m>M</m>. This equation is commonly used to model population if we know the limiting population <m>M</m>, that is the maximum sustainable population. The logistic equation leads to less catastrophic predictions on world population than <m>x'=kx</m>. In the real world there is no such thing as negative population, but we will still consider negative <m>x</m> for the purposes of the math.
 		</p>
 
@@ -94,14 +94,14 @@ where the derivative of solutions depends only on <m>x</m> (the dependent variab
 
 		<p>
 			It is not necessary to find the exact solutions to talk about the long term behavior of the solutions. From the slope field above of <m>x' = 0.1 x(5-x)</m>, we see that 
-<me>
+<md>
 \lim_{t\to \infty} x(t) = 
 \begin{cases}
 5 &amp; \text{if } \; x(0) &gt; 0 , \\
 0 &amp; \text{if } \; x(0) = 0 , \\
 \text{DNE or } {-\infty} &amp; \text{if } \; x(0) &lt; 0 . \\
 \end{cases}
-</me>
+</md>
  Here DNE means <q>does not exist</q>. From just looking at the slope field we cannot quite decide what happens if <m>x(0) &lt; 0</m>. It could be that the solution does not exist for <m>t</m> all the way to <m>\infty</m>. Think of the equation <m>x' = x^2</m>; we have seen that solutions only exist for some finite period of time. Same can happen here. In our example equation above it turns out that the solution does not exist for all time, but to see that we would have to solve the equation. In any case, the solution does go to <m>-\infty</m>, but it may get there rather quickly.
 		</p>
 
@@ -142,15 +142,15 @@ where the derivative of solutions depends only on <m>x</m> (the dependent variab
 <example>
 <statement>		<p>
 			Consider the autonomous differential equation 
-<men xml:id="autoexample-eqn">
-\frac{dx}{dt} = x(x-2)^2(x+3)(x-4) </men>
+<md number="yes" xml:id="autoexample-eqn">
+\frac{dx}{dt} = x(x-2)^2(x+3)(x-4) </md>
 Find all equilibrium solutions for this equation, and determine their stability. Draw a phase line and use this information to sketch some approximate solution curves.
 		</p>
 </statement>
 
 <solution>		<p>
 			This equation is already in factored form. This makes it simple to determine the equilibrium solutions as <m>x=0</m>, <m>x=2</m>, <m>x=-3</m> and <m>x=4</m>. In order to determine the stability of each critical point and draw the phase line, we need to plug in values surrounding these points to <m>f(x) = x(x-2)^2(x+3)(x-4)</m>. We can see that 
-<me>
+<md>
 \begin{split}
 f(-4) &amp;= (-4)(-6)^2(-1)(-8) &lt; 0, \\
 f(-1) &amp;= (-1)(-3)^2(2)(-5) &gt; 0, \\
@@ -158,7 +158,7 @@ f(1) &amp;= (1)(-1)^2(4)(-3) &lt; 0, \\
 f(3) &amp;= (3)(1)^2(6)(-1) &lt; 0, \\
 f(5) &amp;= (5)(3)^2(8)(1) &gt; 0.
 \end{split}
-</me>
+</md>
  This lets us draw the phase line and determine the stability of each critical point. Thus, we see that <m>x=-3</m> is an unstable critical point, <m>x=0</m> is asymptotically stable, <m>x=2</m> is semistable, and <m>x=4</m> is unstable. A set of sample solution curves also validates these conclusions.
 		</p>
 
@@ -182,13 +182,13 @@ f(5) &amp;= (5)(3)^2(8)(1) &gt; 0.
 
 			<p>
 				We can compute the second derivative 
-<me>
+<md>
 \frac{d^2x}{dt^2} = \frac{d}{dx} \Bigl[ \frac{dx}{dt} \Bigr]
-</me>
+</md>
  of our solution by noticing that <m>\frac{dx}{dt} = f(x)</m>. This function can be differentiated by the chain rule 
-<me>
+<md>
 \frac{d}{dt} f(x) = f'(x) \frac{dx}{dt} = f'(x) f(x).
-</me>
+</md>
  So, the solution is concave up if <m>f'(x)f(x)</m> is positive, and concave down if that is negative. Phrased another way, the solution is concave up if <m>f</m> and <m>f'</m> have the same sign, and it is concave down if <m>f</m> and <m>f'</m> have opposite signs.
 			</p>
 
