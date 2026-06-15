@@ -23,9 +23,9 @@
 
 		<p>
 			An extension of the topic of autonomous equation is <term>autonomous equations with parameter</term>. The idea is that we have a differential equation that has no explicit dependence on time, but does have a dependence on an outside parameter, which is a constant set by the physical situation. In terms of physical problems, this parameter will tend to be something that we can adjust to change how the differential equation behaves. For example, in a logistic differential equation 
-<me>
+<md>
 \frac{dx}{dt} = ax(K-x)
-</me>
+</md>
  either the <m>a</m> or the <m>K</m> (or both) could be adjustable parameters. For a given value of the parameter, the differential equation behaves like a standard autonomous differential equation, but we can get different properties of this equation for different values of the parameter.
 		</p>
 
@@ -33,9 +33,9 @@
 	<statement>
 		<p>
 			An <term>autonomous equation with parameter</term> <m>\alpha</m> is a differential equation of the form 
-<me>
+<md>
 \frac{dx}{dt} = f_\alpha(x)
-</me>
+</md>
  where, for every value of <m>\alpha</m>, <m>f_\alpha(x)</m> is a function of the single variable <m>x</m>.
 		</p>
 	</statement>
@@ -50,9 +50,9 @@
 <title> </title>
 <statement>		<p>
 			Consider the differential equation 
-<me>
+<md>
 \frac{dx}{dt} = x(x^2 - \alpha),
-</me>
+</md>
  which fits the description of an autonomous equation with parameter <m>\alpha</m>. Describe what happens in this differential equation for <m>\alpha = -4</m>, <m>\alpha = 0</m>, and <m>\alpha = 1</m>.
 		</p>
 </statement>
@@ -104,18 +104,18 @@
 
 		<p>
 			Another example of a bifurcation of a different form can be seen in the example of the logistic equation with harvesting. Suppose an alien race really likes to eat humans. They keep a planet with humans on it and harvest the humans at a rate of <m>h</m> million humans per year. Suppose <m>x</m> is the number of humans in millions on the planet and <m>t</m> is time in years. Let <m>M</m> be the limiting population when no harvesting is done. The number <m>k &gt; 0</m> is a constant depending on how fast humans multiply. Our equation becomes 
-<me>
+<md>
 \frac{dx}{dt} = kx(M-x) - h .
-</me>
+</md>
  In this setup, M and k are fixed values, and the parameter that is being adjusted for this equation is <m>h</m>. We expand the right-hand side and set it to zero. 
-<me>
+<md>
 kx(M-x) - h = -kx^2+kMx - h  = 0.
-</me>
+</md>
  Solving for the critical points using the quadratic formula, let us call them <m>A</m> and <m>B</m>, we get 
-<me>
+<md>
 A = \frac{kM + \sqrt{{(kM)}^2 - 4hk}}{2k}, \qquad
 B = \frac{kM - \sqrt{{(kM)}^2 - 4hk}}{2k} .
-</me>
+</md>
 
 		</p>
 
@@ -225,13 +225,13 @@ B = \frac{kM - \sqrt{{(kM)}^2 - 4hk}}{2k} .
 </example>
 		<p>
 			The values of <m>\alpha</m> we are looking for are those where the number and types of zeros change for the function <m>f_\alpha(x)</m>. In this figure, we see that for <m>\alpha &lt; 1.6</m>, the parabola crosses the <m>x</m> axis twice, resulting in two zeros and two equilibrium solutions. For <m>\alpha = 1.6</m>, there is one (double) root, and for <m>\alpha &gt; 1.6</m>, there are no equilibrium solutions, and the function <m>f_\alpha(x)</m> is always negative. Since the number of roots/zeros changes at <m>\alpha = 1.6</m>, that means that <m>1.6</m> is the bifurcation point for this equation. We can also see this from the equation, since the equilibrium solutions are determined by the values of <m>x</m> where 
-<me>
+<md>
 0.1x(8-x) - \alpha = 0 \qquad \text{ or } \qquad -0.1x^2 + 0.8x - \alpha = 0 
-</me>
+</md>
  which can be found by the quadratic formula 
-<me>
+<md>
 x = \frac{0.8 \pm \sqrt{0.64 - 4(0.1)(\alpha)}}{0.2}.
-</me>
+</md>
  Roots to this equation do not exist (because they are complex) if <m>0.64 - 0.4\alpha &lt; 0</m>, or <m>\alpha &gt; 1.6</m>.
 		</p>
 

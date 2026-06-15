@@ -54,9 +54,9 @@
 
 			<p>
 				The accumulation equation is one of the simplest general mathematical formulations that can be used to develop mathematical models. This equation comes down to the fact that the rate of change of some quantity should be equal to the rate at which it is being added minus the rate at which it is being removed. If we let <m>x</m> be the quantity in question, this can be written as 
-<men xml:id="accum-eqn">
+<md number="yes" xml:id="accum-eqn">
 \frac{dx}{dt} = \text{rate in} - \text{rate out}.
-</men>
+</md> 
 This may seem fairly simple. However, it shows up in many places in science and engineering. Any mass or energy balance equations are examples of accumulation equations. These types of equations can also be written for the accumulation of momentum, and doing so for fluids gives rise to the Navier-Stokes equations, providing the basis for several fields of engineering. The examples that we see here will be simpler than that, but the idea is still the same.
 			</p>
 
@@ -69,17 +69,17 @@ This may seem fairly simple. However, it shows up in many places in science and 
 
 <solution>			<p>
 				To solve this problem, we use the accumulation equation <xref ref="accum-eqn" /> on the amount of salt in the tank. In order to compute with this, we recognize that in terms of mass of salt moving into the tank 
-<me>
+<md >
 \text{rate in} = \text{flow in} \times \text{concentration in}
-</me>
+</md>
  and similarly for the mass of salt leaving the tank.
 			</p>
 
 			<p>
 				If we let <m>x</m> represent the amount of salt in the tank at any time <m>t</m> (which is the goal of the problem), we can write a differential equation for this using the accumulation equation <xref ref="accum-eqn" />. This gives us that 
-<me>
+<md >
 \frac{dx}{dt} = \text{rate in} - \text{rate out} = \text{flow in} \times \text{concentration in} - \text{flow out} \times \text{concentration out}
-</me>
+</md>
  For this problem, we have that <md>
 	<mrow> \text{flow in} \amp = 3</mrow>
 	<mrow> \text{concentration in} \amp = 0.2 </mrow>
@@ -91,37 +91,37 @@ This may seem fairly simple. However, it shows up in many places in science and 
 
 			<p>
 				Therefore, our equation becomes 
-<me>
+<md >
 \frac{dx}{dt} = (3\times 0.2) - \left(3 \times \frac{x}{70}\right).
-</me>
+</md>
  We can rewrite this equation as 
-<me>
+<md >
 \frac{dx}{dt} + \frac{3}{70}x = 0.6
-</me>
+</md>
  which we recognize as a first order linear equation. We can then solve this using the method of integrating factors. Our factor <m>r(t)</m> is 
-<me>
+<md >
 r(t) = e^{\int p(t)\, dt} = e^{\int \frac{3}{70}\, dt} = e^{\frac{3}{70} t},
-</me>
+</md>
  which we can multiply on both sides of the equation to obtain 
-<me>
+<md >
 e^{\frac{3}{70} t} \frac{dx}{dt} + e^{\frac{3}{70} t} \frac{3}{70} x = 0.6 e^{\frac{3}{70} t}.
-</me>
+</md>
  The left side of this is a product rule derivative, so we can integrate both sides to obtain 
-<me>
+<md >
 e^{\frac{3}{70} t} x = 0.6 \frac{70}{3} e^{\frac{3}{70} t} + C.
-</me>
+</md>
  We can then isolate <m>x</m> to get our general solution as 
-<me>
+<md >
 x = 14 + Ce^{-\frac{3}{70} t}.
-</me>
+</md>
  Our initial condition tells us that <m>x(0) = 5</m>. Plugging this in gives that 
-<me>
+<md >
 5 = x(0) = 14 + C \quad \Rightarrow \quad C = -9,
-</me>
+</md>
  so the solution to the initial value problem, and thus our calculation for the amount of salt in the tank at any time <m>t</m>, is 
-<me>
+<md >
 x(t) = 14 - 9e^{-\frac{3}{70} t}.
-</me>
+</md>
 
 			</p>
 
@@ -155,11 +155,11 @@ x(t) = 14 - 9e^{-\frac{3}{70} t}.
 
 <solution>			<p>
 				We can again use the accumulation equation to write 
-<me>
+<md >
 \frac{dx}{dt} =
 (\text{flow in} \times \text{concentration in})  - 
 (\text{flow out} \times \text{concentration out}) .
-</me>
+</md>
  In this example, we have
  <md>
 	<mrow> \text{flow in}  \amp = 5 </mrow>
@@ -168,35 +168,35 @@ x(t) = 14 - 9e^{-\frac{3}{70} t}.
 	<mrow> \text{concentration out} \amp = \frac{x}{\text{volume}} = \frac{x}{60+(5-3)t} </mrow>
  </md>
 Our equation is, therefore, 
-<me>
+<md >
 \frac{dx}{dt} =
 (5 \times 0.1)  - 
 \left(3 \frac{x}{60+2t}\right) .
-</me>
+</md>
  Or in the form <xref ref="lineq-eq1" /> 
-<me>
+<md >
 \frac{dx}{dt} +
 \frac{3}{60+2t} x
 =
 0.5 .
-</me>
+</md>
 
 			</p>
 
 			<p>
 				Let us solve. The integrating factor is 
-<me>
+<md >
 r(t) = \exp \left( \int \frac{3}{60+2t} dt  \right)
 =
 \exp \left( \frac{3}{2} \ln (60+2t) \right)
 =
 {(60+2t)}^{3/2} .
-</me>
+</md>
 
 			</p>
 
 			<p>
-				We multiply both sides of the equation to get <me>\begin{align*}
+				We multiply both sides of the equation to get <md >\begin{align*}
 {(60+2t)}^{3/2} \frac{dx}{dt} +
 {(60+2t)}^{3/2} \frac{3}{60+2t} x
 &amp; =
@@ -228,7 +228,7 @@ dt
 &amp; =
 \frac{60+2t}{10}
 +C{(60+2t)}^{-3/2} .
-\end{align*}</me>
+\end{align*}</md>
 			</p>
 
 <figure xml:id="linear-salt-graph-fig">
@@ -246,7 +246,7 @@ dt
 
 			<p>
 				We need to find <m>C</m>. We know that at <m>t=0</m>, <m>x=10</m>. So 
-<me>
+<md >
 10 = x(0)
 =
 \frac{60}{10}
@@ -254,17 +254,17 @@ dt
 =
 6
 +C{(60)}^{-3/2} ,
-</me>
+</md>
  or 
-<me>
+<md >
 C=4 ({60}^{3/2}) \approx 1859.03 .
-</me>
+</md>
 
 			</p>
 
 			<p>
 				We are interested in <m>x</m> when the tank is full. The tank is full when <m>60+2t = 100</m>, or when <m>t=20</m>. So 
-<me>
+<md >
 \begin{split}
 x(20) &amp; = 
 \frac{60+40}{10}
@@ -276,7 +276,7 @@ x(20) &amp; =
 \approx
 11.86 .
 \end{split}
-</me>
+</md>
  See <xref ref="linear-salt-graph-fig"/> for the graph of <m>x</m> over <m>t</m>.
 			</p>
 
@@ -287,9 +287,9 @@ x(20) &amp; =
 </example>
 			<p>
 				For the previous example, we obtained the solution 
-<me>
+<md >
 x(t) = \frac{60 + 2t}{10} + 1859.03(60+2t)^{-3/2},
-</me>
+</md>
  which is valid and well defined for all positive values of <m>t</m> (it has an issue at <m>t=-30</m>, but we aren’t concerned about that here). However, as a differential equation that represents a physical situation, it is not valid for all positive values of <m>t</m>. The issue here is that the tank is full at <m>t=20</m>. Therefore, beyond this point, while the function still exists, it is not a valid model for this physical system. Once the tank fills, you can’t keep adding and removing water at the same rates that you have been up until this point, because something is going to break with the system. The same goes for if you are removing water from the tank at a faster rate than you are adding it, because then the tank will empty at some point in time and beyond that, the model equation no longer represents the system.
 			</p>
 
@@ -308,20 +308,20 @@ x(t) = \frac{60 + 2t}{10} + 1859.03(60+2t)^{-3/2},
 </statement>
 
 <solution>			<p>
-				We will use the function <m>P(t)</m> to model the balance of the account over time, where <m>t</m> is in <em>years</em>. Since the owner withdraws $50 per month, this means that they withdraw $600 over the course of the year. This means that the differential equation we want is <me>\frac{dP}{dt} = 0.06P - 600 \qquad P(0) = 30000.</me> We can solve this equation by the integrating factor method. <me>\begin{split}
+				We will use the function <m>P(t)</m> to model the balance of the account over time, where <m>t</m> is in <em>years</em>. Since the owner withdraws $50 per month, this means that they withdraw $600 over the course of the year. This means that the differential equation we want is <md >\frac{dP}{dt} = 0.06P - 600 \qquad P(0) = 30000.</md> We can solve this equation by the integrating factor method. <md >\begin{split}
 P' - 0.06P &amp;= -600 \\
 (e^{-0.06t}P)' &amp;= -600e^{-0.06t} \\
 e^{-0.06t}P &amp;= 10000e^{-0.06t} + C \\
 P &amp;= 10000 + Ce^{0.06t}
-\end{split}</me> For <m>P(0) = 30000</m>, we need to take <m>C = 20000</m>. Thus, the solution to the initial value problem is <me>P(t) = 10000 + 20000e^{0.06 t}.</me> Since the coefficient in front of <m>e^{0.06t}</m> is positive, this means that the account balance here will grow in time.
+\end{split}</md> For <m>P(0) = 30000</m>, we need to take <m>C = 20000</m>. Thus, the solution to the initial value problem is <md >P(t) = 10000 + 20000e^{0.06 t}.</md> Since the coefficient in front of <m>e^{0.06t}</m> is positive, this means that the account balance here will grow in time.
 			</p>
 
 			<p>
-				For the second part, we need to adjust the withdrawal amount to see how the solution changes. If we let <m>K</m> be the monthly withdrawal amount, then we have the differential equation <me>\frac{dP}{dt} = 0.06P - 12K \qquad P(0) = 30000.</me> The same solution method gives us <me>P(t) = \frac{12K}{0.06} + Ce^{0.06t}.</me>
+				For the second part, we need to adjust the withdrawal amount to see how the solution changes. If we let <m>K</m> be the monthly withdrawal amount, then we have the differential equation <md >\frac{dP}{dt} = 0.06P - 12K \qquad P(0) = 30000.</md> The same solution method gives us <md >P(t) = \frac{12K}{0.06} + Ce^{0.06t}.</md>
 			</p>
 
 			<p>
-				If <m>C &lt; 0</m>, then the account balance will eventually go to zero. Therefore, we need <m>C \geq 0</m>, and since <m>P(0) = 30000</m>, we have that <me>30000 = \frac{12K}{0.06} + C \quad \text{ or } \quad C = 30000 - \frac{12K}{0.06}.</me> For this to be equal to zero, we need <me>\frac{12K}{0.06} = 30000 \qquad K = 150.</me> Thus, the owner can withdraw $150 per month and keep the account balance positive.
+				If <m>C &lt; 0</m>, then the account balance will eventually go to zero. Therefore, we need <m>C \geq 0</m>, and since <m>P(0) = 30000</m>, we have that <md >30000 = \frac{12K}{0.06} + C \quad \text{ or } \quad C = 30000 - \frac{12K}{0.06}.</md> For this to be equal to zero, we need <md >\frac{12K}{0.06} = 30000 \qquad K = 150.</md> Thus, the owner can withdraw $150 per month and keep the account balance positive.
 			</p>
 </solution>
 </example>
@@ -341,37 +341,37 @@ P &amp;= 10000 + Ce^{0.06t}
 
 <solution>			<p>
 				As described in that first section, we know that the differential equation that we can write for this situation is 
-<me>
+<md >
 \frac{dv}{dt} = 9.8 - 0.3v
-</me>
+</md>
  and that the initial condition for the velocity if <m>v(0) = 2</m>. Since we have gravity as a positive 9.8, this means that the downward direction is positive, so the object being thrown downward at <m>2\ m/s</m> means that it is positive. We then need to solve this initial value problem, which we can do using first order linear methods. The equation can be written as 
-<me>
+<md >
 v' + 0.3v = 9.8
-</me>
+</md>
  which has integrating factor <m>e^{0.3t}</m>. After multiplying this to both sides and integrating, we get that 
-<me>
+<md >
 e^{0.3t}v = \frac{9.8}{0.3}e^{0.3t} + C
-</me>
+</md>
  or that 
-<me>
+<md >
 v(t) = \frac{9.8}{0.3} + Ce^{-0.3t}.
-</me>
+</md>
 
 			</p>
 
 			<p>
 				Using the initial condition, we get that 
-<me>
+<md >
 v(0) = \frac{98}{3} + C = 2
-</me>
+</md>
  so that <m>C = -\frac{92}{3}</m> and the solution to the initial value problem is 
-<me>
+<md >
 v(t) = \frac{98}{3} - \frac{92}{3}e^{-0.3t}.
-</me>
+</md>
  Then, to determine the velocity at <m>t=10</m>, we can plug <m>10</m> into this formula to get that 
-<me>
+<md >
 v(10) = \frac{98}{3} - \frac{92}{3}e^{-3} \approx 31.14\ m/s.
-</me>
+</md>
 
 			</p>
 </solution>
@@ -827,7 +827,7 @@ v(10) = \frac{98}{3} - \frac{92}{3}e^{-3} \approx 31.14\ m/s.
 <exercise>
 <statement>
 			<p>
-				Radioactive decay follows similar rules to interest, where a certain portion of the material decays over time, resulting in an equation of the form <me>\frac{dy}{dt} = -ky</me> for some constant <m>k</m>. The <em>half-life</em> of a material is the amount of time that it takes for half of the material to have decayed away. Assume that the <em>half-life</em> of a given substance is <m>T</m> minutes. Find a formula for <m>k</m>, the coefficient in the decay equation, in terms of <m>T</m>.
+				Radioactive decay follows similar rules to interest, where a certain portion of the material decays over time, resulting in an equation of the form <md >\frac{dy}{dt} = -ky</md> for some constant <m>k</m>. The <em>half-life</em> of a material is the amount of time that it takes for half of the material to have decayed away. Assume that the <em>half-life</em> of a given substance is <m>T</m> minutes. Find a formula for <m>k</m>, the coefficient in the decay equation, in terms of <m>T</m>.
 			</p>
 </statement>
 

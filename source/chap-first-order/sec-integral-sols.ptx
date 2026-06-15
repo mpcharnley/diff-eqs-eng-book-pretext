@@ -5,25 +5,25 @@
 
 		<p>
 			A first order ODE is an equation of the form 
-<me>
+<md>
 \frac{dy}{dx} = f(x,y) ,
-</me>
+</md>
  or just 
-<me>
+<md>
 y' = f(x,y) .
-</me>
- Some examples that fit this form are <me>y' = x^2y - e^x \sin{x}</me> and <me>y' = e^y(x^2 + 1) - \cos(y).</me> Looking back at the last section, the first of these is linear and the second is not. In general, there is no simple formula or procedure one can follow to find solutions. In the next few sections we will look at special cases where solutions are not difficult to obtain. In this section, let us assume that <m>f</m> is a function of <m>x</m> alone, that is, the equation is 
-<men xml:id="ias-inteq">
+</md>
+ Some examples that fit this form are <md>y' = x^2y - e^x \sin{x}</md> and <md>y' = e^y(x^2 + 1) - \cos(y).</md> Looking back at the last section, the first of these is linear and the second is not. In general, there is no simple formula or procedure one can follow to find solutions. In the next few sections we will look at special cases where solutions are not difficult to obtain. In this section, let us assume that <m>f</m> is a function of <m>x</m> alone, that is, the equation is 
+<md number="yes" xml:id="ias-inteq">
  y' = f(x) .
-</men>
+</md>
 We could just integrate (antidifferentiate) both sides with respect to <m>x</m>. 
-<me>
+<md>
 \int y'(x) \,dx = \int f(x) \,dx + C ,
-</me>
+</md>
  that is 
-<me>
+<md>
 y(x) = \int f(x) \,dx + C .
-</me>
+</md>
  This <m>y(x)</m> is actually the general solution. So to solve <xref ref="ias-inteq" />, we find some antiderivative of <m>f(x)</m> and then we add an arbitrary constant to get the general solution.
 		</p>
 
@@ -49,10 +49,10 @@ y(x) = \int f(x) \,dx + C .
 </example>
 		<p>
 			Normally, we will also have an such as <m>y(x_0) = y_0</m> for some two numbers <m>x_0</m> and <m>y_0</m> (<m>x_0</m> is often 0, but not always). If we do, the combination of a differential equation and an initial condition is called an . We can then write the solution as a definite integral in a nice way. Suppose our problem is <m>y' = f(x)</m>, <m>y(x_0) = y_0</m>. Then the solution is 
-<men xml:id="int-eqdef">
+<md number="yes" xml:id="int-eqdef">
  y(x) = \int_{x_0}^x f(s) \,ds + y_0 .
-</men>
-Let us check! We compute <me>y'(x) = \frac{d}{dx} \left[ \int_{x_0}^x f(s) \,ds + y_0 \right].</me> Since <m>y_0</m> is a constant, it’s derivative is zero, and by the fundamental theorem of calculus <me>\frac{d}{dx} \int_{x_0}^x f(s)\ dx = f(x).</me> Therefore <m>y' = f(x)</m>, and by Jupiter, <m>y</m> is a solution. Is it the one satisfying the initial condition? Well, <me>y(x_0) = \int_{x_0}^{x_0} f(x)\,dx + y_0</me> and since <m>f</m> is a nice function, we know that the integral of <m>f</m> with matching endpoints is <m>0</m>. Therefore <m>y(x_0) = y_0</m>. It is!
+</md>
+Let us check! We compute <md>y'(x) = \frac{d}{dx} \left[ \int_{x_0}^x f(s) \,ds + y_0 \right].</md> Since <m>y_0</m> is a constant, it’s derivative is zero, and by the fundamental theorem of calculus <md>\frac{d}{dx} \int_{x_0}^x f(s)\ dx = f(x).</md> Therefore <m>y' = f(x)</m>, and by Jupiter, <m>y</m> is a solution. Is it the one satisfying the initial condition? Well, <md>y(x_0) = \int_{x_0}^{x_0} f(x)\,dx + y_0</md> and since <m>f</m> is a nice function, we know that the integral of <m>f</m> with matching endpoints is <m>0</m>. Therefore <m>y(x_0) = y_0</m>. It is!
 		</p>
 
 		<p>
@@ -63,24 +63,24 @@ Let us check! We compute <me>y'(x) = \frac{d}{dx} \left[ \int_{x_0}^x f(s) \,ds 
 <example>
 <statement>		<p>
 			Solve 
-<me>
+<md>
 y' = e^{-x^2}, \qquad y(0) = 1 .
-</me>
+</md>
 
 		</p>
 </statement>
 
 <solution>		<p>
 			By the preceding discussion, the solution must be 
-<me>
+<md>
 y(x) = \int_0^x e^{-s^2} \,ds + 1 .
-</me>
+</md>
  Here is a good way to make fun of your friends taking second semester calculus. Tell them to find the closed form solution. Ha ha ha (bad math joke). It is not possible (in closed form). There is absolutely nothing wrong with writing the solution as a definite integral. This particular integral is in fact very important in statistics.
 		</p>
 </solution>
 </example>
 		<p>
-			While there is nothing wrong with writing solutions as a definite integral, they should be simplified and evaluated if possible. Given the differential equation <me>y' = 3x^2, \qquad y(2) = 6,</me> the solution can be written as <me>y(x) = \int_2^x 3s^2\ ds + 6.</me> However, it is much more convenient, both for human reasoning and computers, to write this solution as <me>y(x) = x^3 - 2.</me> So, if integrals can be evaluated and simplified to explicit functions, then they should be worked out. If it is not possible, then answers in integral form are completely fine.
+			While there is nothing wrong with writing solutions as a definite integral, they should be simplified and evaluated if possible. Given the differential equation <md>y' = 3x^2, \qquad y(2) = 6,</md> the solution can be written as <md>y(x) = \int_2^x 3s^2\ ds + 6.</md> However, it is much more convenient, both for human reasoning and computers, to write this solution as <md>y(x) = x^3 - 2.</md> So, if integrals can be evaluated and simplified to explicit functions, then they should be worked out. If it is not possible, then answers in integral form are completely fine.
 		</p>
 
 		<p>
@@ -96,27 +96,27 @@ y(x) = \int_0^x e^{-s^2} \,ds + 1 .
 
 <solution>		<p>
 			Let <m>x</m> denote the distance the car traveled. The equation is 
-<me>
+<md>
 x' = e^{t/2} .
-</me>
+</md>
  We just integrate this equation to get that 
-<me>
+<md>
 x(t) = 2 e^{t/2} + C . 
-</me>
+</md>
  We still need to figure out <m>C</m>. We know that when <m>t=0</m>, then <m>x=0</m>. That is, <m>x(0) = 0</m>. So 
-<me>
+<md>
 0 = x(0) = 2e^{0/2} + C = 2 + C .
-</me>
+</md>
  Thus <m>C = -2</m> and 
-<me>
+<md>
 x(t) = 2 e^{t/2} - 2 .
-</me>
+</md>
  Now we just plug in to get where the car is at 2 and at 10 seconds. We obtain 
-<me>
+<md>
 x(2) = 2e^{2/2} - 2 \approx 3.44 \text{ meters} ,
 \qquad
 x(10) = 2e^{10/2} - 2 \approx 294 \text{ meters} .
-</me>
+</md>
 
 		</p>
 </solution>
@@ -130,13 +130,13 @@ x(10) = 2e^{10/2} - 2 \approx 294 \text{ meters} .
 
 <solution>		<p>
 			Well, this is actually a second order problem. If <m>x</m> is the distance traveled, then <m>x'</m> is the velocity, and <m>x''</m> is the acceleration. The initial value problem for this situation is 
-<me>
+<md>
 x'' = t^2 , \qquad x(0) = 1 , \qquad x'(0) = 10 .
-</me>
+</md>
  What if we say <m>x' = v</m>. Then we have the problem 
-<me>
+<md>
 v' = t^2, \qquad v(0) = 10 .
-</me>
+</md>
  Once we solve for <m>v</m>, we can integrate and find <m>x</m>.
 		</p>
 </solution>

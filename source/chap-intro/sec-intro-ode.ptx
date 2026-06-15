@@ -54,9 +54,9 @@
 			velocity of the object, the description above gives information about the derivative of
 			this function for<m>v(t)</m>. Taking the two different factors (the increase and
 			decrease of velocity) into account, we can write an expression for this derivative,
-			giving that <me>
+			giving that <md>
 				\frac{dv}{dt} = 9.8 - 0.3v.
-			</me> Even though we don't know what <m>v(t)</m> is, we
+			</md> Even though we don't know what <m>v(t)</m> is, we
 			know that it must affect the derivative of the velocity in this particular way, so we
 			can write this equation. That’s why we give a name to this function, so that we can use
 			it in writing this equestion, which, since it is an equation involving the derivative of
@@ -90,9 +90,9 @@
 		</definition>
 
 		<p> One example of a first order differential equation is 
-			<men xml:id="eq1">
+			<md number="yes" xml:id="eq1">
 				\frac{dx}{dt} + x = 2 \cos t
-			</men>. Here <m>x</m> is the <term>dependent variable</term> and <m>t</m> is
+			</md>. Here <m>x</m> is the <term>dependent variable</term> and <m>t</m> is
 			the <term>independent variable</term>. Note that we can use any letter we want for the dependent and independent
 			variables. This equation arises from Newton's law of cooling where the ambient
 			temperature oscillates with time. </p>
@@ -100,15 +100,15 @@
 		<p> To make sure that everything is well-defined, we will assume that we can always write
 			our differential equation with the highest order derivative written as a function of all
 			lower derivatives and the independent variable. For the previous example, since we can
-			write <xref ref="eq1" /> as <me>\frac{dx}{dt} = 2\cos t - x</me> where the highest
+			write <xref ref="eq1" /> as <md>\frac{dx}{dt} = 2\cos t - x</md> where the highest
 			derivative <m>x'</m> is written as a function of <m>t</m> and <m>x</m>, we have a proper
 			differential equation. On the other hand, something like 
-			<men xml:id="eqNonDiff">
-			\left(\frac{dy}{dt}\right)^2 + y^2 = 1 </men>
+			<md number="yes" xml:id="eqNonDiff">
+			\left(\frac{dy}{dt}\right)^2 + y^2 = 1 </md>
 			is not a proper differential equation
 			because we can't solve for <m>\frac{dy}{dt}</m>. This expression could either be written
-			as <me>\frac{dy}{dt} = \sqrt{1 - y^2} \qquad \text{or} \qquad \frac{dy}{dt} = -\sqrt{1 -
-			y^2},</me> and while both of these are proper differential equations, the version in <xref
+			as <md>\frac{dy}{dt} = \sqrt{1 - y^2} \qquad \text{or} \qquad \frac{dy}{dt} = -\sqrt{1 -
+			y^2},</md> and while both of these are proper differential equations, the version in <xref
 				ref="eqNonDiff" /> is not. </p>
 
 		<p> For some equations, like <m>y' = y^2</m>, the independent variable is not explicitly
@@ -117,7 +117,7 @@
 			Usually, there will be information in the problem statement to indicate that the
 			independent variable is something like time, in which case everything should be written
 			in terms of <m>t</m>. It is for this reason that Leibniz notation is preferred for
-			derivatives; an equation like <me>\frac{dy}{dt} = y^2</me> is unambiguously looking for
+			derivatives; an equation like <md>\frac{dy}{dt} = y^2</md> is unambiguously looking for
 			any answer <m>y(t)</m>. </p>
 
 
@@ -145,30 +145,30 @@
 			t</m>, which we call <m>x</m>, such that when we plug <m>x</m>, <m>t</m>, and <m>
 			\frac{dx}{dt}</m> into <xref ref="eq1" />, the equation holds; that is, the left hand
 			side equals the right hand side. It is the same idea as it would be for a normal
-			(algebraic) equation of just <m>x</m> and <m>t</m>. We claim that <me>
+			(algebraic) equation of just <m>x</m> and <m>t</m>. We claim that <md>
 				x = x(t) = \cos t + \sin t
-			</me> is a <term>solution</term>. How do we check? We simply plug <m>x</m>
+			</md> is a <term>solution</term>. How do we check? We simply plug <m>x</m>
 			into equation <xref ref="eq1" />! First we need to compute <m>\frac{dx}{dt}</m>. We find
 			that <m>\frac{dx}{dt} =
-				-\sin t + \cos t</m>. Now let us compute the left-hand side of <xref ref="eq1" />. <me>
+				-\sin t + \cos t</m>. Now let us compute the left-hand side of <xref ref="eq1" />. <md>
 			\frac{dx}{dt} + x =
 				\underbrace{(-\sin t + \cos t)}_{\frac{dx}{dt}}
 				+
 				\underbrace{(\cos t + \sin t)}_{x}
 				=
 				2\cos t .
-			</me>
+			</md>
 			Yay! We got precisely the right-hand side. But there is more! We claim <m>x = \cos t +
-			\sin t + e^{-t}</m> is also a solution. Let us try, <me>
+			\sin t + e^{-t}</m> is also a solution. Let us try, <md>
 				\frac{dx}{dt} = -\sin t + \cos t - e^{-t} .
-			</me> We plug into the left-hand side of <xref
+			</md> We plug into the left-hand side of <xref
 				ref="eq1" /> 
-<me>
+<md>
 				\frac{dx}{dt} + x =
 				\underbrace{(-\sin t + \cos t - e^{-t})}_{\frac{dx}{dt}} +
 				\underbrace{(\cos t + \sin t + e^{-t})}_{x}
 				= 2\cos t .
-			</me>
+			</md>
 
 		</p>
 
@@ -189,9 +189,9 @@
 		</p>
 
 		<p> So there can be many different solutions. For this equation all solutions can be written
-			in the form <me>
+			in the form <md>
 				x = \cos t + \sin t + C e^{-t} ,
-			</me> for some constant <m>C</m>. Different
+			</md> for some constant <m>C</m>. Different
 			constants <m>C</m> will give different solutions, so there are really infinitely many
 			possible solutions. See for the graph of a few of these solutions. We do not yet know
 			how to find this solution, but we will get to that in the next chapter. </p>
@@ -269,9 +269,9 @@
 			is the standard <term>exponential growth model</term>. Let <m>P</m> denote the population of some bacteria on a
 			Petri dish. We assume that there is enough food and enough space. Then the rate of
 			growth of bacteria is proportional to the population—a large population grows quicker.
-			Let <m>t</m> denote time (say in seconds) and <m>P</m> the population. Our model is <me>
+			Let <m>t</m> denote time (say in seconds) and <m>P</m> the population. Our model is <md>
 			\frac{dP}{dt} = kP ,
-			</me> for some positive constant <m>k &gt; 0</m>. </p>
+			</md> for some positive constant <m>k &gt; 0</m>. </p>
 
 
 		<example>
@@ -284,11 +284,11 @@
 			</statement>
 
 			<solution>
-				<p> First we need to solve the equation. We claim that a solution is given by <me>
+				<p> First we need to solve the equation. We claim that a solution is given by <md>
 					P(t) = C e^{kt} ,
-					</me> where <m>C</m> is a constant. Let us try: <me>
+					</md> where <m>C</m> is a constant. Let us try: <md>
 					\frac{dP}{dt} = C k e^{kt} = k P .
-					</me> And it really is a solution. </p>
+					</md> And it really is a solution. </p>
 
 				<p> OK, now what? We do not know <m>C</m>, and we do not know <m>k</m>. But we know
 					something. We know <m>P(0) = 100</m>, and we know <m>P(10) = 200</m>. Let us plug
@@ -298,9 +298,9 @@
 						<mrow> 200  \amp = P(10) = 100 \, e^{k10} </mrow>
 					</md>.
 					 Therefore, <m>2 = e^{10k}</m> or 
-					 <m>\frac{\ln 2}{10} = k \approx 0.069</m>. So <me>
+					 <m>\frac{\ln 2}{10} = k \approx 0.069</m>. So <md>
 						P(t) = 100 \, e^{(\ln 2) t / 10} \approx 100 \, e^{0.069 t}
-					</me>.
+					</md>.
 
 				</p>
 
@@ -324,9 +324,9 @@
 		<p> Normally, the <m>k</m> in <m>P' = kP</m> is known, and we want to solve the equation for
 			different <term>initial conditions</term>. What does that mean? Take <m>k=1</m> for
 			simplicity. Suppose we want to solve the equation <m>\frac{dP}{dt} = P</m> subject to <m>P(0)
-			= 1000</m> (the initial condition). Then the solution turns out to be (exercise) <me>
+			= 1000</m> (the initial condition). Then the solution turns out to be (exercise) <md>
 			P(t) = 1000 \, e^t .
-			</me>
+			</md>
 
 		</p>
 
@@ -348,21 +348,21 @@
 			solutions to other differential equations later on. In <xref ref="fo-chapter"/> we will cover the first two, and
 			the last two will be discussed in <xref ref="ho-chapter"/>. </p>
 
-		<p> First such equation is <me>
+		<p> First such equation is <md>
 				\frac{dy}{dx} = k y ,
-			</me> for some constant <m>k &gt; 0</m>. Here <m>y</m> is the
+			</md> for some constant <m>k &gt; 0</m>. Here <m>y</m> is the
 			dependent and <m>x</m> the independent variable. The general solution for this equation
-			is <me>
+			is <md>
 				y(x) = C e^{kx} .
-			</me> We saw above that this function is a solution, although we
+			</md> We saw above that this function is a solution, although we
 			used different variable names. </p>
 
-		<p> Next, <me>
+		<p> Next, <md>
 				\frac{dy}{dx} = -k y ,
-			</me> for some constant <m>k &gt; 0</m>. The general solution
-			for this equation is <me>
+			</md> for some constant <m>k &gt; 0</m>. The general solution
+			for this equation is <md>
 				y(x) = C e^{-kx} .
-			</me>
+			</md>
 
 		</p>
 
@@ -373,12 +373,12 @@
 		</exercise> 
 
 				<p> Next, take the <term>second order equation</term>
-					<me>
+					<md>
 						\frac{d^2y}{{dx}^2} = -k^2 y ,
-					</me> for some constant <m>k &gt; 0</m>. The
-					general solution for this equation is <me>
+					</md> for some constant <m>k &gt; 0</m>. The
+					general solution for this equation is <md>
 						y(x) = C_1 \cos(kx) + C_2 \sin(kx) .
-					</me> Since the equation is a second
+					</md> Since the equation is a second
 					order differential equation, we have two constants in our general solution. </p>
 
 		<exercise>
@@ -386,14 +386,14 @@
 				<p> Check that the <m>y</m> given is really a solution to the equation. </p>
 			</statement>
 		</exercise>
-				<p> Finally, consider the second order differential equation <me>
+				<p> Finally, consider the second order differential equation <md>
 						\frac{d^2y}{{dx}^2} = k^2 y ,
-					</me> for some constant <m>k &gt; 0</m>. The
-					general solution for this equation is <me>
+					</md> for some constant <m>k &gt; 0</m>. The
+					general solution for this equation is <md>
 						y(x) = C_1 e^{kx} + C_2 e^{-kx} ,
-					</me> or <me>
+					</md> or <md>
 						y(x) = D_1 \cosh(kx) + D_2 \sinh(kx) .
-					</me>
+					</md>
 
 				</p>
 
@@ -420,10 +420,10 @@
 				solution <m>y = C_1 x + C_2</m>; simply integrate twice and don’t forget about the
 				constant of integration. Consider the initial conditions <m>y(0) =
 					2</m> and <m>y'(0) = 3</m>. We plug in our general solution and solve for the
-				constants: <me>
+				constants: <md>
 					2 = y(0) = C_1 \cdot 0 + C_2 = C_2, \qquad
 					3 = y'(0) = C_1 .
-				</me> In other
+				</md> In other
 				words, <m>y = 3x + 2</m> is the particular solution we seek. </p>
 		</statement>
 	</example>

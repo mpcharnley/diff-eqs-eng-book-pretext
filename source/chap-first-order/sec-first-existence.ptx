@@ -25,7 +25,7 @@
 	</objectives>
 
 		<p>
-			If we take the differential equation <me>y' = f(x,y) \qquad y(x_0) = y_0,</me> there are two main questions we want to answer about this equation.
+			If we take the differential equation <md>y' = f(x,y) \qquad y(x_0) = y_0,</md> there are two main questions we want to answer about this equation.
 		</p>
 
 		<p><ol>
@@ -54,9 +54,9 @@
 	
 <statement>		<p>
 			Attempt to solve: 
-<me>
+<md>
 y' = \frac{1}{x}, \qquad y(0) = 0 .
-</me>
+</md>
 </p>
 </statement>
 <answer>
@@ -81,22 +81,22 @@ y' = \frac{1}{x}, \qquad y(0) = 0 .
 <title>Non-Uniqueness of Solution</title>
 <statement>		<p>
 			 Solve: 
-<me>
+<md>
 y' = 2 \sqrt{\lvert y \rvert}, \qquad y(0) = 0 .
-</me>
+</md>
 
 		</p>
 	</statement>
 <answer>
 	<p>
 			See <xref ref="fig-1-3-sqrtsols"/>. Note that <m>y=0</m> is a solution. But another solution is the function 
-<me>
+<md>
 y(x) =
 \begin{cases}
 x^2 &amp; \text{if } \; x \geq 0,\\
 -x^2 &amp; \text{if } \; x &lt; 0.
 \end{cases}
-</me>
+</md>
 
 		</p>
 		<figure xml:id="fig-1-3-sqrtsols">
@@ -121,13 +121,13 @@ x^2 &amp; \text{if } \; x \geq 0,\\
 	<statement>
 		<p>
 			Assume that we have the first-order linear differential equation given by 
-<me>
+<md>
 y' + p(x)y = g(x).
-</me>
+</md>
  If <m>p(x)</m> and <m>g(x)</m> are continuous functions on an interval <m>I</m> that contains a point <m>x_0</m>, then for any <m>y</m>-value <m>y_0</m>, the initial value problem 
-<me>
+<md>
 y' + p(x)y = g(x) \qquad y(x_0) = y_0
-</me>
+</md>
  has a unique solution. This solution exists and is unique on the entire interval <m>I</m>.
 		</p>
 	</statement>
@@ -142,18 +142,18 @@ y' + p(x)y = g(x) \qquad y(x_0) = y_0
 <title>Existence and Uniqueness for Linear Equations</title>
 <statement>		<p>
 			Consider the differential equation 
-<me>
+<md>
 (x-1)y' + \frac{1}{x-5} y = e^x
-</me>
+</md>
  What do the existence and uniqueness theorems say about the solution to this differential equation with the initial condition <m>y(2) = 6</m>? What about the solution with initial condition <m>y(-3) = 1</m>?
 		</p>
 </statement>
 
 <solution>		<p>
 			To apply the existence and uniqueness theorem, we need to get the <m>y'</m> term by itself. This results in the differential equation 
-<me>
+<md>
 y' + \frac{1}{(x-1)(x-5)} y = \frac{e^x}{x-1}.
-</me>
+</md>
  In order to figure out where this solution exists and is unique, we need to determine where the coefficient functions <m>p(x)</m> and <m>g(x)</m> are continuous. The only two points that we have discontinuities are at <m>x=1</m> and <m>x=5</m>. Therefore, if we have the initial condition <m>y(2) = 6</m>, we start at the <m>x</m> value of <m>2</m>. Because this equation is linear, it will exist everywhere that these two functions are both continuous containing the point <m>x=2</m>, and since the only discontinuities are at <m>1</m> and <m>5</m>, we know that they are both continuous on <m>(1,5)</m>. This means that we can take <m>(1,5)</m> as the interval <m>I</m> in the theorem, and know that this solution will exist and be unique on the interval <m>(1,5)</m>.
 		</p>
 
@@ -192,9 +192,9 @@ y' + \frac{1}{(x-1)(x-5)} y = \frac{e^x}{x-1}.
 	<statement>
 		<p>
 			 If <m>f(x,y)</m> is continuous (as a function of two variables) and <m>\frac{\partial f}{\partial y}</m> exists and is continuous near some <m>(x_0,y_0)</m>, then a solution to 
-<me>
+<md>
 y' = f(x,y), \qquad y(x_0) = y_0,
-</me>
+</md>
  exists (at least for some small interval of <m>x</m>'s) and is unique.
 		</p>
 	</statement>
@@ -209,47 +209,47 @@ y' = f(x,y), \qquad y(x_0) = y_0,
 <title>Interval of Existence for Non-Linear Equation</title>
 <statement>		<p>
 			For some constant <m>A</m>, solve: 
-<me>
+<md>
 y' = y^2, \qquad y(0) = A .
-</me>
+</md>
 
 		</p>
 </statement>
 
 <solution>		<p>
 			We know how to solve this equation. First assume that <m>A \not= 0</m>, so <m>y</m> is not equal to zero at least for some <m>x</m> near 0. So <m>x' = \nicefrac{1}{y^2}</m>, so <m>x = \nicefrac{-1}{y} + C</m>, so <m>y = \frac{1}{C-x}</m>. If <m>y(0) = A</m>, then <m>C = \nicefrac{1}{A}</m> so 
-<me>
+<md>
 y = \frac{1}{\nicefrac{1}{A} - x} .
-</me>
+</md>
  If <m>A=0</m>, then <m>y=0</m> is a solution.
 		</p>
 
 		<p>
 			For example, when <m>A=1</m> the solution is 
-<me>
+<md>
 y = \frac{1}{1-x}
-</me>
+</md>
  which goes to infinity, and so <q>blows up</q>, at <m>x=1</m>. This solution here exists only on the interval <m>(-\infty, 1)</m>, and hence, the solution does not exist for all <m>x</m> even if the equation is nice everywhere. The equation <m>y' = y^2</m> certainly looks nice.
 		</p>
 
 		<p>
 			However, this fact does not contradict our existence and uniqueness theorem for non-linear equations. The theorem only guarantees that the solution to 
-<me>
+<md>
 y' = y^2
-</me>
+</md>
  exists and is unique on <em>some</em> interval containing 0. It does not guarantee that the solution exists everywhere that <m>y^2</m> and its derivative are continuous, only that at each point where this happens, the solution will exist for some interval around that point. The interval <m>(-\infty, 1)</m> is <q>some interval containing zero</q>, so the theorem still applies and holds here. See the exercises for more detail on how this process works and how we can illustrate the fact that the interval of existence is <q>some interval containing zero</q>.
 		</p>
 </solution>
 </example>
 		<p>
 			The other main conclusion that we can draw from these theorems is the fact that two different solution curves to a first-order differential equation can not cross, provided the existence and uniqueness theorems hold. If <m>y_1</m> and <m>y_2</m> are two different solutions to <m>y' = f(x,y)</m> and the solution curves for <m>y_1(x)</m> and <m>y_2(x)</m> cross, then this means that for some particular value of <m>x_0</m> and <m>y_0</m>, we have that 
-<me>
+<md>
 y_1(x_0) = y_0 \qquad y_2(x_0) = y_0.
-</me>
+</md>
  If we pick <m>x_0</m> as a starting point, then the fact that the existence and uniqueness theorems hold imply that, at least for some interval around <m>x_0</m>, there is exactly one solution to 
-<me>
+<md>
 y' = f(x,y) \qquad y(x_0) = y_0.
-</me>
+</md>
  However, both <m>y_1</m> and <m>y_2</m> satisfy these two properties. Therefore, <m>y_1</m> and <m>y_2</m> must be the same, which doesn't make sense because we assumed they were different. So it is impossible for two different solution curves to cross, provided the existence and uniqueness theorem holds. For a comparison, refer back to earlier to see what non-uniqueness looks like, where we do have two solution curves that cross at the point <m>(0,0)</m>.
 		</p>
 
@@ -262,9 +262,9 @@ y' = f(x,y) \qquad y(x_0) = y_0.
 <title>Application of Uniqueness</title>
 <statement>		<p>
 			Consider the differential equation 
-<me>
+<md>
 \frac{dy}{dt} = (y-3)^2(y+4).
-</me>
+</md>
 
 		</p>
 
@@ -922,13 +922,13 @@ y' = f(x,y) \qquad y(x_0) = y_0.
 <statement>
 			<p>
 				Suppose 
-<me>
+<md>
 f(y) =
 \begin{cases}
 0 &amp; \text{ if $y &gt; 0$}, \\
 1 &amp; \text{ if $y \leq 0$} .
 \end{cases}
-</me>
+</md>
  Does <m>y' = f(y)</m>, <m>y(0) = 0</m> have a continuously differentiable solution? Does Picard apply? Why, or why not?
 			</p>
 </statement>

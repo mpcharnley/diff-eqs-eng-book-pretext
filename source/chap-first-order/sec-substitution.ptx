@@ -34,33 +34,33 @@
 	<title>General Substitution Methods</title>
 		<p>
 			The equation 
-<me>
+<md>
 y' = {(x-y+1)}^2 
-</me>
+</md>
  is neither separable nor linear. What can we do? One technique that worked for helping us in evaluating integrals was substitution, or change of variables. For example, in order to evaluate the integral 
-<me>
+<md>
 \int 2x(x^2 + 4)^5 \ dx
-</me>
+</md>
  we can do so by defining <m>u = x^2 + 4</m> so that <m>du = 2x\ dx</m>, and then evaluate the integral as 
-<me>
+<md>
 \int u^5\ du = \frac{u^6}{6} + C = \frac{(x^2 + 4)^6}{6} + C
-</me>
+</md>
  after we have plugged our original function back in.
 		</p>
 
 		<p>
 			We can try to do the same thing here, and be careful with how we set things up. Our general strategy will be to pick a new dependent variable, find a differential equation that this new variable solves (which will come from the old equation), solve that equation, then convert back to the original variable. We will take <m>v</m> as our new dependent variable here, which is as function <m>v(x)</m>. Let us try 
-<me>
+<md>
 v = x-y+1,
-</me>
+</md>
  which is the <q>inside</q> function (it’s inside the square) of our example. In order to get to a differential equation that <m>v</m> satisfies, we need to figure out <m>y'</m> in terms of <m>v'</m>, <m>v</m> and <m>x</m>. We differentiate (in <m>x</m>) to obtain <m>v' = 1 - y'</m>. So <m>y' = 1-v'</m>. We plug this into the equation to get 
-<me>
+<md>
 1-v' = v^2 .
-</me>
+</md>
  In other words, <m>v' = 1-v^2</m>. Such an equation we know how to solve by separating variables: 
-<me>
+<md>
 \frac{1}{1-v^2} \,dv = dx .
-</me>
+</md>
  So 
 <md>
 	<mrow> \frac{1}{2} \ln \left\lvert  \frac{v+1}{v-1} \right\rvert \amp = x + C  </mrow>
@@ -72,9 +72,9 @@ v = x-y+1,
 
 		<p>
 			Now we need to <q>unsubstitute</q> to obtain 
-<me>
+<md>
 \frac{x-y+2}{x-y} = D e^{2x} ,
-</me>
+</md>
  and also the two solutions <m>x-y+1=1</m> or <m>y=x</m>, and <m>x-y+1=-1</m> or <m>y=x+2</m>. We solve the first equation for <m>y</m>. 
 
 <md>
@@ -99,23 +99,23 @@ Note that <m>D=0</m> gives <m>y=x+2</m>, but no value of <m>D</m> gives the solu
 				<cell halign="left">When you see</cell>
 				<cell halign="left">Try substituting</cell>
 			</row>
-			<row class="odd">
+			<row > <!-- class="odd" -->
 				<cell halign="left"><m>yy'</m></cell>
 				<cell halign="left"><m>v=y^2</m></cell>
 			</row>
-			<row class="even">
+			<row > <!-- class="even" -->
 				<cell halign="left"><m>y^2y'</m></cell>
 				<cell halign="left"><m>v=y^3</m></cell>
 			</row>
-			<row class="odd">
+			<row > <!-- class="odd" -->
 				<cell halign="left"><m>(\cos y)y'</m></cell>
 				<cell halign="left"><m>v=\sin y</m></cell>
 			</row>
-			<row class="even">
+			<row > <!-- class="even" -->
 				<cell halign="left"><m>(\sin y)y'</m></cell>
 				<cell halign="left"><m>v=\cos y</m></cell>
 			</row>
-			<row class="odd">
+			<row > <!-- class="odd" -->
 				<cell halign="left"><m>y'e^y</m></cell>
 				<cell halign="left"><m>v=e^y</m></cell>
 			</row>
@@ -134,9 +134,9 @@ Note that <m>D=0</m> gives <m>y=x+2</m>, but no value of <m>D</m> gives the solu
 				There are some forms of equations where there is a general rule for substitution that always works. One such example is the so-called <term>Bernoulli Equation</term> <fn>
 				There are several things called Bernoulli equations, this is just one of them. The Bernoullis were a prominent Swiss family of mathematicians. These particular equations are named for <url href="https://en.wikipedia.org/wiki/Jacob_Bernoulli">Jacob Bernoulli</url> (1654–1705).
 	</fn>: 
-<me>
+<md>
 y' + p(x)y = q(x)y^n .
-</me>
+</md>
  This equation looks a lot like a linear equation except for the <m>y^n</m>. If <m>n=0</m> or <m>n=1</m>, then the equation is linear and we can solve it. Otherwise, the substitution <m>v=y^{1-n}</m> transforms the Bernoulli equation into a linear equation. Note that <m>n</m> need not be an integer.
 			</p>
 
@@ -144,46 +144,46 @@ y' + p(x)y = q(x)y^n .
 <example>
 <statement>			<p>
 				Find the general solution of 
-<me>
+<md>
 y' - \frac{4}{3x}y = -\frac{2}{3}y^4 
-</me>
+</md>
 
 			</p>
 </statement>
 
 <solution>			<p>
 				This equation fits the Bernoulli equation structure with <m>p(x) = -\frac{4}{3x}</m> and <m>q(x) = -\frac{2}{3}</m>. Since there is a <m>y^4</m> on the right-hand side, we take <m>n=4</m> and make the substitution <m>v = y^{1-4} = y^{-3}</m>. With this, we see that 
-<me>
+<md>
 v' = -3 y^{-4} y'
-</me>
+</md>
  or <m>y' = -\nicefrac{1}{3}y^4 v'</m>. Plugging this into the equation gives 
-<me>
+<md>
 \begin{split}
 -\frac{1}{3} y^4 v' - \frac{4}{3x}y &amp;= -\frac{2}{3}y^4 \\
 -\frac{1}{3} v' - \frac{4}{3x} y^{-3} &amp;= -\frac{2}{3} \\
 v' + \frac{4}{x} v &amp;= 2
 \end{split}
-</me>
+</md>
  This last equation is now a first order linear equation, so we can solve it. The integrating factor we are looking for is 
-<me>
+<md>
  \mu(x) = e^{\int p(x)\ dx} = e^{\int \frac{4}{x}\ dx} = e^{4\ln{x}} = x^4, 
-</me>
+</md>
  which results in the euation 
-<me>
+<md>
 x^4 v' + 4x^3 v = 2x^4.
-</me>
+</md>
  The left-hand side is <m>(x^4v)'</m>, so we can integrate both sides to get 
-<me>
+<md>
 x^4 v = \frac{2}{5}x^5 + C,
-</me>
+</md>
  or, solving for <m>v</m>, 
-<me>
+<md>
 v(x) = \frac{2}{5} x + \frac{C}{x^4}.
-</me>
+</md>
  However, our original equation was for <m>y</m>, not <m>v</m>. Using the fact that <m>v = y^{-3}</m>, we can solve for <m>y</m> as <m>y = v^{-1/3}</m>, giving 
-<me>
+<md>
 y(x) = \left(\frac{2}{5}x + \frac{C}{x^4}\right)^{-1/3} = \frac{1}{\sqrt[3]{\frac{2}{5}x + \frac{C}{x^4}}}
-</me>
+</md>
  as the general solution to this equation.
 			</p>
 </solution>
@@ -196,19 +196,19 @@ y(x) = \left(\frac{2}{5}x + \frac{C}{x^4}\right)^{-1/3} = \frac{1}{\sqrt[3]{\fra
 <example>
 <statement>			<p>
 				Solve 
-<me>
+<md>
 xy'+ y(x+1)+xy^5 = 0, \qquad y(1)=1 .
-</me>
+</md>
 
 			</p>
 </statement>
 
 <solution>			<p>
 				First, the equation is Bernoulli (<m>p(x) = (x+1)/x</m> and <m>q(x) = -1</m>). We substitute 
-<me>
+<md>
 v=y^{1-5} = y^{-4}, \qquad
 v' = -4 y^{-5} y' .
-</me>
+</md>
  In other words, <m>\left( \nicefrac{-1}{4} \right) y^5 v' = y'</m>. So
  <md>
 	<mrow> xy'+ y(x+1)+xy^5 \amp = 0 </mrow>
@@ -217,9 +217,9 @@ v' = -4 y^{-5} y' .
 <mrow> \frac{-x}{4} v'+ v(x+1)+x \amp = 0 </mrow>
  </md>
  and finally 
-<me>
+<md>
 v'- \frac{4(x+1)}{x} v  = 4 .
-</me>
+</md>
  The equation is now linear. We can use the integrating factor method. In particular, we use formula <xref ref="lei-defsol" />. Let us assume that <m>x &gt; 0</m> so <m>\lvert x \rvert = x</m>. This assumption is OK, as our initial condition is <m>x=1</m>. Let us compute the integrating factor. Here <m>p(s)</m> from formula <xref ref="lei-defsol" /> is <m>\frac{-4(s+1)}{s}</m>. 
  <md>
 	<mrow> e^{\int_1^x p(s)\,ds} \amp = \exp \left( \int_1^x \frac{-4(s+1)}{s} \,ds \right) </mrow>
@@ -228,7 +228,7 @@ v'- \frac{4(x+1)}{x} v  = 4 .
 <mrow> e^{-\int_1^x p(s)\,ds} \amp = e^{4x+4\ln(x)-4} =  e^{4x-4} x^4 </mrow>
  </md>
  We now plug in to <xref ref="lei-defsol" /> 
-<me>
+<md>
 \begin{split}
 v(x) &amp; =
 e^{-\int_{1}^x p(s)\, ds} \left( \int_{1}^x e^{\int_{1}^t p(s)\, ds} 4 \,dt
@@ -238,7 +238,7 @@ e^{4x-4} x^4
 \left( \int_{1}^x 4 \frac{e^{-4t+4}}{t^4} \,dt
 + 1 \right) .
 \end{split}
-</me>
+</md>
  The integral in this expression is not possible to find in closed form. As we said before, it is perfectly fine to have a definite integral in our solution. Now <q>unsubstitute</q> 
  <md>
 	 <mrow> y^{-4} \amp = e^{4x-4}x^4 \left( 4 \int_1^x \frac{e^{-4t+4}}{t^4} \,dt + 1\right) </mrow>
@@ -255,22 +255,22 @@ e^{4x-4} x^4
 
 			<p>
 				Another type of equations we can solve by substitution are the so-called <term>homogeneous equations</term>. Note that this is <em>not</em> the same as a homogeneous linear equation. These equations do not have to be linear, and are solved in a very different way. Suppose that we can write the differential equation as 
-<me>
+<md>
 y' = F\left(\frac{y}{x}\right) .
-</me>
+</md>
  Here we try the substitutions 
-<me>
+<md>
 v = \frac{y}{x} \qquad \text{and therefore} \qquad y' = v + x v' .
-</me>
+</md>
  We note that the equation is transformed into 
-<me>
+<md>
 v+ xv' = F(v) \qquad \text{or} \qquad xv' = F(v)-v 
 \qquad \text{or} \qquad \frac{v'}{F(v)-v} = \frac{1}{x} .
-</me>
+</md>
  Hence an implicit solution is 
-<me>
+<md>
 \int \frac{1}{F(v)-v} \,dv = \ln \, \lvert x \rvert + C .
-</me>
+</md>
 
 			</p>
 
@@ -278,18 +278,18 @@ v+ xv' = F(v) \qquad \text{or} \qquad xv' = F(v)-v
 <example>
 <statement>			<p>
 				Solve 
-<me>
+<md>
 x^2y' = y^2+xy, \qquad y(1)=1.
-</me>
+</md>
 
 			</p>
 </statement>
 
 <solution>			<p>
 				We put the equation into the form <m>y'= {\left(\nicefrac{y}{x}\right)}^2+\nicefrac{y}{x}</m>. We substitute <m>v=\nicefrac{y}{x}</m> to get the separable equation 
-<me>
+<md>
 xv' = v^2+v-v = v^2 ,
-</me>
+</md>
  which has a solution 
  
 <md>
@@ -305,13 +305,13 @@ We unsubstitute
 </md>.
 
 We want <m>y(1)=1</m>, so 
-<me>
+<md>
 1 = y(1) = \frac{-1}{\ln \, \lvert 1 \rvert + C} = \frac{-1}{C} .
-</me>
+</md>
  Thus <m>C = -1</m> and the solution we are looking for is 
-<me>
+<md>
 y = \frac{-x}{\ln \, \lvert x \rvert -1} .
-</me>
+</md>
 
 			</p>
 </solution>
@@ -482,8 +482,8 @@ y = \frac{-x}{\ln \, \lvert x \rvert -1} .
 	<introduction>
 		<p>
 				Consider the DE 
-<men xml:id="eq-subsEx1">
-\frac{dy}{dt}=\left( y -\frac{1}{t} \right)^2 - \frac{1}{t^2}. </men>
+<md number="yes" xml:id="eq-subsEx1">
+\frac{dy}{dt}=\left( y -\frac{1}{t} \right)^2 - \frac{1}{t^2}. </md>
 			</p>
 	</introduction>
 	<task>

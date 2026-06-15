@@ -30,9 +30,9 @@
 	</objectives>
 
 	<p> Unless <m>f(x,y)</m> is of a special form, it is generally very hard if not impossible to
-		get a nice formula for the solution of the problem <me>
+		get a nice formula for the solution of the problem <md>
 			y' = f(x,y), \qquad y(x_0) = y_0 .
-		</me>
+		</md>
 
 	</p>
 
@@ -87,9 +87,9 @@ the equation <m>y' = \frac{y^2}{3}</m> with initial condition <m>y(0)=1</m>. </c
 	</image>
 	</figure>
 
-	<p> More abstractly, for any <m>i=0,1,2,3,\ldots</m>, we compute <me>
+	<p> More abstractly, for any <m>i=0,1,2,3,\ldots</m>, we compute <md>
 			x_{i+1} = x_i + h , \qquad y_{i+1} = y_i + h\, f(x_i,y_i) .
-		</me> This can be worked
+		</md> This can be worked
 		out by hand for a few steps, but the formulas here lend themselves very well to being coded
 		into a looping structure for more involved processes. The line segments we get are an
 		approximate graph of the solution. Generally it is not exactly the solution. See <xref ref="euler-step12-sol-fig"/> for the
@@ -145,49 +145,49 @@ the equation <m>y' = \frac{y^2}{3}</m> with initial conditions <m>y(0)=1</m>. </
 					<m>\frac{\text{Error}}{\text{Previous error}}</m>
 				</cell>
 			</row>
-			<row class="odd">
+			<row > <!-- class="odd" -->
 				<cell halign="right">1</cell>
 				<cell halign="right">1.92593</cell>
 				<cell halign="right">1.07407</cell>
 				<cell halign="right"></cell>
 			</row>
-			<row class="even">
+			<row > <!-- class="even" -->
 				<cell halign="right">0.5</cell>
 				<cell halign="right">2.20861</cell>
 				<cell halign="right">0.79139</cell>
 				<cell halign="right">0.73681</cell>
 			</row>
-			<row class="odd">
+			<row > <!-- class="odd" -->
 				<cell halign="right">0.25</cell>
 				<cell halign="right">2.47250</cell>
 				<cell halign="right">0.52751</cell>
 				<cell halign="right">0.66656</cell>
 			</row>
-			<row class="even">
+			<row > <!-- class="even" -->
 				<cell halign="right">0.125</cell>
 				<cell halign="right">2.68034</cell>
 				<cell halign="right">0.31966</cell>
 				<cell halign="right">0.60599</cell>
 			</row>
-			<row class="odd">
+			<row > <!-- class="odd" -->
 				<cell halign="right">0.0625</cell>
 				<cell halign="right">2.82040</cell>
 				<cell halign="right">0.17960</cell>
 				<cell halign="right">0.56184</cell>
 			</row>
-			<row class="even">
+			<row > <!-- class="even" -->
 				<cell halign="right">0.03125</cell>
 				<cell halign="right">2.90412</cell>
 				<cell halign="right">0.09588</cell>
 				<cell halign="right">0.53385</cell>
 			</row>
-			<row class="odd">
+			<row > <!-- class="odd" -->
 				<cell halign="right">0.015625</cell>
 				<cell halign="right">2.95035</cell>
 				<cell halign="right">0.04965</cell>
 				<cell halign="right">0.51779</cell>
 			</row>
-			<row class="even">
+			<row > <!-- class="even" -->
 				<cell halign="right">0.0078125</cell>
 				<cell halign="right">2.97472</cell>
 				<cell halign="right">0.02528</cell>
@@ -256,35 +256,35 @@ the equation <m>y' = \frac{y^2}{3}</m> with initial conditions <m>y(0)=1</m>. </
 				</cell>
 				<cell halign="right">Approximate <m>y(3)</m></cell>
 			</row>
-			<row class="odd">
+			<row > <!-- class="odd" -->
 				<cell halign="right">1</cell>
 				<cell halign="right">3.16232</cell>
 			</row>
-			<row class="even">
+			<row > <!-- class="even" -->
 				<cell halign="right">0.5</cell>
 				<cell halign="right">4.54329</cell>
 			</row>
-			<row class="odd">
+			<row > <!-- class="odd" -->
 				<cell halign="right">0.25</cell>
 				<cell halign="right">6.86079</cell>
 			</row>
-			<row class="even">
+			<row > <!-- class="even" -->
 				<cell halign="right">0.125</cell>
 				<cell halign="right">10.80321</cell>
 			</row>
-			<row class="odd">
+			<row > <!-- class="odd" -->
 				<cell halign="right">0.0625</cell>
 				<cell halign="right">17.59893</cell>
 			</row>
-			<row class="even">
+			<row > <!-- class="even" -->
 				<cell halign="right">0.03125</cell>
 				<cell halign="right">29.46004</cell>
 			</row>
-			<row class="odd">
+			<row > <!-- class="odd" -->
 				<cell halign="right">0.015625</cell>
 				<cell halign="right">50.40121</cell>
 			</row>
-			<row class="even">
+			<row > <!-- class="even" -->
 				<cell halign="right">0.0078125</cell>
 				<cell halign="right">87.75769</cell>
 			</row>
@@ -361,9 +361,9 @@ the equation <m>y' = \frac{y^2}{3}</m> with initial conditions <m>y(0)=1</m>. </
 		same no matter what. Adaptive methods are harder to write and optimize, but can solve many
 		problems faster because the adaptive nature of the method allows them to get similar
 		accuracy to fixed step methods, but at many fewer steps. In the example below, the initial
-		value problem <me>
+		value problem <md>
 			\frac{dy}{dt} = y \qquad y(0) = 1
-		</me> is solved with an Euler’s method and
+		</md> is solved with an Euler’s method and
 		Matlab’s built-in <c>ode45</c> method. Both of the solutions are plotted along with the
 		actual solution <m>y = e^t</m>
 	</p>

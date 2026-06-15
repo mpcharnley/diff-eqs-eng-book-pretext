@@ -26,9 +26,9 @@
 <introduction>
 		<p>
 			As we said, the general first order equation we are studying looks like 
-<me>
+<md>
 y' = f(x,y).
-</me>
+</md>
  A lot of the time, we cannot simply solve these kinds of equations explicitly, because our direct integration method only works when the equation is of the form <m>y' = f(x),</m> which we could integrate directly. In these more complicated cases, it would be nice if we could at least figure out the shape and behavior of the solutions, or find approximate solutions.
 		</p>
 	</introduction>

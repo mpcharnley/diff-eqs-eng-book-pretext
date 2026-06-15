@@ -6,113 +6,156 @@
 	<section xml:id="solinear-section">
 		<title>Second order linear ODEs</title>
 
+		<objectives>
+	<introduction>
+		<p>
+			After this section, you will be able to: 
+		</p>
+	</introduction>
+	<ul>
+		<li>
+			<p>
+				Identify the general second order linear differential equation, 
+			</p>
+		 </li>
+			<li>
+				<p>
+					Determine the characteristic equation for constant coefficient equations,
+				</p>
+			</li>
+		<li>
+			<p>
+				Find the general solution for constant coefficient equations in the real and distinct roots case, and
+			</p>
+		</li>
+		<li>
+			<p>
+				Determine if two functions are linearly independent.
+			</p>
+		</li>
+
+	</ul>
+</objectives>
+
+<subsection xml:id="subsec-second-lin-init">
+	<title>Introduction to Second Order Equations</title>
+	
 		<p>
 			The general second order ordinary differential equation is of the form 
-<me>
+<md>
 y'' = F(x, y, y')
-</me>
+</md>
  for <m>F</m> an arbitrary function of three variables. As with first order equations, if the function <m>F</m> is not in a nice or simple form, there really isn’t a hope to find a solution for this. For second order equations, we need to be even more specific about the structure of these equations in order to find solutions than we did for first order.
 		</p>
 
-<!-- div attr= class="definition"-->
+<definition xml:id="def-second-order-linear">
+	<statement>
 		<p>
-			The general <em></em> is of the form 
-<me>
+			The general <term>second order linear differential equation</term> is of the form 
+<md>
 A(x) y'' + B(x)y' + C(x)y = F(x) .
-</me>
- This equation can be written in <em>standard form</em> by dividing throuhg by <m>A(x)</m> to get 
-<men xml:id="sol-eqlin">
+</md>
+ This equation can be written in <term>standard form</term> by dividing through by <m>A(x)</m> to get 
+<md number="yes" xml:id="sol-eqlin">
  y'' + p(x)y' + q(x)y = f(x) ,
-</men>
+</md>
 where <m>p(x) = \nicefrac{B(x)}{A(x)}</m>, <m>q(x) = \nicefrac{C(x)}{A(x)}</m>, and <m>f(x) = \nicefrac{F(x)}{A(x)}</m>.
-		</p><!--</div attr= class="definition">-->
-
-		<p>
-			The word <em>linear</em> means that the equation contains no powers nor functions of <m>y</m>, <m>y'</m>, and <m>y''</m>. In the special case when <m>f(x) = 0</m>, we have a so-called <em>homogeneous</em> equation 
-<men xml:id="sol-eqlinhom">
- y'' + p(x)y' + q(x)y = 0 .
-</men>
-We have already seen some second order linear homogeneous equations. <me>\begin{align*}
-\qquad y'' + k^2 y &amp; = 0 &amp;
-&amp; \text{Two solutions are:} \quad y_1 = \cos (kx), \quad y_2 = \sin(kx) . \qquad \\
-\qquad y'' - k^2 y &amp; = 0 &amp;
-&amp; \text{Two solutions are:} \quad y_1 = e^{kx}, \quad y_2 = e^{-kx} . \qquad
-\end{align*}</me>
 		</p>
+	</statement>
+</definition>
 
 		<p>
-			With the examples above, we were able to find solutions. However, notice that these equations don’t have functions of <m>x</m> as coefficients of the <m>y</m> term. This means they are equations. It turns out that one of the few ways we can have a guaranteed method for finding solutions to these equation is if they have constant coefficients. For first order, we had a method for every linear equation, but for second order, we only have a formulaic method for constant coefficient and homogeneous linear equations.
+			The word <em>linear</em> means that the equation contains no powers nor functions of <m>y</m>, <m>y'</m>, and <m>y''</m>. In the special case when <m>f(x) = 0</m>, we have a so-called <term>homogeneous</term> equation 
+<md number="yes" xml:id="sol-eqlinhom">
+ y'' + p(x)y' + q(x)y = 0 .
+</md>
+We have already seen some second order linear homogeneous equations. 
+<md>
+	<mrow> \qquad y'' + k^2 y \amp = 0</mrow>
+	<mrow> y'' - k^2 y \amp = 0 </mrow>
+</md>
+For the first equation above, two solutions are <m> y_1 = \cos (kx) </m> and <m> y_2 = \sin(kx)</m>. For the second, two possible solutions are <m>y_1 = e^{kx}</m> and <m>y_2 = e^{-kx}</m>. </p>
+
+		<p>
+			With the examples above, we were able to find solutions. However, notice that these equations don't have functions of <m>x</m> as coefficients of the <m>y</m> term. This means they are <term>constant coefficient</term> equations. It turns out that one of the few ways we can have a guaranteed method for finding solutions to these equation is if they have constant coefficients. For first order, we had a method for every linear equation, but for second order, we only have a formulaic method for constant coefficient and homogeneous linear equations.
 		</p>
 
 		<p>
 			If we know two solutions of a linear homogeneous equation, we know many more of them.
 		</p>
 
-<!-- div attr= class="theorem1"-->
+<theorem xml:id="thm-superposition">
+	<title>Superposition</title>
+	<statement>
 		<p>
-			Superposition Suppose <m>y_1</m> and <m>y_2</m> are two solutions of the homogeneous equation <xref ref="sol-eqlinhom" />. Then 
-<me>
+			Suppose <m>y_1</m> and <m>y_2</m> are two solutions of the homogeneous equation <xref ref="sol-eqlinhom" />. Then 
+<md>
 y(x) = C_1 y_1(x) + C_2 y_2(x) ,
-</me>
+</md>
  also solves <xref ref="sol-eqlinhom" /> for arbitrary constants <m>C_1</m> and <m>C_2</m>.
-		</p><!--</div attr= class="theorem1">-->
-
-		<p>
-			That is, we can add solutions together and multiply them by constants to obtain new and different solutions. We call the expression <m>C_1 y_1 + C_2 y_2</m> a <em></em> of <m>y_1</m> and <m>y_2</m>. Let us prove this theorem; the proof is very enlightening and illustrates how linear equations work.
 		</p>
+	</statement>
 
+	<proof>
 		<p>
-			<em>Proof:</em> Let <m>y = C_1 y_1 + C_2 y_2</m>. Then 
-<me>
-\begin{split}
-y'' + py' + qy &amp; =
-(C_1 y_1 + C_2 y_2)'' + p(C_1 y_1 + C_2 y_2)' + q(C_1 y_1 + C_2 y_2) \\
-&amp; = C_1 y_1'' + C_2 y_2'' + C_1 p y_1' + C_2 p y_2' + C_1 q y_1 + C_2 q y_2 \\
-&amp; = C_1 ( y_1'' + p y_1' + q y_1 ) + C_2 ( y_2'' + p y_2' + q y_2 ) \\
-&amp; = C_1 \cdot 0 + C_2 \cdot 0 = 0 . \qed
-\end{split}
-</me>
+			
+		Let <m>y = C_1 y_1 + C_2 y_2</m>. Then 
+<md>
+<mrow> y'' + py' + qy \amp (C_1 y_1 + C_2 y_2)'' + p(C_1 y_1 + C_2 y_2)' + q(C_1 y_1 + C_2 y_2) </mrow>
+<mrow> \amp C_1 y_1'' + C_2 y_2'' + C_1 p y_1' + C_2 p y_2' + C_1 q y_1 + C_2 q y_2</mrow>
+<mrow> \amp C_1 ( y_1'' + p y_1' + q y_1 ) + C_2 ( y_2'' + p y_2' + q y_2 )</mrow>
+<mrow> \amp C_1 \cdot 0 + C_2 \cdot 0 = 0 </mrow>
+</md>.
 
 		</p>
 
 		<p>
-			The proof becomes even simpler to state if we use the operator notation. An <em></em> is an object that eats functions and spits out functions (kind of like what a function is, but a function eats numbers and spits out numbers). Define the operator <m>L</m> by 
-<me>
+			The proof becomes even simpler to state if we use the operator notation. An <term>operator</term> is an object that eats functions and spits out functions (kind of like what a function is, but a function eats numbers and spits out numbers). Define the operator <m>L</m> by 
+<md>
 L[y] = y'' + py' + qy .
-</me>
+</md>
  The differential equation now becomes <m>L[y]=0</m>. The operator (and the equation) <m>L</m> being <em>linear</em> means that <m>L[C_1y_1 + C_2y_2] = 
 C_1 L[y_1] + C_2 L[y_2]</m>. The proof above becomes 
-<me>
+<md>
 L[y] = L[C_1y_1 + C_2y_2] = 
-C_1 L[y_1] + C_2 L[y_2] = C_1 \cdot 0 + C_2 \cdot 0 = 0 .
-</me>
+C_1 L[y_1] + C_2 L[y_2] = C_1 \cdot 0 + C_2 \cdot 0 = 0.
+</md>
 
+		</p>
+	</proof>
+</theorem>
+
+		<p>
+			That is, we can add solutions together and multiply them by constants to obtain new and different solutions. We call the expression <m>C_1 y_1 + C_2 y_2</m> a <term>linear combination</term> of <m>y_1</m> and <m>y_2</m>. Let us prove this theorem; the proof is very enlightening and illustrates how linear equations work.
 		</p>
 
 <exercise>
 <statement>
 		<p>
 			This fact does not hold if the equation is non-linear. Show that <m>y_1(t) = e^t</m> and <m>y_2(t) = 1</m> solve 
-<me>
+<md>
 y'' = \sqrt{y\cdot y'}
-</me>
+</md>
  but <m>y(t) = e^t + 1</m> does not.
 		</p>
 </statement>
-
-<answer>		<p>
-			Two different solutions to the second equation <m>y'' - k^2y = 0</m> are <m>y_1 = \cosh (kx)</m> and <m>y_2 = \sinh (kx)</m>. Let us remind ourselves of the definition, <m>\cosh x = \frac{e^x  + e^{-x}}{2}</m> and <m>\sinh x = \frac{e^x - e^{-x}}{2}</m>. Therefore, these are solutions by superposition as they are linear combinations of the two exponential solutions.
-		</p>
-</answer>
 </exercise>
 
+<p>
+	Two different solutions to the second equation <m>y'' - k^2y = 0</m> are <m>y_1 = \cosh (kx)</m> and <m>y_2 = \sinh (kx)</m>. Let us remind ourselves of the definition, <m>\cosh x = \frac{e^x  + e^{-x}}{2}</m> and <m>\sinh x = \frac{e^x - e^{-x}}{2}</m>. Therefore, these are solutions by superposition as they are linear combinations of the two exponential solutions.
+</p>
+
+
 		<p>
-			The functions <m>\sinh</m> and <m>\cosh</m> are sometimes more convenient to use than the exponential. Let us review some of their properties: <me>\begin{align*}
-&amp; \cosh 0  = 1 , &amp;   &amp; \sinh 0 = 0 , \\
-&amp; \frac{d}{dx} \Bigl[ \cosh x \Bigr] = \sinh x , &amp;  &amp; \frac{d}{dx} \Bigl[ \sinh x \Bigr] = \cosh x , \\
-&amp; \cosh^2 x - \sinh^2 x = 1 .
-\end{align*}</me>
-		</p>
+			The functions <m>\sinh</m> and <m>\cosh</m> are sometimes more convenient to use than the exponential. Let us review some of their properties: 
+			<md>
+<mrow> \cosh 0 \amp = 1 </mrow>
+<mrow> \sinh 0  \amp = 0 </mrow> 
+<mrow> \frac{d}{dx} \Bigl[ \cosh x \Bigr] \amp = \sinh x  </mrow>
+<mrow> \frac{d}{dx} \Bigl[ \sinh x \Bigr] \amp = \cosh x</mrow>
+<mrow> \cosh^2 x - \sinh^2 x\amp = 1</mrow>
+</md>
+</p>
 
 <exercise>
 <statement>
@@ -123,6 +166,8 @@ y'' = \sqrt{y\cdot y'}
 
 
 </exercise>
+
+</subsection>
 		<subsection xml:id="intial-value-problems">
 			<title>Intial Value Problems</title>
 
@@ -135,22 +180,22 @@ y'' = \sqrt{y\cdot y'}
 <title> </title>
 <statement>			<p>
 				Solve the second-order differential equation 
-<me>
+<md>
 y'' = x.
-</me>
+</md>
 
 			</p>
 </statement>
 
 <solution>			<p>
 				We can attempt to find a solution to this problem by integrating both sides twice. A first integration gives 
-<me>
+<md>
 y' = \frac{x^2}{2} + C
-</me>
+</md>
  and a second integration leads to 
-<me>
+<md>
 y = \frac{x^3}{6} + Cx + D
-</me>
+</md>
  for any two constants <m>C</m> and <m>D</m>. We can check that differentiating this <m>y</m> function twice gives us back the function <m>x</m> that we wanted.
 			</p>
 </solution>
@@ -164,34 +209,34 @@ y = \frac{x^3}{6} + Cx + D
 <title> </title>
 <statement>			<p>
 				Solve the initial value problem 
-<me>
+<md>
 y'' = x, \qquad y(1) = 2,\ y'(1) = 3
-</me>
+</md>
 
 			</p>
 </statement>
 
 <solution>			<p>
 				We previously found our solution with unknown constants as 
-<me>
+<md>
 y = \frac{x^3}{6} + Cx + D
-</me>
+</md>
  and also found that 
-<me>
+<md>
 y' = \frac{x^2}{2} + C.
-</me>
+</md>
  To find the values of <m>C</m> and <m>D</m>, we need to plug in the two initial conditions into their corresponding functions. The initial value of the derivative gives that 
-<me>
+<md>
 3 = y'(1) = \frac{1^2}{2} + C = C + \frac{1}{2}
-</me>
+</md>
  so that we have <m>C = \frac{5}{2}</m>. We can then use the initial value of <m>y</m>, along with this <m>C</m> value, to conclude that 
-<me>
+<md>
 2 = y(1) = \frac{1^3}{6} + \frac{5}{2}(1) + D = \frac{1}{6} + \frac{5}{2} + D = \frac{16}{6} + D.
-</me>
+</md>
  Solving this out gives that <m>D = -\frac{4}{6} = -\frac{2}{3}</m>. Putting these constants in gives that the solution to the initial value problem is 
-<me>
+<md>
 y = \frac{x^3}{6} + \frac{5}{2}x - \frac{2}{3}.
-</me>
+</md>
 
 			</p>
 </solution>
@@ -200,32 +245,38 @@ y = \frac{x^3}{6} + \frac{5}{2}x - \frac{2}{3}.
 				For first-order equations, we have theorems that told us that solutions existed and were unique, at least on small intervals. Linear first-order equations in particular had a very nice existence and uniqueness theorem (Theorem <xref ref="exist-lin1thm" />), guaranteeing existence on a full interval wherever the coefficient functions are continuous. Linear second-order equations have an existence and uniqueness theorem that gives the same type of result when the initial condition is stated properly.
 			</p>
 
-<!-- div attr= class="theorem1"-->
-			<p>
-				Existence and uniqueness Suppose <m>p, q, f</m> are continuous functions on some interval <m>I</m>, <m>a</m> is a number in <m>I</m>, and <m>a, b_0, b_1</m> are constants. The equation 
-<me>
+<theorem xml:id="thm-e-u-secondorder">
+	<title>Existence and Uniqueness</title>
+	
+	
+	<statement>
+		<p>
+			Suppose <m>p, q, f</m> are continuous functions on some interval <m>I</m>, <m>a</m> is a number in <m>I</m>, and <m>a, b_0, b_1</m> are constants. The equation 
+<md>
 y'' + p(x) y' + q(x) y = f(x) ,
-</me>
+</md>
  has exactly one solution <m>y(x)</m> defined on the same interval <m>I</m> satisfying the initial conditions 
-<me>
+<md>
 y(a) = b_0 , \qquad y'(a) = b_1 .
-</me>
+</md>
 
-			</p><!--</div attr= class="theorem1">-->
+			</p>
+	</statement>
+</theorem>
 
 			<p>
 				For example, the equation <m>y'' + k^2 y = 0</m> with <m>y(0) = b_0</m> and <m>y'(0) = b_1</m> has the solution 
-<me>
+<md>
 y(x) = b_0 \cos (kx) + \frac{b_1}{k} \sin (kx) .
-</me>
+</md>
 
 			</p>
 
 			<p>
 				The equation <m>y'' - k^2 y = 0</m> with <m>y(0) = b_0</m> and <m>y'(0) = b_1</m> has the solution 
-<me>
+<md>
 y(x) = b_0 \cosh (kx) + \frac{b_1}{k} \sinh (kx) .
-</me>
+</md>
  Using <m>\cosh</m> and <m>\sinh</m> in this solution allows us to solve for the initial conditions in a cleaner way than if we have used the exponentials.
 			</p>
 
@@ -240,33 +291,33 @@ y(x) = b_0 \cosh (kx) + \frac{b_1}{k} \sinh (kx) .
 
 			<p>
 				Now we want to try to solve some of these equations. As discussed earlier in this section, there is no explicit solution method possible for second order equations. However, if we restrict to a very simple case (which is also one that shows up frequently in physical systems) we can start to develop a method for solving these equations. The type of equation we restrict to is linear and constant coefficient equations. <em>Constant coefficients</em> means that the functions in front of <m>y''</m>, <m>y'</m>, and <m>y</m> are constants, they do not depend on <m>x</m>. The most general second order, linear, constant coefficient equation is 
-<me>
+<md>
 ay'' + by' + cy = g(x)
-</me>
+</md>
  for real constants <m>a, b, c</m> and an arbitrary function <m>g(x)</m>. We will study the solution of nonhomogeneous equations (with <m>g(x) \neq 0</m>) in . We will first focus on finding general solutions to homogeneous equations, which are of the form 
-<me>
+<md>
 ay'' + by' + cy = 0.
-</me>
+</md>
 
 			</p>
 
 			<p>
 				Consider the problem 
-<me>
+<md>
 y''-6y'+8y = 0.
-</me>
+</md>
  This is a second order linear homogeneous equation with constant coefficients, so it fits the type of equation where we want to hunt for solutions. To guess a solution, think of a function that stays essentially the same when we differentiate it, so that we can take the function and its derivatives, add some multiples of these together, and end up with zero. Yes, we are talking about the exponential.
 			</p>
 
 			<p>
-				Let us try<fn>			<p>
-				Making an educated guess with some parameters to solve for is such a central technique in differential equations, that people sometimes use a fancy name for such a guess: <em></em>, German for Yes, the Germans have a word for that.
-			</p></fn> a solution of the form <m>y = e^{rx}</m>. Then <m>y' = r e^{rx}</m> and <m>y'' = r^2 e^{rx}</m>. Plug in to get <me>\begin{align*}
-y''-6y'+8y &amp; = 0 , \\
-\underbrace{r^2 e^{rx}}_{y''} -6 \underbrace{r e^{rx}}_{y'}+8 \underbrace{e^{rx}}_{y} &amp; = 0 , \\
-r^2 -6 r +8 &amp; = 0 \qquad \text{(divide through by } e^{rx} \text{)},\\
-(r-2)(r-4) &amp; = 0 .
-\end{align*}</me> Hence, if <m>r=2</m> or <m>r=4</m>, then <m>e^{rx}</m> is a solution. So let <m>y_1 = e^{2x}</m> and <m>y_2 = e^{4x}</m>.
+				Let us try <fn>Making an educated guess with some parameters to solve for is such a central technique in differential equations, that people sometimes use a fancy name for such a guess: <term>ansatz</term>, German for <q>Initial placement of a tool at a work piece</q>. Yes, the Germans have a word for that.
+			</fn> a solution of the form <m>y = e^{rx}</m>. Then <m>y' = r e^{rx}</m> and <m>y'' = r^2 e^{rx}</m>. Plug in to get <md>
+				<mrow> y''-6y'+8y \amp = 0 </mrow>
+				<mrow> \underbrace{r^2 e^{rx}}_{y''} -6 \underbrace{r e^{rx}}_{y'}+8 \underbrace{e^{rx}}_{y}  \amp  = 0 </mrow>
+				<mrow> r^2 -6 r +8 \amp  = 0</mrow>
+				<mrow> (r-2)(r-4) \amp  = 0 </mrow>
+			</md>
+ where we got to the third line by dividing by <m>e^{rx}</m>, which is never zero. Hence, if <m>r=2</m> or <m>r=4</m>, then <m>e^{rx}</m> is a solution. So let <m>y_1 = e^{2x}</m> and <m>y_2 = e^{4x}</m>.
 			</p>
 
 <exercise>
@@ -275,12 +326,12 @@ r^2 -6 r +8 &amp; = 0 \qquad \text{(divide through by } e^{rx} \text{)},\\
 				Check that <m>y_1</m> and <m>y_2</m> are solutions.
 			</p>
 </statement>
-
-<answer>			<p>
-				So we have found two solutions to this differential equation! That’s great, but there may be a few concerning ideas at this point:
-			</p>
-</answer>
 </exercise>
+
+		<p>
+				So we have found two solutions to this differential equation! That's great, but there may be a few concerning ideas at this point:
+			</p>
+
 
 			<p><ol>
 				<li>
@@ -291,37 +342,37 @@ r^2 -6 r +8 &amp; = 0 \qquad \text{(divide through by } e^{rx} \text{)},\\
 
 				<li>
 							<p>
-								How do we know that there aren’t other solutions that aren’t of the form <m>e^{rx}</m>? We made that assumption, so we could have missed something.
+								How do we know that there aren't other solutions that aren't of the form <m>e^{rx}</m>? We made that assumption, so we could have missed something.
 							</p>
 				</li>
 
 			</ol></p>
 
 			<p>
-				The second point comes back to the existence and uniqueness theorem. This differential equation satisfies the conditions of the existence and uniqueness theorem. That means that as long as we find <em>a</em> solution that can meet any initial condition, then we know that the solution we have found is the <em>only</em> solution. We have not yet verified the part about meeting initial conditions yet (that’s coming later), but once we do, we’ll know that making this assumption is completely fine, because it got us to a solution that works, and the uniqueness theorem tells us that this is the only solution.
+				The second point comes back to the existence and uniqueness theorem. This differential equation satisfies the conditions of the existence and uniqueness theorem. That means that as long as we find <em>a</em> solution that can meet any initial condition, then we know that the solution we have found is the <em>only</em> solution. We have not yet verified the part about meeting initial conditions yet (that'’'s coming later), but once we do, we'll know that making this assumption is completely fine, because it got us to a solution that works, and the uniqueness theorem tells us that this is the only solution.
 			</p>
 
 			<p>
-				For the first point, let’s try to generalize the calculation we did above into a method that will work for more equations. Suppose that we have an equation 
-<men xml:id="ccsol-eq">
+				For the first point, let's try to generalize the calculation we did above into a method that will work for more equations. Suppose that we have an equation 
+<md number="yes" xml:id="ccsol-eq">
  a y'' + b y' + c y = 0 ,
-</men>
+</md>
 where <m>a, b, c</m> are constants. We can take our same assumption that the solution is of the form <m>y = e^{rx}</m> to obtain 
-<me>
+<md>
 a r^2 e^{rx} + 
 b r e^{rx} + 
 c e^{rx} = 0 .
-</me>
- Divide by <m>e^{rx}</m> to obtain the so-called <em></em> of the ODE: 
-<me>
+</md>
+ Divide by <m>e^{rx}</m> to obtain the so-called <term>characteristic equation</term> of the ODE: 
+<md>
 a r^2 + 
 b r + 
 c = 0 .
-</me>
- Solve for the <m>r</m> by using the . 
-<me>
+</md>
+ Solve for the <m>r</m> by using the \<term>quadratic formula</term>. 
+<md>
 r_1, r_2 = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} .
-</me>
+</md>
 
 			</p>
 
@@ -356,20 +407,19 @@ r_1, r_2 = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} .
 
 
 <example>
-<title> </title>
 <statement>			<p>
 				Find two values of <m>r</m> so that <m>e^{rx}</m> is a solution to 
-<me>
+<md>
 y'' + 3y' - 10y = 0
-</me>
+</md>
 
 			</p>
 
 			<p>
 				Our first step is to find the characteristic equation by plugging <m>e^{rx}</m> into the equation. This gives that 
-<me>
+<md>
 r^2 + 3r - 10 = 0
-</me>
+</md>
  This polynomial factors as <m>(r-2)(r+5)</m>, so we know that values of <m>r=2</m> and <m>r=-5</m> will work. This means (check this!) that <m>e^{2x}</m> and <m>e^{-5x}</m> solve this differential equation.
 			</p>
 </statement>
@@ -383,10 +433,14 @@ r^2 + 3r - 10 = 0
 				Since <m>e^{2x}</m> and <m>e^{-5x}</m> solve the linear differential equation in the previous example, we know that superposition applies, so that <m>C_1e^{2x} + C_2e^{-5x}</m> solves the differential equation for any <m>C_1</m> and <m>C_2</m>. The last thing to figure out is if this is <em>all</em> of the solutions to this problem, namely if we can pick <m>C_1</m> and <m>C_2</m> in order to meet any possible initial condition <m>y(a) = b_0</m> and <m>y'(a) = b_1</m>. If this is possible, then we know that our method using the characteristic equation to find <m>e^{2x}</m> and <m>e^{-5x}</m> as solutions was enough to always solve this problem. To begin, we’ll define a structure that we’ll use later in and may seem a bit irrelevant now, but it will all tie together.
 			</p>
 
-<!-- div attr= class="definition"-->
-			<p>
-				Let <m>y_1</m>, <m>y_2</m>, ... <m>y_n</m> be any functions. We say that <m>\{ y_1, \ldots,  y_n\}</m> are <em>linearly independent</em> if the only way to have the equation <me>C_1y_1 + C_2y_2 + \cdots + C_ny_n = 0</me> be true (as functions) is by choosing <m>C_1 = C_2 = \cdots = C_n = 0</m>.
-			</p><!--</div attr= class="definition">-->
+<definition xml:id="def-lin-indep-equns">
+	<title>Linear Independence of Functions</title>
+	<statement>
+		<p>
+				Let <m>y_1</m>, <m>y_2</m>, ... <m>y_n</m> be any functions. We say that <m>\{ y_1, \ldots,  y_n\}</m> are <term>linearly independent</term> if the only way to have the equation <md>C_1y_1 + C_2y_2 + \cdots + C_ny_n = 0</md> be true (as functions) is by choosing <m>C_1 = C_2 = \cdots = C_n = 0</m>.
+			</p>
+	</statement>
+</definition>
 
 			<p>
 				Note that by having this true <em>as functions</em>, we need to have that this combination is always zero, for all values of the independent variable.
@@ -394,14 +448,13 @@ r^2 + 3r - 10 = 0
 
 
 <example>
-<title> </title>
 <statement>			<p>
 				The two functions above, <m>y_1 = e^{2x}</m> and <m>y_2 = e^{-5x}</m> are linearly independent. There are a few ways to reason this out. The first is by manipulating the combination 
-<me>
+<md>
 C_1e^{2x} + C_2e^{-5x} = 0 \quad \Rightarrow \quad C_1e^{2x} = -C_2e^{-5x} \quad \Rightarrow \quad e^{7x} = -\frac{C_2}{C_1} 
-</me>
+</md>
  which cannot be true for all values of <m>x</m> because <m>e^{7x}</m> is not a constant but <m>-\frac{C_2}{C_1}</m> is. Another way is by taking the derivative of the combination and setting <m>x</m> to zero in both the original and the derivative. 
-<me>
+<md>
 \begin{split}
 C_1e^{2x} + C_2e^{-5x} &amp;= 0 \\
 2C_1e^{2x} - 5C_2e^{-5x} &amp;= 0\\
@@ -411,7 +464,7 @@ C_1e^{2x} + C_2e^{-5x} &amp;= 0 \\
 C_1 + C_2 &amp;= 0\\
 2C_1 - 5C_2 &amp;= 0\\
 \end{split}
-</me>
+</md>
  and we can solve this last system to get that we must have <m>C_1 = C_2 = 0</m>.
 			</p>
 </statement>
@@ -422,112 +475,119 @@ C_1 + C_2 &amp;= 0\\
 
 			<p>
 				Now, what does this have to do with our initial conditions and showing that we can get all solutions via this method? The connection may not be obvious at first (without suitable experience in linear algebra) but we will get there. First, let’s start by just seeing what needs to happen in order to meet any initial condition at <m>x=0</m>. Assume that we are given <m>b_0</m> and <m>b_1</m> and want to solve the initial value problem 
-<me>
+<md>
 y'' + 3y' - 10y = 0 \qquad y(0) = b_0,\ y'(0) = b_1.
-</me>
+</md>
  We want to do this by picking <m>C_1</m> and <m>C_2</m> in the expression <m>y=C_1e^{2x} + C_2e^{-5x}</m>. Since 
-<me>
+<md>
 y' = 2C_1e^{2x} - 5C_2e^{-5x}
-</me>
+</md>
  we can plug zero into this equation and the equation for <m>y</m> to get that we would need to have 
-<me>
-\begin{split}
-b_0 = y(0) &amp;= C_1 + C_2 \\
-b_1 = y'(0) &amp;= 2C_1 - 5C_2
-\end{split}.
-</me>
+<md>
+<mrow> b_0 = y(0) \amp = C_1 + C_2  </mrow>
+<mrow> b_1 = y'(0)\amp 2C_1 - 5C_2</mrow>
+</md>.
  We can solve this system of equations by elimination. Multiplying the first equation by 5 adding them together gives 
-<me>
+<md>
 5b_0 + b_1 = 7C_1
-</me>
+</md>
  so that 
-<me>
+<md>
 C_1 = \frac{5b_0 + b_1}{7}.
-</me>
+</md>
  We can then compute the value of <m>C_2</m> as 
-<me>
+<md>
 C_2 = b_0 - C_1 = b_0 - \frac{5b_0 + b_1}{7} = \frac{2b_0 - b_1}{7}.
-</me>
+</md>
  Therefore, we can appropriate values of <m>C_1</m> and <m>C_2</m> that will meet the initial conditions for arbitrary values <m>b_0</m> and <m>b_1</m>. This is great! This means that our method of finding solutions was sufficient for this problem.
 			</p>
 
 			<p>
-				Let’s look at this situation in more generality. Assume that we have two solutions <m>y_1</m> and <m>y_2</m> that solve a second order linear, homogeneous differential equation, and we want to know if <m>C_1y_1 + C_2y_2</m> can meet any initial condition for this problem. We have two unknowns and two equations (<m>y(x_0)</m> and <m>y'(x_0)</m> for some value <m>x_0</m>), so it should work out.
+				Let's look at this situation in more generality. Assume that we have two solutions <m>y_1</m> and <m>y_2</m> that solve a second order linear, homogeneous differential equation, and we want to know if <m>C_1y_1 + C_2y_2</m> can meet any initial condition for this problem. We have two unknowns and two equations (<m>y(x_0)</m> and <m>y'(x_0)</m> for some value <m>x_0</m>), so it should work out.
 			</p>
 
 			<p>
 				We can carry out the same steps as above. If we have initial conditions <m>y(x_0) = b_0</m> and <m>y'(x_0) = b_1</m>, we want to satisfy 
-<me>
-\begin{split}
-b_0 = y(x_0) &amp;= C_1y_1(x_0) + C_2y_2(x_0) \\
-b_1 = y'(x_0) &amp;= C_1y_1'(x_0)  + C_2y_2'(x_0)
-\end{split},
-</me>
+<md>
+<mrow> b_0 = y(x_0) \amp = C_1y_1(x_0) + C_2y_2(x_0) </mrow>
+<mrow> b_1 = y'(x_0) \amp = C_1y_1'(x_0)  + C_2y_2'(x_0) </mrow>
+</md>,
  which we get by taking the derivative of <m>y(x) = C_1y_1(x) + C_2y_2(x)</m> and plugging in <m>x_0</m>. We will again use elimination to solve this. We can multiply the first equation by <m>y_1'(x_0)</m>, multiply the second by <m>y_1(x_0)</m>, and subtract them. This will cancel out the <m>C_1</m> term, leaving us with 
-<me>
+<md>
 b_0y_1'(x_0) - b_1y_1(x_0) = C_2(y_1'(x_0)y_2(x_0) - y_1(x_0)y_2'(x_0)).
-</me>
+</md>
  We want to solve for <m>C_2</m> here, and once we do that, solving for <m>C_1</m> happens by plugging back into one of the original equations. Most of the time, this will be completely fine, but there’s one issue left. We can’t divide by zero. So to be able to solve these equations for <m>C_1</m> and <m>C_2</m>, we need to know that 
-<men xml:id="eqn-linindepW">
+<md number="yes" xml:id="eqn-linindepW">
 y_1'(x_0)y_2(x_0) - y_1(x_0)y_2'(x_0) \neq 0.
-</men>
+</md>
 			</p>
 
 			<p>
-				The left side of this equation is often called the <em></em> of the functions <m>y_1</m> and <m>y_2</m> at the point <m>x_0</m>. In general, the Wronskian is the function <m>y_1'(x)y_2(x) - y_2'(x)y_1(x)</m> for two solutions to a second order differential equation. This relation (the Wronskian being non-zero) tells us that the two solutions <m>y_1</m> and <m>y_2</m> are different enough to allow us to meet every initial condition for the differential equation.
+				The left side of this equation is often called the <term>Wronskian</term> of the functions <m>y_1</m> and <m>y_2</m> at the point <m>x_0</m>. In general, the Wronskian is the function <m>y_1'(x)y_2(x) - y_2'(x)y_1(x)</m> for two solutions to a second order differential equation. This relation (the Wronskian being non-zero) tells us that the two solutions <m>y_1</m> and <m>y_2</m> are different enough to allow us to meet every initial condition for the differential equation.
 			</p>
 
 			<p>
 				In order to bring everything together, the last statement we need to show is that if two solutions are linearly independent, then their Wronskian is zero, which will tell us that linear independence is enough to know that we can solve any initial value problem we want and have found all solutions to the problem in question.
 			</p>
 
-<!-- div attr= class="theorem1"-->
-			<p>
-				Linear Independence and the Wronskian Let <m>p, q</m> be continuous functions. Let <m>y_1</m> and <m>y_2</m> be two solutions to the homogeneous equation <xref ref="sol-eqlinhom" />. Then <m>y_1</m> and <m>y_2</m> are <em>linearly independent</em> if and only if the Wronskian <m>W(x) = y_1'(x)y_2(x) - y_2'(x)y_1(x)</m> is non-zero for all <m>x</m> where the differential equation is defined.
-			</p><!--</div attr= class="theorem1">-->
+<theorem xml:id="thm-lin-indep-Wronskian">
+	<title>Linear Independence and the Wronskian</title>
+	
+	<statement>
+		<p>
+				Let <m>p, q</m> be continuous functions. Let <m>y_1</m> and <m>y_2</m> be two solutions to the homogeneous equation <xref ref="sol-eqlinhom" />. Then <m>y_1</m> and <m>y_2</m> are <em>linearly independent</em> if and only if the Wronskian <m>W(x) = y_1'(x)y_2(x) - y_2'(x)y_1(x)</m> is non-zero for all <m>x</m> where the differential equation is defined.
+			</p>
+	</statement>
+	<proof>
+		<p>
+We'll provide a description of how this proof works in this particular case. Assume that <m>W(x)</m> is never zero. Then, by the same methods we described previously, we can solve 
+<md number="yes" xml:id="eqn-sysLinIndepW">
+0 = C_1y_1(x) + C_2y_2(x) \qquad 0 = C_1y_1'(x)  + C_2y_2'(x)
+</md>
 
-<!-- div attr= class="proof"-->
-			<p>
-				<em>Proof.</em> We’ll provide a description of how this proof works in this particular case. Assume that <m>W(x)</m> is never zero. Then, by the same methods we described previously, we can solve 
-<men xml:id="eqn-sysLinIndepW">
-\begin{split}
-0 &amp;= C_1y_1(x) + C_2y_2(x) \\
-0 &amp;= C_1y_1'(x)  + C_2y_2'(x)
-\end{split}
-</men>
-as a function of <m>x</m> using elimination, and we’ll get that <m>C_1</m> and <m>C_2</m> must be zero. Since the second equation is the derivative of the first, if there was a non-zero solution for just the first equation (the one that defines linear independence), then that would apply to both equations. Therefore, the only way for that first equation to be true on its own is if <m>C_1</m> and <m>C_2</m> are zero, giving linear independence.
+as a function of <m>x</m> using elimination, and we'll get that <m>C_1</m> and <m>C_2</m> must be zero. Since the second equation is the derivative of the first, if there was a non-zero solution for just the first equation (the one that defines linear independence), then that would apply to both equations. Therefore, the only way for that first equation to be true on its own is if <m>C_1</m> and <m>C_2</m> are zero, giving linear independence.
 			</p>
 
 			<p>
 				On the other hand, assume the solutions are linearly independent, and there is some point <m>x_0</m> where <m>W(x_0) = 0</m>. This means that 
-<me>
-y_1'(x_0)y_2(x_0) = y_1(x_0)y_2'(x_0) \quad \text{ or } \quad \frac{y_1'(x_0)}{y_1(x_0)} = \frac{y_2'(x_0)}{y_2(x_0)} \text{ assuming nothing is zero.}
-</me>
- This means that the pair of equations in <xref ref="eqn-sysLinIndepW" /> are multiples of each other at <m>x_0</m>, meaning there is really only one equation, and so there are non-zero values of <m>C_1</m> and <m>C_2</m> that solve it. Letting <m>K_1</m> and <m>K_2</m> be these particular values, define 
-<me>
+<md>
+y_1'(x_0)y_2(x_0) = y_1(x_0)y_2'(x_0)
+</md>
+or 
+<md>
+	\frac{y_1'(x_0)}{y_1(x_0)} = \frac{y_2'(x_0)}{y_2(x_0)}
+</md>
+assuming that nothing in the denominator is zero. This means that the pair of equations in <xref ref="eqn-sysLinIndepW" /> are multiples of each other at <m>x_0</m>, meaning there is really only one equation, and so there are non-zero values of <m>C_1</m> and <m>C_2</m> that solve it. Letting <m>K_1</m> and <m>K_2</m> be these particular values, define 
+<md>
 \phi(x) = K_1y_1(x) + K_2y_2(x).
-</me>
+</md>
  Since <m>y_1</m> and <m>y_2</m> are solutions to <xref ref="sol-eqlinhom" /> and the choice of <m>K_1</m> and <m>K_2</m> to solve <xref ref="eqn-sysLinIndepW" />, we know that <m>\phi</m> solves <xref ref="sol-eqlinhom" /> with <m>\phi(x_0) = \phi'(x_0) = 0</m>. However, <m>0</m> is also a solution to this initial value problem and says that solutions to this problem are unique. Therefore 
-<me>
+<md>
 0 = K_1y_1(x) + K_2y_2(x),
-</me>
- contradicting the linear independence of <m>y_1</m> and <m>y_2</m>. Therefore, <m>W(x)</m> must be non-zero everywhere. ◻
-			</p><!--</div attr= class="proof">-->
+</md>
+ contradicting the linear independence of <m>y_1</m> and <m>y_2</m>. Therefore, <m>W(x)</m> must be non-zero everywhere.
+			</p>
+	</proof>
+</theorem>
+
 
 			<p>
-				Therefore, what this says is that for two solutions of a linear, homogeneous differential equation (which is more specific than just having two random functions), two solutions being linearly independent is equivalent to <xref ref="eqn-linindepW" /> holding for any<fn>			<p>
-				Abel’s Theorem, another theoretical result, says that the Wronskian <m>y_1'y_2 - y_1y_2'</m> is either always zero or never zero. That means that any one value can be checked to determine if two solutions are linearly independent. Picking <m>0</m> is usually a convenient choice.
-			</p></fn> value <m>x_0</m> where they are defined. Our work and calculations above leads to the following theorem:
+				Therefore, what this says is that for two solutions of a linear, homogeneous differential equation (which is more specific than just having two random functions), two solutions being linearly independent is equivalent to <xref ref="eqn-linindepW" /> holding for any<fn>
+				Abel's Theorem, another theoretical result, says that the Wronskian <m>y_1'y_2 - y_1y_2'</m> is either always zero or never zero. That means that any one value can be checked to determine if two solutions are linearly independent. Picking <m>0</m> is usually a convenient choice.
+			</fn> value <m>x_0</m> where they are defined. Our work and calculations above leads to the following theorem:
 			</p>
 
-<!-- div attr= class="theorem1"-->
-			<p>
+<theorem xml:id="thm-GeneralSols-secondLin">
+	<statement>
+		<p>
 				Let <m>p, q</m> be continuous functions. Let <m>y_1</m> and <m>y_2</m> be two linearly independent solutions to the homogeneous equation <xref ref="sol-eqlinhom" />. Then every other solution is of the form 
-<me>
+<md>
 y = C_1 y_1 + C_2 y_2
-</me>
+</md>
  for some constants <m>C_1</m> and <m>C_2</m>. That is, <m>y = C_1 y_1 + C_2 y_2</m> is the general solution.
-			</p><!--</div attr= class="theorem1">-->
+			</p>
+	</statement>
+</theorem>
 
 			<p>
 				Note that this theorem works for all linear homogeneous equations, not just constant coefficients ones. However, the methods that we have described here (and will in future sections) for <em>finding</em> these solutions will generally only work for constant coefficient equations.
@@ -535,7 +595,6 @@ y = C_1 y_1 + C_2 y_2
 
 
 <example>
-<title> </title>
 <statement>			<p>
 				Find the general solution of the differential equation <m>y'' + y = 0</m>.
 			</p>
@@ -543,17 +602,17 @@ y = C_1 y_1 + C_2 y_2
 
 <solution>			<p>
 				One of the four fundamental equations in showed that the two functions <m>y_1 = \sin x</m> and <m>y_2 = \cos x</m> are solutions to the equation <m>y'' + y = 0</m>. It is not hard to see that sine and cosine are not constant multiples of each other. If <m>\sin x = A \cos x</m> for some <term>constant</term> <m>A</m>, we let <m>x=0</m> and this would imply <m>A = 0</m>. But then <m>\sin x = 0</m> for all <m>x</m>, which is preposterous. So <m>y_1</m> and <m>y_2</m> are linearly independent. We could also have checked this by taking derivatives and plugging in zero. Since 
-<me>
+<md>
 y_1(0) = 0 \ \ y_1'(0) = 1\ \ y_2(0) = 1\ \ y_2'(0) = 0 
-</me>
+</md>
  we have that 
-<me>
+<md>
 y_1'(0)y_2(0) - y_1(0)y_2'(0) = (1)(1) - (0)(0) = 1 \neq 0
-</me>
+</md>
  so these solutions are linearly independent. Hence, 
-<me>
+<md>
 y = C_1 \cos x + C_2 \sin x 
-</me>
+</md>
  is the general solution to <m>y'' + y = 0</m>.
 			</p>
 </solution>
@@ -566,57 +625,56 @@ y = C_1 \cos x + C_2 \sin x
 
 			<p>
 				Now, back to our discussion of constant coefficient equations. If <m>b^2 - 4ac &gt; 0</m>, then we have two distinct real roots <m>r_1</m> and <m>r_2</m>, giving rise to solutions of the form <m>y_1(x) = e^{r_1x}</m> and <m>y_2(x) = e^{r_2x}</m>. Using condition <xref ref="eqn-linindepW" /> with <m>x_0 = 0</m>, we compute 
-<me>
+<md>
 y_1'(0)y_2(0) - y_1(0)y_2'(0) = (r_1)(1) - (1)(r_2) = r_1 - r_2.
-</me>
+</md>
  Since <m>r_1 \neq r_2</m>, this expression is not zero, so the two solutions are linearly independent. Therefore, in this case, we know that the general solution will be 
-<me>
+<md>
 y = C_1e^{r_1x} + C_2e^{r_2x}.
-</me>
- Using the other formulation of linear independence of two functions, we would need to show that there is no constant <m>A</m> so that <me>e^{r_1x} = A e^{r_2x}.</me> Since this can be rewritten as <m>A = e^{(r_1-r_2)x}</m> and we know that <m>r_1 \neq r_2</m>, this is not a constant, so we again know that these functions are linearly independent and give rise to a general solution.
+</md>
+ Using the other formulation of linear independence of two functions, we would need to show that there is no constant <m>A</m> so that <md>e^{r_1x} = A e^{r_2x}.</md> Since this can be rewritten as <m>A = e^{(r_1-r_2)x}</m> and we know that <m>r_1 \neq r_2</m>, this is not a constant, so we again know that these functions are linearly independent and give rise to a general solution.
 			</p>
 
 
 <example>
-<title> </title>
 <statement>			<p>
 				Solve the initial value problem 
-<me>
+<md>
 y'' + 2y' - 3y = 0 \qquad y(0) = 2,\ y'(0) = 1. 
-</me>
+</md>
 
 			</p>
 </statement>
 
 <solution>			<p>
 				To start, we find the characteristic equation of this differential equation and look for the roots. The characteristic equation here is 
-<me>
+<md>
 r^2 + 2r - 3 = 0
-</me>
+</md>
  and this factors as <m>(r+3)(r-1) = 0</m>. Thus, the two roots are <m>r=1</m> and <m>r=-3</m>, so that the general solution (and we know it is the general solution because these are different exponents and so the solutions are linearly independent) is 
-<me>
+<md>
 y(x) = C_1e^{x} + C_2e^{-3x}.
-</me>
+</md>
 
 			</p>
 
 			<p>
 				In order to find the values of <m>C_1</m> and <m>C_2</m>, we need to use the initial conditions. Plugging zero into <m>y(x)</m> gives 
-<me>
+<md>
 y(0) = 2 = C_1 + C_2
-</me>
+</md>
  and since the derivative <m>y'(x) = C_1e^x - 3C_2e^{-3x}</m>, the second condition gives that 
-<me>
+<md>
 y'(0) = 1 = C_1 - 3C_2.
-</me>
+</md>
  Subtracting the second equation from the first gives that 
-<me>
+<md>
 1 = 4C_2
-</me>
+</md>
  so that <m>C_2 = 1/4</m> and <m>C_1 = 7/4</m>. Thus, the solution to the initial value problem is 
-<me>
+<md>
 y(x) = \frac{7}{4}e^x + \frac{1}{4}e^{-3x}.
-</me>
+</md>
 
 			</p>
 </solution>
@@ -627,73 +685,64 @@ y(x) = \frac{7}{4}e^x + \frac{1}{4}e^{-3x}.
 
 
 <example>
-<title> </title>
 <statement>			<p>
 				Solve the initial value problem 
-<me>
+<md>
 y'' - 2y' - y = 0 \qquad y(0) = 2,\ y'(0) = 3.
-</me>
+</md>
 
 			</p>
 </statement>
 
 <solution>			<p>
 				We start by looking for the characteristic equation of this differential equation and finding its roots. The characteristic equation is 
-<me>
+<md>
 r^2 - 2r - 1 = 0
-</me>
+</md>
  which has roots 
-<me>
+<md>
 r = \frac{2 \pm \sqrt{(-2)^2 - 4(1)(-1)}}{2} = \frac{2 \pm \sqrt{8}}{2} = 1 \pm \sqrt{2}.
-</me>
+</md>
 
 			</p>
 
 			<p>
 				There are two real and distinct roots, so we know that the two solutions <m>y_1(x) = e^{(1+\sqrt{2})x}</m> and <m>y_2(x) = e^{(1-\sqrt{2})x}</m> are linearly independent, so we have that the general solution to this problem is 
-<me>
+<md>
 y(x) = C_1e^{(1+\sqrt{2})x} + C_2e^{(1 - \sqrt{2})x}.
-</me>
+</md>
 
 			</p>
 
 			<p>
 				Next, we need to find the constants <m>C_1</m> and <m>C_2</m> to meet the initial conditions. We can see that, by computing the first derivative, 
-<me>
-\begin{split}
-y(x) &amp;= C_1e^{(1+\sqrt{2})x} + C_2e^{(1 - \sqrt{2})x}, \\
-y'(x) &amp;= (1+\sqrt{2})C_1e^{(1+\sqrt{2})x} + (1 - \sqrt{2})C_2e^{(1 - \sqrt{2})x},
-\end{split}
-</me>
+<md>
+<mrow> y(x)  \amp  = C_1e^{(1+\sqrt{2})x} + C_2e^{(1 - \sqrt{2})x}</mrow>
+<mrow> y'(x) \amp = (1+\sqrt{2})C_1e^{(1+\sqrt{2})x} + (1 - \sqrt{2})C_2e^{(1 - \sqrt{2})x} </mrow>
+</md>
  and plugging in <m>x=0</m> gives that we want <m>C_1</m> and <m>C_2</m> to solve 
-<me>
-\begin{split}
-2 &amp;= C_1 + C_2, \\
-3 &amp;= (1 + \sqrt{2})C_1 + (1 - \sqrt{2})C_2.
-\end{split}
-</me>
+<md>
+<mrow> 2 \amp = C_1 + C_2</mrow>
+<mrow> 3 \amp = (1 + \sqrt{2})C_1 + (1 - \sqrt{2})C_2</mrow>
+</md>.
  We can solve this by any method. One trick at the start is to subtract equation 1 from equation 2, giving that 
-<me>
-\begin{split}
-2 &amp;= C_1 + C_2, \\
-1 &amp;= \sqrt{2}C_1 - \sqrt{2}C_2,
-\end{split}
-</me>
+<md>
+<mrow> 2 \amp = C_1 + C_2</mrow>
+<mrow> 1 \amp = \sqrt{2}C_1 - \sqrt{2}C_2</mrow>
+</md>
  which can be rewritten as 
-<me>
-\begin{split}
-2 &amp;= C_1 + C_2, \\
-\frac{1}{\sqrt{2}} &amp;= C_1 - C_2.
-\end{split}
-</me>
+<md>
+<mrow> 2 \amp = C_1 + C_2 </mrow>
+<mrow>  \frac{1}{\sqrt{2}} \amp = C_1 - C_2 </mrow>
+</md>
  Adding these equations together and dividing by 2 gives that 
-<me>
+<md>
 2C_1 = 2 + \frac{1}{\sqrt{2}}
-</me>
+</md>
  so that <m>C_1 = 1 + \frac{1}{2\sqrt{2}}</m>, and since <m>C_1 + C_2 = 2</m>, we have that <m>C_2 = 1 - \frac{1}{2\sqrt{2}}</m>. Therefore, the solution to the desired initial value problem is 
-<me>
+<md>
 y(x) = \left(1 + \frac{1}{2\sqrt{2}}\right)e^{(1 + \sqrt{2})x} + \left(1 - \frac{1}{2\sqrt{2}}\right)e^{(1 - \sqrt{2})x}.
-</me>
+</md>
 
 			</p>
 </solution>
@@ -782,7 +831,7 @@ y(x) = \left(1 + \frac{1}{2\sqrt{2}}\right)e^{(1 + \sqrt{2})x} + \left(1 - \frac
 <exercise>
 <statement>
 			<p>
-				Determine the maximal interval of existence of the solution to the differential equation <me>(t - 5)y'' + \frac{1}{t+1}y' + e^t y = \frac{\cos(t)}{t^2 + 1}</me> with initial condition <m>y(3) = 8</m>. What about if the initial condition is <m>y(-3) = 4</m>?
+				Determine the maximal interval of existence of the solution to the differential equation <md>(t - 5)y'' + \frac{1}{t+1}y' + e^t y = \frac{\cos(t)}{t^2 + 1}</md> with initial condition <m>y(3) = 8</m>. What about if the initial condition is <m>y(-3) = 4</m>?
 			</p>
 </statement>
 
@@ -958,36 +1007,49 @@ y(x) = \left(1 + \frac{1}{2\sqrt{2}}\right)e^{(1 + \sqrt{2})x} + \left(1 - \frac
 </answer>
 </exercise>
 
-			<p>
-				Equations of the form <m>a x^2 y'' + b x y' + c y = 0</m> are called <em>Euler’s equations</em> or <em>Cauchy–Euler equations</em>. They are solved by trying <m>y=x^r</m> and solving for <m>r</m> (assume that <m>x \geq 0</m> for simplicity).
-			</p>
-
-<exercise>
-<statement>
-			<p>
+			<exercisegroup>
+			
+				<introduction>
+					<p>
+						Equations of the form <m>a x^2 y'' + b x y' + c y = 0</m> are called <em>Euler's equations</em> or <em>Cauchy-Euler equations</em>. They are solved by trying <m>y=x^r</m> and solving for <m>r</m> (assume that <m>x \geq 0</m> for simplicity).
+				</p>
+				</introduction>
+			
+				<exercise>
+	<introduction>
+		<p>
 				 Suppose that <m>{(b-a)}^2-4ac &gt; 0</m>.
 			</p>
-
-<!-- div attr= class="tasks"-->
+	</introduction>
+	<task>
+		<statement>
+			<p> Find a formula for the general solution of <m>a x^2 y'' + b x y' + c y = 0</m>. Hint: Try <m>y=x^r</m> and find a formula for <m>r</m>.  </p>
+		</statement>
+		<answer>
+			<p>  <m>r_1 = \frac{(a-b) + \sqrt{(b-a)^2 - 4ac}}{2a}</m>, <m>r_2 = \frac{(a-b) - \sqrt{(b-a)^2 - 4ac}}{2a}</m>, General Solution: <m>y = C_1x^{r_1} + C_2x^{r_2}</m>. </p>
+		</answer>
+	</task>
+	<task>
+		<statement>
 			<p>
-				Find a formula for the general solution of <m>a x^2 y'' + b x y' + c y = 0</m>. Hint: Try <m>y=x^r</m> and find a formula for <m>r</m>. What happens when <m>{(b-a)}^2-4ac = 0</m> or <m>{(b-a)}^2-4ac &lt; 0</m>?
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) <m>r_1 = \frac{(a-b) + \sqrt{(b-a)^2 - 4ac}}{2a}</m>, <m>r_2 = \frac{(a-b) - \sqrt{(b-a)^2 - 4ac}}{2a}</m>, General Solution: <m>y = C_1x^{r_1} + C_2x^{r_2}</m>.<!-- linebreak -->b)  Only one solution or complex solutions. 
+				What happens when <m>{(b-a)}^2-4ac = 0</m> or <m>{(b-a)}^2-4ac &lt; 0</m>? We will revisit the case when <m>{(b-a)}^2-4ac &lt; 0</m> later.
 			</p>
-</answer>
+		</statement>
+		<answer>
+			<p>
+				Only one solution or complex solutions. 
+			</p>
+		</answer>
+	</task>
+
 </exercise>
 
-			<p>
-				We will revisit the case when <m>{(b-a)}^2-4ac &lt; 0</m> later.
-			</p>
+			
 
 <exercise>
 <statement>
 			<p>
-				 Same equation as in . Suppose <m>{(b-a)}^2-4ac = 0</m>. Find a formula for the general solution of <m>a x^2 y'' + b x y' + c y = 0</m>. Hint: Try <m>y=x^r \ln x</m> for the second solution.
+				Suppose <m>{(b-a)}^2-4ac = 0</m>. Find a formula for the general solution of <m>a x^2 y'' + b x y' + c y = 0</m>. Hint: Try <m>y=x^r \ln x</m> for the second solution.
 			</p>
 </statement>
 
@@ -996,6 +1058,11 @@ y(x) = \left(1 + \frac{1}{2\sqrt{2}}\right)e^{(1 + \sqrt{2})x} + \left(1 - \frac
 			</p>
 </answer>
 </exercise>
+			
+			</exercisegroup>
+				
+
+
 </exercises>
 
 	</section>

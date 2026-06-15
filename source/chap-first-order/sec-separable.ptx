@@ -29,18 +29,18 @@
 			the form <m>y' = f(x)</m>, we can just integrate: <m>y = \int f(x) \,dx + C</m>.
 			Unfortunately this method no longer works for the general form of the equation <m>y' =
 			f(x,y)</m>. Integrating both sides yields 
-			<me>
+			<md>
 				y = \int f(x,y) \, dx + C
-			</me>.	Notice the dependence on <m>y</m> in the integral.
+			</md>.	Notice the dependence on <m>y</m> in the integral.
 			Since <m>y</m> is a function of <m>x</m>, this expression is really of the form 
-			<me>
+			<md>
 				y = \int f(x, y(x))\, dx + C
-			</me> and without knowing what <m>y(x)</m> is in advance
+			</md> and without knowing what <m>y(x)</m> is in advance
 			(which we don't, because that's what we are trying to solve for) we can't compute this
 			integral. Note that while you may have seen integrals of the form 
-			<me>
+			<md>
 				\int f(x,y)\, dx
-			</me> in Calculus 3, this is not the same situation. In that class, <m>
+			</md> in Calculus 3, this is not the same situation. In that class, <m>
 			x</m> and <m>y</m> were both independent variables, so we could integrate this
 			expression in <m>x</m>, treating <m>y</m> as a constant. However, here <m>y</m> is a
 			function of <m>x</m>, so they are not both independent variables and <m>y</m> can not be
@@ -60,40 +60,40 @@
 			<statement>
 				<p>
 					We say a differential equation is <term>separable</term> if we can write it as
-					<me>
+					<md>
 				y' = f(x)g(y)
-			</me>, for some functions <m>f(x)</m> and <m>g(y)</m>.
+			</md>, for some functions <m>f(x)</m> and <m>g(y)</m>.
 				</p>
 			</statement>
 		</definition>
 
-		<p> Let us write the equation in <term>Leibniz Notation</term> <me>
+		<p> Let us write the equation in <term>Leibniz Notation</term> <md>
 				\frac{dy}{dx} = f(x)g(y)
-			</me>. Then we rewrite the equation as <me>
+			</md>. Then we rewrite the equation as <md>
 				\frac{dy}{g(y)} = f(x) \,dx
-			</me>. It looks like we just separated the derivative as
+			</md>. It looks like we just separated the derivative as
 			a fraction. The actual reasoning here is the differential from Calculus 1. This is the
-			fact that for <m>y</m> a function of <m>x</m>, we know that <me>
+			fact that for <m>y</m> a function of <m>x</m>, we know that <md>
 				dy = \frac{dy}{dx} dx
-			</me>. This means that we can take the equation <me>
+			</md>. This means that we can take the equation <md>
 			\frac{dy}{dx} = f(x)g(y)
-			</me>, rearrange it as <me>
+			</md>, rearrange it as <md>
 				\frac{1}{g(y)} \frac{dy}{dx} = f(x)
-			</me> and then multiply both sides by <m>dx</m>
-			to get <me>
+			</md> and then multiply both sides by <m>dx</m>
+			to get <md>
 				\frac{1}{g(y)} \frac{dy}{dx}\ dx = f(x) dx
-			</me> which leads to the rewritten
-			equation above. Both sides look like something we can integrate. We obtain <me>
+			</md> which leads to the rewritten
+			equation above. Both sides look like something we can integrate. We obtain <md>
 				\int \frac{dy}{g(y)} = \int f(x) \,dx + C
-			</me>. If we can find closed form
+			</md>. If we can find closed form
 			expressions for these two integrals, we can, perhaps, solve for <m>y</m>. </p>
 			
 
 		<example xml:id="ex-sep-xy">
 			<statement>
-				<p> Solve the equation <me>
+				<p> Solve the equation <md>
 						y' = xy
-					</me>.
+					</md>.
 
 				</p>
 			</statement>
@@ -101,52 +101,52 @@
 			<solution>
 				<p> Note that <m>y=0</m> is a solution. We will remember that fact and assume <m>y
 					\not =0</m> from now on, so that we can divide by <m>y</m>. Write the equation
-					as <m>\frac{dy}{dx} = xy</m>. Then <me>
+					as <m>\frac{dy}{dx} = xy</m>. Then <md>
 						\int \frac{dy}{y} = \int x\,dx + C
-					</me>. We compute the antiderivatives to
-					get <me>
+					</md>. We compute the antiderivatives to
+					get <md>
 						\ln \, \lvert y\rvert = \frac{x^2}{2} + C
-					</me>, or <me>
+					</md>, or <md>
 						\lvert y \rvert = e^{\frac{x^2}{2} + C} = e^{\frac{x^2}{2}} e^C = D
 					e^{\frac{x^2}{2}}
-					</me>,
+					</md>,
 					where <m>D &gt; 0</m> is some constant. Because <m>y=0</m> is also a solution
-					and because of the absolute value we can write: <me>
+					and because of the absolute value we can write: <md>
 						y = D e^{\frac{x^2}{2}}
-					</me>, for any number <m>D</m> (including zero or
+					</md>, for any number <m>D</m> (including zero or
 					negative). </p>
 
-				<p> We check: <me>
+				<p> We check: <md>
 						y' = D x e^{\frac{x^2}{2}} = x \left( D e^{\frac{x^2}{2}} \right) = xy
-					</me>.
+					</md>.
 					Yay! </p>
 			</solution>
 		</example>
 		<p> One particular case in which this method works very well is if the function <m>f(x,y)</m>
 			is only a function of <m>y</m>. With this, we can explicitly complete the solution to
-			equations like <me>
+			equations like <md>
 				y' = ky
-			</me>. reaching the solution <m>y(x) = e^{kx}</m>. </p>
+			</md>. reaching the solution <m>y(x) = e^{kx}</m>. </p>
 
 		<p> We should be a little bit more careful with this method. You may be worried that we
 			integrated in two different variables. We seemingly did a different operation to each
-			side. Let us work through this method more rigorously. Take <me>
+			side. Let us work through this method more rigorously. Take <md>
 				\frac{dy}{dx} = f(x)g(y)
-			</me>. We rewrite the equation as follows. Note that <m>y =
-			y(x)</m> is a function of <m>x</m> and so is <m>\frac{dy}{dx}</m>! <me>
+			</md>. We rewrite the equation as follows. Note that <m>y =
+			y(x)</m> is a function of <m>x</m> and so is <m>\frac{dy}{dx}</m>! <md>
 			\frac{1}{g(y)}\,\frac{dy}{dx} = f(x)
-			</me>. We integrate both sides with respect to <m>
-			x</m>: <me>
+			</md>. We integrate both sides with respect to <m>
+			x</m>: <md>
 				\int \frac{1}{g(y)}\,\frac{dy}{dx} \,dx = \int f(x) \,dx + C
-			</me>. We use the
-			change of variables formula (substitution) on the left hand side: <me>
+			</md>. We use the
+			change of variables formula (substitution) on the left hand side: <md>
 				\int \frac{1}{g(y)}\,dy = \int f(x) \,dx + C
-			</me>. And we are done. </p>
+			</md>. And we are done. </p>
 
 		<p> However, in some cases there are some special solutions to these problems as well that
-			don't fit the same formula. Assume we have <me>
+			don't fit the same formula. Assume we have <md>
 				\frac{dy}{dx} = f(x)g(y)
-			</me> and we have a value <m>y_0</m> such that <m>g(y_0) = 0</m>.
+			</md> and we have a value <m>y_0</m> such that <m>g(y_0) = 0</m>.
 			Then, the function <m>y(x) = y_0</m> is a solution, provided <m>f(x)</m> is defined
 			everywhere. (Plug this in and check!) This fills in the issue for having <m>
 			\frac{1}{g(y)}</m> in our integral expression, which is not defined when <m>g(y) = 0</m>.
@@ -159,23 +159,23 @@
 		<title>Implicit solutions</title>
 
 		<p> We sometimes get stuck even if we can do the integration. Consider the separable
-			equation <me>
+			equation <md>
 				y' = \frac{xy}{y^2+1} .
-			</me> We separate variables, <me>
+			</md> We separate variables, <md>
 				\frac{y^2+1}{y}\,dy = \left(y+\frac{1}{y}\right)\,dy = x\,dx
-			</me>. We integrate to
-			get <me>
+			</md>. We integrate to
+			get <md>
 				\frac{y^2}{2} + \ln \, \lvert y \rvert = \frac{x^2}{2} + C
-			</me>, or perhaps the
-			easier looking expression (where <m>D = 2C</m>) <me>
+			</md>, or perhaps the
+			easier looking expression (where <m>D = 2C</m>) <md>
 				y^2 + 2 \ln \, \lvert y\rvert = x^2 + D
-			</me>. It is not easy to find the solution
+			</md>. It is not easy to find the solution
 			explicitly as it is hard to solve for <m>y</m>. We, therefore, leave the solution in
 			this form and call it an <term>implicit solution</term>. It is still easy to check that an implicit solution
 			satisfies the differential equation. In this case, we differentiate with respect to <m>x</m>,
-			and remember that <m>y</m> is a function of <m>x</m>, to get <me>
+			and remember that <m>y</m> is a function of <m>x</m>, to get <md>
 				y'\left(2y + \frac{2}{y}\right) = 2x
-			</me>. Multiply both sides by <m>y</m> and
+			</md>. Multiply both sides by <m>y</m> and
 			divide by <m>2(y^2+1)</m> and you will get exactly the differential equation. We leave
 			this computation to the reader. </p>
 
@@ -204,13 +204,13 @@
 			</image>
 		</figure>
 
-		<p> The equation above also has the solution <m>y=0</m>. Since our function <me>g(y) =
-			\frac{y}{y^2 + 1}</me> is zero at <m>y=0</m>, and gives an additional solution to the
+		<p> The equation above also has the solution <m>y=0</m>. Since our function <md>g(y) =
+			\frac{y}{y^2 + 1}</md> is zero at <m>y=0</m>, and gives an additional solution to the
 			problem. The function <m>y(x) = 0</m> satisfies <m>y'(x) = 0</m> and <m>\frac{xy}{y^2 +
 			1} = 0</m> for all <m>x</m>, which is the right-hand side of the equation. So the
-			general solution is <me>
+			general solution is <md>
 				y^2 + 2 \ln \, \lvert y \rvert = x^2 + C, \qquad \text{and} \qquad y=0.
-			</me> These
+			</md> These
 			outlying solutions such as <m>y=0</m> are sometimes called <em>singular solutions</em>,
 			as mentioned previously. </p>
 
@@ -226,9 +226,9 @@
 			</statement>
 
 			<solution>
-				<p> Factor the right-hand side <me>
+				<p> Factor the right-hand side <md>
 						x^2y' = (1 - x^2)(1+y^2)
-					</me>. Separate variables, integrate, and solve for <m>
+					</md>. Separate variables, integrate, and solve for <m>
 					y</m>: <md>
 						<mrow> \frac{y'}{1+y^2}  \amp = \frac{1 - x^2}{x^2}</mrow>
 						<mrow> \frac{y'}{1+y^2} \amp =  \frac{1}{x^2} - 1  </mrow>
@@ -238,9 +238,9 @@
 					Solve for the initial condition, <m>0 = \tan(-2+C)</m> to
 					get <m>C=2</m> (or <m>C = 2 +
 						\pi</m>, or <m>C = 2 + 2\pi</m>, etc.). The particular solution we seek is,
-					therefore, <me>
+					therefore, <md>
 						y = \tan \left(\frac{-1}{x} - x + 2 \right)
-					</me>.
+					</md>.
 
 				</p>
 			</solution>
@@ -262,9 +262,9 @@
 					be the ambient (room) temperature, also in degrees Celsius. <term>Newton's Law of Cooling</term> states that the rate
 					at which the temperature of the coffee is changing is proportional to the
 					difference between the ambient temperature and the temperature of the coffee.
-					That is, <me>
+					That is, <md>
 						\frac{dT}{dt} = k(A-T) ,
-					</me> for some constant <m>k</m>. For our setup <m>
+					</md> for some constant <m>k</m>. For our setup <m>
 					A=22</m>, <m>T(0) = 89</m>, <m>T(1) = 85</m>. We separate variables and
 					integrate (let <m>C</m> and <m>D</m> denote arbitrary constants): 
 					<md>
@@ -279,9 +279,9 @@
 					condition says <m>85 = T(1) =
 						22 + 67\, e^{-k}</m>. Solving for <m>k</m> we get <m>k = - \ln
 					\frac{85-22}{67} \approx 0.0616</m>. Now we solve for the time <m>t</m> that
-					gives us a temperature of 60 degrees. Namely, we solve <me>
+					gives us a temperature of 60 degrees. Namely, we solve <md>
 						60 = 22 + 67 e^{-0.0616t}
-					</me> to get <m>t = - \frac{\ln\frac{60-22}{67}}{0.0616} \approx 9.21</m> minutes. So Bob can begin to drink
+					</md> to get <m>t = - \frac{\ln\frac{60-22}{67}}{0.0616} \approx 9.21</m> minutes. So Bob can begin to drink
 					the coffee at just over 9 minutes from the time Bob made it. That is probably
 					about the amount of time it took us to calculate how long it would take. See <xref ref="sintro-coffeefig"/>. </p>
 
@@ -311,33 +311,33 @@ with a horizontal line at the ambient temperature 22.</caption>
 						<mrow>\frac{3}{y} &amp; = \frac{x^2}{2} + C</mrow>
 						<mrow> y &amp; = \frac{3}{\frac{x^2}{2} + C}= \frac{6}{x^2 + 2C} </mrow>
 					</md>.
-						So the general solution is, <me>
+						So the general solution is, <md>
 						y = \frac{6}{x^2 + 2C}, \qquad \text{and} \qquad y=0
-						</me>.
+						</md>.
 				</p>
 			</solution>
 		</example>
 
 		<example>
 			<statement>
-				<p> Find the general solution to <me>
+				<p> Find the general solution to <md>
 						\frac{dy}{dx} = (x^2 + e^x)(y^2 - 3y - 4).
-					</me>
+					</md>
 				</p>
 			</statement>
 
 			<solution>
 				<p> Using the methods of separable equations, we can rewrite this differential
-					equation as <me>\frac{dy}{y^2 - 3y - 4} = (x^2 + e^x) \ dx</me> and we can
-					integrate both sides to solve. This leads to <me>\int \frac{dy}{y^2 - 3y + 4} =
-					\int x^2 + e^x\ dx.</me> The right-hand side of this can be integrated normally
-					to give <me>\int x^2 + e^x\ dx = \frac{x^3}{3} + e^x + C</me> and the left-hand
+					equation as <md>\frac{dy}{y^2 - 3y - 4} = (x^2 + e^x) \ dx</md> and we can
+					integrate both sides to solve. This leads to <md>\int \frac{dy}{y^2 - 3y + 4} =
+					\int x^2 + e^x\ dx.</md> The right-hand side of this can be integrated normally
+					to give <md>\int x^2 + e^x\ dx = \frac{x^3}{3} + e^x + C</md> and the left-hand
 					side requires partial fractions in order to integrate correctly. If you are not
 					familiar with this technique of partial fractions, it is reviewed in . </p>
 
-				<p> Using the method of partial fractions, we want to rewrite <me>\frac{1}{y^2 - 3y
-					- 4} = \frac{A}{y-4} + \frac{B}{y+1}</me> and solve for <m>A</m> and <m>B</m>,
-					which gives <me>\frac{1}{y^2 - 3y - 4} = \frac{1/5}{y-4} - \frac{1/5}{y+1}.</me>
+				<p> Using the method of partial fractions, we want to rewrite <md>\frac{1}{y^2 - 3y
+					- 4} = \frac{A}{y-4} + \frac{B}{y+1}</md> and solve for <m>A</m> and <m>B</m>,
+					which gives <md>\frac{1}{y^2 - 3y - 4} = \frac{1/5}{y-4} - \frac{1/5}{y+1}.</md>
 					Therefore, we can compute the integral <md>
 						<mrow> \int \frac{dy}{y^2 - 3y - 4} \amp = \int
 					\frac{1/5}{y-4} - \frac{1/5}{y+1} dy </mrow>
@@ -346,8 +346,8 @@ with a horizontal line at the ambient temperature 22.</caption>
 					</md>.
 				</p>
 
-				<p> Therefore, we can write the general solution as <me>\frac{1}{5}
-					\ln{\left(\frac{|y-4|}{|y+1|} \right)} = \frac{x^3}{3} + e^x + C.</me> We could
+				<p> Therefore, we can write the general solution as <md>\frac{1}{5}
+					\ln{\left(\frac{|y-4|}{|y+1|} \right)} = \frac{x^3}{3} + e^x + C.</md> We could
 					solve this out for <m>y</m> as an explicit function, but that is not necessary
 					for a problem like this. </p>
 
@@ -437,7 +437,7 @@ with a horizontal line at the ambient temperature 22.</caption>
 
 		<exercise>
 			<introduction>
-				<p> Consider the differential equation <me>\frac{dy}{dx} = \frac{2x}{y}</me>
+				<p> Consider the differential equation <md>\frac{dy}{dx} = \frac{2x}{y}</md>
 				</p>
 			</introduction>
 			<task>

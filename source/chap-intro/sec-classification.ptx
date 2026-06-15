@@ -68,9 +68,9 @@
 
 		<p>
 			If there are several equations working together, we have a so-called <term>system of differential equations</term>. For example, 
-<me>
+<md>
 y' = x , \qquad x' = y
-</me>
+</md>
  is a simple system of ordinary differential equations. <term>Maxwell's Equations</term> for electromagnetics, <md>
 	<mrow> \nabla \cdot \vec{D} = \rho \amp \nabla \cdot \vec{B} = 0 </mrow>
 	<mrow> \nabla \times \vec{E} = - \frac{\partial \vec{B}}{\partial t} \amp \nabla \times \vec{H} = \vec{J} + \frac{\partial \vec{D}}{\partial t} </mrow>
@@ -95,7 +95,7 @@ y' = x , \qquad x' = y
 
 		<p>
 			Another way to determine if a differential equation is linear is if the equation is a sum of terms, where each term is some function of the independent variables or some function of the independent variables multiplied by a dependent variable or its derivative. That is, an ordinary differential equation is linear if it can be put into the form 
-<men xml:id="classification-eqlingen">
+<md number="yes" xml:id="classification-eqlingen">
  a_n(x) \frac{d^n y}{dx^n} + 
 a_{n-1}(x) \frac{d^{n-1} y}{dx^{n-1}} + 
 \cdots
@@ -103,29 +103,29 @@ a_{n-1}(x) \frac{d^{n-1} y}{dx^{n-1}} +
 a_{1}(x) \frac{dy}{dx}
 +
 a_{0}(x) y = b(x) .
-</men>
+</md>
 The functions <m>a_0</m>, <m>a_1</m>, …, <m>a_n</m> are called the <term>coefficients</term>. The equation is allowed to depend arbitrarily on the independent variable. So 
-<men xml:id="classification-eqlinex">
+<md number="yes" xml:id="classification-eqlinex">
  e^x \frac{d^2 y}{dx^2} + 
 \sin(x) \frac{d y}{dx} + 
 x^2 y
 =
 \frac{1}{x}
-</men>
-is still a linear equation as <m>y</m> and its derivatives only appear linearly. The equation <me>\cos(x) \frac{d^2y}{dx^2} - xy + \frac{e^x}{x} = 0</me> is also linear, even though it is not initially in the correct form. From this equation, we can move the last term over to the right-hand side as a <m>-\frac{e^x}{x}</m>, and then it is in the correct form, with the <m>\frac{dy}{dx}</m> term missing (or has coefficient zero).
+</md>
+is still a linear equation as <m>y</m> and its derivatives only appear linearly. The equation <md>\cos(x) \frac{d^2y}{dx^2} - xy + \frac{e^x}{x} = 0</md> is also linear, even though it is not initially in the correct form. From this equation, we can move the last term over to the right-hand side as a <m>-\frac{e^x}{x}</m>, and then it is in the correct form, with the <m>\frac{dy}{dx}</m> term missing (or has coefficient zero).
 		</p>
 
 		<p>
 			All the equations and systems above as examples are linear. It may not be immediately obvious for Maxwell’s equations unless you write out the divergence and curl in terms of partial derivatives. Let us see some nonlinear equations. For example <term>Burger's equation</term>, 
-<me>
+<md>
 \frac{\partial y}{\partial t} + 
 y \frac{\partial y}{\partial x} =
 \nu \frac{\partial^2 y}{\partial x^2} ,
-</me>
+</md>
  is a nonlinear second order partial differential equation. It is nonlinear because <m>y</m> and <m>\frac{\partial y}{\partial x}</m> are multiplied together. The equation 
-<men xml:id="classification-eqnonlinode">
+<md number="yes" xml:id="classification-eqnonlinode">
  \frac{dx}{dt} = x^2
-</men>
+</md>
 is a nonlinear first order differential equation as there is a second power of the dependent variable <m>x</m>.
 		</p>
 
@@ -139,7 +139,7 @@ is a nonlinear first order differential equation as there is a second power of t
 
 		<p>
 			For example, the exponential growth equation, the wave equation, or the transport equation above are homogeneous. The mechanical vibrations equation above is nonhomogeneous as long as <m>f(t)</m> is not the zero function. Similarly, if the ambient temperature <m>A</m> is nonzero, Newton’s law of cooling is nonhomogeneous. A homogeneous linear ODE can be put into the form 
-<me>
+<md>
 a_n(x) \frac{d^n y}{dx^n} + 
 a_{n-1}(x) \frac{d^{n-1} y}{dx^{n-1}} + 
 \cdots
@@ -147,13 +147,13 @@ a_{n-1}(x) \frac{d^{n-1} y}{dx^{n-1}} +
 a_{1}(x) \frac{dy}{dx}
 +
 a_{0}(x) y = 0 .
-</me>
+</md>
  Compare to <xref ref="classification-eqlingen" /> and notice there is no function <m>b(x)</m>.
 		</p>
 
 		<p>
 			If the coefficients of a linear equation are actually constant functions, then the equation is said to have <term>constant coefficients</term>. The coefficients are the functions multiplying the dependent variable(s) or one of its derivatives, not the function <m>b(x)</m> standing alone. A constant coefficient nonhomogeneous ODE is an equation of the form 
-<me>
+<md>
 a_n \frac{d^n y}{dx^n} + 
 a_{n-1} \frac{d^{n-1} y}{dx^{n-1}} + 
 \cdots
@@ -161,7 +161,7 @@ a_{n-1} \frac{d^{n-1} y}{dx^{n-1}} +
 a_{1} \frac{dy}{dx}
 +
 a_{0} y = b(x) ,
-</me>
+</md>
  where <m>a_0, a_1, \ldots, a_n</m> are all constants, but <m>b</m> may depend on the independent variable <m>x</m>. The mechanical vibrations equation above is a constant coefficient nonhomogeneous second order ODE. The same nomenclature applies to PDEs, so the transport equation, heat equation and wave equation are all examples of constant coefficient linear PDEs.
 		</p>
 
@@ -412,13 +412,13 @@ v}{\partial y^2} = \sin(x)</m>
 <introduction>
 	<p>
 				Let <m>x</m>, <m>y</m>, and <m>z</m> be three functions of <m>t</m> defined by the system of differential equations 
-<me>
+<md>
 x' = y \quad y' = z \quad z' = 3x - 2y + 5z + e^t
-</me>
+</md>
 				with initial conditions <m>x(0) = 3</m>, <m>y(0) = -2</m> and <m>z(0) = 1</m>, and let <m>u(t)</m> be the function defined by the solution to 
-<me>
+<md>
 u''' - 5u'' + 2u' - 3u = e^t
-</me>
+</md>
  with initial conditions <m>u(0) = 3</m>, <m>u'(0) = -2</m>, and <m>u''(0) = 1</m>.
 			</p>
 </introduction>
