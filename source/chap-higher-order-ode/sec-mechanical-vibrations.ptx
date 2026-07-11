@@ -6,49 +6,86 @@
 	<section xml:id="sec-mv">
 		<title>Mechanical vibrations</title>
 
+<objectives>
+	<introduction>
 		<p>
-			In the last few sections, we have discussed all of the different possible solutions to constant coefficient second order differential equations, whether the roots of the characteristic polynomial real and distinct, complex, or repeated. Now, we want to look at applications of these equations, now that we know how to solve them. Since Newton’s Second Law <m>F = ma</m> involves the second derivative of position (acceleration), it is reasonable that a lot of physical systems will be defined by second order differential equations.
+			After this section, you will be able to: 
+		</p>
+	</introduction>
+	<ul>
+		<li>
+			<p>
+				Write second-order differential equations to model physical situations,
+			</p>
+		</li>
+		<li>
+			<p>
+				 Classify a mechanical oscillation as undamped, underdamped, critically damped, or overdamped, and
+			</p>
+		</li>
+		<li>
+			<p>
+				Use the solution to a differential equation to describe the resulting physical motion.
+			</p>
+		</li>
+	</ul>
+</objectives>
+
+
+<subsection xml:id="subsec-Intro-vibrations">
+	<title>Introduction to Vibrations</title>
+	
+
+		<p>
+			In the last few sections, we have discussed all of the different possible solutions to constant coefficient second order differential equations, whether the roots of the characteristic polynomial real and distinct, complex, or repeated. Now, we want to look at applications of these equations, now that we know how to solve them. Since Newton's Second Law <m>F = ma</m> involves the second derivative of position (acceleration), it is reasonable that a lot of physical systems will be defined by second order differential equations.
 		</p>
 
-<!-- div attr= class="mywrapfigsimp"-->
-		<p>
-			2.0in2.3in
-		</p><!--</div attr= class="mywrapfigsimp">-->
+<figure xml:id="fig-mass-spring-schematic">
+	<caption> Schematic picture of a mass-spring system. </caption>
+	<image source="DEs_MassSpringSchematic.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
 		<p>
 			Our first example is a mass on a spring. Suppose we have a mass <m>m &gt; 0</m> (in kilograms) connected by a spring with spring constant <m>k &gt; 0</m> (in newtons per meter) to a fixed wall. There may be some external force <m>F(t)</m> (in newtons) acting on the mass. Finally, there is some friction measured by <m>c \geq 0</m> (in newton-seconds per meter) as the mass slides along the floor (or perhaps a damper is connected).
 		</p>
 
 		<p>
-			Let <m>x</m> be the displacement of the mass (<m>x=0</m> is the rest position), with <m>x</m> growing to the right (away from the wall). The force exerted by the spring is proportional to the compression of the spring by . Therefore, it is <m>kx</m> in the negative direction. Similarly the amount of force exerted by friction is proportional to the velocity of the mass. By we know that force equals mass times acceleration and hence <m>mx'' = F(t)-cx'-kx</m> or 
-<me>
+			Let <m>x</m> be the displacement of the mass (<m>x=0</m> is the rest position), with <m>x</m> growing to the right (away from the wall). The force exerted by the spring is proportional to the compression of the spring by <term>Hooke's Law</term>. Therefore, it is <m>kx</m> in the negative direction. Similarly the amount of force exerted by friction is proportional to the velocity of the mass. By <term>Newton's Second Law</term>, we know that force equals mass times acceleration and hence <m>mx'' = F(t)-cx'-kx</m> or 
+<md>
 mx'' + cx' + kx = F(t) .
-</me>
+</md>
  This is a linear second order constant coefficient ODE. We say the motion is
 		</p>
 
 		<p><ol>
 			<li>
 					<p>
-						<em>forced</em>, if <m>F \not\equiv 0</m> (if <m>F</m> is not identically zero),
+						<term>forced</term>, if <m>F \not\equiv 0</m> (if <m>F</m> is not identically zero),
 					</p>
 			</li>
 
 			<li>
 					<p>
-						<em>unforced</em> or <em>free</em>, if <m>F \equiv 0</m> (if <m>F</m> is identically zero),
+						<term>unforced</term> or <em>free</em>, if <m>F \equiv 0</m> (if <m>F</m> is identically zero),
 					</p>
 			</li>
 
 			<li>
 					<p>
-						<em>damped</em>, if <m>c &gt; 0</m>, and
+						<term>damped</term>, if <m>c &gt; 0</m>, and
 					</p>
 			</li>
 
 			<li>
 					<p>
-						<em>undamped</em>, if <m>c = 0</m>.
+						<term>undamped</term>, if <m>c = 0</m>.
 					</p>
 			</li>
 
@@ -58,38 +95,52 @@ mx'' + cx' + kx = F(t) .
 			This system appears in lots of applications even if it does not at first seem like it. Many real-world scenarios can be simplified to a mass on a spring. For example, a bungee jump setup is essentially a mass and spring system (you are the mass). It would be good if someone did the math before you jump off the bridge, right? Let us give two other examples.
 		</p>
 
-<!-- div attr= class="mywrapfigsimp"-->
-		<p>
-			1.35in1.65in
-		</p><!--</div attr= class="mywrapfigsimp">-->
+<figure xml:id="fig-RLC-schematic">
+	<caption> Schematic picture of an RLC Circuit. </caption>
+	<image source="DEs_RLCSchematic.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
 		<p>
-			Here is an example for electrical engineers. Consider the pictured . There is a resistor with a resistance of <m>R</m> ohms, an inductor with an inductance of <m>L</m> henries, and a capacitor with a capacitance of <m>C</m> farads. There is also an electric source (such as a battery) giving a voltage of <m>E(t)</m> volts at time <m>t</m> (measured in seconds). Let <m>Q(t)</m> be the charge in coulombs on the capacitor and <m>I(t)</m> be the current in the circuit. The relation between the two is <m>Q' = I</m>. By elementary principles we find <m>L I' + RI + \nicefrac{Q}{C} = E</m>. Since <m>Q' = I</m>, this means that <m>I' = Q''</m>, and we can write this equation as 
-<me>
+			Here is an example for electrical engineers. Consider the pictured <term>RLC Circuit</term>. There is a resistor with a resistance of <m>R</m> ohms, an inductor with an inductance of <m>L</m> henries, and a capacitor with a capacitance of <m>C</m> farads. There is also an electric source (such as a battery) giving a voltage of <m>E(t)</m> volts at time <m>t</m> (measured in seconds). Let <m>Q(t)</m> be the charge in coulombs on the capacitor and <m>I(t)</m> be the current in the circuit. The relation between the two is <m>Q' = I</m>. By elementary principles we find <m>L I' + RI + \nicefrac{Q}{C} = E</m>. Since <m>Q' = I</m>, this means that <m>I' = Q''</m>, and we can write this equation as 
+<md>
 LQ''(t) + RQ'(t) + \frac{1}{C}Q(t) = E(t).
-</me>
+</md>
  We can also write this a different way by differentiating the entire equation in <m>t</m> to get a second order equation for <m>I(t)</m>: 
-<me>
+<md>
 L I''(t) + R I'(t) + \frac{1}{C} I(t) = E'(t) .
-</me>
+</md>
  This is a nonhomogeneous second order constant coefficient linear equation. As <m>L, R</m>, and <m>C</m> are all positive, this system behaves just like the mass and spring system. Position of the mass is replaced by current. Mass is replaced by inductance, damping is replaced by resistance, and the spring constant is replaced by one over the capacitance. The change in voltage becomes the forcing function—for constant voltage this is an unforced motion.
 		</p>
 
-<!-- div attr= class="mywrapfigsimp"-->
-		<p>
-			1.8in2.16in
-		</p><!--</div attr= class="mywrapfigsimp">-->
+<figure xml:id="fig-Pendulum-schematic">
+	<caption> Schematic picture of an RLC Circuit. </caption>
+	<image source="DEs_PendulumSchematic.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
 		<p>
 			Our next example behaves like a mass and spring system only approximately. Suppose a mass <m>m</m> hangs on a pendulum of length <m>L</m>. We seek an equation for the angle <m>\theta(t)</m> (in radians). Let <m>g</m> be the force of gravity. Elementary physics mandates that the equation is 
-<me>
+<md>
 \theta'' + \frac{g}{L} \sin \theta = 0 .
-</me>
+</md>
 
 		</p>
 
 		<p>
-			Let us derive this equation using : force equals mass times acceleration. The acceleration is <m>L \theta''</m> and mass is <m>m</m>. So <m>mL\theta''</m> has to be equal to the tangential component of the force given by the gravity, which is <m>m g \sin \theta</m> in the opposite direction. So <m>mL\theta'' = -mg \sin \theta</m>. The <m>m</m> curiously cancels from the equation.
+			Let us derive this equation using <term>Newton's Second Law</term>: force equals mass times acceleration. The acceleration is <m>L \theta''</m> and mass is <m>m</m>. So <m>mL\theta''</m> has to be equal to the tangential component of the force given by the gravity, which is <m>m g \sin \theta</m> in the opposite direction. So <m>mL\theta'' = -mg \sin \theta</m>. The <m>m</m> curiously cancels from the equation.
 		</p>
 
 		<p>
@@ -98,43 +149,50 @@ L I''(t) + R I'(t) + \frac{1}{C} I(t) = E'(t) .
 
 		<p>
 			Therefore, when the swings are small, <m>\theta</m> is small and we can model the behavior by the simpler linear equation 
-<me>
+<md>
 \theta'' + \frac{g}{L} \theta = 0 .
-</me>
+</md>
  The errors from this approximation build up. So after a long time, the state of the real-world system might be substantially different from our solution. Also we will see that in a mass-spring system, the amplitude is independent of the period. This is not true for a pendulum. Nevertheless, for reasonably short periods of time and small swings (that is, only small angles <m>\theta</m>), the approximation is reasonably good.
 		</p>
 
-<!-- div attr= class="mywrapfig"-->
-		<p>
-			3.1in
-		</p><!--</div attr= class="mywrapfig">-->
+<figure xml:id="mv-sintheta">
+	<caption> The graphs of <m>\sin(\theta)</m> and <m>\theta</m> (in radians). </caption>
+	<image source="mv-sintheta.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
 		<p>
 			In real-world problems it is often necessary to make these types of simplifications. We must understand both the mathematics and the physics of the situation to see if the simplification is valid in the context of the questions we are trying to answer.
 		</p>
 
-
+</subsection>
 		<subsection xml:id="free-undamped-motion">
 			<title>Free undamped motion</title>
 
 			<p>
-				In this section we only consider free or unforced motion, as we do not know yet how to solve nonhomogeneous equations. Let us start with motion where <m>c=0</m>. The equation is 
-<me>
+				In this section we only consider free or unforced motion, as we do not know yet how to solve nonhomogeneous equations. Let us start with <term>undamped</term> motion where <m>c=0</m>. The equation is 
+<md>
 mx'' + kx = 0 .
-</me>
+</md>
  We divide by <m>m</m> and let <m>\omega_0 = \sqrt{\nicefrac{k}{m}}</m> to rewrite the equation as 
-<me>
+<md>
 x'' + \omega_0^2 x = 0 .
-</me>
+</md>
  The general solution to this equation is 
-<me>
+<md>
 x(t) = A \cos (\omega_0 t) + B \sin (\omega_0 t) .
-</me>
+</md>
  By a trigonometric identity that we discussed previously in , 
-<me>
+<md>
 A \cos (\omega_0 t) + B \sin (\omega_0 t) =
 C \cos ( \omega_0 t - \delta ) ,
-</me>
+</md>
  for two constants <m>C</m> and <m>\gamma</m>. Earlier, we found that we can compute these constants as <m>C= \sqrt{A^2 + B^2}</m> and <m>\tan \delta =
 \nicefrac{B}{A}</m>. Therefore, we let <m>C</m> and <m>\delta</m> be our arbitrary constants and write <m>x(t) = C \cos ( \omega_0 t - \delta )</m>.
 			</p>
@@ -150,10 +208,10 @@ C \cos ( \omega_0 t - \delta )</m> and verify the equations for <m>C</m> and <m>
 
 <answer>			<p>
 				While it is generally easier to use the first form with <m>A</m> and <m>B</m> to solve for the initial conditions, the second form is much more natural to use for interpretation of physical systems, since the constants <m>C</m> and <m>\delta</m> have nice physical interpretation. Write the solution as 
-<me>
+<md>
 x(t) = C \cos ( \omega_0 t - \delta) .
-</me>
- This is a pure-frequency oscillation (a sine wave). The <em></em> is <m>C</m>, <m>\omega_0</m> is the (angular) <em></em>, and <m>\delta</m> is the so-called <em></em>. The phase shift just shifts the graph left or right. We call <m>\omega_0</m> the <em></em>. This entire setup is called <em></em>.
+</md>
+ This is a pure-frequency oscillation (a sine wave). The <term>amplitude</term> is <m>C</m>, <m>\omega_0</m> is the (angular) <term>frequency</term>>, and <m>\delta</m> is the so-called <term>phase shift</term>. The phase shift just shifts the graph left or right. We call <m>\omega_0</m> the <term>natural frequency</term>. This entire setup is called <term>simple harmonic motion</term>.
 			</p>
 </answer>
 </exercise>
@@ -164,7 +222,7 @@ x(t) = C \cos ( \omega_0 t - \delta) .
 			</p>
 
 			<p>
-				The <em></em> of the motion is one over the frequency (in cycles per unit time) and hence <m>\frac{2\pi}{\omega_0}</m>. That is the amount of time it takes to complete one full cycle.
+				The <term>period</term> of the motion is one over the frequency (in cycles per unit time) and hence <m>\frac{2\pi}{\omega_0}</m>. That is the amount of time it takes to complete one full cycle.
 			</p>
 
 
@@ -179,38 +237,45 @@ x(t) = C \cos ( \omega_0 t - \delta) .
 				The setup means that the mass was at half a meter in the positive direction during the crash and relative to the wall the spring is mounted to, the mass was moving forward (in the positive direction) at . This gives us the initial conditions.
 			</p>
 
-<!-- div attr= class="mywrapfig"-->
+<figure xml:id="mv-undamped">
+	<caption> Simple undamped oscillation. </caption>
+	<image source="mv-undamped.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
 			<p>
-				3.25in
-			</p><!--</div attr= class="mywrapfig">-->
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
 			<p>
 				So the equation with initial conditions is 
-<me>
+<md>
 2 x'' + 8 x = 0 , \qquad x(0) = 0.5, \qquad x'(0) = 1.
-</me>
+</md>
  We directly compute <m>\omega_0 = \sqrt{\nicefrac{k}{m}} = \sqrt{4} = 2</m>. Hence the angular frequency is 2. The usual frequency in Hertz (cycles per second) is <m>\nicefrac{2}{2\pi} = \nicefrac{1}{\pi} \approx 0.318</m>.
 			</p>
 
 			<p>
 				The general solution is 
-<me>
+<md>
 x(t) = A \cos (2t) + B \sin (2t) .
-</me>
+</md>
  Letting <m>x(0) = 0.5</m> means <m>A = 0.5</m>. Then <m>x'(t) = - 2(0.5) \sin (2t)
 + 2B \cos (2t)</m>. Letting <m>x'(0) = 1</m> we get <m>B = 0.5</m>. Therefore, the amplitude is <m>C = \sqrt{A^2+B^2} = \sqrt{0.25+0.25} = \sqrt{0.5} \approx 0.707</m>. The solution is 
-<me>
+<md>
 x(t) = 0.5 \cos (2t) + 0.5 \sin (2t) .
-</me>
+</md>
  A plot of <m>x(t)</m> is shown in .
 			</p>
 </solution>
 </example>
 			<p>
 				In general, for free undamped motion, a solution of the form 
-<me>
+<md>
 x(t) = A \cos (\omega_0 t) + B \sin (\omega_0 t) ,
-</me>
+</md>
  corresponds to the initial conditions <m>x(0) = A</m> and <m>x'(0) = \omega_0 B</m>. Therefore, it is easy to figure out <m>A</m> and <m>B</m> from the initial conditions. The amplitude and the phase shift can then be computed from <m>A</m> and <m>B</m>. In the example, we have already found the amplitude <m>C</m>. Let us compute the phase shift. We know that <m>\tan \delta = \nicefrac{B}{A} = 1</m>. We take the arctangent of 1 and get <m>\nicefrac{\pi}{4}</m> or approximately 0.785. We still need to check if this <m>\delta</m> is in the correct quadrant (and add <m>\pi</m> to <m>\delta</m> if it is not). Since both <m>A</m> and <m>B</m> are positive, then <m>\delta</m> should be in the first quadrant, <m>\nicefrac{\pi}{4}</m> radians is in the first quadrant, so <m>\delta =
 \nicefrac{\pi}{4}</m>.
 			</p>
@@ -223,62 +288,69 @@ x(t) = A \cos (\omega_0 t) + B \sin (\omega_0 t) ,
 
 		<subsection xml:id="free-damped-motion">
 			<title>Free damped motion</title>
-
+<introduction>
 			<p>
-				Let us now focus on motion. Let us rewrite the equation 
-<me>
+				Let us now focus on <term>damped</term> motion. Let us rewrite the equation 
+<md>
 m x'' + \gamma x' + kx = 0,
-</me>
+</md>
  as 
-<me>
+<md>
 x'' + 2p x' + \omega_0^2 x = 0,
-</me>
+</md>
  where 
-<me>
+<md>
 \omega_0 = \sqrt{\frac{k}{m}}, \qquad p = \frac{\gamma}{2m} .
-</me>
+</md>
  The characteristic equation is 
-<me>
+<md>
 r^2 + 2 pr + \omega_0^2 = 0 .
-</me>
+</md>
  Using the quadratic formula we get that the roots are 
-<me>
+<md>
 r = -p \pm \sqrt{p^2 - \omega_0^2} .
-</me>
+</md>
  The form of the solution depends on whether we get complex or real roots. We get real roots if and only if the following number is nonnegative: 
-<me>
+<md>
 p^2 - \omega_0^2 = {\left( \frac{\gamma}{2m} \right)}^2 - \frac{k}{m}
 = \frac{\gamma^2 - 4km}{4m^2} .
-</me>
+</md>
  The sign of <m>p^2-\omega_0^2</m> is the same as the sign of <m>\gamma^2 - 4km</m>. Thus we get real roots if and only if <m>\gamma^2-4km</m> is nonnegative, or in other words if <m>\gamma^2 \geq 4km</m>. If these look familiar, that is not surprising, as they are the same as the conditions we had for the different types of roots in second order constant coefficient equations.
 			</p>
 
-
+</introduction>
 			<subsubsection xml:id="overdamping">
 				<title>Overdamping</title>
 
 				<p>
-					When <m>\gamma^2 - 4km &gt; 0</m>, the system is <em></em>. In this case, there are two distinct real roots <m>r_1</m> and <m>r_2</m>. Both roots are negative: As <m>\sqrt{p^2 - \omega_0^2}</m> is always less than <m>p</m>, then <m>-p \pm \sqrt{p^2 - \omega_0^2}</m> is negative in either case.
+					When <m>\gamma^2 - 4km &gt; 0</m>, the system is <term>overdamped</term>. In this case, there are two distinct real roots <m>r_1</m> and <m>r_2</m>. Both roots are negative: As <m>\sqrt{p^2 - \omega_0^2}</m> is always less than <m>p</m>, then <m>-p \pm \sqrt{p^2 - \omega_0^2}</m> is negative in either case.
 				</p>
 
 				<p>
 					The solution is 
-<me>
+<md>
 x(t) = C_1 e^{r_1 t} + C_2 e^{r_2 t} .
-</me>
+</md>
  Since <m>r_1, r_2</m> are negative, <m>x(t) \to 0</m> as <m>t \to \infty</m>. Thus the mass will tend towards the rest position as time goes to infinity. For a few sample plots for different initial conditions, see .
 				</p>
 
-<!-- div attr= class="mywrapfig"-->
-				<p>
-					3.25in
-				</p><!--</div attr= class="mywrapfig">-->
+<figure xml:id="mv-overdamped">
+	<caption> Overdamped motion for several different initial conditions. </caption>
+	<image source="mv-overdamped.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
 				<p>
 					No oscillation happens. In fact, the graph crosses the <m>x</m>-axis at most once. To see why, we try to solve <m>0 = C_1 e^{r_1 t} + C_2 e^{r_2 t}</m>. Therefore, <m>C_1 e^{r_1 t} = - C_2 e^{r_2 t}</m> and using laws of exponents we obtain 
-<me>
+<md>
 \frac{-C_1}{C_2} = e^{(r_2-r_1) t} .
-</me>
+</md>
  This equation has at most one solution <m>t \geq 0</m>. For some initial conditions the graph never crosses the <m>x</m>-axis, as is evident from the sample graphs.
 				</p>
 
@@ -287,9 +359,9 @@ x(t) = C_1 e^{r_1 t} + C_2 e^{r_2 t} .
 <title> </title>
 <statement>				<p>
 					Suppose the mass is released from rest. That is <m>x(0) = x_0</m> and <m>x'(0) = 0</m>. Then 
-<me>
+<md>
 x(t) = \frac{x_0}{r_1-r_2} \left(r_1 e^{r_2 t} - r_2 e^{r_1 t} \right) .
-</me>
+</md>
  It is not hard to see that this satisfies the initial conditions.
 				</p>
 </statement>
@@ -300,23 +372,30 @@ x(t) = \frac{x_0}{r_1-r_2} \left(r_1 e^{r_2 t} - r_2 e^{r_1 t} \right) .
 				<title>Critical damping</title>
 
 				<p>
-					When <m>\gamma^2 - 4km = 0</m>, the system is <em></em>. In this case, there is one root of multiplicity 2 and this root is <m>-p</m>. Our solution is 
-<me>
+					When <m>\gamma^2 - 4km = 0</m>, the system is <term>critically damped</term>. In this case, there is one root of multiplicity 2 and this root is <m>-p</m>. Our solution is 
+<md>
 x(t) = C_1 e^{-pt} + C_2 t e^{-pt} .
-</me>
+</md>
 
 				</p>
 
-<!-- div attr= class="mywrapfig"-->
-				<p>
-					3.25in
-				</p><!--</div attr= class="mywrapfig">-->
+<figure xml:id="mv-critdampedfast">
+	<caption> Overdamped and critically damped motion for <m>x'' + \gamma x' + x = 0</m> for <m>\gamma = 2, 4, 8</m>. </caption>
+	<image source="Images/critdampedfast.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
 				<p>
 					The behavior of a critically damped system is very similar to an overdamped system. After all a critically damped system is in some sense a limit of overdamped systems. Even though our models are only approximations of the real world problem, the idea of critical damping can be helpful in optimizing systems. shows how the solution to 
-<me>
+<md>
 x'' + \gamma x' + x = 0
-</me>
+</md>
  for different values of <m>\gamma</m> and initial conditions <m>x(0) = 4</m> and <m>x'(0) = 0</m>. This solution is critically damped if <m>\gamma = 2</m>, as that will give us a repeated root in the characteristic equation. Comparing these solutions, we see that the critically damped solution gets back to equilibrium faster than any of the more overdamped solution. When trying to design a system, if we want it to settle back to the zero point as quickly as possible, then we should try to get as closed to critically damped as possible. Even though we are always a little bit underdamped or a little bit overdamped, getting as close as possible will give the best possible result for returning to equilibrium.
 				</p>
 
@@ -325,14 +404,21 @@ x'' + \gamma x' + x = 0
 			<subsubsection xml:id="underdamping">
 				<title>Underdamping</title>
 
-<!-- div attr= class="mywrapfig"-->
-				<p>
-					3.25in
-				</p><!--</div attr= class="mywrapfig">-->
+<figure xml:id="mv-underdamped">
+	<caption> Underdamped motion with the envelope curves shown. </caption>
+	<image source="mv-underdamped.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
 				<p>
-					When <m>\gamma^2 - 4km &lt; 0</m>, the system is <em></em>. In this case, the roots are complex. 
-<me>
+					When <m>\gamma^2 - 4km &lt; 0</m>, the system is <term>underdamped</term>. In this case, the roots are complex. 
+<md>
 \begin{split}
 r &amp; =
 -p \pm \sqrt{p^2 - \omega_0^2} \\
@@ -341,20 +427,20 @@ r &amp; =
 &amp; = 
 -p \pm i \omega_1 ,
 \end{split}
-</me>
+</md>
  where <m>\omega_1 =\sqrt{\omega_0^2 - p^2}</m>. Our solution is 
-<me>
+<md>
 x(t) = e^{-pt} \bigl( A \cos (\omega_1 t) + B \sin (\omega_1 t) \bigr) ,
-</me>
+</md>
  or 
-<me>
+<md>
 x(t) = C e^{-pt} \cos ( \omega_1 t - \delta ) .
-</me>
- An example plot is given in . Note that we still have that <m>x(t) \to 0</m> as <m>t \to \infty</m>.
+</md>
+ An example plot is given in <xref ref="mv-underdamped"/>. Note that we still have that <m>x(t) \to 0</m> as <m>t \to \infty</m>.
 				</p>
 
 				<p>
-					The figure also shows the <em></em> <m>C e^{-pt}</m> and <m>-C e^{-pt}</m>. The solution is the oscillating line between the two envelope curves. The envelope curves give the maximum amplitude of the oscillation at any given point in time. For example, if you are bungee jumping, you are really interested in computing the envelope curve as not to hit the concrete with your head.
+					The figure also shows the <term>envelope curves</term> <m>C e^{-pt}</m> and <m>-C e^{-pt}</m>. The solution is the oscillating line between the two envelope curves. The envelope curves give the maximum amplitude of the oscillation at any given point in time. For example, if you are bungee jumping, you are really interested in computing the envelope curve as not to hit the concrete with your head.
 				</p>
 
 				<p>
@@ -362,12 +448,12 @@ x(t) = C e^{-pt} \cos ( \omega_1 t - \delta ) .
 				</p>
 
 				<p>
-					Notice that the angular <em></em><fn>				<p>
+					Notice that the angular <term>pseudo-frequency</term><fn>				
 					We do not call <m>\omega_1</m> a frequency since the solution <m>x(t)</m> is not really a periodic function.
-				</p></fn> or <em></em> becomes smaller when the damping <m>\gamma</m> (and hence <m>p</m>) becomes larger. This makes sense. When we change the damping just a little bit, we do not expect the behavior of the solution to change dramatically. If we keep making <m>\gamma</m> larger, then at some point the solution should start looking like the solution for critical damping or overdamping, where no oscillation happens. So if <m>\gamma^2</m> approaches <m>4km</m>, we want <m>\omega_1</m> to approach 0. Since <m>\omega_1 = \sqrt{\omega_0^2 - p^2}</m> with <m>p = \frac{\gamma}{2m}</m> and <m>\omega_0 = \sqrt{\frac{k}{m}}</m>, we have that 
-<me>
+				</fn> or <term>quasi-frequency</term> becomes smaller when the damping <m>\gamma</m> (and hence <m>p</m>) becomes larger. This makes sense. When we change the damping just a little bit, we do not expect the behavior of the solution to change dramatically. If we keep making <m>\gamma</m> larger, then at some point the solution should start looking like the solution for critical damping or overdamping, where no oscillation happens. So if <m>\gamma^2</m> approaches <m>4km</m>, we want <m>\omega_1</m> to approach 0. Since <m>\omega_1 = \sqrt{\omega_0^2 - p^2}</m> with <m>p = \frac{\gamma}{2m}</m> and <m>\omega_0 = \sqrt{\frac{k}{m}}</m>, we have that 
+<md>
 \omega_1 = \sqrt{\frac{k}{m} - \frac{\gamma^2}{4m^2}} = \sqrt{\frac{4mk - \gamma^2}{4m^2}},
-</me>
+</md>
  which does go to zero as <m>\gamma^2</m> gets closer to <m>4mk</m>.
 				</p>
 
@@ -383,13 +469,13 @@ x(t) = C e^{-pt} \cos ( \omega_1 t - \delta ) .
 
 			<p>
 				The topics and terms discussed above can all be used to answer interesting questions involving physical systems. For example, the <em></em> can tell how long you have to wait until a capacitor has less than a certain amount of charge on it, or until a mass-spring oscillation gets within a small threshold. The reason why this helps here is because the equation we need to solve for the end time value is much simpler and only has one solution. If <m>x_T</m> is our threshold distance, then trying to solve 
-<me>
+<md>
 x_T = C e^{-pt} \cos ( \omega_1 t - \delta )
-</me>
+</md>
  for a value of <m>t</m> will likely have many solutions, while the equation 
-<me>
+<md>
 x_T = C e^{-pt} 
-</me>
+</md>
  will only have one. The <em></em> can tell at what rate a damped mass-spring system will oscillate and can allow us to solve for any of the related coefficients in the problem if the other ones are known. The different types of damping phenomena allow general phenomena to be analyzed without explicitly solving the entire problem.
 			</p>
 
@@ -397,29 +483,36 @@ x_T = C e^{-pt}
 				In some cases, like the bungee jump mentioned before, the mass-spring system is oriented vertically instead of horizontally. In this scenario, it feels like the force of gravity is an applied force, which would make the equation non-homogeneous (and thus impossible to solve at this point). However, it we set up our coordinates correctly, this does not happen.
 			</p>
 
-<!-- div attr= class="mywrapfigsimp"-->
+<figure xml:id="fig-mass-grav-balance">
+	<caption> Diagram illustrating how using the equilibrium point as the zero for position cancels out the force of gravity. </caption>
+	<image source="DEs_MassSpringGravBalance.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
 			<p>
-				1.9in2.3in
-			</p><!--</div attr= class="mywrapfigsimp">-->
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
 			<p>
 				Assume that we have a mass-spring system, but oriented vertically. From a physics class, the formula 
-<me>
+<md>
 F = k \Delta x
-</me>
+</md>
  may be familiar for the force required to extend a spring by <m>\Delta x</m> in length. If a mass is hanging on this spring, then the force we are applying is the force of gravity. Thus, we know that 
-<me>
+<md>
 mg = k L
-</me>
+</md>
  where <m>m</m> is the mass and <m>L</m> is the length it extends the spring. If we start with our normal mass-spring system, we will get an equation that looks like 
-<me>
+<md>
 mx'' + \gamma x' + kx = mg = kL
-</me>
+</md>
  where we are taking the orientation that <m>x &gt; 0</m> when you extend the spring, i.e., in the downward direction. However, if we subtract the <m>kL</m> to the other side, we can rewrite this as 
-<me>
+<md>
 mx'' + \gamma x' + k(x-L) = 0 \qquad \Rightarrow \qquad my'' + \gamma y' + ky = 0
-</me>
- where <m>y = x-L</m>. Physically, we are choosing our zero point to be where the mass will eventually equilibrate (the place where it would hang if you let it go slowly) instead of where the spring would sit with no mass. Since we’ve chosen the point where the mass wants to stop and all of our solutions for unforced damped oscillations eventually go to zero, this lines up with this being a proper homogeneous problem that we are able to solve.
+</md>
+ where <m>y = x-L</m>. Physically, we are choosing our zero point to be where the mass will eventually equilibrate (the place where it would hang if you let it go slowly) instead of where the spring would sit with no mass. Since we've chosen the point where the mass wants to stop and all of our solutions for unforced damped oscillations eventually go to zero, this lines up with this being a proper homogeneous problem that we are able to solve.
 			</p>
 
 		</subsection>
@@ -427,85 +520,157 @@ mx'' + \gamma x' + k(x-L) = 0 \qquad \Rightarrow \qquad my'' + \gamma y' + ky = 
 <exercises>
 			<title>Exercises</title>
 
-<exercise>
-<statement>
-			<p>
+<exercise xml:id="mv-gen-sol-crit">
+<introduction>
+	<p>
 				 Consider a mass and spring system with a mass <m>m=2</m>, spring constant <m>k=3</m>, and damping constant <m>\gamma=1</m>.
 			</p>
+</introduction>
+<task>
+	<statement>
+		<p>
+			Set up and find the general solution of the system.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>C_1e^{-t/4}\cos\left(\frac{\sqrt{23}}{4}t\right) + C_2e^{-t/4}\sin\left(\frac{\sqrt{23}}{4}t\right)</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Is the system underdamped, overdamped or critically damped?
+		</p>
+	</statement>
+	<answer>
+		<p>
+			Underdamped.
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			If the system is not critically damped, find a <m>\gamma</m> that makes the system critically damped.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>\gamma = 2\sqrt{6}</m>
+		</p>
+	</answer>
+</task>
+			
 
-<!-- div attr= class="tasks"-->
+</exercise>
+
+<exercise>
+<statement>
 			<p>
-				Set up and find the general solution of the system. Is the system underdamped, overdamped or critically damped? If the system is not critically damped, find a <m>\gamma</m> that makes the system critically damped.
-			</p><!--</div attr= class="tasks">--><!--</div attr= class="samepage">-->
+				Do <xref ref="mv-gen-sol-crit"/> for <m>m=3</m>, <m>k=12</m>, and <m>\gamma=12</m>.
+			</p>
 </statement>
-
-<answer>			<p>
-				 a) <m>C_1e^{-t/4}\cos\left(\frac{\sqrt{23}}{4}t\right) + C_2e^{-t/4}\sin\left(\frac{\sqrt{23}}{4}t\right)</m><!-- linebreak -->b)  Underdamped c)  <m>\gamma = 2\sqrt{6}</m> 
+<answer>	<p>
+				 <m>C_1e^{-2t} + C_2te^{-2t}</m>. This is critically damped .
 			</p>
 </answer>
 </exercise>
 
+<exercise xml:id="mv-solve-for-mass">
+<introduction>
+	<p>
+		Using the mks units (meters-kilograms-seconds), suppose you have a spring with spring constant <m>\unitfrac[4]{N}{m}</m>. You want to use it to weigh items. Assume no friction. You place the mass on the spring and put it in motion.
+	</p>
+</introduction>
+<task>
+	<statement>
+		<p>
+			You count and find that the frequency is <m>0.8</m> Hz (cycles per second).What is the mass? (Be careful with the units here, the frequency is given in cycles per second, not radians per second.)
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>\frac{4}{(2\pi (0.8))^2}</m> kg <m>\approx .158</m> kg 
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Find a formula for the mass <m>m</m> given the frequency <m>\omega</m> in Hz.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>m = \frac{4}{(2\pi \omega)^2} = \frac{1}{\omega^2 \pi^2}</m>
+		</p>
+	</answer>
+</task>
+</exercise>
+			
 <exercise>
 <statement>
 			<p>
-				Do for <m>m=3</m>, <m>k=12</m>, and <m>\gamma=12</m>.
+				A mass of <m>2</m> kilograms is on a spring with spring constant <m>k</m> newtons per meter with no damping. Suppose the system is at rest and at time <m>t=0</m> the mass is kicked and starts traveling at <m>2</m> meters per second. How large does <m>k</m> have to be to so that the mass does not go further than <m>3</m> meters from the rest position?
 			</p>
 </statement>
-
-<answer>			<p>
-				 a)  <m>C_1e^{-2t} + C_2te^{-2t}</m> b)  Critically Damped 
-			</p>
+<answer>
+	<p>
+		<m>k = \unitfrac[\frac{8}{9}]{N}{m}</m> or larger.
+	</p>
 </answer>
+
+</exercise>
+<exercise>
+<introduction>
+	<p>
+				Suppose we add possible friction to <xref ref="mv-solve-for-mass"/>. Further, suppose you do not know the spring constant, but you have two reference weights <m>1</m> kg and <m>2</m> kg to calibrate your setup. You put each in motion on your spring and measure the quasi-frequency. For the <m>1</m> kg weight you measured <m>1.1</m> Hz, for the <m>2</m> kg weight you measured <m>0.8</m> Hz.
+	</p>
+</introduction>
+<task>
+	<statement>
+		<p>
+			Find <m>k</m> (spring constant) and <m>\gamma</m> (damping constant).
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>k =5.4\pi^2</m>, <m>\gamma=\pi\sqrt{2.24}</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Find a formula for the mass in terms of the frequency in Hz. <em>Note that there may be more than one possible mass for a given frequency.</em>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>m = \frac{21.6 \pm \sqrt{466.56 - 143.36H^2}}{32H^2}</m>, frequency is <m>H</m> Hz
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			For an unknown object, you measure a quasi-frequency of 0.2 Hz. What is the mass of the object? Suppose that you know that the mass of the unknown object is more than a kilogram.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>33.65</m> kg 
+		</p>
+	</answer>
+</task>
 </exercise>
 
 <exercise>
 <statement>
 			<p>
-				 Using the mks units (meters-kilograms-seconds), suppose you have a spring with spring constant . You want to use it to weigh items. Assume no friction. You place the mass on the spring and put it in motion.
-			</p>
-
-<!-- div attr= class="tasks"-->
-			<p>
-				You count and find that the frequency is [ 0 8 ] Hz ( cycles per second ) What is the mass ? ( Be careful with the units here , the frequency is given in cycles per second , not radians per second )  Find a formula for the mass <m>m</m> given the frequency <m>\omega</m> in Hz.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) <m>\frac{4}{(2\pi (0.8))^2}</m> kg <m>\approx .158</m> kg b)  <m>m = \frac{4}{(2\pi \omega)^2} = \frac{1}{\omega^2 \pi^2}</m>. 
-			</p>
-</answer>
-</exercise>
-
-<exercise>
-<statement>
-			<p>
-				A mass of <m>2</m> kilograms is on a spring with spring constant <m>k</m> newtons per meter with no damping. Suppose the system is at rest and at time <m>t=0</m> the mass is kicked and starts traveling at 2 meters per second. How large does <m>k</m> have to be to so that the mass does not go further than 3 meters from the rest position?
-			</p>
-</statement>
-
-</exercise>
-<exercise>
-<statement>
-			<p>
-				Suppose we add possible friction to . Further, suppose you do not know the spring constant, but you have two reference weights kg and kg to calibrate your setup. You put each in motion on your spring and measure the quasi-frequency. For the kg weight you measured [ 1 1 ] Hz , for the kg weight you measured [ 0 8 ] Hz.
-			</p>
-
-<!-- div attr= class="tasks"-->
-			<p>
-				Find <m>k</m> (spring constant) and <m>\gamma</m> (damping constant). Find a formula for the mass in terms of the frequency in Hz. <em>Note that there may be more than one possible mass for a given frequency.</em> For an unknown object you measured [ 0 2 ] Hz , what is the mass of the object ? Suppose that you know that the mass of the unknown object is more than a kilogram.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) <m>k =5.4\pi^2</m>, <m>\gamma=\pi\sqrt{2.24}</m> b)  <m>m = \frac{21.6 \pm \sqrt{466.56 - 143.36H^2}}{32H^2}</m>, frequency is <m>H</m> Hz c)  33.65 kg 
-			</p>
-</answer>
-</exercise>
-
-<exercise>
-<statement>
-			<p>
-				Suppose you wish to measure the friction a mass of [ 0 1 ] kg experiences as it slides along a floor ( you wish to find <m>\gamma</m>). You have a spring with spring constant <m>k=\unitfrac[5]{N}{m}</m>. You take the spring, you attach it to the mass and fix it to a wall. Then you pull on the spring and let the mass go. You find that the mass oscillates with quasi-frequency Hz. What is the friction?
+				Suppose you wish to measure the friction a mass of <m>0.1</m> kg experiences as it slides along a floor (you wish to find <m>\gamma</m>). You have a spring with spring constant <m>k=\unitfrac[5]{N}{m}</m>. You take the spring, you attach it to the mass and fix it to a wall. Then you pull on the spring and let the mass go. You find that the mass oscillates with quasi-frequency Hz. What is the friction?
 			</p>
 </statement>
 
@@ -516,34 +681,105 @@ mx'' + \gamma x' + k(x-L) = 0 \qquad \Rightarrow \qquad my'' + \gamma y' + ky = 
 </exercise>
 
 <exercise>
-<statement>
-			<p>
-				A kg railcar hits a bumper (a spring) at , and the spring compresses by [ 0 1 ] m Assume no damping.
+<introduction>
+	<p>
+				A <m>5000</m> kg railcar hits a bumper (a spring) at <m>\unitfrac[1]{m}{s}</m>, and the spring compresses by <m>0.1</m> m. Assume no damping.
 			</p>
-
-<!-- div attr= class="tasks"-->
-			<p>
-				Find <m>k</m>. How far does the spring compress when a kg railcar hits the spring at the same speed? If the spring would break if it compresses further than [ 0 3 ] m , what is the maximum mass of a railcar that can hit it at  ?  What is the maximum mass of a railcar that can hit the spring without breaking at  ?
-			</p><!--</div attr= class="tasks">-->
-</statement>
+</introduction>
+<task>
+	<statement>
+		<p>
+			Find <m>k</m>.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>k = \unitfrac[500000]{N}{m}</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			How far does the spring compress when a <m>10000</m> kg railcar hits the spring at the same speed?
+		</p>
+	</statement>
+	<answer>
+		<p>
+			 <m>\frac{1}{5\sqrt{2}} \approx 0.141</m> m
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			If the spring would break if it compresses further than 0.3 m, what is the maximum mass of a railcar that can hit it at <m>\unitfrac[1]{m}{s}</m>?
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>45000</m> kg
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			What is the maximum mass of a railcar that can hit the spring without breaking at <m>\unitfrac[2]{m}{s}</m>?
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>11250</m> kg
+		</p>
+	</answer>
+</task>
 
 </exercise>
+
 <exercise>
-<statement>
-			<p>
-				When attached to a spring, a kg mass stretches the spring by [ 0 49 ] m.
-			</p>
+<introduction>
+	<p>
+				When attached to a spring, a <m>2</m> kg mass stretches the spring by <m>0.49</m> m.
+	</p>
+</introduction>
+<task>
+	<statement>
+		<p>
+			What is the spring constant of this spring? Use <m>9.8 \unitfrac{m}{s^2}</m>as the gravity constant.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>k=40</m> N/m 
+		</p>
+	</answer>
+</task>		
+<task>
+	<statement>
+		<p>
+			This mass is allowed to come to rest, lifted up by <m>0.4</m> m and then released. If there is no damping, set up and solve an initial value problem for the position of the mass as a function of time.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>y = 0.4 \cos(\sqrt{20}t)</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			For a next experiment, you attach a dampener of coefficient <m>16 \unitfrac{Ns}{m}</m> to the system, and give the same initial condition. Set up and solve an initial value problem for the position of the mass What type of ''dampening'' would be used to characterize this situation?
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>y = 0.4 e^{-4t}\cos(2t) + 0.8e^{-4t}\sin(2t)</m>, Underdamped 
+		</p>
+	</answer>
+</task>
 
-<!-- div attr= class="tasks"-->
-			<p>
-				What is the spring constant of this spring? Use as the gravity constant. This mass is allowed to come to rest, lifted up by [ 0 4 ] m and then released If there is no damping , set up and solve an initial value problem for the position of the mass as a function of time  For a next experiment , you attach a dampener of coefficient  to the system , and give the same initial condition Set up and solve an initial value problem for the position of the mass What type of ` ` dampening ' ' would be used to characterize this situation ?
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) <m>k=40</m> N/m b) <m>y = 0.4 \cos(\sqrt{20}t)</m><!-- linebreak -->c)  <m>y = 0.4 e^{-4t}\cos(2t) + 0.8e^{-4t}\sin(2t)</m>, Underdamped 
-			</p>
-</answer>
 </exercise>
 
 <exercise>
@@ -552,39 +788,139 @@ mx'' + \gamma x' + k(x-L) = 0 \qquad \Rightarrow \qquad my'' + \gamma y' + ky = 
 				A mass of <m>m</m> kg is on a spring with <m>k=\unitfrac[3]{N}{m}</m> and <m>c=\unitfrac[2]{Ns}{m}</m>. Find the mass <m>m_0</m> for which there is critical damping. If <m>m &lt; m_0</m>, does the system oscillate or not, that is, is it underdamped or overdamped?
 			</p>
 </statement>
-
-</exercise>
-<exercise>
-<statement>
-			<p>
-				Suppose we have an RLC circuit with a resistor of 100 milliohms (0.1 ohms), inductor of inductance of 50 millihenries (0.05 henries), and a capacitor of 5 farads, with constant voltage.
-			</p>
-
-<!-- div attr= class="tasks"-->
-			<p>
-				Set up the ODE equation for the current <m>I</m>. Find the general solution. Solve for <m>I(0) = 10</m> and <m>I'(0) = 0</m>.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-</exercise>
-<exercise>
-<statement>
-			<p>
-				For RLC circuits, we can use either charge or current to set up the equation. Let’s see how the two of those compare.
-			</p>
-
-<!-- div attr= class="tasks"-->
-			<p>
-				Assume that we have an RLC circuit with a 30 millihenry inductor, a 120 milliohm resistor, and a capacitor with capacitance <m>\nicefrac{20}{3}</m> F. Set up a differential equation for the charge on the capacitor as a function of time. Use the same circuit to set up a differential equation for the current through the circuit as a function of time. How do these equations relate? Find the general solution to each of these equations. Solve the initial value problem for the charge with <m>Q(0) = \nicefrac{1}{2} C</m> and <m>Q'(0) = 0</m>. Using the fact that <m>I = Q'</m>, determine the appropriate initial conditions needed for <m>I</m> in order to solve for the current in this same setup (with those initial values for charge). Now, we’ll do the same in the other direction. Solve the initial value problem for current with <m>I(0) = 2 A</m> and <m>I'(0) = 1 \unitfrac{A}{s}</m>, and see what the initial conditions would be for <m>Q(t)</m> for this setup.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) <m>0.03Q'' + 0.12Q' + \frac{3}{20}Q = 0</m> b) <m>0.03I'' + 0.12I' + \frac{3}{20}I = 0</m> c) <m>Q(t) = C_1e^{-2t}\cos(t) + C_2e^{-2t}\sin(t)</m> d) <m>Q(t) = \frac{1}{2}e^{-2t}\cos(t) + e^{-2t}\sin(t)</m> e) <m>I(0) = 0</m>, <m>I'(0) = -\frac{5}{2}</m> f) <m>I(t) = 2e^{-2t}\cos(t) + 5e^{-2t}\sin(t)</m>, <m>Q(0) = -\frac{9}{5}</m>, <m>Q'(0) = 2</m> 
-			</p>
+<answer>
+	<p>
+		<m>m_0 = \frac{1}{3}</m>.  If <m>m &lt; m_0</m>, then the system is overdamped and will
+not oscillate.
+	</p>
 </answer>
-</exercise>
 
+</exercise>
+<exercise>
+<introduction>
+	<p>
+		Suppose we have an RLC circuit with a resistor of 100 milliohms (0.1 ohms), inductor of inductance of 50 millihenries (0.05 henries), and a capacitor of 5 farads, with constant voltage.
+	</p>
+</introduction>
+<task>
+	<statement>
+		<p>
+			Set up the ODE equation for the current <m>I</m>.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>0.05 I'' + 0.1 I' + (\nicefrac{1}{5}) I = 0</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Find the general solution.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>I = C e^{-t} \cos(\sqrt{3} \, t - \gamma)$ or $I = C_1e^{-t}\cos(\sqrt{3} t) + C_2e^{-t}\sin(\sqrt{3} t)</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Solve for <m>I(0) = 10</m> and <m>I'(0) = 0</m>.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>I = 10 e^{-t} \cos(\sqrt{3} \, t) + \frac{10}{\sqrt{3}} e^{-t}
+\sin(\sqrt{3} \, t)</m>
+		</p>
+	</answer>
+</task>
+
+</exercise>
+<exercise>
+<introduction>
+	<p>
+		For RLC circuits, we can use either charge or current to set up the equation. Let's see how the two of those compare.
+	</p>
+</introduction>
+<task>
+	<statement>
+		<p>
+			Assume that we have an RLC circuit with a 30 millihenry inductor, a 120 milliohm resistor, and a capacitor with capacitance <m>\nicefrac{20}{3}</m> F. Set up a differential equation for the charge on the capacitor as a function of time.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>0.03Q'' + 0.12Q' + \frac{3}{20}Q = 0</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Use the same circuit to set up a differential equation for the current through the circuit as a function of time. How do these equations relate? 
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>0.03I'' + 0.12I' + \frac{3}{20}I = 0</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Find the general solution to each of these equations.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>Q(t) = C_1e^{-2t}\cos(t) + C_2e^{-2t}\sin(t)</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Solve the initial value problem for the charge with <m>Q(0) = \nicefrac{1}{2} C</m> and <m>Q'(0) = 0</m>.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>Q(t) = \frac{1}{2}e^{-2t}\cos(t) + e^{-2t}\sin(t)</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Using the fact that <m>I = Q'</m>, determine the appropriate initial conditions needed for <m>I</m> in order to solve for the current in this same setup (with those initial values for charge).
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>I(0) = 0</m>, <m>I'(0) = -\frac{5}{2}</m> 
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Now, we'll do the same in the other direction. Solve the initial value problem for current with <m>I(0) = 2 A</m> and <m>I'(0) = 1 \unitfrac{A}{s}</m>, and see what the initial conditions would be for <m>Q(t)</m> for this setup.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>I(t) = 2e^{-2t}\cos(t) + 5e^{-2t}\sin(t)</m>, <m>Q(0) = -\frac{9}{5}</m>, <m>Q'(0) = 2</m> 
+		</p>
+	</answer>
+</task>
+</exercise>
+	
 <exercise>
 <statement>
 			<p>

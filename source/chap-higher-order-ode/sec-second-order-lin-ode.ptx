@@ -1007,7 +1007,7 @@ y(x) = \left(1 + \frac{1}{2\sqrt{2}}\right)e^{(1 + \sqrt{2})x} + \left(1 - \frac
 </answer>
 </exercise>
 
-			<exercisegroup>
+			<exercisegroup xml:id="euler-eqn-exercise">
 			
 				<introduction>
 					<p>

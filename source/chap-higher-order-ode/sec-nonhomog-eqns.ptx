@@ -6,55 +6,88 @@
 	<section xml:id="sec-nonhom">
 		<title>Nonhomogeneous equations</title>
 
+		<objectives>
+	<introduction>
+		<p>
+			After this section, you will be able to: 
+		</p>
+	</introduction>
+	<ul>
+		<li>
+			<p>
+				Find the corresponding homogeneous equation for a non-homogeneous equation,
+			</p>
+		</li>
+		<li>
+			<p>
+				Use the method of undetermined coefficients to solve non-homogeneous equations,
+			</p>
+		</li>
+		<li>
+			<p>
+				 Use variation of parameters to solve non-homogeneous equations, and
+			</p>
+		</li>
+		<li>
+			<p>
+				Solve for the necessary coefficients to solve initial value problems for non-homogeneous equations.
+			</p>
+		</li>
+	</ul>
+</objectives>
+
 
 		<subsection xml:id="solving-nonhomogeneous-equations">
 			<title>Solving nonhomogeneous equations</title>
 
 			<p>
 				We have solved linear constant coefficient homogeneous equations. What about nonhomogeneous linear ODEs? For example, the equations for forced mechanical vibrations, where we add a <q>forcing</q> term, which is a function on the right-hand side of the equation. That is, suppose we have an equation such as 
-<men xml:id="3-5-eq-nh">
+<md number="yes" xml:id="3-5-eq-nh">
  y'' + 5y'+ 6y = 2x+1 .
-</men>
+</md>
 			</p>
 
 			<p>
-				We will write <m>L[y] = 2x+1</m>, where <m>L[y]</m> represents the entire left-hand side of <m>y'' + 5y' + 6y</m>, when the exact form of the operator is not important. We solve <xref ref="3-5-eq-nh" /> in the following manner. First, we find the general solution <m>y_c</m> to the <em></em> 
-<men xml:id="3-5-eq-h">
+				We will write <m>L[y] = 2x+1</m>, where <m>L[y]</m> represents the entire left-hand side of <m>y'' + 5y' + 6y</m>, when the exact form of the operator is not important. We solve <xref ref="3-5-eq-nh" /> in the following manner. First, we find the general solution <m>y_c</m> to the <term>associate homogeneous equation</term>.
+<md number="yes" xml:id="3-5-eq-h">
  y'' + 5y'+ 6y = 0 .
-</men>
-We call <m>y_c</m> the <em></em>. Next, we find a single <em></em> <m>y_p</m> to <xref ref="3-5-eq-nh" /> in some way (that is the point of this section). Then 
-<me>
+</md>
+We call <m>y_c</m> the <term>complemetary solution</term>. Next, we find a single <term>particular solution</term> <m>y_p</m> to <xref ref="3-5-eq-nh" /> in some way (that is the point of this section). Then 
+<md>
 y = y_c + y_p
-</me>
- is the general solution to <xref ref="3-5-eq-nh" />. We have <m>L[y_c] = 0</m> and <m>L[y_p] = 2x+1</m>. As <m>L</m> is a <em></em> we verify that <m>y</m> is a solution, <m>L[y] = L [y_c + y_p] = L[y_c] + L[y_p] = 0
+</md>
+ is the general solution to <xref ref="3-5-eq-nh" />. We have <m>L[y_c] = 0</m> and <m>L[y_p] = 2x+1</m>. As <m>L</m> is a <term>linear operator</term> we verify that <m>y</m> is a solution, <m>L[y] = L [y_c + y_p] = L[y_c] + L[y_p] = 0
 + (2x+1)</m>. Let us see why we obtain the <em>general</em> solution.
 			</p>
 
 			<p>
 				Let <m>y_p</m> and <m>\tilde{y}_p</m> be two different particular solutions to <xref ref="3-5-eq-nh" />. Write the difference as <m>w = y_p - \tilde{y}_p</m>. Then plug <m>w</m> into the left-hand side of the equation to get 
-<me>
+<md>
 w'' + 5w'+ 6w =
 (y_p'' + 5y_p'+ 6y_p) -
 (\tilde{y}_p'' + 5\tilde{y}_p'+ 6\tilde{y}_p) =
 (2x+1) - (2x+1) = 0 .
-</me>
+</md>
  Using the operator notation the calculation becomes simpler. As <m>L</m> is a linear operator we write 
-<me>
+<md>
 L[w] = L[y_p - \tilde{y}_p] =
 L[y_p] - L[\tilde{y}_p] =
 (2x+1)-(2x+1) = 0 .
-</me>
+</md>
  So <m>w = y_p - \tilde{y}_p</m> is a solution to <xref ref="3-5-eq-h" />, that is <m>Lw = 0</m>. However, we know what all solutions to <m>Lw = 0</m> look like, as this is a homogeneous equation that we have solved previously. Therefore, any two solutions of <xref ref="3-5-eq-nh" /> differ by a solution to the homogeneous equation <xref ref="3-5-eq-h" />. The solution <m>y = y_c + y_p</m> includes <em>all</em> solutions to <xref ref="3-5-eq-nh" />, since <m>y_c</m> is the general solution to the associated homogeneous equation.
 			</p>
 
-<!-- div attr= class="theorem1"-->
-			<p>
+<theorem xml:id="thm-nonhomog-superpos">
+	<statement>
+		<p>
 				Let <m>L[y]=f(x)</m> be a linear ODE (not necessarily constant coefficient). Let <m>y_c</m> be the complementary solution (the general solution to the associated homogeneous equation <m>L[y] = 0</m>) and let <m>y_p</m> be any particular solution to <m>L[y]=f(x)</m>. Then the general solution to <m>L[y]=f(x)</m> is 
-<me>
+<md>
 y = y_c + y_p.
-</me>
+</md>
 
-			</p><!--</div attr= class="theorem1">-->
+			</p>
+	</statement>
+</theorem>
 
 			<p>
 				The moral of the story is that we can find the particular solution in any old way. If we find a different particular solution (by a different method, or simply by guessing), then we still get the same general solution. The formula may look different, and the constants we have to choose to satisfy the initial conditions may be different, but it is the same solution.
@@ -67,11 +100,11 @@ y = y_c + y_p.
 
 			<p>
 				The trick is to somehow, in a smart way, guess one particular solution to <xref ref="3-5-eq-nh" />. Note that <m>2x+1</m> is a polynomial, and the left-hand side of the equation (with all of the derivatives) will still be a polynomial if we let <m>y</m> be a polynomial of the same degree. Let us try 
-<me>
+<md>
 y_p = Ax + B .
-</me>
+</md>
  We plug <m>y_p</m> into the left hand side to obtain 
-<me>
+<md>
 \begin{split}
 y_p'' + 5y_p'+ 6y_p &amp; =
 (Ax+B)'' + 5(Ax+B)' + 6(Ax+B)
@@ -79,26 +112,26 @@ y_p'' + 5y_p'+ 6y_p &amp; =
 &amp; = 
 0 + 5A + 6Ax + 6B = 6Ax+ (5A+6B) .
 \end{split}
-</me>
+</md>
  So <m>6Ax+(5A+6B) = 2x+1</m>. If we match up the coefficients of <m>x</m> in this equation, we get that <m>6A = 2</m> or <m>A = \nicefrac{1}{3}</m>. In order for the constant terms to match, we need that <m>5A + 6B = 1</m>. Since we know the value of <m>A</m>, this tells us that <m>B = \nicefrac{-1}{9}</m>. That means <m>y_p = \frac{1}{3}\, x - \frac{1}{9} = \frac{3x-1}{9}</m>. Solving the complementary problem (exercise!) we get 
-<me>
+<md>
 y_c = C_1 e^{-2x} + C_2 e^{-3x}.
-</me>
+</md>
  Hence the general solution to <xref ref="3-5-eq-nh" /> is 
-<me>
+<md>
 y = C_1 e^{-2x} + C_2 e^{-3x} + \frac{3x-1}{9} .
-</me>
+</md>
  Now suppose we are further given some initial conditions. For example, <m>y(0) = 0</m> and <m>y'(0) = \nicefrac{1}{3}</m>. First find <m>y' = - 2C_1 e^{-2x} - 3C_2 e^{-3x}
 + \nicefrac{1}{3}</m>. Then 
-<me>
+<md>
 0 = y(0) = C_1 + C_2 -\frac{1}{9} , \qquad
 \frac{1}{3} = y'(0) = - 2C_1 - 3C_2 + \frac{1}{3} .
-</me>
+</md>
  We solve to get <m>C_1 = \nicefrac{1}{3}</m> and <m>C_2 = \nicefrac{-2}{9}</m>. The particular solution we want is 
-<me>
+<md>
 y(x) = \frac{1}{3} e^{-2x} - \frac{2}{9} e^{-3x} + \frac{3x-1}{9} =
 \frac{3 e^{-2x} - 2 e^{-3x} + 3x-1}{9} .
-</me>
+</md>
 
 			</p>
 
@@ -124,104 +157,104 @@ y(x) = \frac{1}{3} e^{-2x} - \frac{2}{9} e^{-3x} + \frac{3x-1}{9} =
 <title> </title>
 <statement>			<p>
 				One example of this is 
-<me>
+<md>
 y''+2y'+2y = \cos (2x) .
-</me>
+</md>
 
 			</p>
 </statement>
 
 <solution>			<p>
 				Let us find some <m>y_p</m>. We start by guessing that the solution includes some multiple of <m>\cos(2x)</m>. We try 
-<me>
+<md>
 y_p = A \cos(2x) .
-</me>
+</md>
  Plugging this into the differential equation gives 
-<me>
+<md>
 \underbrace{-4 A \cos (2x)}_{y_p''}
 +2 \underbrace{\bigl(-2A \sin (2x)\bigr)}_{y_p'}
 +
 2 \underbrace{\bigl(A \cos (2x)\bigr)}_{y_p}
 = \cos (2x).
-</me>
+</md>
  Simplifying this expression gives 
-<me>
+<md>
 -2A\cos(2x) - 4A\sin(2x) = \cos(2x)
-</me>
+</md>
  and we have a problem. Since there is no sine term on the right-hand side, we are forced to pick <m>A = 0</m>, which means our non-homogeneous solution is zero, and that’s not good. What happened here? In the previous example, when we differentiated a polynomial (as part of the <m>y_p</m> guess) the function stayed a polynomial, and so we did not add any new types of terms. In this case, however, when we differentiate the cosine term in our guess, it becomes a sine, which we did <em>not</em> have in our initial guess.
 			</p>
 
 			<p>
 				Thus, we will also want to add a multiple of <m>\sin (2x)</m> to our guess since derivatives of cosine are sines. We try 
-<me>
+<md>
 y_p = A \cos (2x) + B \sin (2x) .
-</me>
- We plug <m>y_p</m> into the equation and we get <me>\begin{multline*}
+</md>
+ We plug <m>y_p</m> into the equation and we get <md>\begin{multline*}
 \underbrace{-4 A \cos (2x) - 4 B \sin (2x)}_{y_p''}
 +2 \underbrace{\bigl(-2A \sin (2x) + 2B \cos (2x)\bigr)}_{y_p'}
 \\
 +
 2 \underbrace{\bigl(A \cos (2x) + B \sin (2x)\bigr)}_{y_p}
 = \cos (2x) ,
-\end{multline*}</me> or 
-<me>
+\end{multline*}</md> or 
+<md>
 (-4A+4B+2A) \cos(2x) +
 (-4B-4A+2B) \sin(2x)
 = \cos(2x) .
-</me>
+</md>
  The left-hand side must equal to right-hand side. Namely, <m>-4A + 4B + 2A = 1</m> and <m>-4B - 4A + 2B = 0</m>. So <m>-2A+4B =1</m> and <m>2A+B=0</m>. We can solve this system of equations to get that <m>A=\nicefrac{-1}{10}</m> and <m>B=\nicefrac{1}{5}</m>. So 
-<me>
+<md>
 y_p = A \cos (2x) + B \sin (2x) = \frac{-\cos (2x) + 2 \sin (2x)}{10} .
-</me>
+</md>
 
 			</p>
 </solution>
 </example>
 			<p>
 				Similarly, if the right-hand side contains exponentials we try exponentials. If 
-<me>
+<md>
 L[y] = e^{3x},
-</me>
+</md>
  we try <m>y = A e^{3x}</m> as our guess and try to solve for <m>A</m>.
 			</p>
 
 			<p>
 				When the right-hand side is a multiple of sines, cosines, exponentials, and polynomials, we can use the product rule for differentiation to come up with a guess. We need to guess a form for <m>y_p</m> such that <m>L[y_p]</m> is of the same form, and has all the terms needed to for the right-hand side. For example, 
-<me>
+<md>
 L[y] = (1+3x^2)\,e^{-x}\cos (\pi x) .
-</me>
+</md>
  For this equation, we guess 
-<me>
+<md>
 y_p = (A + Bx + Cx^2)\,e^{-x} \cos (\pi x) + 
 (D + Ex + Fx^2)\,e^{-x} \sin (\pi x) .
-</me>
- We plug in and then hopefully get equations that we can solve for <m>A</m>, <m>B</m>, <m>C</m>, <m>D</m>, <m>E</m>, and <m>F</m>. As you can see this can make for a very long and calculation very quickly. C’est !
+</md>
+ We plug in and then hopefully get equations that we can solve for <m>A</m>, <m>B</m>, <m>C</m>, <m>D</m>, <m>E</m>, and <m>F</m>. As you can see this can make for a very long and tedious calculation very quickly. C'est la vie!
 			</p>
 
 			<p>
 				There is one hiccup in all this. It could be that our guess actually solves the associated homogeneous equation. That is, suppose we have 
-<me>
+<md>
 y'' - 9y = e^{3x} .
-</me>
+</md>
  We would love to guess <m>y = Ae^{3x}</m>, but if we plug this into the left-hand side of the equation we get 
-<me>
+<md>
 y''-9y = 9Ae^{3x} - 9Ae^{3x} = 0 \not= e^{3x} .
-</me>
+</md>
  There is no way we can choose <m>A</m> to make the left-hand side be <m>e^{3x}</m>. The trick in this case is to multiply our guess by <m>x</m> to get rid of duplication with the complementary solution. That is first we compute <m>y_c</m> (solution to <m>L[y] =
 0</m>) 
-<me>
+<md>
 y_c = C_1 e^{-3x} + C_2 e^{3x} ,
-</me>
+</md>
  and we note that the <m>e^{3x}</m> term is a duplicate with our desired guess. We modify our guess to <m>y = Axe^{3x}</m> so that there is no duplication anymore. Let us try: <m>y' = Ae^{3x} + 3Axe^{3x}</m> and <m>y'' = 6Ae^{3x} + 9Axe^{3x}</m>, so 
-<me>
+<md>
 y'' -9y = 6Ae^{3x} + 9Axe^{3x} - 9Axe^{3x} = 
 6Ae^{3x} .
-</me>
+</md>
  Thus <m>6Ae^{3x}</m> is supposed to equal <m>e^{3x}</m>. Hence, <m>6A = 1</m> and so <m>A=\nicefrac{1}{6}</m>. We can now write the general solution as 
-<me>
+<md>
 y = y_c + y_p = 
 C_1 e^{-3x} + C_2 e^{3x} + \frac{1}{6}\,xe^{3x} .
-</me>
+</md>
 
 			</p>
 
@@ -231,17 +264,17 @@ C_1 e^{-3x} + C_2 e^{3x} + \frac{1}{6}\,xe^{3x} .
 
 			<p>
 				It is possible that multiplying by <m>x</m> does not get rid of all duplication. For example, 
-<me>
+<md>
 y''-6y'+9y = e^{3x} .
-</me>
+</md>
  The complementary solution is <m>y_c = C_1 e^{3x} + C_2 x e^{3x}</m>. Guessing <m>y=A xe^{3x}</m> would not get us anywhere. In this case we want to guess <m>y_p = Ax^2e^{3x}</m>. Basically, we want to multiply our guess by <m>x</m> until all duplication is gone. <em>But no more!</em> Multiplying too many times will not work (in that case, the derivatives won’t actually get down to the plain <m>e^{3x}</m> term that you need in order to solve the problem).
 			</p>
 
 			<p>
 				Finally, what if the right-hand side has several terms, such as 
-<me>
+<md>
 L[y] = e^{2x} + \cos x .
-</me>
+</md>
  In this case we find <m>u</m> that solves <m>L[u] = e^{2x}</m> and <m>v</m> that solves <m>L[v] = \cos x</m> (that is, do each term separately). Then note that if <m>y = u+ v</m>, then <m>L[y] = e^{2x} + \cos x</m>. This is because <m>L</m> is linear; we have <m>L[y] = L[u+v] = L[u] + L[v] = e^{2x} + \cos x</m>.
 			</p>
 
@@ -249,7 +282,6 @@ L[y] = e^{2x} + \cos x .
 				To summarize all of this, we can make a table of the different guesses we should make given the form of the right hand side.
 			</p>
 
-<!-- div attr= class="center"-->
 			<table>
 				<title></title>
 				<tabular>
@@ -257,24 +289,24 @@ L[y] = e^{2x} + \cos x .
 					<cell halign="center"><term>Right hand side</term></cell>
 					<cell halign="center"><term>Guess</term></cell>
 				</row>
-				<row class="odd">
+				<row>
 					<cell halign="center"><m>a_nx^n + a_{n-1}x^{n-1} + \cdots  + a_1x + a_0</m></cell>
 					<cell halign="center"><m>Ax^n + Bx^{n-1} + \cdots + Nx + P</m></cell>
 				</row>
-				<row class="even">
+				<row>
 					<cell halign="center"><m>e^{ax}</m></cell>
 					<cell halign="center"><m>Ae^{ax}</m></cell>
 				</row>
-				<row class="odd">
+				<row>
 					<cell halign="center"><m>\cos{ax}</m></cell>
 					<cell halign="center"><m>A\cos{ax} + B\sin{ax}</m></cell>
 				</row>
-				<row class="even">
+				<row>
 					<cell halign="center"><m>\sin{ax}</m></cell>
 					<cell halign="center"><m>A\cos{ax} + B\sin{ax}</m></cell>
 				</row>
 				</tabular>
-			</table><!--</div attr= class="center">-->
+			</table>
 
 			<p><ul>
 				<li>
@@ -293,84 +325,84 @@ L[y] = e^{2x} + \cos x .
 
 
 <example>
-<title> </title>
 <statement>			<p>
 				Find the solution to the initial value problem 
-<me>
+<md>
 y'' - 3y' - 4y = 2e^{-x} + 4 \sin(x) \qquad y(0) = -2,\ y'(0) = 1
-</me>
+</md>
 
 			</p>
 </statement>
 
 <solution>			<p>
 				To start this problem, we look for the solution to the homogeneous problem. The characteristic equation for the left hand side is <m>r^2 - 3r - 4</m>, which factors as <m>(r-4)(r+1)</m>. Therefore the general solution to the homogeneous problem (or the complementary solution) is 
-<me>
+<md>
 y_c(x) = C_1e^{4x} + C_2e^{-x} .
-</me>
+</md>
 
 			</p>
 
 			<p>
 				Next, we want to use undetermined coefficients to solve the non-homogeneous problem. Note that we have to wait until after this part to meet the initial conditions. Since our right-hand side is <m>2e^{-x} + 4 \sin(x)</m>, we need to guess two components for the two different terms in this function. For the first term, we would want to guess <m>Ae^{-x}</m>, but this function solves the homogeneous problem. Therefore, we need to multiply by <m>x</m> to use <m>Axe^{-x}</m> as our guess. For the sine term, we need to guess both sine and cosine, so we add <m>B\sin(x) + C\cos(x)</m> to our guess. Therefore, our total guess for the non-homogeneous solution is 
-<me>
+<md>
 y_p(x) = Axe^{-x} + B\sin(x) + C\cos(x).
-</me>
+</md>
 
 			</p>
 
 			<p>
 				We take two derivatives of this function and then plug it into the differential equation 
-<me>
+<md>
 \begin{split}
 y_p(x) &amp;= Axe^{-x} + B\sin(x) + C\cos(x) \\
 y_p'(x) &amp;= Ae^{-x} - Axe^{-x} + B\cos(x) - C\sin(x) \\
 y_p''(x) &amp;= Axe^{-x} - 2Ae^{-x} - B\sin(x) - C\cos(x)
 \end{split}
-</me>
+</md>
  so that 
-<me>
+<md>
 \begin{split}
 y_p'' - 3y_p' - 4y_p &amp;= (Axe^{-x} - 2Ae^{-x} - B\sin(x) - C\cos(x))\\
 &amp;\ \ - 3(Ae^{-x} - Axe^{-x} + B\cos(x) - C\sin(x))\\
 &amp; \ \  - 4(Axe^{-x} + B\sin(x) + C\cos(x))
 \end{split}
-</me>
+</md>
  which can be simplified to 
-<me>
+<md>
 y_p'' - 3y_p' - 4y_p = -5Ae^{-x} + (3C - 5B)\sin(x) + (-3B-5C)\cos(x).
-</me>
- Since we want this to equal <m>2e^{-x} + 4\sin(x)</m>, this means that we need <m>-5A = 2</m>, so <m>A = -\nicefrac{2}{5}</m>, as well as <m>3C - 5B = 4</m> and <m>-3B-5C = 0</m>. The second of these implies that <m>3B = -5C</m>, or <m>B = -\nicefrac{5}{3}C</m>, so that the first equation gives <m>3C - 5(-\nicefrac{5}{3}C) = 4</m>. This implies that <m>(3 + \nicefrac{25}{3})C = 4</m> so that <me>C = \frac{4}{(3 + \frac{25}{3})} = \frac{4}{\frac{34}{3}} = \frac{6}{17}.</me> We can then find <m>B</m> as <me>B = -\frac{5}{3}C = -\frac{5}{3} \cdot \frac{6}{17} = -\frac{10}{17}.</me> Therefore, the general solution to this non-homogeneous problem is 
-<me>
+</md>
+ Since we want this to equal <m>2e^{-x} + 4\sin(x)</m>, this means that we need <m>-5A = 2</m>, so <m>A = -\nicefrac{2}{5}</m>, as well as <m>3C - 5B = 4</m> and <m>-3B-5C = 0</m>. The second of these implies that <m>3B = -5C</m>, or <m>B = -\nicefrac{5}{3}C</m>, so that the first equation gives <m>3C - 5(-\nicefrac{5}{3}C) = 4</m>. This implies that <m>(3 + \nicefrac{25}{3})C = 4</m> so that <md>C = \frac{4}{(3 + \frac{25}{3})} = \frac{4}{\frac{34}{3}} = \frac{6}{17}.</md> We can then find <m>B</m> as <md>B = -\frac{5}{3}C = -\frac{5}{3} \cdot \frac{6}{17} = -\frac{10}{17}.</md> Therefore, the general solution to this non-homogeneous problem is 
+<md>
 y(x) = C_1e^{4x} + C_2e^{-x} - \frac{2}{5}xe^{-x} - \frac{10}{17}\sin(x) + \frac{6}{17}\cos(x).
-</me>
+</md>
 
 			</p>
 
 			<p>
 				Now we can look to meet the initial conditions. We want to differentiate this expression to get 
-<me>
+<md>
 y'(x) = 4C_1e^{4x} - C_2e^{-x} - \frac{2}{5}e^{-x} + \frac{2}{5}xe^{-x} - \frac{10}{17}\cos(x) - \frac{6}{17}\sin(x)
-</me>
+</md>
  and then plug zero into both <m>y</m> and <m>y'</m> to get that 
-<me>
+<md>
 \begin{split}
 y(0) &amp;= C_1 + C_2 + \frac{6}{17} = -2 \\
 y'(0) &amp;= 4C_1 - C_2 - \frac{2}{5} - \frac{10}{17} = 1
 \end{split}
-</me>
+</md>
  which gives rise to the system 
-<me>
+<md>
 C_1 + C_2 = -\frac{40}{17} \qquad 4C_1 - C_2 = \frac{169}{85}.
-</me>
+</md>
  Adding the equations together gives <m>5C_1 = - \frac{31}{85}</m> so that <m>C_1 = -\frac{31}{425}</m> and then <m>C_2 = -\frac{969}{425} = -\frac{57}{25}</m>. Therefore the solution to the initial value problem is 
-<me>
+<md>
 y(x) = -\frac{31}{425}e^{4x} - \frac{57}{25}e^{-x} - \frac{2}{5}xe^{-x} - \frac{10}{17}\sin(x) + \frac{6}{17}\cos(x).
-</me>
+</md>
 
 			</p>
 </solution>
 </example>
+
 <exercise>
 <statement>
 			<p>
@@ -386,76 +418,76 @@ y(x) = -\frac{31}{425}e^{4x} - \frac{57}{25}e^{-x} - \frac{2}{5}xe^{-x} - \frac{
 
 			<p>
 				The method of undetermined coefficients works for many basic problems that crop up. But it does not work all the time. It only works when the right-hand side of the equation <m>L[y] = f(x)</m> has finitely many linearly independent derivatives, so that we can write a guess that consists of them all. Some equations are a bit tougher. Consider 
-<me>
+<md>
 y''+y = \tan x .
-</me>
- Each new derivative of <m>\tan x</m> looks completely different and cannot be written as a linear combination of the previous derivatives. If we start differentiating <m>\tan x</m>, we get: <me>\begin{multline*}
+</md>
+ Each new derivative of <m>\tan x</m> looks completely different and cannot be written as a linear combination of the previous derivatives. If we start differentiating <m>\tan x</m>, we get: <md>\begin{multline*}
 \sec^2 x, \quad
 2\sec^2 x \, \tan x, \quad
 4 \sec^2 x \, \tan^2 x + 2 \sec^4 x, \\
 8 \sec^2 x \, \tan^3 x + 16 \sec^4 x \, \tan x, \quad
 16\sec^2 x \, \tan^4 x + 88 \sec^4 x \tan^2 x + 16 \sec^6 x, \quad
 \ldots
-\end{multline*}</me>
+\end{multline*}</md>
 			</p>
 
 			<p>
-				This equation calls for a different method. We present the method of <em></em>, which handles any equation of the form <m>L[y] = f(x)</m>, provided we can solve certain integrals. For simplicity, we restrict ourselves to second order constant coefficient equations, but the method works for higher order equations just as well (the computations become more ). The method also works for equations with nonconstant coefficients, provided we can solve the associated homogeneous equation.
+				This equation calls for a different method. We present the method of <term>variation of parameters</term>, which handles any equation of the form <m>L[y] = f(x)</m>, provided we can solve certain integrals. For simplicity, we restrict ourselves to second order constant coefficient equations, but the method works for higher order equations just as well (the computations become more tedious). The method also works for equations with nonconstant coefficients, provided we can solve the associated homogeneous equation.
 			</p>
 
 			<p>
 				Perhaps it is best to explain this method by example. Let us try to solve the equation 
-<me>
+<md>
 L[y] = y''+y = \tan x .
-</me>
+</md>
  First we find the complementary solution (solution to <m>L[y_c] = 0</m>). We get <m>y_c = C_1 y_1 + C_2 y_2</m>, where <m>y_1 = \cos x</m> and <m>y_2 = \sin x</m>. To find a particular solution to the nonhomogeneous equation we try 
-<me>
+<md>
 y_p = y = u_1 y_1 + u_2 y_2 ,
-</me>
+</md>
  where <m>u_1</m> and <m>u_2</m> are <em>functions</em> and not constants. We are trying to satisfy <m>L[y] = \tan x</m>. That gives us one condition on the functions <m>u_1</m> and <m>u_2</m>. Compute (note the product rule!) 
-<me>
+<md>
 y' = (u_1' y_1 + u_2' y_2) + (u_1 y_1' + u_2 y_2').
-</me>
- We can still impose one more condition at our discretion to simplify computations (we have two unknown functions, so we should be allowed two conditions). We require that <m>(u_1' y_1 + u_2' y_2) = 0</m>. This makes computing the second derivative easier. <me>\begin{align*}
+</md>
+ We can still impose one more condition at our discretion to simplify computations (we have two unknown functions, so we should be allowed two conditions). We require that <m>(u_1' y_1 + u_2' y_2) = 0</m>. This makes computing the second derivative easier. <md>\begin{align*}
 &amp; y' = u_1 y_1' + u_2 y_2' , \\
 &amp; y'' = (u_1' y_1' + u_2' y_2') + (u_1 y_1'' + u_2 y_2'') .
-\end{align*}</me> Since <m>y_1</m> and <m>y_2</m> are solutions to <m>y''+y = 0</m>, we find <m>y_1'' = - y_1</m> and <m>y_2'' = - y_2</m>. (If the equation was a more general <m>y''+p(x)y' +q(x)y = 0</m>, we would have <m>y_i'' = -p(x)y_i' -q(x)y_i</m>.) So 
-<me>
+\end{align*}</md> Since <m>y_1</m> and <m>y_2</m> are solutions to <m>y''+y = 0</m>, we find <m>y_1'' = - y_1</m> and <m>y_2'' = - y_2</m>. (If the equation was a more general <m>y''+p(x)y' +q(x)y = 0</m>, we would have <m>y_i'' = -p(x)y_i' -q(x)y_i</m>.) So 
+<md>
 y'' = (u_1' y_1' + u_2' y_2') - (u_1 y_1 + u_2 y_2) .
-</me>
+</md>
  We have <m>(u_1 y_1 + u_2 y_2) = y</m> and so 
-<me>
+<md>
 y'' = (u_1' y_1' + u_2' y_2') - y ,
-</me>
+</md>
  and hence 
-<me>
+<md>
 y'' + y = L[y] = u_1' y_1' + u_2' y_2' .
-</me>
+</md>
  For <m>y</m> to satisfy <m>L[y] = f(x)</m> we must have <m>f(x) = u_1' y_1' + u_2' y_2'</m>.
 			</p>
 
 			<p>
 				What we need to solve are the two equations (conditions) we imposed on <m>u_1</m> and <m>u_2</m>: 
-<me>
+<md>
 \mybxbg{~~
 \begin{aligned}
 &amp; u_1' y_1 + u_2' y_2 = 0 ,\\
 &amp; u_1' y_1' + u_2' y_2' = f(x) .
 \end{aligned}
 ~~}
-</me>
+</md>
  We solve for <m>u_1'</m> and <m>u_2'</m> in terms of <m>f(x)</m>, <m>y_1</m> and <m>y_2</m>. We always get these formulas for any <m>L[y] = f(x)</m>, where <m>L[y] =
-y''+p(x)y'+q(x)y</m>. There is a general formula for the solution we could just plug into, but instead of memorizing that, it is better, and easier, to just repeat what we do below. In our case the two equations are <me>\begin{align*}
+y''+p(x)y'+q(x)y</m>. There is a general formula for the solution we could just plug into, but instead of memorizing that, it is better, and easier, to just repeat what we do below. In our case the two equations are <md>\begin{align*}
 u_1' \cos (x) + u_2' \sin (x) &amp;= 0 ,\\
 -u_1' \sin (x) + u_2' \cos (x) &amp;= \tan (x) .
-\end{align*}</me> Hence <me>\begin{align*}
+\end{align*}</md> Hence <md>\begin{align*}
 u_1' \cos (x) \sin (x) + u_2' \sin^2 (x) &amp; = 0 ,\\
 -u_1' \sin (x) \cos (x) + u_2' \cos^2 (x) &amp; = \tan (x) \cos (x) = \sin (x) .
-\end{align*}</me> And thus <me>\begin{align*}
+\end{align*}</md> And thus <md>\begin{align*}
 &amp; u_2' \bigl(\sin^2 (x) + \cos^2 (x)\bigr) = \sin (x) , \\
 &amp; u_2' = \sin (x) , \\
 &amp; u_1' = \frac{- \sin^2 (x)}{\cos (x)} = - \tan (x) \sin (x) .
-\end{align*}</me> We integrate <m>u_1'</m> and <m>u_2'</m> to get <m>u_1</m> and <m>u_2</m>. <me>\begin{align*}
+\end{align*}</md> We integrate <m>u_1'</m> and <m>u_2'</m> to get <m>u_1</m> and <m>u_2</m>. <md>\begin{align*}
 &amp; u_1 = \int u_1'\,dx 
 = \int - \tan (x) \sin (x)\,dx
 = \frac{1}{2}
@@ -463,7 +495,7 @@ u_1' \cos (x) \sin (x) + u_2' \sin^2 (x) &amp; = 0 ,\\
 + \sin (x) , \\
 &amp; u_2 = \int u_2'\,dx 
 = \int \sin (x)\,dx = -\cos (x) .
-\end{align*}</me> So our particular solution is <me>\begin{multline*}
+\end{align*}</md> So our particular solution is <md>\begin{multline*}
 y_p = u_1 y_1 + u_2 y_2 =
 \frac{1}{2} \cos (x) \ln \left\lvert \frac{\sin (x)-1}{\sin (x) + 1}
 \right\rvert
@@ -472,103 +504,102 @@ y_p = u_1 y_1 + u_2 y_2 =
 = \\ =
 \frac{1}{2} \cos (x) \ln \left\lvert \frac{\sin (x)-1}{\sin (x) + 1}
 \right\rvert .
-\end{multline*}</me> The general solution to <m>y'' + y = \tan x</m> is, therefore, 
-<me>
+\end{multline*}</md> The general solution to <m>y'' + y = \tan x</m> is, therefore, 
+<md>
 y = C_1 \cos (x) + C_2 \sin (x) +
 \frac{1}{2} \cos (x) \ln \left\lvert \frac{\sin (x)-1}{\sin (x) + 1}
 \right\rvert .
-</me>
+</md>
 
 			</p>
 
 			<p>
 				In more generality, we can take the system of equations 
-<me>
+<md>
 \mybxbg{~~
 \begin{aligned}
 &amp; u_1' y_1 + u_2' y_2 = 0 ,\\
 &amp; u_1' y_1' + u_2' y_2' = f(x) .
 \end{aligned}
 ~~}
-</me>
+</md>
  and solve out for <m>u_1'</m> and <m>u_2'</m> using elimination. If we do that, we get that 
-<me>
+<md>
 u_1' = -\frac{y_2(x)f(x)}{y_1(x)y_2'(x) - y_1'(x)y_2(x)} \qquad u_2' = \frac{y_1(x)f(x)}{y_1(x)y_2'(x) - y_1'(x)y_2(x)}.
-</me>
+</md>
 
 			</p>
 
 			<p>
 				We know that solving the equations this way will work out because we start with the assumption that <m>y_1</m> and <m>y_2</m> are linearly independent solutions, and the denominator of both of these fractions is exactly what we know is not zero from this assumption. Therefore, both of these functions can be written this way, we can integrate both of them, and set up our particular solution of the form <m>y_p(x) = u_1y_1 + u_2y_2</m> to get 
-<men xml:id="varpar-eqn">
+<md number="yes" xml:id="varpar-eqn">
 y_p(x) = -y_1(x)\int_{x_0}^x \frac{y_2(r)f(r)}{y_1(r)y_2'(r) - y_1'(r)y_2(r)}\ dr + y_2(x)\int_{x_0}^x \frac{y_1(r)f(r)}{y_1(r)y_2'(r) - y_1'(r)y_2(r)}\ dr
-</men>
+</md>
 where <m>x_0</m> is any conveniently chosen value (usually zero). Notice the use of <m>r</m> as a dummy variable here to separate the functions being integrated from the actual variable that shows up in the solution. This formula will always work for finding a particular solution to a non-homogeneous equation given that we know the solution to the homogeneous equation, but we may not be able to work out the integrals explicitly. This is the downside of this method, it may always work, but can be very tedious and may not result in nice, closed-form expressions like we might get from other methods.
 			</p>
 
 
 <example>
-<title> </title>
 <statement>			<p>
 				Find the general solution to the differential equation 
-<me>
+<md>
 y'' + 4y' + 3y = e^{3x} + 2
-</me>
+</md>
  using both undetermined coefficients and variation of parameters.
 			</p>
 </statement>
 
 <solution>			<p>
 				For both methods of solving non-homogeneous equations, we need the solution to the homogeneous problem. For this equation, the characteristic polynomial is <m>r^2 + 4r + 3</m>, which factors as <m>(r+1)(r+3)</m>, so the general solution to the homogeneous problem is 
-<me>
+<md>
 y_c(x) = C_1 e^{-x} + C_2e^{-3x}.
-</me>
+</md>
 
 			</p>
 
 			<p>
 				To use undetermined coefficients, we need to get the appropriate guess for the right-hand side, which in this case is <m>y_p(x) = Ae^{3x} + B</m>. Plugging this in to the differential equation gives 
-<me>
+<md>
 9Ae^{3x} + 4(3Ae^{3x}) + 3(Ae^{3x} + B) = e^{3x} + 2
-</me>
+</md>
  which simplifies to 
-<me>
+<md>
 24Ae^{3x} + 3B = e^{3x} + 2
-</me>
+</md>
  so that <m>A = \nicefrac{1}{24}</m> and <m>B = \nicefrac{2}{3}</m>. Thus, the general solution to the non-homogeneous equation is 
-<me>
+<md>
 y(x) = C_1e^{-x} + C_2e^{-3x} + \frac{1}{24}e^{3x} + \frac{2}{3}.
-</me>
+</md>
 
 			</p>
 
 			<p>
 				In order to use variation of parameters, we let <m>y_1(x) = e^{-x}</m> and <m>y_2(x) = e^{-3x}</m> be the two linearly independent solutions that we found to the homogeneous problem. Our right-hand side function is <m>f(x) = e^{3x} + 2</m> and we can compute the expression 
-<me>
+<md>
 y_1(x)y_2'(x) - y_1'(x)y_2(x) = e^{-x}(-3e^{-3x}) - (-e^{-x})e^{-3x} = -2e^{-4x}.
-</me>
+</md>
 
 			</p>
 
 			<p>
 				Therefore, we can use the formulas from the method of variation of parameters to compute that 
-<me>
+<md>
 \begin{split}
 u_1' &amp;= -\frac{y_2(x)f(x)}{y_1(x)y_2'(x) - y_1'(x)y_2(x)} = -\frac{e^{-3x}(e^{3x} + 2)}{-2e^{-4x}} = \frac{1}{2}e^{4x} + e^x \\
 u_2' &amp;= \frac{y_1(x)f(x)}{y_1(x)y_2'(x) - y_1'(x)y_2(x)} = \frac{e^{-x}(e^{3x} + 2)}{-2e^{-4x}} = -\frac{1}{2}e^{6x} - e^{3x}.
 \end{split}
-</me>
+</md>
  Then we can compute 
-<me>
+<md>
 u_1 = \frac{1}{8}e^{4x} + e^x + C_1 \qquad u_2 = -\frac{1}{12}e^{6x} - \frac{1}{3}e^{3x} + C_2.
-</me>
+</md>
  Then, we can write out the full general solution as <m>y(x) = u_1(x)y_1(x) + u_2(x)y_2(x)</m> or 
-<me>
+<md>
 \begin{split}
 y(x) &amp;= e^{-x}\left( \frac{1}{8}e^{4x} + e^x + C_1 \right) + e^{-3x}\left(-\frac{1}{12}e^{6x} - \frac{1}{3}e^{3x} + C_2 \right) \\
 &amp;= \frac{1}{8}e^{3x} + 1 + C_1e^{-x} - \frac{1}{12}e^{3x} - \frac{1}{3} + C_2e^{-3x}
 \end{split}
-</me>
+</md>
  which, after combining the terms, is the same as the solution that we obtained via undetermined coefficients.
 			</p>
 </solution>
@@ -610,6 +641,11 @@ y(x) &amp;= e^{-x}\left( \frac{1}{8}e^{4x} + e^x + C_1 \right) + e^{-3x}\left(-\
 				Find a particular solution to <m>y''-y'+y=2\sin(3x)</m>
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>y=\frac{-16\sin(3x)+6\cos(3x)}{73}</m>
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -657,6 +693,11 @@ y(x) &amp;= e^{-x}\left( \frac{1}{8}e^{4x} + e^x + C_1 \right) + e^{-3x}\left(-\
 				Solve <m>y''+2y'+y = x^2</m>, <m>y(0)=1</m>, <m>y'(0)=2</m>.
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>y(x) = x^2-4 x+6+e^{-x}(x-5)</m>
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -673,28 +714,77 @@ y(x) &amp;= e^{-x}\left( \frac{1}{8}e^{4x} + e^x + C_1 \right) + e^{-3x}\left(-\
 </exercise>
 
 <exercise>
-<statement>
-<!-- div attr= class="tasks"-->
-			<p>
-				Using variation of parameters find a particular solution of <m>y''-2y'+y = e^x</m>. Find a particular solution using undetermined coefficients. Are the two solutions you found the same? See also .
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
+<introduction>
+	<p>
+		Consider the differential equation <m>y'' - 2y' + y = e^x</m>.
+	</p>
+</introduction>
+<task>
+	<statement>
+		<p>
+			Using variation of parameters, find a particular solution.
+		</p>
+	</statement>
+	<answer>			<p>
 				 <m>\frac{x^2}{2}e^x</m> 
 			</p>
 </answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Find a particular solution using undetermined coefficients.
+		</p>
+	</statement>
+	<answer>			<p>
+				 <m>\frac{x^2}{2}e^x</m> 
+			</p>
+</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Are the two solutions you found the same? See also <xref ref="varpar-uc-compare"/>.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			Yes.
+		</p>
+	</answer>
+</task>
 </exercise>
 
-<!-- div attr= class="samepage"-->
 <exercise>
-<statement>
-<!-- div attr= class="tasks"-->
+	<introduction>
+		<p>
+			Consider the differential equation <m>y''+2y=e^x + x^3</m>.
+		</p>
+	</introduction>
+	<task>
+		<statement>
 			<p>
-				Find a particular solution to <m>y''+2y=e^x + x^3</m>. Find the general solution.
-			</p><!--</div attr= class="tasks">--><!--</div attr= class="samepage">-->
-</statement>
-
+				Find a particular solution.
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>y=\frac{2e^x+3x^3-9x}{6}</m>
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				Find the general solution.
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>y=C_1 \cos(\sqrt{2} x) + C_2 \sin(\sqrt{2} x) + \frac{2e^x+3x^3-9x}{6}</m>
+			</p>
+		</answer>
+	</task>
 </exercise>
 <exercise>
 <statement>
@@ -788,39 +878,118 @@ y(x) &amp;= e^{-x}\left( \frac{1}{8}e^{4x} + e^x + C_1 \right) + e^{-3x}\left(-\
 </exercise>
 
 <exercise>
-<statement>
-			<p>
+<introduction>
+	<p>
 				The following differential equations are all related. Find the general solution to each of them and compare and contrast the different solutions and the methods used to approach them.
 			</p>
-
-<!-- div attr= class="tasks"-->
-			<p>
-				<m>y'' - 2y' - 15y = e^t + 5e^{-4t}</m> <m>y'' - 2y' - 15y = 2e^{2t} + 3e^{-t}</m> <m>y'' - 2y' - 15y = 3\cos(2t)</m> <m>y'' - 2y' - 15y = 2e^{5t} - \sin(t)</m>
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) <m>C_1e^{5t} + C_2e^{-3t}  - \frac{1}{16}e^t + \frac{5}{9}e^{-4t}</m> b) <m>C_1e^{5t} + C_2e^{-3t}  - \frac{2}{15}e^{2t} - \frac{3}{13}e^{-t}</m><!-- linebreak -->c) <m>C_1e^{5t} + C_2e^{-3t}  - \frac{57}{377}\cos(2t) - \frac{12}{377}\sin(2t)</m> d) <m>C_1e^{5t} + C_2e^{-3t}  + \frac{1}{4}te^{5t} - \frac{1}{130}\cos(t) + \frac{4}{65}\sin(t)</m><!-- linebreak -->
-			</p>
-</answer>
+</introduction>
+<task>
+	<statement>
+		<p>
+			<m>y'' - 2y' - 15y = e^t + 5e^{-4t}</m>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>C_1e^{5t} + C_2e^{-3t}  - \frac{1}{16}e^t + \frac{5}{9}e^{-4t}</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			<m>y'' - 2y' - 15y = 2e^{2t} + 3e^{-t}</m>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>C_1e^{5t} + C_2e^{-3t}  - \frac{2}{15}e^{2t} - \frac{3}{13}e^{-t}</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			<m>y'' - 2y' - 15y = 3\cos(2t)</m>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>C_1e^{5t} + C_2e^{-3t}  - \frac{57}{377}\cos(2t) - \frac{12}{377}\sin(2t)</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			<m>y'' - 2y' - 15y = 2e^{5t} - \sin(t)</m>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>C_1e^{5t} + C_2e^{-3t}  + \frac{1}{4}te^{5t} - \frac{1}{130}\cos(t) + \frac{4}{65}\sin(t)</m>
+		</p>
+	</answer>
+</task>
+			
 </exercise>
 
 <exercise>
-<statement>
-			<p>
+<introduction>
+	<p>
 				The following differential equations are all related. Find the general solution to each of them and compare and contrast the different solutions and the methods used to approach them.
 			</p>
+</introduction>
+<task>
+	<statement>
+		<p>
+			<m>y'' + 4y' + 3y = e^{2t} + 3e^{4t}</m>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>C_1e^{-t} + C_2e^{-3t} + \frac{1}{11}e^{2t} + \frac{3}{35}e^{4t}</m> 
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			<m>y'' - 2y' + 5y = e^{2t} + 3e^{4t}</m>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>C_1e^{t}\cos(2t) + C_2e^t\sin(2t) + \frac{1}{20}e^{2t} + \frac{3}{13}e^{4t}</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			<m>y'' + 3y' - 10y = e^{2t} + 3e^{4t}</m>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>C_1e^{-5t} + C_2e^{2t} + \frac{1}{7}te^{2t} - \frac{1}{2}e^{4t}</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			<m>y'' - 8y'  + 16y = e^{2t} + 3e^{4t}</m>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>C_1e^{4t} + C_2te^{4t} - \frac{1}{28}e^{2t} + \frac{3}{2}t^2e^{4t}</m>
+		</p>
+	</answer>
+</task>
+			
 
-<!-- div attr= class="tasks"-->
-			<p>
-				<m>y'' + 4y' + 3y = e^{2t} + 3e^{4t}</m> <m>y'' - 2y' + 5y = e^{2t} + 3e^{4t}</m> <m>y'' + 3y' - 10y = e^{2t} + 3e^{4t}</m> <m>y'' - 8y'  + 16y = e^{2t} + 3e^{4t}</m>
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) <m>C_1e^{-t} + C_2e^{-3t} + \frac{1}{11}e^{2t} + \frac{3}{35}e^{4t}</m> b) <m>C_1e^{t}\cos(2t) + C_2e^t\sin(2t) + \frac{1}{20}e^{2t} + \frac{3}{13}e^{4t}</m><!-- linebreak -->c) <m>C_1e^{-5t} + C_2e^{2t} + \frac{1}{7}te^{2t} - \frac{1}{2}e^{4t}</m> d) <m>C_1e^{4t} + C_2te^{4t} - \frac{1}{28}e^{2t} + \frac{3}{2}t^2e^{4t}</m> 
-			</p>
-</answer>
 </exercise>
 
 <exercise>
@@ -839,27 +1008,47 @@ y(x) &amp;= e^{-x}\left( \frac{1}{8}e^{4x} + e^x + C_1 \right) + e^{-3x}\left(-\
 <exercise>
 <statement>
 			<p>
-				Use variation of parameters to find a particular solution of <m>y''-y = \frac{1}{e^x+e^{-x}}</m>.<!-- linebreak --><em>Hint:</em> To make this problem easier, you can use <m>C_1 (e^x + e^{-x}) + C_2 (e^{x} - e^{-x})</m> as the general solution to the homogeneous problem.
+				Use variation of parameters to find a particular solution of <m>y''-y = \frac{1}{e^x+e^{-x}}</m>. <em>Hint:</em> To make this problem easier, you can use <m>C_1 (e^x + e^{-x}) + C_2 (e^{x} - e^{-x})</m> as the general solution to the homogeneous problem.
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>y = \frac{2xe^x-(e^x+e^{-x})\ln(e^{2x}+1)}{4} = -\frac{1}{4}\ln(e^x + e^{-x})(e^x + e^{-x}) + \frac{1}{4}x(e^x - e^{-x}</m>
+	</p>
+</answer>
 
 </exercise>
 <exercise>
-<statement>
-			<p>
-				Recall that a homogeneous <em></em> is one of the form <m>t^2y'' + aty' + by = 0</m> and is solved by using the guess <m>y(t) = t^r</m> and solving for the potential values of <m>r</m>.
+<introduction>
+		<p>
+				Recall that a homogeneous <term>Euler Equation</term> is one of the form <m>t^2y'' + aty' + by = 0</m> and is solved by using the guess <m>y(t) = t^r</m> and solving for the potential values of <m>r</m>.
 			</p>
-
-<!-- div attr= class="tasks"-->
-			<p>
-				Solve <m>t^2y''-2ty'-10y=0</m>. Let <m>y_1</m> and <m>y_2</m> be the two linearly independent parts of a general solution for the above equation, so that the general solution is <m>C_1y_1 + C_2y_2</m>. Use the variation of parameters equations <m>\displaystyle u_1=-\int \frac{y_2\, g(t)}{y_1y_2' - y_2y_1'}\,dt</m>, <m>\displaystyle y_2=\int \frac{y_1\, g(t)}{y_1y_2' - y_2y_1'}\,dt</m> to solve the non-homogeneous equation <m>\displaystyle y''-\frac{2}{t} - \frac{10}{t^2}=t^3</m>. (Do not attempt method of undetermined coefficients instead; it won’t work.)
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) <m>y(t) = C_1t^5 + C_2t^{-2}</m> b) <m>y(t) = C_1t^5 + C_2t^{-2} + t^5\left(\frac{1}{7}\ln(|t|) - \frac{1}{49}\right)</m> 
-			</p>
-</answer>
+</introduction>
+<task>
+	<statement>
+		<p>
+			Solve <m>t^2y''-2ty'-10y=0</m>.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>y(t) = C_1t^5 + C_2t^{-2}</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Let <m>y_1</m> and <m>y_2</m> be the two linearly independent parts of a general solution for the above equation, so that the general solution is <m>C_1y_1 + C_2y_2</m>. Use the variation of parameters equations <m>\displaystyle u_1=-\int \frac{y_2\, g(t)}{y_1y_2' - y_2y_1'}\,dt</m>, <m>\displaystyle y_2=\int \frac{y_1\, g(t)}{y_1y_2' - y_2y_1'}\,dt</m> to solve the non-homogeneous equation <m>\displaystyle y''-\frac{2}{t} - \frac{10}{t^2}=t^3</m>. (Do not attempt method of undetermined coefficients instead; it won't work.)
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>y(t) = C_1t^5 + C_2t^{-2} + t^5\left(\frac{1}{7}\ln(|t|) - \frac{1}{49}\right)</m>
+		</p>
+	</answer>
+</task>
+			
 </exercise>
 
 <exercise>
@@ -868,6 +1057,11 @@ y(x) &amp;= e^{-x}\left( \frac{1}{8}e^{4x} + e^x + C_1 \right) + e^{-3x}\left(-\
 				For an arbitrary constant <m>c</m> find the general solution to <m>y''-2y=\sin(x+c)</m>.
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>y=\frac{-\sin(x+c)}{3}+C_1 e^{\sqrt{2}\,x}+C_2 e^{-\sqrt{2}\,x}</m>
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -878,27 +1072,71 @@ y(x) &amp;= e^{-x}\left( \frac{1}{8}e^{4x} + e^x + C_1 \right) + e^{-3x}\left(-\
 </statement>
 
 <answer>			<p>
-				 <m>c\neq \pm1</m>: <m>C_1e^x + C_2e^{-x} + \frac{1}{c^2 - 1}e^{cx}</m>,  <m>c=1</m>: <m>C_1e^x + C_2e^{-x} + \frac{1}{2}xe^x</m>,  <m>c=-1</m>: <m>C_1e^x + C_2e^{-x} - \frac{1}{2}xe^{-x}</m> 
+	<ul>
+		<li>
+			<p>
+				<m>c\neq \pm1</m>: <m>C_1e^x + C_2e^{-x} + \frac{1}{c^2 - 1}e^{cx}</m>
+			</p>
+		</li>
+		<li>
+			<p>
+				<m>c=1</m>: <m>C_1e^x + C_2e^{-x} + \frac{1}{2}xe^x</m>
+			</p>
+		</li>
+		<li>
+			<p>
+				<m>c=-1</m>: <m>C_1e^x + C_2e^{-x} - \frac{1}{2}xe^{-x}</m> 
+			</p>
+		</li>
+	</ul>
 			</p>
 </answer>
 </exercise>
 
-<exercise>
-<statement>
-			<p>
-				
-			</p>
+<exercise xml:id="varpar-uc-compare">
 
-<!-- div attr= class="tasks"-->
-			<p>
-				Using variation of parameters find a particular solution of <m>y''-y = e^x</m>. Find a particular solution using undetermined coefficients. Are the two solutions you found the same? What is going on?
-			</p><!--</div attr= class="tasks">-->
-</statement>
+	<introduction>
+		<p>
+			Consider the differential equation <m>y'' - y = e^x</m>
+		</p>
+	</introduction>
+<task>
+	<statement>
+		<p>
+			Using variation of parameters, find a particular solution.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>\frac{1}{2}xe^x - \frac{1}{4}e^x</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Find a particular solution using undetermined coefficients.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>\frac{1}{2}xe^x</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Are the two solutions you found the same? What is going on?
+		</p>
+	</statement>
+	<answer>
+		<p>
+			They differ by a <m>Ce^x</m> term.
+		</p>
+	</answer>
+</task>
 
-<answer>			<p>
-				 a) <m>\frac{1}{2}xe^x - \frac{1}{4}e^x</m> b) <m>\frac{1}{2}xe^x</m> c) They differ by a <m>Ce^x</m> term 
-			</p>
-</answer>
 </exercise>
 </exercises>
 
