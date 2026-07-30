@@ -19,66 +19,22 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
-<script>
-var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
-window.MathJax = {
-  "tex": {
-    "inlineMath": [
-      [
-        "\\(",
-        "\\)"
-      ]
-    ],
-    "tags": "none",
-    "tagSide": "right",
-    "tagIndent": ".8em",
-    "packages": {
-      "[+]": [
-        "base",
-        "extpfeil",
-        "ams",
-        "amscd",
-        "color",
-        "newcommand",
-        "knowl"
-      ]
-    }
-  },
-  "options": {
-    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
-  },
-  "chtml": {
-    "scale": 0.98,
-    "mtextInheritFont": true
-  },
-  "loader": {
-    "load": [
-      "input/asciimath",
-      "[tex]/extpfeil",
-      "[tex]/amscd",
-      "[tex]/color",
-      "[tex]/newcommand",
-      "[pretext]/mathjaxknowl3.js"
-    ],
-    "paths": {
-      "pretext": "_static/pretext/js"
-    }
-  },
-  "startup": {
-    pageReady() {
-      return MathJax.startup.defaultPageReady().then(function () {
-      console.log("in ready function");
-      rsMathReady();
-      }
-    )}
-  }
-};
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<script type="module">import { startMathJax } from './_static/pretext/js/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
+<meta name="twitter:title" content="Differential Equations">
+<meta property="og:title" content="Differential Equations">
 <meta property="book:title" content="Differential Equations">
-<meta property="book:author" content="Matt Charnley">
+<meta name="twitter:description" content="An Introduction for Engineers">
+<meta property="og:description" content="An Introduction for Engineers">
+<meta name="twitter:card" content="summary">
 <script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
@@ -101,22 +57,22 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.11.19';
+eBookConfig.runestone_version = '8.1.16';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.998c9d9ee2a5e7ac.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.98ef3b0c170cd180.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.b12a7b3f0773ebcd.css">
+<script src="_static/prefix-runtime.279b1f0077454c32.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.db8001875cb726c2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.66fa8a682a32c0ac.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
 <h1 class="heading"><a href="my-great-book.html"><span class="title">Differential Equations</span> <span class="subtitle">An Introduction for Engineers</span></a></h1>
-<p class="byline">Matt Charnley</p>
+<p class="byline">Matthew Charnley</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
@@ -130,7 +86,8 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 </div>
 <span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="nonhomogsys-section.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="sys-chapter.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-matexp.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
-</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R} \newcommand{\unitfrac}[3][]{#1~\,{\mathrm{#2}}/{\mathrm{#3}}} \newcommand{\unit}[2][]{#1~\,\textrm{#2}} \newcommand{\nicefrac}[2]{\frac{#1}{#2}}
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\( \newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R} \newcommand{\C}{\mathbb C} \newcommand{\unitfrac}[3][]{#1~\,{\mathrm{#2}}/{\mathrm{#3}}} \newcommand{\unit}[2][]{#1~\,\textrm{#2}} \newcommand{\nicefrac}[2]{\frac{#1}{#2}} \newcommand{\mybxbg}[1]{#1}
+\newcommand{\mybxsm}[1]{\boxed{#1}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -250,26 +207,29 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="solinear-section.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Second order linear ODEs</span></a></div>
 <ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#subsec-second-lin-init" class="internal"><span class="title">Introduction to Second Order Equations</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#intial-value-problems" class="internal"><span class="title">Intial Value Problems</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#constant-coefficient-equations---real-and-distinct-roots" class="internal"><span class="title">Constant Coefficient Equations - Real and Distinct Roots</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="solinear-section.html#linear-independence-soeq" class="internal"><span class="title">Linear Independence</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="solinear-section.html#solinear-section-17" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="solinear-section.html#solinear-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="complexroots-section.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Complex Roots and Euler’s Formula</span></a></div>
 <ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="complexroots-section.html#subsec-" class="internal"><span class="title">Complex Numbers and Basic Identities</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="complexroots-section.html#complex-roots" class="internal"><span class="title">Complex roots</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="complexroots-section.html#complexroots-section-13" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="complexroots-section.html#complexroots-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="reproots-section.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Repeated Roots and Reduction of Order</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="reproots-section.html#reproots-section-11" class="internal"><span class="codenumber">2.3</span> <span class="title">Exercises</span></a></div></li></ul>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="reproots-section.html#reproots-section-13" class="internal"><span class="codenumber">2.3</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec-mv.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Mechanical vibrations</span></a></div>
 <ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-mv.html#subsec-Intro-vibrations" class="internal"><span class="title">Introduction to Vibrations</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-mv.html#free-undamped-motion" class="internal"><span class="title">Free undamped motion</span></a></div></li>
 <li class="toc-item toc-subsection">
 <div class="toc-title-box"><a href="sec-mv.html#free-damped-motion" class="internal"><span class="title">Free damped motion</span></a></div>
@@ -280,7 +240,7 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-mv.html#physical-applications-and-vertical-mass-spring-systems" class="internal"><span class="title">Physical Applications and Vertical Mass-Spring Systems</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-mv.html#sec-mv-20" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-mv.html#sec-mv-7" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -289,7 +249,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#solving-nonhomogeneous-equations" class="internal"><span class="title">Solving nonhomogeneous equations</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#undetermined-coefficients-eqns" class="internal"><span class="title">Undetermined coefficients</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-nonhom.html#variation-of-parameters-eqns" class="internal"><span class="title">Variation of parameters</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-nonhom.html#sec-nonhom-5" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-nonhom.html#sec-nonhom-6" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -297,16 +257,17 @@ eBookConfig.enable_chatcodes =  false;
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="forcedo-section.html#undamped-forced-motion-and-resonance" class="internal"><span class="title">Undamped forced motion and resonance</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="forcedo-section.html#damped-forced-motion-and-practical-resonance" class="internal"><span class="title">Damped forced motion and practical resonance</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="forcedo-section.html#forcedo-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="forcedo-section.html#forcedo-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec-hol.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Higher order linear ODEs</span></a></div>
 <ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#subsec-intro-ho" class="internal"><span class="title">Introduction to Higher Order</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#linear-independence-hoeq" class="internal"><span class="title">Linear independence</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#constant-coefficient-higher-order-odes" class="internal"><span class="title">Constant coefficient higher order ODEs</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hol.html#non-homogeneous-equations" class="internal"><span class="title">Non-Homogeneous Equations</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-hol.html#sec-hol-11" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-hol.html#sec-hol-7" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -317,13 +278,11 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="vecsandmaps-section.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Vectors, mappings, and matrices</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection">
-<div class="toc-title-box"><a href="vecsandmaps-section.html#vectors-and-operations-on-vectors" class="internal"><span class="title">Vectors and operations on vectors</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#linear-combinations-and-linear-independence" class="internal"><span class="title">Linear Combinations and Linear Independence</span></a></div></li></ul>
-</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#vectors-and-operations-on-vectors" class="internal"><span class="title">Vectors and operations on vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#linear-combinations-and-linear-independence" class="internal"><span class="title">Linear Combinations and Linear Independence</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#matrices" class="internal"><span class="title">Matrices</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps-section.html#linear-mappings-and-matrices" class="internal"><span class="title">Linear mappings and matrices</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="vecsandmaps-section.html#vecsandmaps-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="vecsandmaps-section.html#vecsandmaps-section-8" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -336,7 +295,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#inverse" class="internal"><span class="title">Inverse</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#special-types-of-matrices" class="internal"><span class="title">Special types of matrices</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg-section.html#transpose" class="internal"><span class="title">Transpose</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="matalg-section.html#matalg-section-9" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="matalg-section.html#matalg-section-10" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -345,21 +304,22 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#linear-systems-of-equations" class="internal"><span class="title">Linear systems of equations</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#row-echelon-form-and-elementary-operations" class="internal"><span class="title">Row echelon form and elementary operations</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim-section.html#non-unique-solutions-and-inconsistent-systems" class="internal"><span class="title">Non-unique solutions and inconsistent systems</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="elim-section.html#elim-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="elim-section.html#elim-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="det-section.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Determinant</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="det-section.html#det-section-32" class="internal"><span class="codenumber">3.4</span> <span class="title">Exercises</span></a></div></li></ul>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="det-section.html#det-section-31" class="internal"><span class="codenumber">3.4</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="eig-section.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Eigenvalues and Eigenvectors</span></a></div>
 <ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#subsec-intro-evals" class="internal"><span class="title">Introduction to Eigenvalues and Eigenvectors</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#finding-eigenvalues-and-eigenvectors" class="internal"><span class="title">Finding Eigenvalues and Eigenvectors</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#real-eigenvalues" class="internal"><span class="title">Real Eigenvalues</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#complex-eigenvalues" class="internal"><span class="title">Complex Eigenvalues</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eig-section.html#repeated-eigenvalues" class="internal"><span class="title">Repeated Eigenvalues</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eig-section.html#eig-section-11" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eig-section.html#eig-section-8" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -372,7 +332,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#computing-the-inverse-adv" class="internal"><span class="title">Computing the inverse</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#trace-and-determinant-of-matrices" class="internal"><span class="title">Trace and Determinant of Matrices</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-kernel.html#extension-of-previous-theorem" class="internal"><span class="title">Extension of Previous Theorem</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-kernel.html#sec-kernel-9" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-kernel.html#sec-kernel-10" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -388,7 +348,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#changing-to-first-order" class="internal"><span class="title">Changing to first order</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#autonomous-systems-and-vector-fields" class="internal"><span class="title">Autonomous systems and vector fields</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introtosys.html#picards-theorem" class="internal"><span class="title">Picard’s theorem</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-introtosys.html#sec-introtosys-7" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-introtosys.html#sec-introtosys-8" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -400,44 +360,45 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#solving-linear-systems" class="internal"><span class="title">Solving linear systems</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#computing-the-inverse" class="internal"><span class="title">Computing the inverse</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrix.html#eigenvalues-and-eigenvectors-of-a-matrix" class="internal"><span class="title">Eigenvalues and eigenvectors of a matrix</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matrix.html#sec-matrix-9" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matrix.html#sec-matrix-10" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="linsystems-section.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Linear systems of ODEs</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linsystems-section.html#linsystems-section-17" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercises</span></a></div></li></ul>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linsystems-section.html#linsystems-section-18" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="eigenmethod-section.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Eigenvalue method</span></a></div>
 <ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-section.html#subsec-eigenmethod-intro" class="internal"><span class="title">Why Eigenvalues?</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-section.html#the-eigenvalue-method-with-distinct-real-eigenvalues" class="internal"><span class="title">The eigenvalue method with distinct real eigenvalues</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-section.html#phase-portraits-real" class="internal"><span class="title">Phase Portraits</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-section.html#eigenmethod-section-10" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-section.html#eigenmethod-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="eigenmethod-cplx-section.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Eigenvalue method with complex eigenvalues</span></a></div>
 <ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-cplx-section.html#subsec-sys-complex-gen-sol" class="internal"><span class="title">General Solutions for Complex Eigenvalues</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-cplx-section.html#phase-portraits-complex" class="internal"><span class="title">Phase Portraits</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-cplx-section.html#eigenmethod-cplx-section-16" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-cplx-section.html#eigenmethod-cplx-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="eigenmethod-repeat-section.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Eigenvalue method with repeated eigenvalues</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsubsection">
-<div class="toc-title-box"><a href="eigenmethod-repeat-section.html#geometric-multiplicity" class="internal"><span class="title">Geometric multiplicity</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#defective-eigenvalues" class="internal"><span class="title">Defective eigenvalues</span></a></div></li></ul>
-</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#geometric-multiplicity" class="internal"><span class="title">Geometric multiplicity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#defective-eigenvalues" class="internal"><span class="title">Defective eigenvalues</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#phase-portraits-repeated" class="internal"><span class="title">Phase Portraits</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#eigenmethod-repeat-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod-repeat-section.html#eigenmethod-repeat-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec-twodimaut.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Two-dimensional systems and their vector fields</span></a></div>
 <ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-twodimaut.html#twodim-summary" class="internal"><span class="title">Summary of Behaviors</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-twodimaut.html#trace-determinant-analysis" class="internal"><span class="title">Trace-Determinant Analysis</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-twodimaut.html#sec-twodimaut-6" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-twodimaut.html#sec-twodimaut-5" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -454,7 +415,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="toc-title-box"><a href="nonhomogsys-section.html#first-order-variable-coefficient" class="internal"><span class="title">First order variable coefficient</span></a></div>
 <ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys-section.html#variation-of-parameters-sys" class="internal"><span class="title">Variation of parameters</span></a></div></li></ul>
 </li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nonhomogsys-section.html#nonhomogsys-section-5" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nonhomogsys-section.html#nonhomogsys-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section contains-active">
@@ -470,7 +431,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sol-section.html#eigenvector-decomposition" class="internal"><span class="title">Eigenvector decomposition</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sol-section.html#sol-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sol-section.html#sol-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -485,7 +446,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="toc-title-box"><a href="sec-matexp.html#non-homogeneous-systems" class="internal"><span class="title">Non-Homogeneous Systems</span></a></div>
 <ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-matexp.html#integrating-factor" class="internal"><span class="title">Integrating factor</span></a></div></li></ul>
 </li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matexp.html#sec-matexp-8" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matexp.html#sec-matexp-9" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -501,7 +462,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#isolated-critical-points-and-almost-linear-systems" class="internal"><span class="title">Isolated critical points and almost linear systems</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#stability-and-classification-of-isolated-critical-points" class="internal"><span class="title">Stability and classification of isolated critical points</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization-section.html#the-trouble-with-centers" class="internal"><span class="title">The trouble with centers</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linearization-section.html#linearization-section-12" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linearization-section.html#linearization-section-9" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -511,16 +472,16 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#hamiltonian-systems" class="internal"><span class="title">Hamiltonian Systems</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#separatrices-and-basins-of-attractions" class="internal"><span class="title">Separatrices and Basins of Attractions</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#nullclines" class="internal"><span class="title">Nullclines</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#nlinHamiltonian-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinHamiltonian-section.html#nlinHamiltonian-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="nlinapps-section.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Applications of nonlinear systems</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#pendulum" class="internal"><span class="title">Pendulum</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#predator-prey-or-lotkavolterra-systems" class="internal"><span class="title">Predator-prey or Lotka–Volterra systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#predator-prey-or-lotkavolterra-systems" class="internal"><span class="title">Predator-prey or Lotka-Volterra systems</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps-section.html#competing-species-systems" class="internal"><span class="title">Competing Species systems</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinapps-section.html#nlinapps-section-6" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinapps-section.html#nlinapps-section-7" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -530,27 +491,28 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec-chaos.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Chaos</span></a></div>
 <ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaos.html#subsec-intro-chaos" class="internal"><span class="title">Introduction to Chaos</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaos.html#duffing-equation-and-strange-attractors" class="internal"><span class="title">Duffing equation and strange attractors</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaos.html#the-lorenz-system" class="internal"><span class="title">The Lorenz system</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-chaos.html#sec-chaos-9" class="internal"><span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-chaos.html#sec-chaos-6" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="chap-prereq.html" class="internal"><span class="codenumber">6</span> <span class="title">Prerequisite Material</span></a></div>
+<li class="toc-item toc-appendix">
+<div class="toc-title-box"><a href="chap-prereq.html" class="internal"><span class="codenumber">A</span> <span class="title">Prerequisite Material</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-polys.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Polynomials and Factoring</span></a></div>
+<div class="toc-title-box"><a href="sec-polys.html" class="internal"><span class="codenumber">A.1</span> <span class="title">Polynomials and Factoring</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#definitions-and-operations" class="internal"><span class="title">Definitions and Operations</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#polynomial-long-division" class="internal"><span class="title">Polynomial Long Division</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-polys.html#synthetic-division" class="internal"><span class="title">Synthetic Division</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-complexNums.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Complex Numbers</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-complexNums.html" class="internal"><span class="codenumber">A.2</span> <span class="title">Complex Numbers</span></a></div></li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-derivInt.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Differentiation and Integration Techniques</span></a></div>
+<div class="toc-title-box"><a href="sec-derivInt.html" class="internal"><span class="codenumber">A.3</span> <span class="title">Differentiation and Integration Techniques</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivInt.html#derivative-and-integral-formulas" class="internal"><span class="title">Derivative and Integral Formulas</span></a></div></li>
 <li class="toc-item toc-subsection">
@@ -571,6 +533,25 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="matlab-appendix.html" class="internal"><span class="codenumber">A.4</span> <span class="title">Introduction to MATLAB</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matlab-appendix.html#the-matlab-interface" class="internal"><span class="title">The MATLAB Interface</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matlab-appendix.html#file-structure" class="internal"><span class="title">File Structure</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matlab-appendix.html#computation-in-matlab" class="internal"><span class="title">Computation in MATLAB</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matlab-appendix.html#variables-and-arrays" class="internal"><span class="title">Variables and Arrays</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matlab-appendix.html#funMat-section" class="internal"><span class="title">Functions and Anonymous Functions</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="matlab-appendix.html#loops-and-branching-statements" class="internal"><span class="title">Loops and Branching Statements</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="matlab-appendix.html#for-loops" class="internal"><span class="title">For Loops</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="matlab-appendix.html#if-statements" class="internal"><span class="title">If Statements</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matlab-appendix.html#plotting-in-matlab" class="internal"><span class="title">Plotting in MATLAB</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matlab-appendix.html#supplemental-code-files" class="internal"><span class="title">Supplemental Code Files</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter">
@@ -581,32 +562,57 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sol-section"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sol-section">
+<h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Second order systems and applications</span>
 </h2>
-<section class="subsection" id="undamped-mass-spring-systems"><h3 class="heading hide-type">
+<article class="objectives goal-like" id="sol-section-2"><h3 class="heading"><span class="type">Objectives</span></h3>
+<div class="introduction" id="sol-section-2-1">
+<div class="para" id="sol-section-2-1-1">After this section, you will be able to:<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul class="disc" id="sol-section-2-2">
+<li id="sol-section-2-2-1">
+<div class="para" id="sol-section-2-2-1-1">Use second order systems to model physical problems and<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sol-section-2-2-1" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sol-section-2-2-2">
+<div class="para" id="sol-section-2-2-2-1">Solve second order systems using diagonalization or eigenvalue methods.<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sol-section-2-2-2" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Objectives 4.9"><a href="#sol-section-2" title="Copy heading and permalink for Objectives 4.9" aria-label="Copy heading and permalink for Objectives 4.9">🔗</a></div>
+</article>
+<section class="subsection" id="undamped-mass-spring-systems">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Undamped mass-spring systems</span>
 </h3>
-<div class="para" id="undamped-mass-spring-systems-2">While we did say that we will usually only look at first order systems, it is sometimes more convenient to study the system in the way it arises naturally. For example, suppose we have 3 masses connected by springs between two walls. We could pick any higher number, and the math would be essentially the same, but for simplicity we pick 3 right now. Let us also assume no friction, that is, the system is undamped. The masses are <span class="process-math">\(m_1\text{,}\)</span> <span class="process-math">\(m_2\text{,}\)</span> and <span class="process-math">\(m_3\)</span> and the spring constants are <span class="process-math">\(k_1\text{,}\)</span> <span class="process-math">\(k_2\text{,}\)</span> <span class="process-math">\(k_3\text{,}\)</span> and <span class="process-math">\(k_4\text{.}\)</span> Let <span class="process-math">\(x_1\)</span> be the displacement from rest position of the first mass, and <span class="process-math">\(x_2\)</span> and <span class="process-math">\(x_3\)</span> the displacement of the second and third mass. We make, as usual, positive values go right (as <span class="process-math">\(x_1\)</span> grows, the first mass is moving right). See .<div class="autopermalink" data-description="Paragraph"><a href="#undamped-mass-spring-systems-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="undamped-mass-spring-systems-2">While we did say that we will usually only look at first order systems, it is sometimes more convenient to study the system in the way it arises naturally. For example, suppose we have 3 masses connected by springs between two walls. We could pick any higher number, and the math would be essentially the same, but for simplicity we pick 3 right now. Let us also assume no friction, that is, the system is <dfn class="terminology">undamped</dfn>. The masses are <span class="process-math">\(m_1\text{,}\)</span> <span class="process-math">\(m_2\text{,}\)</span> and <span class="process-math">\(m_3\)</span> and the spring constants are <span class="process-math">\(k_1\text{,}\)</span> <span class="process-math">\(k_2\text{,}\)</span> <span class="process-math">\(k_3\text{,}\)</span> and <span class="process-math">\(k_4\text{.}\)</span> Let <span class="process-math">\(x_1\)</span> be the displacement from rest position of the first mass, and <span class="process-math">\(x_2\)</span> and <span class="process-math">\(x_3\)</span> the displacement of the second and third mass. We make, as usual, positive values go right (as <span class="process-math">\(x_1\)</span> grows, the first mass is moving right). See <a href="sol-section.html#sosa-threecartsfig" class="xref" data-knowl="./knowl/xref/sosa-threecartsfig.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.9.1">Figure 4.9.1</a>.<div class="autopermalink" data-description="Paragraph"><a href="#undamped-mass-spring-systems-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="undamped-mass-spring-systems-3">This simple system turns up in unexpected places. For example, our world really consists of many small particles of matter interacting together. When we try the system above with many more masses, we obtain a good approximation to how an elastic material behaves.<div class="autopermalink" data-description="Paragraph"><a href="#undamped-mass-spring-systems-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<figure class="figure figure-like" id="sosa-threecartsfig"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
+<img src="external/threecartsfig.png" class="contained" alt="ALT TEXT HERE"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="sosa-threecartsfig-2-description">
+<div class="para" id="sosa-threecartsfig-2-2-1">IMAGE DESCRIPTION HERE<div class="autopermalink" data-description="Paragraph"><a href="#sosa-threecartsfig-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="undamped-mass-spring-systems-4">
-<div class="para">Let us set up the equations for the . By , the force acting on the mass equals the spring compression times the spring constant. By , force is mass times acceleration. So if we sum the forces acting on each mass, put the right sign in front of each term, depending on the direction in which it is acting, and set this equal to mass times the acceleration, we end up with the desired system of equations.</div>
-<div class="displaymath process-math" id="undamped-mass-spring-systems-4-1">
-\begin{equation*}
-\begin{aligned}
-m_1 x_1'' &amp;= -k_1 x_1 + k_2 (x_2-x_1)
-&amp; &amp; = -(k_1+k_2) x_1 + k_2 x_2 , \\
-m_2 x_2'' &amp;= -k_2 (x_2-x_1) + k_3 (x_3-x_2)
-&amp; &amp; = k_2 x_1 -(k_2+k_3) x_2 + k_3 x_3 , \\
-m_3 x_3'' &amp;= -k_3 (x_3-x_2) - k_4 x_3
-&amp; &amp; = k_3 x_2 - (k_3+k_4) x_3 . 
-\end{aligned}
-\end{equation*}
+</div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>System of masses and springs.<div class="autopermalink" data-description="Figure 4.9.1"><a href="#sosa-threecartsfig" title="Copy heading and permalink for Figure 4.9.1" aria-label="Copy heading and permalink for Figure 4.9.1">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="undamped-mass-spring-systems-4">This simple system turns up in unexpected places. For example, our world really consists of many small particles of matter interacting together. When we try the system above with many more masses, we obtain a good approximation to how an elastic material behaves.<div class="autopermalink" data-description="Paragraph"><a href="#undamped-mass-spring-systems-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="undamped-mass-spring-systems-5">
+<div class="para">Let us set up the equations for the <dfn class="terminology">three mass system</dfn>. By <dfn class="terminology">Hooke’s Law</dfn>, the force acting on the mass equals the spring compression times the spring constant. By <dfn class="terminology">Newton’s second law</dfn>, force is mass times acceleration. So if we sum the forces acting on each mass, put the right sign in front of each term, depending on the direction in which it is acting, and set this equal to mass times the acceleration, we end up with the desired system of equations.</div>
+<div class="displaymath process-math" id="undamped-mass-spring-systems-5-4">
+\begin{align*}
+m_1 x_1'' \amp= -k_1 x_1 + k_2 (x_2-x_1) = -(k_1+k_2) x_1 + k_2 x_2  \\
+m_2 x_2'' \amp= -k_2 (x_2-x_1) + k_3 (x_3-x_2) = k_2 x_1 -(k_2+k_3) x_2 + k_3 x_3  \\
+m_3 x_3'' \amp= -k_3 (x_3-x_2) - k_4 x_3 = k_3 x_2 - (k_3+k_4) x_3 \text{.}
+\end{align*}
 </div>
 <div class="para">We define the matrices</div>
-<div class="displaymath process-math" id="undamped-mass-spring-systems-4-2">
+<div class="displaymath process-math" id="undamped-mass-spring-systems-5-5">
 \begin{equation*}
 M =
 \begin{bmatrix}
@@ -626,22 +632,24 @@ k_2 &amp; -(k_2+k_3) &amp; k_3 \\
 \end{equation*}
 </div>
 <div class="para">We write the equation simply as</div>
-<div class="displaymath process-math" id="undamped-mass-spring-systems-4-3">
+<div class="displaymath process-math" id="undamped-mass-spring-systems-5-6">
 \begin{equation*}
 M {\vec{x}}'' = K \vec{x} .
 \end{equation*}
 </div>
-<div class="para">At this point we could introduce 3 new variables and write out a system of 6 first order equations. We claim this simple setup is easier to handle as a second order system. We call <span class="process-math">\(\vec{x}\)</span> the <em class="emphasis"></em>, <span class="process-math">\(M\)</span> the <em class="emphasis"></em>, and <span class="process-math">\(K\)</span> the <em class="emphasis"></em>.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#undamped-mass-spring-systems-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">At this point we could introduce 3 new variables and write out a system of 6 first order equations. We claim this simple setup is easier to handle as a second order system. We call <span class="process-math">\(\vec{x}\)</span> the <dfn class="terminology">displacement vector</dfn>, <span class="process-math">\(M\)</span> the <dfn class="terminology">mass matrix</dfn>, and <span class="process-math">\(K\)</span> the <dfn class="terminology">stiffness matrix</dfn>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#undamped-mass-spring-systems-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="undamped-mass-spring-systems-5" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="undamped-mass-spring-systems-5-1-1">Repeat this setup for 4 masses (find the matrices <span class="process-math">\(M\)</span> and <span class="process-math">\(K\)</span>). Do it for 5 masses. Can you find a prescription to do it for <span class="process-math">\(n\)</span> masses?<div class="autopermalink" data-description="Paragraph"><a href="#undamped-mass-spring-systems-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<article class="exercise exercise-like" id="undamped-mass-spring-systems-6"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="undamped-mass-spring-systems-6-1-1">Repeat this setup for 4 masses (find the matrices <span class="process-math">\(M\)</span> and <span class="process-math">\(K\)</span>). Do it for 5 masses. Can you find a prescription to do it for <span class="process-math">\(n\)</span> masses?<div class="autopermalink" data-description="Paragraph"><a href="#undamped-mass-spring-systems-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="undamped-mass-spring-systems-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
-<div class="para logical" id="undamped-mass-spring-systems-5-2-1">
-<div class="para">As with a single equation we want to This means computing the inverse of <span class="process-math">\(M\text{.}\)</span> The masses are all nonzero and <span class="process-math">\(M\)</span> is a diagonal matrix, so computing the inverse is easy:</div>
-<div class="displaymath process-math" id="undamped-mass-spring-systems-5-2-1-3">
+<div class="autopermalink" data-description="Checkpoint 4.9.2"><a href="#undamped-mass-spring-systems-6" title="Copy heading and permalink for Checkpoint 4.9.2" aria-label="Copy heading and permalink for Checkpoint 4.9.2">🔗</a></div>
+</article>
+<div class="para logical" id="undamped-mass-spring-systems-7">
+<div class="para">As with a single equation we want to “divide by <span class="process-math">\(M\)</span>”. This means computing the inverse of <span class="process-math">\(M\text{.}\)</span> The masses are all nonzero and <span class="process-math">\(M\)</span> is a diagonal matrix, so computing the inverse is easy:</div>
+<div class="displaymath process-math" id="undamped-mass-spring-systems-7-4">
 \begin{equation*}
 M^{-1} =
 \begin{bmatrix}
@@ -653,51 +661,55 @@ M^{-1} =
 </div>
 <div class="para">This fact follows readily by how we multiply diagonal matrices. As an exercise, you should verify that <span class="process-math">\(M M^{-1} = M^{-1} M = I\text{.}\)</span>
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#undamped-mass-spring-systems-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#undamped-mass-spring-systems-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Answer 4.9.1.1"><a href="#undamped-mass-spring-systems-5-2" title="Copy heading and permalink for Answer 4.9.1.1" aria-label="Copy heading and permalink for Answer 4.9.1.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Checkpoint 4.9.1"><a href="#undamped-mass-spring-systems-5" title="Copy heading and permalink for Checkpoint 4.9.1" aria-label="Copy heading and permalink for Checkpoint 4.9.1">🔗</a></div></article></details><div class="para logical" id="undamped-mass-spring-systems-6">
+<div class="para logical" id="undamped-mass-spring-systems-8">
 <div class="para">Let <span class="process-math">\(A = M^{-1}K\text{.}\)</span> We look at the system <span class="process-math">\({\vec{x}}'' = M^{-1}K \vec{x}\text{,}\)</span> or</div>
-<div class="displaymath process-math" id="undamped-mass-spring-systems-6-3">
+<div class="displaymath process-math" id="undamped-mass-spring-systems-8-3">
 \begin{equation*}
 {\vec{x}}'' = A \vec{x} .
 \end{equation*}
 </div>
 <div class="para">Many real world systems can be modeled by this equation. For simplicity, we will only talk about the given masses-and-springs problem. We try a solution of the form</div>
-<div class="displaymath process-math" id="undamped-mass-spring-systems-6-4">
+<div class="displaymath process-math" id="undamped-mass-spring-systems-8-4">
 \begin{equation*}
 \vec{x} = \vec{v} e^{\alpha t} .
 \end{equation*}
 </div>
 <div class="para">We compute that for this guess, <span class="process-math">\({\vec{x}}'' = \alpha^2 \vec{v} e^{\alpha t}\text{.}\)</span> We plug our guess into the equation and get</div>
-<div class="displaymath process-math" id="undamped-mass-spring-systems-6-6">
+<div class="displaymath process-math" id="undamped-mass-spring-systems-8-6">
 \begin{equation*}
 \alpha^2 \vec{v} e^{\alpha t} = A\vec{v} e^{\alpha t} .
 \end{equation*}
 </div>
 <div class="para">We divide by <span class="process-math">\(e^{\alpha t}\)</span> to arrive at <span class="process-math">\(\alpha^2 \vec{v} = A\vec{v}\text{.}\)</span> Hence if <span class="process-math">\(\alpha^2\)</span> is an eigenvalue of <span class="process-math">\(A\)</span> and <span class="process-math">\(\vec{v}\)</span> is a corresponding eigenvector, we have found a solution.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#undamped-mass-spring-systems-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#undamped-mass-spring-systems-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="undamped-mass-spring-systems-7">
+<div class="para logical" id="undamped-mass-spring-systems-9">
 <div class="para">In our example, and in other common applications, <span class="process-math">\(A\)</span> has only real negative eigenvalues (and possibly a zero eigenvalue). So we study only this case. When an eigenvalue <span class="process-math">\(\lambda\)</span> is negative, it means that <span class="process-math">\(\alpha^2 = \lambda\)</span> is negative. Hence there is some real number <span class="process-math">\(\omega\)</span> such that <span class="process-math">\(-\omega^2 = \lambda\text{.}\)</span> Then <span class="process-math">\(\alpha = \pm i \omega\text{.}\)</span> The solution we guessed was</div>
-<div class="displaymath process-math" id="undamped-mass-spring-systems-7-7">
+<div class="displaymath process-math" id="undamped-mass-spring-systems-9-7">
 \begin{equation*}
 \vec{x} = \vec{v} \, \bigl(\cos (\omega t) + i \sin (\omega t) \bigr) .
 \end{equation*}
 </div>
 <div class="para">By taking the real and imaginary parts (note that <span class="process-math">\(\vec{v}\)</span> is real), we find that <span class="process-math">\(\vec{v} \cos (\omega t)\)</span> and <span class="process-math">\(\vec{v} \sin (\omega t)\)</span> are linearly independent solutions.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#undamped-mass-spring-systems-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#undamped-mass-spring-systems-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="undamped-mass-spring-systems-8">If an eigenvalue is zero, it turns out that both <span class="process-math">\(\vec{v}\)</span> and <span class="process-math">\(\vec{v} t\)</span> are solutions, where <span class="process-math">\(\vec{v}\)</span> is an eigenvector corresponding to the eigenvalue 0.<div class="autopermalink" data-description="Paragraph"><a href="#undamped-mass-spring-systems-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="undamped-mass-spring-systems-10">If an eigenvalue is zero, it turns out that both <span class="process-math">\(\vec{v}\)</span> and <span class="process-math">\(\vec{v} t\)</span> are solutions, where <span class="process-math">\(\vec{v}\)</span> is an eigenvector corresponding to the eigenvalue 0.<div class="autopermalink" data-description="Paragraph"><a href="#undamped-mass-spring-systems-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="undamped-mass-spring-systems-9" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="undamped-mass-spring-systems-9-1-1">Show that if <span class="process-math">\(A\)</span> has a zero eigenvalue and <span class="process-math">\(\vec{v}\)</span> is a corresponding eigenvector, then <span class="process-math">\(\vec{x} = \vec{v} (a + bt)\)</span> is a solution of <span class="process-math">\({\vec{x}}'' = A \vec{x}\)</span> for arbitrary constants <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#undamped-mass-spring-systems-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<article class="exercise exercise-like" id="undamped-mass-spring-systems-11"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="undamped-mass-spring-systems-11-1-1">Show that if <span class="process-math">\(A\)</span> has a zero eigenvalue and <span class="process-math">\(\vec{v}\)</span> is a corresponding eigenvector, then <span class="process-math">\(\vec{x} = \vec{v} (a + bt)\)</span> is a solution of <span class="process-math">\({\vec{x}}'' = A \vec{x}\)</span> for arbitrary constants <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#undamped-mass-spring-systems-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Checkpoint 4.9.2"><a href="#undamped-mass-spring-systems-9" title="Copy heading and permalink for Checkpoint 4.9.2" aria-label="Copy heading and permalink for Checkpoint 4.9.2">🔗</a></div></article></details><div class="para logical" id="undamped-mass-spring-systems-10">
+<div class="autopermalink" data-description="Checkpoint 4.9.3"><a href="#undamped-mass-spring-systems-11" title="Copy heading and permalink for Checkpoint 4.9.3" aria-label="Copy heading and permalink for Checkpoint 4.9.3">🔗</a></div>
+</article>
+<article class="theorem theorem-like" id="thm-secondorder-eigen"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="thm-secondorder-eigen-1-1">
 <div class="para">Let <span class="process-math">\(A\)</span> be a real <span class="process-math">\(n \times n\)</span> matrix with <span class="process-math">\(n\)</span> distinct real negative (or zero) eigenvalues we denote by <span class="process-math">\(-\omega_1^2 &gt; -\omega_2^2 &gt; \cdots &gt; -\omega_n^2\text{,}\)</span> and corresponding eigenvectors by <span class="process-math">\(\vec{v}_1\text{,}\)</span> <span class="process-math">\(\vec{v}_2\text{,}\)</span> …, <span class="process-math">\(\vec{v}_n\text{.}\)</span> If <span class="process-math">\(A\)</span> is invertible (that is, if <span class="process-math">\(\omega_1 &gt; 0\)</span>), then</div>
-<div class="displaymath process-math" id="undamped-mass-spring-systems-10-10">
+<div class="displaymath process-math" id="thm-secondorder-eigen-1-1-10">
 \begin{equation*}
 %\mybxbg{~~
 \vec{x}(t)
@@ -706,13 +718,13 @@ M^{-1} =
 \end{equation*}
 </div>
 <div class="para">is the general solution of</div>
-<div class="displaymath process-math" id="undamped-mass-spring-systems-10-11">
+<div class="displaymath process-math" id="thm-secondorder-eigen-1-1-11">
 \begin{equation*}
 {\vec{x}}'' = A \vec{x},
 \end{equation*}
 </div>
 <div class="para">for some arbitrary constants <span class="process-math">\(a_i\)</span> and <span class="process-math">\(b_i\text{.}\)</span> If <span class="process-math">\(A\)</span> has a zero eigenvalue, that is <span class="process-math">\(\omega_1 = 0\text{,}\)</span> and all other eigenvalues are distinct and negative, then the general solution can be written as</div>
-<div class="displaymath process-math" id="undamped-mass-spring-systems-10-16">
+<div class="displaymath process-math" id="thm-secondorder-eigen-1-1-16">
 \begin{equation*}
 %\mybxbg{~~
 \vec{x}(t) = \vec{v}_1 (a_1 + b_1 t) +
@@ -720,21 +732,38 @@ M^{-1} =
 %~~}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#undamped-mass-spring-systems-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-secondorder-eigen-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="undamped-mass-spring-systems-11">We use this solution and the setup from the introduction of this section even when some of the masses and springs are missing. For example, when there are only 2 masses and only 2 springs, simply take only the equations for the two masses and set all the spring constants for the springs that are missing to zero.<div class="autopermalink" data-description="Paragraph"><a href="#undamped-mass-spring-systems-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Theorem 4.9.4"><a href="#thm-secondorder-eigen" title="Copy heading and permalink for Theorem 4.9.4" aria-label="Copy heading and permalink for Theorem 4.9.4">🔗</a></div>
+</article>
+<div class="para" id="undamped-mass-spring-systems-13">We use this solution and the setup from the introduction of this section even when some of the masses and springs are missing. For example, when there are only 2 masses and only 2 springs, simply take only the equations for the two masses and set all the spring constants for the springs that are missing to zero.<div class="autopermalink" data-description="Paragraph"><a href="#undamped-mass-spring-systems-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Subsection: Undamped mass-spring systems"><a href="#undamped-mass-spring-systems" title="Copy heading and permalink for Subsection: Undamped mass-spring systems" aria-label="Copy heading and permalink for Subsection: Undamped mass-spring systems">🔗</a></div></section><section class="subsection" id="examples"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Subsection: Undamped mass-spring systems"><a href="#undamped-mass-spring-systems" title="Copy heading and permalink for Subsection: Undamped mass-spring systems" aria-label="Copy heading and permalink for Subsection: Undamped mass-spring systems">🔗</a></div>
+</section>
+<section class="subsection" id="examples">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Examples</span>
 </h3>
 <article class="example example-like" id="examples-2"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
-<div class="para" id="examples-2-2-1">Consider the setup in , with <span class="process-math">\(m_1 = \unit[2]{kg}\text{,}\)</span> <span class="process-math">\(m_2 = \unit[1]{kg}\text{,}\)</span> <span class="process-math">\(k_1 = \unitfrac[4]{N}{m}\text{,}\)</span> and <span class="process-math">\(k_2 = \unitfrac[2]{N}{m}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#examples-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>  <div class="solutions"><details id="examples-2-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
-<div class="para logical" id="examples-2-3-1">
+<div class="para" id="examples-2-1-1">Consider the setup in <a href="sol-section.html#sosa-twocartswallfig" class="xref" data-knowl="./knowl/xref/sosa-twocartswallfig.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.9.6">Figure 4.9.6</a>, with <span class="process-math">\(m_1 = \unit[2]{kg}\text{,}\)</span> <span class="process-math">\(m_2 = \unit[1]{kg}\text{,}\)</span> <span class="process-math">\(k_1 = \unitfrac[4]{N}{m}\text{,}\)</span> and <span class="process-math">\(k_2 = \unitfrac[2]{N}{m}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#examples-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<figure class="figure figure-like" id="sosa-twocartswallfig"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
+<img src="external/twocartswallfig.png" class="contained" alt="ALT TEXT HERE"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="sosa-twocartswallfig-2-description">
+<div class="para" id="sosa-twocartswallfig-2-2-1">IMAGE DESCRIPTION HERE<div class="autopermalink" data-description="Paragraph"><a href="#sosa-twocartswallfig-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>System of masses and springs.<div class="autopermalink" data-description="Figure 4.9.6"><a href="#sosa-twocartswallfig" title="Copy heading and permalink for Figure 4.9.6" aria-label="Copy heading and permalink for Figure 4.9.6">🔗</a></div></figcaption>
+</figure>
+<div class="solution solution-like" id="examples-2-2">
+<h5 class="heading">
+<span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h5>
+<div class="para logical" id="examples-2-2-1">
 <div class="para">The equations we write down are</div>
-<div class="displaymath process-math" id="examples-2-3-1-1">
+<div class="displaymath process-math" id="examples-2-2-1-1">
 \begin{equation*}
 \begin{bmatrix}
 2 &amp; 0 \\
@@ -749,23 +778,23 @@ M^{-1} =
 \end{equation*}
 </div>
 <div class="para">or</div>
-<div class="displaymath process-math" id="examples-2-3-1-2">
+<div class="displaymath process-math" id="examples-2-2-1-2">
 \begin{equation*}
 {\vec{x}}'' =
 \begin{bmatrix}
 -3 &amp; 1 \\
 2 &amp; -2
 \end{bmatrix}
-\vec{x} .
+\vec{x}\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#examples-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#examples-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="examples-2-3-2">We find the eigenvalues of <span class="process-math">\(A\)</span> to be <span class="process-math">\(\lambda = -1, -4\)</span> (exercise). We find corresponding eigenvectors to be <span class="process-math">\(\left[ \begin{smallmatrix} 1 \\ 2 \end{smallmatrix} \right]\)</span> and <span class="process-math">\(\left[ \begin{smallmatrix} 1 \\ -1 \end{smallmatrix} \right]\)</span> respectively (exercise).<div class="autopermalink" data-description="Paragraph"><a href="#examples-2-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="examples-2-2-2">We find the eigenvalues of <span class="process-math">\(A\)</span> to be <span class="process-math">\(\lambda = -1, -4\)</span> (exercise). We find corresponding eigenvectors to be <span class="process-math">\(\left[ \begin{smallmatrix} 1 \\ 2 \end{smallmatrix} \right]\)</span> and <span class="process-math">\(\left[ \begin{smallmatrix} 1 \\ -1 \end{smallmatrix} \right]\)</span> respectively (exercise).<div class="autopermalink" data-description="Paragraph"><a href="#examples-2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="examples-2-3-3">
+<div class="para logical" id="examples-2-2-3">
 <div class="para">We check the theorem and note that <span class="process-math">\(\omega_1 = 1\)</span> and <span class="process-math">\(\omega_2 = 2\text{.}\)</span> Hence the general solution is</div>
-<div class="displaymath process-math" id="examples-2-3-3-3">
+<div class="displaymath process-math" id="examples-2-2-3-3">
 \begin{equation*}
 \vec{x} = 
 \begin{bmatrix} 1 \\ 2 \end{bmatrix}
@@ -775,13 +804,21 @@ M^{-1} =
 \bigl( a_2 \cos (2t) + b_2 \sin (2t) \bigr) .
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#examples-2-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#examples-2-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="examples-2-3-4">The two terms in the solution represent the two so-called <em class="emphasis">natural</em> or <em class="emphasis">normal modes of oscillation</em>. And the two (angular) frequencies are the <em class="emphasis">natural frequencies</em>. The first natural frequency is 1, and second natural frequency is 2. The two modes are plotted in .<div class="autopermalink" data-description="Paragraph"><a href="#examples-2-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="examples-2-2-4">The two terms in the solution represent the two so-called <em class="emphasis">natural</em> or <em class="emphasis">normal modes of oscillation</em>. And the two (angular) frequencies are the <em class="emphasis">natural frequencies</em>. The first natural frequency is 1, and second natural frequency is 2. The two modes are plotted in <a href="sol-section.html#sosa-modesfig" class="xref" data-knowl="./knowl/xref/sosa-modesfig.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.9.7">Figure 4.9.7</a>.<div class="autopermalink" data-description="Paragraph"><a href="#examples-2-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="examples-2-3-5">
+<figure class="figure figure-like" id="sosa-modesfig"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
+<img src="external/sosa-modes-1-2.png" class="contained" alt="ALT TEXT HERE"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="sosa-modesfig-2-description">
+<div class="para" id="sosa-modesfig-2-2-1">IMAGE DESCRIPTION HERE<div class="autopermalink" data-description="Paragraph"><a href="#sosa-modesfig-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The two modes of the mass-spring system.  In the left plot, the masses are moving in unison and in the right plot are masses moving in the opposite direction.<div class="autopermalink" data-description="Figure 4.9.7"><a href="#sosa-modesfig" title="Copy heading and permalink for Figure 4.9.7" aria-label="Copy heading and permalink for Figure 4.9.7">🔗</a></div></figcaption>
+</figure>
+<div class="para logical" id="examples-2-2-6">
 <div class="para">Let us write the solution as</div>
-<div class="displaymath process-math" id="examples-2-3-5-1">
+<div class="displaymath process-math" id="examples-2-2-6-1">
 \begin{equation*}
 \vec{x} = 
 \begin{bmatrix} 1 \\ 2 \end{bmatrix}
@@ -792,7 +829,7 @@ c_2 \cos (2t - \alpha_2 ) .
 \end{equation*}
 </div>
 <div class="para">The first term,</div>
-<div class="displaymath process-math" id="examples-2-3-5-2">
+<div class="displaymath process-math" id="examples-2-2-6-2">
 \begin{equation*}
 \begin{bmatrix} 1 \\ 2 \end{bmatrix}
 c_1 \cos (t - \alpha_1 )
@@ -804,11 +841,11 @@ c_1 \cos (t - \alpha_1 ) \\
 \end{equation*}
 </div>
 <div class="para">corresponds to the mode where the masses move synchronously in the same direction.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#examples-2-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#examples-2-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="examples-2-3-6">
+<div class="para logical" id="examples-2-2-7">
 <div class="para">The second term,</div>
-<div class="displaymath process-math" id="examples-2-3-6-1">
+<div class="displaymath process-math" id="examples-2-2-7-1">
 \begin{equation*}
 \begin{bmatrix} 1 \\ -1 \end{bmatrix}
 c_2 \cos (2t - \alpha_2 )
@@ -820,11 +857,11 @@ c_2 \cos (2t - \alpha_2 ) \\
 \end{equation*}
 </div>
 <div class="para">corresponds to the mode where the masses move synchronously but in opposite directions.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#examples-2-3-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#examples-2-2-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="examples-2-3-7">
+<div class="para logical" id="examples-2-2-8">
 <div class="para">The general solution is a combination of the two modes. That is, the initial conditions determine the amplitude and phase shift of each mode. As an example, suppose we have initial conditions</div>
-<div class="displaymath process-math" id="examples-2-3-7-1">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sosa-superposfig.html" id="examples-2-2-8-1">
 \begin{equation*}
 \vec{x}(0) = 
 \begin{bmatrix} 1 \\ -1 \end{bmatrix}
@@ -834,7 +871,7 @@ c_2 \cos (2t - \alpha_2 ) \\
 \end{equation*}
 </div>
 <div class="para">We use the <span class="process-math">\(a_j, b_j\)</span> constants to solve for initial conditions. First</div>
-<div class="displaymath process-math" id="examples-2-3-7-3">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sosa-superposfig.html" id="examples-2-2-8-3">
 \begin{equation*}
 \begin{bmatrix} 1 \\ -1 \end{bmatrix}
 =
@@ -849,7 +886,7 @@ a_2
 \end{equation*}
 </div>
 <div class="para">We solve (exercise) to find <span class="process-math">\(a_1 = 0\text{,}\)</span> <span class="process-math">\(a_2 = 1\text{.}\)</span> To find the <span class="process-math">\(b_1\)</span> and <span class="process-math">\(b_2\text{,}\)</span> we differentiate first:</div>
-<div class="displaymath process-math" id="examples-2-3-7-8">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sosa-superposfig.html" id="examples-2-2-8-8">
 \begin{equation*}
 {\vec{x}}' = 
 \begin{bmatrix} 1 \\ 2 \end{bmatrix}
@@ -860,7 +897,7 @@ a_2
 \end{equation*}
 </div>
 <div class="para">Now we solve:</div>
-<div class="displaymath process-math" id="examples-2-3-7-9">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sosa-superposfig.html" id="examples-2-2-8-9">
 \begin{equation*}
 \begin{bmatrix} 0 \\ 6 \end{bmatrix}
 =
@@ -875,7 +912,7 @@ b_1
 \end{equation*}
 </div>
 <div class="para">Again solve (exercise) to find <span class="process-math">\(b_1 = 2\text{,}\)</span> <span class="process-math">\(b_2 = -1\text{.}\)</span> So our solution is</div>
-<div class="displaymath process-math" id="examples-2-3-7-12">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sosa-superposfig.html" id="examples-2-2-8-12">
 \begin{equation*}
 \vec{x} = 
 \begin{bmatrix} 1 \\ 2 \end{bmatrix}
@@ -890,21 +927,42 @@ b_1
 \end{bmatrix} .
 \end{equation*}
 </div>
-<div class="para">The graphs of the two displacements, <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_2\)</span> of the two carts is in .</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#examples-2-3-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">The graphs of the two displacements, <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_2\)</span> of the two carts is in <a href="sol-section.html#sosa-superposfig" class="xref" data-knowl="./knowl/xref/sosa-superposfig.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.9.8">Figure 4.9.8</a>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#examples-2-2-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 4.9.3.1"><a href="#examples-2-3" title="Copy heading and permalink for Solution 4.9.3.1" aria-label="Copy heading and permalink for Solution 4.9.3.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Example 4.9.3: "><a href="#examples-2" title="Copy heading and permalink for Example 4.9.3: " aria-label="Copy heading and permalink for Example 4.9.3: ">🔗</a></div></article><article class="example example-like" id="examples-3"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+<figure class="figure figure-like" id="sosa-superposfig"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
+<img src="external/sosa-superpos.png" class="contained" alt="ALT TEXT HERE"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="sosa-superposfig-2-description">
+<div class="para" id="sosa-superposfig-2-2-1">IMAGE DESCRIPTION HERE<div class="autopermalink" data-description="Paragraph"><a href="#sosa-superposfig-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Superposition of the two modes given the initial conditions.<div class="autopermalink" data-description="Figure 4.9.8"><a href="#sosa-superposfig" title="Copy heading and permalink for Figure 4.9.8" aria-label="Copy heading and permalink for Figure 4.9.8">🔗</a></div></figcaption>
+</figure><div class="autopermalink" data-description="Solution 4.9.5.1"><a href="#examples-2-2" title="Copy heading and permalink for Solution 4.9.5.1" aria-label="Copy heading and permalink for Solution 4.9.5.1">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 4.9.5"><a href="#examples-2" title="Copy heading and permalink for Example 4.9.5" aria-label="Copy heading and permalink for Example 4.9.5">🔗</a></div>
+</article>
+<article class="example example-like" id="sosa-railcarexample"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
-<div class="para" id="examples-3-2-1">We have two toy rail cars. Car 1 of mass kg is traveling at towards the second rail car of mass kg. There is a bumper on the second rail car that engages at the moment the cars hit (it connects to two cars) and does not let go. The bumper acts like a spring of spring constant <span class="process-math">\(k=\unitfrac[2]{N}{m}\text{.}\)</span> The second car is 10 meters from a wall. See .<div class="autopermalink" data-description="Paragraph"><a href="#examples-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>   <div class="para" id="examples-3-2-2">We want to ask several questions. At what time after the cars link does impact with the wall happen? What is the speed of car 2 when it hits the wall?<div class="autopermalink" data-description="Paragraph"><a href="#examples-3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sosa-railcarexample-1-1">We have two toy rail cars. Car 1 of mass kg is traveling at towards the second rail car of mass kg. There is a bumper on the second rail car that engages at the moment the cars hit (it connects to two cars) and does not let go. The bumper acts like a spring of spring constant <span class="process-math">\(k=\unitfrac[2]{N}{m}\text{.}\)</span> The second car is 10 meters from a wall. See <a href="sol-section.html#sosa-railcarscrashfig" class="xref" data-knowl="./knowl/xref/sosa-railcarscrashfig.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.9.10">Figure 4.9.10</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sosa-railcarexample-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<figure class="figure figure-like" id="sosa-railcarscrashfig"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
+<img src="external/railcarscrash.png" class="contained" alt="ALT TEXT HERE"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="sosa-railcarscrashfig-2-description">
+<div class="para" id="sosa-railcarscrashfig-2-2-1">IMAGE DESCRIPTION HERE<div class="autopermalink" data-description="Paragraph"><a href="#sosa-railcarscrashfig-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="examples-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
-<div class="para logical" id="examples-3-3-1">
+</div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The crash of two rail cars.<div class="autopermalink" data-description="Figure 4.9.10"><a href="#sosa-railcarscrashfig" title="Copy heading and permalink for Figure 4.9.10" aria-label="Copy heading and permalink for Figure 4.9.10">🔗</a></div></figcaption>
+</figure> 
+<div class="para" id="sosa-railcarexample-1-3">We want to ask several questions. At what time after the cars link does impact with the wall happen? What is the speed of car 2 when it hits the wall?<div class="autopermalink" data-description="Paragraph"><a href="#sosa-railcarexample-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solution solution-like" id="sosa-railcarexample-2">
+<h5 class="heading">
+<span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h5>
+<div class="para logical" id="sosa-railcarexample-2-1">
 <div class="para">OK, let us first set the system up. Let <span class="process-math">\(t=0\)</span> be the time when the two cars link up. Let <span class="process-math">\(x_1\)</span> be the displacement of the first car from the position at <span class="process-math">\(t=0\text{,}\)</span> and let <span class="process-math">\(x_2\)</span> be the displacement of the second car from its original location. Then the time when <span class="process-math">\(x_2(t) = 10\)</span> is exactly the time when impact with wall occurs. For this <span class="process-math">\(t\text{,}\)</span> <span class="process-math">\(x_2'(t)\)</span> is the speed at impact. This system acts just like the system of the previous example but without <span class="process-math">\(k_1\text{.}\)</span> Hence the equation is</div>
-<div class="displaymath process-math" id="examples-3-3-1-9">
+<div class="displaymath process-math" id="sosa-railcarexample-2-1-9">
 \begin{equation*}
 \begin{bmatrix}
 2 &amp; 0 \\
@@ -919,7 +977,7 @@ b_1
 \end{equation*}
 </div>
 <div class="para">or</div>
-<div class="displaymath process-math" id="examples-3-3-1-10">
+<div class="displaymath process-math" id="sosa-railcarexample-2-1-10">
 \begin{equation*}
 {\vec{x}}'' =
 \begin{bmatrix}
@@ -929,35 +987,36 @@ b_1
 \vec{x} .
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#examples-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sosa-railcarexample-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="examples-3-3-2">
+<div class="para logical" id="sosa-railcarexample-2-2">
 <div class="para">We compute the eigenvalues of <span class="process-math">\(A\text{.}\)</span> It is not hard to see that the eigenvalues are 0 and <span class="process-math">\(-3\)</span> (exercise). Furthermore, eigenvectors are <span class="process-math">\(\left[ \begin{smallmatrix} 1 \\ 1 \end{smallmatrix} \right]\)</span> and <span class="process-math">\(\left[ \begin{smallmatrix} 1 \\ -2 \end{smallmatrix} \right]\)</span> respectively (exercise). Then <span class="process-math">\(\omega_1 = 0\text{,}\)</span> <span class="process-math">\(\omega_2 = \sqrt{3}\text{,}\)</span> and by the second part of the theorem the general solution is</div>
-<div class="displaymath process-math" id="examples-3-3-2-7">
-\begin{equation*}
-\begin{split}
-\vec{x} &amp; = 
-\begin{bmatrix} 1 \\ 1 \end{bmatrix}
+<div class="displaymath process-math" id="sosa-railcarexample-2-2-7">
+\begin{align*}
+\vec{x} \amp = 
+\begin{bmatrix} 
+1 \\ 1 
+\end{bmatrix}
 \left( a_1 + b_1 t \right) 
 +
-\begin{bmatrix} 1 \\ -2 \end{bmatrix}
-\left( a_2 \cos ( \sqrt{3} \, t) + b_2 \sin ( \sqrt{3} \, t ) \right)
-\\
-&amp; =
+\begin{bmatrix} 
+1 \\ -2 
+\end{bmatrix}
+\left( a_2 \cos ( \sqrt{3} \, t) + b_2 \sin ( \sqrt{3} \, t ) \right)\\
+\amp =
 \begin{bmatrix}
 a_1 + b_1 t + a_2 \cos ( \sqrt{3} \, t ) + b_2 \sin ( \sqrt{3} \, t
 ) \\
 a_1 + b_1 t - 2 a_2 \cos ( \sqrt{3} \, t ) - 2 b_2 \sin ( \sqrt{3}
 \, t ) 
-\end{bmatrix} .
-\end{split}
-\end{equation*}
+\end{bmatrix}\text{.}
+\end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#examples-3-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sosa-railcarexample-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="examples-3-3-3">
+<div class="para logical" id="sosa-railcarexample-2-3">
 <div class="para">We now apply the initial conditions. First the cars start at position 0 so <span class="process-math">\(x_1 (0) = 0\)</span> and <span class="process-math">\(x_2(0) = 0\text{.}\)</span> The first car is traveling at , so <span class="process-math">\(x_1'(0) = 3\)</span> and the second car starts at rest, so <span class="process-math">\(x_2'(0) = 0\text{.}\)</span> The first conditions says</div>
-<div class="displaymath process-math" id="examples-3-3-3-5">
+<div class="displaymath process-math" id="sosa-railcarexample-2-3-5">
 \begin{equation*}
 \vec{0} = \vec{x}(0) = 
 \begin{bmatrix}
@@ -967,7 +1026,7 @@ a_1 - 2 a_2
 \end{equation*}
 </div>
 <div class="para">It is not hard to see that <span class="process-math">\(a_1 = a_2 = 0\text{.}\)</span> We set <span class="process-math">\(a_1=0\)</span> and <span class="process-math">\(a_2=0\)</span> in <span class="process-math">\(\vec{x}(t)\)</span> and differentiate to get</div>
-<div class="displaymath process-math" id="examples-3-3-3-10">
+<div class="displaymath process-math" id="sosa-railcarexample-2-3-10">
 \begin{equation*}
 {\vec{x}}'(t)
 =
@@ -978,7 +1037,7 @@ b_1 - 2 \sqrt{3} \, b_2 \cos ( \sqrt{3} \, t )
 \end{equation*}
 </div>
 <div class="para">So</div>
-<div class="displaymath process-math" id="examples-3-3-3-11">
+<div class="displaymath process-math" id="sosa-railcarexample-2-3-11">
 \begin{equation*}
 \begin{bmatrix} 3 \\ 0 \end{bmatrix} = 
 {\vec{x}}'(0)
@@ -991,7 +1050,7 @@ b_1 - 2 \sqrt{3} \, b_2
 </div>
 <div class="para">Solving these two equations we find <span class="process-math">\(b_1 = 2\)</span> and <span class="process-math">\(b_2 =
 \frac{1}{\sqrt{3}}\text{.}\)</span> Hence the position of our cars is (until the impact with the wall)</div>
-<div class="displaymath process-math" id="examples-3-3-3-14">
+<div class="displaymath process-math" id="sosa-railcarexample-2-3-14">
 \begin{equation*}
 \vec{x} = 
 \begin{bmatrix}
@@ -1001,30 +1060,40 @@ b_1 - 2 \sqrt{3} \, b_2
 \end{equation*}
 </div>
 <div class="para">Note how the presence of the zero eigenvalue resulted in a term containing <span class="process-math">\(t\text{.}\)</span> This means that the cars will be traveling in the positive direction as time grows, which is what we expect.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#examples-3-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sosa-railcarexample-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="examples-3-3-4">What we are really interested in is the second expression, the one for <span class="process-math">\(x_2\text{.}\)</span> We have <span class="process-math">\(x_2(t) = 
-2 t - \frac{2}{\sqrt{3}} \sin ( \sqrt{3} \, t)\text{.}\)</span> See for the plot of <span class="process-math">\(x_2\)</span> versus time.<div class="autopermalink" data-description="Paragraph"><a href="#examples-3-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sosa-railcarexample-2-4">What we are really interested in is the second expression, the one for <span class="process-math">\(x_2\text{.}\)</span> We have <span class="process-math">\(x_2(t) = 
+2 t - \frac{2}{\sqrt{3}} \sin ( \sqrt{3} \, t)\text{.}\)</span> See <a href="sol-section.html#sosa-railcarfig" class="xref" data-knowl="./knowl/xref/sosa-railcarfig.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.9.11">Figure 4.9.11</a> for the plot of <span class="process-math">\(x_2\)</span> versus time.<div class="autopermalink" data-description="Paragraph"><a href="#sosa-railcarexample-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="examples-3-3-5">Just from the graph we can see that time of impact will be a little more than 5 seconds from time zero. For this we have to solve the equation <span class="process-math">\(10 = x_2(t) = 2 t - \frac{2}{\sqrt{3}} \sin ( \sqrt{3} \,
-t)\text{.}\)</span> Using a computer (or even a graphing calculator) we find that <span class="process-math">\(t_{\text{impact}} \approx 5.22\)</span> seconds.<div class="autopermalink" data-description="Paragraph"><a href="#examples-3-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sosa-railcarexample-2-5">Just from the graph we can see that time of impact will be a little more than 5 seconds from time zero. For this we have to solve the equation <span class="process-math">\(10 = x_2(t) = 2 t - \frac{2}{\sqrt{3}} \sin ( \sqrt{3} \,
+t)\text{.}\)</span> Using a computer (or even a graphing calculator) we find that <span class="process-math">\(t_{\text{impact}} \approx 5.22\)</span> seconds.<div class="autopermalink" data-description="Paragraph"><a href="#sosa-railcarexample-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="examples-3-3-6">3.25in<div class="autopermalink" data-description="Paragraph"><a href="#examples-3-3-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<figure class="figure figure-like" id="sosa-railcarfig"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
+<img src="external/sosa-railcar.png" class="contained" alt="ALT TEXT HERE"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="sosa-railcarfig-2-description">
+<div class="para" id="sosa-railcarfig-2-2-1">IMAGE DESCRIPTION HERE<div class="autopermalink" data-description="Paragraph"><a href="#sosa-railcarfig-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="examples-3-3-7">The speed of the second car is <span class="process-math">\(x_2' = 2 - 2 \cos ( \sqrt{3} \, t)\text{.}\)</span> At the time of impact (5.22 seconds from <span class="process-math">\(t=0\)</span>) we get <span class="process-math">\(x_2'(t_{\text{impact}}) \approx 3.85\text{.}\)</span> The maximum speed is the maximum of <span class="process-math">\(2 - 2 \cos ( \sqrt{3} \, t )\text{,}\)</span> which is 4. We are traveling at almost the maximum speed when we hit the wall.<div class="autopermalink" data-description="Paragraph"><a href="#examples-3-3-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></details>
 </div>
-<div class="para" id="examples-3-3-8">Suppose that Bob is a tiny person sitting on car 2. Bob has a Martini in his hand and would like not to spill it. Let us suppose Bob would not spill his Martini when the first car links up with car 2, but if car 2 hits the wall at any speed greater than zero, Bob will spill his drink. Suppose Bob can move car 2 a few meters towards or away from the wall (he cannot go all the way to the wall, nor can he get out of the way of the first car). Is there a distance for him to be at? A distance such that the impact with the wall is at zero speed?<div class="autopermalink" data-description="Paragraph"><a href="#examples-3-3-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Position of the second car in time (ignoring the wall).<div class="autopermalink" data-description="Figure 4.9.11"><a href="#sosa-railcarfig" title="Copy heading and permalink for Figure 4.9.11" aria-label="Copy heading and permalink for Figure 4.9.11">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="sosa-railcarexample-2-7">The speed of the second car is <span class="process-math">\(x_2' = 2 - 2 \cos ( \sqrt{3} \, t)\text{.}\)</span> At the time of impact (5.22 seconds from <span class="process-math">\(t=0\)</span>) we get <span class="process-math">\(x_2'(t_{\text{impact}}) \approx 3.85\text{.}\)</span> The maximum speed is the maximum of <span class="process-math">\(2 - 2 \cos ( \sqrt{3} \, t )\text{,}\)</span> which is 4. We are traveling at almost the maximum speed when we hit the wall.<div class="autopermalink" data-description="Paragraph"><a href="#sosa-railcarexample-2-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="examples-3-3-9">The answer is yes. Looking at , we note the between <span class="process-math">\(t=3\)</span> and <span class="process-math">\(t=4\text{.}\)</span> There is a point where the speed is zero. To find it we solve <span class="process-math">\(x_2'(t) = 0\text{.}\)</span> This is when <span class="process-math">\(\cos ( \sqrt{3} \, t) = 1\)</span> or in other words when <span class="process-math">\(t = \frac{2 \pi}{\sqrt{3}}, 
+<div class="para" id="sosa-railcarexample-2-8">Suppose that Bob is a tiny person sitting on car 2. Bob has a Martini in his hand and would like not to spill it. Let us suppose Bob would not spill his Martini when the first car links up with car 2, but if car 2 hits the wall at any speed greater than zero, Bob will spill his drink. Suppose Bob can move car 2 a few meters towards or away from the wall (he cannot go all the way to the wall, nor can he get out of the way of the first car). Is there a “safe” distance for him to be at? A distance such that the impact with the wall is at zero speed?<div class="autopermalink" data-description="Paragraph"><a href="#sosa-railcarexample-2-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sosa-railcarexample-2-9">The answer is yes. Looking at <a href="sol-section.html#sosa-railcarfig" class="xref" data-knowl="./knowl/xref/sosa-railcarfig.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.9.11">Figure 4.9.11</a>, we note the “plateau” between <span class="process-math">\(t=3\)</span> and <span class="process-math">\(t=4\text{.}\)</span> There is a point where the speed is zero. To find it we solve <span class="process-math">\(x_2'(t) = 0\text{.}\)</span> This is when <span class="process-math">\(\cos ( \sqrt{3} \, t) = 1\)</span> or in other words when <span class="process-math">\(t = \frac{2 \pi}{\sqrt{3}}, 
 \frac{4 \pi}{\sqrt{3}},\ldots\)</span> and so on. We plug in the first value to obtain <span class="process-math">\(x_2\left(\frac{2 \pi}{\sqrt{3}}\right) = 
-\frac{4 \pi}{\sqrt{3}} \approx 7.26\text{.}\)</span> So a distance is about 7 and a quarter meters from the wall.<div class="autopermalink" data-description="Paragraph"><a href="#examples-3-3-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+\frac{4 \pi}{\sqrt{3}} \approx 7.26\text{.}\)</span> So a “safe” distance is about 7 and a quarter meters from the wall.<div class="autopermalink" data-description="Paragraph"><a href="#sosa-railcarexample-2-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="examples-3-3-10">Alternatively Bob could move away from the wall towards the incoming car 2, where another safe distance is <span class="process-math">\(x_2 \left( \frac{4 \pi}{\sqrt{3}} \right) = \frac{8 \pi}{\sqrt{3}}
-\approx 14.51\)</span> and so on. We can use all the different <span class="process-math">\(t\)</span> such that <span class="process-math">\(x_2'(t) = 0\text{.}\)</span> Of course <span class="process-math">\(t=0\)</span> is also a solution, corresponding to <span class="process-math">\(x_2 = 0\text{,}\)</span> but that means standing right at the wall.<div class="autopermalink" data-description="Paragraph"><a href="#examples-3-3-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sosa-railcarexample-2-10">Alternatively Bob could move away from the wall towards the incoming car 2, where another safe distance is <span class="process-math">\(x_2 \left( \frac{4 \pi}{\sqrt{3}} \right) = \frac{8 \pi}{\sqrt{3}}
+\approx 14.51\)</span> and so on. We can use all the different <span class="process-math">\(t\)</span> such that <span class="process-math">\(x_2'(t) = 0\text{.}\)</span> Of course <span class="process-math">\(t=0\)</span> is also a solution, corresponding to <span class="process-math">\(x_2 = 0\text{,}\)</span> but that means standing right at the wall.<div class="autopermalink" data-description="Paragraph"><a href="#sosa-railcarexample-2-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 4.9.4.1"><a href="#examples-3-3" title="Copy heading and permalink for Solution 4.9.4.1" aria-label="Copy heading and permalink for Solution 4.9.4.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Example 4.9.4: "><a href="#examples-3" title="Copy heading and permalink for Example 4.9.4: " aria-label="Copy heading and permalink for Example 4.9.4: ">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Examples"><a href="#examples" title="Copy heading and permalink for Subsection: Examples" aria-label="Copy heading and permalink for Subsection: Examples">🔗</a></div></section><section class="subsection" id="forced-oscillations"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Solution 4.9.9.1"><a href="#sosa-railcarexample-2" title="Copy heading and permalink for Solution 4.9.9.1" aria-label="Copy heading and permalink for Solution 4.9.9.1">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 4.9.9"><a href="#sosa-railcarexample" title="Copy heading and permalink for Example 4.9.9" aria-label="Copy heading and permalink for Example 4.9.9">🔗</a></div>
+</article><div class="autopermalink" data-description="Subsection: Examples"><a href="#examples" title="Copy heading and permalink for Subsection: Examples" aria-label="Copy heading and permalink for Subsection: Examples">🔗</a></div>
+</section>
+<section class="subsection" id="forced-oscillations">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Forced oscillations</span>
 </h3>
 <div class="para logical" id="forced-oscillations-2">
@@ -1104,14 +1173,17 @@ M \vec{x}'' = K \vec{x} + \vec{G} \cos(\omega t) .
 <div class="autopermalink" data-description="Paragraph"><a href="#forced-oscillations-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="forced-oscillations-5"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
-<div class="para" id="forced-oscillations-5-2-1">Let us take the example in with the same parameters as before: <span class="process-math">\(m_1 = 2\text{,}\)</span> <span class="process-math">\(m_2 = 1\text{,}\)</span> <span class="process-math">\(k_1 = 4\text{,}\)</span> and <span class="process-math">\(k_2 = 2\text{.}\)</span> Now suppose that there is a force <span class="process-math">\(2 \cos (3t)\)</span> acting on the second cart.<div class="autopermalink" data-description="Paragraph"><a href="#forced-oscillations-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="forced-oscillations-5-1-1">Let us take the example in <a href="sol-section.html#sosa-twocartswallfig" class="xref" data-knowl="./knowl/xref/sosa-twocartswallfig.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.9.6">Figure 4.9.6</a> with the same parameters as before: <span class="process-math">\(m_1 = 2\text{,}\)</span> <span class="process-math">\(m_2 = 1\text{,}\)</span> <span class="process-math">\(k_1 = 4\text{,}\)</span> and <span class="process-math">\(k_2 = 2\text{.}\)</span> Now suppose that there is a force <span class="process-math">\(2 \cos (3t)\)</span> acting on the second cart.<div class="autopermalink" data-description="Paragraph"><a href="#forced-oscillations-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="forced-oscillations-5-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
-<div class="para logical" id="forced-oscillations-5-3-1">
+<div class="solution solution-like" id="forced-oscillations-5-2">
+<h5 class="heading">
+<span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h5>
+<div class="para logical" id="forced-oscillations-5-2-1">
 <div class="para">The equation is</div>
-<div class="displaymath process-math" id="forced-oscillations-5-3-1-1">
+<div class="displaymath process-math" id="forced-oscillations-5-2-1-1">
 \begin{equation*}
 \begin{bmatrix}
 2 &amp; 0 \\
@@ -1142,7 +1214,7 @@ M \vec{x}'' = K \vec{x} + \vec{G} \cos(\omega t) .
 \end{equation*}
 </div>
 <div class="para">We solved the associated homogeneous equation before and found the complementary solution to be</div>
-<div class="displaymath process-math" id="forced-oscillations-5-3-1-2">
+<div class="displaymath process-math" id="forced-oscillations-5-2-1-2">
 \begin{equation*}
 \vec{x}_c =
 \begin{bmatrix} 1 \\ 2 \end{bmatrix}
@@ -1152,91 +1224,84 @@ M \vec{x}'' = K \vec{x} + \vec{G} \cos(\omega t) .
 \bigl( a_2 \cos (2t) + b_2 \sin (2t) \bigr) .
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#forced-oscillations-5-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#forced-oscillations-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="forced-oscillations-5-3-2">
+<div class="para logical" id="forced-oscillations-5-2-2">
 <div class="para">The natural frequencies are 1 and 2. As 3 is not a natural frequency, we try <span class="process-math">\(\vec{c} \cos (3t)\text{.}\)</span> We invert <span class="process-math">\((A+3^2 I)\text{:}\)</span>
 </div>
-<div class="displaymath process-math" id="forced-oscillations-5-3-2-3">
+<div class="displaymath process-math" id="forced-oscillations-5-2-2-3">
 \begin{equation*}
 {\left( \begin{bmatrix}
 -3 &amp; 1 \\
-\noalign{\smallskip}
 2 &amp; -2
 \end{bmatrix}
 +3^2 I\right)}^{-1}
 =
 {\begin{bmatrix}
 6 &amp; 1 \\
-\noalign{\smallskip}
 2 &amp; 7
 \end{bmatrix}}^{-1}
 =
 \begin{bmatrix}
 \frac{7}{40} &amp; \frac{-1}{40} \\
-\noalign{\smallskip}
 \frac{-1}{20} &amp; \frac{3}{20}
 \end{bmatrix} .
 \end{equation*}
 </div>
 <div class="para">Hence,</div>
-<div class="displaymath process-math" id="forced-oscillations-5-3-2-4">
+<div class="displaymath process-math" id="forced-oscillations-5-2-2-4">
 \begin{equation*}
 \vec{c} = 
 {(A +\omega^2 I)}^{-1}
 (-\vec{F} ) = 
 \begin{bmatrix}
 \frac{7}{40} &amp; \frac{-1}{40} \\
-\noalign{\smallskip}
 \frac{-1}{20} &amp; \frac{3}{20}
 \end{bmatrix}
 \begin{bmatrix}
 0 \\
-\noalign{\smallskip}
 -2
 \end{bmatrix}
 =
 \begin{bmatrix}
 \frac{1}{20} \\
-\noalign{\smallskip}
 \frac{-3}{10}
 \end{bmatrix} .
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#forced-oscillations-5-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#forced-oscillations-5-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="forced-oscillations-5-3-3">
+<div class="para logical" id="forced-oscillations-5-2-3">
 <div class="para">Combining with the general solution of the associated homogeneous problem, we get that the general solution to <span class="process-math">\({\vec{x}}'' = A \vec{x} + \vec{F} \cos (\omega t)\)</span> is</div>
-<div class="displaymath process-math" id="forced-oscillations-5-3-3-2">
+<div class="displaymath process-math" id="forced-oscillations-5-2-3-2">
 \begin{equation*}
 \vec{x} = \vec{x}_c + \vec{x}_p =
 \begin{bmatrix} 1 \\
-\noalign{\smallskip}
 2 \end{bmatrix}
 \bigl( a_1 \cos (t) + b_1 \sin (t) \bigr)
 +
 \begin{bmatrix} 1 \\
-\noalign{\smallskip}
 -1 \end{bmatrix}
 \bigl( a_2 \cos (2t) + b_2 \sin (2t) \bigr)
 +
 \begin{bmatrix}
 \frac{1}{20} \\
-\noalign{\smallskip}
 \frac{-3}{10}
 \end{bmatrix}
 \cos (3t) .
 \end{equation*}
 </div>
 <div class="para">We then solve for the constants <span class="process-math">\(a_1\text{,}\)</span> <span class="process-math">\(a_2\text{,}\)</span> <span class="process-math">\(b_1\text{,}\)</span> and <span class="process-math">\(b_2\)</span> using any initial conditions we are given.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#forced-oscillations-5-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#forced-oscillations-5-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 4.9.5.1"><a href="#forced-oscillations-5-3" title="Copy heading and permalink for Solution 4.9.5.1" aria-label="Copy heading and permalink for Solution 4.9.5.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Example 4.9.5: "><a href="#forced-oscillations-5" title="Copy heading and permalink for Example 4.9.5: " aria-label="Copy heading and permalink for Example 4.9.5: ">🔗</a></div></article><div class="para" id="forced-oscillations-6">Note that given force <span class="process-math">\(\vec{f}\text{,}\)</span> we write the equation as <span class="process-math">\(M {\vec{x}}'' = K \vec{x} + \vec{f}\)</span> to get the units right. Then we write <span class="process-math">\({\vec{x}}'' = M^{-1}K \vec{x} + M^{-1}\vec{f}\text{.}\)</span> The term <span class="process-math">\(\vec{g} = M^{-1} \vec{f}\)</span> in <span class="process-math">\({\vec{x}}'' = A \vec{x} + \vec{g}\)</span> is in units of force per unit mass.<div class="autopermalink" data-description="Paragraph"><a href="#forced-oscillations-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Solution 4.9.12.1"><a href="#forced-oscillations-5-2" title="Copy heading and permalink for Solution 4.9.12.1" aria-label="Copy heading and permalink for Solution 4.9.12.1">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 4.9.12"><a href="#forced-oscillations-5" title="Copy heading and permalink for Example 4.9.12" aria-label="Copy heading and permalink for Example 4.9.12">🔗</a></div>
+</article>
+<div class="para" id="forced-oscillations-6">Note that given force <span class="process-math">\(\vec{f}\text{,}\)</span> we write the equation as <span class="process-math">\(M {\vec{x}}'' = K \vec{x} + \vec{f}\)</span> to get the units right. Then we write <span class="process-math">\({\vec{x}}'' = M^{-1}K \vec{x} + M^{-1}\vec{f}\text{.}\)</span> The term <span class="process-math">\(\vec{g} = M^{-1} \vec{f}\)</span> in <span class="process-math">\({\vec{x}}'' = A \vec{x} + \vec{g}\)</span> is in units of force per unit mass.<div class="autopermalink" data-description="Paragraph"><a href="#forced-oscillations-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="forced-oscillations-7">
-<div class="para">If <span class="process-math">\(\omega\)</span> is a natural frequency of the system, <em class="emphasis"></em> may occur, because we will have to try a particular solution of the form</div>
+<div class="para">If <span class="process-math">\(\omega\)</span> is a natural frequency of the system, <dfn class="terminology">resonance</dfn> may occur, because we will have to try a particular solution of the form</div>
 <div class="displaymath process-math" id="forced-oscillations-7-3">
 \begin{equation*}
 \vec{x}_p =
@@ -1247,10 +1312,14 @@ M \vec{x}'' = K \vec{x} + \vec{G} \cos(\omega t) .
 <div class="para">That is assuming that the eigenvalues of the coefficient matrix are distinct. Next, note that the amplitude of this solution grows without bound as <span class="process-math">\(t\)</span> grows.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#forced-oscillations-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Subsection: Forced oscillations"><a href="#forced-oscillations" title="Copy heading and permalink for Subsection: Forced oscillations" aria-label="Copy heading and permalink for Subsection: Forced oscillations">🔗</a></div></section><section class="subsection" id="non-homogeneous-solutions"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Subsection: Forced oscillations"><a href="#forced-oscillations" title="Copy heading and permalink for Subsection: Forced oscillations" aria-label="Copy heading and permalink for Subsection: Forced oscillations">🔗</a></div>
+</section>
+<section class="subsection" id="non-homogeneous-solutions">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Non-Homogeneous Solutions</span>
 </h3>
-<section class="subsubsection" id="undetermined-coefficients-secondsys"><h4 class="heading hide-type">
+<section class="subsubsection" id="undetermined-coefficients-secondsys">
+<h4 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Undetermined coefficients</span>
 </h4>
 <div class="para logical" id="undetermined-coefficients-secondsys-2">
@@ -1277,7 +1346,10 @@ M \vec{x}'' = K \vec{x} + \vec{G} \cos(\omega t) .
 </div>
 <div class="para" id="undetermined-coefficients-secondsys-5">You will never go wrong with putting in more terms than needed into your guess. You will find that the extra coefficients will turn out to be zero. But it is useful to save some time and effort.<div class="autopermalink" data-description="Paragraph"><a href="#undetermined-coefficients-secondsys-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Subsubsection: Undetermined coefficients"><a href="#undetermined-coefficients-secondsys" title="Copy heading and permalink for Subsubsection: Undetermined coefficients" aria-label="Copy heading and permalink for Subsubsection: Undetermined coefficients">🔗</a></div></section><section class="subsubsection" id="eigenvector-decomposition"><h4 class="heading hide-type">
+<div class="autopermalink" data-description="Subsubsection: Undetermined coefficients"><a href="#undetermined-coefficients-secondsys" title="Copy heading and permalink for Subsubsection: Undetermined coefficients" aria-label="Copy heading and permalink for Subsubsection: Undetermined coefficients">🔗</a></div>
+</section>
+<section class="subsubsection" id="eigenvector-decomposition">
+<h4 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Eigenvector decomposition</span>
 </h4>
 <div class="para logical" id="eigenvector-decomposition-2">
@@ -1287,7 +1359,7 @@ M \vec{x}'' = K \vec{x} + \vec{G} \cos(\omega t) .
 {\vec{x}}'' = A \vec{x} + \vec{f}(t) ,
 \end{equation*}
 </div>
-<div class="para">we can do <em class="emphasis"></em>, just like for first order systems.</div>
+<div class="para">we can do <dfn class="terminology">eigenvalue decomposition</dfn>, just like for first order systems.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#eigenvector-decomposition-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="eigenvector-decomposition-3">
@@ -1315,17 +1387,16 @@ M \vec{x}'' = K \vec{x} + \vec{G} \cos(\omega t) .
 </div>
 <div class="para logical" id="eigenvector-decomposition-4">
 <div class="para">We plug in, and as before we obtain</div>
-<div class="displaymath process-math" id="eigenvector-decomposition-4-1">
-\begin{equation*}
-\begin{split}
-%{\vec{x}}'' &amp; =
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ho-chapter.html" id="eigenvector-decomposition-4-1">
+\begin{align*}
+%{\vec{x}}'' \amp =
 \overbrace{
 \vec{v}_1 \xi_1'' + 
 \vec{v}_2 \xi_2'' + \cdots +
 \vec{v}_n \xi_n''
 }^{{\vec{x}}''}
 %\\
-&amp; =
+\amp =
 \overbrace{
 A \left( \vec{v}_1 \xi_1 + 
 \vec{v}_2 \xi_2 + \cdots +
@@ -1336,45 +1407,39 @@ A \left( \vec{v}_1 \xi_1 +
 \vec{v}_1 g_1 + 
 \vec{v}_2 g_2 + \cdots +
 \vec{v}_n g_n
-}^{\vec{f}}
-\\
-&amp; = 
+}^{\vec{f}}\\
+\amp = 
 A \vec{v}_1 \xi_1 + 
 A \vec{v}_2 \xi_2 + \cdots +
 A \vec{v}_n \xi_n
 +
 \vec{v}_1 g_1 + 
 \vec{v}_2 g_2 + \cdots +
-\vec{v}_n g_n
-\\
-&amp; =
+\vec{v}_n g_n\\
+\amp =
 \vec{v}_1 \lambda_1 \xi_1 + 
 \vec{v}_2 \lambda_2 \xi_2 + \cdots +
 \vec{v}_n \lambda_n \xi_n
 +
 \vec{v}_1 \, g_1 + 
 \vec{v}_2 \, g_2 + \cdots +
-\vec{v}_n \, g_n
-\\
-&amp; =
+\vec{v}_n \, g_n\\
+\amp =
 \vec{v}_1 ( \lambda_1 \xi_1 + g_1 ) +
 \vec{v}_2 ( \lambda_2 \xi_2 + g_2 ) + \cdots + 
-\vec{v}_n ( \lambda_n \xi_n + g_n ) .
-\end{split}
-\end{equation*}
+\vec{v}_n ( \lambda_n \xi_n + g_n )\text{.}
+\end{align*}
 </div>
 <div class="para">We identify the coefficients of the eigenvectors to get the equations</div>
-<div class="displaymath process-math" id="eigenvector-decomposition-4-2">
-\begin{equation*}
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ho-chapter.html" id="eigenvector-decomposition-4-2">
 \begin{align*}
-\xi_1'' &amp; = \lambda_1 \xi_1 + g_1 , \\
-\xi_2'' &amp; = \lambda_2 \xi_2 + g_2 , \\
-&amp; ~~ \vdots \\
-\xi_n'' &amp; = \lambda_n \xi_n + g_n .
+\xi_1'' \amp = \lambda_1 \xi_1 + g_1 , \\
+\xi_2'' \amp = \lambda_2 \xi_2 + g_2 , \\
+\amp ~~ \vdots \\
+\xi_n'' \amp = \lambda_n \xi_n + g_n \text{.}
 \end{align*}
-\end{equation*}
 </div>
-<div class="para">Each one of these equations is independent of the others. We solve each equation using the methods of . We write <span class="process-math">\(\vec{x}(t) =
+<div class="para">Each one of these equations is independent of the others. We solve each equation using the methods of <a href="ho-chapter.html" class="internal" title="Chapter 2: Higher Order Linear ODEs">Chapter 2</a>. We write <span class="process-math">\(\vec{x}(t) =
 \vec{v}_1 \xi_1(t) +
 \vec{v}_2 \xi_2(t) + \cdots +
 \vec{v}_n \xi_n(t)\text{,}\)</span> and we are done; we have a particular solution. We find the general solutions for <span class="process-math">\(\xi_1\)</span> through <span class="process-math">\(\xi_n\text{,}\)</span> and again <span class="process-math">\(\vec{x}(t) =
@@ -1383,14 +1448,17 @@ A \vec{v}_n \xi_n
 <div class="autopermalink" data-description="Paragraph"><a href="#eigenvector-decomposition-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="eigenvector-decomposition-5"><h5 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h5>
-<div class="para" id="eigenvector-decomposition-5-2-1">Let us do the same example from before using this method.<div class="autopermalink" data-description="Paragraph"><a href="#eigenvector-decomposition-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="eigenvector-decomposition-5-1-1">Let us do the same example from before using this method.<div class="autopermalink" data-description="Paragraph"><a href="#eigenvector-decomposition-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="eigenvector-decomposition-5-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
-<div class="para logical" id="eigenvector-decomposition-5-3-1">
+<div class="solution solution-like" id="eigenvector-decomposition-5-2">
+<h6 class="heading">
+<span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h6>
+<div class="para logical" id="eigenvector-decomposition-5-2-1">
 <div class="para">The equation is</div>
-<div class="displaymath process-math" id="eigenvector-decomposition-5-3-1-1">
+<div class="displaymath process-math" id="eigenvector-decomposition-5-2-1-1">
 \begin{equation*}
 {\vec{x}}'' =
 \begin{bmatrix}
@@ -1410,11 +1478,10 @@ A \vec{v}_n \xi_n
 \frac{1}{3}
 \left[ \begin{smallmatrix} 1 &amp; 1 \\ 2 &amp; -1 \end{smallmatrix}
 \right]\text{.}\)</span> Therefore,</div>
-<div class="displaymath process-math" id="eigenvector-decomposition-5-3-1-8">
+<div class="displaymath process-math" id="eigenvector-decomposition-5-2-1-8">
 \begin{equation*}
 \begin{bmatrix}
 g_1 \\
-\noalign{\smallskip}
 g_2
 \end{bmatrix}
 =
@@ -1422,36 +1489,31 @@ E^{-1} \vec{f}(t)
 =
 \frac{1}{3}
 \begin{bmatrix} 1 &amp; 1 \\
-\noalign{\smallskip}
 2 &amp; -1 \end{bmatrix}
 \begin{bmatrix} 0 \\
-\noalign{\smallskip}
 2\cos (3t) \end{bmatrix}
 =
 \begin{bmatrix} \frac{2}{3}\cos (3t)
 \\
-\noalign{\smallskip}
 \frac{-2}{3}\cos (3t) \end{bmatrix} .
 \end{equation*}
 </div>
 <div class="para">So after the whole song and dance of plugging in, the equations we get are</div>
-<div class="displaymath process-math" id="eigenvector-decomposition-5-3-1-9">
+<div class="displaymath process-math" id="eigenvector-decomposition-5-2-1-9">
 \begin{equation*}
 \xi_1'' = - \xi_1 + \frac{2}{3} \cos (3t) , \qquad
 \xi_2'' = -4 \, \xi_2 - \frac{2}{3} \cos (3t) .
 \end{equation*}
 </div>
 <div class="para">For each equation we use the method of undetermined coefficients. We try <span class="process-math">\(C_1 \cos (3t)\)</span> for the first equation and <span class="process-math">\(C_2 \cos (3t)\)</span> for the second equation. We plug in to get</div>
-<div class="displaymath process-math" id="eigenvector-decomposition-5-3-1-12">
-\begin{equation*}
+<div class="displaymath process-math" id="eigenvector-decomposition-5-2-1-12">
 \begin{align*}
-- 9 C_1 \cos (3t) &amp; = - C_1 \cos (3t) + \frac{2}{3} \cos (3t) , \\
-- 9 C_2 \cos (3t) &amp; = - 4 C_2 \cos (3t) - \frac{2}{3} \cos (3t) .
+- 9 C_1 \cos (3t) \amp = - C_1 \cos (3t) + \frac{2}{3} \cos (3t) \\
+- 9 C_2 \cos (3t) \amp = - 4 C_2 \cos (3t) - \frac{2}{3} \cos (3t) \text{.}
 \end{align*}
-\end{equation*}
 </div>
 <div class="para">We solve each of these equations separately. We get <span class="process-math">\(- 9 C_1 = - C_1 + \nicefrac{2}{3}\)</span> and <span class="process-math">\(- 9 C_2 = - 4C_2 - \nicefrac{2}{3}\text{.}\)</span> And hence <span class="process-math">\(C_1 = \nicefrac{-1}{12}\)</span> and <span class="process-math">\(C_2 = \nicefrac{2}{15}\text{.}\)</span> So our particular solution is</div>
-<div class="displaymath process-math" id="eigenvector-decomposition-5-3-1-17">
+<div class="displaymath process-math" id="eigenvector-decomposition-5-2-1-17">
 \begin{equation*}
 \vec{x} =
 \begin{bmatrix} 1 \\
@@ -1468,17 +1530,22 @@ E^{-1} \vec{f}(t)
 \end{equation*}
 </div>
 <div class="para">This solution matches what we got previously.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#eigenvector-decomposition-5-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eigenvector-decomposition-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 4.9.6.1"><a href="#eigenvector-decomposition-5-3" title="Copy heading and permalink for Solution 4.9.6.1" aria-label="Copy heading and permalink for Solution 4.9.6.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Example 4.9.6: "><a href="#eigenvector-decomposition-5" title="Copy heading and permalink for Example 4.9.6: " aria-label="Copy heading and permalink for Example 4.9.6: ">🔗</a></div></article><div class="autopermalink" data-description="Subsubsection: Eigenvector decomposition"><a href="#eigenvector-decomposition" title="Copy heading and permalink for Subsubsection: Eigenvector decomposition" aria-label="Copy heading and permalink for Subsubsection: Eigenvector decomposition">🔗</a></div></section><div class="autopermalink" data-description="Subsection: Non-Homogeneous Solutions"><a href="#non-homogeneous-solutions" title="Copy heading and permalink for Subsection: Non-Homogeneous Solutions" aria-label="Copy heading and permalink for Subsection: Non-Homogeneous Solutions">🔗</a></div></section><section class="exercises" id="sol-section-6"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Solution 4.9.13.1"><a href="#eigenvector-decomposition-5-2" title="Copy heading and permalink for Solution 4.9.13.1" aria-label="Copy heading and permalink for Solution 4.9.13.1">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 4.9.13"><a href="#eigenvector-decomposition-5" title="Copy heading and permalink for Example 4.9.13" aria-label="Copy heading and permalink for Example 4.9.13">🔗</a></div>
+</article><div class="autopermalink" data-description="Subsubsection: Eigenvector decomposition"><a href="#eigenvector-decomposition" title="Copy heading and permalink for Subsubsection: Eigenvector decomposition" aria-label="Copy heading and permalink for Subsubsection: Eigenvector decomposition">🔗</a></div>
+</section><div class="autopermalink" data-description="Subsection: Non-Homogeneous Solutions"><a href="#non-homogeneous-solutions" title="Copy heading and permalink for Subsection: Non-Homogeneous Solutions" aria-label="Copy heading and permalink for Subsection: Non-Homogeneous Solutions">🔗</a></div>
+</section>
+<section class="exercises" id="sol-section-7">
+<h3 class="heading hide-type">
 <span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="sol-section-6-2"><h4 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
-<div class="para logical" id="sol-section-6-2-1-1">
+<article class="exercise exercise-like" id="sol-section-7-2"><h4 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="sol-section-7-2-1-1">
 <div class="para">Find a particular solution to</div>
-<div class="displaymath process-math" id="sol-section-6-2-1-1-1">
+<div class="displaymath process-math" id="sol-section-7-2-1-1-1">
 \begin{equation*}
 {\vec{x}}'' =
 \begin{bmatrix}
@@ -1493,16 +1560,21 @@ E^{-1} \vec{f}(t)
 \cos (2 t) .
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-6-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="sol-section-6-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
-<div class="para" id="sol-section-6-2-2-1">
-<span class="process-math">\(\vec{x}(t) = \left[\begin{smallmatrix} 1 \\ -1 \end{smallmatrix}\right]\left(C_1\cos(2t) + C_2\sin(2t)\right) + \left[\begin{smallmatrix} 1 \\ 2 \end{smallmatrix}\right](C_3\cos(t) + C_4\sin(t)) + \left[\begin{smallmatrix} -1/6 \\ 1/6 \end{smallmatrix}\right]t\sin(2t) + \left[\begin{smallmatrix} -2/9 \\ -4/9 \end{smallmatrix}\right]\cos(2t)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sol-section-6-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="solutions">
+<details id="sol-section-7-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="sol-section-7-2-2-1">
+<span class="process-math">\(\vec{x}(t) = \left[\begin{smallmatrix} 1 \\ -1 \end{smallmatrix}\right]\left(C_1\cos(2t) + C_2\sin(2t)\right) + \left[\begin{smallmatrix} 1 \\ 2 \end{smallmatrix}\right](C_3\cos(t) + C_4\sin(t)) + \left[\begin{smallmatrix} -1/6 \\ 1/6 \end{smallmatrix}\right]t\sin(2t) + \left[\begin{smallmatrix} -2/9 \\ -4/9 \end{smallmatrix}\right]\cos(2t)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Answer 1.1"><a href="#sol-section-6-2-2" title="Copy heading and permalink for Answer 1.1" aria-label="Copy heading and permalink for Answer 1.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise 1"><a href="#sol-section-6-2" title="Copy heading and permalink for Exercise 1" aria-label="Copy heading and permalink for Exercise 1">🔗</a></div></article><article class="exercise exercise-like" id="sol-section-6-3"><h4 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
-<div class="para" id="sol-section-6-3-1-1">Find the general solution to <span class="process-math">\(\left[ \begin{smallmatrix}
+<div class="autopermalink" data-description="Answer 1.1"><a href="#sol-section-7-2-2" title="Copy heading and permalink for Answer 1.1" aria-label="Copy heading and permalink for Answer 1.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 1"><a href="#sol-section-7-2" title="Copy heading and permalink for Exercise 1" aria-label="Copy heading and permalink for Exercise 1">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sol-section-7-3"><h4 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sol-section-7-3-1-1">Find the general solution to <span class="process-math">\(\left[ \begin{smallmatrix}
 1 &amp; 0 &amp; 0\\
 0 &amp; 2 &amp; 0\\
 0 &amp; 0 &amp; 3
@@ -1518,66 +1590,277 @@ E^{-1} \vec{f}(t)
 + 
 \left[ \begin{smallmatrix}
 \cos(2t) \\ 0 \\ 0
-\end{smallmatrix}\right]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sol-section-6-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+\end{smallmatrix}\right]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 2"><a href="#sol-section-6-3" title="Copy heading and permalink for Exercise 2" aria-label="Copy heading and permalink for Exercise 2">🔗</a></div></article><article class="exercise exercise-like" id="sol-section-6-4"><h4 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
-<div class="para" id="sol-section-6-4-1-1">Let us take the example in with the same parameters as before: <span class="process-math">\(m_1 = 2\text{,}\)</span> <span class="process-math">\(k_1 = 4\text{,}\)</span> and <span class="process-math">\(k_2 = 2\text{,}\)</span> except for <span class="process-math">\(m_2\text{,}\)</span> which is unknown. Suppose that there is a force <span class="process-math">\(\cos (5 t)\)</span> acting on the first mass. Find an <span class="process-math">\(m_2\)</span> such that there exists a particular solution where the first mass does not move.<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-6-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="sol-section-6-4-1-2">Note: This idea is called <em class="emphasis"></em>. In practice there will be a small amount of damping and so any transient solution will disappear and after long enough time, the first mass will always come to a stop.<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-6-4-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="solutions">
+<details id="sol-section-7-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="sol-section-7-3-2-1">
+<span class="process-math">\(\vec{x}
+=
+\left[ \begin{smallmatrix}
+1 \\ -1 \\ 1
+\end{smallmatrix}\right]
+\bigl( a_1 \cos (\sqrt{3}\, t)  + b_1 \sin (\sqrt{3}\, t) \bigr)
++
+\left[ \begin{smallmatrix}
+0 \\ 1 \\ -2
+\end{smallmatrix}\right]
+\bigl( a_2 \cos (\sqrt{2}\, t)  + b_2 \sin (\sqrt{2}\, t) \bigr)
++
+$
+\\
+$
+\left[ \begin{smallmatrix}
+0 \\ 0 \\ 1
+\end{smallmatrix}\right]
+\bigl( a_3 \cos (t)  + b_3 \sin (t) \bigr)
++
+\left[ \begin{smallmatrix}
+-1 \\ \nicefrac{1}{2} \\ -\nicefrac{1}{3}
+\end{smallmatrix}\right]
+\cos (2t)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="sol-section-6-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
-<div class="para" id="sol-section-6-4-2-1">
-<span class="process-math">\(m= 2/25\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sol-section-6-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Answer 2.1"><a href="#sol-section-7-3-2" title="Copy heading and permalink for Answer 2.1" aria-label="Copy heading and permalink for Answer 2.1">🔗</a></div>
+</div></details>
 </div>
-<div class="autopermalink" data-description="Answer 3.1"><a href="#sol-section-6-4-2" title="Copy heading and permalink for Answer 3.1" aria-label="Copy heading and permalink for Answer 3.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise 3"><a href="#sol-section-6-4" title="Copy heading and permalink for Exercise 3" aria-label="Copy heading and permalink for Exercise 3">🔗</a></div></article><article class="exercise exercise-like" id="sol-section-6-5"><h4 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
-<div class="para" id="sol-section-6-5-1-1">Let us take the , but that at time of impact, car 2 is moving to the left at the speed of .<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-6-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>  <div class="para" id="sol-section-6-5-1-2">Find the behavior of the system after linkup. Will the second car hit the wall, or will it be moving away from the wall as time goes on? At what speed would the first car have to be traveling for the system to essentially stay in place after linkup?<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-6-5-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Exercise 2"><a href="#sol-section-7-3" title="Copy heading and permalink for Exercise 2" aria-label="Copy heading and permalink for Exercise 2">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sol-section-7-4"><h4 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sol-section-7-4-1-1">Let us take the example in with the same parameters as before: <span class="process-math">\(m_1 = 2\text{,}\)</span> <span class="process-math">\(k_1 = 4\text{,}\)</span> and <span class="process-math">\(k_2 = 2\text{,}\)</span> except for <span class="process-math">\(m_2\text{,}\)</span> which is unknown. Suppose that there is a force <span class="process-math">\(\cos (5 t)\)</span> acting on the first mass. Find an <span class="process-math">\(m_2\)</span> such that there exists a particular solution where the first mass does not move.<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="sol-section-7-4-1-2">Note: This idea is called <dfn class="terminology">dynamic damping</dfn>. In practice there will be a small amount of damping and so any transient solution will disappear and after long enough time, the first mass will always come to a stop.<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-4-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="sol-section-6-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
-<div class="para" id="sol-section-6-5-2-1">a)  <span class="process-math">\(\vec{x}(t) = \left[\begin{smallmatrix} t + \frac{2}{\sqrt{3}}\sin(\sqrt{3}t) \\ t - \frac{4}{\sqrt{3}}\sin(\sqrt{3}t) \end{smallmatrix}\right]\)</span> b) It will hit the wall. c) <span class="process-math">\(v_2 = 1.5\)</span> m/s to the right<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-6-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="solutions">
+<details id="sol-section-7-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="sol-section-7-4-2-1">
+<span class="process-math">\(m= 2/25\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Answer 4.1"><a href="#sol-section-6-5-2" title="Copy heading and permalink for Answer 4.1" aria-label="Copy heading and permalink for Answer 4.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise 4"><a href="#sol-section-6-5" title="Copy heading and permalink for Exercise 4" aria-label="Copy heading and permalink for Exercise 4">🔗</a></div></article><article class="exercise exercise-like" id="sol-section-6-6"><h4 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
-<div class="para" id="sol-section-6-6-1-1">Let us take the example in with parameters <span class="process-math">\(m_1 = m_2 = 1\text{,}\)</span> <span class="process-math">\(k_1 = k_2 = 1\text{.}\)</span> Does there exist a set of initial conditions for which the first cart moves but the second cart does not? If so, find those conditions. If not, argue why not.<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-6-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Answer 3.1"><a href="#sol-section-7-4-2" title="Copy heading and permalink for Answer 3.1" aria-label="Copy heading and permalink for Answer 3.1">🔗</a></div>
+</div></details>
 </div>
-<div class="solutions"><details id="sol-section-6-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
-<div class="para" id="sol-section-6-6-2-1">No<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-6-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Exercise 3"><a href="#sol-section-7-4" title="Copy heading and permalink for Exercise 3" aria-label="Copy heading and permalink for Exercise 3">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sol-section-7-5"><h4 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="introduction" id="sol-section-7-5-1">
+<div class="para" id="sol-section-7-5-1-1">Let us take <a href="sol-section.html#sosa-railcarexample" class="xref" data-knowl="./knowl/xref/sosa-railcarexample.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 4.9.9">Example 4.9.9</a>, but that at time of impact, car 2 is moving to the left at the speed of <span class="process-math">\(\unitfrac[3]{m}{s}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Answer 5.1"><a href="#sol-section-6-6-2" title="Copy heading and permalink for Answer 5.1" aria-label="Copy heading and permalink for Answer 5.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise 5"><a href="#sol-section-6-6" title="Copy heading and permalink for Exercise 5" aria-label="Copy heading and permalink for Exercise 5">🔗</a></div></article><article class="exercise exercise-like" id="sol-section-6-7"><h4 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
-<div class="para" id="sol-section-6-7-1-1">Suppose there are three carts of equal mass <span class="process-math">\(m\)</span> and connected by two springs of constant <span class="process-math">\(k\)</span> (and no connections to walls). Set up the system and find its general solution.<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-6-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 6"><a href="#sol-section-6-7" title="Copy heading and permalink for Exercise 6" aria-label="Copy heading and permalink for Exercise 6">🔗</a></div></article><article class="exercise exercise-like" id="sol-section-6-8"><h4 class="heading"><span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
-<div class="para" id="sol-section-6-8-1-1">Suppose a cart of mass kg is attached by a spring of constant <span class="process-math">\(k=1\)</span> to a cart of mass kg, which is attached to the wall by a spring also of constant <span class="process-math">\(k=1\text{.}\)</span> Suppose that the initial position of the first cart is 1 meter in the positive direction from the rest position, and the second mass starts at the rest position. The masses are not moving and are let go. Find the position of the second mass as a function of time.<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-6-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<article class="task exercise-like" id="sol-section-7-5-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="sol-section-7-5-2-1-1">Find the behavior of the system after linkup.<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-5-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 7"><a href="#sol-section-6-8" title="Copy heading and permalink for Exercise 7" aria-label="Copy heading and permalink for Exercise 7">🔗</a></div></article><article class="exercise exercise-like" id="sol-section-6-9"><h4 class="heading"><span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
-<div class="para" id="sol-section-6-9-1-1">Find the general solution to <span class="process-math">\(x_1'' = -6x_1+ 3x_2 + \cos (t)\text{,}\)</span> <span class="process-math">\(x_2'' = 2x_1 -7x_2 + 3\cos (t)\text{,}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sol-section-6-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>  <div class="para" id="sol-section-6-9-1-2">(2) using eigenvector decomposition, using undetermined coefficients.<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-6-9-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="solutions">
+<details id="sol-section-7-5-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="sol-section-7-5-2-2-1">
+<span class="process-math">\(\vec{x}(t) = \left[\begin{smallmatrix} t + \frac{2}{\sqrt{3}}\sin(\sqrt{3}t) \\ t - \frac{4}{\sqrt{3}}\sin(\sqrt{3}t) \end{smallmatrix}\right]\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-5-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="sol-section-6-9-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
-<div class="para" id="sol-section-6-9-2-1">
-<span class="process-math">\(\vec{x}(t) = \left[\begin{smallmatrix} 1 \\ -1 \end{smallmatrix}\right](C_1\cos(3t) + C_2\sin(3t)) + \left[\begin{smallmatrix} 3 \\ 2 \end{smallmatrix}\right](C_3\cos(2t) + C_4\sin(2t)) + \left[\begin{smallmatrix} 8/13 \\ 17/26 \end{smallmatrix}\right]\cos(t)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sol-section-6-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Answer 4.a.1"><a href="#sol-section-7-5-2-2" title="Copy heading and permalink for Answer 4.a.1" aria-label="Copy heading and permalink for Answer 4.a.1">🔗</a></div>
+</div></details>
 </div>
-<div class="autopermalink" data-description="Answer 8.1"><a href="#sol-section-6-9-2" title="Copy heading and permalink for Answer 8.1" aria-label="Copy heading and permalink for Answer 8.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise 8"><a href="#sol-section-6-9" title="Copy heading and permalink for Exercise 8" aria-label="Copy heading and permalink for Exercise 8">🔗</a></div></article><article class="exercise exercise-like" id="sol-section-6-10"><h4 class="heading"><span class="codenumber">9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
-<div class="para" id="sol-section-6-10-1-1">Find the general solution to <span class="process-math">\(x_1'' = -6x_1+ 3x_2 + \cos (2t)\text{,}\)</span> <span class="process-math">\(x_2'' = 2x_1 -7x_2 + 3\cos (2t)\text{,}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sol-section-6-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>  <div class="para" id="sol-section-6-10-1-2">(2) using eigenvector decomposition, using undetermined coefficients.<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-6-10-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Task 4.a"><a href="#sol-section-7-5-2" title="Copy heading and permalink for Task 4.a" aria-label="Copy heading and permalink for Task 4.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="sol-section-7-5-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="sol-section-7-5-3-1-1">Will the second car hit the wall, or will it be moving away from the wall as time goes on?<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-5-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="sol-section-6-10-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
-<div class="para" id="sol-section-6-10-2-1">
-<span class="process-math">\(\vec{x}(t) = \left[\begin{smallmatrix} 1 \\ -1 \end{smallmatrix}\right](C_1\cos(3t) + C_2\sin(3t)) + \left[\begin{smallmatrix} 3 \\ 2 \end{smallmatrix}\right](C_3\cos(2t) + C_4\sin(2t)) + \left[\begin{smallmatrix} -\frac{7}{25}\cos(2t) + \frac{3}{5}t\sin(2t) \\ \frac{7}{25} + \frac{2}{5}t\sin(2t) \end{smallmatrix}\right]\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sol-section-6-10-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="solutions">
+<details id="sol-section-7-5-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="sol-section-7-5-3-2-1">It will hit the wall.<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-5-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Answer 9.1"><a href="#sol-section-6-10-2" title="Copy heading and permalink for Answer 9.1" aria-label="Copy heading and permalink for Answer 9.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise 9"><a href="#sol-section-6-10" title="Copy heading and permalink for Exercise 9" aria-label="Copy heading and permalink for Exercise 9">🔗</a></div></article><article class="exercise exercise-like" id="sol-section-6-11"><h4 class="heading"><span class="codenumber">10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
-<div class="para" id="sol-section-6-11-1-1">Solve <span class="process-math">\(x_1'' = -3x_1 + x_2 + t\text{,}\)</span> <span class="process-math">\(x_2'' = 9x_1 + 5x_2
-+\cos(t)\)</span> with initial conditions <span class="process-math">\(x_1(0) = 0\text{,}\)</span> <span class="process-math">\(x_2(0) = 0\text{,}\)</span> <span class="process-math">\(x_1'(0) = 0\text{,}\)</span> <span class="process-math">\(x_2'(0) = 0\text{,}\)</span> using eigenvector decomposition.<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-6-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Answer 4.b.1"><a href="#sol-section-7-5-3-2" title="Copy heading and permalink for Answer 4.b.1" aria-label="Copy heading and permalink for Answer 4.b.1">🔗</a></div>
+</div></details>
 </div>
-<div class="autopermalink" data-description="Exercise 10"><a href="#sol-section-6-11" title="Copy heading and permalink for Exercise 10" aria-label="Copy heading and permalink for Exercise 10">🔗</a></div></article><div class="autopermalink" data-description="Exercises: Exercises"><a href="#sol-section-6" title="Copy heading and permalink for Exercises: Exercises" aria-label="Copy heading and permalink for Exercises: Exercises">🔗</a></div></section><div class="autopermalink" data-description="Section 4.9: Second order systems and applications"><a href="#sol-section" title="Copy heading and permalink for Section 4.9: Second order systems and applications" aria-label="Copy heading and permalink for Section 4.9: Second order systems and applications">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Task 4.b"><a href="#sol-section-7-5-3" title="Copy heading and permalink for Task 4.b" aria-label="Copy heading and permalink for Task 4.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="sol-section-7-5-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="sol-section-7-5-4-1-1">At what speed would the first car have to be traveling for the system to essentially stay in place after linkup?<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-5-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="sol-section-7-5-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="sol-section-7-5-4-2-1">
+<span class="process-math">\(v_2 = 1.5\)</span> m/s to the right<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-5-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 4.c.1"><a href="#sol-section-7-5-4-2" title="Copy heading and permalink for Answer 4.c.1" aria-label="Copy heading and permalink for Answer 4.c.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 4.c"><a href="#sol-section-7-5-4" title="Copy heading and permalink for Task 4.c" aria-label="Copy heading and permalink for Task 4.c">🔗</a></div>
+</article><div class="autopermalink" data-description="Exercise 4"><a href="#sol-section-7-5" title="Copy heading and permalink for Exercise 4" aria-label="Copy heading and permalink for Exercise 4">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sol-section-7-6"><h4 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sol-section-7-6-1-1">Let us take the example in <a href="sol-section.html#sosa-twocartswallfig" class="xref" data-knowl="./knowl/xref/sosa-twocartswallfig.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.9.6">Figure 4.9.6</a> with parameters <span class="process-math">\(m_1 = m_2 = 1\text{,}\)</span> <span class="process-math">\(k_1 = k_2 = 1\text{.}\)</span> Does there exist a set of initial conditions for which the first cart moves but the second cart does not? If so, find those conditions. If not, argue why not.<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="sol-section-7-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="sol-section-7-6-2-1">No<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.1"><a href="#sol-section-7-6-2" title="Copy heading and permalink for Answer 5.1" aria-label="Copy heading and permalink for Answer 5.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 5"><a href="#sol-section-7-6" title="Copy heading and permalink for Exercise 5" aria-label="Copy heading and permalink for Exercise 5">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sol-section-7-7"><h4 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sol-section-7-7-1-1">Suppose there are three carts of equal mass <span class="process-math">\(m\)</span> and connected by two springs of constant <span class="process-math">\(k\)</span> (and no connections to walls). Set up the system and find its general solution.<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="sol-section-7-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="sol-section-7-7-2-1">
+<span class="process-math">\(\left[ \begin{smallmatrix}
+m &amp; 0 &amp; 0\\
+0 &amp; m &amp; 0\\
+0 &amp; 0 &amp; m
+\end{smallmatrix}\right]
+\vec{x}\,''
+=
+\left[ \begin{smallmatrix}
+-k &amp; k &amp; 0 \\
+k &amp; -2k &amp; k \\
+0 &amp; k &amp; -k
+\end{smallmatrix}\right]
+\vec{x}\text{.}\)</span> Solution: <span class="process-math">\(\vec{x} =
+\left[ \begin{smallmatrix}
+1 \\ -2 \\ 1
+\end{smallmatrix}\right]
+\bigl( a_1 \cos (\sqrt{\nicefrac{3k}{m}}\, t)  + b_1 \sin
+(\sqrt{\nicefrac{3k}{m}}\, t) \bigr)
+\allowbreak
++
+\left[ \begin{smallmatrix}
+1 \\ 0 \\ -1
+\end{smallmatrix}\right]
+\bigl( a_2 \cos (\sqrt{\nicefrac{k}{m}}\, t)  + b_2 \sin
+(\sqrt{\nicefrac{k}{m}}\, t) \bigr)
++
+\left[ \begin{smallmatrix}
+1 \\ 1 \\ 1
+\end{smallmatrix}\right]
+\bigl( a_3 t  + b_3 \bigr)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 6.1"><a href="#sol-section-7-7-2" title="Copy heading and permalink for Answer 6.1" aria-label="Copy heading and permalink for Answer 6.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 6"><a href="#sol-section-7-7" title="Copy heading and permalink for Exercise 6" aria-label="Copy heading and permalink for Exercise 6">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sol-section-7-8"><h4 class="heading"><span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sol-section-7-8-1-1">Suppose a cart of mass kg is attached by a spring of constant <span class="process-math">\(k=1\)</span> to a cart of mass kg, which is attached to the wall by a spring also of constant <span class="process-math">\(k=1\text{.}\)</span> Suppose that the initial position of the first cart is 1 meter in the positive direction from the rest position, and the second mass starts at the rest position. The masses are not moving and are let go. Find the position of the second mass as a function of time.<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="sol-section-7-8-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="sol-section-7-8-2-1">
+<span class="process-math">\(x_2 =
+( \nicefrac{2}{5} )
+\cos (\sqrt{\nicefrac{1}{6}}\, t)
+-
+( \nicefrac{2}{5} )
+\cos (t)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 7.1"><a href="#sol-section-7-8-2" title="Copy heading and permalink for Answer 7.1" aria-label="Copy heading and permalink for Answer 7.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 7"><a href="#sol-section-7-8" title="Copy heading and permalink for Exercise 7" aria-label="Copy heading and permalink for Exercise 7">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sol-section-7-9"><h4 class="heading"><span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="introduction" id="sol-section-7-9-1">
+<div class="para" id="sol-section-7-9-1-1">Find the general solution to <span class="process-math">\(x_1'' = -6x_1+ 3x_2 + \cos (t)\text{,}\)</span> <span class="process-math">\(x_2'' = 2x_1 -7x_2 + 3\cos (t)\text{,}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like" id="sol-section-7-9-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="sol-section-7-9-2-1-1">using eigenvector decomposition.<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-9-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="sol-section-7-9-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="sol-section-7-9-2-2-1">
+<span class="process-math">\(\vec{x}(t) = \left[\begin{smallmatrix} 1 \\ -1 \end{smallmatrix}\right](C_1\cos(3t) + C_2\sin(3t)) + \left[\begin{smallmatrix} 3 \\ 2 \end{smallmatrix}\right](C_3\cos(2t) + C_4\sin(2t)) + \left[\begin{smallmatrix} 8/13 \\ 17/26 \end{smallmatrix}\right]\cos(t)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-9-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 8.a.1"><a href="#sol-section-7-9-2-2" title="Copy heading and permalink for Answer 8.a.1" aria-label="Copy heading and permalink for Answer 8.a.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 8.a"><a href="#sol-section-7-9-2" title="Copy heading and permalink for Task 8.a" aria-label="Copy heading and permalink for Task 8.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="sol-section-7-9-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="sol-section-7-9-3-1-1">using undetermined coefficients.<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-9-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="sol-section-7-9-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="sol-section-7-9-3-2-1">
+<span class="process-math">\(\vec{x}(t) = \left[\begin{smallmatrix} 1 \\ -1 \end{smallmatrix}\right](C_1\cos(3t) + C_2\sin(3t)) + \left[\begin{smallmatrix} 3 \\ 2 \end{smallmatrix}\right](C_3\cos(2t) + C_4\sin(2t)) + \left[\begin{smallmatrix} 8/13 \\ 17/26 \end{smallmatrix}\right]\cos(t)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-9-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 8.b.1"><a href="#sol-section-7-9-3-2" title="Copy heading and permalink for Answer 8.b.1" aria-label="Copy heading and permalink for Answer 8.b.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 8.b"><a href="#sol-section-7-9-3" title="Copy heading and permalink for Task 8.b" aria-label="Copy heading and permalink for Task 8.b">🔗</a></div>
+</article><div class="autopermalink" data-description="Exercise 8"><a href="#sol-section-7-9" title="Copy heading and permalink for Exercise 8" aria-label="Copy heading and permalink for Exercise 8">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sol-section-7-10"><h4 class="heading"><span class="codenumber">9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="introduction" id="sol-section-7-10-1">
+<div class="para" id="sol-section-7-10-1-1">Find the general solution to <span class="process-math">\(x_1'' = -6x_1+ 3x_2 + \cos (2t)\text{,}\)</span> <span class="process-math">\(x_2'' = 2x_1 -7x_2 + 3\cos (2t)\text{,}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like" id="sol-section-7-10-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="sol-section-7-10-2-1-1">using eigenvector decomposition.<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-10-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="sol-section-7-10-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="sol-section-7-10-2-2-1">
+<span class="process-math">\(\vec{x}(t) = \left[\begin{smallmatrix} 1 \\ -1 \end{smallmatrix}\right](C_1\cos(3t) + C_2\sin(3t)) + \left[\begin{smallmatrix} 3 \\ 2 \end{smallmatrix}\right](C_3\cos(2t) + C_4\sin(2t)) + \left[\begin{smallmatrix} -\frac{7}{25}\cos(2t) + \frac{3}{5}t\sin(2t) \\ \frac{7}{25} + \frac{2}{5}t\sin(2t) \end{smallmatrix}\right]\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-10-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 9.a.1"><a href="#sol-section-7-10-2-2" title="Copy heading and permalink for Answer 9.a.1" aria-label="Copy heading and permalink for Answer 9.a.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 9.a"><a href="#sol-section-7-10-2" title="Copy heading and permalink for Task 9.a" aria-label="Copy heading and permalink for Task 9.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="sol-section-7-10-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="sol-section-7-10-3-1-1">using undetermined coefficients.<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-10-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="sol-section-7-10-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="sol-section-7-10-3-2-1">
+<span class="process-math">\(\vec{x}(t) = \left[\begin{smallmatrix} 1 \\ -1 \end{smallmatrix}\right](C_1\cos(3t) + C_2\sin(3t)) + \left[\begin{smallmatrix} 3 \\ 2 \end{smallmatrix}\right](C_3\cos(2t) + C_4\sin(2t)) + \left[\begin{smallmatrix} -\frac{7}{25}\cos(2t) + \frac{3}{5}t\sin(2t) \\ \frac{7}{25} + \frac{2}{5}t\sin(2t) \end{smallmatrix}\right]\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-10-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 9.b.1"><a href="#sol-section-7-10-3-2" title="Copy heading and permalink for Answer 9.b.1" aria-label="Copy heading and permalink for Answer 9.b.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 9.b"><a href="#sol-section-7-10-3" title="Copy heading and permalink for Task 9.b" aria-label="Copy heading and permalink for Task 9.b">🔗</a></div>
+</article><div class="autopermalink" data-description="Exercise 9"><a href="#sol-section-7-10" title="Copy heading and permalink for Exercise 9" aria-label="Copy heading and permalink for Exercise 9">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sol-section-7-11"><h4 class="heading"><span class="codenumber">10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sol-section-7-11-1-1">Solve <span class="process-math">\(x_1'' = -3x_1 + x_2 + t\text{,}\)</span> <span class="process-math">\(x_2'' = 9x_1 + 5x_2
++\cos(t)\)</span> with initial conditions <span class="process-math">\(x_1(0) = 0\text{,}\)</span> <span class="process-math">\(x_2(0) = 0\text{,}\)</span> <span class="process-math">\(x_1'(0) = 0\text{,}\)</span> <span class="process-math">\(x_2'(0) = 0\text{,}\)</span> using eigenvector decomposition.<div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="sol-section-7-11-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="sol-section-7-11-2-1">
+<span class="process-math">\(\vec{x} = 
+\left[ \begin{smallmatrix}
+1 \\ 9
+\end{smallmatrix}\right]
+\left(\left(\frac{1}{140} + \frac{1}{120\sqrt{6}}\right) e^{\sqrt{6} t}+
+\left(\frac{1}{140} + \frac{1}{120\sqrt{6}}\right)
+e^{-\sqrt{6} t}-\frac{t}{60}-\frac{\cos(t)}{70} \right)
++
+\left[ \begin{smallmatrix}
+1 \\ -1
+\end{smallmatrix}\right]
+\left(\frac{-9}{80} \sin(2 t)+ \frac{1}{30} \cos(2 t)+\frac{9 t}{40}-\frac{\cos(t)}{30}\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sol-section-7-11-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 10.1"><a href="#sol-section-7-11-2" title="Copy heading and permalink for Answer 10.1" aria-label="Copy heading and permalink for Answer 10.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 10"><a href="#sol-section-7-11" title="Copy heading and permalink for Exercise 10" aria-label="Copy heading and permalink for Exercise 10">🔗</a></div>
+</article><div class="autopermalink" data-description="Exercises: Exercises"><a href="#sol-section-7" title="Copy heading and permalink for Exercises: Exercises" aria-label="Copy heading and permalink for Exercises: Exercises">🔗</a></div>
+</section><div class="autopermalink" data-description="Section 4.9: Second order systems and applications"><a href="#sol-section" title="Copy heading and permalink for Section 4.9: Second order systems and applications" aria-label="Copy heading and permalink for Section 4.9: Second order systems and applications">🔗</a></div>
+</section>
+</div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="nonhomogsys-section.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-matexp.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h2 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h2>
+<div class="para logical">
+<div class="para">Find all asymptotically stable critical points for the autonomous system</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{dx}{dt} = x(7-2x-5y) \qquad \frac{dy}{dt} =(y+1)(5-3x-2y)
+\end{equation*}
+</div>
+<div class="para">and determine an approximate basin of attraction for each.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-BoA-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solution solution-like">
+<h3 class="heading">
+<span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical">
+<div class="para">We want to start by finding the critical points for this system, classifying them to determine if they are asymptotically stable, and then use a slope field to try to find the basin of attraction. In order to have a critical point, we need to have both <span class="process-math">\(\frac{dx}{dt}\)</span> and <span class="process-math">\(\frac{dy}{dt}\)</span> equal to zero. This means that we need</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left[ x=0 \text{ or } 7-2x-5y = 0\right] \quad \text{ and } \quad \left[ y=-1 \text{ or } 5 - 3x - 2y = 0 \right]. 
+\end{equation*}
+</div>
+<div class="para">This results in the points <span class="process-math">\((0, -1)\text{,}\)</span> <span class="process-math">\(\left(0, \nicefrac{5}{2}\right)\text{,}\)</span> <span class="process-math">\((6, -1)\text{,}\)</span> and <span class="process-math">\((1, 1)\text{.}\)</span> In order to classify each of these critical points, we need to find the Jacobian matrix for this system, which is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+J(x,y) = \begin{bmatrix} F_x &amp; F_y \\ G_x &amp; G_y \end{bmatrix} = \begin{bmatrix} 7-4x-5y &amp; -5x \\ -3(y+1) &amp; 3 - 3x - 4y \end{bmatrix},
+\end{equation*}
+</div>
+<div class="para">and then we want to plug each critical point into this matrix in turn.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-BoA-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical">
+<div class="para">Plugging in <span class="process-math">\((0,-1)\)</span> gives <span class="process-math">\(\left[ \begin{smallmatrix} 12 &amp; 0 \\ 0 &amp; 7 \end{smallmatrix} \right]\text{,}\)</span> which has eigenvalues of <span class="process-math">\(12\)</span> and <span class="process-math">\(7\text{,}\)</span> and so is a nodal source, which is unstable. Plugging in <span class="process-math">\(\left(0, \nicefrac{5}{2}\right)\)</span> gives <span class="process-math">\(\left[ \begin{smallmatrix} -\nicefrac{11}{2} &amp; 0 \\ -\nicefrac{21}{2} &amp; -7 \end{smallmatrix} \right]\text{,}\)</span> which has eigenvalues of <span class="process-math">\(-\nicefrac{11}{2}\)</span> and <span class="process-math">\(-7\text{,}\)</span> which is a nodal sink, and so asymptotically stable. Plugging in <span class="process-math">\((6,-1)\)</span> gives <span class="process-math">\(\left[ \begin{smallmatrix} -12 &amp; 30 \\ 0 &amp; -11 \end{smallmatrix} \right]\text{,}\)</span> which has eigenvalues at <span class="process-math">\(-11\)</span> and <span class="process-math">\(-12\text{,}\)</span> giving an asymptotically stable nodal sink. The last point at <span class="process-math">\((1,1)\)</span> gives <span class="process-math">\(\left[ \begin{smallmatrix} -2 &amp; -5 \\ -6 &amp; -4 \end{smallmatrix} \right]\text{,}\)</span> which is not triangular, and so does not have easily identifiable eigenvalues. We could use trace-determinant analysis to classify (<a href="sec-twodimaut.html" class="internal" title="Section 4.7: Two-dimensional systems and their vector fields">Section 4.7</a>) or we can just compute the eigenvalues. Those are found by the roots of</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sec-twodimaut.html">
+\begin{equation*}
+\det(A - \lambda I) = (-2-\lambda)(-4-\lambda) - (-5)(-2) = \lambda^2 + 6\lambda - 2
+\end{equation*}
+</div>
+<div class="para">and since the last term is negative, we know we are going to get roots of opposite signs, so this is an unstable saddle point. The actual eigenvalues are</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sec-twodimaut.html">
+\begin{equation*}
+\frac{-6 \pm \sqrt{36 - 4(1)(-2)}}{2} = -3 \pm \frac{\sqrt{44}}{2} = -3\pm\sqrt{11}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-BoA-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">So, this means we have two asymptotically stable critical points, <span class="process-math">\(\left(0, \nicefrac{5}{2}\right)\)</span> and <span class="process-math">\((6, -1)\text{.}\)</span> We need to look at a slope field to determine the approximate basin of attraction for each of these points.<div class="autopermalink" data-description="Paragraph"><a href="#ex-BoA-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
+<img src="external/Images/BoASlopeEx1.png" class="contained" alt="ALT TEXT HERE"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-BoAPlot-2-description">
+<div class="para" id="fig-BoAPlot-2-2-1">IMAGE DESCRIPTION HERE<div class="autopermalink" data-description="Paragraph"><a href="#fig-BoAPlot-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Plots showing the slope field for <a href="nlinHamiltonian-section.html#ex-BoA" class="xref" data-knowl="./knowl/xref/ex-BoA.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 5.2.7">Example 5.2.7</a> (left) and a slope field combined with approximate basins of attraction (right).<div class="autopermalink" data-description="Figure 5.2.8"><a href="#fig-BoAPlot" title="Copy heading and permalink for Figure 5.2.8" aria-label="Copy heading and permalink for Figure 5.2.8">🔗</a></div></figcaption>
+</figure>
+<div class="para">From <a href="nlinHamiltonian-section.html#fig-BoAPlot" class="xref" data-knowl="./knowl/xref/fig-BoAPlot.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 5.2.8">Figure 5.2.8</a>, we can see that there is a sort of dividing line between the two nodal sinks. If the solution starts on one side of the line, it funnels into one critical point, and on the other side, it heads to the other one. This dividing line also seems to pass through the saddle point at <span class="process-math">\((1,1)\text{,}\)</span> which is not a coincidence, as we will see later.<div class="autopermalink" data-description="Paragraph"><a href="#ex-BoA-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.2.7.1"><a href="#ex-BoA-2" title="Copy heading and permalink for Solution 5.2.7.1" aria-label="Copy heading and permalink for Solution 5.2.7.1">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 5.2.7"><a href="#ex-BoA" title="Copy heading and permalink for Example 5.2.7" aria-label="Copy heading and permalink for Example 5.2.7">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="nlinHamiltonian-section.html#ex-BoA">In Context</a></span>
+</body>
+</html>

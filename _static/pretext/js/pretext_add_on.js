@@ -122,15 +122,33 @@ window.addEventListener("load",function(event) {
     /* click an image to magnify */
     $('body').on('click','.image-box > img:not(.draw_on_me):not(.mag_popup), .sbspanel > img:not(.draw_on_me):not(.mag_popup), figure > img:not(.draw_on_me):not(.mag_popup), figure > div > img:not(.draw_on_me):not(.mag_popup)', function(){
         var img_big = document.createElement('div');
-        img_big.setAttribute('style', 'background:#fff;');
+        const content_element = document.getElementById('ptx-content');
         img_big.setAttribute('class', 'mag_popup_container');
-        img_big.innerHTML = '<img src="' + $(this).attr("src") + '" style="width:100%" class="mag_popup"/>';
+        img_big.innerHTML = `<img src="${$(this).attr("src")}" style="width:100%;" class="mag_popup"/>`;
  // place_to_put_big_img = $(this).parents(".sbsrow, figure, li").last();
         place_to_put_big_img = $(this).parents(".image-box, .sbsrow, figure, li, .cols2 article:nth-of-type(2n)").last();
   // for .cols2, the even ones have to go inside the previous odd one
         if (place_to_put_big_img.prop("tagName") == "ARTICLE") {
            place_to_put_big_img = place_to_put_big_img.prev().children().first();
         }
+
+        // find ancestor so that place_to_put_big_img's position is relative to that ancestor
+        var img_big_parent = place_to_put_big_img[0].parentElement;
+        while (img_big_parent.id !== "ptx-content") {
+           const computed_position = getComputedStyle(img_big_parent).position;
+           if (computed_position !== "static") {
+              break;
+           }
+           img_big_parent = img_big_parent.parentElement;
+        }
+
+        const content_element_computed_style = getComputedStyle(content_element);
+        const content_padding_left  = parseFloat(content_element_computed_style.paddingLeft );
+        const content_padding_right = parseFloat(content_element_computed_style.paddingRight);
+        const img_big_offset = content_element.getBoundingClientRect().left - img_big_parent.getBoundingClientRect().left + content_padding_left;
+        const doc_width = content_element.offsetWidth - content_padding_left - content_padding_right;
+        img_big.setAttribute('style', `width:${doc_width.toString()}px; left:${img_big_offset.toString()}px;`);
+
         $(img_big).insertBefore(place_to_put_big_img);
     });
 
@@ -409,6 +427,42 @@ window.addEventListener("load",function(event) {
 
 
 // The new method for creating pages and adjusting workspace //
+
+// Unwrap section.paragraphs containers so their children flow directly
+// into the parent, enabling CSS page breaks between the inner elements.
+function flattenParagraphsSections(printout) {
+    const paragraphsSections = printout.querySelectorAll('section.paragraphs');
+    paragraphsSections.forEach(section => {
+        const parent = section.parentNode;
+        // Move all children out of the section wrapper and into the parent
+        while (section.firstChild) {
+            parent.insertBefore(section.firstChild, section);
+        }
+        // Remove the now-empty section wrapper
+        parent.removeChild(section);
+    });
+}
+
+// Wait for all images inside a container to finish loading.
+// Returns a promise that resolves when every <img> has loaded (or on timeout).
+function waitForImages(container, timeoutMs = 5000) {
+    const images = container.querySelectorAll('img');
+    const promises = [];
+    for (const img of images) {
+        if (!img.complete) {
+            promises.push(new Promise(resolve => {
+                img.addEventListener('load', resolve, { once: true });
+                img.addEventListener('error', resolve, { once: true });
+            }));
+        }
+    }
+    if (promises.length === 0) return Promise.resolve();
+    // Race all image loads against a timeout so broken images don't block forever
+    return Promise.race([
+        Promise.all(promises),
+        new Promise(resolve => setTimeout(resolve, timeoutMs))
+    ]);
+}
 
 // This is used multiple places to set height of workspace divs to their author-provided heights
 function setInitialWorkspaceHeights() {
@@ -751,10 +805,10 @@ function getElemWorkspaceHeight(elem) {
 // Functions for finding the optimal page breaks
 function findPageBreaks(rows, pageHeight) {
     console.log("*** Finding page breaks for", rows.length, "rows with page height:", pageHeight);
-    // An array for the page breaks.  The nth element will be the index of the last row on page n.
+    // An array for the page breaks.  The nth element will be the index of the first row on page n+1.
     let pageBreaks = [];
     // An array for the minimum cost possible for rows i to the end.
-    let minCost = Array(rows.length).fill(Infinity);
+    let minCost = Array(rows.length + 1).fill(Infinity);
     minCost[rows.length] = 0; // No cost for no rows
     // An array to keep track of the next row to start a new page after i in minCost.
     let nextPageBreak = Array(rows.length).fill(-1);
@@ -1069,6 +1123,17 @@ window.addEventListener("DOMContentLoaded", async function(event) {
         }
 
         // Finally, with everything set up, we create or adjust the printout pages as needed.
+
+        // Flatten paragraphs sections so page breaks can occur inside them.
+        const printoutSection = document.querySelector('section.worksheet, section.handout');
+        if (printoutSection) {
+            flattenParagraphsSections(printoutSection);
+        }
+
+        // Wait for all images to load so height measurements are accurate.
+        if (printoutSection) {
+            await waitForImages(printoutSection);
+        }
 
         // If the printout has authored pages, there will be at least one .onepage element.
         if (document.querySelector('.onepage')) {

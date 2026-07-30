@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h2 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.3.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h2>
+<div class="para logical">
+<div class="para">Consider the system</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x' = (2y - 6)x \qquad y' = (2 - x)y.
+\end{equation*}
+</div>
+<div class="para">This fits the description of a predator-prey model. Which species is the predator? Find and analyze the critical points of this system, and draw a sketch of the phase portrait, with arrows to indicate the direction of flow around this portrait.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-PredPreyNC-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solution solution-like">
+<h3 class="heading">
+<span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical">
+<div class="para">If we expand out the equations in the model, we get</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x' = 2xy - 6x \qquad y' = 2y - xy.
+\end{equation*}
+</div>
+<div class="para">These equations show that, if <span class="process-math">\(y=0\text{,}\)</span> <span class="process-math">\(x\)</span> would decay away in time, and if <span class="process-math">\(x=0\text{,}\)</span> <span class="process-math">\(y\)</span> would grow indefinitely. This means that <span class="process-math">\(x\)</span> is the predator and <span class="process-math">\(y\)</span> is the prey in this relationship. For critical points, we can look back at the factored version of the equations to see that we get one critical point at <span class="process-math">\((0,0)\)</span> and one critical point at <span class="process-math">\((2, 3)\text{.}\)</span> Since this is a predator-prey model, we know that we will have cycles around the critical point at <span class="process-math">\((2,3)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-PredPreyNC-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">The direction of these cycles is determined by the predator-prey relationship. If we start with <span class="process-math">\(x\)</span> large (greater than 2) and <span class="process-math">\(y\)</span> small (less than 3), then there are a lot of predators and few prey. This implies that the next thing to happen is that the predator population will decrease because there is not enough prey. We can also see this from the equations; if <span class="process-math">\(x \geq 2\)</span> and <span class="process-math">\(y \leq 3\text{,}\)</span> then both <span class="process-math">\(\frac{dx}{dt}\)</span> and <span class="process-math">\(\frac{dy}{dt}\)</span> will be negative. Similarly, if <span class="process-math">\(y\)</span> is large and <span class="process-math">\(x\)</span> is small, there are a lot of prey and few predators, so the prey population will continue to grow, while the predators also grow because of the excess of food. This means that the populations will follow these trajectories in a clockwise direction.<div class="autopermalink" data-description="Paragraph"><a href="#example-PredPreyNC-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical">
+<div class="para">For the actual trajectories, we can solve for them in the same way as the calculations before this example. We can rewrite this system to give a differential equation for the trajectories as</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-nlin-pred-prey-nc.html">
+\begin{equation*}
+\frac{dy}{dx} = \frac{(2-x)y}{(2y-6)x}
+\end{equation*}
+</div>
+<div class="para">which can be rearranged as a separable equation to</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-nlin-pred-prey-nc.html">
+\begin{equation*}
+\left(2 - \frac{6}{y}\right) dy = \left(\frac{2}{x} - 1\right) dx.
+\end{equation*}
+</div>
+<div class="para">Solving this gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-nlin-pred-prey-nc.html">
+\begin{equation*}
+2y - 6\ln(y) + C = 2\ln(x) - x
+\end{equation*}
+</div>
+<div class="para">or</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-nlin-pred-prey-nc.html">
+\begin{equation*}
+C = 2\ln(x) + 6\ln(y) - x - 2y.
+\end{equation*}
+</div>
+<div class="para">This will be used to draw the trajectories in <a href="nlinapps-section.html#fig-nlin-pred-prey-nc" class="xref" data-knowl="./knowl/xref/fig-nlin-pred-prey-nc.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 5.3.7">Figure 5.3.7</a>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-PredPreyNC-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">This can also be seen using a nullcline analysis. The nullclines we need to draw are <span class="process-math">\(x=0\text{,}\)</span> <span class="process-math">\(y=0\text{,}\)</span> <span class="process-math">\(x=2\)</span> and <span class="process-math">\(y=3\text{.}\)</span> Our discussion previously shows that the arrow in the bottom-right quadrant should point to the lower left, and the arrow in the top left should point up and right. We can fill in the other two quadrants to see that the solution should move around the circle in a clockwise direction. <a href="nlinapps-section.html#fig-nlin-pred-prey-nc" class="xref" data-knowl="./knowl/xref/fig-nlin-pred-prey-nc.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 5.3.7">Figure 5.3.7</a> shows the nullcline image and trajectory curves for this example.<div class="autopermalink" data-description="Paragraph"><a href="#example-PredPreyNC-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
+<img src="external/Images/PPNullclineTraj.png" class="contained" alt="ALT TEXT HERE"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-nlin-pred-prey-nc-2-description">
+<div class="para" id="fig-nlin-pred-prey-nc-2-2-1">IMAGE DESCRIPTION HERE<div class="autopermalink" data-description="Paragraph"><a href="#fig-nlin-pred-prey-nc-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.3.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The nullcline analysis image (left) and graphs of several sample trajectories with arrows (right) for <a href="nlinapps-section.html#example-PredPreyNC" class="xref" data-knowl="./knowl/xref/example-PredPreyNC.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 5.3.6">Example 5.3.6</a>.<div class="autopermalink" data-description="Figure 5.3.7"><a href="#fig-nlin-pred-prey-nc" title="Copy heading and permalink for Figure 5.3.7" aria-label="Copy heading and permalink for Figure 5.3.7">🔗</a></div></figcaption>
+</figure><div class="autopermalink" data-description="Solution 5.3.6.1"><a href="#example-PredPreyNC-2" title="Copy heading and permalink for Solution 5.3.6.1" aria-label="Copy heading and permalink for Solution 5.3.6.1">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 5.3.6"><a href="#example-PredPreyNC" title="Copy heading and permalink for Example 5.3.6" aria-label="Copy heading and permalink for Example 5.3.6">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="nlinapps-section.html#example-PredPreyNC">In Context</a></span>
+</body>
+</html>
