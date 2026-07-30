@@ -59,7 +59,7 @@ F(x,y) = x^2+y^2 .
 	</figure>
 
 		<p>
-			We are interested in the lines of constant energy, that is lines where the energy is conserved; we want curves where <m>F(x,y) = C</m>, for some constant <m>C</m>, since <m>F</m> represents the energy of the system. In our example, the curves <m>x^2+y^2=C</m> are circles. See .
+			We are interested in the lines of constant energy, that is lines where the energy is conserved; we want curves where <m>F(x,y) = C</m>, for some constant <m>C</m>, since <m>F</m> represents the energy of the system. In our example, the curves <m>x^2+y^2=C</m> are circles. See <xref ref="exact-circlesfig"/>.
 		</p>
 
 		<p>
@@ -162,12 +162,11 @@ F\bigl(x,y(x)\bigr) = C .
 = 2y</m>? Add a constant of integration, say <m>3</m>, and see what <m>F</m> you get. What is the difference from what we got above, and why does it not matter?
 			</p>
 </statement>
-
-<answer>			<p>
-				In the previous example, you may have also noticed that the equation <m>2x + 2y\frac{dy}{dx} = 0</m> is separable, and we could have solved it via that method as well. This is not a coincidence, as every separable equation is exact (see for the details) but there are many exact equations that are not separable, which we will see throughout the examples here.
-			</p>
-</answer>
 </exercise>
+			<p>
+				In the previous example, you may have also noticed that the equation <m>2x + 2y\frac{dy}{dx} = 0</m> is separable, and we could have solved it via that method as well. This is not a coincidence, as every separable equation is exact (see <xref ref="ex-separableExact"/> for the details) but there are many exact equations that are not separable, which we will see throughout the examples here.
+			</p>
+
 
 			<p>
 				The procedure, once we know that the equation is exact, is:
@@ -189,7 +188,7 @@ F\bigl(x,y(x)\bigr) = C .
 			</ol></p>
 
 			<p>
-				The procedure can also be done by first integrating in <m>y</m> and then differentiating in <m>x</m>. Pretty easy huh? Let’s try this again.
+				The procedure can also be done by first integrating in <m>y</m> and then differentiating in <m>x</m>. Pretty easy huh? Let's try this again.
 			</p>
 
 
@@ -313,7 +312,7 @@ y = \frac{-x^2-1}{x-1} .
 F(x,y) = \operatorname{arctan} \bigl( \nicefrac{y}{x} \bigr) .
 </md>
  The implicit solution is <m>\operatorname{arctan} \bigl( \nicefrac{y}{x} \bigr) = C</m>. Solving, <m>y = \tan(C) x</m>. That is, the solution is a straight line. Solving <m>y(1) =
-2</m> gives us that <m>\tan(C) = 2</m>, and so <m>y= 2x</m> is the desired solution. See , and note that the solution only exists for <m>x &gt;
+2</m> gives us that <m>\tan(C) = 2</m>, and so <m>y= 2x</m> is the desired solution. See <xref ref="exact-y2x-fig"/>, and note that the solution only exists for <m>x &gt;
 0</m>.
 			</p>
 
@@ -334,7 +333,7 @@ with initial point marked. </caption>
 </solution>
 </example>
 
-<example>
+<example xml:id="exact-exampleabove">
 <statement>			<p>
 				 Solve 
 <md>
@@ -464,7 +463,7 @@ e^{\ln |x+1|} = |x+1| .
 <md>
 x^2+y^2 + 2y(x+1) \frac{dy}{dx} = 0 ,
 </md>
- which is an exact equation that we solved in . The solution was 
+ which is an exact equation that we solved in <xref ref="exact-exampleabove"/>. The solution was 
 <md>
 y = \pm \sqrt{\frac{C-(\nicefrac{1}{3})x^3}{x+1}} .
 </md>
@@ -587,6 +586,11 @@ xy + \ln y = C .
 		<statement>
 			<p>  <m>\cos(x)+ye^{xy} + xe^{xy} y' = 0</m> </p>
 		</statement>
+		<answer>
+			<p>
+				<m>e^{xy}+\sin(x)=C</m>
+			</p>
+		</answer>
 	</task>
 	<task>
 		<statement>
@@ -594,6 +598,11 @@ xy + \ln y = C .
 				<m>(2x+y)\, dx + (x-4y) \, dy = 0</m>
 			</p>
 		</statement>
+		<answer>
+			<p>
+				<m>x^2+xy-2y^2=C</m>
+			</p>
+		</answer>
 	</task>
 	<task>
 		<statement>
@@ -601,6 +610,11 @@ xy + \ln y = C .
 				<m>e^x + e^y \frac{dy}{dx} = 0</m>
 			</p>
 		</statement>
+		<answer>
+			<p>
+				<m>e^x+e^y=C</m>
+			</p>
+		</answer>
 	</task>
 	<task>
 		<statement>
@@ -608,6 +622,11 @@ xy + \ln y = C .
 				<m>(3x^2+3y)\,dx + (3y^2+3x)\, dy = 0</m>
 			</p>
 		</statement>
+		<answer>
+			<p>
+				<m>x^3 + 3xy+ y^3 = C</m>
+			</p>
+		</answer>
 	</task>
 
 </exercise>
@@ -741,6 +760,11 @@ xy + \ln y = C .
 		<statement>
 			<p> <m>\frac{1}{y}\, dx + 3y \, dy = 0</m>  </p>
 		</statement>
+		<answer>
+			<p>
+				Integrating factor is <m>y</m>, equation becomes <m>dx + 3y^2\,dy = 0</m>.
+			</p>
+		</answer>
 	</task>
 	<task>
 		<statement>
@@ -748,6 +772,11 @@ xy + \ln y = C .
 				<m>dx - e^{-x-y} \, dy = 0</m>
 			</p>
 		</statement>
+		<answer>
+			<p>
+				Integrating factor is <m>e^x</m>, equation becomes <m>e^x \, dx - e^{-y}\,dy= 0</m>.
+			</p>
+		</answer>
 	</task>
 	<task>
 		<statement>
@@ -755,6 +784,11 @@ xy + \ln y = C .
 				<m>\bigl( \frac{\cos(x)}{y^2} + \frac{1}{y} \bigr) \, dx + \frac{x}{y^2} \, dy = 0</m>
 			</p>
 		</statement>
+		<answer>
+			<p>
+				Integrating factor is <m>y^2</m>, equation becomes <m>(\cos(x)+y)\, dx + x\,dy = 0</m>.
+			</p>
+		</answer>
 	</task>
 	<task>
 		<statement>
@@ -762,6 +796,11 @@ xy + \ln y = C .
 				<m>\bigl( 2y + \frac{y^2}{x} \bigr) \, dx + ( 2y+x )\, dy = 0</m>
 			</p>
 		</statement>
+		<answer>
+			<p>
+				Integrating factor is <m>x</m>, equation becomes <m>( 2xy+y^2 )\, dx + (x^2+2xy)\,dy = 0</m>.
+			</p>
+		</answer>
 	</task>
 
 </exercise>
@@ -907,7 +946,7 @@ xy + \ln y = C .
 
 </exercise>
 
-<exercise>
+<exercise xml:id="ex-separableExact">
 	<introduction>
 		<p> Answer the following about separable and exact equations.</p>
 	</introduction>
@@ -915,6 +954,11 @@ xy + \ln y = C .
 		<statement>
 			<p> Show that every separable equation <m>y' = f(x)g(y)</m> can be written as an exact equation, and verify that it is indeed exact.  </p>
 		</statement>
+		<answer>
+			<p>
+				The equation is <m>- f(x) \, dx + \frac{1}{g(y)} \, dy</m>, and this is exact because <m>M = -f(x)</m>, <m>N = \frac{1}{g(y)}</m>, so <m>M_y = 0 = N_x</m>.
+			</p>
+		</answer>
 	</task>
 	<task>
 		<statement>
@@ -922,22 +966,16 @@ xy + \ln y = C .
 				Using this rewrite <m>y' = xy</m> as an exact equation, solve it and verify that the solution is the same as it was in <xref ref="ex-sep-xy"/>.
 			</p>
 		</statement>
+		<answer>
+			<p>
+				<m>-x \, dx + \frac{1}{y} \, dy = 0</m>, leads to potential function <m>F(x,y) = -\frac{x^2}{2} + \ln \lvert y \rvert</m>, solving <m>F(x,y) = C</m> leads to the same solution as the example.
+			</p>
+		</answer>
 	</task>
 
 </exercise>
 
-<exercise>
-<statement>
-			<p>
-				
-			</p>
-
-<!-- div attr= class="tasks"-->
-			<p>
-				 
-			</p><!--</div attr= class="tasks">-->
-</statement>
-</exercise></exercises>
+</exercises>
 
 	</section>
 

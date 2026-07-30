@@ -40,27 +40,27 @@
 		<blockquote>
 			<p> An object falling through the air has its velocity affected by two factors: gravity
 				and a drag force. The velocity downward is increased at a rate of <m>9.8\ m/s^2</m>
-				due to gravity, and it is decreased by a rate equation to <m>0.3</m> times the
+				due to gravity, and it is decreased by a rate equal to <m>0.3</m> times the
 				current velocity of the object. If the ball is initially thrown downwards at a speed
 				of <m>2\ m/s</m>, what will the velocity be 10 seconds later? </p>
 		</blockquote>
 
 		<p> There might be enough information here to determine the velocity at any later point in
-			time (it turns out, there is) but the information given isn’t really about the velocity.
+			time (it turns out, there is) but the information given isn't really about the velocity.
 			Rather, information is given about the rate of change of the velocity. We know that the
 			velocity will be increased at a rate of <m>9.8 m/s^2</m> due to gravity. How can this be
 			interpreted? The rate of change has been discussed previously way back in Calculus 1;
 			this is the derivative. Thus, if we let the unknown function <m>v(t)</m> represent the
 			velocity of the object, the description above gives information about the derivative of
-			this function for<m>v(t)</m>. Taking the two different factors (the increase and
+			this function for <m>v(t)</m>. Taking the two different factors (the increase and
 			decrease of velocity) into account, we can write an expression for this derivative,
 			giving that <md>
 				\frac{dv}{dt} = 9.8 - 0.3v.
 			</md> Even though we don't know what <m>v(t)</m> is, we
 			know that it must affect the derivative of the velocity in this particular way, so we
-			can write this equation. That’s why we give a name to this function, so that we can use
-			it in writing this equestion, which, since it is an equation involving the derivative of
-			an unknown function <m>v(t)</m>, we call this a <term>differential equation</term>. Our goal here would be to use this
+			can write this equation. That's why we give a name to this function, so that we can use
+			it in writing this equation, which, since it is an equation involving the derivative of
+			an unknown function <m>v(t)</m>, we call a <term>differential equation</term>. Our goal here would be to use this
 			information, plus the fact that the velocity at time zero is <m>v(0) = 2\ \text{m/s}</m>
 			to find the value of <m>v(10)</m>, or, more generally, the function <m>v(t)</m> for any <m>
 			t</m>. </p>
@@ -118,7 +118,7 @@
 			independent variable is something like time, in which case everything should be written
 			in terms of <m>t</m>. It is for this reason that Leibniz notation is preferred for
 			derivatives; an equation like <md>\frac{dy}{dt} = y^2</md> is unambiguously looking for
-			any answer <m>y(t)</m>. </p>
+			an answer <m>y(t)</m>. </p>
 
 
 		<example>
@@ -193,7 +193,7 @@
 				x = \cos t + \sin t + C e^{-t} ,
 			</md> for some constant <m>C</m>. Different
 			constants <m>C</m> will give different solutions, so there are really infinitely many
-			possible solutions. See for the graph of a few of these solutions. We do not yet know
+			possible solutions. See <xref ref="intro-plotsfig"/> for the graph of a few of these solutions. We do not yet know
 			how to find this solution, but we will get to that in the next chapter. </p>
 
 		<p>
@@ -311,7 +311,7 @@
 					</image>
 				</figure>
 
-				<p> At one minute, <m>t=60</m>, the population is <m>P(60) = 6400</m>. See . </p>
+				<p> At one minute, <m>t=60</m>, the population is <m>P(60) = 6400</m>. See <xref ref="intro-plotbactfig"/>. </p>
 
 				<p> Let us talk about the interpretation of the results. Does our solution mean that
 					there must be exactly 6400 bacteria on the plate at 60s? No! We made assumptions
@@ -417,7 +417,7 @@
 		<statement>
 			<p> In equations of higher order, you get more constants you must solve for to get a
 				particular solution. The equation <m>\frac{d^2y}{dx^2} = 0</m> has the general
-				solution <m>y = C_1 x + C_2</m>; simply integrate twice and don’t forget about the
+				solution <m>y = C_1 x + C_2</m>; simply integrate twice and don't forget about the
 				constant of integration. Consider the initial conditions <m>y(0) =
 					2</m> and <m>y'(0) = 3</m>. We plug in our general solution and solve for the
 				constants: <md>
@@ -449,6 +449,12 @@
 				<p> Show that <m>x = e^{-2t}</m> is a solution to <m>x'' + 4x' + 4x = 0</m>. </p>
 			</statement>
 
+			<answer>
+				<p>
+					Compute <m>x' = -2e^{-2t}</m> and <m>x'' = 4e^{-2t}</m>.  Then
+<m>(4e^{-2t}) + 4 (-2e^{-2t}) + 4 (e^{-2t}) = 0</m>.
+				</p>
+			</answer>
 		</exercise>
 		<exercise>
 			<statement>
@@ -479,6 +485,11 @@
 			<statement>
 				<p> Is <m>y = x^2</m> a solution to <m>x^2y'' - 2y = 0</m>? Justify. </p>
 			</statement>
+			<answer>
+				<p>
+					Yes.
+				</p>
+			</answer>
 
 		</exercise>
 		<exercise>
@@ -500,6 +511,11 @@
 				<p> Let <m>xy'' - y' = 0</m>. Try a solution of the form <m>y = x^r</m>. Is this a
 					solution for some <m>r</m>? If so, find all such <m>r</m>. </p>
 			</statement>
+			<answer>
+				<p>
+					<m>y = x^r</m> is a solution for <m>r=0</m> and <m>r=2</m>.
+				</p>
+			</answer>
 
 		</exercise>
 		<exercise>
@@ -536,6 +552,11 @@
 					.
 			</p>
 			</statement>
+			<answer>
+				<p>
+					<m>C_1=100</m>, <m>C_2 = -90</m>.
+				</p>
+			</answer>
 
 		</exercise>
 		<exercise>

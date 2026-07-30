@@ -7,21 +7,21 @@
   <bibinfo>
   
     <author>
-      <personname>Matt Charnley</personname>
-      <department>Math</department>
-      <institution>Your institution</institution>
+      <personname>Matthew Charnley</personname>
+      <department>Mathematics</department>
+      <institution>Rutgers University</institution>
     </author>
     <date>
       <today />
     </date>
 
     <website>
-      <url href="https://pretextbook.org">My Website</url>
+      <url href="">Author Website</url>
     </website>
 
     <copyright>
-      <year>2020<ndash />2024</year>
-      <holder>You</holder>
+      <year>2020<ndash />2026</year>
+      <holder>CCSA-4.0</holder>
       <shortlicense> This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit <url href="http://creativecommons.org/licenses/by-sa/4.0/" visual="creativecommons.org/licenses/by-sa/4.0"> CreativeCommons.org</url>
       </shortlicense>
     </copyright>

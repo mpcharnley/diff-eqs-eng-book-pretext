@@ -185,6 +185,11 @@ v' = t^2, \qquad v(0) = 10 .
 				Solve <m>\frac{dy}{dx} = e^x + x</m> with <m>y(0) = 10</m>.
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>y = e^x + \frac{x^2}{2} + 9</m>
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -271,6 +276,11 @@ v' = t^2, \qquad v(0) = 10 .
 				Sid is in a car traveling at speed <m>10t+70</m> miles per hour away from Las Vegas, where <m>t</m> is in hours. At <m>t=0</m>, Sid is 10 miles away from Vegas. How far from Vegas is Sid 2 hours later?
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>170</m>
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -318,6 +328,11 @@ v' = t^2, \qquad v(0) = 10 .
 				The rate of change of the volume of a snowball that is melting is proportional to the surface area of the snowball. Suppose the snowball is perfectly spherical. The volume (in centimeters cubed) of a ball of radius <m>r</m> centimeters is <m>(\nicefrac{4}{3}) \pi r^3</m>. The surface area is <m>4 \pi r^2</m>. Set up the differential equation for how the radius <m>r</m> is changing. Then, suppose that at time <m>t=0</m> minutes, the radius is 10 centimeters. After 5 minutes, the radius is 8 centimeters. At what time <m>t</m> will the snowball be completely melted?
 			</p>
 </statement>
+<answer>
+	<p>
+		The equation is <m>r' = -C</m> for some constant <m>C</m>. The snowball will be completely melted in 25 minutes from time <m>t=0</m>.
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -326,6 +341,11 @@ v' = t^2, \qquad v(0) = 10 .
 				Find the general solution to <m>y''''= 0</m>. How many distinct constants do you need?
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>y = Ax^3 + Bx^2 + Cx + D</m>, so 4 constants.
+	</p>
+</answer>
 </exercise>
 		</exercises>
 

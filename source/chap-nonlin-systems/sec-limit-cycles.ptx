@@ -6,6 +6,26 @@
 	<section xml:id="limitcycles-section">
 		<title>Limit cycles</title>
 
+		<objectives>
+	<introduction>
+		<p>
+			After this section, you will be able to: 
+		</p>
+	</introduction>
+	<ul>
+		<li>
+			<p>
+				Identify differential equations that have limit cycles from slope fields and
+			</p>
+		</li>
+		<li>
+			<p>
+				Find and classify limit cycles of systems of differential equations by converting the system to depend on radius.
+			</p>
+		</li>
+	</ul>
+</objectives>
+
 		<p>
 			For nonlinear systems, trajectories do not simply need to approach or leave a single point. They may in fact approach a larger set, such as a circle or another closed curve.
 		</p>
@@ -14,24 +34,34 @@
 <example>
 <title> </title>
 <statement>		<p>
-			The <em></em><fn>		<p>
-			Named for the Dutch physicist <url href="https://en.wikipedia.org/wiki/Balthasar_van_der_Pol">Balthasar van der Pol</url> (1889–1959).
-		</p></fn> is the following equation 
-<me>
+			The <term>Van der Pol oscillator</term><fn>	
+			Named for the Dutch physicist <url href="https://en.wikipedia.org/wiki/Balthasar_van_der_Pol">Balthasar van der Pol</url> (1889-1959).
+		</fn> is the following equation 
+<md>
 x''-\mu(1-x^2) x' + x = 0,
-</me>
+</md>
  where <m>\mu</m> is some positive constant. The Van der Pol oscillator originated with electrical circuits, but finds applications in diverse fields such as biology, seismology, and other physical sciences.
 		</p>
 
 		<p>
-			For simplicity, let us use <m>\mu = 1</m>. A phase diagram is given in the left-hand plot in . Notice how the trajectories seem to very quickly settle on a closed curve. On the right-hand side is the plot of a single solution for <m>t=0</m> to <m>t=30</m> with initial conditions <m>x(0) = 0.1</m> and <m>x'(0) = 0.1</m>. The solution quickly tends to a periodic solution.
+			For simplicity, let us use <m>\mu = 1</m>. A phase diagram is given in the left-hand plot in <xref ref="fig-nlin-van-der-fig"/>. Notice how the trajectories seem to very quickly settle on a closed curve. On the right-hand side is the plot of a single solution for <m>t=0</m> to <m>t=30</m> with initial conditions <m>x(0) = 0.1</m> and <m>x'(0) = 0.1</m>. The solution quickly tends to a periodic solution.
 		</p>
 
-<!-- div attr= class="myfig"-->
-<!--</div attr= class="myfig">-->
+<figure xml:id="fig-nlin-van-der-fig">
+	<caption> The phase portrait (left) and a graph of a sample solution
+of the Van der Pol oscillator. </caption>
+	<image source="nlin-van-der-phase-plot1.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
 		<p>
-			The Van der Pol oscillator is an example of so-called <em></em>. The word relaxation comes from the sudden jump (the very steep part of the solution). For larger <m>\mu</m> the steep part becomes even more pronounced, for small <m>\mu</m> the limit cycle looks more like a circle. In fact, setting <m>\mu = 0</m>, we get <m>x''+x=0</m>, which is a linear system with a center and all trajectories become circles.
+			The Van der Pol oscillator is an example of so-called <term>relaxation oscillation</term>. The word relaxation comes from the sudden jump (the very steep part of the solution). For larger <m>\mu</m> the steep part becomes even more pronounced, for small <m>\mu</m> the limit cycle looks more like a circle. In fact, setting <m>\mu = 0</m>, we get <m>x''+x=0</m>, which is a linear system with a center and all trajectories become circles.
 		</p>
 </statement>
 </example>
@@ -39,57 +69,66 @@ x''-\mu(1-x^2) x' + x = 0,
 			What we see in this example is a curve to which many solution seem to head towards as <m>t</m> gets larger. This motivates the following definition.
 		</p>
 
-<!-- div attr= class="definition"-->
+<definition xml:id="def-limit-cycle">
+	<statement>
 		<p><ol>
 			<li>
 					<p>
-						A trajectory in the phase portrait that is a closed curve (a curve that is a loop) is called a <em></em>.
+						A trajectory in the phase portrait that is a closed curve (a curve that is a loop) is called a <term>closed trajectory</term>.
 					</p>
 			</li>
 
 			<li>
 					<p>
-						A <em></em> is a closed trajectory such that at least one other trajectory spirals into it.
+						A <term>limit cycle</term> is a closed trajectory such that at least one other trajectory spirals into it.
 					</p>
 			</li>
 
 			<li>
 					<p>
-						If all trajectories that start near the limit cycle spiral into it, the limit cycle is called <em>asymptotically stable</em>.
+						If all trajectories that start near the limit cycle spiral into it, the limit cycle is called an <term>asymptotically stable limit cycle</term>.
 					</p>
 			</li>
 
-		</ol></p><!--</div attr= class="definition">-->
+		</ol></p>
+	</statement>
+</definition>
 
 		<p>
 			For example, the closed curve in the phase portrait for the Van der Pol equation is a limit cycle, and the limit cycle in the Van der Pol oscillator is asymptotically stable.
 		</p>
 
 		<p>
-			Given a closed trajectory on an autonomous system, any solution that starts on it is periodic. Such a curve is called a <em></em>. More precisely, if <m>\bigl(x(t),y(t)\bigr)</m> is a solution such that for some <m>t_0</m> the point <m>\bigl(x(t_0),y(t_0)\bigr)</m> lies on a periodic orbit, then both <m>x(t)</m> and <m>y(t)</m> are periodic functions (with the same period). That is, there is some number <m>P</m> such that <m>x(t) = x(t+P)</m> and <m>y(t) = y(t+P)</m>.
+			Given a closed trajectory on an autonomous system, any solution that starts on it is periodic. Such a curve is called a <term>periodic orbit</term>. More precisely, if <m>\bigl(x(t),y(t)\bigr)</m> is a solution such that for some <m>t_0</m> the point <m>\bigl(x(t_0),y(t_0)\bigr)</m> lies on a periodic orbit, then both <m>x(t)</m> and <m>y(t)</m> are periodic functions (with the same period). That is, there is some number <m>P</m> such that <m>x(t) = x(t+P)</m> and <m>y(t) = y(t+P)</m>.
 		</p>
 
 		<p>
-			We would like to be able to identify when these sorts of periodic orbits can or can’t happen to understand more about these systems. Thankfully, we have a theorem that gives us some help here.
+			We would like to be able to identify when these sorts of periodic orbits can or can't happen to understand more about these systems. Thankfully, we have a theorem that gives us some help here.
 		</p>
 
-<!-- div attr= class="theorem1"-->
+<theorem xml:id="thm-poincare-bendixson">
+	<title>Poincaré-Bendixson Theorem</title>
+	
+	
+	<statement>
 		<p>
-			Poincaré–Bendixson Consider the system 
-<men xml:id="nlin-gensys">
+			 Consider the system 
+<md number="yes" xml:id="nlin-gensys">
  x' = f(x,y), \qquad y' = g(x,y) ,
-</men>
+</md>
 where the functions <m>f</m> and <m>g</m> have continuous derivatives in some region <m>R</m> in the plane.
 		</p>
 
 		<p>
 			Suppose <m>R</m> is a closed bounded region (a region in the plane that includes its boundary and does not have points arbitrarily far from the origin). Suppose <m>\bigl(x(t), y(t)\bigr)</m> is a solution of <xref ref="nlin-gensys" /> in <m>R</m> that exists for all <m>t \geq t_0</m>. Then either the solution is a periodic function, or the solution tends towards a periodic solution in <m>R</m>.
-		</p><!--</div attr= class="theorem1">-->
+		</p>
+	</statement>
+</theorem>
 
 		<p>
-			The main point of the theorem<fn>		<p>
-			<url href="https://en.wikipedia.org/wiki/Ivar_Otto_Bendixson">Ivar Otto Bendixson</url> (1861–1935) was a Swedish mathematician.
-		</p></fn> is that if you find one solution that exists for all <m>t</m> large enough (that is, as <m>t</m> goes to infinity) and stays within a bounded region, then you have found either a periodic orbit, or a solution that spirals towards a limit cycle or tends to a critical point. That is, in the long term, the behavior is very close to a periodic function. Note that a constant solution at a critical point is periodic (with any period). The theorem is more a qualitative statement rather than something to help us in computations. In practice it is hard to find analytic solutions and so hard to show rigorously that they exist for all time. But if we think the solution exists we numerically solve for a large time to approximate the limit cycle. Another caveat is that the theorem only works in two dimensions. In three dimensions and higher, there is simply too much room.
+			The main point of the theorem<fn>	
+			<url href="https://en.wikipedia.org/wiki/Ivar_Otto_Bendixson">Ivar Otto Bendixson</url> (1861-1935) was a Swedish mathematician.
+		</fn> is that if you find one solution that exists for all <m>t</m> large enough (that is, as <m>t</m> goes to infinity) and stays within a bounded region, then you have found either a periodic orbit, or a solution that spirals towards a limit cycle or tends to a critical point. That is, in the long term, the behavior is very close to a periodic function. Note that a constant solution at a critical point is periodic (with any period). The theorem is more a qualitative statement rather than something to help us in computations. In practice it is hard to find analytic solutions and so hard to show rigorously that they exist for all time. But if we think the solution exists we numerically solve for a large time to approximate the limit cycle. Another caveat is that the theorem only works in two dimensions. In three dimensions and higher, there is simply too much room.
 		</p>
 
 		<p>
@@ -101,15 +140,24 @@ where the functions <m>f</m> and <m>g</m> have continuous derivatives in some re
 <title> </title>
 <statement>		<p>
 			Consider 
-<me>
+<md>
 x' = y + {(x^2+y^2-1)}^2 x, \qquad
 y' = -x + {(x^2+y^2-1)}^2 y.
-</me>
- A vector field along with solutions with initial conditions <m>(1.02,0)</m>, <m>(0.9,0)</m>, and <m>(0.1,0)</m> are drawn in . Analyze this system to determine what will happen to the solution for a variety of initial conditions.
+</md>
+ A vector field along with solutions with initial conditions <m>(1.02,0)</m>, <m>(0.9,0)</m>, and <m>(0.1,0)</m> are drawn in <xref ref="fig-nlin-unstable-limit-cycle"/>. Analyze this system to determine what will happen to the solution for a variety of initial conditions.
 		</p>
 
-<!-- div attr= class="myfig"-->
-<!--</div attr= class="myfig">-->
+<figure xml:id="fig-nlin-unstable-limit-cycle">
+	<caption> Semistable limit cycle example. </caption>
+	<image source="nlin-unstable-limit-cycle.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 </statement>
 
 <solution>		<p>
@@ -117,76 +165,79 @@ y' = -x + {(x^2+y^2-1)}^2 y.
 		</p>
 
 		<p>
-			This means that for initial conditions inside the unit circle, the solution spirals out towards the periodic solution on the unit circle, and for initial conditions outside the unit circle the solutions spiral off towards infinity. Therefore the unit circle is a limit cycle, but not an asymptotically stable one. In relation to the terms used for autonomous equations in , we could refer to this as a semistable limit cycle, since on one side (inside) the solutions spiral towards the periodic orbit, while on the other side (outside) the solutions move away. The Poincaré–Bendixson Theorem applies to the initial points inside the unit circle, as those solutions stay bounded, but not to those outside, as those solutions go off to infinity.
+			This means that for initial conditions inside the unit circle, the solution spirals out towards the periodic solution on the unit circle, and for initial conditions outside the unit circle the solutions spiral off towards infinity. Therefore the unit circle is a limit cycle, but not an asymptotically stable one. In relation to the terms used for autonomous equations in <xref ref="auteq-section"/>, we could refer to this as a semistable limit cycle, since on one side (inside) the solutions spiral towards the periodic orbit, while on the other side (outside) the solutions move away. The Poincaré-Bendixson Theorem applies to the initial points inside the unit circle, as those solutions stay bounded, but not to those outside, as those solutions go off to infinity.
 		</p>
 </solution>
 </example>
 		<p>
 			A very similar analysis applies to the system 
-<me>
+<md>
 x' = y + {(x^2+y^2-1)} x, \qquad
 y' = -x + {(x^2+y^2-1)} y.
-</me>
+</md>
  We still obtain a closed trajectory on the unit circle, and points outside the unit circle spiral out to infinity, but now points inside the unit circle spiral towards the critical point at the origin. So this system does not have a limit cycle, even though it has a closed trajectory.
 		</p>
 
 		<p>
-			One way to see this more explicitly is by trying to write this all in terms of <me>r = \sqrt{x^2 + y^2}.</me> For simplicity here, we will determine everything in terms of <me>s = r^2 = x^2 + y^2</me> because as long as <m>r &gt; 0</m>, <m>r</m> and <m>s</m> always have the same behavior (in terms of increasing and decreasing), and it is easier to compute with <m>s</m>.
+			One way to see this more explicitly is by trying to write this all in terms of <md>r = \sqrt{x^2 + y^2}.</md> For simplicity here, we will determine everything in terms of <md>s = r^2 = x^2 + y^2</md> because as long as <m>r &gt; 0</m>, <m>r</m> and <m>s</m> always have the same behavior (in terms of increasing and decreasing), and it is easier to compute with <m>s</m>.
 		</p>
 
 		<p>
 			Using the first example 
-<me>
+<md>
 x' = y + {(x^2+y^2-1)}^2 x, \qquad
 y' = -x + {(x^2+y^2-1)}^2 y.
-</me>
- we see that <me>\begin{split}
- s' &amp;= 2xx' + 2yy' \\
- &amp;= 2x(y + {(x^2+y^2-1)}^2 x + 2y(-x + {(x^2+y^2-1)}^2 y) \\
- &amp;= 2xy + 2x^2(x^2 + y^2 - 1)^2 - 2xy + 2y^2(x^2 + y^2 - 1)^2 \\
-s' &amp;= 2s(s-1)^2
-\end{split}</me>
+</md>
+ we see that <md>
+<mrow> s' \amp = 2xx' + 2yy'</mrow>
+<mrow> \amp = 2x(y + {(x^2+y^2-1)}^2 x) + 2y(-x + {(x^2+y^2-1)}^2 y) </mrow>
+<mrow> \amp = 2xy + 2x^2(x^2 + y^2 - 1)^2 - 2xy + 2y^2(x^2 + y^2 - 1)^2 </mrow>
+<mrow> s' \amp = 2s(s-1)^2</mrow>
+</md>.
 		</p>
 
 		<p>
-			Thus, we are left with the equation <me>\frac{ds}{dt} = 2s(s-1)^2</me> which is an autonomous first-order equation that we can analyze. We have two equilibrium solutions in terms of <m>s</m> at <m>s=0</m>, which corresponds to the origin, and <m>s=1</m>, which corresponds to the unit circle. We can then plug in values to see that for <m>s = \frac{1}{2}</m>, <m>\frac{ds}{dt} &gt; 0</m>, so that the solutions will increase out to the unit circle. For <m>s&gt;1</m>, <m>\frac{ds}{dt} &gt; 0</m> as well, so solutions move away from the circle outside it. This is the same as the result we obtained in the first example.
+			Thus, we are left with the equation <md>\frac{ds}{dt} = 2s(s-1)^2</md> which is an autonomous first-order equation that we can analyze. We have two equilibrium solutions in terms of <m>s</m> at <m>s=0</m>, which corresponds to the origin, and <m>s=1</m>, which corresponds to the unit circle. We can then plug in values to see that for <m>s = \frac{1}{2}</m>, <m>\frac{ds}{dt} &gt; 0</m>, so that the solutions will increase out to the unit circle. For <m>s&gt;1</m>, <m>\frac{ds}{dt} &gt; 0</m> as well, so solutions move away from the circle outside it. This is the same as the result we obtained in the first example.
 		</p>
 
 		<p>
-			For the second example, we end up with the autonomous equation <me>\frac{ds}{dt} = 2s(s-1)</me> which is negative for <m>0 &lt; s &lt; 1</m> and positive for <m>1 &lt; s</m>, giving that solutions that start inside the unit circle will converge to the origin, and solutions that start outside the circle will move away from it.
+			For the second example, we end up with the autonomous equation <md>\frac{ds}{dt} = 2s(s-1)</md> which is negative for <m>0 &lt; s &lt; 1</m> and positive for <m>1 &lt; s</m>, giving that solutions that start inside the unit circle will converge to the origin, and solutions that start outside the circle will move away from it.
 		</p>
 
 		<p>
-			Due to the Picard theorem () we find that no matter where we are in the plane we can always find a solution a little bit further in time, as long as <m>f</m> and <m>g</m> have continuous derivatives. So if we find a closed trajectory in an autonomous system, then for every initial point inside the closed trajectory, the solution will exist for all time and it will stay bounded (it will stay inside the closed trajectory). Since the closed trajectory is a solution, we can not cross it (by Picard theorem), and so we have to stay trapped inside. So the moment we found the solution above going around the unit circle, we knew that for every initial point inside the circle, the solution exists for all time and the Poincaré–Bendixson theorem applies.
+			Due to the Picard theorem (<xref ref="thm-picard-systems"/>) we find that no matter where we are in the plane we can always find a solution a little bit further in time, as long as <m>f</m> and <m>g</m> have continuous derivatives. So if we find a closed trajectory in an autonomous system, then for every initial point inside the closed trajectory, the solution will exist for all time and it will stay bounded (it will stay inside the closed trajectory). Since the closed trajectory is a solution, we can not cross it (by Picard theorem), and so we have to stay trapped inside. So the moment we found the solution above going around the unit circle, we knew that for every initial point inside the circle, the solution exists for all time and the Poincaré-Bendixson theorem applies.
 		</p>
 
 		<p>
-			Let us next look for conditions when limit cycles (or periodic orbits) do not exist. We assume the equation <xref ref="nlin-gensys" /> is defined on a <em></em>, that is, a region with no holes we can go around. For example the entire plane is a simply connected region, and so is the inside of the unit disc. However, the entire plane minus a point is not a simply connected domain as it has a at the origin.
+			Let us next look for conditions when limit cycles (or periodic orbits) do not exist. We assume the equation <xref ref="nlin-gensys" /> is defined on a <term>simply connected region</term>, that is, a region with no holes we can go around. For example the entire plane is a simply connected region, and so is the inside of the unit disc. However, the entire plane minus a point is not a simply connected domain as it has a <q>hole</q> at the origin.
 		</p>
 
-<!-- div attr= class="theorem1"-->
+<theorem xml:id="thm-BD">
+	<title>Bendixson-Dulac Theorem</title>
+	
+	
+	<statement>
 		<p>
-			Bendixson–Dulac  Suppose <m>R</m> is a simply connected region, and the expression <fn>		<p>
-			Usually the expression in the Bendixson–Dulac Theorem is <m>\frac{\partial (\varphi f)}{\partial x} + \frac{\partial (\varphi
+			Suppose <m>R</m> is a simply connected region, and the expression <fn>		Usually the expression in the Bendixson-Dulac Theorem is <m>\frac{\partial (\varphi f)}{\partial x} + \frac{\partial (\varphi
 g)}{\partial y}</m> for some continuously differentiable function <m>\varphi</m>. For simplicity, let us just consider the case <m>\varphi = 1</m>.
-		</p></fn> 
-<me>
+		</fn> 
+<md>
 \frac{\partial f}{\partial x} + \frac{\partial g}{\partial y}
-</me>
+</md>
  is either always positive or always negative on <m>R</m> (except perhaps a small set such as on isolated points or curves) then the system <xref ref="nlin-gensys" /> has no closed trajectory inside <m>R</m>.
-		</p><!--</div attr= class="theorem1">-->
-
+		</p>
+	</statement>
+</theorem>
 		<p>
-			The theorem<fn>		<p>
-			<url href="https://en.wikipedia.org/wiki/Henri_Dulac">Henri Dulac</url> (1870–1955) was a French mathematician.
-		</p></fn> gives us a way of ruling out the existence of a closed trajectory, and hence a way of ruling out limit cycles. The exception about points or curves means that we can allow the expression to be zero at a few points, or perhaps on a curve, but not on any larger set.
+			The theorem<fn>		
+			<url href="https://en.wikipedia.org/wiki/Henri_Dulac">Henri Dulac</url> (1870-1955) was a French mathematician.
+		</fn> gives us a way of ruling out the existence of a closed trajectory, and hence a way of ruling out limit cycles. The exception about points or curves means that we can allow the expression to be zero at a few points, or perhaps on a curve, but not on any larger set.
 		</p>
 
 
 <example>
-<title> </title>
 <statement>		<p>
-			Let us look at <m>x'=y+y^2e^x</m>, <m>y'=x</m> in the entire plane (see ) and try to apply .
+			Let us look at <m>x'=y+y^2e^x</m>, <m>y'=x</m> in the entire plane (see ) and try to apply <xref ref="thm-BD"/>.
 		</p>
 </statement>
 
@@ -206,9 +257,8 @@ y^2e^x+ 0</m>. The function <m>y^2e^x</m> is always positive except on the line 
 
 
 <example>
-<title> </title>
 <statement>		<p>
-			Take the system <m>x'=-y-x^2</m>, <m>y'=-x+y^2</m> (see ) and look at how works here.
+			Take the system <m>x'=-y-x^2</m>, <m>y'=-x+y^2</m> (see ) and look at how <xref ref="thm-BD"/> works here.
 		</p>
 </statement>
 
@@ -224,15 +274,14 @@ y^2e^x+ 0</m>. The function <m>y^2e^x</m> is always positive except on the line 
 </example>
 
 <example>
-<title> </title>
 <statement>		<p>
 			Consider <m>x' = y+(x^2+y^2-1)x</m>, <m>y' = -x +(x^2+y^2-1)y</m>, and consider the region <m>R</m> given by <m>x^2+y^2 &gt;
 \frac{1}{2}</m>. That is, <m>R</m> is the region outside a circle of radius <m>\frac{1}{\sqrt{2}}</m> centered at the origin. Then there is a closed trajectory in <m>R</m>, namely <m>x=\cos(t)</m>, <m>y=\sin(t)</m>. Furthermore, 
-<me>
+<md>
 \frac{\partial f}{\partial x} + 
 \frac{\partial g}{\partial x} = 4x^2+4y^2-2 ,
-</me>
- which is always positive on <m>R</m>. So what is going on? The Bendixson–Dulac theorem does not apply since the region <m>R</m> is not simply connected—it has a hole, the circle we cut out!
+</md>
+ which is always positive on <m>R</m>. So what is going on? The Bendixson-Dulac theorem does not apply since the region <m>R</m> is not simply connected—it has a hole, the circle we cut out!
 		</p>
 </statement>
 </example>
@@ -243,7 +292,7 @@ y^2e^x+ 0</m>. The function <m>y^2e^x</m> is always positive except on the line 
 <exercise>
 <statement>
 			<p>
-				Consider the two-dimensional system of differential equation written in polar coordinates as <me>\frac{dr}{dt} = r(r-1)(r-4)^2 \qquad \frac{d\theta}{dt} = 1.</me> Determine all limit cycles, periodic solutions, and classify the stability of each of these solutions.
+				Consider the two-dimensional system of differential equation written in polar coordinates as <md>\frac{dr}{dt} = r(r-1)(r-4)^2 \qquad \frac{d\theta}{dt} = 1.</md> Determine all limit cycles, periodic solutions, and classify the stability of each of these solutions.
 			</p>
 </statement>
 
@@ -256,7 +305,7 @@ y^2e^x+ 0</m>. The function <m>y^2e^x</m> is always positive except on the line 
 <exercise>
 <statement>
 			<p>
-				Consider the two-dimensional system of differential equation written in polar coordinates as <me>\frac{dr}{dt} = r^2(r-1)^2(r-3) \qquad \frac{d\theta}{dt} = -1.</me> Determine all limit cycles, periodic solutions, and classify the stability of each of these solutions.
+				Consider the two-dimensional system of differential equation written in polar coordinates as <md>\frac{dr}{dt} = r^2(r-1)^2(r-3) \qquad \frac{d\theta}{dt} = -1.</md> Determine all limit cycles, periodic solutions, and classify the stability of each of these solutions.
 			</p>
 </statement>
 
@@ -269,70 +318,162 @@ y^2e^x+ 0</m>. The function <m>y^2e^x</m> is always positive except on the line 
 <exercise>
 <statement>
 			<p>
-				Consider the system of differential equation given by <me>\frac{dx}{dt} = x(3- 2y^2 - x^2) \qquad \frac{dy}{dt} = y(3-y^2) .</me> Find and classify all limit cycles by converting to an autonomous equation in <m>r = \sqrt{x^2 + y^2}</m> or <m>s = x^2 + y^2</m>.
+				Consider the system of differential equation given by <md>\frac{dx}{dt} = x(3- 2y^2 - x^2) \qquad \frac{dy}{dt} = y(3-y^2) .</md> Find and classify all limit cycles by converting to an autonomous equation in <m>r = \sqrt{x^2 + y^2}</m> or <m>s = x^2 + y^2</m>.
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>(0,0)</m>, unstable, <m>r = \sqrt{3}</m>, asymptotically stable.
+	</p>
+</answer>
 
 </exercise>
 <exercise>
 <statement>
 			<p>
-				Consider the system of differential equation given by <me>\frac{dx}{dt} = -x(x^2 + y^2)^2 + 6x(x^2 + y^2) - 8x + 6y \qquad \frac{dy}{dt} = -y(x^2 + y^2)^2 + 6y(x^2 + y^2) - 8y - 6x .</me> Find and classify all limit cycles by converting to an autonomous equation in <m>r = \sqrt{x^2 + y^2}</m> or <m>s = x^2 + y^2</m>.
+				Consider the system of differential equation given by <md>\frac{dx}{dt} = -x(x^2 + y^2)^2 + 6x(x^2 + y^2) - 8x + 6y \qquad \frac{dy}{dt} = -y(x^2 + y^2)^2 + 6y(x^2 + y^2) - 8y - 6x .</md> Find and classify all limit cycles by converting to an autonomous equation in <m>r = \sqrt{x^2 + y^2}</m> or <m>s = x^2 + y^2</m>.
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>(0,0)</m>, asymptotically stable, <m>r = \sqrt{2}</m>, unstable, <m>r = 2</m>, asymptotically stable. 
+	</p>
+</answer>
 
 </exercise>
 <exercise>
-<statement>
-			<p>
+<introduction>
+	<p>
 				Consider the system 
-<men xml:id="eq-LimitCycleExercise1">
+<md number="yes" xml:id="eq-LimitCycleExercise1">
 \begin{bmatrix}\dfrac{dx}{dt}=x+2y+x(x^2+y^2-2\sqrt{x^2+y^2})\\[6pt]
   \dfrac{dy}{dt}=-2x+y+y(x^2+y^2-2\sqrt{x^2+y^2})
-\end{bmatrix}. </men>
+\end{bmatrix}. </md>
 			</p>
-
-<!-- div attr= class="tasks"-->
+</introduction>
+	<task>
+		<statement>
 			<p>
-				Use polar coordinates to write <m>\dfrac{dr}{dt}</m> as a function of <m>r</m>. Draw the phase line of the DE <m>\dfrac{dr}{dt}=f(r)</m>, where <m>f(r)</m> is the function from part a. Does the system <xref ref="eq-LimitCycleExercise1" /> have a limit cycle? If so, find it. If not, explain why not. For each positive root of <m>f(r)</m>, decide whether the corresponding trajectory one is stable, unstable, or semistable.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) <m>\frac{dr}{dt} = r(r-1)^2</m> c) Limit cycle at <m>r=1</m>, it is semistable. 
+				Use polar coordinates to write <m>\dfrac{dr}{dt}</m> as a function of <m>r</m>.
 			</p>
-</answer>
+		</statement>
+		<answer>
+			<p>
+				<m>\frac{dr}{dt} = r(r-1)^2</m>
+			</p>
+		</answer>
+	</task>		
+	<task>
+		<statement>
+			<p>
+				Draw the phase line of the DE <m>\dfrac{dr}{dt}=f(r)</m>, where <m>f(r)</m> is the function from part a.
+			</p>
+		</statement>
+	</task>
+	<task>
+		<statement>
+			<p>
+				Does the system <xref ref="eq-LimitCycleExercise1" /> have a limit cycle? If so, find it. If not, explain why not. For each positive root of <m>f(r)</m>, decide whether the corresponding trajectory one is stable, unstable, or semistable.
+			</p>
+		</statement>
+		<answer>
+			<p>
+				Limit cycle at <m>r=1</m>, it is semistable.
+			</p>
+		</answer>
+	</task>
+
 </exercise>
 
 <exercise>
-<statement>
-			<p>
+<introduction>
+	<p>
 				Show that the following systems have no closed trajectories.
 			</p>
-
-<!-- div attr= class="tasks"-->
+</introduction>
+	<task>
+		<statement>
 			<p>
-				(2) <m>x'=x^3+y,\quad y'=y^3+x^2</m>, <m>x'=e^{x-y},\quad y'=e^{x+y}</m>, <m>x'=x+3y^2-y^3,\quad y'=y^3+x^2</m>.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) <m>f_x + g_y = 3(x^2 + y^2) &gt; 0</m> b) <m>f_x</m>, <m>g_y &gt; 0</m> c) <m>f_x + g_y = 1+3y^2 &gt; 0</m> 
+				<m>x'=x^3+y,\quad y'=y^3+x^2</m>
 			</p>
-</answer>
+		</statement>
+		<answer>
+			<p>
+				<m>f_x + g_y = 3(x^2 + y^2) &gt; 0</m>
+			</p>
+		</answer>
+	</task>	
+	<task>
+		<statement>
+			<p>
+				<m>x'=e^{x-y},\quad y'=e^{x+y}</m>
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>f_x</m>, <m>g_y &gt; 0</m>
+			</p>
+		</answer>
+	</task>	
+	<task>
+		<statement>
+			<p>
+				<m>x'=x+3y^2-y^3,\quad y'=y^3+x^2</m>
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>f_x + g_y = 1+3y^2 &gt; 0</m> 
+			</p>
+		</answer>
+	</task>
+
 </exercise>
 
 <exercise>
-<statement>
-			<p>
+<introduction>
+	<p>
 				Show that the following systems have no closed trajectories.
 			</p>
-
-<!-- div attr= class="tasks"-->
+</introduction>
+	<task>
+		<statement>
 			<p>
-				(2) <m>x'=x+y^2,\quad y'=y+x^2</m>, <m>x'=-x\sin^2(y),\quad y'=e^x</m>, <m>x'=xy,\quad y'=x+x^2</m>.
-			</p><!--</div attr= class="tasks">-->
-</statement>
+				<m>x'=x+y^2,\quad y'=y+x^2</m>
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>f_x+g_y = 1+1 &gt; 0</m>, so no closed trajectories.
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				<m>x'=-x\sin^2(y),\quad y'=e^x</m>
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>f_x+g_y = -\sin^2(y)+0 &lt; 0</m> for all <m>x,\ y</m> except the lines
+given by <m>y=k\pi</m> (where we get zero), so no closed trajectories.
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				<m>x'=xy,\quad y'=x+x^2</m>
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>f_x+g_y = y + 0 &gt; 0</m> for all <m>x,\ y</m> except the line
+given by <m>y=0</m> (where we get zero), so no closed trajectories.
+			</p>
+		</answer>
+	</task>
 
 </exercise>
 <exercise>
@@ -341,12 +482,20 @@ y^2e^x+ 0</m>. The function <m>y^2e^x</m> is always positive except on the line 
 				Suppose an autonomous system in the plane has a solution <m>x=\cos(t)+e^{-t}</m>, <m>y=\sin(t)+e^{-t}</m>. What can you say about the system (in particular about limit cycles and periodic solutions)?
 			</p>
 </statement>
-
+<answer>
+	<p>
+		Using Poincaré-Bendixson Theorem,
+the system has a limit cycle, which is the unit circle centered at the origin as
+<m>x=\cos(t)+e^{-t}</m>, <m>y=\sin(t)+e^{-t}</m> gets closer and closer to the unit
+circle.  Thus we also have that <m>x=\cos(t)</m>, <m>y=\sin(t)</m> is the periodic
+solution.
+	</p>
+</answer>
 </exercise>
 <exercise>
 <statement>
 			<p>
-				Formulate a condition for a 2-by-2 linear system <m>{\vec{x}}' = A \vec{x}</m> to not be a center using the Bendixson–Dulac theorem. That is, the theorem says something about certain elements of <m>A</m>.
+				Formulate a condition for a 2-by-2 linear system <m>{\vec{x}}' = A \vec{x}</m> to not be a center using the Bendixson-Dulac theorem. That is, the theorem says something about certain elements of <m>A</m>.
 			</p>
 </statement>
 
@@ -359,12 +508,12 @@ y^2e^x+ 0</m>. The function <m>y^2e^x</m> is always positive except on the line 
 <exercise>
 <statement>
 			<p>
-				Explain why the Bendixson–Dulac Theorem does not apply for any conservative system <m>x''+h(x) = 0</m>.
+				Explain why the Bendixson-Dulac Theorem does not apply for any conservative system <m>x''+h(x) = 0</m>.
 			</p>
 </statement>
 
 <answer>			<p>
-				 <m>f_x = 0</m>, <m>g_y = 0</m>, so it’s always zero. 
+				 <m>f_x = 0</m>, <m>g_y = 0</m>, so it's always zero. 
 			</p>
 </answer>
 </exercise>
@@ -372,7 +521,7 @@ y^2e^x+ 0</m>. The function <m>y^2e^x</m> is always positive except on the line 
 <exercise>
 <statement>
 			<p>
-				A system such as <m>x'=x, y'=y</m> has solutions that exist for all time <m>t</m>, yet there are no closed trajectories. Explain why the Poincaré–Bendixson Theorem does not apply.
+				A system such as <m>x'=x, y'=y</m> has solutions that exist for all time <m>t</m>, yet there are no closed trajectories. Explain why the Poincaré-Bendixson Theorem does not apply.
 			</p>
 </statement>
 
@@ -385,9 +534,16 @@ y^2e^x+ 0</m>. The function <m>y^2e^x</m> is always positive except on the line 
 <exercise>
 <statement>
 			<p>
-				Show that the limit cycle of the Van der Pol oscillator (for <m>\mu &gt; 0</m>) must not lie completely in the set where <m>-1 &lt; x &lt; 1</m>. Compare with .
+				Show that the limit cycle of the Van der Pol oscillator (for <m>\mu &gt; 0</m>) must not lie completely in the set where <m>-1 &lt; x &lt; 1</m>. Compare with <xref ref="fig-nlin-van-der-fig"/>.
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>f(x,y) = y</m>, <m>g(x,y) = \mu(1-x^2)y-x</m>.  So
+<m>f_x+g_y = \mu(1-x^2)</m>.  The Bendixson-Dulac Theorem
+says there is no closed trajectory lying entirely in the set <m>x^2 &lt; 1</m>.
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -409,6 +565,14 @@ y^2e^x+ 0</m>. The function <m>y^2e^x</m> is always positive except on the line 
 				Suppose we have the system <m>r' = \sin(r)</m>, <m>\theta' = 1</m> given in polar coordinates. Find all the closed trajectories.
 			</p>
 </statement>
+<answer>
+	<p>
+		The closed trajectories are those where <m>\sin(r) = 0</m>, therefore,
+all the circles centered at the origin with radius that
+is a multiple of <m>\pi</m> are closed
+trajectories.
+	</p>
+</answer>
 </exercise></exercises>
 
 	</section>

@@ -31,6 +31,7 @@
 	</ul>
 </objectives>
 
+<!-- xml:id="linalg-elim-eq" -->
 
 		<subsection xml:id="linear-systems-of-equations">
 			<title>Linear systems of equations</title>
@@ -38,13 +39,11 @@
 			<p>
 				One application of matrices is to solve systems of linear equations<fn>
 				Although perhaps we have this backwards, quite often we solve a linear system of equations to find out something about matrices, rather than vice versa.</fn>. Consider the following system of linear equations 
-<md number="yes" xml:id="linalg-elim-eq">
- \begin{aligned}
-          2 x_1 +           2 x_2 +           2 x_3 &amp; = 2 , \\
-\phantom{9} x_1 + \phantom{9} x_2 +           3 x_3 &amp; = 5 , \\
-\phantom{9} x_1 +           4 x_2 + \phantom{9} x_3 &amp; = 10 .
-\end{aligned}
-</md>
+<md number="yes">
+<mrow number ="no">          2 x_1 +           2 x_2 +           2 x_3 \amp = 2 </mrow>
+<mrow xml:id="linalg-elim-eq"> \phantom{9} x_1 + \phantom{9} x_2 +           3 x_3 \amp = 5 </mrow>
+<mrow number="no"> \phantom{9} x_1 +           4 x_2 + \phantom{9} x_3 \amp = 10 </mrow>
+</md>.
 			</p>
 
 			<p>
@@ -91,28 +90,22 @@ x_3
 			<p>
 				Let us return to the equations themselves and see how we can manipulate them. There are a few operations we can perform on the equations that do not change the solution. First, perhaps an operation that may seem stupid, we can swap two equations in <xref ref="linalg-elim-eq" />: 
 <md>
-\begin{aligned}
-\phantom{9} x_1 + \phantom{9} x_2 +           3 x_3 &amp; = 5 , \\
-          2 x_1 +           2 x_2 +           2 x_3 &amp; = 2 , \\
-\phantom{9} x_1 +           4 x_2 + \phantom{9} x_3 &amp; = 10 .
-\end{aligned}
-</md>
+<mrow>\phantom{9} x_1 + \phantom{9} x_2 +           3 x_3 \amp = 5 </mrow>
+<mrow>          2 x_1 +           2 x_2 +           2 x_3 \amp = 2 </mrow>
+<mrow> \phantom{9} x_1 +           4 x_2 + \phantom{9} x_3 \amp = 10</mrow>
+</md>.
  Clearly these new equations have the same solutions <m>x_1,x_2,x_3</m>. A second operation is that we can multiply an equation by a nonzero number. For example, we multiply the third equation in <xref ref="linalg-elim-eq" /> by 3: 
 <md>
-\begin{aligned}
-          2 x_1 + \phantom{9}  2 x_2 + 2 x_3 &amp; = 2 , \\
-\phantom{9} x_1 + \phantom{99}   x_2 + 3 x_3 &amp; = 5 , \\
-          3 x_1 +             12 x_2 + 3 x_3 &amp; = 30 .
-\end{aligned}
-</md>
+<mrow>          2 x_1 + \phantom{9}  2 x_2 + 2 x_3 \amp = 2 </mrow>
+<mrow> \phantom{9} x_1 + \phantom{99}   x_2 + 3 x_3 \amp = 5 </mrow>
+<mrow> 3 x_1 +             12 x_2 + 3 x_3 \amp = 30</mrow>
+</md>.
  Finally we can add a multiple of one equation to another equation. For example, we add 3 times the third equation in <xref ref="linalg-elim-eq" /> to the second equation: 
 <md>
-\begin{aligned}
-\phantom{(1+3)} 2 x_1 + \phantom{(1+12)}  2 x_2 + \phantom{(3+3)} 2 x_3 &amp; = 2 , \\
-\phantom{2} (1+3) x_1 + \phantom{2}(1+12)   x_2 + \phantom{2} (3+3) x_3 &amp; = 5+30 , \\
-\phantom{2 (1+3)} x_1 + \phantom{(1+12)}  4 x_2 + \phantom{(3+3) 2} x_3 &amp; = 10 .
-\end{aligned}
-</md>
+<mrow>\phantom{(1+3)} 2 x_1 + \phantom{(1+12)}  2 x_2 + \phantom{(3+3)} 2 x_3 \amp = 2  </mrow>
+<mrow>\phantom{2} (1+3) x_1 + \phantom{2}(1+12)   x_2 + \phantom{2} (3+3) x_3 \amp = 5+30  </mrow>
+<mrow>\phantom{2 (1+3)} x_1 + \phantom{(1+12)}  4 x_2 + \phantom{(3+3) 2} x_3 \amp = 10</mrow>
+</md>.
  The same <m>x_1,x_2,x_3</m> should still be solutions to the new equations. These were just examples; we did not get any closer to the solution. We must to do these three operations in some more logical manner, but it turns out these three operations suffice to solve every linear equation.
 			</p>
 
@@ -451,12 +444,10 @@ x_1 = -4, \qquad x_2 = 3, \qquad x_3 = 2 .
 <statement>			<p>
 				Solve the following system of equations using row reduction: 
 <md>
-\begin{split}
-\phantom{9} -x_1 + x_2 + 3x_3 &amp;= 7 \\
--3x_1 \phantom{+x_2} + \phantom{9} x_3 &amp;= -5 \\
--2x_1 - x_2 &amp;= -4
-\end{split}
-</md>
+<mrow>\phantom{9} -x_1 + x_2 + 3x_3 \amp= 7 </mrow>
+<mrow> -3x_1 \phantom{+x_2} + \phantom{9} x_3 \amp= -5 </mrow>
+<mrow> -2x_1 - x_2 \amp= -4</mrow>
+</md>.
 
 			</p>
 </statement>
@@ -567,10 +558,12 @@ x_1 = 3 \quad x_2 = -2 \quad x_3 = 4.
 x_1 + 2 x_2 = -5 , \qquad
 x_3 = 3 .
 </md>
- Let us solve for the variables that corresponded to the pivots, that is <m>x_1</m> and <m>x_3</m> as there was a pivot in the first column and in the third column: <md>\begin{align*}
-&amp; x_1 = - 2 x_2 -5 , \\
-&amp; x_3 = 3 .
-\end{align*}</md> The variable <m>x_2</m> can be anything you wish and we still get a solution. The <m>x_2</m> is called a <term>free variable</term>. There are infinitely many solutions, one for every choice of <m>x_2</m>. For example, if we pick <m>x_2=0</m>, then <m>x_1 = -5</m>, and <m>x_3 = 3</m> give a solution. But we also get a solution by picking say <m>x_2 = 1</m>, in which case <m>x_1 = -7</m> and <m>x_3 = 3</m>, or by picking <m>x_2 = -5</m> in which case <m>x_1 = 5</m> and <m>x_3 = 3</m>.
+ Let us solve for the variables that corresponded to the pivots, that is <m>x_1</m> and <m>x_3</m> as there was a pivot in the first column and in the third column: 
+ <md>
+<mrow>\amp x_1 = - 2 x_2 -5 , </mrow>
+<mrow> \amp x_3 = 3</mrow>
+</md>.
+ The variable <m>x_2</m> can be anything you wish and we still get a solution. The <m>x_2</m> is called a <term>free variable</term>. There are infinitely many solutions, one for every choice of <m>x_2</m>. For example, if we pick <m>x_2=0</m>, then <m>x_1 = -5</m>, and <m>x_3 = 3</m> give a solution. But we also get a solution by picking say <m>x_2 = 1</m>, in which case <m>x_1 = -7</m> and <m>x_3 = 3</m>, or by picking <m>x_2 = -5</m> in which case <m>x_1 = 5</m> and <m>x_3 = 3</m>.
 			</p>
 
 			<p>
@@ -611,25 +604,20 @@ x_3 = 3 .
 			<p>
 				
 <md>
-\begin{split}
-x_1 - \phantom{9} x_2 - 3x_3 &amp; = -3 \\
--x_1 - 2x_2 + 4x_3 &amp;= 6 \\
-x_1 + 5x_2 - 5x_3 &amp;= -9
-\end{split}
-</md>
+<mrow>x_1 - \phantom{9} x_2 - 3x_3 \amp = -3 </mrow>
+<mrow>-x_1 - 2x_2 + 4x_3 \amp= 6 </mrow>
+<mrow>x_1 + 5x_2 - 5x_3 \amp= -9</mrow>
+</md>.
 
 			</p><!--</div attr= class="minipage">-->
 
 <!-- div attr= class="minipage"-->
 			<p>
-				
-<md>
-\begin{split}
-x_1 - \phantom{9} x_2 - 3x_3 &amp; = -3 \\
--x_1 - 2x_2 + 4x_3 &amp;= 6 \\
-x_1 + 5x_2 - 5x_3 &amp;= 1
-\end{split}
-</md>
+				<md>
+<mrow>x_1 - \phantom{9} x_2 - 3x_3 \amp = -3 </mrow>
+<mrow> -x_1 - 2x_2 + 4x_3 \amp= 6 </mrow>
+<mrow> x_1 + 5x_2 - 5x_3 \amp= 1</mrow>
+</md>.
 
 			</p><!--</div attr= class="minipage">-->
 </statement>
@@ -671,12 +659,10 @@ x_1 = -3 + x_2 + 3x_3 = -3 + \left(-1 + \frac{1}{3}x_3\right) + 3x_3 = -4 + \fra
 </md>
  This means that for any value of <m>t</m>, our solution is determined by 
 <md>
-\begin{split}
-x_1 &amp;=  -4 + \frac{10}{3}t \\
-x_2 &amp;= -1 + \frac{1}{3}t  \\
-x_3 &amp;= t
-\end{split}.
-</md>
+<mrow>x_1 \amp=  -4 + \frac{10}{3}t </mrow>
+<mrow> x_2 \amp= -1 + \frac{1}{3}t  </mrow>
+<mrow> x_3 \amp= t </mrow>
+</md>.
  The use of <m>t</m> here is just to separate it from the variable <m>x_3</m>. For example, we could pick <m>t=3</m>, in which case we would get <m>x_1 = 6</m>, <m>x_2 = 0</m>, <m>x_3 = 3</m>.
 			</p>
 
@@ -706,7 +692,7 @@ x_3 &amp;= t
 </solution>
 </example>
 			<p>
-				The point of the above example is to illustrate the fact that whether or not a system is inconsistent or has free variables in the solution depends on the right-hand side of the equation, even if the left-hand side has the same coefficients. We'll see more about why this is in .
+				The point of the above example is to illustrate the fact that whether or not a system is inconsistent or has free variables in the solution depends on the right-hand side of the equation, even if the left-hand side has the same coefficients. We'll see more about why this is in <xref ref="det-section"/>.
 			</p>
 
 			<p>
@@ -1063,10 +1049,12 @@ A \vec{x} = \vec{0} .
 		<task>
 			<statement>
 				<p>
-					<m>\begin{aligned}
- 4x_1+3x_2 &amp; = -2 \\
- -x_1+\phantom{3} x_2 &amp; = 4
-\end{aligned}</m>
+					<md>
+<mrow> 4x_1+3x_2 \amp = -2 </mrow>
+<mrow>
+ -x_1+\phantom{3} x_2 \amp = 4
+</mrow>
+</md>
 				</p>
 			</statement>
 			<answer>
@@ -1078,11 +1066,11 @@ A \vec{x} = \vec{0} .
 		<task>
 			<statement>
 				<p>
-					<m>\begin{aligned}
-  x_1+5x_2+3x_3 &amp; = 7 \\
- 8x_1+7x_2+8x_3 &amp; = 8 \\
- 4x_1+8x_2+6x_3 &amp; = 4
-\end{aligned}</m>
+					<md>
+<mrow>  x_1+5x_2+3x_3 \amp = 7 </mrow>
+<mrow>  8x_1+7x_2+8x_3 \amp = 8 </mrow>
+<mrow>  4x_1+8x_2+6x_3 \amp = 4 </mrow>
+</md>
 				</p>
 			</statement>
 			<answer>
@@ -1094,11 +1082,11 @@ A \vec{x} = \vec{0} .
 		<task>
 			<statement>
 				<p>
-					<m>\begin{aligned}
- 4x_1+8x_2+2x_3 &amp; = 3 \\
- -x_1-2x_2+3x_3 &amp; = 1 \\
- 4x_1+8x_2 \phantom{{}+3x_3} &amp; = 2
-\end{aligned}</m>
+					<md>
+<mrow> 4x_1+8x_2+2x_3 \amp = 3 </mrow>
+<mrow>  -x_1-2x_2+3x_3 \amp = 1 </mrow>
+<mrow>  4x_1+8x_2 \phantom{{}+3x_3} \amp = 2 </mrow>
+</md>
 				</p>
 			</statement>
 			<answer>
@@ -1110,11 +1098,11 @@ A \vec{x} = \vec{0} .
 		<task>
 			<statement>
 				<p>
-					<m>\begin{aligned}
-  x+2y+3z &amp; = 4 \\
-2  x-\phantom{2} y+3z &amp; = 1 \\
-3  x+\phantom{2} y+6z &amp; = 6
-\end{aligned}</m>
+					<md>
+<mrow>  x+2y+3z \amp = 4 </mrow>
+<mrow>2  x-\phantom{2} y+3z \amp = 1 </mrow>
+<mrow>3  x+\phantom{2} y+6z \amp = 6</mrow>
+</md>
 				</p>
 			</statement>
 			<answer>
@@ -1135,10 +1123,10 @@ A \vec{x} = \vec{0} .
 		<task>
 			<statement>
 				<p>
-					<m>\begin{aligned}
-4x_1+3x_2 &amp; = -1 \\
-5x_1+6x_2 &amp; = 4
-\end{aligned}</m>
+					<md>
+<mrow>4x_1+3x_2 \amp = -1 </mrow>
+<mrow> 5x_1+6x_2 \amp = 4</mrow>
+</md>
 				</p>
 			</statement>
 			<answer>
@@ -1150,11 +1138,11 @@ A \vec{x} = \vec{0} .
 		<task>
 			<statement>
 				<p>
-					<m>\begin{aligned}
- 5x+6y+5z &amp; = 7 \\
- 6x+8y+6z &amp; = -1 \\
- 5x+2y+5z &amp; = 2
-\end{aligned}</m>
+					<md>
+<mrow> 5x+6y+5z \amp = 7 </mrow>
+<mrow>  6x+8y+6z \amp = -1 </mrow>
+<mrow>  5x+2y+5z \amp = 2</mrow>
+</md>
 				</p>
 			</statement>
 			<answer>
@@ -1166,11 +1154,11 @@ A \vec{x} = \vec{0} .
 		<task>
 			<statement>
 				<p>
-					<m>\begin{aligned}
-a+\phantom{5}b+\phantom{6}c &amp; = -1 \\
-a+5b+6c &amp; = -1 \\
--2a+5b+6c &amp; = 8
-\end{aligned}</m>
+					<md>
+<mrow>a+\phantom{5}b+\phantom{6}c \amp = -1 </mrow>
+<mrow>a+5b+6c \amp = -1 </mrow>
+<mrow>-2a+5b+6c \amp = 8</mrow>
+</md>
 				</p>
 			</statement>
 			<answer>
@@ -1182,11 +1170,11 @@ a+5b+6c &amp; = -1 \\
 		<task>
 			<statement>
 				<p>
-					<m>\begin{aligned}
--2 x_1+2x_2+8x_3 &amp; = 6 \\
-x_2+\phantom{8}x_3 &amp; = 2 \\
-x_1+4x_2+\phantom{8}x_3 &amp; = 7
-\end{aligned}</m>
+					<md>
+<mrow>-2 x_1+2x_2+8x_3 \amp = 6 </mrow>
+<mrow>x_2+\phantom{8}x_3 \amp = 2 </mrow>
+<mrow>x_1+4x_2+\phantom{8}x_3 \amp = 7</mrow>
+</md>
 				</p>
 			</statement>
 			<answer>
@@ -1202,12 +1190,10 @@ x_1+4x_2+\phantom{8}x_3 &amp; = 7
 			<p>
 				Solve the system of equations 
 <md>
-\begin{split}
--4x_2 + x_3 + 2x_4 &amp;= 16 \\
-2x_1 + 2x_2 - 4x_3 - 3x_4 &amp;= 1 \\
-x_1 + x_2 + 2x_3 + 3x_4 &amp;= 6 \\
-2x_1 - 2x_3 + 4x_4 &amp;= 24
-\end{split}
+<mrow>-4x_2 + x_3 + 2x_4 \amp= 16 </mrow>
+<mrow>2x_1 + 2x_2 - 4x_3 - 3x_4 \amp= 1 </mrow>
+<mrow>x_1 + x_2 + 2x_3 + 3x_4 \amp= 6 </mrow>
+<mrow>2x_1 - 2x_3 + 4x_4 \amp= 24</mrow>
 </md>
  or determine that no solution exists.
 			</p>
@@ -1224,12 +1210,11 @@ x_1 + x_2 + 2x_3 + 3x_4 &amp;= 6 \\
 			<p>
 				Solve the system of equations 
 <md>
-\begin{split}
-3x_2 + 3x_3 + 2x_4 &amp;= 4 \\
-4x_1 + 4x_2 + 2x_3 - 4x_4 &amp;= -26 \\
-x_1 - 3x_2 -2x_3 + 2x_4 &amp;= 1 \\
-3x_1 + 3x_2 + 3x_3  - x_4 &amp;= -14
-\end{split}
+<mrow>3x_2 + 3x_3 + 2x_4 \amp= 4 </mrow>
+<mrow>4x_1 + 4x_2 + 2x_3 - 4x_4 \amp= -26 </mrow>
+<mrow>x_1 - 3x_2 -2x_3 + 2x_4 \amp= 1 </mrow>
+<mrow>3x_1 + 3x_2 + 3x_3  - x_4 \amp= -14
+</mrow>
 </md>
  or determine that no solution exists.
 			</p>
@@ -1245,12 +1230,10 @@ x_1 - 3x_2 -2x_3 + 2x_4 &amp;= 1 \\
 			<p>
 				Solve the system of equations 
 <md>
-\begin{split}
-2x_1 + x_2 - x_3 + 4x_4 &amp;= 11 \\
-x_1 + 4x_2  - 4x_3 - x_4 &amp;= -7 \\
--2x_1 - 3x_2 + 2x_3 + x_4 &amp;= 11 \\
-3x_1 + x_3  + 4x_4 &amp;= 3
-\end{split}
+<mrow>2x_1 + x_2 - x_3 + 4x_4 \amp= 11 </mrow>
+<mrow>x_1 + 4x_2  - 4x_3 - x_4 \amp= -7 </mrow>
+<mrow>-2x_1 - 3x_2 + 2x_3 + x_4 \amp= 11 </mrow>
+<mrow>3x_1 + x_3  + 4x_4 \amp= 3</mrow>
 </md>
  or determine that no solution exists.
 			</p>
@@ -1267,12 +1250,10 @@ x_1 + 4x_2  - 4x_3 - x_4 &amp;= -7 \\
 			<p>
 				Solve the system of equations 
 <md>
-\begin{split}
-x_1 - x_3 - 4x_4 &amp;= -3 \\
-x_1 + x_2 + x_4 &amp;= 0\\
-x_1 + 3x_2 + 3x_3 - 4x_4 &amp;= -28 \\
-6x_1 + 3x_2 - 4x_3 + 6x_4 &amp;= 25
-\end{split}
+<mrow>x_1 - x_3 - 4x_4 \amp= -3 </mrow>
+<mrow>x_1 + x_2 + x_4 \amp= 0</mrow>
+<mrow>x_1 + 3x_2 + 3x_3 - 4x_4 \amp= -28 </mrow>
+<mrow>6x_1 + 3x_2 - 4x_3 + 6x_4 \amp= 25</mrow>
 </md>
  or determine that no solution exists.
 			</p>

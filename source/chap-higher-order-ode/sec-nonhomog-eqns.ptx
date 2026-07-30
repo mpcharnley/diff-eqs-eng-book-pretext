@@ -42,26 +42,26 @@
 
 			<p>
 				We have solved linear constant coefficient homogeneous equations. What about nonhomogeneous linear ODEs? For example, the equations for forced mechanical vibrations, where we add a <q>forcing</q> term, which is a function on the right-hand side of the equation. That is, suppose we have an equation such as 
-<md number="yes" xml:id="3-5-eq-nh">
+<md number="yes" xml:id="eq-nh-3-5">
  y'' + 5y'+ 6y = 2x+1 .
 </md>
 			</p>
 
 			<p>
-				We will write <m>L[y] = 2x+1</m>, where <m>L[y]</m> represents the entire left-hand side of <m>y'' + 5y' + 6y</m>, when the exact form of the operator is not important. We solve <xref ref="3-5-eq-nh" /> in the following manner. First, we find the general solution <m>y_c</m> to the <term>associate homogeneous equation</term>.
-<md number="yes" xml:id="3-5-eq-h">
+				We will write <m>L[y] = 2x+1</m>, where <m>L[y]</m> represents the entire left-hand side of <m>y'' + 5y' + 6y</m>, when the exact form of the operator is not important. We solve <xref ref="eq-nh-3-5" /> in the following manner. First, we find the general solution <m>y_c</m> to the <term>associate homogeneous equation</term>.
+<md number="yes" xml:id="eq-h-3-5">
  y'' + 5y'+ 6y = 0 .
 </md>
-We call <m>y_c</m> the <term>complemetary solution</term>. Next, we find a single <term>particular solution</term> <m>y_p</m> to <xref ref="3-5-eq-nh" /> in some way (that is the point of this section). Then 
+We call <m>y_c</m> the <term>complemetary solution</term>. Next, we find a single <term>particular solution</term> <m>y_p</m> to <xref ref="eq-nh-3-5" /> in some way (that is the point of this section). Then 
 <md>
 y = y_c + y_p
 </md>
- is the general solution to <xref ref="3-5-eq-nh" />. We have <m>L[y_c] = 0</m> and <m>L[y_p] = 2x+1</m>. As <m>L</m> is a <term>linear operator</term> we verify that <m>y</m> is a solution, <m>L[y] = L [y_c + y_p] = L[y_c] + L[y_p] = 0
+ is the general solution to <xref ref="eq-nh-3-5" />. We have <m>L[y_c] = 0</m> and <m>L[y_p] = 2x+1</m>. As <m>L</m> is a <term>linear operator</term> we verify that <m>y</m> is a solution, <m>L[y] = L [y_c + y_p] = L[y_c] + L[y_p] = 0
 + (2x+1)</m>. Let us see why we obtain the <em>general</em> solution.
 			</p>
 
 			<p>
-				Let <m>y_p</m> and <m>\tilde{y}_p</m> be two different particular solutions to <xref ref="3-5-eq-nh" />. Write the difference as <m>w = y_p - \tilde{y}_p</m>. Then plug <m>w</m> into the left-hand side of the equation to get 
+				Let <m>y_p</m> and <m>\tilde{y}_p</m> be two different particular solutions to <xref ref="eq-nh-3-5" />. Write the difference as <m>w = y_p - \tilde{y}_p</m>. Then plug <m>w</m> into the left-hand side of the equation to get 
 <md>
 w'' + 5w'+ 6w =
 (y_p'' + 5y_p'+ 6y_p) -
@@ -74,7 +74,7 @@ L[w] = L[y_p - \tilde{y}_p] =
 L[y_p] - L[\tilde{y}_p] =
 (2x+1)-(2x+1) = 0 .
 </md>
- So <m>w = y_p - \tilde{y}_p</m> is a solution to <xref ref="3-5-eq-h" />, that is <m>Lw = 0</m>. However, we know what all solutions to <m>Lw = 0</m> look like, as this is a homogeneous equation that we have solved previously. Therefore, any two solutions of <xref ref="3-5-eq-nh" /> differ by a solution to the homogeneous equation <xref ref="3-5-eq-h" />. The solution <m>y = y_c + y_p</m> includes <em>all</em> solutions to <xref ref="3-5-eq-nh" />, since <m>y_c</m> is the general solution to the associated homogeneous equation.
+ So <m>w = y_p - \tilde{y}_p</m> is a solution to <xref ref="eq-h-3-5" />, that is <m>Lw = 0</m>. However, we know what all solutions to <m>Lw = 0</m> look like, as this is a homogeneous equation that we have solved previously. Therefore, any two solutions of <xref ref="eq-nh-3-5" /> differ by a solution to the homogeneous equation <xref ref="eq-h-3-5" />. The solution <m>y = y_c + y_p</m> includes <em>all</em> solutions to <xref ref="eq-nh-3-5" />, since <m>y_c</m> is the general solution to the associated homogeneous equation.
 			</p>
 
 <theorem xml:id="thm-nonhomog-superpos">
@@ -99,25 +99,20 @@ y = y_c + y_p.
 			<title>Undetermined coefficients</title>
 
 			<p>
-				The trick is to somehow, in a smart way, guess one particular solution to <xref ref="3-5-eq-nh" />. Note that <m>2x+1</m> is a polynomial, and the left-hand side of the equation (with all of the derivatives) will still be a polynomial if we let <m>y</m> be a polynomial of the same degree. Let us try 
+				The trick is to somehow, in a smart way, guess one particular solution to <xref ref="eq-nh-3-5" />. Note that <m>2x+1</m> is a polynomial, and the left-hand side of the equation (with all of the derivatives) will still be a polynomial if we let <m>y</m> be a polynomial of the same degree. Let us try 
 <md>
 y_p = Ax + B .
 </md>
  We plug <m>y_p</m> into the left hand side to obtain 
 <md>
-\begin{split}
-y_p'' + 5y_p'+ 6y_p &amp; =
-(Ax+B)'' + 5(Ax+B)' + 6(Ax+B)
-\\
-&amp; = 
-0 + 5A + 6Ax + 6B = 6Ax+ (5A+6B) .
-\end{split}
-</md>
+<mrow>y_p'' + 5y_p'+ 6y_p \amp = (Ax+B)'' + 5(Ax+B)' + 6(Ax+B) </mrow>
+<mrow> \amp =  0 + 5A + 6Ax + 6B = 6Ax+ (5A+6B) </mrow>
+</md>.
  So <m>6Ax+(5A+6B) = 2x+1</m>. If we match up the coefficients of <m>x</m> in this equation, we get that <m>6A = 2</m> or <m>A = \nicefrac{1}{3}</m>. In order for the constant terms to match, we need that <m>5A + 6B = 1</m>. Since we know the value of <m>A</m>, this tells us that <m>B = \nicefrac{-1}{9}</m>. That means <m>y_p = \frac{1}{3}\, x - \frac{1}{9} = \frac{3x-1}{9}</m>. Solving the complementary problem (exercise!) we get 
 <md>
 y_c = C_1 e^{-2x} + C_2 e^{-3x}.
 </md>
- Hence the general solution to <xref ref="3-5-eq-nh" /> is 
+ Hence the general solution to <xref ref="eq-nh-3-5" /> is 
 <md>
 y = C_1 e^{-2x} + C_2 e^{-3x} + \frac{3x-1}{9} .
 </md>
@@ -138,15 +133,15 @@ y(x) = \frac{1}{3} e^{-2x} - \frac{2}{9} e^{-3x} + \frac{3x-1}{9} =
 <exercise>
 <statement>
 			<p>
-				Check that <m>y</m> really solves the equation <xref ref="3-5-eq-nh" /> and the given initial conditions.
+				Check that <m>y</m> really solves the equation <xref ref="eq-nh-3-5" /> and the given initial conditions.
 			</p>
 </statement>
-
-<answer>			<p>
+</exercise>
+			<p>
 				Note: A common mistake is to solve for constants using the initial conditions with <m>y_c</m> and only add the particular solution <m>y_p</m> after that. That will <em>not</em> work. You need to first compute <m>y = y_c + y_p</m> and <em>only then</em> solve for the constants using the initial conditions.
 			</p>
-</answer>
-</exercise>
+
+
 
 			<p>
 				A right-hand side consisting of exponentials, sines, and cosines can be handled similarly.
@@ -189,19 +184,21 @@ y_p = A \cos(2x) .
 <md>
 y_p = A \cos (2x) + B \sin (2x) .
 </md>
- We plug <m>y_p</m> into the equation and we get <md>\begin{multline*}
+ We plug <m>y_p</m> into the equation and we get 
+ <md>
 \underbrace{-4 A \cos (2x) - 4 B \sin (2x)}_{y_p''}
 +2 \underbrace{\bigl(-2A \sin (2x) + 2B \cos (2x)\bigr)}_{y_p'}
 \\
 +
 2 \underbrace{\bigl(A \cos (2x) + B \sin (2x)\bigr)}_{y_p}
-= \cos (2x) ,
-\end{multline*}</md> or 
+= \cos (2x)
+</md>, 
+or 
 <md>
 (-4A+4B+2A) \cos(2x) +
 (-4B-4A+2B) \sin(2x)
-= \cos(2x) .
-</md>
+= \cos(2x)
+</md>.
  The left-hand side must equal to right-hand side. Namely, <m>-4A + 4B + 2A = 1</m> and <m>-4B - 4A + 2B = 0</m>. So <m>-2A+4B =1</m> and <m>2A+B=0</m>. We can solve this system of equations to get that <m>A=\nicefrac{-1}{10}</m> and <m>B=\nicefrac{1}{5}</m>. So 
 <md>
 y_p = A \cos (2x) + B \sin (2x) = \frac{-\cos (2x) + 2 \sin (2x)}{10} .
@@ -353,19 +350,15 @@ y_p(x) = Axe^{-x} + B\sin(x) + C\cos(x).
 			<p>
 				We take two derivatives of this function and then plug it into the differential equation 
 <md>
-\begin{split}
-y_p(x) &amp;= Axe^{-x} + B\sin(x) + C\cos(x) \\
-y_p'(x) &amp;= Ae^{-x} - Axe^{-x} + B\cos(x) - C\sin(x) \\
-y_p''(x) &amp;= Axe^{-x} - 2Ae^{-x} - B\sin(x) - C\cos(x)
-\end{split}
+<mrow>y_p(x) \amp= Axe^{-x} + B\sin(x) + C\cos(x) </mrow>
+<mrow> y_p'(x) \amp= Ae^{-x} - Axe^{-x} + B\cos(x) - C\sin(x) </mrow>
+<mrow> y_p''(x) \amp= Axe^{-x} - 2Ae^{-x} - B\sin(x) - C\cos(x) </mrow>
 </md>
  so that 
 <md>
-\begin{split}
-y_p'' - 3y_p' - 4y_p &amp;= (Axe^{-x} - 2Ae^{-x} - B\sin(x) - C\cos(x))\\
-&amp;\ \ - 3(Ae^{-x} - Axe^{-x} + B\cos(x) - C\sin(x))\\
-&amp; \ \  - 4(Axe^{-x} + B\sin(x) + C\cos(x))
-\end{split}
+<mrow>y_p'' - 3y_p' - 4y_p \amp= (Axe^{-x} - 2Ae^{-x} - B\sin(x) - C\cos(x))</mrow>
+<mrow> \amp\ \ - 3(Ae^{-x} - Axe^{-x} + B\cos(x) - C\sin(x))</mrow>
+<mrow> \amp \ \  - 4(Axe^{-x} + B\sin(x) + C\cos(x)) </mrow>
 </md>
  which can be simplified to 
 <md>
@@ -385,10 +378,8 @@ y'(x) = 4C_1e^{4x} - C_2e^{-x} - \frac{2}{5}e^{-x} + \frac{2}{5}xe^{-x} - \frac{
 </md>
  and then plug zero into both <m>y</m> and <m>y'</m> to get that 
 <md>
-\begin{split}
-y(0) &amp;= C_1 + C_2 + \frac{6}{17} = -2 \\
-y'(0) &amp;= 4C_1 - C_2 - \frac{2}{5} - \frac{10}{17} = 1
-\end{split}
+<mrow>y(0) \amp= C_1 + C_2 + \frac{6}{17} = -2 </mrow>
+<mrow> y'(0) \amp= 4C_1 - C_2 - \frac{2}{5} - \frac{10}{17} = 1 </mrow>
 </md>
  which gives rise to the system 
 <md>
@@ -421,14 +412,16 @@ y(x) = -\frac{31}{425}e^{4x} - \frac{57}{25}e^{-x} - \frac{2}{5}xe^{-x} - \frac{
 <md>
 y''+y = \tan x .
 </md>
- Each new derivative of <m>\tan x</m> looks completely different and cannot be written as a linear combination of the previous derivatives. If we start differentiating <m>\tan x</m>, we get: <md>\begin{multline*}
-\sec^2 x, \quad
-2\sec^2 x \, \tan x, \quad
-4 \sec^2 x \, \tan^2 x + 2 \sec^4 x, \\
-8 \sec^2 x \, \tan^3 x + 16 \sec^4 x \, \tan x, \quad
-16\sec^2 x \, \tan^4 x + 88 \sec^4 x \tan^2 x + 16 \sec^6 x, \quad
-\ldots
-\end{multline*}</md>
+ Each new derivative of <m>\tan x</m> looks completely different and cannot be written as a linear combination of the previous derivatives. If we start differentiating <m>\tan x</m>, we get: 
+ <md>
+	<mrow> f(x) \amp = \tan x </mrow>
+	<mrow> f'(x) \amp = \sec^2 x</mrow>
+	<mrow> f''(x) \amp = 2\sec^2 x \, \tan x</mrow>
+	<mrow> f^{(3)}(x) \amp = 4 \sec^2 x \, \tan^2 x + 2 \sec^4 x</mrow>
+	<mrow> f^{(4)}(x) \amp = 8 \sec^2 x \, \tan^3 x + 16 \sec^4 x \, \tan x</mrow>
+	<mrow> f^{(5)}(x) \amp = 16\sec^2 x \, \tan^4 x + 88 \sec^4 x \tan^2 x + 16 \sec^6 x </mrow>
+	<mrow> \vdots \amp  = \vdots </mrow>
+</md>
 			</p>
 
 			<p>
@@ -448,10 +441,12 @@ y_p = y = u_1 y_1 + u_2 y_2 ,
 <md>
 y' = (u_1' y_1 + u_2' y_2) + (u_1 y_1' + u_2 y_2').
 </md>
- We can still impose one more condition at our discretion to simplify computations (we have two unknown functions, so we should be allowed two conditions). We require that <m>(u_1' y_1 + u_2' y_2) = 0</m>. This makes computing the second derivative easier. <md>\begin{align*}
-&amp; y' = u_1 y_1' + u_2 y_2' , \\
-&amp; y'' = (u_1' y_1' + u_2' y_2') + (u_1 y_1'' + u_2 y_2'') .
-\end{align*}</md> Since <m>y_1</m> and <m>y_2</m> are solutions to <m>y''+y = 0</m>, we find <m>y_1'' = - y_1</m> and <m>y_2'' = - y_2</m>. (If the equation was a more general <m>y''+p(x)y' +q(x)y = 0</m>, we would have <m>y_i'' = -p(x)y_i' -q(x)y_i</m>.) So 
+ We can still impose one more condition at our discretion to simplify computations (we have two unknown functions, so we should be allowed two conditions). We require that <m>(u_1' y_1 + u_2' y_2) = 0</m>. This makes computing the second derivative easier. 
+ <md>
+<mrow>\amp y' = u_1 y_1' + u_2 y_2' , </mrow>
+<mrow> \amp y'' = (u_1' y_1' + u_2' y_2') + (u_1 y_1'' + u_2 y_2'') </mrow>
+</md>.
+Since <m>y_1</m> and <m>y_2</m> are solutions to <m>y''+y = 0</m>, we find <m>y_1'' = - y_1</m> and <m>y_2'' = - y_2</m>. (If the equation was a more general <m>y''+p(x)y' +q(x)y = 0</m>, we would have <m>y_i'' = -p(x)y_i' -q(x)y_i</m>.) So 
 <md>
 y'' = (u_1' y_1' + u_2' y_2') - (u_1 y_1 + u_2 y_2) .
 </md>
@@ -469,60 +464,54 @@ y'' + y = L[y] = u_1' y_1' + u_2' y_2' .
 			<p>
 				What we need to solve are the two equations (conditions) we imposed on <m>u_1</m> and <m>u_2</m>: 
 <md>
-\mybxbg{~~
-\begin{aligned}
-&amp; u_1' y_1 + u_2' y_2 = 0 ,\\
-&amp; u_1' y_1' + u_2' y_2' = f(x) .
-\end{aligned}
-~~}
-</md>
+<mrow>u_1' y_1 + u_2' y_2 \amp = 0 ,</mrow>
+<mrow>
+u_1' y_1' + u_2' y_2' \amp = f(x)
+</mrow>
+</md>.
  We solve for <m>u_1'</m> and <m>u_2'</m> in terms of <m>f(x)</m>, <m>y_1</m> and <m>y_2</m>. We always get these formulas for any <m>L[y] = f(x)</m>, where <m>L[y] =
-y''+p(x)y'+q(x)y</m>. There is a general formula for the solution we could just plug into, but instead of memorizing that, it is better, and easier, to just repeat what we do below. In our case the two equations are <md>\begin{align*}
-u_1' \cos (x) + u_2' \sin (x) &amp;= 0 ,\\
--u_1' \sin (x) + u_2' \cos (x) &amp;= \tan (x) .
-\end{align*}</md> Hence <md>\begin{align*}
-u_1' \cos (x) \sin (x) + u_2' \sin^2 (x) &amp; = 0 ,\\
--u_1' \sin (x) \cos (x) + u_2' \cos^2 (x) &amp; = \tan (x) \cos (x) = \sin (x) .
-\end{align*}</md> And thus <md>\begin{align*}
-&amp; u_2' \bigl(\sin^2 (x) + \cos^2 (x)\bigr) = \sin (x) , \\
-&amp; u_2' = \sin (x) , \\
-&amp; u_1' = \frac{- \sin^2 (x)}{\cos (x)} = - \tan (x) \sin (x) .
-\end{align*}</md> We integrate <m>u_1'</m> and <m>u_2'</m> to get <m>u_1</m> and <m>u_2</m>. <md>\begin{align*}
-&amp; u_1 = \int u_1'\,dx 
-= \int - \tan (x) \sin (x)\,dx
-= \frac{1}{2}
-\ln \left\lvert \frac{\sin (x)-1}{\sin (x) + 1} \right\rvert
-+ \sin (x) , \\
-&amp; u_2 = \int u_2'\,dx 
-= \int \sin (x)\,dx = -\cos (x) .
-\end{align*}</md> So our particular solution is <md>\begin{multline*}
-y_p = u_1 y_1 + u_2 y_2 =
-\frac{1}{2} \cos (x) \ln \left\lvert \frac{\sin (x)-1}{\sin (x) + 1}
-\right\rvert
-+ \cos (x) \sin (x)
--\cos (x) \sin (x)
-= \\ =
-\frac{1}{2} \cos (x) \ln \left\lvert \frac{\sin (x)-1}{\sin (x) + 1}
-\right\rvert .
-\end{multline*}</md> The general solution to <m>y'' + y = \tan x</m> is, therefore, 
+y''+p(x)y'+q(x)y</m>. There is a general formula for the solution we could just plug into, but instead of memorizing that, it is better, and easier, to just repeat what we do below. In our case the two equations are 
+<md>
+<mrow>u_1' \cos (x) + u_2' \sin (x) \amp= 0 </mrow>
+<mrow> -u_1' \sin (x) + u_2' \cos (x) \amp= \tan (x) </mrow>
+</md>.
+Hence 
+<md>
+<mrow>u_1' \cos (x) \sin (x) + u_2' \sin^2 (x) \amp = 0 </mrow>
+<mrow> -u_1' \sin (x) \cos (x) + u_2' \cos^2 (x) \amp = \tan (x) \cos (x) = \sin (x) </mrow>
+</md>.
+And thus 
+<md>
+<mrow>\amp u_2' \bigl(\sin^2 (x) + \cos^2 (x)\bigr) = \sin (x) </mrow>
+<mrow> \amp u_2' = \sin (x) </mrow>
+<mrow> \amp u_1' = \frac{- \sin^2 (x)}{\cos (x)} = - \tan (x) \sin(x) </mrow>
+</md>.
+We integrate <m>u_1'</m> and <m>u_2'</m> to get <m>u_1</m> and <m>u_2</m>. 
+<md>
+<mrow>\amp u_1 = \int u_1'\,dx = \int - \tan (x) \sin (x)\,dx = \frac{1}{2} \ln \left\lvert \frac{\sin (x)-1}{\sin (x) + 1} \right\rvert + \sin (x) , </mrow>
+<mrow> \amp u_2 = \int u_2'\,dx  = \int \sin (x)\,dx = -\cos (x) </mrow>
+</md>.
+So our particular solution is 
+<md>
+<mrow> y_p \amp = u_1 y_1 + u_2 y_2 </mrow>
+<mrow> \amp = \frac{1}{2} \cos (x) \ln \left\lvert \frac{\sin (x)-1}{\sin (x) + 1} \right\rvert + \cos (x) \sin (x) -\cos (x) \sin (x) </mrow>
+<mrow> \amp = \frac{1}{2} \cos (x) \ln \left\lvert \frac{\sin (x)-1}{\sin (x) + 1} \right\rvert </mrow>
+</md>. 
+The general solution to <m>y'' + y = \tan x</m> is, therefore, 
 <md>
 y = C_1 \cos (x) + C_2 \sin (x) +
 \frac{1}{2} \cos (x) \ln \left\lvert \frac{\sin (x)-1}{\sin (x) + 1}
-\right\rvert .
-</md>
+\right\rvert
+</md>.
 
 			</p>
 
 			<p>
 				In more generality, we can take the system of equations 
 <md>
-\mybxbg{~~
-\begin{aligned}
-&amp; u_1' y_1 + u_2' y_2 = 0 ,\\
-&amp; u_1' y_1' + u_2' y_2' = f(x) .
-\end{aligned}
-~~}
-</md>
+<mrow>u_1' y_1 + u_2' y_2  \amp = 0 ,</mrow>
+<mrow> u_1' y_1' + u_2' y_2' \amp = f(x) </mrow>
+</md>.
  and solve out for <m>u_1'</m> and <m>u_2'</m> using elimination. If we do that, we get that 
 <md>
 u_1' = -\frac{y_2(x)f(x)}{y_1(x)y_2'(x) - y_1'(x)y_2(x)} \qquad u_2' = \frac{y_1(x)f(x)}{y_1(x)y_2'(x) - y_1'(x)y_2(x)}.
@@ -584,21 +573,17 @@ y_1(x)y_2'(x) - y_1'(x)y_2(x) = e^{-x}(-3e^{-3x}) - (-e^{-x})e^{-3x} = -2e^{-4x}
 			<p>
 				Therefore, we can use the formulas from the method of variation of parameters to compute that 
 <md>
-\begin{split}
-u_1' &amp;= -\frac{y_2(x)f(x)}{y_1(x)y_2'(x) - y_1'(x)y_2(x)} = -\frac{e^{-3x}(e^{3x} + 2)}{-2e^{-4x}} = \frac{1}{2}e^{4x} + e^x \\
-u_2' &amp;= \frac{y_1(x)f(x)}{y_1(x)y_2'(x) - y_1'(x)y_2(x)} = \frac{e^{-x}(e^{3x} + 2)}{-2e^{-4x}} = -\frac{1}{2}e^{6x} - e^{3x}.
-\end{split}
-</md>
+<mrow>u_1' \amp= -\frac{y_2(x)f(x)}{y_1(x)y_2'(x) - y_1'(x)y_2(x)} = -\frac{e^{-3x}(e^{3x} + 2)}{-2e^{-4x}} = \frac{1}{2}e^{4x} + e^x </mrow>
+<mrow> u_2' \amp= \frac{y_1(x)f(x)}{y_1(x)y_2'(x) - y_1'(x)y_2(x)} = \frac{e^{-x}(e^{3x} + 2)}{-2e^{-4x}} = -\frac{1}{2}e^{6x} - e^{3x} </mrow>
+</md>.
  Then we can compute 
 <md>
 u_1 = \frac{1}{8}e^{4x} + e^x + C_1 \qquad u_2 = -\frac{1}{12}e^{6x} - \frac{1}{3}e^{3x} + C_2.
 </md>
  Then, we can write out the full general solution as <m>y(x) = u_1(x)y_1(x) + u_2(x)y_2(x)</m> or 
 <md>
-\begin{split}
-y(x) &amp;= e^{-x}\left( \frac{1}{8}e^{4x} + e^x + C_1 \right) + e^{-3x}\left(-\frac{1}{12}e^{6x} - \frac{1}{3}e^{3x} + C_2 \right) \\
-&amp;= \frac{1}{8}e^{3x} + 1 + C_1e^{-x} - \frac{1}{12}e^{3x} - \frac{1}{3} + C_2e^{-3x}
-\end{split}
+<mrow>y(x) \amp= e^{-x}\left( \frac{1}{8}e^{4x} + e^x + C_1 \right) + e^{-3x}\left(-\frac{1}{12}e^{6x} - \frac{1}{3}e^{3x} + C_2 \right) </mrow>
+<mrow> \amp= \frac{1}{8}e^{3x} + 1 + C_1e^{-x} - \frac{1}{12}e^{3x} - \frac{1}{3} + C_2e^{-3x} </mrow>
 </md>
  which, after combining the terms, is the same as the solution that we obtained via undetermined coefficients.
 			</p>
@@ -1013,7 +998,7 @@ y(x) &amp;= e^{-x}\left( \frac{1}{8}e^{4x} + e^x + C_1 \right) + e^{-3x}\left(-\
 </statement>
 <answer>
 	<p>
-		<m>y = \frac{2xe^x-(e^x+e^{-x})\ln(e^{2x}+1)}{4} = -\frac{1}{4}\ln(e^x + e^{-x})(e^x + e^{-x}) + \frac{1}{4}x(e^x - e^{-x}</m>
+		<m>y = \frac{2xe^x-(e^x+e^{-x})\ln(e^{2x}+1)}{4} = -\frac{1}{4}\ln(e^x + e^{-x})(e^x + e^{-x}) + \frac{1}{4}x(e^x - e^{-x})</m>
 	</p>
 </answer>
 

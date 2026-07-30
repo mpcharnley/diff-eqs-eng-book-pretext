@@ -8,18 +8,12 @@
 <backmatter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="backmatter">
   <title>Backmatter</title>
 
-  <!-- <solutions divisional="hint"> <title>Selected Hints</title> </solutions> -->
-
-  <!-- <solutions divisional="solution"> <title>Selected Solutions</title> </solutions> -->
-
-  <!-- <appendix> <title>List of Symbols</title> <notation-list/> </appendix> -->
-
   <!-- <index> <title>Index</title> <index-list/> </index> -->
 
   <xi:include href="references.ptx" />
 
   <colophon>
-    <p> This book was authored in <pretext />. </p>
+    <p> This book was authored in <pretext />. It is converted from the PDF book available at this website. Original material for the book was pulled from Jiří Lebl's <url href="https://www.jirka.org/diffyqs/">Notes on Diffy Qs</url>. </p>
   </colophon>
 </backmatter>
 

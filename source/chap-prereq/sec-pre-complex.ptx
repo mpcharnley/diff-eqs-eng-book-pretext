@@ -6,11 +6,11 @@
 	<title>Complex Numbers</title>
 
 	<p> The equation <m>x^{2} + 1 = 0</m> has no real number solutions. However, it <em>would</em>
-		have solutions if we could make sense of <m>\sqrt{-1}</m>. The <em>Complex Numbers</em> do
+		have solutions if we could make sense of <m>\sqrt{-1}</m>. The <term>Complex Numbers</term> do
 		just that - they give us a mechanism for working with <m>\sqrt{-1}</m>. As such, the set of
 		complex numbers fill in an algebraic gap left by the set of real numbers. </p>
 
-	<p> Here’s the basic plan. There is no real number <m>x</m> with <m>x^2 = -1</m>, since for any
+	<p> Here's the basic plan. There is no real number <m>x</m> with <m>x^2 = -1</m>, since for any
 		real number <m>x^2 \geq 0</m>. However, we could formally extract square roots and write <m>x
 		= \pm \sqrt{-1}</m>. We build the complex numbers by relabeling the quantity <m>\sqrt{-1}</m>
 		as <m>i</m>, the unfortunately misnamed <em>imaginary unit</em>.<fn>
@@ -48,25 +48,23 @@
 	</definition>
 
 
-	<p> Property 1 in the previous definition establishes that <m>i</m> does act as a square root<fn>
-			 Note the use of the indefinite article <sq>a</sq>. Whatever beast is chosen to be <m>
-		i</m>, <m>-i</m> is the other square root of <m>-1</m>. 
+	<p> Property 1 in the previous definition establishes that <m>i</m> does act as a square root<fn> Note the use of the indefinite article <sq>a</sq>. Whatever beast is chosen to be <m>i</m>, <m>-i</m> is the other square root of <m>-1</m>. 
 		</fn> of <m>-1</m>, and
 		property 2 establishes what we mean by the <sq>principal square root</sq> of a negative real
 		number. In property 2, it is important to remember the restriction on <m>c</m>. For example,
 		it is perfectly acceptable to say <m>\sqrt{-4} = i \sqrt{4} = i(2) = 2i</m>. However, <m>\sqrt{-(-4)}
-		\neq i \sqrt{-4}</m>, otherwise, we’d get<me>2 = \sqrt{4} = \sqrt{-(-4)} = i \sqrt{-4} = i
-		(2i) = 2i^2 = 2(-1) = -2,</me> which is unacceptable. The moral of this story is that the
+		\neq i \sqrt{-4}</m>, otherwise, we'd get<md>2 = \sqrt{4} = \sqrt{-(-4)} = i \sqrt{-4} = i
+		(2i) = 2i^2 = 2(-1) = -2,</md> which is unacceptable. The moral of this story is that the
 		general properties of radicals do not apply for even roots of negative quantities. With
 		Definition <xref ref="idefn" /> in place, we can define the set of <em>complex numbers</em>. </p>
 
-	<p> A <em>complex number</em> is a number of the form <m>a+bi</m>, where <m>a</m> and <m>b</m>
+	<p> A <term>complex number</term> is a number of the form <m>a+bi</m>, where <m>a</m> and <m>b</m>
 		are real numbers and <m>i</m> is the imaginary unit. The set of complex numbers is denoted <m>
-		\C</m>. </p>
+		\mathbb{C}</m>. </p>
 
-	<p> Complex numbers include things you’d normally expect, like <m>3+2i</m> and <m>\frac{2}{5} -
-		i\sqrt{3}</m>. However, don’t forget that <m>a</m> or <m>b</m> could be zero, which means
-		numbers like <m>3i</m> and <m>6</m> are also complex numbers. In other words, don’t forget
+	<p> Complex numbers include things you'd normally expect, like <m>3+2i</m> and <m>\frac{2}{5} -
+		i\sqrt{3}</m>. However, don't forget that <m>a</m> or <m>b</m> could be zero, which means
+		numbers like <m>3i</m> and <m>6</m> are also complex numbers. In other words, don't forget
 		that the complex numbers <em>include</em> the real numbers,<fn>
 			 In the language of set notation, <m>\R \subseteq \C</m>. 
 		</fn> so <m>0</m>
@@ -76,17 +74,10 @@
 
 
 	<example xml:id="complexzeroex1">
-		<title> </title>
 		<statement>
 			<p>
 				Perform the indicated operations.
 			</p>
-
-			<!-- div attr= class="multicols"-->
-			<p>
-				3
-			</p>
-
 			<p>
 				<ol>
 					<li>
@@ -106,18 +97,6 @@
 							<m>\dfrac{1-2i}{3-4i}</m>
 						</p>
 					</li>
-
-				</ol>
-			</p><!--</div
-			attr= class="multicols">-->
-
-			<!-- div attr= class="multicols"-->
-			<p>
-				3
-			</p>
-
-			<p>
-				<ol>
 					<li>
 						<p>
 							<m>\sqrt{-3} \sqrt{-12}</m>
@@ -135,7 +114,6 @@
 							<m>(x-[1+2i])(x-[1-2i])</m>
 						</p>
 					</li>
-
 				</ol>
 			</p><!--</div
 			attr= class="multicols">-->
@@ -146,23 +124,26 @@
 				<ol>
 					<li>
 						<p> As mentioned earlier, we treat expressions involving <m>i</m> as we
-							would any other radical. We distribute and combine like terms:<me>\begin{array}{rclr}
-							(1-2i) - (3+4i) &amp; = &amp; 1-2i-3-4i &amp; \text{Distribute} \\
-								&amp; = &amp; -2 - 6i &amp; \text{Gather like terms} \\
-								\end{array}</me> Technically, we’d have to rewrite our answer <m>
+							would any other radical. We distribute and combine like terms:
+							<md>
+								<mrow> (1-2i) - (3+4i) \amp = 1-2i-3-4i \amp \text{Distribute} </mrow>
+								<mrow> \amp = -2 - 6i \amp \text{Gather like terms} </mrow>
+</md>.
+ Technically, we'd have to rewrite our answer <m>
 							-2-6i</m> as <m>(-2) + (-6)i</m> to be (in the strictest sense) <sq>in
 							the form <m>a+bi</m></sq>. That being said, even pedants have their
 							limits, so <m>-2-6i</m> is good enough. </p>
 					</li>
 
 					<li>
-						<p> Using the Distributive Property (a.k.a. F.O.I.L.), we get <me>\begin{array}{rclr}
-							(1-2i)(3+4i) &amp; = &amp; (1)(3) + (1)(4i) - (2i)(3) - (2i)(4i) &amp;
-							\text{F.O.I.L.} \\
-								&amp; = &amp; 3+4i-6i-8i^2 &amp; \\
-								&amp; = &amp; 3 - 2i - 8(-1) &amp; \text{$i^2=-1$} \\
-								&amp; = &amp; 3 - 2i + 8 &amp; \\
-								&amp; = &amp; 11 - 2i &amp; \\ \end{array}</me>
+						<p> Using the Distributive Property (a.k.a. F.O.I.L.), we get 
+							<md>
+								<mrow> (1-2i)(3+4i)\amp = (1)(3) + (1)(4i) - (2i)(3) - (2i)(4i) \amp \text{F.O.I.L.} </mrow>
+								<mrow> \amp = 3+4i-6i-8i^2 \amp </mrow>
+								<mrow> \amp = 3 - 2i - 8(-1) \amp \text{$i^2=-1$} </mrow>
+								<mrow> \amp = 3 - 2i + 8 \amp </mrow>
+								<mrow> \amp = 11 - 2i \amp </mrow>
+</md>.
 						</p>
 					</li>
 
@@ -171,17 +152,14 @@
 							Well, we deal with the denominator <m>3-4i</m> as we would any other
 							denominator containing two terms, one of which is a square root. We
 							multiply both numerator and denominator by <m>3+4i</m>, the (complex)
-							conjugate of <m>3 - 4i</m>. Doing so produces<me>\begin{array}{rclr}
-							\dfrac{1-2i}{3-4i} &amp; = &amp; \dfrac{(1-2i)(3+4i)}{(3-4i)(3+4i)}
-							&amp; \text{Equivalent Fractions} \\[8pt]
-
-								&amp; = &amp; \dfrac{3 + 4i - 6i - 8i^2}{9 - 16i^2} &amp;
-							\text{F.O.I.L.}\\[8pt]
-								&amp; = &amp; \dfrac{3 - 2i - 8(-1)}{9 - 16(-1)} &amp; \text{$i^2 =
-							-1$}\\[8pt]
-								&amp; = &amp; \dfrac{11 - 2i}{25} &amp; \\[8pt]
-								&amp; = &amp; \dfrac{11}{25} - \dfrac{2}{25} \, i &amp; \\
-							\end{array}</me>
+							conjugate of <m>3 - 4i</m>. Doing so produces
+							<md>
+								<mrow> \dfrac{1-2i}{3-4i} \amp = \dfrac{(1-2i)(3+4i)}{(3-4i)(3+4i)} \amp \text{Equivalent Fractions} </mrow>
+								<mrow> \amp = \dfrac{3 + 4i - 6i - 8i^2}{9 - 16i^2} \amp \text{F.O.I.L.}</mrow>
+								<mrow> \amp = \dfrac{3 - 2i - 8(-1)}{9 - 16(-1)} \amp \text{$i^2 =-1$}</mrow>
+								<mrow> \amp = \dfrac{11 - 2i}{25} \amp</mrow>
+								<mrow> \amp = \dfrac{11}{25} - \dfrac{2}{25} \, i \amp </mrow>
+</md>.
 						</p>
 					</li>
 
@@ -198,13 +176,13 @@
 					</li>
 
 					<li>
-						<p> We brute force multiply using the distributive property and find that <me>\begin{array}{rcl}
-							(x-[1+2i])(x-[1-2i]) &amp; = &amp; x^2 -x[1-2i]-x[1+2i]+[1-2i][1+2i]
-							\\[2pt]
-
-								&amp; = &amp; x^2-x+2ix-x-2ix+1-2i+2i-4i^2 \\ [2pt]
-								&amp; = &amp; x^2-2x + 1-4(-1)\\[2pt]
-								&amp; = &amp; x^2 -2x +5 \\ \end{array}</me>
+						<p> We brute force multiply using the distributive property and find that 
+						<md>
+							<mrow> (x-[1+2i])(x-[1-2i]) \amp = x^2 -x[1-2i]-x[1+2i]+[1-2i][1+2i]</mrow>
+							<mrow> \amp = x^2-x+2ix-x-2ix+1-2i+2i-4i^2 </mrow>
+							<mrow> \amp = x^2-2x + 1-4(-1)</mrow>
+							<mrow> \amp = x^2 -2x +5 </mrow>
+</md>.
 						</p>
 					</li>
 
@@ -227,7 +205,6 @@
 
 	<theorem xml:id="conjugateprops">
 		<title>Properties of the Complex Conjugate</title>
-		
 		
 		<statement>
 			<p>  Let <m>z</m> and <m>w</m> be complex numbers. </p>
@@ -283,9 +260,9 @@
 		</fn> To prove the second property, we compare <m>
 		\overline{z+w}</m> with <m>\overline{z} + \overline{w}</m>. We have <m>\overline{z} +
 		\overline{w} = \overline{a+bi} + \overline{c+di} = a-bi + c-di</m>. To find <m>
-		\overline{z+w}</m>, we first compute <me>z+w = (a+bi) + (c+di) = (a+c)+(b+d)i</me> so <me>\overline{z+w}
+		\overline{z+w}</m>, we first compute <md>z+w = (a+bi) + (c+di) = (a+c)+(b+d)i</md> so <md>\overline{z+w}
 		= \overline{(a+c)+(b+d)i} = (a+c) - (b+d)i = a+c - bi - di = a - bi + c - di = \overline{z}
-		+ \overline{w}</me> As such, we have established <m>\overline{z+w} =
+		+ \overline{w}</md> As such, we have established <m>\overline{z+w} =
 		\overline{z}+\overline{w}</m>. The proof for multiplication works similarly. The proof that
 		the conjugate works well with powers can be viewed as a repeated application of the product
 		rule, and is best proved using a technique called Mathematical Induction. The last property
@@ -297,8 +274,8 @@
 		The discriminant <m>b^2 - 4ac = -16</m> is negative, so we know that there are no <em>real</em>
 		solutions, since the Quadratic Formula would involve the term <m>\sqrt{-16}</m>. Complex
 		numbers, however, are built just for such situations, so we can go ahead and apply the
-		Quadratic Formula to get: <me>x = \dfrac{-(-2) \pm \sqrt{(-2)^2-4(1)(5)}}{2(1)} = \dfrac{2
-		\pm \sqrt{-16}}{2} = \dfrac{2 \pm 4i}{2} = 1 \pm 2i.</me>
+		Quadratic Formula to get: <md>x = \dfrac{-(-2) \pm \sqrt{(-2)^2-4(1)(5)}}{2(1)} = \dfrac{2
+		\pm \sqrt{-16}}{2} = \dfrac{2 \pm 4i}{2} = 1 \pm 2i.</md>
 	</p>
 
 
@@ -309,14 +286,6 @@
 					 Remember, all real numbers are complex numbers, so <sq>complex solutions</sq>
 				means both real and non-real answers. 
 				</fn>
-			</p>
-
-			<!-- div attr= class="multicols"-->
-			<p>
-				3
-			</p>
-
-			<p>
 				<ol>
 					<li>
 						<p>
@@ -337,8 +306,7 @@
 					</li>
 
 				</ol>
-			</p><!--</div
-			attr= class="multicols">-->
+			</p>
 		</statement>
 
 		<solution>
@@ -346,29 +314,24 @@
 				<ol>
 					<li>
 						<p> Clearing fractions yields a quadratic equation so we then proceed via
-							normal quadratic equation methods. <me>\begin{array}{rclr}
-							\dfrac{2x}{x+1} &amp; = &amp; x+3 &amp; \\[5pt]
-								2x &amp; = &amp; (x+3)(x+1) &amp; \text{Multiply by $(x+1)$ to clear
-							denominators} \\
-
-								2x &amp; = &amp; x^2 + x + 3x + 3 &amp; \text{F.O.I.L.} \\
-
-								2x &amp; = &amp; x^2 + 4x + 3 &amp; \text{Gather like terms} \\
-
-								0 &amp; = &amp; x^2 + 2x + 3 &amp; \text{Subtract $2x$} \\
-							\end{array}</me> From here, we apply the Quadratic Formula <me>\begin{array}{rclr}
-							x &amp; = &amp; \dfrac{-2 \pm \sqrt{2^2 - 4(1)(3)}}{2(1)} &amp;
-							\text{Quadratic Formula}\\[8pt]
-								&amp; = &amp; \dfrac{-2 \pm \sqrt{-8}}{2} &amp;
-							\text{Simplify}\\[8pt]
-								&amp; = &amp; \dfrac{-2 \pm i \sqrt{8}}{2} &amp; \text{Definition of
-							$i$}\\[8pt]
-								&amp; = &amp; \dfrac{-2 \pm i 2\sqrt{2}}{2} &amp; \text{Product Rule
-							for Radicals}\\[8pt]
-								&amp; = &amp; \dfrac{\cancel{2}(-1 \pm i\sqrt{2})}{\cancel{2}} &amp;
-							\text{Factor and reduce}\\[8pt]
-								&amp; = &amp; -1 \pm i \sqrt{2} &amp; \\
-								\end{array}</me>
+							normal quadratic equation methods. 
+							<md>
+								<mrow> \dfrac{2x}{x+1} \amp = x+3</mrow>
+								<mrow> 2x \amp = (x+3)(x+1) \amp \text{Multiply by $(x+1)$ to clear
+							denominators} </mrow>
+							<mrow> 2x \amp = x^2 + x + 3x + 3 \amp \text{F.O.I.L.}</mrow>
+							<mrow> 2x \amp = x^2 + 4x + 3 \amp \text{Gather like terms}</mrow>
+							<mrow> 0 \amp = x^2 + 2x + 3 \amp \text{Subtract $2x$}</mrow>
+</md>.
+From here, we apply the Quadratic Formula 
+<md>
+	<mrow> x \amp = \dfrac{-2 \pm \sqrt{2^2 - 4(1)(3)}}{2(1)} \amp\text{Quadratic Formula}</mrow>
+	<mrow> \amp = \dfrac{-2 \pm \sqrt{-8}}{2} \amp	\text{Simplify} </mrow>
+	<mrow> \amp = \dfrac{-2 \pm i \sqrt{8}}{2} \amp \text{Definition of	$i$}</mrow>
+	<mrow> \amp = \dfrac{-2 \pm i 2\sqrt{2}}{2} \amp \text{Product Rule for Radicals}</mrow>
+	<mrow> \amp = \dfrac{\cancel{2}(-1 \pm i\sqrt{2})}{\cancel{2}} \amp	\text{Factor and reduce}</mrow>
+	<mrow> \amp = -1 \pm i \sqrt{2} \amp</mrow>
+</md>.
 						</p>
 
 						<p> We get two answers: <m>x = -1 + i\sqrt{2}</m> and its conjugate <m>x =
@@ -384,19 +347,19 @@
 							twice the exponent on the other (<sq>
 								<m>2</m>
 							</sq> on <m>t^2</m>), we have a
-							Quadratic in Disguise. We proceed accordingly.<me>\begin{array}{rclr}
-							2t^4 &amp; = &amp; 9t^2 + 5 &amp; \\
-
-								2t^4 - 9t^2 - 5 &amp; = &amp; 0 &amp; \text{Subtract $9t^2$ and $5$}
-							\\
-								(2t^2 + 1)(t^2 - 5) &amp; = &amp; 0 &amp; \text{Factor} \\
-								2t^2 + 1 = 0 &amp; \text{or} &amp; t^2 = 5 &amp; \text{Zero Product
-							Property} \\
-								\end{array}</me> From <m>2t^2 + 1 = 0</m> we get <m>2t^2 = -1</m>,
-							or <m>t^2 = -\frac{1}{2}</m>. We extract square roots as follows: <me>t
+							Quadratic in Disguise. We proceed accordingly.
+							<md>
+								<mrow> 2t^4 \amp = 9t^2 + 5 \amp</mrow>
+								<mrow> 2t^4 - 9t^2 - 5 \amp = 0 \amp \text{Subtract $9t^2$ and $5$}</mrow>
+								<mrow> (2t^2 + 1)(t^2 - 5) \amp =  0 \amp \text{Factor}</mrow>
+								<mrow> 2t^2 + 1 = 0 \amp \text{ or } t^2 = 5 \amp \text{Zero Product
+							Property} </mrow>
+</md>.
+From <m>2t^2 + 1 = 0</m> we get <m>2t^2 = -1</m>,
+							or <m>t^2 = -\frac{1}{2}</m>. We extract square roots as follows: <md>t
 							= \pm \sqrt{-\dfrac{1}{2}} = \pm i \sqrt{\dfrac{1}{2}} = \pm i
 							\dfrac{\sqrt{1}}{\sqrt{2}} = \pm i \dfrac{1}{\sqrt{2}} = \pm \dfrac{i
-							\sqrt{2}}{2},</me> where we have rationalized the denominator per
+							\sqrt{2}}{2},</md> where we have rationalized the denominator per
 							convention. From <m>t^2 = 5</m>, we get <m>t = \pm \sqrt{5}</m>. In
 							total, we have four complex solutions - two real: <m>t = \pm \sqrt{5}</m>
 							and two non-real: <m>t = \pm \frac{i \sqrt{2}}{2}</m>. </p>
@@ -407,16 +370,16 @@
 							subtract the <m>1</m> from both sides and extract cube roots: <m>z^3 =
 							-1</m>, so <m>z = \sqrt[3]{-1} = -1</m>. It turns out there are two more
 							non-real complex number solutions to this equation. To get at these, we
-							factor:<me>\begin{array}{rclr}
-
-								z ^ 3 + 1 &amp; = &amp; 0 &amp; \\
-								(z + 1)(z^2 - z + 1) &amp; = &amp; 0 &amp; \text{Factor (Sum of Two
-							Cubes)} \\
-								z + 1 = 0 &amp; \text{or} &amp; z^2 - z + 1 = 0 &amp; \\
-								\end{array}</me> From <m>z+1 = 0</m>, we get our real solution <m>z
+							factor:<md>
+								<mrow> z ^ 3 + 1 \amp = 0 \amp </mrow>
+								<mrow> (z + 1)(z^2 - z + 1) \amp = 0 \amp \text{Factor (Sum of Two
+							Cubes)}</mrow>
+							<mrow> z + 1 = 0\amp  \text{ or } z^2 - z + 1 = 0 \amp  </mrow>
+</md>.
+From <m>z+1 = 0</m>, we get our real solution <m>z
 							= -1</m>. From <m>z^2 -z + 1 = 0</m>, we apply the Quadratic Formula to
-							get: <me>z = \dfrac{-(-1) \pm \sqrt{(-1)^2 - 4(1)(1)}}{2(1)} = \dfrac{1
-							\pm \sqrt{-3}}{2} = \dfrac{1 \pm i\sqrt{3}}{2}</me> Thus we get <em>
+							get: <md>z = \dfrac{-(-1) \pm \sqrt{(-1)^2 - 4(1)(1)}}{2(1)} = \dfrac{1
+							\pm \sqrt{-3}}{2} = \dfrac{1 \pm i\sqrt{3}}{2}</md> Thus we get <em>
 							three</em> solutions to <m>z^3 + 1 = 0</m> - one real: <m>z = -1</m> and
 							two non-real: <m>z = \frac{1 \pm i\sqrt{3}}{2}</m>. As always, the
 							reader is encouraged to test their algebraic mettle and check these
@@ -432,8 +395,13 @@
 		Quadratic Formula to solve an equation with coefficients, the answers will form a complex
 		conjugate pair owing to the <m>\pm</m> in the Quadratic Formula. </p>
 
-	<!-- div attr= class="theorem1"-->
-	<p> Discriminant Theorem Given a Quadratic Equation <m>ax^2 + bx + c = 0</m>, where <m>a</m>, <m>
+	<theorem xml:id="thm-discriminant-complex">
+		<title>Discriminant Theorem</title>
+		
+		
+		<statement>
+			<p>
+				Given a Quadratic Equation <m>ax^2 + bx + c = 0</m>, where <m>a</m>, <m>
 		b</m> and <m>c</m> are real numbers, let <m>D = b^2 - 4ac</m> be the discriminant. </p>
 
 	<p>
@@ -457,8 +425,10 @@
 			</li>
 
 		</ul>
-	</p><!--</div
-	attr= class="theorem1">-->
+			</p>
+		</statement>
+	</theorem>
+	
 </section>
 
 

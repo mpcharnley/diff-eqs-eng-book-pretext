@@ -124,7 +124,7 @@ x = C_1 \cos (4 t) + C_2 \sin (4 t) +
 
 			</p>
 
-<figure xml:id="3-6-beatingfig">
+<figure xml:id="beatingfig-3-6">
 	<caption> Graph of
 <m>\frac{20}{16 - \pi^2} \bigl( \cos (\pi t)- \cos (4 t) \bigr)</m>. </caption>
 	<image source="3-6-beating.png" width="70%">
@@ -147,7 +147,7 @@ x =
 			</p>
 
 			<p>
-				Notice the <term>beating</term> behavior in <xref ref="3-6-beatingfig"/>. First use the trigonometric identity 
+				Notice the <term>beating</term> behavior in <xref ref="beatingfig-3-6"/>. First use the trigonometric identity 
 <md>
 2\sin \left( \frac{A-B}{2} \right) \sin \left( \frac{A+B}{2} \right) =
 \cos B -\cos A 
@@ -235,10 +235,10 @@ x = C_1 \cos (\omega t) + C_2 \sin (\omega t)
 			</p>
 
 			<p>
-				The important term is the last one (the particular solution we found). This term grows without bound as <m>t \to \infty</m>. In fact it oscillates between <m>\frac{F_0 t}{2m\omega}</m> and <m>\frac{- F_0 t}{2m\omega}</m>. The first two terms only oscillate between <m>\pm\sqrt{C_1^2 + C_2^2}</m>, which becomes smaller and smaller in proportion to the oscillations of the last term as <m>t</m> gets larger. In <xref ref="3-6-resonancefig"/> we see the graph with <m>C_1=C_2=0</m>, <m>F_0 = 2</m>, <m>m=1</m>, <m>\omega = \pi</m>.
+				The important term is the last one (the particular solution we found). This term grows without bound as <m>t \to \infty</m>. In fact it oscillates between <m>\frac{F_0 t}{2m\omega}</m> and <m>\frac{- F_0 t}{2m\omega}</m>. The first two terms only oscillate between <m>\pm\sqrt{C_1^2 + C_2^2}</m>, which becomes smaller and smaller in proportion to the oscillations of the last term as <m>t</m> gets larger. In <xref ref="resonancefig-3-6"/> we see the graph with <m>C_1=C_2=0</m>, <m>F_0 = 2</m>, <m>m=1</m>, <m>\omega = \pi</m>.
 			</p>
 
-<figure xml:id="3-6-resonancefig">
+<figure xml:id="resonancefig-3-6">
 	<caption> Graph of
 <m>\frac{1}{\pi} t \sin (\pi t)</m>. </caption>
 	<image source="3-6-resonance.png" width="70%">
@@ -272,8 +272,8 @@ x = C_1 \cos (\omega t) + C_2 \sin (\omega t)
 			<p>
 				In real life things are not as simple as they were above. There is, of course, some damping. Our equation becomes 
 <md number="yes" xml:id="deq-3-6">
- mx'' + \gamma x' + kx = F_0 \cos (\omega t) ,
-</md>>
+ mx'' + \gamma x' + kx = F_0 \cos (\omega t)
+</md>,
 for some <m>\gamma &gt; 0</m>. We solved the homogeneous problem before. We let 
 <md>
 p = \frac{\gamma}{2m},  \qquad \omega_0 = \sqrt{\frac{k}{m}} .
@@ -309,12 +309,12 @@ e^{-p t} \bigl( C_1 \cos (\omega_1 t) + C_2 \sin (\omega_1 t) \bigr) &amp;
 			</p>
 
 			<p>
-				We solve for <m>A</m> and <m>B</m>: <md>\begin{align*}
-&amp; A=\frac{(\omega_0^2-\omega^2) F_0}
-{m{(2\omega p)}^2+m{(\omega_0^2-\omega^2)}^2} , \\
-&amp; B=\frac{2 \omega p F_0}
-{m{(2\omega p)}^2+m{(\omega_0^2-\omega^2)}^2} .
-\end{align*}</md> We also compute <m>C = \sqrt{A^2+B^2}</m> to be 
+				We solve for <m>A</m> and <m>B</m>: 
+				<md>
+ <mrow> A \amp=\frac{(\omega_0^2-\omega^2) F_0}{m{(2\omega p)}^2+m{(\omega_0^2-\omega^2)}^2} </mrow>
+<mrow> B \amp =\frac{2 \omega p F_0} {m{(2\omega p)}^2+m{(\omega_0^2-\omega^2)}^2} </mrow> 
+</md>.
+We also compute <m>C = \sqrt{A^2+B^2}</m> to be 
 <md>
 C = \frac{F_0}{m \sqrt{{(2\omega p)}^2+{(\omega_0^2-\omega^2)}^2}} .
 </md>
@@ -332,12 +332,10 @@ x_p =
 </md>
  Hence, 
 <md>
-\mybxbg{~~
 x_p = 
 \frac{F_0}{m \sqrt{{(2\omega p)}^2+{(\omega_0^2-\omega^2)}^2}} 
-\cos ( \omega t - \delta ) .
-~~}
-</md>
+\cos (\omega t - \delta)
+</md>.
  If <m>\omega = \omega_0</m>, then <m>A=0</m>, <m>B = C = \frac{F_0}{2m\omega p}</m>, and <m>\delta = \nicefrac{\pi}{2}</m>.
 			</p>
 
@@ -350,13 +348,13 @@ x = x_c + x_p = x_{tr} + x_{sp} .
 			</p>
 
 			<p>
-				The transient solution <m>x_c = x_{tr}</m> goes to zero as <m>t \to \infty</m>, as all the terms involve an exponential with a negative exponent. So for large <m>t</m>, the effect of <m>x_{tr}</m> is negligible and we see essentially only <m>x_{sp}</m>. Hence the name <em>transient</em>. Notice that <m>x_{sp}</m> involves no arbitrary constants, and the initial conditions only affect <m>x_{tr}</m>. Thus, the effect of the initial conditions is negligible after some period of time. We might as well focus on the steady periodic solution and ignore the transient solution. See <xref ref="3-6-transbehfig"/> for a graph given several different initial conditions.
+				The transient solution <m>x_c = x_{tr}</m> goes to zero as <m>t \to \infty</m>, as all the terms involve an exponential with a negative exponent. So for large <m>t</m>, the effect of <m>x_{tr}</m> is negligible and we see essentially only <m>x_{sp}</m>. Hence the name <em>transient</em>. Notice that <m>x_{sp}</m> involves no arbitrary constants, and the initial conditions only affect <m>x_{tr}</m>. Thus, the effect of the initial conditions is negligible after some period of time. We might as well focus on the steady periodic solution and ignore the transient solution. See <xref ref="transbehfig-3-6"/> for a graph given several different initial conditions.
 			</p>
 
-<figure xml:id="3-6-transbehfig">
-	<caption> {Solutions with different initial conditions for parameters
+<figure xml:id="transbehfig-3-6">
+	<caption>Solutions with different initial conditions for parameters
 <m>k=1</m>, <m>m=1</m>, <m>F_0 = 1</m>, <m>\gamma=0.7</m>, and <m>\omega=1.1</m>. </caption>
-	<image source="3-8-transbeh.png" width="70%">
+	<image source="3-6-transbeh.png" width="70%">
 		<shortdescription> ALT TEXT HERE </shortdescription>
 		<description>
 			<p>
@@ -371,10 +369,10 @@ x = x_c + x_p = x_{tr} + x_{sp} .
 			</p>
 
 			<p>
-				Let us describe what we mean by resonance when damping is present. Since there were no conflicts when solving with undetermined coefficient, there is no term that goes to infinity. We look instead at the maximum value of the amplitude of the steady periodic solution. Let <m>C</m> be the amplitude of <m>x_{sp}</m>. If we plot <m>C</m> as a function of <m>\omega</m> (with all other parameters fixed), we can find its maximum. We call the <m>\omega</m> that achieves this maximum the <term>practical resonance frequency</term>. We call the maximal amplitude <m>C(\omega)</m> the <term>practical resonance amplitude</term>. Thus when damping is present we talk of <term>practical resonance</term> rather than pure resonance. A sample plot for three different values of <m>\gamma</m> is given in <xref ref="3-6-pracresfig"/>. As you can see the practical resonance amplitude grows as damping gets smaller, and practical resonance can disappear altogether when damping is large.
+				Let us describe what we mean by resonance when damping is present. Since there were no conflicts when solving with undetermined coefficient, there is no term that goes to infinity. We look instead at the maximum value of the amplitude of the steady periodic solution. Let <m>C</m> be the amplitude of <m>x_{sp}</m>. If we plot <m>C</m> as a function of <m>\omega</m> (with all other parameters fixed), we can find its maximum. We call the <m>\omega</m> that achieves this maximum the <term>practical resonance frequency</term>. We call the maximal amplitude <m>C(\omega)</m> the <term>practical resonance amplitude</term>. Thus when damping is present we talk of <term>practical resonance</term> rather than pure resonance. A sample plot for three different values of <m>\gamma</m> is given in <xref ref="pracresfig-3-6"/>. As you can see the practical resonance amplitude grows as damping gets smaller, and practical resonance can disappear altogether when damping is large.
 			</p>
 
-<figure xml:id="3-6-pracresfig">
+<figure xml:id="pracresfig-3-6">
 	<caption> Graph of <m>C(\omega)</m> showing practical resonance with parameters
 <m>k=1</m>, <m>m=1</m>, <m>F_0 = 1</m>. The top line is with <m>\gamma=0.4</m>, the middle line with <m>\gamma=0.8</m>, and the bottom line with <m>\gamma=1.6</m>. </caption>
 	<image source="3-6-pracres.png" width="70%">
@@ -387,7 +385,7 @@ x = x_c + x_p = x_{tr} + x_{sp} .
 	</image>
 	</figure>
 			<p>
-				The main takeaways from <xref ref="3-6-pracresfig"/> is that the amplitude can be larger than 1, which is the idea of resonance in this case. Based on Hooke's law, we know that a constant force of magnitude <m>F_0</m> will stretch (or compress) a spring with constant <m>k</m> a length of <m>F_0/k</m>. If we take <m>F_0 = 1</m> and <m>k=1</m>, as is done in <xref ref="3-6-pracresfig"/>, then the resulting magnitude should be <m>1</m>. However, if we don't use a constant force of magnitude <m>F_0</m>, but instead use an oscillatory force with frequency <m>\omega</m> of the form <m>F(t) = F_0 \cos{(\omega t)}</m>, we get an amplitude of <m>C(\omega)</m>. This graph indicates how the forcing frequency changes the amplitude of the resulting oscillation. Since the amplitude <q>should</q> be <m>1</m> based on <m>F_0/k</m>, if <m>C(\omega) &gt; 1</m>, then the frequency chosen is causing an increase in the amplitude, which is the idea of practical resonance.
+				The main takeaways from <xref ref="pracresfig-3-6"/> is that the amplitude can be larger than 1, which is the idea of resonance in this case. Based on Hooke's law, we know that a constant force of magnitude <m>F_0</m> will stretch (or compress) a spring with constant <m>k</m> a length of <m>F_0/k</m>. If we take <m>F_0 = 1</m> and <m>k=1</m>, as is done in <xref ref="pracresfig-3-6"/>, then the resulting magnitude should be <m>1</m>. However, if we don't use a constant force of magnitude <m>F_0</m>, but instead use an oscillatory force with frequency <m>\omega</m> of the form <m>F(t) = F_0 \cos{(\omega t)}</m>, we get an amplitude of <m>C(\omega)</m>. This graph indicates how the forcing frequency changes the amplitude of the resulting oscillation. Since the amplitude <q>should</q> be <m>1</m> based on <m>F_0/k</m>, if <m>C(\omega) &gt; 1</m>, then the frequency chosen is causing an increase in the amplitude, which is the idea of practical resonance.
 			</p>
 
 			<p>

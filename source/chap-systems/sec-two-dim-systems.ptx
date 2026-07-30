@@ -6,79 +6,94 @@
 	<section xml:id="sec-twodimaut">
 		<title>Two-dimensional systems and their vector fields</title>
 
+		<objectives>
+	<introduction>
 		<p>
-			In the last three sections, we looked at the different options for two-component constant-coefficient systems. We want to determine a nice way to put all of this together. We summarize the behavior of linear homogeneous two-dimensional systems given by a nonsingular matrix in . Systems where one of the eigenvalues is zero (the matrix is singular) come up in practice from time to time, see , and the pictures are somewhat different (simpler in a way). See the exercises.
+			After this section, you will be able to: 
+		</p>
+	</introduction>
+	<ul>
+		<li>
+			<p>
+				Visualize and sketch the behavior of a two dimensional system based on the eigenvalues and eigenvectors.
+			</p>
+		</li>
+	</ul>
+</objectives>
+<subsection xml:id="twodim-summary">
+	<title>Summary of Behaviors</title>
+	
+		<p>
+			In the last three sections, we looked at the different options for two-component constant-coefficient systems. We want to determine a nice way to put all of this together. We summarize the behavior of linear homogeneous two-dimensional systems given by a nonsingular matrix in <xref ref="pln-behtab"/>. Systems where one of the eigenvalues is zero (the matrix is singular) come up in practice from time to time, see <xref ref="sintro-closedbrine-example"/>, and the pictures are somewhat different (simpler in a way). See the exercises.
 		</p>
 
-<!-- div attr= class="center"-->
-<!-- div attr= xml:id="pln-behtab"-->
-		<table>
+		<table xml:id="pln-behtab">
 			<title>Summary of behavior of linear homogeneous two-dimensional systems.</title>
 			<tabular>
 			<row header="yes">
 				<cell halign="left">Eigenvalues</cell>
 				<cell halign="left">Behavior</cell>
 			</row>
-			<row class="odd">
+			<row>
 				<cell halign="left">real and both positive</cell>
 				<cell halign="left">source / unstable node</cell>
 			</row>
-			<row class="even">
+			<row>
 				<cell halign="left">real and both negative</cell>
 				<cell halign="left">sink / asymptotically stable node</cell>
 			</row>
-			<row class="odd">
+			<row>
 				<cell halign="left">real and opposite signs</cell>
 				<cell halign="left">saddle</cell>
 			</row>
-			<row class="even">
+			<row>
 				<cell halign="left">purely imaginary</cell>
 				<cell halign="left">center point / ellipses</cell>
 			</row>
-			<row class="odd">
+			<row>
 				<cell halign="left">complex with positive real part</cell>
 				<cell halign="left">spiral source</cell>
 			</row>
-			<row class="even">
+			<row>
 				<cell halign="left">complex with negative real part</cell>
 				<cell halign="left">spiral sink</cell>
 			</row>
-			<row class="odd">
+			<row>
 				<cell halign="left">repeated with two eigenvectors</cell>
 				<cell halign="left">proper node (asympt. stable or unstable)</cell>
 			</row>
-			<row class="even">
+			<row>
 				<cell halign="left">repeated with one eigenvector</cell>
 				<cell halign="left">improper node (asympt. stable or unstable)</cell>
 			</row>
 			</tabular>
-		</table><!--</div attr= xml:id="pln-behtab">--><!--</div attr= class="center">-->
+		</table>
 
 		<p>
 			The sketches of all of these different behaviors and phase portraits can be found in their respective sections. Make sure that you understand the terminology, general behavior, and sketches for each of these different cases.
 		</p>
 
-
+	</subsection>
 		<subsection xml:id="trace-determinant-analysis">
 			<title>Trace-Determinant Analysis</title>
 
 			<p>
-				One other way to interpret and analyze this information is using the trace and determinant of the matrix. Recall from that the of a matrix is the sum of the diagonal entries of the matrix and the of the matrix is computed from the entries and is a way to determine invertibility of the matrix. If we take a generic <m>2 \times 2</m> matrix and find the characteristic polynomial, we get that for 
-<me>
+				One other way to interpret and analyze this information is using the trace and determinant of the matrix. Recall from <xref ref="sec-kernel"/> that the <term>trace</term> of a matrix is the sum of the diagonal entries of the matrix and the <term>determinant</term> of the matrix is computed from the entries and is a way to determine invertibility of the matrix. If we take a generic <m>2 \times 2</m> matrix and find the characteristic polynomial, we get that for 
+<md>
 A = \begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix},
-</me>
+</md>
  the characteristic polynomial is 
-<me>
+<md>
 \det(A - \lambda I) = (a - \lambda)(d - \lambda) - (b)(c) = \lambda^2 - (a+d)\lambda + (ad-bc).
-</me>
+</md>
  Since the trace of the matrix is <m>a+d</m> and the determinant is <m>ad-bc</m>, we can rewrite this polynomial as 
-<me>
+<md>
 \lambda^2 - T\lambda + D = 0,
-</me>
+</md>
  which also means that we can characterize the eigenvalues of the matrix in terms of the trace and determinant. We get that the eigenvalues are 
-<men xml:id="eq-eigenTD">
+<md number="yes" xml:id="eq-eigenTD">
 \lambda = \frac{T \pm \sqrt{T^2 - 4D}}{2}.
-</men>
+</md>
 			</p>
 
 			<p>
@@ -110,65 +125,71 @@ A = \begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix},
 				All of this means we can make a new table characterizing the eigenvalues and how they are connected to the trace and determinant.
 			</p>
 
-<!-- div attr= class="center"-->
-<!-- div attr= xml:id="pln-behtabTD"-->
-			<table>
+			<table xml:id="pln-behtabTD">
 				<title>Summary of behavior of linear homogeneous two-dimensional systems.</title>
 				<tabular>
 				<row header="yes">
 					<cell halign="left">Eigenvalues</cell>
 					<cell halign="left">Trace and Determinant Classification</cell>
 				</row>
-				<row class="odd">
+				<row>
 					<cell halign="left">real and both positive</cell>
 					<cell halign="left"><m>T &gt; 0</m>, <m>D &gt; 0</m>, <m>T^2 - 4D &gt; 0</m></cell>
 				</row>
-				<row class="even">
+				<row>
 					<cell halign="left">real and both negative</cell>
 					<cell halign="left"><m>T &lt; 0</m>, <m>D &gt; 0</m>, <m>T^2 - 4D &gt; 0</m></cell>
 				</row>
-				<row class="odd">
+				<row>
 					<cell halign="left">real and opposite signs</cell>
 					<cell halign="left"><m>D &lt; 0</m></cell>
 				</row>
-				<row class="even">
+				<row>
 					<cell halign="left">purely imaginary</cell>
 					<cell halign="left"><m>T = 0</m>, <m>D &gt; 0</m></cell>
 				</row>
-				<row class="odd">
+				<row>
 					<cell halign="left">complex with positive real part</cell>
 					<cell halign="left"><m>T &gt; 0</m>, <m>T^2 - 4D &lt; 0</m></cell>
 				</row>
-				<row class="even">
+				<row>
 					<cell halign="left">complex with negative real part</cell>
 					<cell halign="left"><m>T &lt; 0</m>, <m>T^2 - 4D &lt; 0</m></cell>
 				</row>
-				<row class="odd">
+				<row>
 					<cell halign="left">repeated</cell>
 					<cell halign="left"><m>T^2 - 4D = 0</m></cell>
 				</row>
 				</tabular>
-			</table><!--</div attr= xml:id="pln-behtabTD">--><!--</div attr= class="center">-->
+			</table>
 
 			<p>
-				Since these are all based on the relation between <m>T</m> and <m>D</m>, we can also combine all of this into a figure to summarize the details. In , <m>T</m> is on the horizontal axis and <m>D</m> is the vertical axis. The graph drawn is <m>D = \nicefrac{T^2}{4}</m>, which is the important criteria that shows up in the table.
+				Since these are all based on the relation between <m>T</m> and <m>D</m>, we can also combine all of this into a figure to summarize the details. In <xref ref="fig-TDPlaneAnalysis"/>, <m>T</m> is on the horizontal axis and <m>D</m> is the vertical axis. The graph drawn is <m>D = \nicefrac{T^2}{4}</m>, which is the important criteria that shows up in the table.
 			</p>
 
-<!-- div attr= class="myfig"-->
-<!--</div attr= class="myfig">-->
+<figure xml:id="fig-TDPlaneAnalysis">
+	<caption> Trace-Determinant plane for analysis of two-component linear systems.  </caption>
+	<image source="Images/eigTraceDet.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
 			<p>
-				can be used to determine the behavior of a two-component system without actually needing to solve the differential equation. The point is that the signs and type of the eigenvalues determine the structure of the solution, and we can determine the important qualities of these using just the trace and determinant of a matrix.
+				<xref ref="fig-TDPlaneAnalysis"/> can be used to determine the behavior of a two-component system without actually needing to solve the differential equation. The point is that the signs and type of the eigenvalues determine the structure of the solution, and we can determine the important qualities of these using just the trace and determinant of a matrix.
 			</p>
 
 
 <example>
-<title> </title>
 <statement>			<p>
 				Use Trace-Determinant analysis to determine the overall behavior of the system 
-<me>
+<md>
 {\vec{x}}' = \begin{bmatrix} 1 &amp; 4 \\ -2 &amp; 3 \end{bmatrix}\vec{x}.
-</me>
+</md>
 
 			</p>
 </statement>
@@ -196,21 +217,48 @@ A = \begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix},
 			<title>Exercises</title>
 
 <exercise>
-<statement>
-			<p>
+<introduction>
+	<p>
 				Take the equation <m>m x'' + c x' + kx = 0</m>, with <m>m &gt; 0</m>, <m>c \geq 0</m>, <m>k &gt; 0</m> for the mass-spring system.
 			</p>
+</introduction>
+		<task>
+			<statement>
+				<p>
+					Convert this to a system of first order equations. 
+				</p>
+			</statement>
+			<answer>
+				<p>
+					<m>{\vec{x}}' = \left[\begin{smallmatrix} 0 &amp; 1 \\ -k/m &amp;-c/m \end{smallmatrix}\right]\vec{x}</m>
+				</p>
+			</answer>
+		</task>
+		<task>
+			<statement>
+				<p>
+					Classify for what <m>m, c, k</m> do you get which behavior.
+				</p>
+			</statement>
+			<answer>
+				<p>
+					<m>c=0</m> is center, <m>c^2 - 4mk &lt; 0</m> is spiral sink, <m>c^2 - 4mk = 0</m> is improper sink, <m>c^2 - 4mk &gt; 0</m> is nodal sink.
+				</p>
+			</answer>
+		</task>
+		<task>
+			<statement>
+				<p>
+					Can you explain from physical intuition why you do not get all the different kinds of behavior here?
+				</p>
+			</statement>
+			<answer>
+				<p>
+					The forced positive coefficients restricts the behavior
+				</p>
+			</answer>
+		</task>
 
-<!-- div attr= class="tasks"-->
-			<p>
-				Convert this to a system of first order equations. Classify for what <m>m, c, k</m> do you get which behavior. Can you explain from physical intuition why you do not get all the different kinds of behavior here?
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) <m>{\vec{x}}' = \left[\begin{smallmatrix} 0 &amp; 1 \\ -k/m &amp;-c/m \end{smallmatrix}\right]\vec{x}</m> b) <m>c=0</m> is center, <m>c^2 - 4mk &lt; 0</m> is spiral sink, <m>c^2 - 4mk = 0</m> is improper sink, <m>c^2 - 4mk &gt; 0</m> is nodal sink. c) The forced positive coefficients restricts the behavior 
-			</p>
-</answer>
 </exercise>
 
 <exercise>
@@ -242,16 +290,71 @@ A = \begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix},
 </exercise>
 
 <exercise>
-<statement>
-			<p>
+<introduction>
+	<p>
 				Describe the behavior of the following systems without solving:
 			</p>
-
-<!-- div attr= class="tasks"-->
+</introduction>
+	<task>
+		<statement>
 			<p>
-				(2) <m>x' = x + y</m>, <m>y' = x-y</m>. <m>x_1' = x_1 + x_2</m>, <m>x_2' = 2 x_2</m>. <m>x_1' = -2x_2</m>, <m>x_2' = 2 x_1</m>. <m>x' = x + 3y</m>, <m>y' = -2x-4y</m>. <m>x' = x - 4y</m>, <m>y' = -4x+y</m>.
-			</p><!--</div attr= class="tasks">-->
-</statement>
+				<m>x' = x + y</m>, <m>y' = x-y</m>. 
+			</p>
+		</statement>
+		<answer>
+			<p>
+				Two eigenvalues: <m>\pm \sqrt{2}</m> so the behavior is a saddle.
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				<m>x_1' = x_1 + x_2</m>, <m>x_2' = 2 x_2</m>.
+			</p>
+		</statement>
+		<answer>
+			<p>
+				Two eigenvalues: <m>1</m> and <m>2</m>, so the behavior is a source.
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				<m>x_1' = -2x_2</m>, <m>x_2' = 2 x_1</m>.
+			</p>
+		</statement>
+		<answer>
+			<p>
+				Two eigenvalues: <m>\pm 2i</m>, so the behavior is a center (ellipses).
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				<m>x' = x + 3y</m>, <m>y' = -2x-4y</m>.
+			</p>
+		</statement>
+		<answer>
+			<p>
+				Two eigenvalues: <m>-1</m> and <m>-2</m>, so the behavior is a sink.
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				<m>x' = x - 4y</m>, <m>y' = -4x+y</m>.
+			</p>
+		</statement>
+		<answer>
+			<p>
+				Two eigenvalues: <m>5</m> and <m>-3</m>, so the behavior is a saddle.
+			</p>
+		</answer>
+	</task>
 
 </exercise>
 <exercise>
@@ -273,77 +376,181 @@ A = \begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix},
 				Suppose that <m>\vec{x}\,' = A \vec{x}</m> where <m>A</m> is a 2 by 2 matrix with eigenvalues <m>2\pm i</m>. Describe the behavior.
 			</p>
 </statement>
+<answer>
+	<p>
+		Spiral Source.
+	</p>
+</answer>
 
 </exercise>
-<exercise>
-<statement>
-			<p>
+<exercise xml:id="twodim-matrix-analysis">
+<introduction>
+	<p>
 				 For each of the following matrices <m>A</m>, describe the behavior and classify the phase portrait of the system given by <m>{\vec{x}}' = A\vec{x}</m>. Use the eigenvalues to determine this.
 			</p>
-
-<!-- div attr= class="tasks"-->
+</introduction>
+	<task>
+		<statement>
 			<p>
-				(2) <m>A = \begin{bmatrix} 7 &amp; -8 \\ 3 &amp; -3 \end{bmatrix}</m> <m>A = \begin{bmatrix} 3 &amp; 5 \\ -1 &amp; 1 \end{bmatrix}</m> <m>A = \begin{bmatrix} 8 &amp; -18 \\ 4 &amp; -10 \end{bmatrix}</m> <m>A = \begin{bmatrix} -2 &amp; -4 \\0 &amp; -3 \end{bmatrix}</m> <m>A = \begin{bmatrix} 3 &amp; -2 \\ 2 &amp; -3 \end{bmatrix}</m> <m>A = \begin{bmatrix} -3 &amp; -4 \\ 1 &amp; 1 \end{bmatrix}</m>
-			</p><!--</div attr= class="tasks">-->
-</statement>
+				<m>A = \begin{bmatrix} 7 &amp; -8 \\ 3 &amp; -3 \end{bmatrix}</m>
+			</p>
+		</statement>
+		<answer>
+			<p>
+				Nodal Source.
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				<m>A = \begin{bmatrix} 3 &amp; 5 \\ -1 &amp; 1 \end{bmatrix}</m>
+			</p>
+		</statement>
+		<answer>
+			<p>
+				Spiral Source
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				<m>A = \begin{bmatrix} 8 &amp; -18 \\ 4 &amp; -10 \end{bmatrix}</m> 
+			</p>
+		</statement>
+		<answer>
+			<p>
+				Saddle
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				<m>A = \begin{bmatrix} -2 &amp; -4 \\0 &amp; -3 \end{bmatrix}</m>
+			</p>
+		</statement>
+		<answer>
+			<p>
+				Nodal Sink
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				<m>A = \begin{bmatrix} 3 &amp; -2 \\ 2 &amp; -3 \end{bmatrix}</m>
+			</p>
+		</statement>
+		<answer>
+			<p>
+				Spiral Sink
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				<m>A = \begin{bmatrix} -3 &amp; -4 \\ 1 &amp; 1 \end{bmatrix}</m>
+			</p>
+		</statement>
+		<answer>
+			<p>
+				Improper nodal sink
+			</p>
+		</answer>
+	</task>
+
 
 </exercise>
 <exercise>
 <statement>
 			<p>
-				For each of the matrices and systems in , perform the same analysis using the trace and determinant of the matrix.
+				For each of the matrices and systems in <xref ref="twodim-matrix-analysis"/>, perform the same analysis using the trace and determinant of the matrix.
 			</p>
 </statement>
 
 </exercise>
 <exercise>
-<statement>
-			<p>
+<introduction>
+	<p>
 				Consider the system of differential equations given by 
-<me>
+<md>
 {\vec{x}}'  = \begin{bmatrix} -2 &amp; -3 \\ 3 &amp; -2 \end{bmatrix} \vec{x}.
-</me>
+</md>
 
 			</p>
+</introduction>
+		<task>
+			<statement>
+				<p>
+					Use trace and determinant analysis to determine the behavior of this linear system.
+				</p>
+			</statement>
+			<answer>
+				<p>
+					Spiral sink.
+				</p>
+			</answer>
+		</task>
+		<task>
+			<statement>
+				<p>
+					Find the general solution to this system of differential equations and verify that it matches the analysis in (a).
+				</p>
+			</statement>
+			<answer>
+				<p>
+					<m>\vec{x}(t) = C_1e^{-2t}\left[\begin{smallmatrix} -\sin(3t) \\ \cos(3t) \end{smallmatrix}\right] + C_2e^{-2t} \left[\begin{smallmatrix} \cos(3t) \\ \sin(3t) \end{smallmatrix}\right]</m>.
+				</p>
+			</answer>
+		</task>
 
-<!-- div attr= class="tasks"-->
-			<p>
-				Use trace and determinant analysis to determine the behavior of this linear system. Find the general solution to this system of differential equations and verify that it matches the analysis in (a).
-			</p><!--</div attr= class="tasks">-->
-</statement>
 
-<answer>			<p>
-				 Spiral sink. <m>\vec{x}(t) = C_1e^{-2t}\left[\begin{smallmatrix} -\sin(3t) \\ \cos(3t) \end{smallmatrix}\right] + C_2e^{-2t} \left[\begin{smallmatrix} \cos(3t) \\ \sin(3t) \end{smallmatrix}\right]</m>. 
-			</p>
-</answer>
 </exercise>
 
 <exercise>
-<statement>
-			<p>
+	<introduction>
+		<p>
 				Consider the system of differential equations given by 
-<me>
+<md>
 {\vec{x}}'  = \begin{bmatrix} -2 &amp; -3 \\ 3 &amp; 4 \end{bmatrix} \vec{x}.
-</me>
+</md>
 
 			</p>
-
-<!-- div attr= class="tasks"-->
+	</introduction>
+	<task>
+		<statement>
 			<p>
-				Use trace and determinant analysis to determine the behavior of this linear system. Find the general solution to this system of differential equations and verify that it matches the analysis in (a).
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 Improper nodal source. <m>\vec{x}(t) = C_1 \left[\begin{smallmatrix} 1 \\ -1 \end{smallmatrix}\right]e^t + C_2\left(\left[\begin{smallmatrix} 1 \\ -1 \end{smallmatrix}\right]te^t + \left[\begin{smallmatrix} -1/3 \\ 0 \end{smallmatrix}\right]e^t \right)</m> 
+				Use trace and determinant analysis to determine the behavior of this linear system.
 			</p>
-</answer>
+		</statement>
+		<answer>
+			<p>
+				Improper nodal source.
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				Find the general solution to this system of differential equations and verify that it matches the analysis in (a).
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>\vec{x}(t) = C_1 \left[\begin{smallmatrix} 1 \\ -1 \end{smallmatrix}\right]e^t + C_2\left(\left[\begin{smallmatrix} 1 \\ -1 \end{smallmatrix}\right]te^t + \left[\begin{smallmatrix} -1/3 \\ 0 \end{smallmatrix}\right]e^t \right)</m> 
+			</p>
+		</answer>
+	</task>
+			
 </exercise>
 
 <exercise>
 <statement>
 			<p>
-				Take the system from , <m>x_1'=\frac{r}{V}(x_2-x_1)</m>, <m>x_2'=\frac{r}{V}(x_1-x_2)</m>. As we said, one of the eigenvalues is zero. What is the other eigenvalue, how does the picture look like and what happens when <m>t</m> goes to infinity.
+				Take the system from <xref ref="sintro-closedbrine-example"/>, <m>x_1'=\frac{r}{V}(x_2-x_1)</m>, <m>x_2'=\frac{r}{V}(x_1-x_2)</m>. As we said, one of the eigenvalues is zero. What is the other eigenvalue, how does the picture look like and what happens when <m>t</m> goes to infinity.
 			</p>
 </statement>
 
@@ -368,30 +575,163 @@ x \\ y
 \end{smallmatrix}\right]</m>. Draw the vector field and describe the behavior. Is it one of the behaviors that we have seen before?
 			</p>
 </statement>
+<answer>
+	<figure xml:id="degenerate-vectorfield">
+	<caption> Vector field for the system  <m>\left[ \begin{smallmatrix}
+x \\ y
+\end{smallmatrix}\right] '
+=
+\left[ \begin{smallmatrix}
+0 &amp; 1 \\ 0 &amp; 0
+\end{smallmatrix}\right]
+\left[ \begin{smallmatrix}
+x \\ y
+\end{smallmatrix}\right]</m>. </caption>
+	<image source="0100vectorfield.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
+	<p>
+		The solution does not move anywhere if <m>y = 0</m>.  When <m>y</m> is positive,
+the solution moves (with constant speed)
+in the positive <m>x</m> direction.  When <m>y</m> is
+negative, the solution moves (with constant speed) in the negative
+<m>x</m> direction.  It is not one of the behaviors we have seen.
+	</p>
+	<p>
+Note that the matrix has a double eigenvalue 0 and the general solution is
+<m>x = C_1 t + C_2</m> and <m>y = C_1</m>, which agrees with the
+description above.
+	</p>
+</answer>
 
 </exercise>
 <exercise>
-<statement>
-			<p>
-				In this exercise, we will analyze <q>perturbations</q> or near-by matrices to the ones that are given. This will be important later in . For each of the following matrices
+<introduction>
+	<p>
+				In this exercise, we will analyze <q>perturbations</q> or near-by matrices to the ones that are given. This will be important later in <xref ref="linearization-section"/>. For each of the following matrices
+				<ol>
+					<li>
+						<p>
+							Find the trace and determinant, and use them to classify the behavior of the linear system <m>{\vec{x}}' = A\vec{x}</m> for the given matrix <m>A</m>.
+						</p>
+					</li>
+					<li>
+						<p>
+							Draw a sketch of the trace-determinant plane, including the curve <m>D = \nicefrac{T^2}{4}</m>, and plot the point corresponding to the matrix on those axes.
+						</p>
+					</li>
+					<li>
+						<p>
+							Look at the points in a small (as small as you want) circle around the point you just drew. What does the behavior look like for systems whose matrices fall within that circle? What do these behaviors have in common with each other, and how do they differ?
+						</p>
+					</li>
+				</ol>
 			</p>
+</introduction>
+<task>
+	<statement>
+		<p>
+			<m>\begin{bmatrix} 2 &amp; 8 \\ -3 &amp; -8 \end{bmatrix}</m>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>T=-6</m>, <m>D = 8</m>. Nodal sink. All points nearby are nodal sinks. 
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			<m>\begin{bmatrix} 15 &amp; -12 \\ 16 &amp; -13 \end{bmatrix}</m>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>T = 2</m>, <m>D = -3</m>. Saddle. All points nearby are saddles.
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			<m>\begin{bmatrix} 2 &amp; -1 \\ 5 &amp; -2 \end{bmatrix}</m>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>T = 0</m>, <m>D = 1</m>. Center. Points nearby are all spirals, but they could be asymptotically stable, centers, or unstable. Stability is unknown.
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			<m>\begin{bmatrix} 4 &amp; -1 \\ 2 &amp; 2 \end{bmatrix}</m>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>T = 6</m>, <m>D = 10</m>. Spiral source. All points nearby are spiral sources.
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			<m>\begin{bmatrix} -2 &amp; 2 \\ -2 &amp; -6 \end{bmatrix}</m>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			 <m>T = -8</m>, <m>D = 16</m>. Improper nodal sink. All points nearby will be asymptotically stable, but they could be nodal sinks, improper nodal sinks, or spiral sinks.
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			<m>\begin{bmatrix} -1 &amp; -4 \\ 2 &amp; 5 \end{bmatrix}</m>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>T = 4</m>, <m>D = 3</m>. Nodal source. All points nearby are nodal sources.
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			<m>\begin{bmatrix} -5 &amp; 6 \\ -3 &amp; 1 \end{bmatrix}</m>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>T = -4</m>, <m>D = 13</m>. Spiral sink. All points nearby are spiral sinks. 
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			<m>\begin{bmatrix} 5 &amp; -2 \\ 8 &amp; -3 \end{bmatrix} </m>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>T = 2</m>, <m>D = 1</m>. Improper nodal source. All points nearby will be unstable, but they may be spirals, nodal sources, or improper nodal sources.
+		</p>
+	</answer>
+</task>
+			
 
-<!-- div attr= class="tasks"-->
-			<p>
-				Find the trace and determinant, and use them to classify the behavior of the linear system <m>{\vec{x}}' = A\vec{x}</m> for the given matrix <m>A</m>. Draw a sketch of the trace-determinant plane, including the curve <m>D = \nicefrac{T^2}{4}</m>, and plot the point corresponding to the matrix on those axes. Look at the points in a small (as small as you want) circle around the point you just drew. What does the behavior look like for systems whose matrices fall within that circle? What do these behaviors have in common with each other, and how do they differ?
-			</p><!--</div attr= class="tasks">-->
-
-			<p>
-				
-<me>
-\begin{split}
-(i)\ \begin{bmatrix} 2 &amp; 8 \\ -3 &amp; -8 \end{bmatrix} \qquad (ii)\ \begin{bmatrix} 15 &amp; -12 \\ 16 &amp; -13 \end{bmatrix} \qquad &amp;(iii)\ \begin{bmatrix} 2 &amp; -1 \\ 5 &amp; -2 \end{bmatrix} \qquad (iv)\ \begin{bmatrix} 4 &amp; -1 \\ 2 &amp; 2 \end{bmatrix}\\
-(v)\ \begin{bmatrix} -2 &amp; 2 \\ -2 &amp; -6 \end{bmatrix} \qquad (vi)\ \begin{bmatrix} -1 &amp; -4 \\ 2 &amp; 5 \end{bmatrix} \qquad &amp;(vii)\ \begin{bmatrix} -5 &amp; 6 \\ -3 &amp; 1 \end{bmatrix} \qquad (viii)\ \begin{bmatrix} 5 &amp; -2 \\ 8 &amp; -3 \end{bmatrix} 
-\end{split}
-</me>
-
-			</p>
-</statement>
 </exercise></exercises>
 
 	</section>

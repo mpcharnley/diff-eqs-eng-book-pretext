@@ -123,7 +123,6 @@ E_{min} = \min_\alpha E(\alpha) = \min_\alpha \sum_{i=1}^n (v_i - v_\alpha(t_i))
 
 
 <example>
-<title> </title>
 <statement>		<p>
 			An object is falling under the force of gravity, and has a drag component that is proportional to the square of the velocity. Data is gathered on the falling object, and the velocity at a variety of times are given in <xref ref="estimData-table"/>.
 		</p>
@@ -455,6 +454,11 @@ end
 				Use this data (and code) to estimate the value of <m>\alpha</m> for this object.
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>\alpha = .1244</m>. The alpha value used before noise was added to the data is <m>0.124</m>, so very close, but not identically the same.
+	</p>
+</answer>
 
 </exercise>
 

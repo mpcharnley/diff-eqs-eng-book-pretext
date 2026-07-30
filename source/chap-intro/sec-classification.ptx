@@ -385,6 +385,11 @@ v}{\partial y^2} = \sin(x)</m>
 				Write down the general <em>zero</em>th order linear ordinary differential equation. Write down the general solution.
 			</p>
 </statement>
+<answer>
+	<p>
+		equation: <m>a(x) y = b(x)</m>, solution: <m>y = \frac{b(x)}{a(x)}</m>.
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -393,6 +398,11 @@ v}{\partial y^2} = \sin(x)</m>
 				For which <m>k</m> is <m>\frac{dx}{dt}+x^k = t^{k+2}</m> linear. Hint: there are two answers.
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>k=0</m> or <m>k=1</m>.
+	</p>
+</answer>
 
 </exercise>
 <exercise>

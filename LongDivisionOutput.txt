@@ -1,0 +1,23 @@
+<tabular>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<row>
+		<cell right="medium"><m>2+2i</m></cell><cell><m>1</m></cell><cell><m>0</m></cell><cell><m>0</m></cell><cell><m>0</m></cell><cell><m>64</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell bottom="medium"><m>\downarrow</m></cell><cell bottom="medium"><m>2+2i</m></cell><cell bottom="medium"><m>8i</m></cell><cell bottom="medium"><m>-16+16i</m></cell><cell bottom="medium"><m>-64</m></cell>
+	</row>
+	<row>
+		<cell right="medium"><m>2-2i</m></cell><cell><m>1</m></cell><cell><m>2+2i</m></cell><cell><m>8i</m></cell><cell><m>-16+16i</m></cell><cell><m>\fbox{$0$}</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell bottom="medium"><m>\downarrow</m></cell><cell bottom="medium"><m>2-2i</m></cell><cell bottom="medium"><m>8-8i</m></cell><cell bottom="medium"><m>16-16i</m></cell><cell></cell>
+	</row>
+	<row>
+		<cell></cell><cell><m>1</m></cell><cell><m>4</m></cell><cell><m>8</m></cell><cell><m>\fbox{0}</m></cell><cell></cell>
+	</row>
+</tabular>

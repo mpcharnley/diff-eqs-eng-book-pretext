@@ -6,35 +6,60 @@
 	<section xml:id="sol-section">
 		<title>Second order systems and applications</title>
 
+<objectives>
+	<introduction>
+		<p>
+			After this section, you will be able to: 
+		</p>
+	</introduction>
+	<ul>
+		<li>
+			<p>
+				Use second order systems to model physical problems and
+			</p>
+		</li>
+		<li>
+			<p>
+				Solve second order systems using diagonalization or eigenvalue methods.
+			</p>
+		</li>
+	</ul>
+</objectives>
+
 
 		<subsection xml:id="undamped-mass-spring-systems">
 			<title>Undamped mass-spring systems</title>
 
 			<p>
-				While we did say that we will usually only look at first order systems, it is sometimes more convenient to study the system in the way it arises naturally. For example, suppose we have 3 masses connected by springs between two walls. We could pick any higher number, and the math would be essentially the same, but for simplicity we pick 3 right now. Let us also assume no friction, that is, the system is undamped. The masses are <m>m_1</m>, <m>m_2</m>, and <m>m_3</m> and the spring constants are <m>k_1</m>, <m>k_2</m>, <m>k_3</m>, and <m>k_4</m>. Let <m>x_1</m> be the displacement from rest position of the first mass, and <m>x_2</m> and <m>x_3</m> the displacement of the second and third mass. We make, as usual, positive values go right (as <m>x_1</m> grows, the first mass is moving right). See .
+				While we did say that we will usually only look at first order systems, it is sometimes more convenient to study the system in the way it arises naturally. For example, suppose we have 3 masses connected by springs between two walls. We could pick any higher number, and the math would be essentially the same, but for simplicity we pick 3 right now. Let us also assume no friction, that is, the system is <term>undamped</term>. The masses are <m>m_1</m>, <m>m_2</m>, and <m>m_3</m> and the spring constants are <m>k_1</m>, <m>k_2</m>, <m>k_3</m>, and <m>k_4</m>. Let <m>x_1</m> be the displacement from rest position of the first mass, and <m>x_2</m> and <m>x_3</m> the displacement of the second and third mass. We make, as usual, positive values go right (as <m>x_1</m> grows, the first mass is moving right). See <xref ref="sosa-threecartsfig"/>.
 			</p>
 
-<!-- div attr= class="myfig"-->
-<!--</div attr= class="myfig">-->
+<figure xml:id="sosa-threecartsfig">
+	<caption> System of masses and springs. </caption>
+	<image source="threecartsfig.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
 			<p>
 				This simple system turns up in unexpected places. For example, our world really consists of many small particles of matter interacting together. When we try the system above with many more masses, we obtain a good approximation to how an elastic material behaves.
 			</p>
 
 			<p>
-				Let us set up the equations for the . By , the force acting on the mass equals the spring compression times the spring constant. By , force is mass times acceleration. So if we sum the forces acting on each mass, put the right sign in front of each term, depending on the direction in which it is acting, and set this equal to mass times the acceleration, we end up with the desired system of equations. 
-<me>
-\begin{aligned}
-m_1 x_1'' &amp;= -k_1 x_1 + k_2 (x_2-x_1)
-&amp; &amp; = -(k_1+k_2) x_1 + k_2 x_2 , \\
-m_2 x_2'' &amp;= -k_2 (x_2-x_1) + k_3 (x_3-x_2)
-&amp; &amp; = k_2 x_1 -(k_2+k_3) x_2 + k_3 x_3 , \\
-m_3 x_3'' &amp;= -k_3 (x_3-x_2) - k_4 x_3
-&amp; &amp; = k_3 x_2 - (k_3+k_4) x_3 . 
-\end{aligned}
-</me>
+				Let us set up the equations for the <term>three mass system</term>. By <term>Hooke's Law</term>, the force acting on the mass equals the spring compression times the spring constant. By <term>Newton's second law</term>, force is mass times acceleration. So if we sum the forces acting on each mass, put the right sign in front of each term, depending on the direction in which it is acting, and set this equal to mass times the acceleration, we end up with the desired system of equations. 
+<md>
+<mrow>m_1 x_1'' \amp= -k_1 x_1 + k_2 (x_2-x_1) = -(k_1+k_2) x_1 + k_2 x_2  </mrow>
+<mrow>m_2 x_2'' \amp= -k_2 (x_2-x_1) + k_3 (x_3-x_2) = k_2 x_1 -(k_2+k_3) x_2 + k_3 x_3  </mrow>
+<mrow>m_3 x_3'' \amp= -k_3 (x_3-x_2) - k_4 x_3 = k_3 x_2 - (k_3+k_4) x_3 
+</mrow>
+</md>.
  We define the matrices 
-<me>
+<md>
 M =
 \begin{bmatrix}
 m_1 &amp; 0 &amp; 0 \\
@@ -50,12 +75,12 @@ K =
 k_2 &amp; -(k_2+k_3) &amp; k_3 \\
 0 &amp; k_3 &amp; -(k_3+k_4)
 \end{bmatrix} .
-</me>
+</md>
  We write the equation simply as 
-<me>
+<md>
 M {\vec{x}}'' = K \vec{x} .
-</me>
- At this point we could introduce 3 new variables and write out a system of 6 first order equations. We claim this simple setup is easier to handle as a second order system. We call <m>\vec{x}</m> the <em></em>, <m>M</m> the <em></em>, and <m>K</m> the <em></em>.
+</md>
+ At this point we could introduce 3 new variables and write out a system of 6 first order equations. We claim this simple setup is easier to handle as a second order system. We call <m>\vec{x}</m> the <term>displacement vector</term>, <m>M</m> the <term>mass matrix</term>, and <m>K</m> the <term>stiffness matrix</term>.
 			</p>
 
 <exercise>
@@ -64,43 +89,44 @@ M {\vec{x}}'' = K \vec{x} .
 				Repeat this setup for 4 masses (find the matrices <m>M</m> and <m>K</m>). Do it for 5 masses. Can you find a prescription to do it for <m>n</m> masses?
 			</p>
 </statement>
+</exercise>
 
-<answer>			<p>
-				As with a single equation we want to This means computing the inverse of <m>M</m>. The masses are all nonzero and <m>M</m> is a diagonal matrix, so computing the inverse is easy: 
-<me>
+			<p>
+				As with a single equation we want to <q>divide by <m>M</m></q>. This means computing the inverse of <m>M</m>. The masses are all nonzero and <m>M</m> is a diagonal matrix, so computing the inverse is easy: 
+<md>
 M^{-1} =
 \begin{bmatrix}
 \frac{1}{m_1} &amp; 0 &amp; 0 \\
 0 &amp; \frac{1}{m_2} &amp; 0 \\
 0 &amp; 0 &amp; \frac{1}{m_3}
 \end{bmatrix} .
-</me>
+</md>
  This fact follows readily by how we multiply diagonal matrices. As an exercise, you should verify that <m>M M^{-1} = M^{-1} M = I</m>.
 			</p>
-</answer>
-</exercise>
+
+
 
 			<p>
 				Let <m>A = M^{-1}K</m>. We look at the system <m>{\vec{x}}'' = M^{-1}K \vec{x}</m>, or 
-<me>
+<md>
 {\vec{x}}'' = A \vec{x} .
-</me>
+</md>
  Many real world systems can be modeled by this equation. For simplicity, we will only talk about the given masses-and-springs problem. We try a solution of the form 
-<me>
+<md>
 \vec{x} = \vec{v} e^{\alpha t} .
-</me>
+</md>
  We compute that for this guess, <m>{\vec{x}}'' = \alpha^2 \vec{v} e^{\alpha t}</m>. We plug our guess into the equation and get 
-<me>
+<md>
 \alpha^2 \vec{v} e^{\alpha t} = A\vec{v} e^{\alpha t} .
-</me>
+</md>
  We divide by <m>e^{\alpha t}</m> to arrive at <m>\alpha^2 \vec{v} = A\vec{v}</m>. Hence if <m>\alpha^2</m> is an eigenvalue of <m>A</m> and <m>\vec{v}</m> is a corresponding eigenvector, we have found a solution.
 			</p>
 
 			<p>
 				In our example, and in other common applications, <m>A</m> has only real negative eigenvalues (and possibly a zero eigenvalue). So we study only this case. When an eigenvalue <m>\lambda</m> is negative, it means that <m>\alpha^2 = \lambda</m> is negative. Hence there is some real number <m>\omega</m> such that <m>-\omega^2 = \lambda</m>. Then <m>\alpha = \pm i \omega</m>. The solution we guessed was 
-<me>
+<md>
 \vec{x} = \vec{v} \, \bigl(\cos (\omega t) + i \sin (\omega t) \bigr) .
-</me>
+</md>
  By taking the real and imaginary parts (note that <m>\vec{v}</m> is real), we find that <m>\vec{v} \cos (\omega t)</m> and <m>\vec{v} \sin (\omega t)</m> are linearly independent solutions.
 			</p>
 
@@ -116,28 +142,31 @@ M^{-1} =
 </statement>
 
 </exercise>
-<!-- div attr= class="theorem1"-->
-			<p>
+<theorem xml:id="thm-secondorder-eigen">
+	<statement>
+		<p>
 				Let <m>A</m> be a real <m>n \times n</m> matrix with <m>n</m> distinct real negative (or zero) eigenvalues we denote by <m>-\omega_1^2 &gt; -\omega_2^2 &gt; \cdots &gt; -\omega_n^2</m>, and corresponding eigenvectors by <m>\vec{v}_1</m>, <m>\vec{v}_2</m>, …, <m>\vec{v}_n</m>. If <m>A</m> is invertible (that is, if <m>\omega_1 &gt; 0</m>), then 
-<me>
+<md>
 %\mybxbg{~~
 \vec{x}(t)
 = \sum_{i=1}^n \vec{v}_i \bigl(a_i \cos (\omega_i t) + b_i \sin (\omega_i t) \bigr) ,
 %~~}
-</me>
+</md>
  is the general solution of 
-<me>
+<md>
 {\vec{x}}'' = A \vec{x},
-</me>
+</md>
  for some arbitrary constants <m>a_i</m> and <m>b_i</m>. If <m>A</m> has a zero eigenvalue, that is <m>\omega_1 = 0</m>, and all other eigenvalues are distinct and negative, then the general solution can be written as 
-<me>
+<md>
 %\mybxbg{~~
 \vec{x}(t) = \vec{v}_1 (a_1 + b_1 t) +
 \sum_{i=2}^n \vec{v}_i \bigl(a_i \cos (\omega_i t) + b_i \sin (\omega_i t) \bigr) .
 %~~}
-</me>
+</md>
 
-			</p><!--</div attr= class="theorem1">-->
+			</p>
+	</statement>
+</theorem>
 
 			<p>
 				We use this solution and the setup from the introduction of this section even when some of the masses and springs are missing. For example, when there are only 2 masses and only 2 springs, simply take only the equations for the two masses and set all the spring constants for the springs that are missing to zero.
@@ -150,18 +179,26 @@ M^{-1} =
 
 
 <example>
-<title> </title>
 <statement>			<p>
-				Consider the setup in , with <m>m_1 = \unit[2]{kg}</m>, <m>m_2 = \unit[1]{kg}</m>, <m>k_1 = \unitfrac[4]{N}{m}</m>, and <m>k_2 = \unitfrac[2]{N}{m}</m>.
+				Consider the setup in <xref ref="sosa-twocartswallfig"/>, with <m>m_1 = \unit[2]{kg}</m>, <m>m_2 = \unit[1]{kg}</m>, <m>k_1 = \unitfrac[4]{N}{m}</m>, and <m>k_2 = \unitfrac[2]{N}{m}</m>.
 			</p>
 
-<!-- div attr= class="myfig"-->
-<!--</div attr= class="myfig">-->
+<figure xml:id="sosa-twocartswallfig">
+	<caption> System of masses and springs. </caption>
+	<image source="twocartswallfig.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 </statement>
 
 <solution>			<p>
 				The equations we write down are 
-<me>
+<md>
 \begin{bmatrix}
 2 &amp; 0 \\
 0 &amp; 1
@@ -172,16 +209,16 @@ M^{-1} =
 2 &amp; -2
 \end{bmatrix}
 \vec{x} ,
-</me>
+</md>
  or 
-<me>
+<md>
 {\vec{x}}'' =
 \begin{bmatrix}
 -3 &amp; 1 \\
 2 &amp; -2
 \end{bmatrix}
-\vec{x} .
-</me>
+\vec{x}
+</md>.
 
 			</p>
 
@@ -191,36 +228,46 @@ M^{-1} =
 
 			<p>
 				We check the theorem and note that <m>\omega_1 = 1</m> and <m>\omega_2 = 2</m>. Hence the general solution is 
-<me>
+<md>
 \vec{x} = 
 \begin{bmatrix} 1 \\ 2 \end{bmatrix}
 \bigl( a_1 \cos (t) + b_1 \sin (t) \bigr)
 +
 \begin{bmatrix} 1 \\ -1 \end{bmatrix}
 \bigl( a_2 \cos (2t) + b_2 \sin (2t) \bigr) .
-</me>
+</md>
 
 			</p>
 
 			<p>
-				The two terms in the solution represent the two so-called <em>natural</em> or <em>normal modes of oscillation</em>. And the two (angular) frequencies are the <em>natural frequencies</em>. The first natural frequency is 1, and second natural frequency is 2. The two modes are plotted in .
+				The two terms in the solution represent the two so-called <em>natural</em> or <em>normal modes of oscillation</em>. And the two (angular) frequencies are the <em>natural frequencies</em>. The first natural frequency is 1, and second natural frequency is 2. The two modes are plotted in <xref ref="sosa-modesfig"/>.
 			</p>
 
-<!-- div attr= class="myfig"-->
-<!--</div attr= class="myfig">-->
+<figure xml:id="sosa-modesfig">
+	<caption> The two modes of the mass-spring system.  In the left plot, the masses are moving in unison and in the right plot are masses moving in the
+opposite direction. </caption>
+	<image source="sosa-modes-1-2.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
 			<p>
 				Let us write the solution as 
-<me>
+<md>
 \vec{x} = 
 \begin{bmatrix} 1 \\ 2 \end{bmatrix}
 c_1 \cos (t - \alpha_1 )
 +
 \begin{bmatrix} 1 \\ -1 \end{bmatrix}
 c_2 \cos (2t - \alpha_2 ) .
-</me>
+</md>
  The first term, 
-<me>
+<md>
 \begin{bmatrix} 1 \\ 2 \end{bmatrix}
 c_1 \cos (t - \alpha_1 )
 =
@@ -228,13 +275,13 @@ c_1 \cos (t - \alpha_1 )
 c_1 \cos (t - \alpha_1 ) \\
 2c_1 \cos (t - \alpha_1 )
 \end{bmatrix} ,
-</me>
+</md>
  corresponds to the mode where the masses move synchronously in the same direction.
 			</p>
 
 			<p>
 				The second term, 
-<me>
+<md>
 \begin{bmatrix} 1 \\ -1 \end{bmatrix}
 c_2 \cos (2t - \alpha_2 )
 =
@@ -242,21 +289,21 @@ c_2 \cos (2t - \alpha_2 )
 c_2 \cos (2t - \alpha_2 ) \\
 - c_2 \cos (2t - \alpha_2 )
 \end{bmatrix} ,
-</me>
+</md>
  corresponds to the mode where the masses move synchronously but in opposite directions.
 			</p>
 
 			<p>
 				The general solution is a combination of the two modes. That is, the initial conditions determine the amplitude and phase shift of each mode. As an example, suppose we have initial conditions 
-<me>
+<md>
 \vec{x}(0) = 
 \begin{bmatrix} 1 \\ -1 \end{bmatrix}
 , \qquad
 \vec{x}'(0) = 
 \begin{bmatrix} 0 \\ 6 \end{bmatrix} .
-</me>
+</md>
  We use the <m>a_j, b_j</m> constants to solve for initial conditions. First 
-<me>
+<md>
 \begin{bmatrix} 1 \\ -1 \end{bmatrix}
 =
 \vec{x}(0) = 
@@ -267,18 +314,18 @@ a_1
 a_2 
 =
 \begin{bmatrix} a_1+a_2 \\2a_1 - a_2 \end{bmatrix} .
-</me>
+</md>
  We solve (exercise) to find <m>a_1 = 0</m>, <m>a_2 = 1</m>. To find the <m>b_1</m> and <m>b_2</m>, we differentiate first: 
-<me>
+<md>
 {\vec{x}}' = 
 \begin{bmatrix} 1 \\ 2 \end{bmatrix}
 \bigl( - a_1 \sin (t) + b_1 \cos (t) \bigr)
 +
 \begin{bmatrix} 1 \\ -1 \end{bmatrix}
 \bigl( - 2a_2 \sin (2t) + 2 b_2 \cos (2t) \bigr) .
-</me>
+</md>
  Now we solve: 
-<me>
+<md>
 \begin{bmatrix} 0 \\ 6 \end{bmatrix}
 =
 {\vec{x}}'(0) = 
@@ -289,9 +336,9 @@ b_1
 2 b_2
 =
 \begin{bmatrix} b_1+2b_2 \\ 2b_1-2b_2 \end{bmatrix} .
-</me>
+</md>
  Again solve (exercise) to find <m>b_1 = 2</m>, <m>b_2 = -1</m>. So our solution is 
-<me>
+<md>
 \vec{x} = 
 \begin{bmatrix} 1 \\ 2 \end{bmatrix}
 2 \sin (t)
@@ -303,23 +350,40 @@ b_1
 2 \sin (t) + \cos(2t)- \sin(2t) \\
 4 \sin (t) - \cos(2t) + \sin(2t)
 \end{bmatrix} .
-</me>
- The graphs of the two displacements, <m>x_1</m> and <m>x_2</m> of the two carts is in .
+</md>
+ The graphs of the two displacements, <m>x_1</m> and <m>x_2</m> of the two carts is in <xref ref="sosa-superposfig"/>.
 			</p>
 
-<!-- div attr= class="myfig"-->
-<!--</div attr= class="myfig">-->
+<figure xml:id="sosa-superposfig">
+	<caption> Superposition of the two modes given the initial conditions. </caption>
+	<image source="sosa-superpos.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 </solution>
 </example>
 
-<example>
-<title> </title>
+<example xml:id="sosa-railcarexample">
 <statement>			<p>
-				 We have two toy rail cars. Car 1 of mass kg is traveling at towards the second rail car of mass kg. There is a bumper on the second rail car that engages at the moment the cars hit (it connects to two cars) and does not let go. The bumper acts like a spring of spring constant <m>k=\unitfrac[2]{N}{m}</m>. The second car is 10 meters from a wall. See .
+				 We have two toy rail cars. Car 1 of mass kg is traveling at towards the second rail car of mass kg. There is a bumper on the second rail car that engages at the moment the cars hit (it connects to two cars) and does not let go. The bumper acts like a spring of spring constant <m>k=\unitfrac[2]{N}{m}</m>. The second car is 10 meters from a wall. See <xref ref="sosa-railcarscrashfig"/>.
 			</p>
 
-<!-- div attr= class="myfig"-->
-<!--</div attr= class="myfig">-->
+<figure xml:id="sosa-railcarscrashfig">
+	<caption> The crash of two rail cars. </caption>
+	<image source="railcarscrash.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
 			<p>
 				We want to ask several questions. At what time after the cars link does impact with the wall happen? What is the speed of car 2 when it hits the wall?
@@ -328,7 +392,7 @@ b_1
 
 <solution>			<p>
 				OK, let us first set the system up. Let <m>t=0</m> be the time when the two cars link up. Let <m>x_1</m> be the displacement of the first car from the position at <m>t=0</m>, and let <m>x_2</m> be the displacement of the second car from its original location. Then the time when <m>x_2(t) = 10</m> is exactly the time when impact with wall occurs. For this <m>t</m>, <m>x_2'(t)</m> is the speed at impact. This system acts just like the system of the previous example but without <m>k_1</m>. Hence the equation is 
-<me>
+<md>
 \begin{bmatrix}
 2 &amp; 0 \\
 0 &amp; 1
@@ -339,62 +403,66 @@ b_1
 2 &amp; -2
 \end{bmatrix}
 \vec{x} ,
-</me>
+</md>
  or 
-<me>
+<md>
 {\vec{x}}'' =
 \begin{bmatrix}
 -1 &amp; 1 \\
 2 &amp; -2
 \end{bmatrix}
 \vec{x} .
-</me>
+</md>
 
 			</p>
 
 			<p>
 				We compute the eigenvalues of <m>A</m>. It is not hard to see that the eigenvalues are 0 and <m>-3</m> (exercise). Furthermore, eigenvectors are <m>\left[ \begin{smallmatrix} 1 \\ 1 \end{smallmatrix} \right]</m> and <m>\left[ \begin{smallmatrix} 1 \\ -2 \end{smallmatrix} \right]</m> respectively (exercise). Then <m>\omega_1 = 0</m>, <m>\omega_2 = \sqrt{3}</m>, and by the second part of the theorem the general solution is 
-<me>
-\begin{split}
-\vec{x} &amp; = 
-\begin{bmatrix} 1 \\ 1 \end{bmatrix}
+<md>
+<mrow>\vec{x} \amp = 
+\begin{bmatrix} 
+1 \\ 1 
+\end{bmatrix}
 \left( a_1 + b_1 t \right) 
 +
-\begin{bmatrix} 1 \\ -2 \end{bmatrix}
+\begin{bmatrix} 
+1 \\ -2 
+\end{bmatrix}
 \left( a_2 \cos ( \sqrt{3} \, t) + b_2 \sin ( \sqrt{3} \, t ) \right)
-\\
-&amp; =
+</mrow>
+<mrow>
+\amp =
 \begin{bmatrix}
 a_1 + b_1 t + a_2 \cos ( \sqrt{3} \, t ) + b_2 \sin ( \sqrt{3} \, t
 ) \\
 a_1 + b_1 t - 2 a_2 \cos ( \sqrt{3} \, t ) - 2 b_2 \sin ( \sqrt{3}
 \, t ) 
-\end{bmatrix} .
-\end{split}
-</me>
+\end{bmatrix}
+</mrow>
+</md>.
 
 			</p>
 
 			<p>
 				We now apply the initial conditions. First the cars start at position 0 so <m>x_1 (0) = 0</m> and <m>x_2(0) = 0</m>. The first car is traveling at , so <m>x_1'(0) = 3</m> and the second car starts at rest, so <m>x_2'(0) = 0</m>. The first conditions says 
-<me>
+<md>
 \vec{0} = \vec{x}(0) = 
 \begin{bmatrix}
 a_1 + a_2 \\
 a_1 - 2 a_2 
 \end{bmatrix} .
-</me>
+</md>
  It is not hard to see that <m>a_1 = a_2 = 0</m>. We set <m>a_1=0</m> and <m>a_2=0</m> in <m>\vec{x}(t)</m> and differentiate to get 
-<me>
+<md>
 {\vec{x}}'(t)
 =
 \begin{bmatrix}
 b_1 + \sqrt{3} \, b_2 \cos ( \sqrt{3} \, t ) \\
 b_1 - 2 \sqrt{3} \, b_2 \cos ( \sqrt{3} \, t )
 \end{bmatrix} .
-</me>
+</md>
  So 
-<me>
+<md>
 \begin{bmatrix} 3 \\ 0 \end{bmatrix} = 
 {\vec{x}}'(0)
 =
@@ -402,22 +470,22 @@ b_1 - 2 \sqrt{3} \, b_2 \cos ( \sqrt{3} \, t )
 b_1 + \sqrt{3} \, b_2 \\
 b_1 - 2 \sqrt{3} \, b_2 
 \end{bmatrix} .
-</me>
+</md>
  Solving these two equations we find <m>b_1 = 2</m> and <m>b_2 =
 \frac{1}{\sqrt{3}}</m>. Hence the position of our cars is (until the impact with the wall) 
-<me>
+<md>
 \vec{x} = 
 \begin{bmatrix}
 2 t + \frac{1}{\sqrt{3}} \sin ( \sqrt{3} \, t ) \\
 2 t - \frac{2}{\sqrt{3}} \sin ( \sqrt{3} \, t )
 \end{bmatrix} .
-</me>
+</md>
  Note how the presence of the zero eigenvalue resulted in a term containing <m>t</m>. This means that the cars will be traveling in the positive direction as time grows, which is what we expect.
 			</p>
 
 			<p>
 				What we are really interested in is the second expression, the one for <m>x_2</m>. We have <m>x_2(t) = 
-2 t - \frac{2}{\sqrt{3}} \sin ( \sqrt{3} \, t)</m>. See for the plot of <m>x_2</m> versus time.
+2 t - \frac{2}{\sqrt{3}} \sin ( \sqrt{3} \, t)</m>. See <xref ref="sosa-railcarfig"/> for the plot of <m>x_2</m> versus time.
 			</p>
 
 			<p>
@@ -425,23 +493,30 @@ b_1 - 2 \sqrt{3} \, b_2
 t)</m>. Using a computer (or even a graphing calculator) we find that <m>t_{\text{impact}} \approx 5.22</m> seconds.
 			</p>
 
-<!-- div attr= class="mywrapfig"-->
+<figure xml:id="sosa-railcarfig">
+	<caption> Position of the second car in time (ignoring the wall). </caption>
+	<image source="sosa-railcar.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
 			<p>
-				3.25in
-			</p><!--</div attr= class="mywrapfig">-->
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
 			<p>
 				The speed of the second car is <m>x_2' = 2 - 2 \cos ( \sqrt{3} \, t)</m>. At the time of impact (5.22 seconds from <m>t=0</m>) we get <m>x_2'(t_{\text{impact}}) \approx 3.85</m>. The maximum speed is the maximum of <m>2 - 2 \cos ( \sqrt{3} \, t )</m>, which is 4. We are traveling at almost the maximum speed when we hit the wall.
 			</p>
 
 			<p>
-				Suppose that Bob is a tiny person sitting on car 2. Bob has a Martini in his hand and would like not to spill it. Let us suppose Bob would not spill his Martini when the first car links up with car 2, but if car 2 hits the wall at any speed greater than zero, Bob will spill his drink. Suppose Bob can move car 2 a few meters towards or away from the wall (he cannot go all the way to the wall, nor can he get out of the way of the first car). Is there a distance for him to be at? A distance such that the impact with the wall is at zero speed?
+				Suppose that Bob is a tiny person sitting on car 2. Bob has a Martini in his hand and would like not to spill it. Let us suppose Bob would not spill his Martini when the first car links up with car 2, but if car 2 hits the wall at any speed greater than zero, Bob will spill his drink. Suppose Bob can move car 2 a few meters towards or away from the wall (he cannot go all the way to the wall, nor can he get out of the way of the first car). Is there a <q>safe</q> distance for him to be at? A distance such that the impact with the wall is at zero speed?
 			</p>
 
 			<p>
-				The answer is yes. Looking at , we note the between <m>t=3</m> and <m>t=4</m>. There is a point where the speed is zero. To find it we solve <m>x_2'(t) = 0</m>. This is when <m>\cos ( \sqrt{3} \, t) = 1</m> or in other words when <m>t = \frac{2 \pi}{\sqrt{3}}, 
+				The answer is yes. Looking at <xref ref="sosa-railcarfig"/>, we note the <q>plateau</q> between <m>t=3</m> and <m>t=4</m>. There is a point where the speed is zero. To find it we solve <m>x_2'(t) = 0</m>. This is when <m>\cos ( \sqrt{3} \, t) = 1</m> or in other words when <m>t = \frac{2 \pi}{\sqrt{3}}, 
 \frac{4 \pi}{\sqrt{3}},\ldots</m> and so on. We plug in the first value to obtain <m>x_2\left(\frac{2 \pi}{\sqrt{3}}\right) = 
-\frac{4 \pi}{\sqrt{3}} \approx 7.26</m>. So a distance is about 7 and a quarter meters from the wall.
+\frac{4 \pi}{\sqrt{3}} \approx 7.26</m>. So a <q>safe</q> distance is about 7 and a quarter meters from the wall.
 			</p>
 
 			<p>
@@ -457,23 +532,23 @@ t)</m>. Using a computer (or even a graphing calculator) we find that <m>t_{\tex
 
 			<p>
 				Finally we move to forced oscillations. Suppose that now our system is 
-<men xml:id="sosa-forcedeq">
+<md number="yes" xml:id="sosa-forcedeq">
  {\vec{x}}'' = A \vec{x} + \vec{F} \cos ( \omega t) .
-</men>
+</md>
 That is, we are adding periodic forcing to the system in the direction of the vector <m>\vec{F}</m>.
 			</p>
 
 			<p>
 				As before, this system just requires us to find one particular solution <m>\vec{x}_p</m>, add it to the general solution of the associated homogeneous system <m>\vec{x}_c</m>, and we will have the general solution to <xref ref="sosa-forcedeq" />. Let us suppose that <m>\omega</m> is not one of the natural frequencies of <m>{\vec{x}}'' = A \vec{x}</m>, then we can guess 
-<me>
+<md>
 \vec{x}_p = \vec{c} \cos (\omega t) ,
-</me>
+</md>
  where <m>\vec{c}</m> is an unknown constant vector. Note that we do not need to use sine since there are only second derivatives. We solve for <m>\vec{c}</m> to find <m>\vec{x}_p</m>. This is really just the method of <em>undetermined coefficients</em> for systems. Let us differentiate <m>\vec{x}_p</m> twice to get 
-<me>
+<md>
 {\vec{x}_p}'' = -\omega^2 \vec{c} \cos (\omega t) .
-</me>
+</md>
  Plug <m>\vec{x}_p</m> and <m>{\vec{x}_p}''</m> into equation <xref ref="sosa-forcedeq" />: 
-<me>
+<md>
 \overbrace{
 -\omega^2 \vec{c} \cos (\omega t)
 }^{{\vec{x}_p}''}
@@ -482,48 +557,47 @@ That is, we are adding periodic forcing to the system in the direction of the ve
 A \vec{c} \cos (\omega t) 
 }^{A \vec{x}_p}
 + \vec{F} \cos (\omega t) .
-</me>
+</md>
  We cancel out the cosine and rearrange the equation to obtain 
-<me>
+<md>
 (A +\omega^2 I) \vec{c}
 =
 - \vec{F} .
-</me>
+</md>
  So 
-<me>
+<md>
 \vec{c}
 =
 {(A +\omega^2 I)}^{-1}
 (-\vec{F} ).
-</me>
+</md>
  Of course this is possible only if <m>(A+ \omega^2 I) = \bigl(A- (-\omega^2) I\bigr)</m> is invertible. That matrix is invertible if and only if <m>-\omega^2</m> is not an eigenvalue of <m>A</m>. That is true if and only if <m>\omega</m> is not a natural frequency of the system.
 			</p>
 
 			<p>
 				We simplified things a little bit. If we wish to have the forcing term to be in the units of force, say Newtons, then we must write 
-<me>
+<md>
 M \vec{x}'' = K \vec{x} + \vec{G} \cos(\omega t) .
-</me>
+</md>
  If we then write things in terms of <m>A = M^{-1} K</m>, we have 
-<me>
+<md>
 \vec{x}'' = M^{-1}K \vec{x} + M^{-1} \vec{G} \cos(\omega t) 
 \qquad \text{or} \qquad
 \vec{x}'' = A \vec{x} + \vec{F} \cos(\omega t) ,
-</me>
+</md>
  where <m>\vec{F} = M^{-1} \vec{G}</m>.
 			</p>
 
 
 <example>
-<title> </title>
 <statement>			<p>
-				Let us take the example in with the same parameters as before: <m>m_1 = 2</m>, <m>m_2 = 1</m>, <m>k_1 = 4</m>, and <m>k_2 = 2</m>. Now suppose that there is a force <m>2 \cos (3t)</m> acting on the second cart.
+				Let us take the example in <xref ref="sosa-twocartswallfig"/> with the same parameters as before: <m>m_1 = 2</m>, <m>m_2 = 1</m>, <m>k_1 = 4</m>, and <m>k_2 = 2</m>. Now suppose that there is a force <m>2 \cos (3t)</m> acting on the second cart.
 			</p>
 </statement>
 
 <solution>			<p>
 				The equation is 
-<me>
+<md>
 \begin{bmatrix}
 2 &amp; 0 \\
 0 &amp; 1
@@ -550,87 +624,78 @@ M \vec{x}'' = K \vec{x} + \vec{G} \cos(\omega t) .
 0 \\ 2
 \end{bmatrix}
 \cos (3 t) .
-</me>
+</md>
  We solved the associated homogeneous equation before and found the complementary solution to be 
-<me>
+<md>
 \vec{x}_c =
 \begin{bmatrix} 1 \\ 2 \end{bmatrix}
 \bigl( a_1 \cos (t) + b_1 \sin (t) \bigr)
 +
 \begin{bmatrix} 1 \\ -1 \end{bmatrix}
 \bigl( a_2 \cos (2t) + b_2 \sin (2t) \bigr) .
-</me>
+</md>
 
 			</p>
 
 			<p>
 				The natural frequencies are 1 and 2. As 3 is not a natural frequency, we try <m>\vec{c} \cos (3t)</m>. We invert <m>(A+3^2 I)</m>: 
-<me>
+<md>
 {\left( \begin{bmatrix}
 -3 &amp; 1 \\
-\noalign{\smallskip}
 2 &amp; -2
 \end{bmatrix}
 +3^2 I\right)}^{-1}
 =
 {\begin{bmatrix}
 6 &amp; 1 \\
-\noalign{\smallskip}
 2 &amp; 7
 \end{bmatrix}}^{-1}
 =
 \begin{bmatrix}
 \frac{7}{40} &amp; \frac{-1}{40} \\
-\noalign{\smallskip}
 \frac{-1}{20} &amp; \frac{3}{20}
 \end{bmatrix} .
-</me>
+</md>
  Hence, 
-<me>
+<md>
 \vec{c} = 
 {(A +\omega^2 I)}^{-1}
 (-\vec{F} ) = 
 \begin{bmatrix}
 \frac{7}{40} &amp; \frac{-1}{40} \\
-\noalign{\smallskip}
 \frac{-1}{20} &amp; \frac{3}{20}
 \end{bmatrix}
 \begin{bmatrix}
 0 \\
-\noalign{\smallskip}
 -2
 \end{bmatrix}
 =
 \begin{bmatrix}
 \frac{1}{20} \\
-\noalign{\smallskip}
 \frac{-3}{10}
 \end{bmatrix} .
-</me>
+</md>
 
 			</p>
 
 			<p>
 				Combining with the general solution of the associated homogeneous problem, we get that the general solution to <m>{\vec{x}}'' = A \vec{x} + \vec{F} \cos (\omega t)</m> is 
-<me>
+<md>
 \vec{x} = \vec{x}_c + \vec{x}_p =
 \begin{bmatrix} 1 \\
-\noalign{\smallskip}
 2 \end{bmatrix}
 \bigl( a_1 \cos (t) + b_1 \sin (t) \bigr)
 +
 \begin{bmatrix} 1 \\
-\noalign{\smallskip}
 -1 \end{bmatrix}
 \bigl( a_2 \cos (2t) + b_2 \sin (2t) \bigr)
 +
 \begin{bmatrix}
 \frac{1}{20} \\
-\noalign{\smallskip}
 \frac{-3}{10}
 \end{bmatrix}
 \cos (3t) .
-</me>
+</md>
  We then solve for the constants <m>a_1</m>, <m>a_2</m>, <m>b_1</m>, and <m>b_2</m> using any initial conditions we are given.
 			</p>
 </solution>
@@ -640,12 +705,12 @@ M \vec{x}'' = K \vec{x} + \vec{G} \cos(\omega t) .
 			</p>
 
 			<p>
-				If <m>\omega</m> is a natural frequency of the system, <em></em> may occur, because we will have to try a particular solution of the form 
-<me>
+				If <m>\omega</m> is a natural frequency of the system, <term>resonance</term> may occur, because we will have to try a particular solution of the form 
+<md>
 \vec{x}_p =
 \vec{c} \, t \sin (\omega t) +
 \vec{d} \, \cos (\omega t) .
-</me>
+</md>
  That is assuming that the eigenvalues of the coefficient matrix are distinct. Next, note that the amplitude of this solution grows without bound as <m>t</m> grows.
 			</p>
 
@@ -660,13 +725,13 @@ M \vec{x}'' = K \vec{x} + \vec{G} \cos(\omega t) .
 
 				<p>
 					Let the equation be 
-<me>
+<md>
 {\vec{x}}'' = A \vec{x} + \vec{F}(t) ,
-</me>
+</md>
  where <m>A</m> is a constant matrix. If <m>\vec{F}(t)</m> is of the form <m>\vec{F}_0 \cos (\omega t)</m>, then as two derivatives of cosine is again cosine we can try a solution of the form 
-<me>
+<md>
 \vec{x}_p = \vec{c} \cos (\omega t) ,
-</me>
+</md>
  and we do not need to introduce sines.
 				</p>
 
@@ -691,42 +756,42 @@ M \vec{x}'' = K \vec{x} + \vec{G} \cos(\omega t) .
 
 				<p>
 					If we have the system 
-<me>
+<md>
 {\vec{x}}'' = A \vec{x} + \vec{f}(t) ,
-</me>
- we can do <em></em>, just like for first order systems.
+</md>
+ we can do <term>eigenvalue decomposition</term>, just like for first order systems.
 				</p>
 
 				<p>
 					Let <m>\lambda_1, \lambda_2, \ldots, \lambda_n</m> be the eigenvalues and <m>\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n</m> be eigenvectors. Again form the matrix <m>E = [\, \vec{v}_1 \quad \vec{v}_2 \quad \cdots \quad \vec{v}_n \,]</m>. Write 
-<me>
+<md>
 \vec{x}(t) =
 \vec{v}_1 \, \xi_1(t) + 
 \vec{v}_2 \, \xi_2(t) + \cdots +
 \vec{v}_n \, \xi_n(t) .
-</me>
+</md>
  Decompose <m>\vec{f}</m> in terms of the eigenvectors 
-<me>
+<md>
 \vec{f}(t) =
 \vec{v}_1 \, g_1(t) + 
 \vec{v}_2 \, g_2(t) + \cdots +
 \vec{v}_n \, g_n(t) ,
-</me>
+</md>
  where, again, <m>\vec{g} = E^{-1} \vec{f}</m>.
 				</p>
 
 				<p>
 					We plug in, and as before we obtain 
-<me>
-\begin{split}
-%{\vec{x}}'' &amp; =
+<md>
+<mrow>%{\vec{x}}'' \amp =
 \overbrace{
 \vec{v}_1 \xi_1'' + 
 \vec{v}_2 \xi_2'' + \cdots +
 \vec{v}_n \xi_n''
 }^{{\vec{x}}''}
-%\\
-&amp; =
+%</mrow>
+<mrow>
+\amp =
 \overbrace{
 A \left( \vec{v}_1 \xi_1 + 
 \vec{v}_2 \xi_2 + \cdots +
@@ -738,8 +803,9 @@ A \left( \vec{v}_1 \xi_1 +
 \vec{v}_2 g_2 + \cdots +
 \vec{v}_n g_n
 }^{\vec{f}}
-\\
-&amp; = 
+</mrow>
+<mrow>
+\amp = 
 A \vec{v}_1 \xi_1 + 
 A \vec{v}_2 \xi_2 + \cdots +
 A \vec{v}_n \xi_n
@@ -747,8 +813,9 @@ A \vec{v}_n \xi_n
 \vec{v}_1 g_1 + 
 \vec{v}_2 g_2 + \cdots +
 \vec{v}_n g_n
-\\
-&amp; =
+</mrow>
+<mrow>
+\amp =
 \vec{v}_1 \lambda_1 \xi_1 + 
 \vec{v}_2 \lambda_2 \xi_2 + \cdots +
 \vec{v}_n \lambda_n \xi_n
@@ -756,19 +823,22 @@ A \vec{v}_n \xi_n
 \vec{v}_1 \, g_1 + 
 \vec{v}_2 \, g_2 + \cdots +
 \vec{v}_n \, g_n
-\\
-&amp; =
+</mrow>
+<mrow>
+\amp =
 \vec{v}_1 ( \lambda_1 \xi_1 + g_1 ) +
 \vec{v}_2 ( \lambda_2 \xi_2 + g_2 ) + \cdots + 
-\vec{v}_n ( \lambda_n \xi_n + g_n ) .
-\end{split}
-</me>
- We identify the coefficients of the eigenvectors to get the equations <me>\begin{align*}
-\xi_1'' &amp; = \lambda_1 \xi_1 + g_1 , \\
-\xi_2'' &amp; = \lambda_2 \xi_2 + g_2 , \\
-&amp; ~~ \vdots \\
-\xi_n'' &amp; = \lambda_n \xi_n + g_n .
-\end{align*}</me> Each one of these equations is independent of the others. We solve each equation using the methods of . We write <m>\vec{x}(t) =
+\vec{v}_n ( \lambda_n \xi_n + g_n )
+</mrow>
+</md>.
+ We identify the coefficients of the eigenvectors to get the equations 
+ <md>
+<mrow>\xi_1'' \amp = \lambda_1 \xi_1 + g_1 , </mrow>
+<mrow>\xi_2'' \amp = \lambda_2 \xi_2 + g_2 , </mrow>
+<mrow>\amp ~~ \vdots </mrow>
+<mrow>\xi_n'' \amp = \lambda_n \xi_n + g_n </mrow>
+</md>.
+Each one of these equations is independent of the others. We solve each equation using the methods of <xref ref="ho-chapter"/>. We write <m>\vec{x}(t) =
 \vec{v}_1 \xi_1(t) +
 \vec{v}_2 \xi_2(t) + \cdots +
 \vec{v}_n \xi_n(t)</m>, and we are done; we have a particular solution. We find the general solutions for <m>\xi_1</m> through <m>\xi_n</m>, and again <m>\vec{x}(t) =
@@ -778,7 +848,6 @@ A \vec{v}_n \xi_n
 
 
 <example>
-<title> </title>
 <statement>				<p>
 					Let us do the same example from before using this method.
 				</p>
@@ -786,7 +855,7 @@ A \vec{v}_n \xi_n
 
 <solution>				<p>
 					The equation is 
-<me>
+<md>
 {\vec{x}}'' =
 \begin{bmatrix}
 -3 &amp; 1 \\
@@ -798,16 +867,15 @@ A \vec{v}_n \xi_n
 0 \\ 2
 \end{bmatrix}
 \cos (3 t) .
-</me>
+</md>
  The eigenvalues are <m>-1</m> and <m>-4</m>, with eigenvectors <m>\left[ \begin{smallmatrix} 1 \\ 2 \end{smallmatrix} \right]</m> and <m>\left[ \begin{smallmatrix} 1 \\ -1 \end{smallmatrix} \right]</m>. Therefore <m>E =
 \left[ \begin{smallmatrix} 1 &amp; 1 \\ 2 &amp; -1 \end{smallmatrix} \right]</m> and <m>E^{-1} =
 \frac{1}{3}
 \left[ \begin{smallmatrix} 1 &amp; 1 \\ 2 &amp; -1 \end{smallmatrix}
 \right]</m>. Therefore, 
-<me>
+<md>
 \begin{bmatrix}
 g_1 \\
-\noalign{\smallskip}
 g_2
 \end{bmatrix}
 =
@@ -815,27 +883,26 @@ E^{-1} \vec{f}(t)
 =
 \frac{1}{3}
 \begin{bmatrix} 1 &amp; 1 \\
-\noalign{\smallskip}
 2 &amp; -1 \end{bmatrix}
 \begin{bmatrix} 0 \\
-\noalign{\smallskip}
 2\cos (3t) \end{bmatrix}
 =
 \begin{bmatrix} \frac{2}{3}\cos (3t)
 \\
-\noalign{\smallskip}
 \frac{-2}{3}\cos (3t) \end{bmatrix} .
-</me>
+</md>
  So after the whole song and dance of plugging in, the equations we get are 
-<me>
+<md>
 \xi_1'' = - \xi_1 + \frac{2}{3} \cos (3t) , \qquad
 \xi_2'' = -4 \, \xi_2 - \frac{2}{3} \cos (3t) .
-</me>
- For each equation we use the method of undetermined coefficients. We try <m>C_1 \cos (3t)</m> for the first equation and <m>C_2 \cos (3t)</m> for the second equation. We plug in to get <me>\begin{align*}
-- 9 C_1 \cos (3t) &amp; = - C_1 \cos (3t) + \frac{2}{3} \cos (3t) , \\
-- 9 C_2 \cos (3t) &amp; = - 4 C_2 \cos (3t) - \frac{2}{3} \cos (3t) .
-\end{align*}</me> We solve each of these equations separately. We get <m>- 9 C_1 = - C_1 + \nicefrac{2}{3}</m> and <m>- 9 C_2 = - 4C_2 - \nicefrac{2}{3}</m>. And hence <m>C_1 = \nicefrac{-1}{12}</m> and <m>C_2 = \nicefrac{2}{15}</m>. So our particular solution is 
-<me>
+</md>
+ For each equation we use the method of undetermined coefficients. We try <m>C_1 \cos (3t)</m> for the first equation and <m>C_2 \cos (3t)</m> for the second equation. We plug in to get 
+ <md>
+<mrow>- 9 C_1 \cos (3t) \amp = - C_1 \cos (3t) + \frac{2}{3} \cos (3t) </mrow>
+<mrow>- 9 C_2 \cos (3t) \amp = - 4 C_2 \cos (3t) - \frac{2}{3} \cos (3t) </mrow>
+</md>.
+ We solve each of these equations separately. We get <m>- 9 C_1 = - C_1 + \nicefrac{2}{3}</m> and <m>- 9 C_2 = - 4C_2 - \nicefrac{2}{3}</m>. And hence <m>C_1 = \nicefrac{-1}{12}</m> and <m>C_2 = \nicefrac{2}{15}</m>. So our particular solution is 
+<md>
 \vec{x} =
 \begin{bmatrix} 1 \\
 2 \end{bmatrix} \,
@@ -848,7 +915,7 @@ E^{-1} \vec{f}(t)
 \begin{bmatrix} \nicefrac{1}{20} \\
 \nicefrac{-3}{10} \end{bmatrix} \,
 \cos (3t) .
-</me>
+</md>
  This solution matches what we got previously.
 				</p>
 </solution>
@@ -863,7 +930,7 @@ E^{-1} \vec{f}(t)
 <statement>
 			<p>
 				Find a particular solution to 
-<me>
+<md>
 {\vec{x}}'' =
 \begin{bmatrix}
 -3 &amp; 1 \\
@@ -875,7 +942,7 @@ E^{-1} \vec{f}(t)
 0 \\ 2
 \end{bmatrix}
 \cos (2 t) .
-</me>
+</md>
 
 			</p>
 </statement>
@@ -908,6 +975,34 @@ E^{-1} \vec{f}(t)
 \end{smallmatrix}\right]</m>.
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>\vec{x}
+=
+\left[ \begin{smallmatrix}
+1 \\ -1 \\ 1
+\end{smallmatrix}\right]
+\bigl( a_1 \cos (\sqrt{3}\, t)  + b_1 \sin (\sqrt{3}\, t) \bigr)
++
+\left[ \begin{smallmatrix}
+0 \\ 1 \\ -2
+\end{smallmatrix}\right]
+\bigl( a_2 \cos (\sqrt{2}\, t)  + b_2 \sin (\sqrt{2}\, t) \bigr)
++
+$
+\\
+$
+\left[ \begin{smallmatrix}
+0 \\ 0 \\ 1
+\end{smallmatrix}\right]
+\bigl( a_3 \cos (t)  + b_3 \sin (t) \bigr)
++
+\left[ \begin{smallmatrix}
+-1 \\ \nicefrac{1}{2} \\ -\nicefrac{1}{3}
+\end{smallmatrix}\right]
+\cos (2t)</m>
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -917,7 +1012,7 @@ E^{-1} \vec{f}(t)
 			</p>
 
 			<p>
-				Note: This idea is called <em></em>. In practice there will be a small amount of damping and so any transient solution will disappear and after long enough time, the first mass will always come to a stop.
+				Note: This idea is called <term>dynamic damping</term>. In practice there will be a small amount of damping and so any transient solution will disappear and after long enough time, the first mass will always come to a stop.
 			</p>
 </statement>
 
@@ -928,27 +1023,54 @@ E^{-1} \vec{f}(t)
 </exercise>
 
 <exercise>
-<statement>
-			<p>
-				Let us take the , but that at time of impact, car 2 is moving to the left at the speed of .
-			</p>
-
-<!-- div attr= class="tasks"-->
-			<p>
-				Find the behavior of the system after linkup. Will the second car hit the wall, or will it be moving away from the wall as time goes on? At what speed would the first car have to be traveling for the system to essentially stay in place after linkup?
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a)  <m>\vec{x}(t) = \left[\begin{smallmatrix} t + \frac{2}{\sqrt{3}}\sin(\sqrt{3}t) \\ t - \frac{4}{\sqrt{3}}\sin(\sqrt{3}t) \end{smallmatrix}\right]</m> b) It will hit the wall. c) <m>v_2 = 1.5</m> m/s to the right 
-			</p>
-</answer>
+<introduction>
+	<p>
+		Let us take <xref ref="sosa-railcarexample"/>, but that at time of impact, car 2 is moving to the left at the speed of <m>\unitfrac[3]{m}{s}</m>.
+	</p>
+</introduction>
+<task>
+	<statement>
+		<p>
+			Find the behavior of the system after linkup.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>\vec{x}(t) = \left[\begin{smallmatrix} t + \frac{2}{\sqrt{3}}\sin(\sqrt{3}t) \\ t - \frac{4}{\sqrt{3}}\sin(\sqrt{3}t) \end{smallmatrix}\right]</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Will the second car hit the wall, or will it be moving away from the wall as time goes on? 
+		</p>
+	</statement>
+	<answer>
+		<p>
+			It will hit the wall.
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			At what speed would the first car have to be traveling for the system to essentially stay in place after linkup?
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>v_2 = 1.5</m> m/s to the right 
+		</p>
+	</answer>
+</task>
+			
 </exercise>
 
 <exercise>
 <statement>
 			<p>
-				Let us take the example in with parameters <m>m_1 = m_2 = 1</m>, <m>k_1 = k_2 = 1</m>. Does there exist a set of initial conditions for which the first cart moves but the second cart does not? If so, find those conditions. If not, argue why not.
+				Let us take the example in <xref ref="sosa-twocartswallfig"/> with parameters <m>m_1 = m_2 = 1</m>, <m>k_1 = k_2 = 1</m>. Does there exist a set of initial conditions for which the first cart moves but the second cart does not? If so, find those conditions. If not, argue why not.
 			</p>
 </statement>
 
@@ -964,6 +1086,43 @@ E^{-1} \vec{f}(t)
 				Suppose there are three carts of equal mass <m>m</m> and connected by two springs of constant <m>k</m> (and no connections to walls). Set up the system and find its general solution.
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>\left[ \begin{smallmatrix}
+m &amp; 0 &amp; 0\\
+0 &amp; m &amp; 0\\
+0 &amp; 0 &amp; m
+\end{smallmatrix}\right]
+\vec{x}\,''
+=
+\left[ \begin{smallmatrix}
+-k &amp; k &amp; 0 \\
+k &amp; -2k &amp; k \\
+0 &amp; k &amp; -k
+\end{smallmatrix}\right]
+\vec{x}</m>.
+
+Solution:
+<m>\vec{x} =
+\left[ \begin{smallmatrix}
+1 \\ -2 \\ 1
+\end{smallmatrix}\right]
+\bigl( a_1 \cos (\sqrt{\nicefrac{3k}{m}}\, t)  + b_1 \sin
+(\sqrt{\nicefrac{3k}{m}}\, t) \bigr)
+\allowbreak
++
+\left[ \begin{smallmatrix}
+1 \\ 0 \\ -1
+\end{smallmatrix}\right]
+\bigl( a_2 \cos (\sqrt{\nicefrac{k}{m}}\, t)  + b_2 \sin
+(\sqrt{\nicefrac{k}{m}}\, t) \bigr)
++
+\left[ \begin{smallmatrix}
+1 \\ 1 \\ 1
+\end{smallmatrix}\right]
+\bigl( a_3 t  + b_3 \bigr)</m>.
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -972,42 +1131,81 @@ E^{-1} \vec{f}(t)
 				Suppose a cart of mass kg is attached by a spring of constant <m>k=1</m> to a cart of mass kg, which is attached to the wall by a spring also of constant <m>k=1</m>. Suppose that the initial position of the first cart is 1 meter in the positive direction from the rest position, and the second mass starts at the rest position. The masses are not moving and are let go. Find the position of the second mass as a function of time.
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>x_2 =
+( \nicefrac{2}{5} )
+\cos (\sqrt{\nicefrac{1}{6}}\, t)
+-
+( \nicefrac{2}{5} )
+\cos (t)</m>
+	</p>
+</answer>
 
 </exercise>
 <exercise>
-<statement>
-			<p>
-				Find the general solution to <m>x_1'' = -6x_1+ 3x_2 + \cos (t)</m>, <m>x_2'' = 2x_1 -7x_2 + 3\cos (t)</m>,
-			</p>
-
-<!-- div attr= class="tasks"-->
-			<p>
-				(2) using eigenvector decomposition, using undetermined coefficients.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
+<introduction>
+	<p>
+		Find the general solution to <m>x_1'' = -6x_1+ 3x_2 + \cos (t)</m>, <m>x_2'' = 2x_1 -7x_2 + 3\cos (t)</m>,
+	</p>
+</introduction>
+<task>
+	<statement>
+		<p>
+			using eigenvector decomposition.
+		</p>
+	</statement>
+	<answer>
+		<p>
 				 <m>\vec{x}(t) = \left[\begin{smallmatrix} 1 \\ -1 \end{smallmatrix}\right](C_1\cos(3t) + C_2\sin(3t)) + \left[\begin{smallmatrix} 3 \\ 2 \end{smallmatrix}\right](C_3\cos(2t) + C_4\sin(2t)) + \left[\begin{smallmatrix} 8/13 \\ 17/26 \end{smallmatrix}\right]\cos(t)</m> 
-			</p>
-</answer>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			using undetermined coefficients.
+		</p>
+	</statement>
+	<answer>
+		<p>
+				 <m>\vec{x}(t) = \left[\begin{smallmatrix} 1 \\ -1 \end{smallmatrix}\right](C_1\cos(3t) + C_2\sin(3t)) + \left[\begin{smallmatrix} 3 \\ 2 \end{smallmatrix}\right](C_3\cos(2t) + C_4\sin(2t)) + \left[\begin{smallmatrix} 8/13 \\ 17/26 \end{smallmatrix}\right]\cos(t)</m> 
+		</p>
+	</answer>
+</task>
+
 </exercise>
 
 <exercise>
-<statement>
+<introduction>
+	<p>
+		Find the general solution to <m>x_1'' = -6x_1+ 3x_2 + \cos (2t)</m>, <m>x_2'' = 2x_1 -7x_2 + 3\cos (2t)</m>,
+	</p>
+</introduction>
+	<task>
+		<statement>
 			<p>
-				Find the general solution to <m>x_1'' = -6x_1+ 3x_2 + \cos (2t)</m>, <m>x_2'' = 2x_1 -7x_2 + 3\cos (2t)</m>,
+				using eigenvector decomposition.
 			</p>
-
-<!-- div attr= class="tasks"-->
+		</statement>
+		<answer>
 			<p>
-				(2) using eigenvector decomposition, using undetermined coefficients.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 <m>\vec{x}(t) = \left[\begin{smallmatrix} 1 \\ -1 \end{smallmatrix}\right](C_1\cos(3t) + C_2\sin(3t)) + \left[\begin{smallmatrix} 3 \\ 2 \end{smallmatrix}\right](C_3\cos(2t) + C_4\sin(2t)) + \left[\begin{smallmatrix} -\frac{7}{25}\cos(2t) + \frac{3}{5}t\sin(2t) \\ \frac{7}{25} + \frac{2}{5}t\sin(2t) \end{smallmatrix}\right]</m> 
+				<m>\vec{x}(t) = \left[\begin{smallmatrix} 1 \\ -1 \end{smallmatrix}\right](C_1\cos(3t) + C_2\sin(3t)) + \left[\begin{smallmatrix} 3 \\ 2 \end{smallmatrix}\right](C_3\cos(2t) + C_4\sin(2t)) + \left[\begin{smallmatrix} -\frac{7}{25}\cos(2t) + \frac{3}{5}t\sin(2t) \\ \frac{7}{25} + \frac{2}{5}t\sin(2t) \end{smallmatrix}\right]</m>
 			</p>
-</answer>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				using undetermined coefficients.
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>\vec{x}(t) = \left[\begin{smallmatrix} 1 \\ -1 \end{smallmatrix}\right](C_1\cos(3t) + C_2\sin(3t)) + \left[\begin{smallmatrix} 3 \\ 2 \end{smallmatrix}\right](C_3\cos(2t) + C_4\sin(2t)) + \left[\begin{smallmatrix} -\frac{7}{25}\cos(2t) + \frac{3}{5}t\sin(2t) \\ \frac{7}{25} + \frac{2}{5}t\sin(2t) \end{smallmatrix}\right]</m>
+			</p>
+		</answer>
+	</task>
 </exercise>
 
 <exercise>
@@ -1017,6 +1215,22 @@ E^{-1} \vec{f}(t)
 +\cos(t)</m> with initial conditions <m>x_1(0) = 0</m>, <m>x_2(0) = 0</m>, <m>x_1'(0) = 0</m>, <m>x_2'(0) = 0</m>, using eigenvector decomposition.
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>\vec{x} = 
+\left[ \begin{smallmatrix}
+1 \\ 9
+\end{smallmatrix}\right]
+\left(\left(\frac{1}{140} + \frac{1}{120\sqrt{6}}\right) e^{\sqrt{6} t}+
+ \left(\frac{1}{140} + \frac{1}{120\sqrt{6}}\right)
+e^{-\sqrt{6} t}-\frac{t}{60}-\frac{\cos(t)}{70} \right)
++
+\left[ \begin{smallmatrix}
+1 \\ -1
+\end{smallmatrix}\right]
+\left(\frac{-9}{80} \sin(2 t)+ \frac{1}{30} \cos(2 t)+\frac{9 t}{40}-\frac{\cos(t)}{30}\right)</m>
+	</p>
+</answer>
 </exercise></exercises>
 
 	</section>

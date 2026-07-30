@@ -37,11 +37,9 @@
 		<p>
 			As motivation, suppose we wish to solve 
 <md>
-\begin{aligned}
-&amp; x-y = 2 , \\
-&amp; 2x+y = 4 ,
-\end{aligned}
-</md>
+<mrow>x-y \amp = 2  </mrow>
+<mrow> 2x+y\amp = 4 </mrow>
+</md>,
  for <m>x</m> and <m>y</m>, that is, find numbers <m>x</m> and <m>y</m> such that the two equations are satisfied. Let us perhaps start by adding the equations together to find 
 <md>
 x+2x-y+y = 2+4, \qquad \text{or} \qquad 3x = 6 .
@@ -67,7 +65,7 @@ x+2x-y+y = 2+4, \qquad \text{or} \qquad 3x = 6 .
 			<p>
 				When we do algebra with these <m>n</m>-tuples of numbers we call them <em>vectors</em><fn>
 				A common notation to distinguish vectors from points is to write <m>(1,2)</m> for the point and <m>\langle 1,2 \rangle</m> for the vector. We write both as <m>(1,2)</m>.
-			</fn>. Mathematicians are keen on separating what is a vector and what is a point of the space or in the plane, and it turns out to be an important distinction, however, for the purposes of linear algebra we can think of everything being represented by a vector. A way to think of a vector, which is especially useful in calculus and differential equations, is an arrow. It is an object that has a <term>direction</term> and a <term>magnitude</term>. For example, the vector <m>(1,2)</m> is the arrow from the origin to the point <m>(1,2)</m> in the plane. The magnitude is the length of the arrow. See . If we think of vectors as arrows, the arrow doesn't always have to start at the origin. If we do move it around, however, it should always keep the same direction and the same magnitude.
+			</fn>. Mathematicians are keen on separating what is a vector and what is a point of the space or in the plane, and it turns out to be an important distinction, however, for the purposes of linear algebra we can think of everything being represented by a vector. A way to think of a vector, which is especially useful in calculus and differential equations, is an arrow. It is an object that has a <term>direction</term> and a <term>magnitude</term>. For example, the vector <m>(1,2)</m> is the arrow from the origin to the point <m>(1,2)</m> in the plane. The magnitude is the length of the arrow. See <xref ref="linalg-vecarrow-fig"/>. If we think of vectors as arrows, the arrow doesn't always have to start at the origin. If we do move it around, however, it should always keep the same direction and the same magnitude.
 			</p>
 
 <figure xml:id="linalg-vecarrow-fig">
@@ -140,7 +138,7 @@ result, <m>(3,-1)</m>, is drawn as a solid arrow. </caption>
 			</p>
 
 			<p>
-				So where is the <em>algebra</em> from <em>linear algebra</em>? Well, arrows can be added, subtracted, and multiplied by numbers. First we consider <em>addition</em>. If we have two arrows, we simply move along one, and then along the other. See .
+				So where is the <em>algebra</em> from <em>linear algebra</em>? Well, arrows can be added, subtracted, and multiplied by numbers. First we consider <em>addition</em>. If we have two arrows, we simply move along one, and then along the other. See \<xref ref="linalg-vecadd-fig"/>.
 			</p>
 
 			<p>
@@ -173,7 +171,7 @@ drawn dashed.  The result, <m>(3,1)</m>, is drawn as a solid arrow.</caption>
 	</figure>
 
 			<p>
-				<em>Subtracting</em> is similar. What <m>\vec{x}- \vec{y}</m> means visually is that we first travel along <m>\vec{x}</m>, and then we travel backwards along <m>\vec{y}</m>. See . It is like adding <m>\vec{x}+ (- \vec{y})</m> where <m>-\vec{y}</m> is the arrow we obtain by erasing the arrow head from one side and drawing it on the other side, that is, we reverse the direction. In terms of the numbers, we simply go backwards in both directions, so we negate both numbers. For example, if <m>\vec{y}</m> is <m>(-2,1)</m>, then <m>-\vec{y}</m> is <m>(2,-1)</m>.
+				<em>Subtracting</em> is similar. What <m>\vec{x}- \vec{y}</m> means visually is that we first travel along <m>\vec{x}</m>, and then we travel backwards along <m>\vec{y}</m>. See <xref ref="linalg-vecsub-fig"/>. It is like adding <m>\vec{x}+ (- \vec{y})</m> where <m>-\vec{y}</m> is the arrow we obtain by erasing the arrow head from one side and drawing it on the other side, that is, we reverse the direction. In terms of the numbers, we simply go backwards in both directions, so we negate both numbers. For example, if <m>\vec{y}</m> is <m>(-2,1)</m>, then <m>-\vec{y}</m> is <m>(2,-1)</m>.
 			</p>
 
 			<p>
@@ -195,7 +193,7 @@ x_{1} \\ x_2 \\ \vdots \\ x_n
 			</p>
 
 			<p>
-				In , you can see a couple of examples of what scaling a vector means visually.
+				In <xref ref="linalg-vecscale-fig"/>, you can see a couple of examples of what scaling a vector means visually.
 			</p>
 
 <figure xml:id="linalg-vecscale-fig">
@@ -388,7 +386,7 @@ double the magnitude), and the vector <m>-1.5\vec{x}</m> (opposite direction,
 				</p>
 
 				<p>
-					In particular, this tells us that if two vectors <m>\vec{y}_1</m> and <m>\vec{y}_2</m> are linearly dependent, then it must be the case that <m>\vec{y}_1 = A\vec{y}_2</m> for some constant <m>A</m>, namely <m>A = \frac{-\alpha_2}{\alpha_1}</m> where <m>\alpha_1\vec{y}_1 + \alpha_2\vec{y}_2 = \vec{0}</m>. If this is not the case, then the vectors are linearly independent. For more than two vectors, the process is more complicated and involves solving a system of linear equations, which we will deal with in .
+					In particular, this tells us that if two vectors <m>\vec{y}_1</m> and <m>\vec{y}_2</m> are linearly dependent, then it must be the case that <m>\vec{y}_1 = A\vec{y}_2</m> for some constant <m>A</m>, namely <m>A = \frac{-\alpha_2}{\alpha_1}</m> where <m>\alpha_1\vec{y}_1 + \alpha_2\vec{y}_2 = \vec{0}</m>. If this is not the case, then the vectors are linearly independent. For more than two vectors, the process is more complicated and involves solving a system of linear equations, which we will deal with in <xref ref="elim-section"/>.
 				</p>
 
 		</subsection>
@@ -424,7 +422,7 @@ a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}\end{bmatrix}.</md> An <m>m \times 
 			</p>
 
 			<p>
-				We will go into more properties of matrices and the operations we can perform on them in . To conclude this section though, we will look at one other way that matrices come about, and that is as the representation of a linear map.
+				We will go into more properties of matrices and the operations we can perform on them in <xref ref="matalg-section"/>. To conclude this section though, we will look at one other way that matrices come about, and that is as the representation of a linear map.
 			</p>
 
 		</subsection>

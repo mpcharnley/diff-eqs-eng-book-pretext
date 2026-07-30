@@ -96,15 +96,15 @@ $\vec{x}_1, \vec{x}_2 , \ldots , \vec{x}_n$}
 </example>
 			<p>
 				We can apply these ideas to the vectors that live inside a matrix. The span of the rows of a matrix <m>A</m> is called the <term>row space</term>. The row space of <m>A</m> and the row space of the row echelon form of <m>A</m> are the same, because reducing the matrix <m>A</m> to its row echelon form involves taking linear combinations, which will preserve the span. In the example, 
- <md>
-\begin{split}
-\text{row space of }
+
+  <md>
+<mrow>\text{row space of }
 \begin{bmatrix}
 1 &amp; 2 &amp; 3 \\
 4 &amp; 5 &amp; 6 \\
 7 &amp; 8 &amp; 9
 \end{bmatrix}
-&amp; =
+\amp =
 \operatorname{span}
 \left\{
 \begin{bmatrix}
@@ -119,8 +119,9 @@ $\vec{x}_1, \vec{x}_2 , \ldots , \vec{x}_n$}
 7 &amp; 8 &amp; 9
 \end{bmatrix}
 \right\}
-\\
-&amp; =
+</mrow>
+<mrow>
+\amp =
 \operatorname{span}
 \left\{
 \begin{bmatrix}
@@ -130,9 +131,9 @@ $\vec{x}_1, \vec{x}_2 , \ldots , \vec{x}_n$}
 \begin{bmatrix}
 0 &amp; 1 &amp; 2
 \end{bmatrix}
-\right\} .
-\end{split}
- </md>
+\right\}
+</mrow>
+ </md>.
 
 			</p>
 
@@ -473,10 +474,10 @@ A = \begin{bmatrix}
 \vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k ,
  </md>
  such that every other vector in <m>S</m> is a linear combination of <m>\vec{v}_1,
-\vec{v}_2,\ldots, \vec{v}_k</m>, then the set <m>\{ \vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k \}</m> is called a <term>basis</term> of <m>S</m>. In other words, <m>S</m> is the span of <m>\{ \vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k \}</m>. We say that <m>S</m> has <term>dimension</term><m>k</m>, and we write 
+\vec{v}_2,\ldots, \vec{v}_k</m>, then the set <m>\{ \vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k \}</m> is called a <term>basis</term> of <m>S</m>. In other words, <m>S</m> is the span of <m>\{ \vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k \}</m>. We say that <m>S</m> has <term>dimension</term> <m>k</m>, and we write 
  <md>
-\dim S = k .
- </md>
+\dim S = k
+ </md>.
 
 			</p>
 	</statement>
@@ -757,13 +758,14 @@ L =
 \end{bmatrix} .
  </md>
  Since the first column of the row echelon matrix has zeros except in the first row means that <m>\alpha_1 = 0</m>. For the same reason, <m>\alpha_2</m> is zero. We only have two nonzero rows, and they are linearly independent, so the rank of the matrix is 2. This also tells us that if we were trying to solve the system of equations 
+
  <md>
-\begin{split}
-x_1 + 2x_2 + 3x_3 &amp;= a \\
-4x_1 + 5x_2 + 6x_3 &amp;= b \\
-7x_1 + 8x_2 + 9x_3 &amp;= c
-\end{split}
+<mrow>x_1 + 2x_2 + 3x_3 \amp= a </mrow>
+<mrow>4x_1 + 5x_2 + 6x_3 \amp= b </mrow>
+<mrow>7x_1 + 8x_2 + 9x_3 \amp= c</mrow>
  </md>
+
+
  we would get that one row of the reduced augmented matrix has all zeros on the left side, and so this system either has a free variable or is inconsistent, because only two equations here are relevant.
 			</p>
 
@@ -888,8 +890,7 @@ L =
 \begin{bmatrix}
 0 \\ 0 \\ 0
 \end{bmatrix}
-.
- </md>
+ </md>.
  There are two non-pivot columns, so we only need two vectors. We have found the basis of the kernel. So, 
  <md>
 \text{kernel of $L$} =
@@ -1026,8 +1027,10 @@ A \vec{x} = \vec{b} ,
 </statement>
 
 <solution>			<p>
-				We write the augmented matrix and we start reducing:  <md>\begin{align*}
-&amp; \left[
+				We write the augmented matrix and we start reducing:  
+				
+<md>
+<mrow>\amp \left[
 \begin{array}{ccc|ccc}
 \mybxsm{1} &amp; 2 &amp; 3 &amp; 1 &amp; 0 &amp; 0\\
 2 &amp; 0 &amp; 1 &amp; 0 &amp; 1 &amp; 0 \\
@@ -1050,9 +1053,10 @@ A \vec{x} = \vec{b} ,
 0 &amp; -5 &amp; -9 &amp; -3 &amp; 0 &amp; 1
 \end{array}
 \right]
-\to \\
+\to </mrow>
+<mrow>
 \to
-&amp;
+\amp
 \left[
 \begin{array}{ccc|ccc}
 \mybxsm{1} &amp; 2 &amp; 3 &amp; 1 &amp; 0 &amp; 0\\
@@ -1069,9 +1073,10 @@ A \vec{x} = \vec{b} ,
 \end{array}
 \right]
 \to
-\\
+</mrow>
+<mrow>
 \to
-&amp;
+\amp
 \left[
 \begin{array}{ccc|ccc}
 \mybxsm{1} &amp; 2 &amp; 0 &amp; \nicefrac{5}{11} &amp; \nicefrac{-5}{11} &amp; \nicefrac{12}{11} \\
@@ -1086,8 +1091,14 @@ A \vec{x} = \vec{b} ,
 0 &amp; \mybxsm{1} &amp; 0 &amp; \nicefrac{3}{11} &amp; \nicefrac{-9}{11} &amp; \nicefrac{5}{11} \\
 0 &amp; 0 &amp; \mybxsm{1} &amp; \nicefrac{2}{11} &amp; \nicefrac{5}{11} &amp; \nicefrac{-4}{11}
 \end{array}
-\right] .
-\end{align*} </md> So 
+\right] 
+</mrow>
+</md>.
+
+
+
+
+ So 
  <md>
 {\begin{bmatrix}
 1 &amp; 2 &amp; 3 \\
@@ -1227,7 +1238,7 @@ A = \begin{bmatrix} 1 &amp; 2 \\ 5 &amp; 4 \end{bmatrix}.
  <md>
 (x+iy)(x-iy) = x^2 + ixy - ixy  - i^2y^2 = x^2 + y^2
  </md>
- which is always positive, no matter what <m>x</m> and <m>y</m> are. Similarly, if we have a repeated eigvalue, the product will be that number squared, which is also positive. Therefore, if the determinant of a <m>2 \times 2</m> matrix is negative, the eigenvalues must be real and distinct, with one being positive and one negative (otherwise the product can not be negative). These facts will be important when we start to analyze the solutions to systems of differential equations in .
+ which is always positive, no matter what <m>x</m> and <m>y</m> are. Similarly, if we have a repeated eigvalue, the product will be that number squared, which is also positive. Therefore, if the determinant of a <m>2 \times 2</m> matrix is negative, the eigenvalues must be real and distinct, with one being positive and one negative (otherwise the product can not be negative). These facts will be important when we start to analyze the solutions to systems of differential equations in <xref ref="sys-chapter"/>.
 			</p>
 </solution>
 </example>

@@ -120,7 +120,7 @@ L I''(t) + R I'(t) + \frac{1}{C} I(t) = E'(t) .
 		</p>
 
 <figure xml:id="fig-Pendulum-schematic">
-	<caption> Schematic picture of an RLC Circuit. </caption>
+	<caption> Schematic picture of an pendulum. </caption>
 	<image source="DEs_PendulumSchematic.png" width="70%">
 		<shortdescription> ALT TEXT HERE </shortdescription>
 		<description>
@@ -144,7 +144,7 @@ L I''(t) + R I'(t) + \frac{1}{C} I(t) = E'(t) .
 		</p>
 
 		<p>
-			Now we make our approximation. For small <m>\theta</m> we have that approximately <m>\sin \theta \approx \theta</m>. This can be seen by looking at the graph. In we can see that for approximately <m>-0.5 &lt; \theta &lt; 0.5</m> (in radians) the graphs of <m>\sin \theta</m> and <m>\theta</m> are almost the same.
+			Now we make our approximation. For small <m>\theta</m> we have that approximately <m>\sin \theta \approx \theta</m>. This can be seen by looking at the graph. In <xref ref="mv-sintheta"/> we can see that for approximately <m>-0.5 &lt; \theta &lt; 0.5</m> (in radians) the graphs of <m>\sin \theta</m> and <m>\theta</m> are almost the same.
 		</p>
 
 		<p>
@@ -188,7 +188,7 @@ x'' + \omega_0^2 x = 0 .
 <md>
 x(t) = A \cos (\omega_0 t) + B \sin (\omega_0 t) .
 </md>
- By a trigonometric identity that we discussed previously in , 
+ By a trigonometric identity that we discussed previously in <xref ref="complexroots-section"/>, 
 <md>
 A \cos (\omega_0 t) + B \sin (\omega_0 t) =
 C \cos ( \omega_0 t - \delta ) ,
@@ -211,7 +211,7 @@ C \cos ( \omega_0 t - \delta )</m> and verify the equations for <m>C</m> and <m>
 <md>
 x(t) = C \cos ( \omega_0 t - \delta) .
 </md>
- This is a pure-frequency oscillation (a sine wave). The <term>amplitude</term> is <m>C</m>, <m>\omega_0</m> is the (angular) <term>frequency</term>>, and <m>\delta</m> is the so-called <term>phase shift</term>. The phase shift just shifts the graph left or right. We call <m>\omega_0</m> the <term>natural frequency</term>. This entire setup is called <term>simple harmonic motion</term>.
+ This is a pure-frequency oscillation (a sine wave). The <term>amplitude</term> is <m>C</m>, <m>\omega_0</m> is the (angular) <term>frequency</term>, and <m>\delta</m> is the so-called <term>phase shift</term>. The phase shift just shifts the graph left or right. We call <m>\omega_0</m> the <term>natural frequency</term>. This entire setup is called <term>simple harmonic motion</term>.
 			</p>
 </answer>
 </exercise>
@@ -260,14 +260,14 @@ x(t) = C \cos ( \omega_0 t - \delta) .
 			<p>
 				The general solution is 
 <md>
-x(t) = A \cos (2t) + B \sin (2t) .
-</md>
+x(t) = A \cos (2t) + B \sin (2t)
+</md>.
  Letting <m>x(0) = 0.5</m> means <m>A = 0.5</m>. Then <m>x'(t) = - 2(0.5) \sin (2t)
 + 2B \cos (2t)</m>. Letting <m>x'(0) = 1</m> we get <m>B = 0.5</m>. Therefore, the amplitude is <m>C = \sqrt{A^2+B^2} = \sqrt{0.25+0.25} = \sqrt{0.5} \approx 0.707</m>. The solution is 
 <md>
 x(t) = 0.5 \cos (2t) + 0.5 \sin (2t) .
 </md>
- A plot of <m>x(t)</m> is shown in .
+ A plot of <m>x(t)</m> is shown in <xref ref="mv-undamped"/>.
 			</p>
 </solution>
 </example>
@@ -331,7 +331,7 @@ p^2 - \omega_0^2 = {\left( \frac{\gamma}{2m} \right)}^2 - \frac{k}{m}
 <md>
 x(t) = C_1 e^{r_1 t} + C_2 e^{r_2 t} .
 </md>
- Since <m>r_1, r_2</m> are negative, <m>x(t) \to 0</m> as <m>t \to \infty</m>. Thus the mass will tend towards the rest position as time goes to infinity. For a few sample plots for different initial conditions, see .
+ Since <m>r_1, r_2</m> are negative, <m>x(t) \to 0</m> as <m>t \to \infty</m>. Thus the mass will tend towards the rest position as time goes to infinity. For a few sample plots for different initial conditions, see <xref ref="mv-overdamped"/>.
 				</p>
 
 <figure xml:id="mv-overdamped">
@@ -392,7 +392,7 @@ x(t) = C_1 e^{-pt} + C_2 t e^{-pt} .
 	</figure>
 
 				<p>
-					The behavior of a critically damped system is very similar to an overdamped system. After all a critically damped system is in some sense a limit of overdamped systems. Even though our models are only approximations of the real world problem, the idea of critical damping can be helpful in optimizing systems. shows how the solution to 
+					The behavior of a critically damped system is very similar to an overdamped system. After all a critically damped system is in some sense a limit of overdamped systems. Even though our models are only approximations of the real world problem, the idea of critical damping can be helpful in optimizing systems. <xref ref="mv-critdampedfast"/> shows how the solution to 
 <md>
 x'' + \gamma x' + x = 0
 </md>
@@ -419,15 +419,10 @@ x'' + \gamma x' + x = 0
 				<p>
 					When <m>\gamma^2 - 4km &lt; 0</m>, the system is <term>underdamped</term>. In this case, the roots are complex. 
 <md>
-\begin{split}
-r &amp; =
--p \pm \sqrt{p^2 - \omega_0^2} \\
-&amp; = 
--p \pm \sqrt{-1}\sqrt{\omega_0^2 - p^2} \\
-&amp; = 
--p \pm i \omega_1 ,
-\end{split}
-</md>
+<mrow>r \amp = -p \pm \sqrt{p^2 - \omega_0^2} </mrow>
+<mrow> \amp =  -p \pm \sqrt{-1}\sqrt{\omega_0^2 - p^2} </mrow>
+<mrow> \amp = -p \pm i \omega_1 </mrow>
+</md>,
  where <m>\omega_1 =\sqrt{\omega_0^2 - p^2}</m>. Our solution is 
 <md>
 x(t) = e^{-pt} \bigl( A \cos (\omega_1 t) + B \sin (\omega_1 t) \bigr) ,

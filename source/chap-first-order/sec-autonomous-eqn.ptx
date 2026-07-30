@@ -51,7 +51,7 @@ where the derivative of solutions depends only on <m>x</m> (the dependent variab
 		</p>
 
 		<p>
-			Now, we want to determine what happens for other values of <m>x</m> that are not <m>A</m>. Based on the existence and uniqueness theorem in for first order differential equations, the fact that <m>k(A-x)</m> and its partial derivative in <m>x</m>, <m>-k</m>, are continuous everywhere gives that solution curves can not cross. This means that since we know <m>x(t)=A</m> is a solution, if a solution starts below <m>x(t)=A</m>, it must always stay there, and solutions that start above <m>x(t)=A</m> will also stay there. For more information about what the solutions do, we’ll need to look back at the equation and some sample solution curves.
+			Now, we want to determine what happens for other values of <m>x</m> that are not <m>A</m>. Based on the existence and uniqueness theorem in <xref ref="existunique-section"/> for first order differential equations, the fact that <m>k(A-x)</m> and its partial derivative in <m>x</m>, <m>-k</m>, are continuous everywhere gives that solution curves can not cross. This means that since we know <m>x(t)=A</m> is a solution, if a solution starts below <m>x(t)=A</m>, it must always stay there, and solutions that start above <m>x(t)=A</m> will also stay there. For more information about what the solutions do, we'll need to look back at the equation and some sample solution curves.
 		</p>
 
 		<p>
@@ -59,7 +59,7 @@ where the derivative of solutions depends only on <m>x</m> (the dependent variab
 		</p>
 
 		<p>
-			The last of these options may seem strange at first, and that is because stable critical points are not possible for autonomous equations with one unknown function. If a solution does not move towards or away from a critical point, that means it doesn’t move anywhere, and so is a critical point on its own. However, when we get to autonomous systems in and , we will see that in two dimensions, this is possible (think of a circle that does not spiral into or away from the center point).
+			The last of these options may seem strange at first, and that is because stable critical points are not possible for autonomous equations with one unknown function. If a solution does not move towards or away from a critical point, that means it doesn't move anywhere, and so is a critical point on its own. However, when we get to autonomous systems in <xref ref="sec-twodimaut"/> and <xref ref="linearization-section"/>, we will see that in two dimensions, this is possible (think of a circle that does not spiral into or away from the center point).
 		</p>
 
 <figure xml:id="fig-autonomousSolnsOne">
@@ -106,11 +106,11 @@ where the derivative of solutions depends only on <m>x</m> (the dependent variab
 		</p>
 
 		<p>
-			If we are interested only in the long term behavior of the solution, we would be doing unnecessary work if we solved the equation exactly. We could draw the slope field, but it is easier to just look at the <term>phase diagram</term> or <term>phase line</term>, which is a simple way to visualize the behavior of autonomous equations. The phase line for this equation is visible in . In this case there is one dependent variable <m>x</m>. We draw the <m>x</m>-axis, we mark all the critical points, and then we draw arrows in between. Since <m>x</m> is the dependent variable we draw the axis vertically, as it appears in the slope field diagrams above. If <m>f(x) &gt; 0</m>, we draw an up arrow. If <m>f(x) &lt; 0</m>, we draw a down arrow. To figure this out, we could just plug in some <m>x</m> between the critical points, <m>f(x)</m> will have the same sign at all <m>x</m> between two critical points as long <m>f(x)</m> is continuous. For example, <m>f(6) = -0.6 &lt; 0</m>, so <m>f(x) &lt; 0</m> for <m>x &gt; 5</m>, and the arrow above <m>x=5</m> is a down arrow. Next, <m>f(1) = 0.4 &gt; 0</m>, so <m>f(x) &gt; 0</m> whenever <m>0 &lt; x &lt; 5</m>, and the arrow points up. Finally, <m>f(-1) = -0.6 &lt; 0</m> so <m>f(x) &lt; 0</m> when <m>x &lt;
+			If we are interested only in the long term behavior of the solution, we would be doing unnecessary work if we solved the equation exactly. We could draw the slope field, but it is easier to just look at the <term>phase diagram</term> or <term>phase line</term>, which is a simple way to visualize the behavior of autonomous equations. The phase line for this equation is visible in <xref ref="fig-PL1"/>. In this case there is one dependent variable <m>x</m>. We draw the <m>x</m>-axis, we mark all the critical points, and then we draw arrows in between. Since <m>x</m> is the dependent variable we draw the axis vertically, as it appears in the slope field diagrams above. If <m>f(x) &gt; 0</m>, we draw an up arrow. If <m>f(x) &lt; 0</m>, we draw a down arrow. To figure this out, we could just plug in some <m>x</m> between the critical points, <m>f(x)</m> will have the same sign at all <m>x</m> between two critical points as long <m>f(x)</m> is continuous. For example, <m>f(6) = -0.6 &lt; 0</m>, so <m>f(x) &lt; 0</m> for <m>x &gt; 5</m>, and the arrow above <m>x=5</m> is a down arrow. Next, <m>f(1) = 0.4 &gt; 0</m>, so <m>f(x) &gt; 0</m> whenever <m>0 &lt; x &lt; 5</m>, and the arrow points up. Finally, <m>f(-1) = -0.6 &lt; 0</m> so <m>f(x) &lt; 0</m> when <m>x &lt;
 0</m>, and the arrow points down.
 		</p>
 
-<figure xml:id="autEqPhaseLine">
+<figure xml:id="fig-PL1">
 	<caption> Phase line for the differential equation <m>x' = 0.1x(5-x)</m>. </caption>
 	<image source="autEqnsPhaseLine.png" width="30%">
 		<shortdescription> ALT TEXT HERE </shortdescription>
@@ -151,18 +151,16 @@ Find all equilibrium solutions for this equation, and determine their stability.
 <solution>		<p>
 			This equation is already in factored form. This makes it simple to determine the equilibrium solutions as <m>x=0</m>, <m>x=2</m>, <m>x=-3</m> and <m>x=4</m>. In order to determine the stability of each critical point and draw the phase line, we need to plug in values surrounding these points to <m>f(x) = x(x-2)^2(x+3)(x-4)</m>. We can see that 
 <md>
-\begin{split}
-f(-4) &amp;= (-4)(-6)^2(-1)(-8) &lt; 0, \\
-f(-1) &amp;= (-1)(-3)^2(2)(-5) &gt; 0, \\
-f(1) &amp;= (1)(-1)^2(4)(-3) &lt; 0, \\
-f(3) &amp;= (3)(1)^2(6)(-1) &lt; 0, \\
-f(5) &amp;= (5)(3)^2(8)(1) &gt; 0.
-\end{split}
-</md>
+<mrow>f(-4) \amp= (-4)(-6)^2(-1)(-8) &lt; 0 </mrow>
+<mrow> f(-1) \amp= (-1)(-3)^2(2)(-5) &gt; 0 </mrow>
+<mrow> f(1) \amp= (1)(-1)^2(4)(-3) &lt; 0 </mrow>
+<mrow> f(3) \amp= (3)(1)^2(6)(-1) &lt; 0 </mrow>
+<mrow> f(5) \amp= (5)(3)^2(8)(1) &gt; 0</mrow>
+</md>.
  This lets us draw the phase line and determine the stability of each critical point. Thus, we see that <m>x=-3</m> is an unstable critical point, <m>x=0</m> is asymptotically stable, <m>x=2</m> is semistable, and <m>x=4</m> is unstable. A set of sample solution curves also validates these conclusions.
 		</p>
 
-<figure xml:id="fig-Auto_PL_SS">
+<figure xml:id="autoexsolplot-fig">
 	<caption>Phase line for the differential equation <m>\frac{dx}{dt} = x(x-2)^2(x+3)(x-4)</m> and a plot of some solutions to this equation.</caption>
 	<image source="Auto_PL_SS.png">
 		<description><p>
@@ -193,19 +191,19 @@ f(5) &amp;= (5)(3)^2(8)(1) &gt; 0.
 			</p>
 
 			<p>
-				Let's see what this looks like in action. Take the logistic equation <m>x' = 0.1x(5-x)</m>, whose solutions are plotted in . shows the graph of <m>f(x)</m> as a function of <m>x</m> for this scenario. When do <m>f</m> and <m>f'</m> have the same sign? Well, this happens when <m>f</m> is both positive and increasing, or negative and decreasing. This happens between <m>0</m> and the vertex, as well as for <m>x&gt; 5</m>. The vertex here is at <m>x=2.5</m>, and so we conlude that the solution should be concave up when <m>x</m> is on the intervals <m>(0, 2.5)</m> and <m>(5, \infty)</m>, and be concave down otherwise. Looking back at , this is exactly what we observe. All of the solutions between <m>0</m> and <m>5</m> seem to <q>flip over</q> to be concave down when <m>x</m> crosses <m>2.5</m>.
+				Let's see what this looks like in action. Take the logistic equation <m>x' = 0.1x(5-x)</m>, whose solutions are plotted in <xref ref="fig-2-2-logistic"/>. <xref ref="autologfplot-fig"/> shows the graph of <m>f(x)</m> as a function of <m>x</m> for this scenario. When do <m>f</m> and <m>f'</m> have the same sign? Well, this happens when <m>f</m> is both positive and increasing, or negative and decreasing. This happens between <m>0</m> and the vertex, as well as for <m>x&gt; 5</m>. The vertex here is at <m>x=2.5</m>, and so we conlude that the solution should be concave up when <m>x</m> is on the intervals <m>(0, 2.5)</m> and <m>(5, \infty)</m>, and be concave down otherwise. Looking back at <xref ref="fig-2-2-logistic"/>, this is exactly what we observe. All of the solutions between <m>0</m> and <m>5</m> seem to <q>flip over</q> to be concave down when <m>x</m> crosses <m>2.5</m>.
 			</p>
 
-<figure xml:id="fig-autonomousSolnsConcavity">
+<figure xml:id="autofgraph-combinedfig">
 	<caption>Two graphs showing plots of the function <m>f(x)</m> that defines an autonomous equation.</caption>
 	<sidebyside>
-		<figure xml:id="fig-Auto_fGraph1">
+		<figure xml:id="autologfplot-fig">
 			<caption>Plot of <m>x</m> vs. <m>f(x)</m> for the differential equation <m>\frac{dx}{dt} = 0.1 x (5-x)</m>.</caption>
 			<image source="Auto_fGraph1.png">
 				<description> <p> A graph showing a downward facing parabola that crosses the horizontal axis at <m>0</m> and <m>5</m>. </p> </description>
 			</image>
 		</figure>
-		<figure xml:id="fig-Auto_fGraph2">
+		<figure xml:id="autoexfplot-fig">
 			<caption>Plot of <m>x</m> vs. <m>f(x)</m> for the differential equation <m>\frac{dx}{dt} = x(x-2)^2(x+3)(x-4)</m>.</caption>
 			<image source="Auto_fGraph2.png">
 				<description> <p> The graph of a high degree polynomial that starts by increasing through the first root at <m>-3</m>. It has other roots at <m>0</m>, a double root at <m>2</m>, and a root at <m>4</m>.</p></description>
@@ -215,7 +213,7 @@ f(5) &amp;= (5)(3)^2(8)(1) &gt; 0.
 </figure>
 
 			<p>
-				The same can be seen for solutions to <xref ref="autoexample-eqn" />, even though we can't compute the extreme values explicitly. shows the graph of <m>f(x)</m> vs. <m>x</m> for this situation. Between each pair of equilibrium solutions there is a critical point of <m>f</m> (in the Calculus 1 sense) where the derivative is zero, and at this point, the derivative changes sign, and since the function value does not change sign, the concavity of the solution to the differential equation flips at this point. Comparing this graph and these points where concavity shifts with the solutions drawn in <xref ref="fig-Auto_PL_SS"/> again validates these results.
+				The same can be seen for solutions to <xref ref="autoexample-eqn" />, even though we can't compute the extreme values explicitly. <xref ref="autoexfplot-fig"/> shows the graph of <m>f(x)</m> vs. <m>x</m> for this situation. Between each pair of equilibrium solutions there is a critical point of <m>f</m> (in the Calculus 1 sense) where the derivative is zero, and at this point, the derivative changes sign, and since the function value does not change sign, the concavity of the solution to the differential equation flips at this point. Comparing this graph and these points where concavity shifts with the solutions drawn in <xref ref="autoexsolplot-fig"/> again validates these results.
 			</p>
 
 		</subsection>
@@ -305,13 +303,24 @@ f(5) &amp;= (5)(3)^2(8)(1) &gt; 0.
 		<statement>
 			<p> Sketch the phase diagram and find critical points.  </p>
 		</statement>
+		<answer>
+		<p>
+			0, 1, 2 are critical points.
+		</p>
+	</answer>
 	</task>
+	
 	<task>
 		<statement>
 			<p>
 				Classify the critical points.
 			</p>
 		</statement>
+		<answer>
+			<p>
+				<m>x=0</m> is semistable, <m>x=1</m> is asymptotically stable, and <m>x=2</m> is unstable.
+			</p>
+		</answer>
 	</task>
 	<task>
 		<statement>
@@ -319,6 +328,11 @@ f(5) &amp;= (5)(3)^2(8)(1) &gt; 0.
 				If <m>x(0)=0.5</m>, then find <m>\displaystyle \lim_{t\to\infty} x(t)</m>.
 			</p>
 		</statement>
+		<answer>
+			<p>
+				1
+			</p>
+		</answer>
 	</task>
 
 </exercise>
@@ -385,6 +399,11 @@ f(5) &amp;= (5)(3)^2(8)(1) &gt; 0.
 		<statement>
 			<p>Find and classify all critical points.   </p>
 		</statement>
+		<answer>
+			<p>
+				There are no critical points.
+			</p>
+		</answer>
 	</task>
 	<task>
 		<statement>
@@ -392,6 +411,11 @@ f(5) &amp;= (5)(3)^2(8)(1) &gt; 0.
 				Find <m>\displaystyle \lim_{t\to\infty} x(t)</m> given any initial condition.
 			</p>
 		</statement>
+		<answer>
+			<p>
+				<m>\infty</m>
+			</p>
+		</answer>
 	</task>
 
 </exercise>
@@ -433,20 +457,6 @@ f(5) &amp;= (5)(3)^2(8)(1) &gt; 0.
 
 </exercise>
 
-<exercise>
-	<introduction>
-		<p>   </p>
-	</introduction>
-	<task>
-		<statement>
-			<p>   </p>
-		</statement>
-		<answer>
-			<p>   </p>
-		</answer>
-	</task>
-
-</exercise>
 
 <exercise>
 	<introduction>
@@ -460,7 +470,7 @@ f(5) &amp;= (5)(3)^2(8)(1) &gt; 0.
 			<p> Find the critical points, and classify them. </p>
 		</statement>
 		<answer>
-			<p>   </p>
+			<p> <m>\alpha</m> is an asymptotically stable critical point, <m>\beta</m> is an unstable one.  </p>
 		</answer>
 	</task>
 	<task>
@@ -469,6 +479,11 @@ f(5) &amp;= (5)(3)^2(8)(1) &gt; 0.
 				<m>x(0) &lt; \alpha</m>
 			</p>
 		</statement>
+		<answer>
+			<p>
+				<m>\alpha</m>
+			</p>
+		</answer>
 	</task>
 	<task>
 		<statement>
@@ -476,6 +491,11 @@ f(5) &amp;= (5)(3)^2(8)(1) &gt; 0.
 			<m>\alpha &lt; x(0) &lt; \beta</m>	
 			</p>
 		</statement>
+		<answer>
+			<p>
+				<m>\alpha</m>
+			</p>
+		</answer>
 	</task>
 	<task>
 		<statement>
@@ -483,6 +503,11 @@ f(5) &amp;= (5)(3)^2(8)(1) &gt; 0.
 				<m>\beta &lt; x(0)</m>
 			</p>
 		</statement>
+		<answer>
+			<p>
+				<m>\infty</m> or DNE.
+			</p>
+		</answer>
 	</task>
 
 </exercise>

@@ -6,19 +6,47 @@
 	<section xml:id="eigenmethod-cplx-section">
 		<title>Eigenvalue method with complex eigenvalues</title>
 
+<objectives>
+	<introduction>
+		<p>
+			After this section, you will be able to: 
+		</p>
+	</introduction>
+	<ul>
+		<li>
+			<p>
+				Use Euler's formula to find a real-valued general solution to a first order system with complex eigenvalues,
+			</p>
+		</li>
+		<li>
+			<p>
+				Sketch phase portraits for linear first order systems with complex eigenvalues, and
+			</p>
+		</li>
+		<li>
+			<p>
+				Solve initial value problems from all of these cases once the general solution has been found. 
+			</p>
+		</li>
+	</ul>
+</objectives>
+
+<subsection xml:id="subsec-sys-complex-gen-sol">
+	<title>General Solutions for Complex Eigenvalues</title>
+	
 		<p>
 			As we have seen previously, a matrix may very well have complex eigenvalues even if all the entries are real. However, this may seem concerning going forward into solutions to differential equations that require these complex numbers in them. We will see in this section that we can still write solutions this way, but we no longer have straight-line solutions. Take, for example, 
-<me>
+<md>
 {\vec{x}}' = 
 \begin{bmatrix}
 1 &amp; 1 \\
 -1 &amp; 1
 \end{bmatrix}
 \vec{x} .
-</me>
+</md>
  Let us compute the eigenvalues of the matrix <m>P = \left[ \begin{smallmatrix} 1 &amp; 1 \\ -1 &amp; 1 \end{smallmatrix}
 \right]</m>. 
-<me>
+<md>
 \det(P - \lambda I) =
 \det\left(
 \begin{bmatrix}
@@ -28,20 +56,22 @@
 \right)
 = {(1-\lambda)}^2 + 1
 = \lambda^2 - 2 \lambda + 2 = 0 .
-</me>
- Thus <m>\lambda = 1 \pm i</m>. Corresponding eigenvectors are also complex. Start with <m>\lambda = 1-i</m>. <me>\begin{align*}
-\bigl(P-(1-i) I\bigr) \vec{v} &amp; = \vec{0} , \\
-\begin{bmatrix}
+</md>
+ Thus <m>\lambda = 1 \pm i</m>. Corresponding eigenvectors are also complex. Start with <m>\lambda = 1-i</m>. 
+ <md>
+<mrow> \bigl(P-(1-i) I\bigr) \vec{v} \amp = \vec{0} </mrow>
+<mrow> \begin{bmatrix}
 i &amp; 1 \\
 -1 &amp; i
 \end{bmatrix}
-\vec{v} = \vec{0}.
-\end{align*}</me> The equations <m>i v_1 + v_2 = 0</m> and <m>-v_1 + iv_2 = 0</m> are multiples of each other. This may be trickier to spot than the real version, but that is because they are <em>complex</em> multiples of each other. If we multiply the first equation by <m>i</m>, we get exactly the second one. So we only need to consider one of them. After picking <m>v_2 = 1</m>, for example, we have an eigenvector <m>\vec{v} = \left[ \begin{smallmatrix} i \\ 1 \end{smallmatrix} \right]</m>. In similar fashion we find that <m>\left[ \begin{smallmatrix} -i \\ 1 \end{smallmatrix} \right]</m> is an eigenvector corresponding to the eigenvalue <m>1+i</m>.
+\vec{v} \amp = \vec{0} </mrow>
+</md>.
+The equations <m>i v_1 + v_2 = 0</m> and <m>-v_1 + iv_2 = 0</m> are multiples of each other. This may be trickier to spot than the real version, but that is because they are <em>complex</em> multiples of each other. If we multiply the first equation by <m>i</m>, we get exactly the second one. So we only need to consider one of them. After picking <m>v_2 = 1</m>, for example, we have an eigenvector <m>\vec{v} = \left[ \begin{smallmatrix} i \\ 1 \end{smallmatrix} \right]</m>. In similar fashion we find that <m>\left[ \begin{smallmatrix} -i \\ 1 \end{smallmatrix} \right]</m> is an eigenvector corresponding to the eigenvalue <m>1+i</m>.
 		</p>
 
 		<p>
 			We could write the solution as 
-<me>
+<md>
 \vec{x} =
 c_1 \begin{bmatrix} i \\ 1 \end{bmatrix} e^{(1-i)t} +
 c_2 \begin{bmatrix} -i \\ 1 \end{bmatrix} e^{(1+i)t}
@@ -50,34 +80,34 @@ c_2 \begin{bmatrix} -i \\ 1 \end{bmatrix} e^{(1+i)t}
 c_1 i e^{(1-i)t} - c_2 i e^{(1+i)t} \\
 c_1 e^{(1-i)t} + c_2 e^{(1+i)t}
 \end{bmatrix} .
-</me>
+</md>
  We would then need to look for complex values <m>c_1</m> and <m>c_2</m> to solve any initial conditions. It is perhaps not completely clear that we get a real solution. After solving for <m>c_1</m> and <m>c_2</m>, we could use <xref ref="eulersformula" /> and do the whole song and dance we did before, but we will not. We will apply the formula in a smarter way first to find independent real solutions.
 		</p>
 
 		<p>
-			In this case, we only needed one of the two eigenvectors to get the general solution, which happens because the complex eigenvalues and eigenvectors always come in conjugate pairs. First a small detour. The real part of a complex number <m>z</m> can be computed as <m>\frac{z + \bar{z}}{2}</m>, where the bar above <m>z</m> means <m>\overline{a+ib} = a -ib</m>. This operation is called the <em></em>. If <m>a</m> is a real number, then <m>\bar{a} = a</m>. Similarly we bar whole vectors or matrices by taking the complex conjugate of every entry. Suppose a matrix <m>P</m> is real. Then <m>\overline{P} = P</m>, and so <m>\overline{P\vec{x}} = \overline{P} \,
+			In this case, we only needed one of the two eigenvectors to get the general solution, which happens because the complex eigenvalues and eigenvectors always come in conjugate pairs. First, a small detour. The real part of a complex number <m>z</m> can be computed as <m>\frac{z + \bar{z}}{2}</m>, where the bar above <m>z</m> means <m>\overline{a+ib} = a -ib</m>. This operation is called the <term>complex conjugate</term>. If <m>a</m> is a real number, then <m>\bar{a} = a</m>. Similarly we bar whole vectors or matrices by taking the complex conjugate of every entry. Suppose a matrix <m>P</m> is real. Then <m>\overline{P} = P</m>, and so <m>\overline{P\vec{x}} = \overline{P} \,
 \overline{\vec{x}} = P \overline{\vec{x}}</m>. Also the complex conjugate of 0 is still 0, therefore, 
-<me>
+<md>
 \vec{0} = \overline{\vec{0}} = 
 \overline{(P-\lambda I)\vec{v}}
 =
 (P-\bar{\lambda} I)\overline{\vec{v}} .
-</me>
+</md>
  In other words, if <m>\lambda = a+ib</m> is an eigenvalue, then so is <m>\bar{\lambda} = a-ib</m>. And if <m>\vec{v}</m> is an eigenvector corresponding to the eigenvalue <m>\lambda</m>, then <m>\overline{\vec{v}}</m> is an eigenvector corresponding to the eigenvalue <m>\bar{\lambda}</m>.
 		</p>
 
 		<p>
 			Suppose <m>a + ib</m> is a complex eigenvalue of <m>P</m>, and <m>\vec{v}</m> is a corresponding eigenvector. Then 
-<me>
+<md>
 \vec{x}_1 = \vec{v} e^{(a+ib)t}
-</me>
+</md>
  is a solution (complex-valued) of <m>{\vec{x}}' = P \vec{x}</m>. <xref ref="eulersformula" /> shows that <m>\overline{e^{a+ib}} =
 e^{a-ib}</m>, and so 
-<me>
+<md>
 \vec{x}_2 = \overline{\vec{x}_1} = \overline{\vec{v}} e^{(a-ib)t}
-</me>
+</md>
  is also a solution. As <m>\vec{x}_1</m> and <m>\vec{x}_2</m> are solutions, the function 
-<me>
+<md>
 \vec{x}_3 =
 \operatorname{Re} \vec{x}_1 =
 \operatorname{Re} \vec{v} e^{(a+ib)t} =
@@ -85,20 +115,20 @@ e^{a-ib}</m>, and so
 \frac{\vec{x}_1 + \vec{x}_2}{2} 
 =
 \frac{1}{2} \vec{x}_1 + \frac{1}{2}\vec{x}_2
-</me>
+</md>
  is also a solution. And <m>\vec{x}_3</m> is real-valued! Similarly as <m>\operatorname{Im} z = \frac{z-\bar{z}}{2i}</m> is the imaginary part, we find that 
-<me>
+<md>
 \vec{x}_4 =
 \operatorname{Im} \vec{x}_1 =
 \frac{\vec{x}_1 - \overline{\vec{x}_1}}{2i}  =
 \frac{\vec{x}_1 - \vec{x}_2}{2i} .
-</me>
+</md>
  is also a real-valued solution. It turns out that <m>\vec{x}_3</m> and <m>\vec{x}_4</m> are linearly independent. We will use <xref ref="eulersformula" /> to separate out the real and imaginary part.
 		</p>
 
 		<p>
 			Returning to our problem, 
-<me>
+<md>
 \vec{x}_1 =
 \begin{bmatrix} i \\ 1 \end{bmatrix} e^{(1-i)t}
 =
@@ -119,9 +149,9 @@ e^t \cos t  \\
 - e^t \sin t
 \end{bmatrix}
 .
-</me>
+</md>
  Then 
-<me>
+<md>
 \operatorname{Re} \vec{x}_1 = 
 \begin{bmatrix}
 e^t \sin t  \\
@@ -133,7 +163,7 @@ e^t \cos t
 e^t \cos t \\
 - e^t \sin t
 \end{bmatrix} ,
-</me>
+</md>
  are the two real-valued linearly independent solutions we seek.
 		</p>
 
@@ -143,10 +173,10 @@ e^t \cos t \\
 			Check that these really are solutions.
 		</p>
 </statement>
-
-<answer>		<p>
+</exercise>
+		<p>
 			This gives that we can write the general solution to this problem as 
-<me>
+<md>
 \vec{x}
 =
 c_1
@@ -164,107 +194,106 @@ e^t \cos t \\
 c_1 e^t \sin t + c_2 e^t \cos t \\
 c_1 e^t \cos t - c_2 e^t \sin t
 \end{bmatrix} .
-</me>
+</md>
  This solution is real-valued for real <m>c_1</m> and <m>c_2</m>. We now solve for any initial conditions we may have. Notice that the <m>i</m> has been dropped from the part of the process where we split the complex solution into real and imaginary parts. The point is that the real and imaginary parts of the solution are independently solutions to the equation, and so we can use them to form our basis of solutions with constants <m>c_1</m> and <m>c_2</m> in front of them. We want everything to be real, and this process allows us to do it.
 		</p>
-</answer>
-</exercise>
+
 
 		<p>
 			Let us summarize as a theorem.
 		</p>
 
-<!-- div attr= class="theorem1"-->
+<theorem xml:id="thm-complex-sys-gen-sols">
+	<statement>
 		<p>
 			Let <m>P</m> be a real-valued constant matrix. If <m>P</m> has a complex eigenvalue <m>a+ib</m> and a corresponding eigenvector <m>\vec{v}</m>, then <m>P</m> also has a complex eigenvalue <m>a-ib</m> with a corresponding eigenvector <m>\overline{\vec{v}}</m>. Furthermore, <m>{\vec{x}}' = P\vec{x}</m> has two linearly independent real-valued solutions 
-<me>
+<md>
 \vec{x}_1 = \operatorname{Re} \vec{v} e^{(a+ib)t} ,
 \qquad
 \text{and}
 \qquad
 \vec{x}_2 = \operatorname{Im} \vec{v} e^{(a+ib)t} .
-</me>
+</md>
 
-		</p><!--</div attr= class="theorem1">-->
+		</p>
+	</statement>
+</theorem>
 
 		<p>
-			The main point here is that the real and imaginary parts of these complex solutions are the real-valued independent solutions that we seek. Compare this to Theorem <xref ref="thm-realimagparts" /> in , where we saw that the same idea worked for second order equation with complex roots.
+			The main point here is that the real and imaginary parts of these complex solutions are the real-valued independent solutions that we seek. Compare this to <xref ref="thm-realimagparts" /> in , where we saw that the same idea worked for second order equation with complex roots.
 		</p>
 
 		<p>
 			For each pair of complex eigenvalues <m>a+ib</m> and <m>a-ib</m>, we get two real-valued linearly independent solutions. We then go on to the next eigenvalue, which is either a real eigenvalue or another complex eigenvalue pair. If we have <m>n</m> distinct eigenvalues (real or complex), then we end up with <m>n</m> linearly independent solutions. If we had only two equations (<m>n=2</m>) as in the example above, then once we found two solutions we are finished, and our general solution is 
-<me>
+<md>
 \vec{x} =
 c_1 \vec{x}_1 + c_2 \vec{x}_2
 = 
 c_1 \bigl( \operatorname{Re} \vec{v} e^{(a+ib)t} \bigr) +
 c_2 \bigl( \operatorname{Im} \vec{v} e^{(a+ib)t} \bigr)
 .
-</me>
+</md>
 
 		</p>
 
 
 <example>
-<title> </title>
 <statement>		<p>
 			Find the solution to the initial value problem 
-<me>
+<md>
 \vec{x}' = \begin{bmatrix} 1 &amp; 4 \\ -2 &amp; -3 \end{bmatrix}\vec{x} \qquad \vec{x}(0) = \begin{bmatrix} 1 \\ -2 \end{bmatrix}.
-</me>
+</md>
 
 		</p>
 </statement>
 <solution>		<p>
 			We start by looking for the eigenvalues and eigenvectors of the coefficient matrix. This results in the polynomial 
-<me>
+<md>
 \det(P - \lambda I) = (1-\lambda)(-3-\lambda) - (4)(-2) = \lambda^2 + 3\lambda - \lambda  - 3 + 8 = \lambda^2 + 2\lambda + 5.
-</me>
+</md>
  This polynomial does not factor, but the quadratic formula gives that the roots are 
-<me>
+<md>
 \lambda = \frac{-2 \pm \sqrt{4 - (4)(1)(5)}}{2} = -1 \pm \frac{\sqrt{-16}}{2} = -1 \pm 2i.
-</me>
+</md>
  Thus, we are in the complex roots case, and can work from there. We need to find the complex eigenvector for one of these eigenvalues and then split into real and imaginary parts to get the general solution.
 		</p>
 
 		<p>
 			For the eigenvalue <m>\lambda = -1 + 2i</m>, the matrix equation becomes 
-<me>
+<md>
 (P - \lambda I)\vec{v} = \begin{bmatrix} 1 - (-1 + 2i) &amp; 4 \\ -2 &amp; -3 - (-1 + 2i) \end{bmatrix} \vec{v} = \begin{bmatrix} 2 - 2i &amp; 4 \\ -2 &amp; -2 -2i \end{bmatrix}\vec{v} = \vec{0}. 
-</me>
+</md>
  The two simultaneous equation that we need to solve for the vector <m>v</m> are 
-<me>
+<md>
 (2-2i)v_1 + 4v_2 = 0 \qquad -2v_1 + (-2-2i)v_2 = 0
-</me>
- and these equations don’t appear to be redundant. However, this is because they are complex multiples of each other, not just real multiples. To see this, we can multiply the first equation by the complex conjugate of the first coefficient. The idea is that if we do so, this first coefficient will be real, and then we can compare it to the second equation. If we multiply the first equation by <m>2 + 2i</m>, since <m>(2+2i)(2-2i) = 8</m>, it becomes 
-<me>
+</md>
+ and these equations don't appear to be redundant. However, this is because they are complex multiples of each other, not just real multiples. To see this, we can multiply the first equation by the complex conjugate of the first coefficient. The idea is that if we do so, this first coefficient will be real, and then we can compare it to the second equation. If we multiply the first equation by <m>2 + 2i</m>, since <m>(2+2i)(2-2i) = 8</m>, it becomes 
+<md>
 8v_1 + 4(2+2i)v_2 = 0
-</me>
+</md>
  and this is <m>-4</m> times the second equation above. Therefore, they are redundant, and we can just pick one of them in order to find possible values of <m>v_1</m> and <m>v_2</m>. If we divide this newest equation by <m>8</m>, it becomes 
-<me>
+<md>
 v_1 + (1+i)v_2 = 0.
-</me>
+</md>
  Based on this equation, we can pick <m>v_2 = -1</m> and <m>v_1 = 1+i</m>. Therefore, the eigenvector for <m>\lambda = -1 + 2i</m> is <m>\left[ \begin{smallmatrix} 1+i \\ -1 \end{smallmatrix} \right]</m>. This means that a complex-valued solution to this differential equation is 
-<me>
+<md>
 \vec{x}(t) = \begin{bmatrix} 1+i \\ -1 \end{bmatrix} e^{(-1 + 2i)t}.
-</me>
+</md>
 
 		</p>
 
 		<p>
-			Now, we want to split this solution into real and imaginary parts in order to get a real-valued general solution. We apply Euler’s formula to do so: 
-<me>
-\begin{split}
-\vec{x}(t) &amp;= \begin{bmatrix} 1+i \\ -1 \end{bmatrix} e^{(-1 + 2i)t} \\
-&amp;= \begin{bmatrix} 1+i \\ -1 \end{bmatrix} e^{-t}(\cos(2t) + i\sin(2t)) \\
-&amp;= e^{-t} \begin{bmatrix} \cos(2t) + i\sin(2t)+i\cos(2t) - \sin(2t) \\ -\cos(2t) - i\sin(2t)  \end{bmatrix} \\
-&amp;= \begin{bmatrix} e^{-t}\cos(2t) - e^{-t}\sin(2t) \\ -e^{-t}\cos(2t)\end{bmatrix} + i\begin{bmatrix} e^{-t}\sin(2t) + e^{-t}\cos(2t) \\ -e^{-t}\sin(2t) \end{bmatrix}.
-\end{split}
-</me>
+			Now, we want to split this solution into real and imaginary parts in order to get a real-valued general solution. We apply Euler's formula to do so: 
+<md>
+<mrow> \vec{x}(t)\amp \begin{bmatrix} 1+i \\ -1 \end{bmatrix} e^{(-1 + 2i)t}</mrow>
+<mrow> \amp = \begin{bmatrix} 1+i \\ -1 \end{bmatrix} e^{-t}(\cos(2t) + i\sin(2t))</mrow>
+<mrow> \amp = e^{-t} \begin{bmatrix} \cos(2t) + i\sin(2t)+i\cos(2t) - \sin(2t) \\ -\cos(2t) - i\sin(2t)  \end{bmatrix} </mrow>
+<mrow> \amp \begin{bmatrix} e^{-t}\cos(2t) - e^{-t}\sin(2t) \\ -e^{-t}\cos(2t)\end{bmatrix} + i\begin{bmatrix} e^{-t}\sin(2t) + e^{-t}\cos(2t) \\ -e^{-t}\sin(2t) \end{bmatrix}</mrow>
+</md>.
  Therefore, we can take the real and imaginary parts of this solution to get a general solution as 
-<me>
+<md>
 \vec{x}(t) = c_1 \begin{bmatrix} e^{-t}\cos(2t) - e^{-t}\sin(2t) \\ -e^{-t}\cos(2t)\end{bmatrix} +  c_2\begin{bmatrix} e^{-t}\sin(2t) + e^{-t}\cos(2t) \\ -e^{-t}\sin(2t) \end{bmatrix}.
-</me>
+</md>
 
 		</p>
 	</solution>
@@ -275,26 +304,24 @@ v_1 + (1+i)v_2 = 0.
 			Work out the eigenvector and general solution from eigenvalue <m>\lambda = -1 - 2i</m> and verify that it is an equivalent general solution to the one above.
 		</p>
 </statement>
-
-<answer>		<p>
-			Finally, we need to solve the initial value problem. Plugging in <m>t=0</m> gives 
-<me>
-\vec{x}(0) = c_1 \begin{bmatrix} 1 \\ -1 \end{bmatrix} + c_2 \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 1 \\ -2 \end{bmatrix}.
-</me>
-
-		</p>
-</answer>
 </exercise>
 
+		<p>
+			Finally, we need to solve the initial value problem. Plugging in <m>t=0</m> gives 
+<md>
+\vec{x}(0) = c_1 \begin{bmatrix} 1 \\ -1 \end{bmatrix} + c_2 \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 1 \\ -2 \end{bmatrix}.
+</md>
+
+		</p>
 
 		<p>
 			The two equations that we get from here is <m>c_1 + c_2 = 1</m> and <m>-c_1 = -2</m>, so that <m>c_1 = 2</m> and <m>c_2 = -1</m>. Therefore, the solution to the initial value problem is 
-<me>
-\vec{x}(t) = 2\begin{bmatrix} e^{-t}\cos(2t) - e^{-t}\sin(2t) \\ -e^{-t}\cos(2t)\end{bmatrix} - \begin{bmatrix} e^{-t}\sin(2t) + e^{-t}\cos(2t) \\ -e^{-t}\sin(2t) \end{bmatrix} = \begin{bmatrix} 2e^{-t}\cos(2t) - 3e^{-t}\sin(2t) \\ -2e^{-t}\cos(2t) + e^{-t}\sin(2t) \end{bmatrix}.
-</me>
+<md>
+\vec{x}(t) = 2\begin{bmatrix} e^{-t}\cos(2t) - e^{-t}\sin(2t) \\ -e^{-t}\cos(2t)\end{bmatrix} - \begin{bmatrix} e^{-t}\sin(2t) + e^{-t}\cos(2t) \\ -e^{-t}\sin(2t) \end{bmatrix} = \begin{bmatrix} e^{-t}\cos(2t) - 3e^{-t}\sin(2t) \\ -2e^{-t}\cos(2t) + e^{-t}\sin(2t) \end{bmatrix}.
+</md>
 
 		</p>
-
+</subsection>
 		<subsection xml:id="phase-portraits-complex">
 			<title>Phase Portraits</title>
 
@@ -305,7 +332,7 @@ v_1 + (1+i)v_2 = 0.
 			<p>
 				<em>Case 1.</em> Suppose the eigenvalues are purely imaginary. That is, suppose the eigenvalues are <m>\pm ib</m>. For example, let <m>P = 
 \left[ \begin{smallmatrix} 0 &amp; 1 \\ -4 &amp; 0 \end{smallmatrix} \right]</m>. The eigenvalues turn out to be <m>\pm 2i</m> and eigenvectors are <m>\left[ \begin{smallmatrix} 1 \\ 2i \end{smallmatrix} \right]</m> and <m>\left[ \begin{smallmatrix} 1 \\ -2i \end{smallmatrix} \right]</m>. Consider the eigenvalue <m>2i</m> and its eigenvector <m>\left[ \begin{smallmatrix} 1 \\ 2i \end{smallmatrix} \right]</m>. The real and imaginary parts of <m>\vec{v} e^{2it}</m> are 
-<me>
+<md>
 \operatorname{Re} \left(
 \begin{bmatrix} 1 \\ 2i \end{bmatrix} e^{2it}\right) =
 \begin{bmatrix} \cos (2t) \\ -2 \sin (2t)  \end{bmatrix} ,
@@ -313,17 +340,40 @@ v_1 + (1+i)v_2 = 0.
 \operatorname{Im} \left(
 \begin{bmatrix} 1 \\ 2i \end{bmatrix} e^{2it}\right) =
 \begin{bmatrix} \sin (2t) \\ 2 \cos (2t) \end{bmatrix} .
-</me>
- We can take any linear combination of them to get other solutions, which one we take depends on the initial conditions. Now note that the real part is a parametric equation for an ellipse. Same with the imaginary part and in fact any linear combination of the two. This is what happens in general when the eigenvalues are purely imaginary. So when the eigenvalues are purely imaginary, we get <em>ellipses</em> for the solutions. This type of picture is sometimes called a <em></em>. See .
+</md>
+ We can take any linear combination of them to get other solutions, which one we take depends on the initial conditions. Now note that the real part is a parametric equation for an ellipse. Same with the imaginary part and in fact any linear combination of the two. This is what happens in general when the eigenvalues are purely imaginary. So when the eigenvalues are purely imaginary, we get <em>ellipses</em> for the solutions. This type of picture is sometimes called a <term>center</term>. See <xref ref="pln-ellipsesfig"/>.
 			</p>
 
-<!-- div attr= class="myfig"-->
-<!--</div attr= class="myfig">-->
+<sidebyside>
+	<figure xml:id="pln-ellipsesfig">
+	<caption> Example center vector field. </caption>
+	<image source="pln-ellipses.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
+
+	<figure xml:id="pln-spiral-sourcefig">
+	<caption> Example spiral source vector field. </caption>
+	<image source="pln-spiral-source.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
+</sidebyside>
 
 			<p>
 				<em>Case 2.</em> Now suppose the complex eigenvalues have a positive real part. That is, suppose the eigenvalues are <m>a \pm ib</m> for some <m>a &gt; 0</m>. For example, let <m>P = 
 \left[ \begin{smallmatrix} 1 &amp; 1 \\ -4 &amp; 1 \end{smallmatrix} \right]</m>. The eigenvalues turn out to be <m>1\pm 2i</m> and eigenvectors are <m>\left[ \begin{smallmatrix} 1 \\ 2i \end{smallmatrix} \right]</m> and <m>\left[ \begin{smallmatrix} 1 \\ -2i \end{smallmatrix} \right]</m>. We take <m>1 + 2i</m> and its eigenvector <m>\left[ \begin{smallmatrix} 1 \\ 2i \end{smallmatrix} \right]</m> and find the real and imaginary parts of <m>\vec{v} e^{(1+2i)t}</m> are 
-<me>
+<md>
 \operatorname{Re}\left(
 \begin{bmatrix} 1 \\ 2i \end{bmatrix} e^{(1+2i)t}\right) =
 e^t
@@ -333,14 +383,14 @@ e^t
 \begin{bmatrix} 1 \\ 2i \end{bmatrix} e^{(1+2i)t} \right)=
 e^t
 \begin{bmatrix} \sin (2t) \\ 2 \cos (2t) \end{bmatrix} .
-</me>
- Note the <m>e^t</m> in front of the solutions. The solutions grow in magnitude while spinning around the origin. Hence we get a <em></em>. See .
+</md>
+ Note the <m>e^t</m> in front of the solutions. The solutions grow in magnitude while spinning around the origin. Hence we get a <term>spiral source</term>. See <xref ref="pln-spiral-sourcefig"/>.
 			</p>
 
 			<p>
 				<em>Case 3.</em> Finally suppose the complex eigenvalues have a negative real part. That is, suppose the eigenvalues are <m>-a \pm ib</m> for some <m>a &gt; 0</m>. For example, let <m>P = 
 \left[ \begin{smallmatrix} -1 &amp; -1 \\ 4 &amp; -1 \end{smallmatrix} \right]</m>. The eigenvalues turn out to be <m>-1\pm 2i</m> and eigenvectors are <m>\left[ \begin{smallmatrix} 1 \\ -2i \end{smallmatrix} \right]</m> and <m>\left[ \begin{smallmatrix} 1 \\ 2i \end{smallmatrix} \right]</m>. We take <m>-1 - 2i</m> and its eigenvector <m>\left[ \begin{smallmatrix} 1 \\ 2i \end{smallmatrix} \right]</m> and find the real and imaginary parts of <m>\vec{v} e^{(-1-2i)t}</m> are 
-<me>
+<md>
 \operatorname{Re}\left(
 \begin{bmatrix} 1 \\ 2i \end{bmatrix} e^{(-1-2i)t}\right) =
 e^{-t}
@@ -350,21 +400,30 @@ e^{-t}
 \begin{bmatrix} 1 \\ 2i \end{bmatrix} e^{(-1-2i)t}\right) =
 e^{-t}
 \begin{bmatrix} -\sin (2t) \\ 2 \cos (2t) \end{bmatrix} .
-</me>
- Note the <m>e^{-t}</m> in front of the solutions. The solutions shrink in magnitude while spinning around the origin. Hence we get a <em></em>. See .
+</md>
+ Note the <m>e^{-t}</m> in front of the solutions. The solutions shrink in magnitude while spinning around the origin. Hence we get a <term>spiral sink</term>. See <xref ref="pln-spiral-sinkfig"/>.
 			</p>
 
-<!-- div attr= class="myfig"-->
-<!--</div attr= class="myfig">-->
+<figure xml:id="pln-spiral-sinkfig">
+	<caption> Example spiral sink vector field. </caption>
+	<image source="pln-spiral-sink.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
 			<p>
-				There is one last important point to mention about drawing phase portraits, and that’s how to determine which way the spiral is going to rotate. Whether the phase portrait is a center, spiral source, or spiral sink, it can rotate either clockwise or counterclockwise. There are two main ways that this can be determined. The first is using the real-valued solutions of the equation directly. We want to determine a few values of the individual solution curves to get an idea of which way they are rotating.
+				There is one last important point to mention about drawing phase portraits, and that's how to determine which way the spiral is going to rotate. Whether the phase portrait is a center, spiral source, or spiral sink, it can rotate either clockwise or counterclockwise. There are two main ways that this can be determined. The first is using the real-valued solutions of the equation directly. We want to determine a few values of the individual solution curves to get an idea of which way they are rotating.
 			</p>
 
 			<p>
-				For example, consider the phase portrait drawn in , which has real-valued general solution given by <me>\vec{x}(t) = C_1 e^{-t}
+				For example, consider the phase portrait drawn in <xref ref="pln-spiral-sinkfig"/>, which has real-valued general solution given by <md>\vec{x}(t) = C_1 e^{-t}
 \begin{bmatrix} \cos (2t) \\ 2 \sin (2t)  \end{bmatrix} + C_2 e^{-t}
-\begin{bmatrix} -\sin (2t) \\ 2 \cos (2t) \end{bmatrix}.</me> We want to pick some nice points on these curves to plot. <m>t=0</m> is always a nice point to start with, and we see that the <m>C_1</m> term of our general solution will be at the point <m>\left[\begin{smallmatrix} 1 \\ 0 \end{smallmatrix}\right]</m>. That point is nice because it makes cosine equal to 1 and sine equal to zero. The next <m>t</m> value we want to choose is the first one that makes the sine terms equal to 1 and the cosines equal to zero. Because we have a <m>2t</m> in the trigonometric functions, the point we want to look at is <m>t = \frac{\pi}{4}</m>. At this point, the <m>C_1</m> term of our solution is at <m>e^{-\pi/4}\left[\begin{smallmatrix} 0 \\ 2 \end{smallmatrix}\right]</m>, which will be in the direction of <m>\left[\begin{smallmatrix} 0 \\ 2 \end{smallmatrix}\right]</m>, but closer to the origin. So, the initial point is on the positive x axis, and the second point is on the positive <m>y</m> axis. Therefore, this solution is spiraling in a counter-clockwise direction. The reason that this works is because the first time that <m>\cos(2t)</m> is zero is at <m>t = \frac{\pi}{4}</m>, so it has to go directly to the positive y-axis in the counter-clockwise direction. You can also check the <m>C_2</m> term, and see that it is also going in the same direction.
+\begin{bmatrix} -\sin (2t) \\ 2 \cos (2t) \end{bmatrix}.</md> We want to pick some nice points on these curves to plot. <m>t=0</m> is always a nice point to start with, and we see that the <m>C_1</m> term of our general solution will be at the point <m>\left[\begin{smallmatrix} 1 \\ 0 \end{smallmatrix}\right]</m>. That point is nice because it makes cosine equal to 1 and sine equal to zero. The next <m>t</m> value we want to choose is the first one that makes the sine terms equal to 1 and the cosines equal to zero. Because we have a <m>2t</m> in the trigonometric functions, the point we want to look at is <m>t = \frac{\pi}{4}</m>. At this point, the <m>C_1</m> term of our solution is at <m>e^{-\pi/4}\left[\begin{smallmatrix} 0 \\ 2 \end{smallmatrix}\right]</m>, which will be in the direction of <m>\left[\begin{smallmatrix} 0 \\ 2 \end{smallmatrix}\right]</m>, but closer to the origin. So, the initial point is on the positive x axis, and the second point is on the positive <m>y</m> axis. Therefore, this solution is spiraling in a counter-clockwise direction. The reason that this works is because the first time that <m>\cos(2t)</m> is zero is at <m>t = \frac{\pi}{4}</m>, so it has to go directly to the positive y-axis in the counter-clockwise direction. You can also check the <m>C_2</m> term, and see that it is also going in the same direction.
 			</p>
 
 			<p>
@@ -372,7 +431,7 @@ e^{-t}
 			</p>
 
 			<p>
-				Both of these methods work equally well to determine which way the solution is going, and they’ll give the same answer every time. The direction of rotation is an important part of properly characterizing and drawing these phase portraits. This can be verified for the system drawn in as well.
+				Both of these methods work equally well to determine which way the solution is going, and they'll give the same answer every time. The direction of rotation is an important part of properly characterizing and drawing these phase portraits. This can be verified for the system drawn in <xref ref="pln-spiral-sourcefig"/> as well.
 			</p>
 
 		</subsection>
@@ -390,6 +449,17 @@ e^{-t}
 <answer>			<p>
 				 <m>C_1e^t\left[\begin{smallmatrix} -\sin(2t)\\ \cos(2t) \end{smallmatrix}\right] + C_2e^{t}\left[\begin{smallmatrix} \cos(2t) \\ \sin(2t) \end{smallmatrix}\right]</m> 
 			</p>
+			<figure xml:id="ppsketch-1-n2-2-1">
+	<caption> Phase portrait sketch for the system <m>x_1' = x_1 -2 x_2</m>, <m>x_2' = 2 x_1 + x_2</m>. </caption>
+	<image source="Images/phaseportrait_1_n2_2_1_sketch.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 </answer>
 </exercise>
 
@@ -399,67 +469,211 @@ e^{-t}
 				Solve <m>x_1' = x_2</m>, <m>x_2' = -x_1</m> using the eigenvalue method.
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>\vec{x} =
+C_1 \left[ \begin{smallmatrix}
+\cos(t) \\ -\sin(t)
+\end{smallmatrix}\right]
++
+C_2 \left[ \begin{smallmatrix}
+\sin(t) \\ \cos(t)
+\end{smallmatrix}\right]</m>
+	</p>
+	<figure xml:id="ppsketch-0-1-n1-0">
+	<caption> Phase portrait for the system <m>x_1' = x_2</m>, <m>x_2' = -x_1</m> </caption>
+	<image source="Images/phaseportrait_0_1_n1_0_sketch.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
+</answer>
 
 </exercise>
 <exercise>
-<statement>
-			<p>
+<introduction>
+	<p>
 				A <m>2\times 2</m> matrix <m>A</m> has complex eigenvector <m>\displaystyle \vec{v}=\begin{bmatrix} 1\\ i \end{bmatrix}</m> corresponding to eigenvalue <m>\lambda=-1+3i</m>.
 			</p>
-
-<!-- div attr= class="tasks"-->
-			<p>
-				Use Euler’s Formula to find the (real-valued) general solution to the system <m>\vec{x}'=A\vec{x}</m>. Sketch the phase portrait of this system.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
+</introduction>
+<task>
+	<statement>
+		<p>
+			Use Euler's Formula to find the (real-valued) general solution to the system <m>\vec{x}'=A\vec{x}</m>.
+		</p>
+	</statement>
+	<answer>			<p>
 				 <m>\vec{x}(t) = C_1e^{-t}\left[\begin{smallmatrix} \cos(3t)\\ -\sin(3t) \end{smallmatrix}\right] + C_2e^{-t}\left[\begin{smallmatrix} \sin(3t)\\ \cos(3t) \end{smallmatrix}\right]</m> 
 			</p>
 </answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Sketch the phase portrait of this system.
+		</p>
+	</statement>
+	<answer>
+			<figure xml:id="ppsketch-sol-complex-evec">
+	<caption> Phase portrait sketch from a given eigenvalue and eigenvector. </caption>
+	<image source="Images/phaseportrait_sketch_fromevec_complex.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
+	</answer>
+</task>
+
 </exercise>
 
 <exercise>
-<statement>
-<!-- div attr= class="tasks"-->
+
+	<introduction>
+		<p>
+			Consider the matrix <m>A = \begin{bmatrix}1 &amp; 1 \\ -1 &amp; 0 \end{bmatrix}</m>.
+		</p>
+	</introduction>
+	<task>
+		<statement>
 			<p>
-				Compute eigenvalues and eigenvectors of <m>A=\left[ \begin{smallmatrix}
-1 &amp; 1 \\
--1 &amp; 0 
-\end{smallmatrix}\right]</m>. Solve the system <m>\vec{x}\,' = A\vec{x}</m>. Sketch the phase portrait for this system
-			</p><!--</div attr= class="tasks">-->
-</statement>
+				Compute eigenvalues and eigenvectors of <m>A</m>.
+			</p>
+		</statement>
+		<answer>
+			<p>
+				Eigenvalues: <m>\frac{1+\sqrt{3}i}{2},
+\frac{1-\sqrt{3}i}{2}</m>
+
+Eigenvectors:
+<m>\left[ \begin{smallmatrix}
+-2 \\ 1-\sqrt{3}i
+\end{smallmatrix}\right]</m>,
+<m>\left[ \begin{smallmatrix}
+-2 \\ 1+\sqrt{3}i
+\end{smallmatrix}\right]</m>
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				Solve the system <m>\vec{x}\,' = A\vec{x}</m>.
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>\vec{x} = C_1
+e^{t/2}
+\left[ \begin{smallmatrix}
+-2\cos\bigl(\frac{\sqrt{3}t}{2}\bigr)
+\\
+\cos\bigl(\frac{\sqrt{3}t}{2}\bigr) + \sqrt{3}\sin\bigl(\frac{\sqrt{3}t}{2}\bigr)
+\end{smallmatrix}\right]
++
+C_2
+e^{t/2}
+\left[ \begin{smallmatrix}
+- 2\sin\bigl(\frac{\sqrt{3}t}{2}\bigr)
+\\
+\sin\bigl(\frac{\sqrt{3}t}{2}\bigr) -\sqrt{3}\cos\bigl(\frac{\sqrt{3}t}{2}\bigr)
+\end{smallmatrix}\right]</m>
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				Sketch the phase portrait for this system.
+			</p>
+		</statement>
+		<answer>
+			<figure xml:id="ppsketch-1-1-n1-0">
+	<caption> Phase portrait sketch for the system with coefficient matrix <m>A = \begin{matrix}1 &amp; 1 \\ -1 &amp; 0</m>. </caption>
+	<image source="Images/phaseportrait_1_1_n1_0_sketch.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
+		</answer>
+	</task>
 
 </exercise>
 <exercise>
-<statement>
-			<p>
+<introduction>
+	<p>
 				Consider the system 
-<me>
+<md>
 \begin{bmatrix} x' \\ y' \end{bmatrix} = \begin{bmatrix} 1&amp; -2 \\ 5 &amp; -1 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix}.
-</me>
+</md>
 
 			</p>
-
-<!-- div attr= class="tasks"-->
+</introduction>
+		<task>
+			<statement>
+				<p>
+					Find the general solution.
+				</p>
+			</statement>
+			<answer>
+				<p>
+					<m>C_1\left[\begin{smallmatrix} 2\cos(3t) \\ \cos(3t) + 3\sin(3t) \end{smallmatrix}\right] + C_2 \left[\begin{smallmatrix} 2\sin(3t) \\ \sin(3t) - 3\cos(3t) \end{smallmatrix}\right]</m>
+				</p>
+			</answer>
+		</task>	
+		<task>
+			<statement>
+				<p>
+					Sketch the phase portrait for this system.
+				</p>
+			</statement>
+			<answer>
+					<figure xml:id="ppsketch-1-n2-5-n1">
+	<caption> Phase portrait sketch for the system <m>\begin{bmatrix} x' \\ y' \end{bmatrix} = \begin{bmatrix} 1&amp; -2 \\ 5 &amp; -1 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix}.</m> </caption>
+	<image source="Images/phaseportrait_1_n2_5_n1_sketch.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
 			<p>
-				Find the general solution. Sketch the phase portrait for this system. Solve the IVP with initial conditions <m>x(0)=1, y(0)=0</m>, and determine the maximum <m>x</m>-coordinate on this trajectory.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) <m>C_1\left[\begin{smallmatrix} 2\cos(3t) \\ \cos(3t) + 3\sin(3t) \end{smallmatrix}\right] + C_2 \left[\begin{smallmatrix} 2\sin(3t) \\ \sin(3t) - 3\cos(3t) \end{smallmatrix}\right]</m> b)  c) <m>x = \frac{\sqrt{10}}{3}</m> 
+				IMAGE DESCRIPTION HERE
 			</p>
-</answer>
+		</description>
+	</image>
+	</figure>
+			</answer>
+		</task>
+		<task>
+			<statement>
+				<p>
+					Solve the IVP with initial conditions <m>x(0)=1, y(0)=0</m>, and determine the maximum <m>x</m>-coordinate on this trajectory.
+				</p>
+			</statement>
+			<answer>
+				<p>
+					<m>x = \frac{\sqrt{10}}{3}</m> 
+				</p>
+			</answer>
+		</task>
+
 </exercise>
 
 <exercise>
 <statement>
 			<p>
 				Find the general solution of the system 
-<me>
+<md>
 {\vec{x}}' = \begin{bmatrix} 4 &amp; 1 \\ -5 &amp; 2 \end{bmatrix} \vec{x}
-</me>
+</md>
  and sketch the phase portrait for this system.
 			</p>
 </statement>
@@ -467,6 +681,17 @@ e^{-t}
 <answer>			<p>
 				 <m>\vec{x}(t) = C_1e^{3t} \left[\begin{smallmatrix} -\cos(2t) \\ \cos(2t) + 2\sin(2t) \end{smallmatrix}\right] + C_2e^{3t}\left[\begin{smallmatrix} -\sin(2t) \\ \sin(2t) - 2 \cos(2t) \end{smallmatrix}\right]</m> 
 			</p>
+			<figure xml:id="ppsketch-4-1-n5-2">
+	<caption> Phase portrait sketch for the system <m>{\vec{x}}' = \begin{bmatrix} 4 &amp; 1 \\ -5 &amp; 2 \end{bmatrix} \vec{x}</m>. </caption>
+	<image source="Images/phaseportrait_4_1_n5_2_sketch.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 </answer>
 </exercise>
 
@@ -474,9 +699,9 @@ e^{-t}
 <statement>
 			<p>
 				Find the general solution of the system 
-<me>
+<md>
 {\vec{x}}' = \begin{bmatrix} 1 &amp; 4 \\ -2 &amp; -3 \end{bmatrix} \vec{x}
-</me>
+</md>
  and sketch the phase portrait for this system.
 			</p>
 </statement>
@@ -484,6 +709,17 @@ e^{-t}
 <answer>			<p>
 				 <m>\vec{x}(t) = C_1e^{-t}\left[\begin{smallmatrix} \cos(2t) - \sin(2t) \\ -\cos(2t) \end{smallmatrix}\right] + C_2e^{-t}\left[\begin{smallmatrix} \sin(2t) + \cos(2t) \\ -\sin(2t) \end{smallmatrix}\right]</m> 
 			</p>
+			<figure xml:id="ppsketch1-4-n2-n3">
+	<caption> Phase portrait sketch for the system <m>{\vec{x}}' = \begin{bmatrix} 1 &amp; 4 \\ -2 &amp; -3 \end{bmatrix} \vec{x}</m>. </caption>
+	<image source="Images/phaseportrait_1_4_n2_n3_sketch.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 </answer>
 </exercise>
 
@@ -491,9 +727,9 @@ e^{-t}
 <statement>
 			<p>
 				Find the general solution of the system 
-<me>
+<md>
 {\vec{x}}' = \begin{bmatrix} 2 &amp; 0 &amp; 3 \\ -6 &amp; 2 &amp; -9 \\ -3 &amp; 0 &amp; 2 \end{bmatrix} \vec{x}.
-</me>
+</md>
 
 			</p>
 </statement>
@@ -508,9 +744,9 @@ e^{-t}
 <statement>
 			<p>
 				Find the general solution of the system 
-<me>
+<md>
 {\vec{x}}' = \begin{bmatrix} -10 &amp; -4 &amp; 0 \\ 14 &amp; 4 &amp; 1 \\ 12 &amp; 6 &amp; -2 \end{bmatrix} \vec{x}.
-</me>
+</md>
 
 			</p>
 </statement>
@@ -524,7 +760,7 @@ e^{-t}
 <exercise>
 <statement>
 			<p>
-				Solve the initial value problem <me>{\vec{x}}' = \begin{bmatrix} 3 &amp; -1 \\ 4 &amp; 3 \end{bmatrix} \vec{x} \qquad \vec{x}(0) = \begin{bmatrix} 2 \\ -1 \end{bmatrix}.</me>
+				Solve the initial value problem <md>{\vec{x}}' = \begin{bmatrix} 3 &amp; -1 \\ 4 &amp; 3 \end{bmatrix} \vec{x} \qquad \vec{x}(0) = \begin{bmatrix} 2 \\ -1 \end{bmatrix}.</md>
 			</p>
 </statement>
 
@@ -537,7 +773,7 @@ e^{-t}
 <exercise>
 <statement>
 			<p>
-				Solve the initial value problem <me>{\vec{x}}' = \begin{bmatrix} -8 &amp; -8 \\ 5 &amp; 4 \end{bmatrix} \vec{x} \qquad \vec{x}(0) = \begin{bmatrix} 1 \\ 1 \end{bmatrix}.</me>
+				Solve the initial value problem <md>{\vec{x}}' = \begin{bmatrix} -8 &amp; -8 \\ 5 &amp; 4 \end{bmatrix} \vec{x} \qquad \vec{x}(0) = \begin{bmatrix} 1 \\ 1 \end{bmatrix}.</md>
 			</p>
 </statement>
 
@@ -550,7 +786,7 @@ e^{-t}
 <exercise>
 <statement>
 			<p>
-				Solve the initial value problem <me>{\vec{x}}' = \begin{bmatrix}-1 &amp; 2 &amp; -8 \\ 0 &amp; 1 &amp; -4 \\ 0 &amp; 2 &amp; -3 \end{bmatrix} \vec{x} \qquad \vec{x}(0) = \begin{bmatrix} 2 \\ 1 \\ -3 \end{bmatrix}.</me>
+				Solve the initial value problem <md>{\vec{x}}' = \begin{bmatrix}-1 &amp; 2 &amp; -8 \\ 0 &amp; 1 &amp; -4 \\ 0 &amp; 2 &amp; -3 \end{bmatrix} \vec{x} \qquad \vec{x}(0) = \begin{bmatrix} 2 \\ 1 \\ -3 \end{bmatrix}.</md>
 			</p>
 </statement>
 

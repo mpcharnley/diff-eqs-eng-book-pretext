@@ -70,9 +70,6 @@
 		points <m>(x_0,y_0)</m>, <m>(x_1,y_1)</m>, <m>(x_2,y_2)</m>,…. For the first two steps of
 		the method see <xref ref="euler-step12-fig"/>. </p>
 
-	<!-- div attr= class="myfig"-->
-	<!--</div
-	attr= class="myfig">-->
 
 	<figure xml:id="euler-step12-fig">
 	<caption> First two steps of Euler's method with <m>h=1</m> for
@@ -132,7 +129,7 @@ the equation <m>y' = \frac{y^2}{3}</m> with initial conditions <m>y(0)=1</m>. </
 			</p>
 
 	<table xml:id="table-euler-vals">
-		<title>Euler’s method approximation of <m>y(2)</m> where of <m>y'=\nicefrac{y^2}{3}</m>, <m>
+		<title>Euler's method approximation of <m>y(2)</m> where of <m>y'=\nicefrac{y^2}{3}</m>, <m>
 			y(0)=1</m>.</title>
 		<tabular>
 			<row header="yes">
@@ -197,7 +194,7 @@ the equation <m>y' = \frac{y^2}{3}</m> with initial conditions <m>y(0)=1</m>. </
 	</table>
 
 	<p> Notice that except for the first few times, every time we halved the step size the error
-		approximately halved. This halving of the error is a general feature of Euler’s method as it
+		approximately halved. This halving of the error is a general feature of Euler's method as it
 		is a <term>first order method</term>. There exists an improved Euler method, see the exercises, which is a <term>second order method</term>. A
 		second order method reduces the error to approximately one quarter every time we halve the
 		interval. The meaning of "second" order is the squaring in <m>\nicefrac{1}{4} = \nicefrac{1}{2}
@@ -353,18 +350,18 @@ the equation <m>y' = \frac{y^2}{3}</m> with initial conditions <m>y(0)=1</m>. </
 	</p>
 
 	<p> The method used in Matlab and Octave is a fair bit different from the methods discussed
-		previously. We don’t need to go too much in detail about it, but some information will be
+		previously. We don't need to go too much in detail about it, but some information will be
 		helpful. The main difference that will be visible when running these methods is that they
 		are <em>adaptive</em> method. This means that they adjust the step-size based on what the
-		differential equation looks like at a given point. Euler’s method, along with the improved
+		differential equation looks like at a given point. Euler's method, along with the improved
 		Euler and Runge-Kutta methods, is a fixed step-size method, where the steps are always the
 		same no matter what. Adaptive methods are harder to write and optimize, but can solve many
 		problems faster because the adaptive nature of the method allows them to get similar
 		accuracy to fixed step methods, but at many fewer steps. In the example below, the initial
 		value problem <md>
 			\frac{dy}{dt} = y \qquad y(0) = 1
-		</md> is solved with an Euler’s method and
-		Matlab’s built-in <c>ode45</c> method. Both of the solutions are plotted along with the
+		</md> is solved with an Euler's method and
+		Matlab's built-in <c>ode45</c> method. Both of the solutions are plotted along with the
 		actual solution <m>y = e^t</m>
 	</p>
 
@@ -395,7 +392,7 @@ the equation <m>y' = \frac{y^2}{3}</m> with initial conditions <m>y(0)=1</m>. </
 
 		<exercise>
 			<statement>
-				<p> Consider <m>\dfrac{dx}{dt} = {(2t-x)}^2</m>, <m>x(0)=2</m>. Use Euler’s method
+				<p> Consider <m>\dfrac{dx}{dt} = {(2t-x)}^2</m>, <m>x(0)=2</m>. Use Euler's method
 					with step size <m>h=0.5</m> to approximate <m>x(1)</m>. </p>
 			</statement>
 
@@ -409,7 +406,7 @@ the equation <m>y' = \frac{y^2}{3}</m> with initial conditions <m>y(0)=1</m>. </
 		<exercise>
 			<statement>
 				<p> Consider the differential equation <m>\frac{dy}{dt} = t^2 - 3y + 1</m> with <m>y(1)
-					= 4</m>. Approximate the solution at <m>t=3</m> using Euler’s method with a step
+					= 4</m>. Approximate the solution at <m>t=3</m> using Euler's method with a step
 					size of <m>h=1</m> and <m>h=0.5</m>. Compare these values with the actual
 					solution at <m>t=3</m>. </p>
 			</statement>
@@ -425,7 +422,7 @@ the equation <m>y' = \frac{y^2}{3}</m> with initial conditions <m>y(0)=1</m>. </
 		<exercise>
 			<statement>
 				<p> Consider the differential equation <m>\frac{dy}{dt} = 2ty + y^2</m> with <m>y(0)
-					= 1</m>. Approximate the solution at <m>t=2</m> using Euler’s method with a step
+					= 1</m>. Approximate the solution at <m>t=2</m> using Euler's method with a step
 					size of <m>h=1</m> and <m>h=0.5</m>. </p>
 			</statement>
 
@@ -444,7 +441,7 @@ the equation <m>y' = \frac{y^2}{3}</m> with initial conditions <m>y(0)=1</m>. </
 	</introduction>
 	<task>
 		<statement>
-			<p> Use Euler’s method with step sizes <m>h = 1, \nicefrac{1}{2}, \nicefrac{1}{4},
+			<p> Use Euler's method with step sizes <m>h = 1, \nicefrac{1}{2}, \nicefrac{1}{4},
 					\nicefrac{1}{8}</m> to approximate <m>x(1)</m>.  </p>
 		</statement>
 		<answer>
@@ -483,7 +480,7 @@ the equation <m>y' = \frac{y^2}{3}</m> with initial conditions <m>y(0)=1</m>. </
 		<exercise>
 			<statement>
 				<p> Let <m>x' = \sin(xt)</m>, and <m>x(0)=1</m>. Approximate <m>x(1)</m> using
-					Euler’s method with step sizes 1, 0.5, 0.25. Use a calculator and compute up to
+					Euler's method with step sizes 1, 0.5, 0.25. Use a calculator and compute up to
 					4 decimal digits. </p>
 			</statement>
 			<answer>
@@ -496,7 +493,7 @@ the equation <m>y' = \frac{y^2}{3}</m> with initial conditions <m>y(0)=1</m>. </
 		<exercise>
 			<statement>
 				<p> Approximate the value of <m>e</m> by looking at the initial value problem <m>
-					y'=y</m> with <m>y(0)=1</m> and approximating <m>y(1)</m> using Euler’s method
+					y'=y</m> with <m>y(0)=1</m> and approximating <m>y(1)</m> using Euler's method
 					with a step size of <m>0.2</m>. </p>
 			</statement>
 
@@ -514,7 +511,7 @@ the equation <m>y' = \frac{y^2}{3}</m> with initial conditions <m>y(0)=1</m>. </
 	</introduction>
 	<task>
 		<statement>
-			<p> Approximate <m>x(4)</m> using Euler’s method with step sizes 4, 2, and 1. </p>
+			<p> Approximate <m>x(4)</m> using Euler's method with step sizes 4, 2, and 1. </p>
 		</statement>
 		<answer>
 			<p>  0, 8, 12 </p>
@@ -552,7 +549,7 @@ the equation <m>y' = \frac{y^2}{3}</m> with initial conditions <m>y(0)=1</m>. </
 	</introduction>
 	<task>
 		<statement>
-			<p>  Approximate <m>x(4)</m> using Euler’s method with step sizes 4, 2, and 1.  </p>
+			<p>  Approximate <m>x(4)</m> using Euler's method with step sizes 4, 2, and 1.  </p>
 		</statement>
 		<answer>
 			<p> 0, 0, 0  </p>
@@ -575,7 +572,7 @@ the equation <m>y' = \frac{y^2}{3}</m> with initial conditions <m>y(0)=1</m>. </
 		<exercise>
 			<statement>
 				<p> Example of numerical instability: Take <m>y' = -5y</m>, <m>y(0) = 1</m>. We know
-					that the solution should decay to zero as <m>x</m> grows. Using Euler’s method,
+					that the solution should decay to zero as <m>x</m> grows. Using Euler's method,
 					start with <m>h=1</m> and compute <m>y_1, y_2, y_3, y_4</m> to try to
 					approximate <m>y(4)</m>. What happened? Now halve the interval. Keep halving the
 					interval and approximating <m>y(4)</m> until the numbers you are getting start
@@ -590,7 +587,7 @@ the equation <m>y' = \frac{y^2}{3}</m> with initial conditions <m>y(0)=1</m>. </
 		</exercise>
 		<exercise>
 			<introduction>
-				<p> There is a simple way to improve Euler’s method to make it a second order method
+				<p> There is a simple way to improve Euler's method to make it a second order method
 					by doing just one extra step. Consider <m>\frac{dy}{dx}=f(x,y)</m>, <m>y(x_0) =
 					y_0</m>, and a step size <m>h</m>. What we do is to pretend we compute the next
 					step as in Euler, that is, we start with <m>(x_i,y_i)</m>, we compute a slope <m>k_1
@@ -616,7 +613,7 @@ the equation <m>y' = \frac{y^2}{3}</m> with initial conditions <m>y(0)=1</m>. </
 			<task>
 				<statement>
 					<p>
-						Use the improved Euler’s method (see above) with step sizes <m>h=\nicefrac{1}{4}</m>
+						Use the improved Euler's method (see above) with step sizes <m>h=\nicefrac{1}{4}</m>
 					and <m>h=\nicefrac{1}{8}</m> to approximate <m>y(1)</m>. 
 					</p>
 				</statement>
@@ -630,7 +627,7 @@ the equation <m>y' = \frac{y^2}{3}</m> with initial conditions <m>y(0)=1</m>. </
 			<task>
 				<statement>
 					<p>
-						Use Euler’s method with <m>
+						Use Euler's method with <m>
 					h=\nicefrac{1}{4}</m> and <m>h=\nicefrac{1}{8}</m>. 
 					</p>
 				</statement>
@@ -683,7 +680,7 @@ and
 	<introduction>
 		<p> The simplest method used in practice is the <term>Runge-Kutta Method</term>. Consider <m>
 					\frac{dy}{dx}=f(x,y)</m>, <m>y(x_0) = y_0</m>, and a step size <m>h</m>.
-					Everything is the same as in Euler’s method, except the computation of <m>
+					Everything is the same as in Euler's method, except the computation of <m>
 					y_{i+1}</m> and <m>x_{i+1}</m>. 
 					<md>
 						<mrow> k_1 \amp= f(x_i,y_i) </mrow>

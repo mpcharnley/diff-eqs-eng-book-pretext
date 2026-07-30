@@ -6,74 +6,126 @@
 	<section xml:id="linearization-section">
 		<title>Linearization, critical points, and stability</title>
 
+		<objectives>
+	<introduction>
 		<p>
-			Except for a few brief detours in , we considered mostly linear equations. Linear equations suffice in many applications, but in reality most phenomena require nonlinear equations. Nonlinear equations, however, are notoriously more difficult to understand than linear ones, and many strange new phenomena appear when we allow our equations to be nonlinear.
+			After this section, you will be able to: 
+		</p>
+	</introduction>
+	<ul>
+		<li>
+			<p>
+				Find critical points of a non-linear system of differential equations,
+			</p>
+		</li>
+		<li>
+			<p>
+				Linearize a non-linear system around a critical point,
+			</p>
+		</li>
+		<li>
+			<p>
+				Determine if a critical point of a non-linear system is isolated,
+			</p>
+		</li>
+		<li>
+			<p>
+				Use the Jacobian matrix to classify the critical point of a non-linear system, and
+			</p>
+		</li>
+		<li>
+			<p>
+				Determine the stability of a critical point from the classification.
+			</p>
+		</li>
+	</ul>
+</objectives>
+
+<introduction>
+		<p>
+			Except for a few brief detours in <xref ref="fo-chapter"/>, we considered mostly linear equations. Linear equations suffice in many applications, but in reality most phenomena require nonlinear equations. Nonlinear equations, however, are notoriously more difficult to understand than linear ones, and many strange new phenomena appear when we allow our equations to be nonlinear.
 		</p>
 
 		<p>
-			Not to worry, we did not waste all this time studying linear equations. Nonlinear equations can often be approximated by linear ones if we only need a solution for example, only for a short period of time, or only for certain parameters. Understanding specific linear equations can also give us qualitative understanding about a more general nonlinear problem. The idea is similar to what you did in calculus in trying to approximate a function by a line with the right slope.
+			Not to worry, we did not waste all this time studying linear equations. Nonlinear equations can often be approximated by linear ones if we only need a solution <q>locally</q>, for example, only for a short period of time, or only for certain parameters. Understanding specific linear equations can also give us qualitative understanding about a more general nonlinear problem. The idea is similar to what you did in calculus in trying to approximate a function by a line with the right slope.
 		</p>
 
-<!-- div attr= class="mywrapfigsimp"-->
-		<p>
-			1.45in1.75in
-		</p><!--</div attr= class="mywrapfigsimp">-->
+<figure xml:id="mv-pend-fig">
+	<caption> Schematic of a pendulum. </caption>
+	<image source="mv-pend.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
 		<p>
-			In we looked at the pendulum of length <m>L</m>. The goal was to solve for the angle <m>\theta(t)</m> as a function of the time <m>t</m>. The equation for the setup is the nonlinear equation 
-<me>
+			In <xref ref="sec-mv"/> we looked at the pendulum of length <m>L</m>. The goal was to solve for the angle <m>\theta(t)</m> as a function of the time <m>t</m>. The equation for the setup is the nonlinear equation 
+ <md>
 \theta'' + \frac{g}{L} \sin \theta = 0 .
-</me>
+ </md>
  Instead of solving this equation, we solved the rather easier linear equation 
-<me>
+ <md>
 \theta'' + \frac{g}{L} \theta = 0 .
-</me>
+ </md>
  While the solution to the linear equation is not exactly what we were looking for, it is rather close to the original, as long as the angle <m>\theta</m> is small and the time period involved is short.
 		</p>
 
 		<p>
-			You might ask: Why don’t we just solve the nonlinear problem? Well, it might be very difficult, impractical, or impossible to solve analytically, depending on the equation in question. We may not even be interested in the actual solution, we might only be interested in some qualitative idea of what the solution is doing. For example, what happens as time goes to infinity?
+			You might ask: Why don't we just solve the nonlinear problem? Well, it might be very difficult, impractical, or impossible to solve analytically, depending on the equation in question. We may not even be interested in the actual solution, we might only be interested in some qualitative idea of what the solution is doing. For example, what happens as time goes to infinity?
 		</p>
-
+	</introduction>
 
 		<subsection xml:id="autonomous-systems-and-phase-plane-analysis">
 			<title>Autonomous systems and phase plane analysis</title>
 
 			<p>
 				We restrict our attention to a two-dimensional autonomous system 
-<me>
+ <md>
 x' = f(x,y) , \qquad y' = g(x,y) ,
-</me>
+ </md>
  where <m>f(x,y)</m> and <m>g(x,y)</m> are functions of two variables, and the derivatives are taken with respect to time <m>t</m>. Solutions are functions <m>x(t)</m> and <m>y(t)</m> such that 
-<me>
+ <md>
 x'(t) = f\bigl(x(t),y(t)\bigr), \qquad
 y'(t) = g\bigl(x(t),y(t)\bigr) .
-</me>
- The way we will analyze the system is very similar to , where we studied a single autonomous equation. The ideas in two dimensions are the same, but the behavior can be far more complicated.
+ </md>
+ The way we will analyze the system is very similar to <xref ref="auteq-section"/>, where we studied a single autonomous equation. The ideas in two dimensions are the same, but the behavior can be far more complicated.
 			</p>
 
 			<p>
 				It may be best to think of the system of equations as the single vector equation 
-<men xml:id="eq-nlinautn2">
+ <md number="yes" xml:id="eq-nlinautn2">
  \begin{bmatrix} x \\ y \end{bmatrix} ' =
 \begin{bmatrix} f(x,y) \\ g(x,y) \end{bmatrix} .
-</men>
-As in we draw the <em></em> (or <em></em>), where each point <m>(x,y)</m> corresponds to a specific state of the system. We draw the <em></em> given at each point <m>(x,y)</m> by the vector <m>\left[ \begin{smallmatrix} f(x,y) \\ g(x,y) \end{smallmatrix} \right]</m>. And as before if we find solutions, we draw the trajectories by plotting all points <m>\bigl(x(t),y(t)\bigr)</m> for a certain range of <m>t</m>.
+ </md>
+As in <xref ref="sec-introtosys"/> we draw the <term>phase portrait</term> (or <term>phase diagram</term>), where each point <m>(x,y)</m> corresponds to a specific state of the system. We draw the <term>vector field</term> given at each point <m>(x,y)</m> by the vector <m>\left[ \begin{smallmatrix} f(x,y) \\ g(x,y) \end{smallmatrix} \right]</m>. And as before if we find solutions, we draw the trajectories by plotting all points <m>\bigl(x(t),y(t)\bigr)</m> for a certain range of <m>t</m>.
 			</p>
 
 
 <example xml:id="example-nlin-1b-example">
-<title> </title>
 <statement>			<p>
 				 Consider the second order equation <m>x''=-x+x^2</m>. Write this equation as a first order nonlinear system 
-<me>
+ <md>
 x' = y , \qquad y' = -x+x^2 .
-</me>
- The phase portrait with some trajectories is drawn in .
+ </md>
+ The phase portrait with some trajectories is drawn in <xref ref="fig-nlin-1b"/>.
 			</p>
 
-<!-- div attr= class="myfig"-->
-<!--</div attr= class="myfig">-->
+<figure xml:id="fig-nlin-1b">
+	<caption> Phase portrait with some trajectories of
+<m>x' = y</m>, <m>y' = -x+x^2</m>. </caption>
+	<image source="nlin-1b.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
 			<p>
 				From the phase portrait it should be clear that even this simple system has fairly complicated behavior. Some trajectories keep oscillating around the origin, and some go off towards infinity. We will return to this example often, and analyze it completely in this (and the next) section.
@@ -88,38 +140,39 @@ x' = y , \qquad y' = -x+x^2 .
 				Let us concentrate on those points in the phase diagram above where the trajectories seem to start, end, or go around. We see two such points: <m>(0,0)</m> and <m>(1,0)</m>. The trajectories seem to go around the point <m>(0,0)</m>, and they seem to either go in or out of the point <m>(1,0)</m>. These points are precisely those points where the derivatives of both <m>x</m> and <m>y</m> are zero.
 			</p>
 
-<!-- div attr= class="definition"-->
-			<p>
-				The <em>critical points</em> of a system of differential equations 
-<me>
-\begin{split}
-\frac{dx}{dt} &amp;= f(x,y) \\
-\frac{dy}{dt} &amp;= g(x,y)
-\end{split}
-</me>
+			<definition xml:id="def-critical-points-nlin">
+				<statement>
+					<p>
+				The <term>critical points</term> of a system of differential equations 
+ <md>
+<mrow> \frac{dx}{dt} \amp = f(x,y) </mrow>
+<mrow> \frac{dy}{dt}  \amp = g(x,y) </mrow>
+ </md>
  are the points <m>(x,y)</m> such that 
-<me>
+ <md>
 \begin{bmatrix} f(x,y) \\ g(x,y) \end{bmatrix} = \vec{0} .
-</me>
+ </md>
  In other words, these are the points where both <m>f(x,y)=0</m> and <m>g(x,y)=0</m>.
-			</p><!--</div attr= class="definition">-->
+			</p>
+				</statement>
+			</definition>
 
 			<p>
 				The critical points are where the behavior of the system is in some sense the most complicated. If <m>\left[ \begin{smallmatrix} f(x,y) \\ g(x,y) \end{smallmatrix} \right]</m> is zero, then nearby, the vector can point in any direction whatsoever. Also, the trajectories are either going towards, away from, or around these points, so if we are looking for long-term qualitative behavior of the system, we should look at what is happening near the critical points.
 			</p>
 
 			<p>
-				Critical points are also sometimes called <em>equilibria</em>, since we have so-called <em>equilibrium solutions</em> at critical points. If <m>(x_0,y_0)</m> is a critical point, then we have the solutions 
-<me>
+				Critical points are also sometimes called <term>equilibria</term>, since we have so-called <term>equilibrium solutions</term> at critical points. If <m>(x_0,y_0)</m> is a critical point, then we have the solutions 
+ <md>
 x(t) = x_0, \quad y(t) = y_0 .
-</me>
+ </md>
  In , there are two equilibrium solutions: 
-<me>
+ <md>
 x(t) = 0, \quad y(t) = 0,
 \qquad \text{and} \qquad
 x(t) = 1, \quad y(t) = 0.
-</me>
- The discussion here should seem a bit familiar; it is the same as how we formulated equilibrium solutions to autonomous differential equations in in .
+ </md>
+ The discussion here should seem a bit familiar; it is the same as how we formulated equilibrium solutions to autonomous differential equations in <xref ref="auteq-section"/>.
 			</p>
 
 		</subsection>
@@ -129,60 +182,65 @@ x(t) = 1, \quad y(t) = 0.
 
 			<p>
 				How do linear systems fit into this approach? For a linear, homogeneous system of two variables defined by 
-<me>
+ <md>
 \vec{x}' = A\vec{x}
-</me>
- where <m>A</m> is an invertible matrix, the only critical point is the origin <m>(0,0)</m>. Since <m>A</m> is invertible, the only vector that satisfies <m>A\vec{x} = 0</m> is <m>\vec{x} = 0</m>, see . (This also applies beyond two variables, but we’ll stick to that for simplicity.) In we studied the behavior of a homogeneous linear system of two equations near a critical point. Let us put the understanding we gained in that section to good use understanding what happens near critical points of nonlinear systems.
+ </md>
+ where <m>A</m> is an invertible matrix, the only critical point is the origin <m>(0,0)</m>. Since <m>A</m> is invertible, the only vector that satisfies <m>A\vec{x} = 0</m> is <m>\vec{x} = 0</m>, see <xref ref="det-section"/>. (This also applies beyond two variables, but we'll stick to that for simplicity.) In <xref ref="sec-twodimaut"/> we studied the behavior of a homogeneous linear system of two equations near a critical point. Let us put the understanding we gained in that section to good use understanding what happens near critical points of nonlinear systems.
 			</p>
 
 			<p>
-				In calculus we learned to estimate a function by taking its derivative and linearizing. We work similarly with nonlinear systems of ODE. Suppose <m>(x_0,y_0)</m> is a critical point. In order to linearize the system of differential equations, we want to linearize the two functions <m>f(x,y)</m> and <m>g(x,y)</m> that define this system. To do so, we will replace <m>f</m> and <m>g</m> by the tangent plane approximation to the functions. That is, if we set <m>z = f(x,y)</m>, the tangent plane is given by <me>L_f(x,y) = f(x_0, y_0) + f_x(x_0, y_0)(x - x_0) + f_y(x_0, y_0)(y - y_0).</me> Since <m>(x_0, y_0)</m> is a critical point, we know that <m>f(x_0, y_0) = 0</m>, so the tangent plane is given by <me>L_f(x,y) = f_x(x_0, y_0)(x - x_0) + f_y(x_0, y_0)(y - y_0).</me> Similarly, the tangent plane for <m>g(x,y)</m> near the critical point <m>(x_0, y_0)</m> is given by <me>L_g(x,y) = g_x(x_0, y_0)(x - x_0) + g_y(x_0, y_0)(y - y_0).</me>
+				In calculus we learned to estimate a function by taking its derivative and linearizing. We work similarly with nonlinear systems of ODE. Suppose <m>(x_0,y_0)</m> is a critical point. In order to linearize the system of differential equations, we want to linearize the two functions <m>f(x,y)</m> and <m>g(x,y)</m> that define this system. To do so, we will replace <m>f</m> and <m>g</m> by the tangent plane approximation to the functions. That is, if we set <m>z = f(x,y)</m>, the tangent plane is given by  <md>L_f(x,y) = f(x_0, y_0) + f_x(x_0, y_0)(x - x_0) + f_y(x_0, y_0)(y - y_0). </md> Since <m>(x_0, y_0)</m> is a critical point, we know that <m>f(x_0, y_0) = 0</m>, so the tangent plane is given by  <md>L_f(x,y) = f_x(x_0, y_0)(x - x_0) + f_y(x_0, y_0)(y - y_0). </md> Similarly, the tangent plane for <m>g(x,y)</m> near the critical point <m>(x_0, y_0)</m> is given by  <md>L_g(x,y) = g_x(x_0, y_0)(x - x_0) + g_y(x_0, y_0)(y - y_0). </md>
 			</p>
 
 			<p>
-				The idea of linearization in calculus was that we could use the tangent line or tangent plane to approximate a function near to a given point. For systems of differential equations, the idea is that we can approximate the solutions to the system of differential equations by the solutions to the linearized systems as long as we stay near the critical point. That means that we can approximate the solution to <me>\begin{split}
-\frac{dx}{dt} &amp;= f(x,y) \\
-\frac{dy}{dt} &amp;= g(x,y)
-\end{split}</me> near the critical point <m>(x_0, y_0)</m> by the solution to the system <me>\begin{split}
-\frac{dx}{dt} &amp;= f_x(x_0, y_0)(x - x_0) + f_y(x_0, y_0)(y - y_0) \\
-\frac{dy}{dt} &amp;= g_x(x_0, y_0)(x - x_0) + g_y(x_0, y_0)(y - y_0)
-\end{split}</me>
+				The idea of linearization in calculus was that we could use the tangent line or tangent plane to approximate a function near to a given point. For systems of differential equations, the idea is that we can approximate the solutions to the system of differential equations by the solutions to the linearized systems as long as we stay near the critical point. That means that we can approximate the solution to  
+<md>
+	<mrow> \frac{dx}{dt}\amp = f(x,y) </mrow>
+<mrow> \frac{dy}{dt}  \amp = g(x,y) </mrow>
+</md> 
+near the critical point <m>(x_0, y_0)</m> by the solution to the system  
+<md>
+	<mrow> \frac{dx}{dt} \amp = f_x(x_0, y_0)(x - x_0) + f_y(x_0, y_0)(y - y_0) </mrow>
+	<mrow> \frac{dy}{dt} \amp = g_x(x_0, y_0)(x - x_0) + g_y(x_0, y_0)(y - y_0)</mrow>
+ </md>.
 			</p>
 
 			<p>
 				Next, change variables to <m>(u,v)</m>, so that <m>(u,v)=(0,0)</m> corresponds to <m>(x_0,y_0)</m>. That is, 
-<me>
+ <md>
 u=x-x_0, \qquad v=y-y_0,
-</me>
+ </md>
  which is not going to affect our differential equations because <m>x_0</m> and <m>y_0</m> are constant.
 			</p>
 
 			<p>
-				Since <m>\frac{dx}{dt} = \frac{du}{dt}</m> and <m>\frac{dy}{dt} = \frac{dv}{dt}</m>, we can rewrite the approximation system as <me>\begin{split}
-\frac{du}{dt} &amp;= f_x(x_0, y_0)u + f_y(x_0, y_0)v \\
-\frac{dv}{dt} &amp;= g_x(x_0, y_0)u + g_y(x_0, y_0)v
-\end{split}</me>
+				Since <m>\frac{dx}{dt} = \frac{du}{dt}</m> and <m>\frac{dy}{dt} = \frac{dv}{dt}</m>, we can rewrite the approximation system as 
+<md>
+	<mrow> \frac{du}{dt} \amp = f_x(x_0, y_0)u + f_y(x_0, y_0)v </mrow>
+	<mrow> \frac{dv}{dt} \amp = g_x(x_0, y_0)u + g_y(x_0, y_0)v</mrow>
+</md>.
 			</p>
 
 			<p>
-				In multivariable calculus you may have seen that the several variables version of the derivative is the <em></em> <fn>			<p>
-				Named for the German mathematician <url href="https://en.wikipedia.org/wiki/Carl_Gustav_Jacob_Jacobi">Carl Gustav Jacob Jacobi</url> (1804–1851).
-			</p></fn>. The Jacobian matrix of the vector-valued function <m>\left[ \begin{smallmatrix} f(x,y) \\ g(x,y) \end{smallmatrix} \right]</m> at <m>(x_0,y_0)</m> is 
-<me>
+				In multivariable calculus you may have seen that the several variables version of the derivative is the <term>Jacobian Matrix</term> <fn>
+				Named for the German mathematician <url href="https://en.wikipedia.org/wiki/Carl_Gustav_Jacob_Jacobi">Carl Gustav Jacob Jacobi</url> (1804-1851).
+			</fn>. The Jacobian matrix of the vector-valued function <m>\left[ \begin{smallmatrix} f(x,y) \\ g(x,y) \end{smallmatrix} \right]</m> at <m>(x_0,y_0)</m> is 
+ <md>
 \begin{bmatrix}
 \frac{\partial f}{\partial x}(x_0,y_0) &amp;
 \frac{\partial f}{\partial y}(x_0,y_0) \\
 \frac{\partial g}{\partial x}(x_0,y_0) &amp;
 \frac{\partial g}{\partial y}(x_0,y_0)
 \end{bmatrix} .
-</me>
+ </md>
  This matrix gives the best linear approximation as <m>u</m> and <m>v</m> (and therefore <m>x</m> and <m>y</m>) vary.
 			</p>
 
-<!-- div attr= class="definition"-->
+<definition xml:id="def-nlin-linearization">
+	<statement>
 			<p>
 				The <term>linearization</term> of the equation <xref ref="eq-nlinautn2" /> as the linear system 
-<me>
+ <md>
 \begin{bmatrix} u \\ v \end{bmatrix} ' =
 \begin{bmatrix}
 \frac{\partial f}{\partial x}(x_0,y_0) &amp;
@@ -191,13 +249,13 @@ u=x-x_0, \qquad v=y-y_0,
 \frac{\partial g}{\partial y}(x_0,y_0)
 \end{bmatrix} 
 \begin{bmatrix} u \\ v \end{bmatrix} .
-</me>
+ </md>
 
-			</p><!--</div attr= class="definition">-->
-
+			</p>
+	</statement>
+</definition>
 
 <example xml:id="example-nlin-1b-examplelin">
-<title> </title>
 <statement>			<p>
 				 Determine the linearization of the system of differential equations in <xref ref="example-nlin-1b-example"/>: <m>x' = y</m>, <m>y' = -x+x^2</m> at all of its critical points.
 			</p>
@@ -205,7 +263,7 @@ u=x-x_0, \qquad v=y-y_0,
 
 <solution>			<p>
 				There are two critical points, <m>(0,0)</m> and <m>(1,0)</m>. The Jacobian matrix at any point is 
-<me>
+ <md>
 \begin{bmatrix}
 \frac{\partial f}{\partial x}(x,y) &amp;
 \frac{\partial f}{\partial y}(x,y) \\
@@ -216,38 +274,51 @@ u=x-x_0, \qquad v=y-y_0,
 0 &amp; 1 \\
 -1+2x &amp; 0
 \end{bmatrix}.
-</me>
+ </md>
  Therefore at <m>(0,0)</m>, we have <m>u=x</m> and <m>v=y</m>, and the linearization is 
-<me>
+ <md>
 \begin{bmatrix} u \\ v \end{bmatrix} ' =
 \begin{bmatrix}
 0 &amp; 1 \\
 -1 &amp; 0
 \end{bmatrix}
 \begin{bmatrix} u \\ v \end{bmatrix} .
-</me>
+ </md>
 
 			</p>
 
 			<p>
 				At the point <m>(1,0)</m>, we have <m>u=x-1</m> and <m>v=y</m>, and the linearization is 
-<me>
+ <md>
 \begin{bmatrix} u \\ v \end{bmatrix} ' =
 \begin{bmatrix}
 0 &amp; 1 \\
 1 &amp; 0
 \end{bmatrix}
 \begin{bmatrix} u \\ v \end{bmatrix} .
-</me>
+ </md>
 
 			</p>
 
 			<p>
-				The phase diagrams of the two linearizations at the point <m>(0,0)</m> and <m>(1,0)</m> are given in . Note that the variables are now <m>u</m> and <m>v</m>. Compare with , and look especially at the behavior near the critical points.
+				The phase diagrams of the two linearizations at the point <m>(0,0)</m> and <m>(1,0)</m> are given in <xref ref="fig-nlin-1b-lin"/>. Note that the variables are now <m>u</m> and <m>v</m>. Compare with <xref ref="fig-nlin-1b"/>, and look especially at the behavior near the critical points.
 			</p>
 
-<!-- div attr= class="myfig"-->
-<!--</div attr= class="myfig">-->
+<figure xml:id="fig-nlin-1b-lin">
+	<caption> Phase diagram with some trajectories of
+linearizations at the critical points <m>(0,0)</m>$ (left) and <m>(1,0)</m> (right) of
+<m>x' = y</m>, <m>y' = -x+x^2</m>.  </caption>
+	<image source="nlin-1b-lin-00-01.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
+
+
 </solution>
 </example>
 		</subsection>
@@ -259,37 +330,43 @@ u=x-x_0, \qquad v=y-y_0,
 				The next step in this process is to try to figure out a way to analyze what is happening to a non-linear system of differential equations near equilibrium solutions <em>without</em> using a slope field/phase portrait. We would like to be able to determine this from the equations alone, not any of the pictures that come from them. Thankfully, our ability to analyze linear systems helps us accomplish this goal.
 			</p>
 
-<!-- div attr= class="definition"-->
-			<p>
-				A critical point is <em>isolated</em> if it is the only critical point in some small of the point.
-			</p><!--</div attr= class="definition">-->
+<definition xml:id="def-nlin-isolated">
+	<statement>
+		<p>
+				A critical point is <term>isolated</term> if it is the only critical point in some small <q>neighborhood</q> of the point.
+			</p>
+	</statement>
+</definition>
 
 			<p>
 				That is, if we zoom in far enough it is the only critical point we see. In the example above, the critical point was isolated. If on the other hand there would be a whole curve of critical points, then it would not be isolated. For example, the system 
-<me>
+ <md>
 x' = y(x-1) \qquad y' = (x-2)(x-1)
-</me>
+ </md>
  has the entire line <m>x=1</m> as critical points. Therefore, these are not isolated.
 			</p>
 
-<!-- div attr= class="definition"-->
-			<p>
-				A system is called <em></em> at a critical point <m>(x_0,y_0)</m>, if the critical point is isolated and the Jacobian matrix at the point is invertible, or equivalently if the linearized system has an isolated critical point.
-			</p><!--</div attr= class="definition">-->
+<definition xml:id="def-nlin-almostlinear">
+	<statement>
+		<p>
+				A system is called <term>almost linear</term> at a critical point <m>(x_0,y_0)</m>, if the critical point is isolated and the Jacobian matrix at the point is invertible, or equivalently if the linearized system has an isolated critical point.
+			</p>
+	</statement>
+</definition>
 
 			<p>
 				This is also equivalent to zero not being an eigenvalue of the Jacobian matrix at the critical point. In such a case, the nonlinear terms are very small and the system behaves like its linearization, at least if we are close to the critical point.
 			</p>
 
 			<p>
-				For example, the system in Examples <xref ref="example-nlin-1b-example" /> and <xref ref="example-nlin-1b-examplelin" /> has two isolated critical points <m>(0,0)</m> and <m>(0,1)</m>, and is almost linear at both critical points as the Jacobian matrices at both points, <m>\left[ \begin{smallmatrix} 0 &amp; 1 \\ -1 &amp; 0 \end{smallmatrix} \right]</m> and <m>\left[ \begin{smallmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{smallmatrix} \right]</m>, are invertible.
+				For example, the system in <xref ref="example-nlin-1b-example" /> and <xref ref="example-nlin-1b-examplelin" /> has two isolated critical points <m>(0,0)</m> and <m>(0,1)</m>, and is almost linear at both critical points as the Jacobian matrices at both points, <m>\left[ \begin{smallmatrix} 0 &amp; 1 \\ -1 &amp; 0 \end{smallmatrix} \right]</m> and <m>\left[ \begin{smallmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{smallmatrix} \right]</m>, are invertible.
 			</p>
 
 			<p>
 				On the other hand, the system <m>x' = x^2</m>, <m>y' = y^2</m> has an isolated critical point at <m>(0,0)</m>, however the Jacobian matrix 
-<me>
+ <md>
 \begin{bmatrix} 2x &amp; 0 \\ 0 &amp; 2y \end{bmatrix}
-</me>
+ </md>
  is zero when <m>(x,y) = (0,0)</m>. So the system is not almost linear. Even a worse example is the system <m>x' = x</m>, <m>y' = x^2</m>, which does not have isolated critical points; <m>x'</m> and <m>y'</m> are both zero whenever <m>x=0</m>, that is, the entire <m>y</m>-axis.
 			</p>
 
@@ -303,12 +380,10 @@ x' = y(x-1) \qquad y' = (x-2)(x-1)
 			<title>Stability and classification of isolated critical points</title>
 
 			<p>
-				Once we have an isolated critical point, the system is almost linear at that critical point, and we computed the associated linearized system, we can classify what happens to the solutions. The classifications for linear two-variable systems from are generally the same as what we use here, with one minor caveat. Let us list the behaviors depending on the eigenvalues of the Jacobian matrix at the critical point in . This table is very similar to , with the exception of missing points. The repeated eigenvalue cases are also missing. They behave similarly to the real eigenvalue descriptions in the table below, but similar to centers, the behavior can change slightly. It can behave like either a spiral or a node, but will be either a source or sink based on the sign of the repeated eigenvalue. We will discuss centers later, as they are more complicated.
+				Once we have an isolated critical point, the system is almost linear at that critical point, and we computed the associated linearized system, we can classify what happens to the solutions. The classifications for linear two-variable systems from <xref ref="sec-twodimaut"/> are generally the same as what we use here, with one minor caveat. Let us list the behaviors depending on the eigenvalues of the Jacobian matrix at the critical point in <xref ref="pln-behtab2"/>. This table is very similar to <xref ref="pln-behtab"/>, with the exception of missing <q>center</q> points. The repeated eigenvalue cases are also missing. They behave similarly to the real eigenvalue descriptions in the table below, but similar to centers, the behavior can change slightly. It can behave like either a spiral or a node, but will be either a source or sink based on the sign of the repeated eigenvalue. We will discuss centers later, as they are more complicated.
 			</p>
 
-<!-- div attr= class="center"-->
-<!-- div attr= xml:id="pln-behtab2"-->
-			<table>
+			<table xml:id="pln-behtab2">
 				<title>Behavior of an almost linear system near an isolated critical point. </title>
 				<tabular>
 				<row header="yes">
@@ -316,110 +391,119 @@ x' = y(x-1) \qquad y' = (x-2)(x-1)
 					<cell halign="left">Behavior</cell>
 					<cell halign="left">Stability</cell>
 				</row>
-				<row class="odd">
+				<row>
 					<cell halign="left">real and both positive</cell>
 					<cell halign="left">source / unstable node</cell>
 					<cell halign="left">unstable</cell>
 				</row>
-				<row class="even">
+				<row>
 					<cell halign="left">real and both negative</cell>
 					<cell halign="left">sink / stable node</cell>
 					<cell halign="left">asymptotically stable</cell>
 				</row>
-				<row class="odd">
+				<row>
 					<cell halign="left">real and opposite signs</cell>
 					<cell halign="left">saddle</cell>
 					<cell halign="left">unstable</cell>
 				</row>
-				<row class="even">
+				<row>
 					<cell halign="left">complex with positive real part</cell>
 					<cell halign="left">spiral source</cell>
 					<cell halign="left">unstable</cell>
 				</row>
-				<row class="odd">
+				<row>
 					<cell halign="left">complex with negative real part</cell>
 					<cell halign="left">spiral sink</cell>
 					<cell halign="left">asymptotically stable</cell>
 				</row>
 				</tabular>
-			</table><!--</div attr= xml:id="pln-behtab2">--><!--</div attr= class="center">-->
+			</table>
 
 			<p>
 				In the third column, we mark points as <em>asymptotically stable</em> or <em>unstable</em>.
 			</p>
 
-<!-- div attr= class="definition"-->
-			<p>
+<definition xml:id="def-nlin-stable-unstable">
+	<statement>
+		<p>
 				Let <m>(x_0, y_0)</m> be a critical point for a non-linear system of two differential equations.
-			</p>
-
-			<p><ol>
+			<ol>
 				<li>
 							<p>
-								We say that the critical point is a <em></em> if, given any small distance <m>\epsilon</m> to <m>(x_0,y_0)</m>, and any initial condition within a perhaps smaller radius around <m>(x_0,y_0)</m>, the trajectory of the system never goes further away from <m>(x_0,y_0)</m> than <m>\epsilon</m>.
+								We say that the critical point is a <term>stable critical point</term> if, given any small distance <m>\epsilon</m> to <m>(x_0,y_0)</m>, and any initial condition within a perhaps smaller radius around <m>(x_0,y_0)</m>, the trajectory of the system never goes further away from <m>(x_0,y_0)</m> than <m>\epsilon</m>.
 							</p>
 				</li>
 
 				<li>
 							<p>
-								The critical point is an <em></em> if it is not stable; that is, there are trajectories that start within a distance <m>\epsilon</m> of <m>(x_0, y_0)</m> and end up farther than <m>\epsilon</m> from that point.
+								The critical point is an <term>unstable critical point</term> if it is not stable; that is, there are trajectories that start within a distance <m>\epsilon</m> of <m>(x_0, y_0)</m> and end up farther than <m>\epsilon</m> from that point.
 							</p>
 				</li>
 
 				<li>
 							<p>
-								The critical point is called <em></em> if given any initial condition sufficiently close to <m>(x_0,y_0)</m> and any solution <m>\bigl( x(t), y(t) \bigr)</m> satisfying that condition, then 
-<me>
+								The critical point is called <term>asymptotically stable</term> if given any initial condition sufficiently close to <m>(x_0,y_0)</m> and any solution <m>\bigl( x(t), y(t) \bigr)</m> satisfying that condition, then 
+ <md>
 				\lim_{t \to \infty} \bigl( x(t), y(t) \bigr) = (x_0,y_0) .
-				</me>
+				 </md>
 
 							</p>
 				</li>
 
-			</ol></p><!--</div attr= class="definition">-->
+			</ol></p>
+	</statement>
+</definition>
 
 			<p>
 				Informally, a point is stable if we start close to a critical point and follow a trajectory we either go towards, or at least not away from, this critical point. If the point is asymptotically stable, then any trajectory for a sufficiently close initial condition goes towards the critical point <m>(x_0,y_0)</m>, and unstable means that, in general, trajectories move away from the critical point.
 			</p>
 
 
-<example>
-<title> </title>
+<example xml:id="example-nlin-xplusy">
 <statement>			<p>
 				 Find and analyze the critical points of <m>x'=-y-x^2</m>, <m>y'=-x+y^2</m>.
 			</p>
 </statement>
 
 <solution>			<p>
-				See for the phase diagram. Let us find the critical points. These are the points where <m>-y-x^2 = 0</m> and <m>-x+y^2=0</m>. The first equation means <m>y = -x^2</m>, and so <m>y^2 = x^4</m>. Plugging into the second equation we obtain <m>-x+x^4 = 0</m>. Factoring we obtain <m>x(1-x^3)=0</m>. Since we are looking only for real solutions we get either <m>x=0</m> or <m>x=1</m>. Solving for the corresponding <m>y</m> using <m>y = -x^2</m>, we get two critical points, one being <m>(0,0)</m> and the other being <m>(1,-1)</m>. Clearly the critical points are isolated.
+				See <xref ref="fig-nlin-ex813-new"/> for the phase diagram. Let us find the critical points. These are the points where <m>-y-x^2 = 0</m> and <m>-x+y^2=0</m>. The first equation means <m>y = -x^2</m>, and so <m>y^2 = x^4</m>. Plugging into the second equation we obtain <m>-x+x^4 = 0</m>. Factoring we obtain <m>x(1-x^3)=0</m>. Since we are looking only for real solutions we get either <m>x=0</m> or <m>x=1</m>. Solving for the corresponding <m>y</m> using <m>y = -x^2</m>, we get two critical points, one being <m>(0,0)</m> and the other being <m>(1,-1)</m>. Clearly the critical points are isolated.
 			</p>
 
-<!-- div attr= class="myfig"-->
-<!--</div attr= class="myfig">-->
+<figure xml:id="fig-nlin-ex813-new">
+	<caption> The phase portrait with few sample trajectories of 
+<m>x'=-y-x^2</m>, <m>y'=-x+y^2</m>. </caption>
+	<image source="nlin-ex813-new.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
 			<p>
 				Let us compute the Jacobian matrix: 
-<me>
+ <md>
 \begin{bmatrix}
 -2x &amp; -1 \\
 -1 &amp; 2y
 \end{bmatrix} .
-</me>
+ </md>
  At the point <m>(0,0)</m> we get the matrix <m>\left[ \begin{smallmatrix} 0 &amp; -1 \\ -1 &amp; 0 \end{smallmatrix} \right]</m> and so the two eigenvalues are <m>1</m> and <m>-1</m>. As the matrix is invertible, the system is almost linear at <m>(0,0)</m>. As the eigenvalues are real and of opposite signs, we get a saddle point, which is an unstable equilibrium point. Looking at the phase portrait, we can see trajectories that would start near <m>(0,0)</m> and end up farther away from <m>(0,0)</m>. These trajectories may end up at <m>(1,-1)</m>, but that is away from <m>(0,0)</m>.
 			</p>
 
 			<p>
 				At the point <m>(1,-1)</m> we get the matrix <m>\left[ \begin{smallmatrix} -2 &amp; -1 \\ -1 &amp; -2 \end{smallmatrix} \right]</m> and computing the eigenvalues we get <m>-1</m>, <m>-3</m>. The matrix is invertible, and so the system is almost linear at <m>(1,-1)</m>. As we have real eigenvalues and both negative, the critical point is a sink, and therefore an asymptotically stable equilibrium point. That is, if we start with any point <m>(x(0),y(0))</m> close to <m>(1,-1)</m> as an initial condition and plot a trajectory, it approaches <m>(1,-1)</m>. In other words, 
-<me>
+ <md>
 \lim_{t \to \infty} \bigl( x(t), y(t) \bigr) = (1,-1) .
-</me>
+ </md>
  As you can see from the diagram, this behavior is true even for some initial points quite far from <m>(1,-1)</m>, but it is definitely not true for all initial points.
 			</p>
 </solution>
 </example>
 
-<example>
-<title> </title>
+<example xml:id="example-nlin-withexp">
 <statement>			<p>
 				 Find and analyze the critical points of <m>x'=y+y^2e^x</m>, <m>y'=x</m>.
 			</p>
@@ -427,12 +511,12 @@ x' = y(x-1) \qquad y' = (x-2)(x-1)
 
 <solution>			<p>
 				First let us find the critical points. These are the points where <m>y+y^2e^x = 0</m> and <m>x=0</m>. Simplifying we get <m>0=y+y^2 = y(y+1)</m>. So the critical points are <m>(0,0)</m> and <m>(0,-1)</m>, and hence are isolated. Let us compute the Jacobian matrix: 
-<me>
+ <md>
 \begin{bmatrix}
 y^2e^x &amp; 1+2ye^x \\
 1 &amp; 0
 \end{bmatrix}.
-</me>
+ </md>
 
 			</p>
 
@@ -444,11 +528,20 @@ y^2e^x &amp; 1+2ye^x \\
 				At the point <m>(0,-1)</m> we get the matrix <m>\left[ \begin{smallmatrix} 1 &amp; -1 \\ 1 &amp; 0 \end{smallmatrix} \right]</m> whose eigenvalues are <m>\frac{1}{2} \pm i \frac{\sqrt{3}}{2}</m>. The matrix is invertible, and so the system is almost linear at <m>(0,-1)</m>. As we have complex eigenvalues with positive real part, the critical point is a spiral source, and therefore an unstable equilibrium point.
 			</p>
 
-<!-- div attr= class="myfig"-->
-<!--</div attr= class="myfig">-->
+<figure xml:id="fig-nlin-ex813">
+	<caption> The phase portrait with few sample trajectories of <m>x'=y+y^2e^x</m>, <m>y'=x</m>.  </caption>
+	<image source="nlin-ex813.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
 			<p>
-				See for the phase diagram. Notice the two critical points, and the behavior of the arrows in the vector field around these points.
+				See <xref ref="fig-nlin-ex813"/> for the phase diagram. Notice the two critical points, and the behavior of the arrows in the vector field around these points.
 			</p>
 </solution>
 </example>
@@ -458,7 +551,7 @@ y^2e^x &amp; 1+2ye^x \\
 			<title>The trouble with centers</title>
 
 			<p>
-				Recall, a linear system with a center means that trajectories travel in closed elliptical orbits in some direction around the critical point. Such a critical point we call a <em></em> or a <em></em>. It is not an asymptotically stable critical point, as the trajectories never approach the critical point, but at least if you start sufficiently close to the critical point, you stay close to the critical point. The simplest example of such behavior is the linear system with a center. Another example is the critical point <m>(0,0)</m> in .
+				Recall, a linear system with a center means that trajectories travel in closed elliptical orbits in some direction around the critical point. Such a critical point we call a <term>center</term> or a <term>stable center</term>. It is not an asymptotically stable critical point, as the trajectories never approach the critical point, but at least if you start sufficiently close to the critical point, you stay close to the critical point. The simplest example of such behavior is the linear system with a center. Another example is the critical point <m>(0,0)</m> in <xref ref="example-nlin-1b-example"/>.
 			</p>
 
 			<p>
@@ -467,7 +560,6 @@ y^2e^x &amp; 1+2ye^x \\
 
 
 <example>
-<title> </title>
 <statement>			<p>
 				Find and analyze the critical point(s) of <m>x'=y, y' = -x+y^3</m>.
 			</p>
@@ -475,12 +567,12 @@ y^2e^x &amp; 1+2ye^x \\
 
 <solution>			<p>
 				The only critical point is the origin <m>(0,0)</m>. The Jacobian matrix is 
-<me>
+ <md>
 \begin{bmatrix}
 0 &amp; 1 \\
 -1 &amp; 3 y^2 \\
 \end{bmatrix} .
-</me>
+ </md>
  At <m>(0,0)</m> the Jacobian matrix is <m>\left[ \begin{smallmatrix}
 0 &amp; 1 \\
 -1 &amp; 0 \\
@@ -489,17 +581,28 @@ y^2e^x &amp; 1+2ye^x \\
 
 			<p>
 				Using the quadratic equation, the eigenvalues of the Jacobian matrix at any point <m>(x,y)</m> are 
-<me>
+ <md>
 \lambda = 
 \frac{3}{2}y^2 \pm
 i
 \frac{\sqrt{4-9y^4}}{2} .
-</me>
- At any point where <m>y \not= 0</m> (so at most points near the origin), the eigenvalues have a positive real part (<m>y^2</m> can never be negative). This positive real part pulls the trajectory away from the origin. A sample trajectory for an initial condition near the origin is given in .
+ </md>
+ At any point where <m>y \not= 0</m> (so at most points near the origin), the eigenvalues have a positive real part (<m>y^2</m> can never be negative). This positive real part pulls the trajectory away from the origin. A sample trajectory for an initial condition near the origin is given in <xref ref="fig-nlin-unstable-center"/>.
 			</p>
 
-<!-- div attr= class="myfig"-->
-<!--</div attr= class="myfig">-->
+<figure xml:id="fig-nlin-unstable-center">
+	<caption> An unstable critical point (spiral source) at the origin
+for <m>x'=y,\ y' = -x+y^3</m>, even if the linearization has a center. </caption>
+	<image source="nlin-unstable-centerfig.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
+
 </solution>
 </example>
 			<p>
@@ -512,80 +615,127 @@ i
 			<title>Exercises</title>
 
 <exercise>
-<statement>
-			<p>
-				Sketch the phase plane vector field for:
+<introduction>
+	<p>
+				Sketch the phase plane vector field for each of the following systems:
 			</p>
-
-<!-- div attr= class="tasks"-->
+</introduction>
+<task>
+	<statement>
+		<p>
+			<m>x'=x^2</m>, <m>y'=y^2</m>
+		</p>
+	</statement>
+	<answer>
+			<figure xml:id="ppsketch-nlin-1">
+	<caption> Phase portrait sketch for the system <m>x'=x^2</m>, <m>y'=y^2</m>. </caption>
+	<image source="Images/sysslopex2y2.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
 			<p>
-				(3) <m>x'=x^2</m>, <m>y'=y^2</m>, <m>x'=(x-y)^2</m>, <m>y'=-x</m>, <m>x'=e^y</m>, <m>y'=e^x</m>.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				a) 
+				IMAGE DESCRIPTION HERE
 			</p>
-</answer>
+		</description>
+	</image>
+	</figure>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			<m>x'=(x-y)^2</m>, <m>y'=-x</m>
+		</p>
+	</statement>
+	<answer>
+			<figure xml:id="ppsketch-nlin-2">
+	<caption> Phase portrait sketch for the system <m>x'=(x-y)^2</m>, <m>y'=-x</m> </caption>
+	<image source="Images/sysslopexmy2mx.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			<m>x'=e^y</m>, <m>y'=e^x</m>
+		</p>
+	</statement>
+	<answer>
+			<figure xml:id="ppsketch-nlin-3">
+	<caption> Phase portrait sketch for the system <m>x'=e^y</m>, <m>y'=e^x</m>. </caption>
+	<image source="Images/sysslopeeyex.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
+	</answer>
+</task>
+			
+
 </exercise>
 
-			<figure>
-	<image source="Images/sysslopex2y2.png"/>
-				<caption>image</caption>
-</figure>
-
-			<p>
-				b) 
-			</p>
-
-			<figure>
-	<image source="Images/sysslopexmy2mx.png"/>
-				<caption>image</caption>
-</figure>
-
-			<p>
-				c) 
-			</p>
-
-			<figure>
-	<image source="Images/sysslopeeyex.png"/>
-				<caption>image</caption>
-</figure>
-
-<!-- div attr= class="samepage"-->
 <exercise>
 <statement>
 			<p>
 				Match systems 
-<me>
+ <md>
 (i)\  x'=x^2, \enspace y'=y^2, \quad (ii)\  x'=xy, \enspace y'=1+y^2, \quad (iii)\  x'=\sin(\pi y), \enspace y'=x,
-</me>
+ </md>
  to the vector fields below. Justify.
 			</p>
 
-<!-- div attr= class="tasks"-->
+			<sidebyside>
+				<figure xml:id="nlin-ex1-field1">
+	<caption> Option (a) </caption>
+	<image source="nlin-exer-xy-1py2.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
 			<p>
-				(3)
+				IMAGE DESCRIPTION HERE
 			</p>
+		</description>
+	</image>
+	</figure>
 
-			<figure>
-	<image source="figures/nlin-exer-xy-1py2"/>
-				<caption>image</caption>
-</figure>
+	<figure xml:id="nlin-ex1-field2">
+	<caption> Option (b) </caption>
+	<image source="nlin-exer-x2-y2.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
-			<figure>
-	<image source="figures/nlin-exer-x2-y2"/>
-				<caption>image</caption>
-</figure>
+	<figure xml:id="nlin-ex1-field3">
+	<caption> Option (c) </caption>
+	<image source="nlin-exer-sinpiy-x.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
+			</sidebyside>
 
-			<figure>
-	<image source="figures/nlin-exer-sinpiy-x"/>
-				<caption>image</caption>
-</figure><!--</div attr= class="tasks">--><!--</div attr= class="samepage">-->
 </statement>
 
 <answer>			<p>
-				 a)  (ii) b) (i) c) (iii) 
+				 a) (ii) b) (i) c) (iii) 
 			</p>
 </answer>
 </exercise>
@@ -594,169 +744,376 @@ i
 <statement>
 			<p>
 				Match systems 
-<me>
+ <md>
 (i)\  x'=y^2, \enspace y'=-x^2, \quad (ii)\  x'=y, \enspace y'=(x-1)(x+1), \quad (iii)\  x'=y+x^2, \enspace y'=-x,
-</me>
+ </md>
  to the vector fields below. Justify.
 			</p>
 
-<!-- div attr= class="tasks"-->
+			<sidebyside>
+				<figure xml:id="nlin-ex2-field1">
+	<caption> Option (a) </caption>
+	<image source="nlin-exer-y-xm1xp1.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
 			<p>
-				(3)
+				IMAGE DESCRIPTION HERE
 			</p>
+		</description>
+	</image>
+	</figure>
 
-			<figure>
-	<image source="figures/nlin-exer-y-xm1xp1"/>
-				<caption>image</caption>
-</figure>
+	<figure xml:id="nlin-ex2-field2">
+	<caption> Option (b) </caption>
+	<image source="nlin-exer-ypx2-mx.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
-			<figure>
-	<image source="figures/nlin-exer-ypx2-mx"/>
-				<caption>image</caption>
-</figure>
+	<figure xml:id="nlin-ex2-field3">
+	<caption> Option (c) </caption>
+	<image source="nlin-exer-y2-mx2.png" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
+			</sidebyside>
 
-			<figure>
-	<image source="figures/nlin-exer-y2-mx2"/>
-				<caption>image</caption>
-</figure><!--</div attr= class="tasks">-->
 </statement>
 
 </exercise>
 <exercise>
-<statement>
-			<p>
+<introduction>
+	<p>
+				Find the critical points and linearizations of the following systems.
+	</p>
+</introduction>
+<task>
+	<statement>
+		<p>
+			<m>x'=x^2-y^2</m>, <m>y'=x^2+y^2-1</m>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			Critical points: <m>\left(\pm \frac{\sqrt{2}}{2}, \pm \frac{\sqrt{2}}{2}\right)</m>. At <m>\left(\frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2}\right)</m>, linearization matrix is <m>\left[\begin{smallmatrix} \sqrt{2} &amp; -\sqrt{2} \\ \sqrt{2} &amp; \sqrt{2} \end{smallmatrix}\right]</m>. At <m>\left(\frac{\sqrt{2}}{2}, -\frac{\sqrt{2}}{2}\right)</m>, linearization matrix is <m>\left[\begin{smallmatrix} \sqrt{2} &amp; \sqrt{2} \\ \sqrt{2} &amp; -\sqrt{2} \end{smallmatrix}\right]</m>. At <m>\left(-\frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2}\right)</m>, linearization matrix is <m>\left[\begin{smallmatrix} -\sqrt{2} &amp; -\sqrt{2} \\ -\sqrt{2} &amp; \sqrt{2} \end{smallmatrix}\right]</m>. At <m>\left(-\frac{\sqrt{2}}{2}, -\frac{\sqrt{2}}{2}\right)</m>, linearization matrix is <m>\left[\begin{smallmatrix} -\sqrt{2} &amp; \sqrt{2} \\ -\sqrt{2} &amp; -\sqrt{2} \end{smallmatrix}\right]</m>.
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			<m>x'=-y</m>, <m>y'=3x+yx^2</m>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			Critical point: <m>(0,0)</m>, linearization matrix <m>\left[\begin{smallmatrix} 0 &amp; -1 \\ 3 &amp; 0 \end{smallmatrix}\right]</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			<m>x'=x^2+y</m>, <m>y'=y^2+x</m>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			Critical points: <m>(0,0)</m> and <m>(-1, -1)</m>. At <m>(0,0)</m>, linearization matrix is <m>\left[\begin{smallmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{smallmatrix}\right]</m>. At <m>(-1, -1)</m>, linearization matrix is <m>\left[\begin{smallmatrix} -2 &amp; 1 \\ 1 &amp; -2 \end{smallmatrix}\right]</m>.
+		</p>
+	</answer>
+</task>
+			
+</exercise>
+
+<exercise>
+<introduction>
+	<p>
 				Find the critical points and linearizations of the following systems.
 			</p>
-
-<!-- div attr= class="tasks"-->
-			<p>
-				(2) <m>x'=x^2-y^2</m>, <m>y'=x^2+y^2-1</m>, <m>x'=-y</m>, <m>y'=3x+yx^2</m>, <m>x'=x^2+y</m>, <m>y'=y^2+x</m>.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a)  Critical points: <m>\left(\pm \frac{\sqrt{2}}{2}, \pm \frac{\sqrt{2}}{2}\right)</m>. At <m>\left(\frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2}\right)</m>, linearization matrix is <m>\left[\begin{smallmatrix} \sqrt{2} &amp; -\sqrt{2} \\ \sqrt{2} &amp; \sqrt{2} \end{smallmatrix}\right]</m>. At <m>\left(\frac{\sqrt{2}}{2}, -\frac{\sqrt{2}}{2}\right)</m>, linearization matrix is <m>\left[\begin{smallmatrix} \sqrt{2} &amp; \sqrt{2} \\ \sqrt{2} &amp; -\sqrt{2} \end{smallmatrix}\right]</m>. At <m>\left(-\frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2}\right)</m>, linearization matrix is <m>\left[\begin{smallmatrix} -\sqrt{2} &amp; -\sqrt{2} \\ -\sqrt{2} &amp; \sqrt{2} \end{smallmatrix}\right]</m>. At <m>\left(-\frac{\sqrt{2}}{2}, -\frac{\sqrt{2}}{2}\right)</m>, linearization matrix is <m>\left[\begin{smallmatrix} -\sqrt{2} &amp; \sqrt{2} \\ -\sqrt{2} &amp; -\sqrt{2} \end{smallmatrix}\right]</m>.<!-- linebreak -->b) Critical point: <m>(0,0)</m>, linearization matrix <m>\left[\begin{smallmatrix} 0 &amp; -1 \\ 3 &amp; 0 \end{smallmatrix}\right]</m><!-- linebreak -->c) Critical points: <m>(0,0)</m> and <m>(-1, -1)</m>. At <m>(0,0)</m>, linearization matrix is <m>\left[\begin{smallmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{smallmatrix}\right]</m>. At <m>(-1, -1)</m>, linearization matrix is <m>\left[\begin{smallmatrix} -2 &amp; 1 \\ 1 &amp; -2 \end{smallmatrix}\right]</m>. 
-			</p>
-</answer>
-</exercise>
-
-<exercise>
-<statement>
-			<p>
-				Find the critical points and linearizations of the following systems.
-			</p>
-
-<!-- div attr= class="tasks"-->
-			<p>
-				(2) <m>x'=\sin(\pi y)+(x-1)^2</m>, <m>y'=y^2-y</m>, <m>x'=x+y+y^2</m>, <m>y'=x</m>, <m>x'=(x-1)^2+y</m>, <m>y'=x^2+y</m>.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
+</introduction>
+<task>
+	<statement>
+		<p>
+			<m>x'=\sin(\pi y)+(x-1)^2</m>, <m>y'=y^2-y</m>
+		</p>
+	</statement>
+</task>
+<task>
+	<statement>
+		<p>
+			<m>x'=x+y+y^2</m>, <m>y'=x</m>
+		</p>
+	</statement>
+</task>
+<task>
+	<statement>
+		<p>
+			<m>x'=(x-1)^2+y</m>, <m>y'=x^2+y</m>
+		</p>
+	</statement>
+</task>
+			
 </exercise>
 <exercise>
-<statement>
-			<p>
+<introduction>
+	<p>
 				For the following systems, verify they have critical point at <m>(0,0)</m>, and find the linearization at <m>(0,0)</m>.
 			</p>
-
-<!-- div attr= class="tasks"-->
-			<p>
-				(2) <m>x'=x+2y+x^2-y^2</m>, <m>y'=2y-x^2</m> <m>x'=-y</m>, <m>y'=x-y^3</m> <m>x'=ax+by+f(x,y)</m>, <m>y'=cx+dy+g(x,y)</m>, where <m>f(0,0) = 0</m>, <m>g(0,0) = 0</m>, and all first partial derivatives of <m>f</m> and <m>g</m> are also zero at <m>(0,0)</m>, that is, <m>\frac{\partial f}{\partial x}(0,0) = 
+</introduction>
+<task>
+	<statement>
+		<p>
+			<m>x'=x+2y+x^2-y^2</m>, <m>y'=2y-x^2</m>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>\left[\begin{smallmatrix} 1 &amp; 2 \\ 0 &amp; 2 \end{smallmatrix}\right]</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			<m>x'=-y</m>, <m>y'=x-y^3</m>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>\left[\begin{smallmatrix} 1 &amp; 1 \\ 1 &amp; 0 \end{smallmatrix}\right]</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			<m>x'=ax+by+f(x,y)</m>, <m>y'=cx+dy+g(x,y)</m>, where <m>f(0,0) = 0</m>, <m>g(0,0) = 0</m>, and all first partial derivatives of <m>f</m> and <m>g</m> are also zero at <m>(0,0)</m>, that is, <m>\frac{\partial f}{\partial x}(0,0) = 
 \frac{\partial f}{\partial y}(0,0) = 
 \frac{\partial g}{\partial x}(0,0) = 
 \frac{\partial g}{\partial y}(0,0) = 0</m>.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a)  <m>\left[\begin{smallmatrix} 1 &amp; 2 \\ 0 &amp; 2 \end{smallmatrix}\right]</m> b)  <m>\left[\begin{smallmatrix} 1 &amp; 1 \\ 1 &amp; 0 \end{smallmatrix}\right]</m> c)  <m>\left[\begin{smallmatrix} a &amp; b \\ c &amp; d \end{smallmatrix}\right]</m>. 
-			</p>
-</answer>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>\left[\begin{smallmatrix} a &amp; b \\ c &amp; d \end{smallmatrix}\right]</m>. 
+		</p>
+	</answer>
+</task>
+			
 </exercise>
 
 <exercise>
-<statement>
-			<p>
-				Take the system <m>x' = (x-2)(x+y)</m>,  <m>y' = (y+3)(x-y)</m>.
+<introduction>
+	<p>
+				Take the system <m>x' = (x-2)(x+y)</m>, <m>y' = (y+3)(x-y)</m>.
 			</p>
+</introduction>
+			<task>
+				<statement>
+					<p>
+						Find all critical points.
+					</p>
+				</statement>
+				<answer>
+					<p>
+						<m>(0,0)</m>, <m>(2, -3)</m>, <m>(2, 2)</m>, <m>(3, -3)</m>. 
+					</p>
+				</answer>
+			</task>
+			<task>
+				<statement>
+					<p>
+						Determine the linearization of this system around each of the critical points.
+					</p>
+				</statement>
+				<answer>
+					<p>
+						<m>(0,0)</m>: <m>\left[\begin{smallmatrix} -2 &amp; -2 \\ 3 &amp; -3 \end{smallmatrix}\right]</m>
+						<m>(2, -3)</m>: <m>\left[\begin{smallmatrix} -1 &amp; 0 \\ 0 &amp; 1 \end{smallmatrix}\right]</m>  <m>(2, 2)</m>: <m>\left[\begin{smallmatrix} 2 &amp; 0 \\ 5 &amp; -5 \end{smallmatrix}\right]</m>
+						<m>(3, -3)</m>: <m>\left[\begin{smallmatrix} 1 &amp; 1 \\ 0 &amp; 6 \end{smallmatrix}\right]</m>.
+					</p>
+				</answer>
+			</task>
+			<task>
+				<statement>
+					<p>
+						For each of the critical points, determine the behavior and classify the type of solution that the <em>linearized</em> system will have around that critical point.
+					</p>
+				</statement>
+				<answer>
+					<p>
+						<m>(0,0)</m>: Spiral sink. <m>(2, -3)</m>: Saddle.  <m>(2, 2)</m>: Saddle. <m>(3, -3)</m>: Nodal source. 
+					</p>
+				</answer>
+			</task>
 
-<!-- div attr= class="tasks"-->
-			<p>
-				Find all critical points. Determine the linearization of this system around each of the critical points. For each of the critical points, determine the behavior and classify the type of solution that the <em>linearized</em> system will have around that critical point.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 <m>(0,0)</m>, <m>\left[\begin{smallmatrix} -2 &amp; -2 \\ 3 &amp; -3 \end{smallmatrix}\right]</m>, Spiral sink. <m>(2, -3)</m>, <m>\left[\begin{smallmatrix} -1 &amp; 0 \\ 0 &amp; 1 \end{smallmatrix}\right]</m>, Saddle.  <m>(2, 2)</m>, <m>\left[\begin{smallmatrix} 2 &amp; 0 \\ 5 &amp; -5 \end{smallmatrix}\right]</m>, Saddle. <m>(3, -3)</m>, <m>\left[\begin{smallmatrix} 1 &amp; 1 \\ 0 &amp; 6 \end{smallmatrix}\right]</m>, Nodal source. 
-			</p>
-</answer>
 </exercise>
 
 <exercise>
-<statement>
-			<p>
-				Take the system <m>x' = (x^2 - y)(x+3)</m>,  <m>y' = (y-1)(x+y+1)</m>.
+<introduction>
+	<p>
+				Take the system <m>x' = (x^2 - y)(x+3)</m>,  <m>y' = (y-1)(x+y+1)</m>.
 			</p>
-
-<!-- div attr= class="tasks"-->
+</introduction>
+	<task>
+		<statement>
 			<p>
-				Find all critical points. Determine the linearization of this system around each of the critical points. For each of the critical points, determine the behavior and classify the type of solution that the <em>linearized</em> system will have around that critical point.
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 <m>(-1,1)</m>, <m>\left[\begin{smallmatrix} -4 &amp; -2 \\ 0 &amp; -1 \end{smallmatrix}\right]</m>, Nodal sink. <m>(1,1)</m>, <m>\left[\begin{smallmatrix} 8 &amp; -4 \\ 0 &amp; 1 \end{smallmatrix}\right]</m>, Nodal source. <m>(-3, 1)</m>, <m>\left[\begin{smallmatrix} 8 &amp; 0 \\ 0 &amp; -3 \end{smallmatrix}\right]</m>, Saddle. <m>(-3, 4)</m>, <m>\left[\begin{smallmatrix} 5 &amp; 0 \\ 3 &amp; 3 \end{smallmatrix}\right]</m>, Nodal Source. <m>\left( -\frac{1}{2} + \frac{\sqrt{5}}{2}, \frac{3}{2} - \frac{\sqrt{5}}{2}\right)</m>, <m>\left[\begin{smallmatrix} 2\sqrt{5} &amp; -\frac{5}{2} - \frac{\sqrt{5}}{2} \\ \frac{1}{2} - \frac{\sqrt{5}}{2} &amp; \frac{1}{2} - \frac{\sqrt{5}}{2} \end{smallmatrix}\right]</m>, Saddle. <m>\left( -\frac{1}{2} - \frac{\sqrt{5}}{2}, \frac{3}{2} + \frac{\sqrt{5}}{2}\right)</m>, <m>\left[\begin{smallmatrix} -2\sqrt{5} &amp; -\frac{5}{2} + \frac{\sqrt{5}}{2} \\ \frac{1}{2} + \frac{\sqrt{5}}{2} &amp; \frac{1}{2} + \frac{\sqrt{5}}{2} \end{smallmatrix}\right]</m>, Saddle. 
+				Find all critical points.
 			</p>
-</answer>
+		</statement>
+		<answer>
+			<p>
+				<m>(-1,1)</m>, <m>(1,1)</m>, <m>(-3, 1)</m>, <m>(-3, 4)</m>, <m>\left( -\frac{1}{2} + \frac{\sqrt{5}}{2}, \frac{3}{2} - \frac{\sqrt{5}}{2}\right)</m>, <m>\left( -\frac{1}{2} - \frac{\sqrt{5}}{2}, \frac{3}{2} + \frac{\sqrt{5}}{2}\right)</m>. 
+			</p>
+		</answer>
+	</task>	
+	<task>
+		<statement>
+			<p>
+				Determine the linearization of this system around each of the critical points.
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>(-1,1)</m>: <m>\left[\begin{smallmatrix} -4 &amp; -2 \\ 0 &amp; -1 \end{smallmatrix}\right]</m>. <m>(1,1)</m>: <m>\left[\begin{smallmatrix} 8 &amp; -4 \\ 0 &amp; 1 \end{smallmatrix}\right]</m>. <m>(-3, 1)</m>: <m>\left[\begin{smallmatrix} 8 &amp; 0 \\ 0 &amp; -3 \end{smallmatrix}\right]</m>. <m>(-3, 4)</m>: <m>\left[\begin{smallmatrix} 5 &amp; 0 \\ 3 &amp; 3 \end{smallmatrix}\right]</m>. <m>\left( -\frac{1}{2} + \frac{\sqrt{5}}{2}, \frac{3}{2} - \frac{\sqrt{5}}{2}\right)</m>: <m>\left[\begin{smallmatrix} 2\sqrt{5} &amp; -\frac{5}{2} - \frac{\sqrt{5}}{2} \\ \frac{1}{2} - \frac{\sqrt{5}}{2} &amp; \frac{1}{2} - \frac{\sqrt{5}}{2} \end{smallmatrix}\right]</m>. <m>\left( -\frac{1}{2} - \frac{\sqrt{5}}{2}, \frac{3}{2} + \frac{\sqrt{5}}{2}\right)</m>: <m>\left[\begin{smallmatrix} -2\sqrt{5} &amp; -\frac{5}{2} + \frac{\sqrt{5}}{2} \\ \frac{1}{2} + \frac{\sqrt{5}}{2} &amp; \frac{1}{2} + \frac{\sqrt{5}}{2} \end{smallmatrix}\right]</m>. 
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				For each of the critical points, determine the behavior and classify the type of solution that the <em>linearized</em> system will have around that critical point.
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>(-1,1)</m>: Nodal sink. <m>(1,1)</m>: Nodal source. <m>(-3, 1)</m>: Saddle. <m>(-3, 4)</m>: Nodal Source. <m>\left( -\frac{1}{2} + \frac{\sqrt{5}}{2}, \frac{3}{2} - \frac{\sqrt{5}}{2}\right)</m>: Saddle. <m>\left( -\frac{1}{2} - \frac{\sqrt{5}}{2}, \frac{3}{2} + \frac{\sqrt{5}}{2}\right)</m>: Saddle. 
+			</p>
+		</answer>
+	</task>
+
 </exercise>
 
 <exercise>
-<statement>
-			<p>
+<introduction>
+	<p>
 				Take <m>x'=(x-y)^2</m>, <m>y'=(x+y)^2</m>.
 			</p>
-
-<!-- div attr= class="tasks"-->
-			<p>
-				Find the set of critical points. Sketch a phase diagram and describe the behavior near the critical point(s). Find the linearization. Is it helpful in understanding the system?
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) (0,0) b) Solutions move away from 0, generally above the line <m>y=x</m> c) No. Linearization is 0. 
-			</p>
-</answer>
+</introduction>
+<task>
+	<statement>
+		<p>
+			Find the set of critical points.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			(0,0)
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Sketch a phase diagram and describe the behavior near the critical point(s). 
+		</p>
+	</statement>
+	<answer>
+		<p>
+			Solutions move away from 0, generally above the line <m>y=x</m>
+		</p>
+	</answer>
+</task>
+<task>
+	<statement>
+		<p>
+			Find the linearization. Is it helpful in understanding the system?
+		</p>
+	</statement>
+	<answer>
+		<p>
+			No. Linearization is 0.
+		</p>
+	</answer>
+</task>
+			
 </exercise>
 
 <exercise>
-<statement>
-			<p>
+<introduction>
+	<p>
 				Take <m>x'=x^2</m>, <m>y'=x^3</m>.
 			</p>
-
-<!-- div attr= class="tasks"-->
+</introduction>
+	<task>
+		<statement>
 			<p>
-				Find the set of critical points. Sketch a phase diagram and describe the behavior near the critical point(s). Find the linearization. Is it helpful in understanding the system?
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) <m>(0,y)</m> for any <m>y</m>. b) Generally curving upward as <m>x</m> gets bigger c) No. Linearization is zero at any critical point. 
+				Find the set of critical points.
 			</p>
-</answer>
+		</statement>
+		<answer>
+			<p>
+				<m>(0,y)</m> for any <m>y</m>.
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				Sketch a phase diagram and describe the behavior near the critical point(s). 
+			</p>
+		</statement>
+		<answer>
+			<p>
+				Generally curving upward as <m>x</m> gets bigger
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				Find the linearization. Is it helpful in understanding the system?
+			</p>
+		</statement>
+		<answer>
+			<p>
+				No. Linearization is zero at any critical point.
+			</p>
+		</answer>
+	</task>
+
 </exercise>
 
-<!-- div attr= class="samepage"-->
 <exercise>
 <statement>
 			<p>
 				The idea of critical points and linearization works in higher dimensions as well. You simply make the Jacobian matrix bigger by adding more functions and more variables. For the following system of 3 equations find the critical points and their linearizations: 
-<me>
+ <md>
 x' = x + z^2, \qquad y' = z^2-y, \qquad z' = z+x^2.
-</me>
-
-			</p><!--</div attr= class="samepage">-->
+ </md>
+</p>
 </statement>
+<answer>
+	<p>
+		Critical points are <m>(0,0,0)</m>, and
+<m>(-1, 1, -1)</m>.
+The linearization at the origin using variables <m>u=x</m>, <m>v=y</m>, <m>w=z</m> is
+<m>u' = u</m>, <m>v'=-v</m>, <m>z' = w</m>.
+The linearization at the point <m>(-1,1,-1)</m> using variables <m>u=x+1</m>,
+<m>v=y-1</m>, <m>w=z+1</m> is <m>u'=u-2w</m>, <m>v'=-v-2w</m>, <m>w'=w-2u</m>.
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -765,43 +1122,106 @@ x' = x + z^2, \qquad y' = z^2-y, \qquad z' = z+x^2.
 				Any two-dimensional non-autonomous system <m>x'=f(x,y,t)</m>, <m>y'=g(x,y,t)</m> can be written as a three-dimensional autonomous system (three equations). Write down this autonomous system using the variables <m>u</m>, <m>v</m>, <m>w</m>.
 			</p>
 </statement>
-
-</exercise>
-<exercise>
-<statement>
-			<p>
-				For the systems below, find and classify the critical points, also indicate if the equilibria are stable, asymptotically stable, or unstable.
-			</p>
-
-<!-- div attr= class="tasks"-->
-			<p>
-				(2) <m>x'=-x+3x^2, y'=-y</m> <m>x'=x^2+y^2-1</m>, <m>y'=x</m> <m>x'=ye^x</m>, <m>y'=y-x+y^2</m>
-			</p><!--</div attr= class="tasks">-->
-</statement>
-
-<answer>			<p>
-				 a) <m>(0,0)</m> nodal sink, asymptotically stable. <m>(1/3, 0)</m> saddle, unstable.<!-- linebreak -->b) <m>(0,1)</m> saddle, unstable. <m>(0, -1)</m> center, unknown, maybe stable.<!-- linebreak -->c) <m>(0,0)</m> spiral source, unstable. 
-			</p>
+<answer>
+	<p>
+		<m>u' = f(u,v,w)</m>, <m>v'=g(u,v,w)</m>, <m>w' = 1</m>.
+	</p>
 </answer>
+
+</exercise>
+<exercise>
+<introduction>
+	<p>
+				For the systems below, find and classify the critical points, also indicate if the equilibria are stable, asymptotically stable, or unstable.
+	</p>
+</introduction>
+	<task>
+		<statement>
+			<p>
+				<m>x'=-x+3x^2, y'=-y</m>
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>(0,0)</m> nodal sink, asymptotically stable. <m>(1/3, 0)</m> saddle, unstable.
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				<m>x'=x^2+y^2-1</m>, <m>y'=x</m> 
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>(0,1)</m> saddle, unstable. <m>(0, -1)</m> center, unknown, maybe stable.
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				<m>x'=ye^x</m>, <m>y'=y-x+y^2</m>
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>(0,0)</m> spiral source, unstable.
+			</p>
+		</answer>
+	</task>
+
 </exercise>
 
 <exercise>
-<statement>
-			<p>
+<introduction>
+	<p>
 				For the systems below, find and classify the critical points.
 			</p>
-
-<!-- div attr= class="tasks"-->
+</introduction>
+	<task>
+		<statement>
 			<p>
-				(3) <m>x'=-x+x^2</m>, <m>y'=y</m> <m>x'=y-y^2-x</m>, <m>y'=-x</m> <m>x'=xy</m>, <m>y'=x+y-1</m>
-			</p><!--</div attr= class="tasks">-->
-</statement>
+				<m>x'=-x+x^2</m>, <m>y'=y</m> 
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>(0,0)</m>: saddle (unstable), <m>(1,0)</m>: source (unstable), 
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				<m>x'=y-y^2-x</m>, <m>y'=-x</m> 
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>(0,0)</m>: spiral sink (asymptotically stable), <m>(0,1)</m>: saddle (unstable), 
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				<m>x'=xy</m>, <m>y'=x+y-1</m>
+			</p>
+		</statement>
+		<answer>
+			<p>
+				<m>(1,0)</m>: saddle (unstable), <m>(0,1)</m>: improper nodal source (unstable)
+			</p>
+		</answer>
+	</task>
 
 </exercise>
 <exercise>
 <statement>
 			<p>
-				Find and classify all critical points of the system <me>\frac{dx}{dt} = (x+1)(x-y+3) \qquad \frac{dy}{dt} = (x-2)(x-y) .</me>
+				Find and classify all critical points of the system  <md>\frac{dx}{dt} = (x+1)(x-y+3) \qquad \frac{dy}{dt} = (x-2)(x-y) . </md>
 			</p>
 </statement>
 
@@ -814,7 +1234,7 @@ x' = x + z^2, \qquad y' = z^2-y, \qquad z' = z+x^2.
 <exercise>
 <statement>
 			<p>
-				Find and classify all critical points of the system <me>\frac{dx}{dt} = x^2 - y^2 \qquad \frac{dy}{dt} = (x+4)(y-2) .</me>
+				Find and classify all critical points of the system  <md>\frac{dx}{dt} = x^2 - y^2 \qquad \frac{dy}{dt} = (x+4)(y-2) . </md>
 			</p>
 </statement>
 
@@ -839,24 +1259,46 @@ x' = x + z^2, \qquad y' = z^2-y, \qquad z' = z+x^2.
 
 <!-- div attr= class="samepage"-->
 <exercise>
-<statement>
-			<p>
+<introduction>
+	<p>
 				Suppose <m>x'=-xy</m>, <m>y'=x^2-1-y</m>.
 			</p>
-
-<!-- div attr= class="tasks"-->
+</introduction>
+	<task>
+		<statement>
 			<p>
-				Show there are two spiral sinks at <m>(-1,0)</m> and <m>(1,0)</m>. For any initial point of the form <m>(0,y_0)</m>, find the trajectory. Can a trajectory starting at <m>(x_0,y_0)</m> where <m>x_0 &gt; 0</m> spiral into the critical point at <m>(-1,0)</m>? Why or why not?
-			</p><!--</div attr= class="tasks">--><!--</div attr= class="samepage">-->
-</statement>
-
-<answer>			<p>
-				 b) The solution will converge (exponentially) to <m>(0, -1)</m>. c)  No, it can not cross another solution curve. 
+				Show there are two spiral sinks at <m>(-1,0)</m> and <m>(1,0)</m>.
 			</p>
-</answer>
+		</statement>
+	</task>
+	<task>
+		<statement>
+			<p>
+				For any initial point of the form <m>(0,y_0)</m>, find the trajectory.
+			</p>
+		</statement>
+		<answer>
+			<p>
+				The solution will converge (exponentially) to <m>(0, -1)</m>.
+			</p>
+		</answer>
+	</task>
+	<task>
+		<statement>
+			<p>
+				Can a trajectory starting at <m>(x_0,y_0)</m> where <m>x_0 &gt; 0</m> spiral into the critical point at <m>(-1,0)</m>? Why or why not?
+			</p>
+		</statement>
+		<answer>
+			<p>
+				No, it can not cross another solution curve.
+			</p>
+		</answer>
+	</task>
+
 </exercise>
 
-<exercise>
+<exercise xml:id="nlin-ex-radius-analysis">
 <statement>
 			<p>
 				 In the example <m>x'=y</m>, <m>y'=y^3-x</m> show that for any trajectory, the distance from the origin is an increasing function. Conclude that the origin behaves like is a spiral source. Hint: Consider <m>f(t) =
@@ -874,7 +1316,7 @@ x' = x + z^2, \qquad y' = z^2-y, \qquad z' = z+x^2.
 <exercise>
 <statement>
 			<p>
-				Find and analyze all critical points of the system <m>x' = y</m>, <m>y' = -x - y^3</m>. Use the ideas from to show that the solutions to this problem move towards the origin as <m>t</m> grows.
+				Find and analyze all critical points of the system <m>x' = y</m>, <m>y' = -x - y^3</m>. Use the ideas from <xref ref="nlin-ex-radius-analysis"/> to show that the solutions to this problem move towards the origin as <m>t</m> grows.
 			</p>
 </statement>
 
@@ -887,9 +1329,15 @@ x' = x + z^2, \qquad y' = z^2-y, \qquad z' = z+x^2.
 <exercise>
 <statement>
 			<p>
-				Derive an analogous classification of critical points for equations in one dimension, such as <m>x'= f(x)</m> based on the derivative. A point <m>x_0</m> is critical when <m>f(x_0) = 0</m> and almost linear if in addition <m>f'(x_0) \not= 0</m>. Figure out if the critical point is stable or unstable depending on the sign of <m>f'(x_0)</m>. Explain. Hint: see .
+				Derive an analogous classification of critical points for equations in one dimension, such as <m>x'= f(x)</m> based on the derivative. A point <m>x_0</m> is critical when <m>f(x_0) = 0</m> and almost linear if in addition <m>f'(x_0) \not= 0</m>. Figure out if the critical point is stable or unstable depending on the sign of <m>f'(x_0)</m>. Explain. Hint: see <xref ref="auteq-section"/>.
 			</p>
 </statement>
+<answer>
+	<p>
+		A critical point <m>x_0</m> is stable if <m>f'(x_0) &lt; 0</m> and unstable when <m>f'(x_0)
+&gt; 0</m>.
+	</p>
+</answer>
 </exercise></exercises>
 
 	</section>

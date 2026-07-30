@@ -23,8 +23,9 @@
 			- \frac{2}{x+1}</m> and <m>13x^{2/3}y^{2}</m> are <em>not</em> polynomials. Below, we
 			review some terminology about polynomials. </p>
 
-		<!-- div attr= class="definition"-->
-		<p>
+		<definition xml:id="def-poly-defs">
+			<statement>
+				<p>
 			<ul>
 				<li>
 					<p> Terms in polynomials without variables are called <em>constant</em> terms. </p>
@@ -79,8 +80,9 @@
 				</li>
 
 			</ul>
-		</p><!--</div
-		attr= class="definition">-->
+		</p>
+			</statement>
+		</definition>
 
 		<p> For example, <m>x^2 + x\sqrt{3} +4</m> is a trinomial of degree <m>2</m>. The
 			coefficient of <m>x^2</m> is <m>1</m> and the constant term is <m>4</m>. The polynomial <m>27x^2y
@@ -91,11 +93,11 @@
 			using the Distributive Property. For example, in the polynomial <m>17x^2y - 3xy^2 +
 			7xy^2</m>, <m>-3xy^2</m> and <m>7xy^2</m> are like terms, since they have the same
 			variables with the same corresponding exponents. This allows us to combine these two
-			terms as follows: <me>17x^2y - 3xy^2 + 7xy^2 = 17x^2y + (-3)xy^2 + 7xy^2 + 17x^2y +(-3 +
-			7)xy^2 = 17x^2y + 4xy^2</me> Note that even though <m>17x^2y</m> and <m>4xy^2</m> have
+			terms as follows: <md>17x^2y - 3xy^2 + 7xy^2 = 17x^2y + (-3)xy^2 + 7xy^2 + 17x^2y +(-3 +
+			7)xy^2 = 17x^2y + 4xy^2</md> Note that even though <m>17x^2y</m> and <m>4xy^2</m> have
 			the same variables, they are not like terms since in the first term we have <m>x^2</m>
 			and <m>y = y^1</m> but in the second we have <m>x = x^1</m> and <m>y = y^2</m> so the
-			corresponding exponents aren’t the same. Hence, <m>17x^2y + 4xy^2</m> is the simplified
+			corresponding exponents aren't the same. Hence, <m>17x^2y + 4xy^2</m> is the simplified
 			form of the polynomial. </p>
 
 		<p>
@@ -115,61 +117,85 @@
 			process first. Suppose we wished to divide <m>2585</m> by <m>79</m>. The standard
 			division tableau is given below. </p>
 
-		<p>
-			<me>\begin{array}{cccccc}
-
-				&amp; &amp; &amp; &amp; 3 &amp; 2 \\ \hhline{~~|----}
-
-				7 &amp; 9 \, \vline &amp; \, 2 &amp; 5 &amp; 8 &amp; 5 \\
-
-				&amp; -&amp; 2 &amp; 3 &amp; 7 &amp; \downarrow \\ \hhline{~~---}
-				&amp; &amp; &amp; 2 &amp; 1 &amp; 5 \\
-				&amp; &amp; - &amp; 1 &amp; 5 &amp; 8 \\ \hhline{~~~---}
-				&amp; &amp; &amp; &amp; 5 &amp; 7 \\
 
 
-				\end{array}</me>
-		</p>
+<tabular>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<row>
+		<cell></cell><cell></cell><cell bottom="medium"></cell><cell bottom="medium"></cell><cell bottom="medium"><m>3</m></cell><cell bottom="medium"><m>2</m></cell>
+	</row>
+	<row>
+		<cell><m>7</m></cell><cell right="medium"><m>9</m></cell><cell><m>2</m></cell><cell><m>5</m></cell><cell><m>8</m></cell><cell><m>5</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell><m>-</m></cell><cell bottom="medium"><m>2</m></cell><cell bottom="medium"><m>3</m></cell><cell bottom="medium"><m>7</m></cell><cell><m>\downarrow</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell><m>2</m></cell><cell><m>1</m></cell><cell><m>5</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell><m>-</m></cell><cell bottom="medium"><m>1</m></cell><cell bottom="medium"><m>5</m></cell><cell bottom="medium"><m>8</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell><m>5</m></cell><cell><m>7</m></cell>
+	</row>
+</tabular>
+
 
 		<p> In this case, <m>79</m> is called the <em>divisor</em>, <m>2585</m> is called the <em>
 			dividend</em>, <m>32</m> is called the <em>quotient</em> and <m>57</m> is called the <em>
-			remainder</em>. We can check our answer by showing: <me>\text{dividend} =
-			(\text{divisor})( \text{quotient}) + \text{remainder}</me> or in this case, <m>2585 =
+			remainder</em>. We can check our answer by showing: <md>\text{dividend} =
+			(\text{divisor})( \text{quotient}) + \text{remainder}</md> or in this case, <m>2585 =
 			(79)(32) + 57 \checkmark</m>. We hope that the long division tableau evokes warm, fuzzy
 			memories of your formative years as opposed to feelings of hopelessness and frustration.
 			If you experience the latter, keep in mind that the Division Algorithm essentially is a
 			two-step process, iterated over and over again. First, we guess the number of times the
 			divisor goes into the dividend and then we subtract off our guess. We repeat those steps
-			with what’s left over until what’s left over (the remainder) is less than what we
-			started with (the divisor). That’s all there is to it! </p>
+			with what's left over until what's left over (the remainder) is less than what we
+			started with (the divisor). That's all there is to it! </p>
 
 		<p> The division algorithm for polynomials has the same basic two steps but when we subtract
 			polynomials, we must take care to subtract <em>like terms</em> only. As a transition to
-			polynomial division, let’s write out our previous division tableau in expanded form. </p>
+			polynomial division, let's write out our previous division tableau in expanded form. </p>
 
-		<p>
-			<me>\begin{array}{cccccccccc}
-
-				&amp; &amp; &amp; &amp; &amp; &amp; &amp; 3 \cdot 10 &amp; + &amp; 2 \\
-				\hhline{~~~|-------}
-
-				7 \cdot 10 &amp; + &amp; 9 \, \vline&amp; 2\cdot 10^3 &amp; + &amp; 5 \cdot 10^2
-				&amp; + &amp; 8 \cdot 10 &amp; + &amp; 5 \\
-
-				&amp; &amp; -&amp; \left(2 \cdot 10^3 \right. &amp; + &amp; 3 \cdot 10^2 &amp; +
-				&amp; \left. 7 \cdot 10 \right) &amp; &amp; \downarrow \\ \hhline{~~~-----~~}
-				&amp; &amp; &amp; &amp; &amp; 2 \cdot 10^2 &amp; + &amp; 1 \cdot 10 &amp; + &amp; 5
-				\\
-				&amp; &amp; &amp; &amp; - &amp; \left(1 \cdot 10^2 \right. &amp; + &amp; 5 \cdot 10
-				&amp; + &amp;\left. 8 \right) \\ \hhline{~~~~~---~~}
-				&amp; &amp; &amp; &amp; &amp; &amp; &amp; 5 \cdot 10 &amp; + &amp; 7 \\
-
-
-				\end{array}</me>
-		</p>
+<tabular>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell bottom="medium"></cell><cell bottom="medium"></cell><cell bottom="medium"></cell><cell bottom="medium"></cell><cell bottom="medium"><m>3\cdot10</m></cell><cell bottom="medium"><m>+</m></cell><cell bottom="medium"><m>2</m></cell>
+	</row>
+	<row>
+		<cell><m>7\cdot10</m></cell><cell><m>+</m></cell><cell right="medium"><m>9</m></cell><cell><m>2\cdot10^3</m></cell><cell><m>+</m></cell><cell><m>5\cdot10^2</m></cell><cell><m>+</m></cell><cell><m>8\cdot10</m></cell><cell><m>+</m></cell><cell><m>5</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell><m>-</m></cell><cell bottom="medium"><m>\left(2\cdot10^3\right.</m></cell><cell bottom="medium"><m>+</m></cell><cell bottom="medium"><m>3\cdot10^2</m></cell><cell bottom="medium"><m>+</m></cell><cell bottom="medium"><m>\left.7\cdot10\right)</m></cell><cell></cell><cell><m>\downarrow</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>2\cdot10^2</m></cell><cell><m>+</m></cell><cell><m>1\cdot10</m></cell><cell><m>+</m></cell><cell><m>5</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell><m>-</m></cell><cell bottom="medium"><m>\left(1\cdot10^2\right.</m></cell><cell bottom="medium"><m>+</m></cell><cell bottom="medium"><m>5\cdot10</m></cell><cell bottom="medium"><m>+</m></cell><cell bottom="medium"><m>\left.8\right)</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>5\cdot10</m></cell><cell><m>+</m></cell><cell><m>7</m></cell>
+	</row>
+</tabular>
 
 		<p> Written this way, we see that when we line up the digits we are really lining up the
-			coefficients of the corresponding powers of <m>10</m> - much like how we’ll have to keep
+			coefficients of the corresponding powers of <m>10</m> - much like how we'll have to keep
 			the powers of <m>x</m> lined up in the same columns. The big difference between
 			polynomial division and the division of natural numbers is that the value of <m>x</m> is
 			an unknown quantity. So unlike using the known value of <m>10</m>, when we subtract
@@ -195,70 +221,26 @@
 		</theorem>
 
 
-		<p> Essentially, Theorem <xref ref="polydiv" /> tells us that we can divide polynomials
+		<p> Essentially, <xref ref="polydiv" /> tells us that we can divide polynomials
 			whenever the degree of the divisor is less than or equal to the degree of the dividend.
-			We know we’re done with the division when the polynomial left over (the remainder) has a
-			degree strictly less than the divisor. It’s time to walk through a few examples to
+			We know we're done with the division when the polynomial left over (the remainder) has a
+			degree strictly less than the divisor. It's time to walk through a few examples to
 			refresh your memory. </p>
 
 
 		<example>
-			<title> </title>
-			<statement>
-				<p> Perform the indicated division. Check your answer by showing <me>\text{dividend}
-					= (\text{divisor})( \text{quotient}) + \text{remainder}</me>
+			<introduction>
+				<p> Perform the indicated division. Check your answer by showing <md>\text{dividend}
+					= (\text{divisor})( \text{quotient}) + \text{remainder}</md>
 				</p>
-
-				<!-- div attr= class="multicols"-->
-				<p>
-					2
-				</p>
-
-				<p>
-					<ol>
-						<li>
-							<p>
-								<m>\left(x^3 + 4x^2 - 5x - 14\right) \div (x-2)</m>
-							</p>
-						</li>
-
-						<li>
-							<p>
-								<m>\left(2t + 7\right) \div \left(3t - 4\right)</m>
-							</p>
-						</li>
-
-					</ol>
-				</p><!--</div
-				attr= class="multicols">-->
-
-				<!-- div attr= class="multicols"-->
-				<p>
-					2
-				</p>
-
-				<p>
-					<ol>
-						<li>
-							<p>
-								<m>\left(6y^2 - 1 \right) \div \left(2y + 5\right)</m>
-							</p>
-						</li>
-
-						<li>
-							<p>
-								<m>\left(w^3 \right) \div \left(w^2 - \sqrt{2}\right)</m>. </p>
-						</li>
-
-					</ol>
-				</p><!--</div
-				attr= class="multicols">-->
-			</statement>
-
-			<solution>
-				<p>
-					<ol>
-						<li>
+			</introduction>
+				<task>
+					<statement>
+						<p>
+							<m>\left(x^3 + 4x^2 - 5x - 14\right) \div (x-2)</m>
+						</p>
+					</statement>
+					<solution>
 							<p> To begin <m>\left(x^3 + 4x^2 - 5x - 14\right) \div (x-2)</m>, we
 								divide the first term in the dividend, namely <m>x^3</m>, by the
 								first term in the divisor, namely <m>x</m>, and get <m>\frac{x^3}{x}
@@ -266,172 +248,265 @@
 								proceed as in regular long division at this point: we multiply the
 								entire divisor, <m>x-2</m>, by this first term in the quotient to
 								get <m>x^{2}(x - 2) = x^3 - 2x^2</m>. We then subtract this result
-								from the dividend.<me>\begin{array}{cccccccccc}
+								from the dividend.
+								
 
-									&amp; &amp; &amp; &amp; &amp; x^2 &amp; &amp; &amp; &amp; \\
-								\hhline{~~~|-------}
-
-									x &amp; - &amp; 2 \, \vline&amp; x^3 &amp; + &amp; 4x^2 &amp; -
-								&amp; 5x &amp; - &amp; 14 \\
-
-									&amp; &amp; -&amp; \left(x^3 \right. &amp; - &amp; \left.
-								2x^2\right) &amp; &amp; \downarrow &amp; &amp; \\
-								\hhline{~~~---~~~~}
-									&amp; &amp; &amp; &amp; &amp; 6 x^2 &amp; - &amp; 5x &amp; &amp;
-								\\
-									% &amp; &amp; &amp; &amp; - &amp; \left(6 x^2 \right. &amp; -
-								&amp; \left. 12x \right) &amp; &amp; \\ \hhline{~~~~~---~~}
-									% &amp; &amp; &amp; &amp; &amp; &amp; &amp; 7x &amp; - &amp; 14
-								\\
-									% &amp; &amp; &amp; &amp; &amp; &amp; - &amp; \left( 7x \right.
-								&amp; - &amp; \left. 14 \right) \\ \hhline{~~~~~~~---}
-									% &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; 0
-								\end{array}</me>
 							</p>
+
+							<tabular>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell bottom="medium"></cell><cell bottom="medium"></cell><cell bottom="medium"><m>x^2</m></cell><cell bottom="medium"></cell><cell bottom="medium"></cell><cell bottom="medium"></cell><cell bottom="medium"></cell>
+	</row>
+	<row>
+		<cell><m>x</m></cell><cell><m>-</m></cell><cell right="medium"><m>2</m></cell><cell><m>x^3</m></cell><cell><m>+</m></cell><cell><m>4x^2</m></cell><cell><m>-</m></cell><cell><m>5x</m></cell><cell><m>-</m></cell><cell><m>14</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell><m>-</m></cell><cell bottom="medium"><m>\left(x^3\right.</m></cell><cell bottom="medium"><m>-</m></cell><cell bottom="medium"><m>\left.2x^2\right)</m></cell><cell></cell><cell><m>\downarrow</m></cell><cell></cell><cell></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>6x^2</m></cell><cell><m>-</m></cell><cell><m>5x</m></cell><cell></cell><cell></cell>
+	</row>
+</tabular>
 
 							<p> Now we <sq>bring down</sq> the next term of the quotient, namely <m>
 								-5x</m>, and repeat the process. We divide <m>\frac{6x^2}{x} = 6x</m>,
 								and add this to the quotient polynomial, multiply it by the divisor
-								(which yields <m>6x(x - 2) = 6x^{2} - 12x</m>) and subtract. <me>\begin{array}{cccccccccc}
-								&amp; &amp; &amp; &amp; &amp; x^2 &amp; + &amp; 6x &amp; &amp; \\
-								\hhline{~~~|-------}
+								(which yields <m>6x(x - 2) = 6x^{2} - 12x</m>) and subtract. 
+								
 
-									x &amp; - &amp; 2 \, \vline&amp; x^3 &amp; + &amp; 4x^2 &amp; -
-								&amp; 5x &amp; - &amp; 14 \\
-
-									&amp; &amp; -&amp; \left(x^3 \right. &amp; - &amp; \left.
-								2x^2\right) &amp; &amp; &amp; &amp; \downarrow \\
-								\hhline{~~~---~~~~}
-									&amp; &amp; &amp; &amp; &amp; 6 x^2 &amp; - &amp; 5x &amp; &amp;
-								\downarrow \\
-									&amp; &amp; &amp; &amp; - &amp; \left(6 x^2 \right. &amp; -
-								&amp; \left. 12x \right) &amp; &amp; \downarrow \\
-								\hhline{~~~~~---~~}
-									&amp; &amp; &amp; &amp; &amp; &amp; &amp; 7x &amp; - &amp; 14 \\
-								% &amp; &amp; &amp; &amp; &amp; &amp; - &amp; \left( 7x \right.
-								&amp; - &amp; \left. 14 \right) \\ \hhline{~~~~~~~---}
-									% &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; 0
-								\end{array}</me>
 							</p>
+
+<tabular>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell bottom="medium"></cell><cell bottom="medium"></cell><cell bottom="medium"><m>x^2</m></cell><cell bottom="medium"><m>+</m></cell><cell bottom="medium"><m>6x</m></cell><cell bottom="medium"></cell><cell bottom="medium"></cell>
+	</row>
+	<row>
+		<cell><m>x</m></cell><cell><m>-</m></cell><cell right="medium"><m>2</m></cell><cell><m>x^3</m></cell><cell><m>+</m></cell><cell><m>4x^2</m></cell><cell><m>-</m></cell><cell><m>5x</m></cell><cell><m>-</m></cell><cell><m>14</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell><m>-</m></cell><cell bottom="medium"><m>\left(x^3\right.</m></cell><cell bottom="medium"><m>-</m></cell><cell bottom="medium"><m>\left.2x^2\right)</m></cell><cell></cell><cell></cell><cell></cell><cell><m>\downarrow</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>6x^2</m></cell><cell><m>-</m></cell><cell><m>5x</m></cell><cell></cell><cell><m>\downarrow</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell><m>-</m></cell><cell bottom="medium"><m>\left(6x^2\right.</m></cell><cell bottom="medium"><m>-</m></cell><cell bottom="medium"><m>\left.12x\right)</m></cell><cell></cell><cell><m>\downarrow</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>7x</m></cell><cell><m>-</m></cell><cell><m>14</m></cell>
+	</row>
+</tabular>
 
 							<p> Finally, we <sq>bring down</sq> the last term of the dividend,
 								namely <m>-14</m>, and repeat the process. We divide <m>\frac{7x}{x}
 								= 7</m>, add this to the quotient, multiply it by the divisor (which
-								yields <m>7(x - 2) = 7x - 14</m>) and subtract.<me>\begin{array}{cccccccccc}
-								&amp; &amp; &amp; &amp; &amp; x^2 &amp; + &amp; 6x &amp; + &amp; 7
-								\\ \hhline{~~~|-------}
-
-									x &amp; - &amp; 2 \, \vline&amp; x^3 &amp; + &amp; 4x^2 &amp; -
-								&amp; 5x &amp; - &amp; 14 \\
-
-									&amp; &amp; -&amp; \left(x^3 \right. &amp; - &amp; \left.
-								2x^2\right) &amp; &amp; &amp; &amp; \\ \hhline{~~~---~~~~}
-									&amp; &amp; &amp; &amp; &amp; 6 x^2 &amp; - &amp; 5x &amp; &amp;
-								\\
-									&amp; &amp; &amp; &amp; - &amp; \left(6 x^2 \right. &amp; -
-								&amp; \left. 12x \right) &amp; &amp; \\ \hhline{~~~~~---~~}
-									&amp; &amp; &amp; &amp; &amp; &amp; &amp; 7x &amp; - &amp; 14 \\
-								&amp; &amp; &amp; &amp; &amp; &amp; - &amp; \left( 7x \right. &amp;
-								- &amp; \left. 14 \right) \\ \hhline{~~~~~~~---}
-									&amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; 0
-								\end{array}</me>
+								yields <m>7(x - 2) = 7x - 14</m>) and subtract.
+								
 							</p>
+
+<tabular>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell bottom="medium"></cell><cell bottom="medium"></cell><cell bottom="medium"><m>x^2</m></cell><cell bottom="medium"><m>+</m></cell><cell bottom="medium"><m>6x</m></cell><cell bottom="medium"><m>+</m></cell><cell bottom="medium"><m>7</m></cell>
+	</row>
+	<row>
+		<cell><m>x</m></cell><cell><m>-</m></cell><cell right="medium"><m>2</m></cell><cell><m>x^3</m></cell><cell><m>+</m></cell><cell><m>4x^2</m></cell><cell><m>-</m></cell><cell><m>5x</m></cell><cell><m>-</m></cell><cell><m>14</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell><m>-</m></cell><cell bottom="medium"><m>\left(x^3\right.</m></cell><cell bottom="medium"><m>-</m></cell><cell bottom="medium"><m>\left.2x^2\right)</m></cell><cell></cell><cell></cell><cell></cell><cell></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>6x^2</m></cell><cell><m>-</m></cell><cell><m>5x</m></cell><cell></cell><cell></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell><m>-</m></cell><cell bottom="medium"><m>\left(6x^2\right.</m></cell><cell bottom="medium"><m>-</m></cell><cell bottom="medium"><m>\left.12x\right)</m></cell><cell></cell><cell></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>7x</m></cell><cell><m>-</m></cell><cell><m>14</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>-</m></cell><cell bottom="medium"><m>\left(7x\right.</m></cell><cell bottom="medium"><m>-</m></cell><cell bottom="medium"><m>\left.14\right)</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>0</m></cell>
+	</row>
+</tabular>
 
 							<p> In this case, we get a quotient of <m>x^2 + 6x + 7</m> with a
-								remainder of <m>0</m>. To check our answer, we compute <me>(x-2)\left(x^2
+								remainder of <m>0</m>. To check our answer, we compute <md>(x-2)\left(x^2
 								+ 6x + 7\right) + 0 = x^3 + 6x^2 + 7x - 2x^2 - 12x -14 = x^3 + 4x^2
-								- 5x - 14 \, \checkmark</me>
+								- 5x - 14 \, \checkmark</md>
 							</p>
-						</li>
-
-						<li>
+						</solution>
+				</task>
+				<task>
+					<statement>
+						<p>
+							<m>\left(2t + 7\right) \div \left(3t - 4\right)</m>
+						</p>
+					</statement>
+					<solution>
 							<p> To compute <m>\left(2t + 7\right) \div \left(3t - 4\right)</m>, we
 								start as before. We find <m>\frac{2t}{3t} = \frac{2}{3}</m>, so that
 								becomes the first (and only) term in the quotient. We multiply the
 								divisor <m>(3t-4)</m> by <m>\frac{2}{3}</m> and get <m>2t -
 								\frac{8}{3}</m>. We subtract this from the divided and get <m>
-								\frac{29}{3}</m>.<me>\begin{array}{cccccc}
-
-									&amp; &amp; &amp; &amp; &amp; \dfrac{2}{3} \\ \hhline{~~~|---}
-
-									3t &amp; - &amp; 4 \, \vline&amp; 2t &amp; + &amp; 7 \\
-
-									&amp; &amp; -&amp; \left(2t\vphantom{\dfrac{8}{3}} \right. &amp;
-								- &amp; \left. \dfrac{8}{3}\right) \\ \hhline{~~~---}
-									&amp; &amp; &amp; &amp; &amp; \dfrac{29}{3}
-								\vphantom{\sqrt{\dfrac{7}{7}}} \\
-
-
-									\end{array}</me>
+								\frac{29}{3}</m>.
 							</p>
+
+							<tabular>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell bottom="medium"></cell><cell bottom="medium"></cell><cell bottom="medium"><m>\dfrac{2}{3}</m></cell>
+	</row>
+	<row>
+		<cell><m>3t</m></cell><cell><m>-</m></cell><cell right="medium"><m>4</m></cell><cell><m>2t</m></cell><cell><m>+</m></cell><cell><m>7</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell><m>-</m></cell><cell bottom="medium"><m>\left(2t\vphantom{\dfrac{8}{3}}\right.</m></cell><cell bottom="medium"><m>-</m></cell><cell bottom="medium"><m>\left.\dfrac{8}{3}\right)</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>\dfrac{29}{3}\vphantom{\sqrt{\dfrac{7}{7}}}</m></cell>
+	</row>
+</tabular>
 
 							<p> Our answer is <m>\frac{2}{3}</m> with a remainder of <m>\frac{29}{3}</m>.
-								To check our answer, we compute <me>(3t-4) \left(\frac{2}{3}\right)
+								To check our answer, we compute <md>(3t-4) \left(\frac{2}{3}\right)
 								+ \frac{29}{3} = 2t - \frac{8}{3} + \frac{29}{3} = 2t + \frac{21}{3}
-								= 2t + 7 \, \checkmark</me>
+								= 2t + 7 \, \checkmark</md>
 							</p>
-						</li>
-
-						<li>
-							<p> When we set-up the tableau for <m>\left(6y^2 - 1 \right) \div
+						</solution>
+				</task>
+				<task>
+					<statement>
+						<p>
+							<m>\left(6y^2 - 1 \right) \div \left(2y + 5\right)</m>
+						</p>
+					</statement>
+					<solution>
+						<p>
+							 When we set-up the tableau for <m>\left(6y^2 - 1 \right) \div
 								\left(2y + 5\right)</m>, we must first issue a <sq>placeholder</sq>
 								for the <sq>missing</sq> <m>y</m>-term in the dividend, <m>6y^2 -1 =
 								6y^2 + 0y - 1</m>. We then proceed as before. Since <m>\frac{6y^2}{2y}
 								= 3y</m>, <m>3y</m> is the first term in our quotient. We multiply <m>
 								(2y+5)</m> times <m>3y</m> and subtract it from the dividend. We
-								bring down the <m>-1</m>, and repeat. <me>\begin{array}{cccccccc}
-								&amp; &amp; &amp; &amp; &amp; 3y &amp; - &amp; \dfrac{15}{2} \\
-								\hhline{~~~|-----}
-
-									2y&amp; + &amp; 5 \, \vline&amp; 6y^2 &amp; + &amp; 0y &amp; -
-								&amp; 1 \\
-
-									&amp; &amp; -&amp; \left(6y^2 \right. &amp; + &amp; \left.
-								15y\right) &amp; &amp; \downarrow \\ \hhline{~~~---~~}
-									&amp; &amp; &amp; &amp; &amp; -15y &amp; - &amp; 1 \\
-									&amp; &amp; &amp; &amp; - &amp;
-								\left(-15y\vphantom{\dfrac{75}{2}} \right. &amp; - &amp; \left.
-								\dfrac{75}{2} \right) \\ \hhline{~~~~~---}
-									&amp; &amp; &amp; &amp; &amp; &amp; &amp; \dfrac{73}{2}
-								\vphantom{\sqrt{\dfrac{73}{2}}}\\
-
-									\end{array}</me>
+								bring down the <m>-1</m>, and repeat.
 							</p>
+
+							<tabular>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell bottom="medium"></cell><cell bottom="medium"></cell><cell bottom="medium"><m>3y</m></cell><cell bottom="medium"><m>-</m></cell><cell bottom="medium"><m>\dfrac{15}{2}</m></cell>
+	</row>
+	<row>
+		<cell><m>2y</m></cell><cell><m>+</m></cell><cell right="medium"><m>5</m></cell><cell><m>6y^2</m></cell><cell><m>+</m></cell><cell><m>0y</m></cell><cell><m>-</m></cell><cell><m>1</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell><m>-</m></cell><cell bottom="medium"><m>\left(6y^2\right.</m></cell><cell bottom="medium"><m>+</m></cell><cell bottom="medium"><m>\left.15y\right)</m></cell><cell></cell><cell><m>\downarrow</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>-15y</m></cell><cell><m>-</m></cell><cell><m>1</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell><m>-</m></cell><cell bottom="medium"><m>\left(-15y\vphantom{\dfrac{75}{2}}\right.</m></cell><cell bottom="medium"><m>-</m></cell><cell bottom="medium"><m>\left.\dfrac{75}{2}\right)</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>\dfrac{73}{2}\vphantom{\sqrt{\dfrac{73}{2}}}</m></cell>
+	</row>
+</tabular>
 
 							<p> Our answer is <m>3y - \frac{15}{2}</m> with a remainder of <m>
 								\frac{73}{2}</m>. To check our answer, we compute: </p>
 
 							<p>
-								<me>(2y + 5)\left(3y - \dfrac{15}{2}\right) + \dfrac{73}{2} = 6y^2 -
+								<md>(2y + 5)\left(3y - \dfrac{15}{2}\right) + \dfrac{73}{2} = 6y^2 -
 									15y + 15y - \dfrac{75}{2} + \dfrac{73}{2} = 6y^2 - 1 \,
-									\checkmark</me>
-							</p>
-						</li>
-
-						<li>
-							<p> For our last example, we need <sq>placeholders</sq> for both the
+									\checkmark</md>
+						</p>
+					</solution>
+				</task>
+				<task>
+					<statement>
+						<p>
+							<m>\left(w^3 \right) \div \left(w^2 - \sqrt{2}\right)</m>
+						</p>
+					</statement>
+					<solution>
+						<p>
+							For our last example, we need <sq>placeholders</sq> for both the
 								divisor <m>w^2 - \sqrt{2} = w^2 + 0w -\sqrt{2}</m> and the dividend <m>w^3
 								= w^3 + 0w^2 + 0w + 0</m>. The first term in the quotient is <m>\frac{w^3}{w^2}
 								= w</m>, and when we multiply and subtract this from the dividend,
-								we’re left with just <m>0w^2 + w\sqrt{2} + 0 = w\sqrt{2}</m>. </p>
+								we're left with just <m>0w^2 + w\sqrt{2} + 0 = w\sqrt{2}</m>. </p>
 
-							<p>
-								<me>\begin{array}{cccccccccccc}
-
-									&amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; w &amp;
-									&amp; \\ \hhline{~~~~~|-------}
-
-									w^2 &amp; + &amp; 0w &amp; - &amp; \sqrt{2} \, \vline &amp; w^3
-									&amp; + &amp; 0w^2 &amp; + &amp; 0w &amp; + &amp; 0 \\
-
-									&amp; &amp; &amp; &amp; -&amp;\left(w^3\vphantom{w\sqrt{2}}
-									\right. &amp; + &amp; 0w^2 &amp; - &amp; \left. w\sqrt{2}
-									\right) &amp; &amp; \downarrow \\ \hhline{~~~~~-----~~}
-									&amp; &amp; &amp; &amp; &amp; &amp; &amp; 0w^2 &amp; + &amp;
-									w\sqrt{2} &amp; + &amp; 0\\
-
-									\end{array}</me>
-							</p>
+							<tabular>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell bottom="medium"></cell><cell bottom="medium"></cell><cell bottom="medium"></cell><cell bottom="medium"></cell><cell bottom="medium"><m>w</m></cell><cell bottom="medium"></cell><cell bottom="medium"></cell>
+	</row>
+	<row>
+		<cell><m>w^2</m></cell><cell><m>+</m></cell><cell><m>0w</m></cell><cell><m>-</m></cell><cell right="medium"><m>\sqrt{2}</m></cell><cell><m>w^3</m></cell><cell><m>+</m></cell><cell><m>0w^2</m></cell><cell><m>+</m></cell><cell><m>0w</m></cell><cell><m>+</m></cell><cell><m>0</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell><m>-</m></cell><cell bottom="medium"><m>\left(w^3\vphantom{w\sqrt{2}}\right.</m></cell><cell bottom="medium"><m>+</m></cell><cell bottom="medium"><m>0w^2</m></cell><cell bottom="medium"><m>-</m></cell><cell bottom="medium"><m>\left.w\sqrt{2}\right)</m></cell><cell></cell><cell><m>\downarrow</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>0w^2</m></cell><cell><m>+</m></cell><cell><m>w\sqrt{2}</m></cell><cell><m>+</m></cell><cell><m>0</m></cell>
+	</row>
+</tabular>
 
 							<p> Since the degree of <m>w\sqrt{2}</m> (which is <m>1</m>) is less
 								than the degree of the divisor (which is <m>2</m>), we are done.<fn>
@@ -442,14 +517,12 @@
 								with a remainder of <m>w \sqrt{2}</m>. To check, we compute: </p>
 
 							<p>
-								<me>\left(w^2 - \sqrt{2}\right)w + w\sqrt{2} = w^3 - w\sqrt{2} +
-									w\sqrt{2} = w^3 \, \checkmark</me>
-							</p>
-						</li>
+								<md>\left(w^2 - \sqrt{2}\right)w + w\sqrt{2} = w^3 - w\sqrt{2} +
+									w\sqrt{2} = w^3 \, \checkmark</md>
+						</p>
+					</solution>
+				</task>
 
-					</ol>
-				</p>
-			</solution>
 		</example>
 
 	</subsection>
@@ -461,23 +534,28 @@
 			roots of a polynomial. This comes from the idea that if we have a polynomial <m>p(x)</m>
 			and a value <m>x_0</m> so that <m>p(x_0) = 0</m>, then <m>x_0</m> is a root of the
 			polynomial. This means that <m>(x-x_0)</m> is a factor of <m>p(x)</m>, so that we can
-			write <me>p(x) = (x-x_0)q(x)</me> where <m>q(x)</m> is a polynomial with one lower
-			degree than <m>p</m>. We can find this <m>q(x)</m> by dividing <me>q(x) =
-			\frac{p(x)}{x-x_0},</me> which is why we need division to sort this out. </p>
+			write <md>p(x) = (x-x_0)q(x)</md> where <m>q(x)</m> is a polynomial with one lower
+			degree than <m>p</m>. We can find this <m>q(x)</m> by dividing <md>q(x) =
+			\frac{p(x)}{x-x_0},</md> which is why we need division to sort this out. </p>
 
 		<p> This means that we need to find the roots (or at least a root) to know what to divide <m>
 			p(x)</m> by in order to start this process. The main theorem that can tell us where to
 			start is the Rational Roots Theorem. </p>
 
-		<!-- div attr= class="theorem1"-->
-		<p> Rational Zeros Theorem Suppose <m>f(x) = a_{n} x^{n} +
+ <theorem xml:id="thm-rational-zeros">
+	<title>Rational Zeros Theorem</title>
+	
+	
+	<statement>
+		<p> Suppose <m>f(x) = a_{n} x^{n} +
 			a_{n-\mbox{\tiny$1$}}x^{n-\mbox{\tiny$1$}} + \ldots + a_{\mbox{\tiny$1$}} x +
 			a_{\mbox{\tiny$0$}}</m> is a polynomial of degree <m>n</m> with <m>n \geq 1</m>, and <m>
 			a_{\mbox{\tiny$0$}}</m>, <m>a_{\mbox{\tiny$1$}}</m>, …<m>a_{n}</m> are integers. If <m>r</m>
 			is a rational zero of <m>f</m>, then <m>r</m> is of the form <m>\pm \frac{p}{q}</m>,
 			where <m>p</m> is a factor of the constant term <m>a_{\mbox{\tiny$0$}}</m>, and <m>q</m>
-			is a factor of the leading coefficient <m>a_{n}</m>. </p><!--</div
-		attr= class="theorem1">-->
+			is a factor of the leading coefficient <m>a_{n}</m>. </p>
+	</statement>
+ </theorem>
 
 		<p>
 			The Rational Zeros Theorem gives us a list of numbers to try in our synthetic division
@@ -488,7 +566,6 @@
 
 
 		<example>
-			<title> </title>
 			<statement>
 				<p> Let <m>f(x) = 2x^4+4x^3-x^2-6x-3</m>. Use the Rational Zeros Theorem to list all
 					of the possible rational zeros of <m>f</m>. </p>
@@ -507,7 +584,7 @@
 					\frac{3}{2}, \pm \, 3\right\}</m>. </p>
 			</solution>
 		</example>
-		<p> But this still doesn’t make the process easy or straight-forward for finding the roots.
+		<p> But this still doesn't make the process easy or straight-forward for finding the roots.
 			How can we take this list of options and easily figure out where the roots are, and what
 			the remaining polynomial <m>q(x)</m> is? </p>
 
@@ -535,42 +612,61 @@
 			comes from our old friend, polynomial division. Below on the right, we perform the long
 			division: <m>(x^3 + 4x^2-5x-14) \div (x-2)</m> and obtain <m>x^2+6x+7</m>. </p>
 
-		<table>
-			<title></title>
-			<tabular>
-				<row class="odd">
-					<cell halign="left">
-						<image source='Images/PolyDiv01.jpg' />
-					</cell>
-					<cell halign="left">
-						<m>\begin{array}{cccccccccc}
+		<figure xml:id="app-poly-sketch">
+	<caption> Sketch of the graph of the polynomial <m>f(x) = x^3 +
+			4x^2-5x-14</m>. </caption>
+	<image source="Images/PolyDiv01.jpg" width="70%">
+		<shortdescription> ALT TEXT HERE </shortdescription>
+		<description>
+			<p>
+				IMAGE DESCRIPTION HERE
+			</p>
+		</description>
+	</image>
+	</figure>
 
-							&amp; &amp; &amp; &amp; &amp; x^2 &amp; + &amp; 6x &amp; + &amp; 7 \\
-							\hhline{~~~|-------}
 
-							x &amp; - &amp; 2 \, \vline&amp; x^3 &amp; + &amp; 4x^2 &amp; - &amp; 5x
-							&amp; - &amp; 14 \\
-
-							&amp; &amp; -&amp; \left(x^3 \right. &amp; - &amp; \left. 2x^2\right)
-							&amp; &amp; &amp; &amp; \\ \hhline{~~~---~~~~}
-							&amp; &amp; &amp; &amp; &amp; 6 x^2 &amp; - &amp; 5x &amp; &amp; \\
-							&amp; &amp; &amp; &amp; - &amp; \left(6 x^2 \right. &amp; - &amp; \left.
-							12x \right) &amp; &amp; \\ \hhline{~~~~~---~~}
-							&amp; &amp; &amp; &amp; &amp; &amp; &amp; 7x &amp; - &amp; 14 \\
-							&amp; &amp; &amp; &amp; &amp; &amp; - &amp; \left( 7x \right. &amp; -
-							&amp; \left. 14 \right) \\ \hhline{~~~~~~~---}
-							&amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; 0
-
-							\end{array}</m>
-					</cell>
-				</row>
-			</tabular>
-		</table>
+							<tabular>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell bottom="medium"></cell><cell bottom="medium"></cell><cell bottom="medium"><m>x^2</m></cell><cell bottom="medium"><m>+</m></cell><cell bottom="medium"><m>6x</m></cell><cell bottom="medium"><m>+</m></cell><cell bottom="medium"><m>7</m></cell>
+	</row>
+	<row>
+		<cell><m>x</m></cell><cell><m>-</m></cell><cell right="medium"><m>2</m></cell><cell><m>x^3</m></cell><cell><m>+</m></cell><cell><m>4x^2</m></cell><cell><m>-</m></cell><cell><m>5x</m></cell><cell><m>-</m></cell><cell><m>14</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell><m>-</m></cell><cell bottom="medium"><m>\left(x^3\right.</m></cell><cell bottom="medium"><m>-</m></cell><cell bottom="medium"><m>\left.2x^2\right)</m></cell><cell></cell><cell></cell><cell></cell><cell></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>6x^2</m></cell><cell><m>-</m></cell><cell><m>5x</m></cell><cell></cell><cell></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell><m>-</m></cell><cell bottom="medium"><m>\left(6x^2\right.</m></cell><cell bottom="medium"><m>-</m></cell><cell bottom="medium"><m>\left.12x\right)</m></cell><cell></cell><cell></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>7x</m></cell><cell><m>-</m></cell><cell><m>14</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>-</m></cell><cell bottom="medium"><m>\left(7x\right.</m></cell><cell bottom="medium"><m>-</m></cell><cell bottom="medium"><m>\left.14\right)</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>0</m></cell>
+	</row>
+</tabular>
 
 		<p> Said differently, <m>f(x) = x^3 + 4x^2-5x-14=(x-2)\left(x^2+6x+7\right)</m>. Using this
 			form of <m>f(x)</m>, we find the zeros by solving <m>(x-2)\left(x^2+6x+7\right)=0</m>.
 			Setting each factor equal to <m>0</m>, we get <m>x-2=0</m> (which gives us our known
-			zero, <m>x=2</m>) as well as <m>x^2+6x+7=0</m>. The latter doesn’t factor nicely, so we
+			zero, <m>x=2</m>) as well as <m>x^2+6x+7=0</m>. The latter doesn't factor nicely, so we
 			apply the Quadratic Formula to get <m>x = -3 \pm \sqrt{2}</m>. Sure enough, <m>-3 -
 			\sqrt{2} \approx -4.414</m> and <m>-3 +\sqrt{2} \approx -1.586</m>. We leave it to the
 			reader to show <m>f(-3-\sqrt{2}) = 0</m> and <m>f(-3+\sqrt{2}) = 0</m>. </p>
@@ -592,7 +688,7 @@
 			</statement>
 		</theorem>
 
-		<p> As you may recall, all of the polynomials in Theorem <xref ref="polydivthm" /> have
+		<p> As you may recall, all of the polynomials in <xref ref="polydivthm" /> have
 			special names. The polynomial <m>p</m> is called the <em>dividend</em>; <m>d</m> is the <em>
 			divisor</em>; <m>q</m> is the <em>quotient</em>; <m>r</m> is the <em>remainder</em>. If <m>
 			r(x)=0</m> then <m>d</m> is called a <em>factor</em> of <m>p</m>. The word <sq>unique</sq>
@@ -600,7 +696,7 @@
 			for each division problem.<fn>
 				 Hence the use of the definite article <sq>the</sq> when speaking of <em>the</em>
 			quotient and <em>the</em> remainder. 
-			</fn> The proof of Theorem <xref
+			</fn> The proof of <xref
 				ref="polydivthm" /> is usually relegated to a course in Abstract Algebra, but we can
 			still use the result to move forward with the rest of this section. </p>
 
@@ -609,73 +705,118 @@
 			x-c</m>. Fortunately, people like <url
 				href="http://en.wikipedia.org/wiki/Synthetic_division">Ruffini</url> and <url
 				href="http://en.wikipedia.org/wiki/Horner_scheme">Horner</url> have already blazed
-			this trail. Let’s take a closer look at the long division we performed at the beginning
-			of the section and try to streamline it. First off, let’s change all of the subtractions
+			this trail. Let's take a closer look at the long division we performed at the beginning
+			of the section and try to streamline it. First off, let's change all of the subtractions
 			into additions by distributing through the <m>-1</m>s. </p>
 
-		<p>
-			<me>\begin{array}{cccccccccc}
 
-				&amp; &amp; &amp; &amp; &amp; x^2 &amp; + &amp; 6x &amp; + &amp; 7 \\
-				\hhline{~~~|-------}
-
-				x &amp; - &amp; 2 \, \vline&amp; x^3 &amp; + &amp; 4x^2 &amp; - &amp; 5x &amp; -
-				&amp; 14 \\
-
-				&amp; &amp; &amp; -x^3 &amp; + &amp; 2x^2 &amp; &amp; &amp; &amp; \\
-				\hhline{~~~---~~~~}
-				&amp; &amp; &amp; &amp; &amp; 6 x^2 &amp; - &amp; 5x &amp; &amp; \\
-				&amp; &amp; &amp; &amp; &amp;-6 x^2 &amp; + &amp; 12x &amp; &amp; \\
-				\hhline{~~~~~---~~}
-				&amp; &amp; &amp; &amp; &amp; &amp; &amp; 7x &amp; - &amp; 14 \\
-				&amp; &amp; &amp; &amp; &amp; &amp; &amp; - 7x &amp; + &amp; 14 \\
-				\hhline{~~~~~~~---}
-				&amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; 0
-
-				\end{array}</me>
-		</p>
+		<tabular>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell bottom="medium"></cell><cell bottom="medium"></cell><cell bottom="medium"><m>x^2</m></cell><cell bottom="medium"><m>+</m></cell><cell bottom="medium"><m>6x</m></cell><cell bottom="medium"><m>+</m></cell><cell bottom="medium"><m>7</m></cell>
+	</row>
+	<row>
+		<cell><m>x</m></cell><cell><m>-</m></cell><cell right="medium"><m>2</m></cell><cell><m>x^3</m></cell><cell><m>+</m></cell><cell><m>4x^2</m></cell><cell><m>-</m></cell><cell><m>5x</m></cell><cell><m>-</m></cell><cell><m>14</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell bottom="medium"><m>-x^3</m></cell><cell bottom="medium"><m>+</m></cell><cell bottom="medium"><m>2x^2</m></cell><cell></cell><cell></cell><cell></cell><cell></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>6x^2</m></cell><cell><m>-</m></cell><cell><m>5x</m></cell><cell></cell><cell></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell bottom="medium"><m>-6x^2</m></cell><cell bottom="medium"><m>+</m></cell><cell bottom="medium"><m>12x</m></cell><cell></cell><cell></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>7x</m></cell><cell><m>-</m></cell><cell><m>14</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell bottom="medium"><m>-7x</m></cell><cell bottom="medium"><m>+</m></cell><cell bottom="medium"><m>14</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>0</m></cell>
+	</row>
+</tabular>
 
 		<p> Next, observe that the terms <m>-x^3</m>, <m>-6x^2</m> and <m>-7x</m> are the exact
 			opposite of the terms above them. The algorithm we use ensures this is always the case,
 			so we can omit them without losing any information. Also note that the terms we <sq>bring
-			down</sq> (namely the <m>-5x</m> and <m>-14</m>) aren’t really necessary to recopy, so
+			down</sq> (namely the <m>-5x</m> and <m>-14</m>) aren't really necessary to recopy, so
 			we omit them, too. </p>
 
-		<p>
-			<me>\begin{array}{cccccccccc}
+		<tabular>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell bottom="medium"></cell><cell bottom="medium"></cell><cell bottom="medium"><m>x^2</m></cell><cell bottom="medium"><m>+</m></cell><cell bottom="medium"><m>6x</m></cell><cell bottom="medium"><m>+</m></cell><cell bottom="medium"><m>7</m></cell>
+	</row>
+	<row>
+		<cell><m>x</m></cell><cell><m>-</m></cell><cell right="medium"><m>2</m></cell><cell><m>x^3</m></cell><cell><m>+</m></cell><cell><m>4x^2</m></cell><cell><m>-</m></cell><cell><m>5x</m></cell><cell><m>-</m></cell><cell><m>14</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell bottom="medium"></cell><cell bottom="medium"></cell><cell bottom="medium"><m>2x^2</m></cell><cell></cell><cell></cell><cell></cell><cell></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>6x^2</m></cell><cell></cell><cell></cell><cell></cell><cell></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell bottom="medium"></cell><cell bottom="medium"></cell><cell bottom="medium"><m>12x</m></cell><cell></cell><cell></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>7x</m></cell><cell></cell><cell></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell bottom="medium"></cell><cell bottom="medium"></cell><cell bottom="medium"><m>14</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>0</m></cell>
+	</row>
+</tabular>
 
-				&amp; &amp; &amp; &amp; &amp; x^2 &amp; + &amp; 6x &amp; + &amp; 7 \\
-				\hhline{~~~|-------}
+		<p> Let's move terms up a bit and copy the <m>x^3</m> into the last row. </p>
 
-				x &amp; - &amp; 2 \, \vline&amp; \, \, x^3 &amp; + &amp; 4x^2 &amp; - &amp; 5x &amp;
-				- &amp; 14 \\
 
-				&amp; &amp; &amp; &amp; &amp; 2x^2 &amp; &amp; &amp; &amp; \\ \hhline{~~~---~~~~}
-				&amp; &amp; &amp; &amp; &amp; 6 x^2 &amp; &amp; &amp; &amp; \\
-				&amp; &amp; &amp; &amp; &amp; &amp; &amp; 12x &amp; &amp; \\ \hhline{~~~~~---~~}
-				&amp; &amp; &amp; &amp; &amp; &amp; &amp; 7x &amp; &amp; \\
-				&amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; 14 \\ \hhline{~~~~~~~---}
-				&amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; 0
-
-				\end{array}</me>
-		</p>
-
-		<p> Let’s move terms up a bit and copy the <m>x^3</m> into the last row. </p>
-
-		<p>
-			<me>\begin{array}{cccccccccc}
-
-				&amp; &amp; &amp; &amp; &amp; x^2 &amp; + &amp; 6x &amp; + &amp; 7 \\
-				\hhline{~~~|-------}
-
-				x &amp; - &amp; 2 \, \vline&amp; \, \, x^3 &amp; + &amp; 4x^2 &amp; - &amp; 5x &amp;
-				- &amp; 14 \\
-
-				&amp; &amp; &amp; &amp; &amp; 2x^2 &amp; &amp; 12x &amp; &amp; 14 \\
-				\hhline{~~~-------}
-				&amp; &amp; &amp; x^3 &amp; &amp; 6 x^2 &amp; &amp; 7x &amp; &amp;0 \\
-				\end{array}</me>
-		</p>
+<tabular>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell bottom="medium"></cell><cell bottom="medium"></cell><cell bottom="medium"><m>x^2</m></cell><cell bottom="medium"><m>+</m></cell><cell bottom="medium"><m>6x</m></cell><cell bottom="medium"><m>+</m></cell><cell bottom="medium"><m>7</m></cell>
+	</row>
+	<row>
+		<cell><m>x</m></cell><cell><m>-</m></cell><cell right="medium"><m>2</m></cell><cell><m>x^3</m></cell><cell><m>+</m></cell><cell><m>4x^2</m></cell><cell><m>-</m></cell><cell><m>5x</m></cell><cell><m>-</m></cell><cell><m>14</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell bottom="medium"></cell><cell bottom="medium"></cell><cell bottom="medium"><m>2x^2</m></cell><cell bottom="medium"></cell><cell bottom="medium"><m>12x</m></cell><cell bottom="medium"></cell><cell bottom="medium"><m>14</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell><m>x^3</m></cell><cell></cell><cell><m>6x^2</m></cell><cell></cell><cell><m>7x</m></cell><cell></cell><cell><m>0</m></cell>
+	</row>
+</tabular>
 
 		<p> Note that by arranging things in this manner, each term in the last row is obtained by
 			adding the two terms above it. Notice also that the quotient polynomial can be obtained
@@ -685,20 +826,30 @@
 			that we no longer need to write the quotient polynomial down, nor the <m>x</m> in the
 			divisor, to determine our answer. </p>
 
-		<p>
-			<me>\begin{array}{cccccccccc}
 
+		<tabular>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<row>
+		<cell></cell><cell></cell><cell right="medium"><m>-2</m></cell><cell><m>x^3</m></cell><cell><m>+</m></cell><cell><m>4x^2</m></cell><cell><m>-</m></cell><cell><m>5x</m></cell><cell><m>-</m></cell><cell><m>14</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell bottom="medium"></cell><cell bottom="medium"></cell><cell bottom="medium"><m>2x^2</m></cell><cell bottom="medium"></cell><cell bottom="medium"><m>12x</m></cell><cell bottom="medium"></cell><cell bottom="medium"><m>14</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell><m>x^3</m></cell><cell></cell><cell><m>6x^2</m></cell><cell></cell><cell><m>7x</m></cell><cell></cell><cell><m>0</m></cell>
+	</row>
+</tabular>
 
-				&amp; &amp; - 2 \, \, \vline&amp; \, \, x^3 &amp; + &amp; 4x^2 &amp; - &amp; 5x
-				&amp; - &amp; 14 \\
-
-				&amp; &amp; &amp; &amp; &amp; 2x^2 &amp; &amp; 12x &amp; &amp; 14 \\
-				\hhline{~~~-------}
-				&amp; &amp; &amp; x^3 &amp; &amp; 6 x^2 &amp; &amp; 7x &amp; &amp;0 \\
-				\end{array}</me>
-		</p>
-
-		<p> We’ve streamlined things quite a bit so far, but we can still do more. Let’s take a
+		<p> We've streamlined things quite a bit so far, but we can still do more. Let's take a
 			moment to remind ourselves where the <m>2x^2</m>, <m>12x</m> and <m>14</m> came from in
 			the second row. Each of these terms was obtained by multiplying the terms in the
 			quotient, <m>x^2</m>, <m>6x</m> and <m>7</m>, respectively, by the <m>-2</m> in <m>x-2</m>,
@@ -708,151 +859,186 @@
 			the coefficients of the first three terms in the last row, so we now take the plunge and
 			write only the coefficients of the terms to get </p>
 
-		<p>
-			<me>\begin{array}{rrrrr}
 
-
-				2 \, \, \vline&amp; 1 &amp; 4 &amp; -5 &amp; -14 \\
-
-				&amp;&amp; 2 &amp; 12 &amp; 14 \\ \hhline{~----}
-				&amp; 1 &amp; 6 &amp; 7 &amp; 0 \\
-				\end{array}</me>
-		</p>
+		<tabular>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<row>
+		<cell right="medium"><m>2</m></cell><cell><m>1</m></cell><cell><m>4</m></cell><cell><m>-5</m></cell><cell><m>-14</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell bottom="medium"></cell><cell bottom="medium"><m>2</m></cell><cell bottom="medium"><m>12</m></cell><cell bottom="medium"><m>14</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell><m>1</m></cell><cell><m>6</m></cell><cell><m>7</m></cell><cell><m>0</m></cell>
+	</row>
+</tabular>
 
 		<p> We have constructed a <em>synthetic division tableau</em> for this polynomial division
-			problem. Let’s re-work our division problem using this tableau to see how it greatly
+			problem. Let's re-work our division problem using this tableau to see how it greatly
 			streamlines the division process. To divide <m>x^3+4x^2-5x-14</m> by <m>x-2</m>, we
 			write <m>2</m> in the place of the divisor and the coefficients of <m>x^3+4x^2-5x-14</m>
 			in for the dividend. Then <sq>bring down</sq> the first coefficient of the dividend. </p>
 
-		<!-- div attr= class="center"-->
-		<table>
-			<title></title>
+
+		<sidebyside>
 			<tabular>
-				<row class="odd">
-					<cell halign="center">
-						<m>\begin{array}{rrrrr}
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<row>
+		<cell right="medium"><m>2</m></cell><cell><m>1</m></cell><cell><m>4</m></cell><cell><m>-5</m></cell><cell><m>-14</m></cell>
+	</row>
+	<row>
+		<cell> </cell><cell bottom="medium"><m>\phantom{2}</m></cell><cell bottom="medium"></cell><cell bottom="medium"></cell><cell bottom="medium"></cell>
+	</row>
+	<row>
+		<cell></cell><cell></cell><cell></cell><cell></cell><cell></cell>
+	</row>
+	
+</tabular>
 
-
-							2 \, \, \vline&amp; 1 &amp; 4 &amp; -5 &amp; -14 \\
-
-							&amp; &amp; &amp; &amp; \\ \hhline{~----}
-							&amp; &amp; &amp; &amp; \\
-							\end{array}</m>
-					</cell>
-					<cell halign="center">
-						<m>\begin{array}{rrrrr}
-
-
-							2 \, \, \vline&amp; 1 &amp; 4 &amp; -5 &amp; -14 \\
-
-							&amp; \downarrow &amp; &amp; &amp; \\ \hhline{~----}
-							&amp; 1 &amp; &amp; &amp; \\
-							\end{array}</m>
-					</cell>
-				</row>
-			</tabular>
-		</table><!--</div
-		attr= class="center">-->
+<tabular>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<row>
+		<cell right="medium"><m>2</m></cell><cell><m>1</m></cell><cell><m>4</m></cell><cell><m>-5</m></cell><cell><m>-14</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell bottom="medium"><m>\downarrow</m></cell><cell bottom="medium"></cell><cell bottom="medium"></cell><cell bottom="medium"></cell>
+	</row>
+	<row>
+		<cell></cell><cell><m>1</m></cell><cell></cell><cell></cell><cell></cell>
+	</row>
+</tabular>
+		</sidebyside>
 
 		<p> Next, take the <m>2</m> from the divisor and multiply by the <m>1</m> that was <sq>brought
 			down</sq> to get <m>2</m>. Write this underneath the <m>4</m>, then add to get <m>6</m>. </p>
 
-		<!-- div attr= class="center"-->
-		<table>
-			<title></title>
+		<sidebyside>
 			<tabular>
-				<row class="odd">
-					<cell halign="center">
-						<m>\begin{array}{rrrrr}
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<row>
+		<cell right="medium"><m>2</m></cell><cell><m>1</m></cell><cell><m>4</m></cell><cell><m>-5</m></cell><cell><m>-14</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell bottom="medium"><m>\downarrow</m></cell><cell bottom="medium"><m>2</m></cell><cell bottom="medium"></cell><cell bottom="medium"></cell>
+	</row>
+	<row>
+		<cell></cell><cell><m>1</m></cell><cell></cell><cell></cell><cell></cell>
+	</row>
+</tabular>
+<tabular>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<row>
+		<cell right="medium"><m>2</m></cell><cell><m>1</m></cell><cell><m>4</m></cell><cell><m>-5</m></cell><cell><m>-14</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell bottom="medium"><m>\downarrow</m></cell><cell bottom="medium"><m>2</m></cell><cell bottom="medium"></cell><cell bottom="medium"></cell>
+	</row>
+	<row>
+		<cell></cell><cell><m>1</m></cell><cell><m>6</m></cell><cell></cell><cell></cell>
+	</row>
+</tabular>
 
-
-							2 \, \, \vline&amp; 1 &amp; 4 &amp; -5 &amp; -14 \\
-
-							&amp; \downarrow &amp; 2 &amp; &amp; \\ \hhline{~----}
-							&amp; 1 &amp; &amp; &amp; \\
-							\end{array}</m>
-					</cell>
-					<cell halign="center">
-						<m>\begin{array}{rrrrr}
-
-
-							2 \, \, \vline&amp; 1 &amp; 4 &amp; -5 &amp; -14 \\
-
-							&amp; \downarrow &amp; 2 &amp; &amp; \\ \hhline{~----}
-							&amp; 1 &amp; 6 &amp; &amp; \\
-							\end{array}</m>
-					</cell>
-				</row>
-			</tabular>
-		</table><!--</div
-		attr= class="center">-->
+		</sidebyside>
 
 		<p> Now take the <m>2</m> from the divisor times the <m>6</m> to get <m>12</m>, and add it
 			to the <m>-5</m> to get <m>7</m>. </p>
 
-		<!-- div attr= class="center"-->
-		<table>
-			<title></title>
+
+		<sidebyside>
 			<tabular>
-				<row class="odd">
-					<cell halign="center">
-						<m>\begin{array}{rrrrr}
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<row>
+		<cell right="medium"><m>2</m></cell><cell><m>1</m></cell><cell><m>4</m></cell><cell><m>-5</m></cell><cell><m>-14</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell bottom="medium"><m>\downarrow</m></cell><cell bottom="medium"><m>2</m></cell><cell bottom="medium"><m>12</m></cell><cell bottom="medium"></cell>
+	</row>
+	<row>
+		<cell></cell><cell><m>1</m></cell><cell><m>6</m></cell><cell></cell><cell></cell>
+	</row>
+</tabular>
+<tabular>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<row>
+		<cell right="medium"><m>2</m></cell><cell><m>1</m></cell><cell><m>4</m></cell><cell><m>-5</m></cell><cell><m>-14</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell bottom="medium"><m>\downarrow</m></cell><cell bottom="medium"><m>2</m></cell><cell bottom="medium"><m>12</m></cell><cell bottom="medium"></cell>
+	</row>
+	<row>
+		<cell></cell><cell><m>1</m></cell><cell><m>6</m></cell><cell><m>7</m></cell><cell></cell>
+	</row>
+</tabular>
 
-
-							2 \, \, \vline&amp; 1 &amp; 4 &amp; -5 &amp; -14 \\
-
-							&amp; \downarrow &amp; 2 &amp; 12 &amp; \\ \hhline{~----}
-							&amp; 1 &amp; 6 &amp; &amp; \\
-							\end{array}</m>
-					</cell>
-					<cell halign="center">
-						<m>\begin{array}{rrrrr}
-
-
-							2 \, \, \vline&amp; 1 &amp; 4 &amp; -5 &amp; -14 \\
-
-							&amp; \downarrow &amp; 2 &amp; 12 &amp; \\ \hhline{~----}
-							&amp; 1 &amp; 6 &amp; 7 &amp; \\
-							\end{array}</m>
-					</cell>
-				</row>
-			</tabular>
-		</table><!--</div
-		attr= class="center">-->
+		</sidebyside>
 
 		<p> Finally, take the <m>2</m> in the divisor times the <m>7</m> to get <m>14</m>, and add
 			it to the <m>-14</m> to get <m>0</m>. </p>
 
-		<!-- div attr= class="center"-->
-		<table>
-			<title></title>
+
+		<sidebyside>
 			<tabular>
-				<row class="odd">
-					<cell halign="center">
-						<m>\begin{array}{rrrrr}
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<row>
+		<cell right="medium"><m>2</m></cell><cell><m>1</m></cell><cell><m>4</m></cell><cell><m>-5</m></cell><cell><m>-14</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell bottom="medium"><m>\downarrow</m></cell><cell bottom="medium"><m>2</m></cell><cell bottom="medium"><m>12</m></cell><cell bottom="medium"><m>14</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell><m>1</m></cell><cell><m>6</m></cell><cell><m>7</m></cell><cell></cell>
+	</row>
+</tabular>
 
-
-							2 \, \, \vline&amp; 1 &amp; 4 &amp; -5 &amp; -14 \\
-
-							&amp; \downarrow &amp; 2 &amp; 12 &amp; 14 \\ \hhline{~----}
-							&amp; 1 &amp; 6 &amp; 7 &amp; \\
-							\end{array}</m>
-					</cell>
-					<cell halign="center">
-						<m>\begin{array}{rrrrr}
-
-
-							2 \, \, \vline&amp; 1 &amp; 4 &amp; -5 &amp; -14 \\
-
-							&amp; \downarrow &amp; 2 &amp; 12 &amp; 14 \\ \hhline{~----}
-							&amp; 1 &amp; 6 &amp; 7 &amp; \fbox{$0$} \\
-							\end{array}</m>
-					</cell>
-				</row>
-			</tabular>
-		</table><!--</div
-		attr= class="center">-->
+<tabular>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<row>
+		<cell right="medium"><m>2</m></cell><cell><m>1</m></cell><cell><m>4</m></cell><cell><m>-5</m></cell><cell><m>-14</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell bottom="medium"><m>\downarrow</m></cell><cell bottom="medium"><m>2</m></cell><cell bottom="medium"><m>12</m></cell><cell bottom="medium"><m>14</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell><m>1</m></cell><cell><m>6</m></cell><cell><m>7</m></cell><cell><m>\fbox{$0$}</m></cell>
+	</row>
+</tabular>
+		</sidebyside>
 
 		<p> The first three numbers in the last row of our tableau are the coefficients of the
 			quotient polynomial. Remember, we started with a third degree polynomial and divided by
@@ -861,7 +1047,7 @@
 			is our tool of choice for dividing polynomials by divisors of the form <m>x-c</m>. It is
 			important to note that it works <em>only</em> for these kinds of divisors.<fn>
 				
-					You’ll need to use good old-fashioned polynomial long division for divisors of
+					You'll need to use good old-fashioned polynomial long division for divisors of
 			degree larger than 1.
 				
 			</fn>
@@ -873,94 +1059,93 @@
 
 
 		<example>
-			<title> </title>
-			<statement>
+			<introduction>
 				<p>
-					Use synthetic division to perform the following polynomial divisions. Identify
-					the quotient and remainder.
+					Use synthetic division to perform the following polynomial divisions. Identify the quotient and remainder.
 				</p>
-
-				<!-- div attr= class="multicols"-->
-				<p>
-					3
-				</p>
-
-				<p>
-					<ol>
-						<li>
-							<p>
-								<m>\left(5x^3 - 2x^2 + 1\right) \div (x-3)</m>
-							</p>
-						</li>
-
-						<li>
-							<p>
-								<m>\left(t^3+8\right) \div (t+2)</m>
-							</p>
-						</li>
-
-						<li>
-							<p>
-								<m>\dfrac{4-8z-12z^2}{2z-3}</m>
-							</p>
-						</li>
-
-					</ol>
-				</p><!--</div
-				attr= class="multicols">-->
-			</statement>
-
-			<solution>
-				<p>
-					<ol>
-						<li>
-							<p> When setting up the synthetic division tableau, the coefficients of
+			</introduction>
+			<task>
+				<statement>
+					<p>
+						<m>\left(5x^3 - 2x^2 + 1\right) \div (x-3)</m>
+					</p>
+				</statement>
+				<solution>
+					<p>
+						When setting up the synthetic division tableau, the coefficients of
 								even <sq>missing</sq> terms need to be accounted for, so we enter <m>
 								0</m> for the coefficient of <m>x</m> in the dividend. </p>
 
-							<p>
-								<me>\begin{array}{rrrrr}
-
-
-									3 \, \, \vline&amp; 5 &amp; -2 &amp; 0 &amp; 1 \\
-
-									&amp; \downarrow &amp; 15 &amp; 39 &amp; 117 \\ \hhline{~----}
-									&amp; 5 &amp; 13 &amp; 39 &amp; \fbox{$118$} \\
-									\end{array}</me>
-							</p>
-
+<tabular>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<row>
+		<cell right="medium"><m>3</m></cell><cell><m>5</m></cell><cell><m>-2</m></cell><cell><m>0</m></cell><cell><m>1</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell bottom="medium"><m>\downarrow</m></cell><cell bottom="medium"><m>15</m></cell><cell bottom="medium"><m>39</m></cell><cell bottom="medium"><m>117</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell><m>5</m></cell><cell><m>13</m></cell><cell><m>39</m></cell><cell><m>\fbox{$118$}</m></cell>
+	</row>
+</tabular>
 							<p> Since the dividend was a third degree polynomial function, the
 								quotient is a second degree (quadratic) polynomial function with
 								coefficients <m>5</m>, <m>13</m> and <m>39</m>: <m>q(x) =
 								5x^2+13x+39</m>. The remainder is <m>r(x) = 118</m>. According to
-								Theorem <xref ref="polydivthm" />, we have <m>5x^3 - 2x^2 + 1 =
+								<xref ref="polydivthm" />, we have <m>5x^3 - 2x^2 + 1 =
 								(x-3)\left(5x^2+13x+39 \right) + 118</m>, which we leave to the
-								reader to check. </p>
-						</li>
-
-						<li>
-							<p> To use synthetic division here, we rewrite <m>t+2</m> as <m>t-(-2)</m>
+								reader to check.
+					</p>
+				</solution>
+			</task>
+			<task>
+				<statement>
+					<p>
+						<m>\left(t^3+8\right) \div (t+2)</m>
+					</p>
+				</statement>
+				<solution>
+					<p>
+						To use synthetic division here, we rewrite <m>t+2</m> as <m>t-(-2)</m>
 								and proceed as before </p>
 
-							<p>
-								<me>\begin{array}{rrrrr}
-
-
-									-2 \, \, \vline&amp; 1 &amp; 0 &amp; 0 &amp; 8 \\
-
-									&amp; \downarrow &amp; -2 &amp; 4 &amp; -8 \\ \hhline{~----}
-									&amp; 1 &amp; -2 &amp; 4 &amp; \fbox{$0$} \\
-									\end{array}</me>
-							</p>
+<tabular>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<row>
+		<cell right="medium"><m>-2</m></cell><cell><m>1</m></cell><cell><m>0</m></cell><cell><m>0</m></cell><cell><m>8</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell bottom="medium"><m>\downarrow</m></cell><cell bottom="medium"><m>-2</m></cell><cell bottom="medium"><m>4</m></cell><cell bottom="medium"><m>-8</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell><m>1</m></cell><cell><m>-2</m></cell><cell><m>4</m></cell><cell><m>\fbox{$0$}</m></cell>
+	</row>
+</tabular>
 
 							<p> We get the quotient <m>q(t) = t^2-2t+4</m> and the remainder <m>r(t)
 								=0</m>. Relating the dividend, quotient and remainder gives: <m>t^3+8
 								= (t+2)\left( t^2-2t+4 \right)</m>, which is a specific instance of
-								the <sq>sum of cubes</sq> formula some of you may recall. </p>
-						</li>
-
-						<li>
-							<p> To divide <m>4-8z-12z^2</m> by <m>2z-3</m>, two things must be done.
+								the <sq>sum of cubes</sq> formula some of you may recall.
+					</p>
+				</solution>
+			</task>
+			<task>
+				<statement>
+					<p>
+						<m>\dfrac{4-8z-12z^2}{2z-3}</m>
+					</p>
+				</statement>
+				<solution>
+					<p>
+						To divide <m>4-8z-12z^2</m> by <m>2z-3</m>, two things must be done.
 								First, we write the dividend in descending powers of <m>z</m> as <m>
 								-12z^2-8z+4</m>. Second, since synthetic division works only for
 								factors of the form <m>z-c</m>, we factor <m>2z-3</m> as <m>
@@ -970,35 +1155,41 @@
 								obtain <m>-6z^2-4z+2</m>. Next, we divide <m>-6z^2-4z+2</m> by <m>
 								\left(z-\frac{3}{2}\right)</m>: </p>
 
-							<p>
-								<me>\begin{array}{rrrr}
 
-
-									\frac{3}{2} \, \, \vline&amp; -6 &amp; -4 &amp; 2 \\ [4pt]
-
-									&amp; \downarrow &amp; -9 &amp; -\frac{39}{2} \\ [4pt]
-									\hhline{~---}
-									&amp; -6 &amp; -13 &amp; \fbox{$-\frac{35}{2}$} \\
-									\end{array}</me>
-							</p>
+<tabular>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<row>
+		<cell right="medium"><m>\frac{3}{2}</m></cell><cell><m>-6</m></cell><cell><m>-4</m></cell><cell><m>2</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell bottom="medium"><m>\downarrow</m></cell><cell bottom="medium"><m>-9</m></cell><cell bottom="medium"><m>-\frac{39}{2}</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell><m>-6</m></cell><cell><m>-13</m></cell><cell><m>\fbox{$-\frac{35}{2}$}</m></cell>
+	</row>
+</tabular>
 
 							<p> Hence, <m>-6z^2-4z+2 = \left(z-\frac{3}{2}\right)(-6 z - 13) -
 								\frac{35}{2}</m>. However when it comes to writing the dividend,
-								quotient and remainder in the form given in Theorem <xref
+								quotient and remainder in the form given in <xref
 									ref="polydivthm" />, we need to find <m>q(z)</m> and <m>r(z)</m>
 								so that <m>-12z^2-8z+4 = (2z-3) q(z) + r(z)</m>. Hence, starting
 								with <m>-6z^2-4z+2 = \left(z-\frac{3}{2}\right)(-6 z - 13) -
 								\frac{35}{2}</m>, we multiply <m>2</m> back on both sides: </p>
 
 							<p>
-								<me>\begin{array}{rcl}
-									-6z^2-4z+2 &amp; = &amp; \left(z-\frac{3}{2}\right)(-6 z - 13) -
-									\frac{35}{2}\\
-									2\left(-6z^2-4z+2 \right) &amp; = &amp; 2 \left[
-									\left(z-\frac{3}{2}\right)(-6 z - 13) - \frac{35}{2} \right] \\
-									-12z^2-8z+4 &amp; = &amp; 2 \left(z-\frac{3}{2}\right)(-6 z -
-									13) - 2 \left(\frac{35}{2} \right) \\
-									-12z^2-8z+4 &amp; = &amp; (2z-3) (-6 z - 13) - 35 \\ \end{array}</me>
+								<md>
+									<mrow> -6z^2-4z+2 &amp; = \left(z-\frac{3}{2}\right)(-6 z - 13) -
+									\frac{35}{2} </mrow>
+									<mrow> 2\left(-6z^2-4z+2 \right) &amp; =  2 \left[
+									\left(z-\frac{3}{2}\right)(-6 z - 13) - \frac{35}{2} \right] </mrow>
+									<mrow> -12z^2-8z+4 &amp; =  2 \left(z-\frac{3}{2}\right)(-6 z -
+									13) - 2 \left(\frac{35}{2} \right) </mrow>
+									<mrow> -12z^2-8z+4 &amp; = (2z-3) (-6 z - 13) - 35  </mrow>
+</md>
 							</p>
 
 							<p> At this stage, we have written <m>-12z^2-8z+4</m> in the <em>form</em> <m>(2z-3)
@@ -1006,20 +1197,18 @@
 								and the remainder is <m>r(z) = -35</m>. But how can we be sure these
 								are the same quotient and remainder polynomial functions we would
 								have obtained if we had taken the time to do the long division in
-								the first place? Because of the word <sq>unique</sq> in Theorem <xref
+								the first place? Because of the word <sq>unique</sq> in <xref
 									ref="polydivthm" />. The theorem states that there is only <em>
 								one</em> way to decompose <m>-12z^2-8z+4</m> as <m>(2z-3)q(z) + r(z)</m>.
 								Since we have found such a way, we can be sure it is the only way.<fn>
 									
-										But it wouldn’t hurt to check, just this once.
+										But it wouldn't hurt to check, just this once.
 									
 								</fn>
-							</p>
-						</li>
+					</p>
+				</solution>
+			</task>
 
-					</ol>
-				</p>
-			</solution>
 		</example>
 		<p>
 			The next example pulls together all of the concepts discussed in this section.
@@ -1027,83 +1216,89 @@
 
 
 		<example>
-			<title> </title>
-			<statement>
+			<introduction>
 				<p> Let <m>p(x) = 2x^3-5x+3</m>. </p>
-
-				<p>
-					<ol>
-						<li>
-							<p> Find <m>p(-2)</m> using The Remainder Theorem. Check your answer by
+			</introduction>
+			<task>
+				<statement>
+					<p> Find <m>p(-2)</m> using The Remainder Theorem. Check your answer by
 								substitution. </p>
-						</li>
-
-						<li>
-							<p> Verify <m>x=1</m> is a zero of <m>p</m> and use this information to
-								all the real zeros of <m>p</m>. </p>
-						</li>
-
-					</ol>
-				</p>
-			</statement>
-
-			<solution>
-				<p>
-					<ol>
-						<li>
-							<p> The Remainder Theorem states <m>p(-2)</m> is the remainder when <m>
+				</statement>
+				<solution>
+					<p>
+						The Remainder Theorem states <m>p(-2)</m> is the remainder when <m>
 								p(x)</m> is divided by <m>x-(-2)</m>. We set up our synthetic
 								division tableau below. We are careful to record the coefficient of <m>
 								x^2</m> as <m>0</m>: </p>
 
-							<p>
-								<me>\begin{array}{rrrrr}
-									-2 \, \, \vline&amp; 2 &amp; 0 &amp; -5 &amp; 3 \\
-
-									&amp; \downarrow &amp; -4 &amp; 8 &amp; -6 \\ \hhline{~----}
-									&amp; 2 &amp; -4 &amp; 3 &amp; \fbox{$-3$} \\
-									\end{array}</me>
-							</p>
+							<tabular>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<row>
+		<cell right="medium"><m>-2</m></cell><cell><m>2</m></cell><cell><m>0</m></cell><cell><m>-5</m></cell><cell><m>3</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell bottom="medium"><m>\downarrow</m></cell><cell bottom="medium"><m>-4</m></cell><cell bottom="medium"><m>8</m></cell><cell bottom="medium"><m>-6</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell><m>2</m></cell><cell><m>-4</m></cell><cell><m>3</m></cell><cell><m>\fbox{$-3$}</m></cell>
+	</row>
+</tabular>
 
 							<p> According to the Remainder Theorem, <m>p(-2) = -3</m>. We can check
 								this by direct substitution into the formula for <m>p(x)</m>: <m>p(-2)
-								= 2(-2)^3-5(-2)+3 = -16+10+3=-3</m>. </p>
-						</li>
-
-						<li>
-							<p> We verify <m>x=1</m> is a zero of <m>p</m> by evaluating <m>p(1) =
+								= 2(-2)^3-5(-2)+3 = -16+10+3=-3</m>.
+					</p>
+				</solution>
+			</task>
+			<task>
+				<statement>
+					<p> Verify <m>x=1</m> is a zero of <m>p</m> and use this information to
+								all the real zeros of <m>p</m>. </p>
+				</statement>
+				<solution>
+					<p>
+						 We verify <m>x=1</m> is a zero of <m>p</m> by evaluating <m>p(1) =
 								2(1)^3-5(1)+3 = 0</m>. To see if there are any more real zeros, we
 								need to solve <m>p(x) = 2x^3-5x+3 = 0</m>. From the Factor Theorem,
 								we know since <m>p(1) = 0</m>, we can factor <m>p(x)</m> as <m>
 								(x-1)q(x)</m>. To find <m>q(x)</m>, we use synthetic division: </p>
 
-							<p>
-								<me>\begin{array}{rrrrr}
-									1 \, \, \vline&amp; 2 &amp; 0 &amp; -5 &amp; 3 \\
-
-									&amp; \downarrow &amp; 2 &amp; 2 &amp; -3 \\ \hhline{~----}
-									&amp; 2 &amp; 2 &amp; -3 &amp; \fbox{$0$} \\
-									\end{array}</me>
-							</p>
-
+<tabular>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<row>
+		<cell right="medium"><m>1</m></cell><cell><m>2</m></cell><cell><m>0</m></cell><cell><m>-5</m></cell><cell><m>3</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell bottom="medium"><m>\downarrow</m></cell><cell bottom="medium"><m>2</m></cell><cell bottom="medium"><m>2</m></cell><cell bottom="medium"><m>-3</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell><m>2</m></cell><cell><m>2</m></cell><cell><m>-3</m></cell><cell><m>\fbox{$0$}</m></cell>
+	</row>
+</tabular>
 							<p> As promised, our remainder is <m>0</m>, and we get <m>p(x) =
 								(x-1)\left( 2x^2 + 2x - 3\right)</m>. Setting this form of <m>p(x)</m>
 								equal to <m>0</m> we get <m>(x-1)\left( 2x^2 + 2x - 3\right) = 0</m>.
 								We recover <m>x = 1</m> from setting <m>x-1=0</m> but we also obtain <m>x
 								= \frac{-1 \pm \sqrt{7}}{2}</m> from <m>2x^2 + 2x - 3=0</m>,
-								courtesy of the Quadratic Formula. </p>
-						</li>
+								courtesy of the Quadratic Formula.
+					</p>
+				</solution>
+			</task>
 
-					</ol>
-				</p>
-			</solution>
 		</example>
 		<p> Our next example demonstrates how we can extend the synthetic division tableau to
 			accommodate zeros of multiplicity greater than <m>1</m>. </p>
 
 
 		<example>
-			<title> </title>
 			<statement>
 				<p> Let <m>p(x) = 4x^4-4x^3-11x^2+12x-3</m>. Show <m>x=\frac{1}{2}</m> is a zero of
 					multiplicity <m>2</m> and find all of the remaining real zeros of <m>p</m>. </p>
@@ -1118,21 +1313,29 @@
 					\frac{1}{2}\right)</m> directly into the quotient we obtained from the first
 					division as follows: </p>
 
-				<p>
-					<me>\begin{array}{rrrrrr}
-						\frac{1}{2} \, \, \vline&amp; 4 &amp; -4 &amp; -11 &amp; 12 &amp; -3 \\
-
-						&amp; \downarrow &amp; 2 &amp; -1 &amp; -6 &amp; 3\\ \hhline{~-----}
-						\frac{1}{2} \, \, \vline&amp; 4 &amp; -2 &amp; -12 &amp; 6 &amp; \fbox{$0$}
-						\\
-
-						&amp; \downarrow &amp; 2 &amp; 0 &amp; -6 &amp;\\ \hhline{~----}
-
-						&amp; 4 &amp; 0 &amp; -12 &amp; \fbox{0} &amp; \\
-
-
-						\end{array}</me>
-				</p>
+				<tabular>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<row>
+		<cell right="medium"><m>\frac{1}{2}</m></cell><cell><m>4</m></cell><cell><m>-4</m></cell><cell><m>-11</m></cell><cell><m>12</m></cell><cell><m>-3</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell bottom="medium"><m>\downarrow</m></cell><cell bottom="medium"><m>2</m></cell><cell bottom="medium"><m>-1</m></cell><cell bottom="medium"><m>-6</m></cell><cell bottom="medium"><m>3</m></cell>
+	</row>
+	<row>
+		<cell right="medium"><m>\frac{1}{2}</m></cell><cell><m>4</m></cell><cell><m>-2</m></cell><cell><m>-12</m></cell><cell><m>6</m></cell><cell><m>\fbox{$0$}</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell bottom="medium"><m>\downarrow</m></cell><cell bottom="medium"><m>2</m></cell><cell bottom="medium"><m>0</m></cell><cell bottom="medium"><m>-6</m></cell><cell></cell>
+	</row>
+	<row>
+		<cell></cell><cell><m>4</m></cell><cell><m>0</m></cell><cell><m>-12</m></cell><cell><m>\fbox{$0$}</m></cell><cell></cell>
+	</row>
+</tabular>
 
 				<p> We get:<fn>
 						For those wanting more detail: the first division gives: <m>4x^4-4x^3-11x^2+12x-3=\left(x-\frac{1}{2}\right)
@@ -1158,8 +1361,9 @@
 			For us, it suffices to review the basic vocabulary.
 		</p>
 
-		<!-- div attr= class="definition"-->
-		<p>
+		<definition xml:id="def-poly-complex">
+			<statement>
+				<p>
 			<ul>
 				<li>
 					<p> The imaginary unit <m>i = \sqrt{-1}</m> satisfies the two following
@@ -1195,9 +1399,10 @@
 				</li>
 
 			</ul>
-		</p><!--</div
-		attr= class="definition">-->
-
+		</p>
+			</statement>
+		</definition>
+		
 		<p> Note that every real number is a complex number, that is <m>\mathbb{R} \subseteq
 			\mathbb{C}</m>. To see this, take your favorite real number, say <m>117</m>. We may
 			write <m>117 = 117 + 0 i</m> which puts in the form <m>a + bi</m>. Hence, we we speak of
@@ -1216,16 +1421,16 @@
 			Diagram</url>, and opens up a wealth of opportunities to explore many algebraic
 			properties of complex numbers geometrically. For example, complex conjugation amounts to
 			a reflection about the real axis, and multiplication by <m>i</m> amounts to a <m>
-			90^{\circ}</m> rotation. While we won’t have much use for the Complex Plane in this
+			90^{\circ}</m> rotation. While we won't have much use for the Complex Plane in this
 			section, it is worth introducing this concept now, if, for no other reason, it gives the
 			reader a sense of the vastness of the complex number system and the role of the real
 			numbers in it. </p>
 
 		<p> Returning to zeros of polynomials, suppose we wish to find the zeros of <m>f(x) =
 			x^2-2x+5</m>. To solve the equation <m>x^2-2x+5 = 0</m>, we note that the quadratic
-			doesn’t factor nicely, so we resort to the Quadratic Formula and obtain <me>x =
+			doesn't factor nicely, so we resort to the Quadratic Formula and obtain <md>x =
 			\dfrac{-(-2) \pm \sqrt{(-2)^2-4(1)(5)}}{2(1)} = \dfrac{2 \pm \sqrt{-16}}{2} = \dfrac{2
-			\pm 4i}{2} = 1 \pm 2i.</me> Two things are important to note. First, the zeros <m>1+2i</m>
+			\pm 4i}{2} = 1 \pm 2i.</md> Two things are important to note. First, the zeros <m>1+2i</m>
 			and <m>1-2i</m> are complex conjugates. If ever we obtain non-real zeros to a quadratic
 			function with <em>real number</em> coefficients, the zeros will be a complex conjugate
 			pair. (Do you see why?) </p>
@@ -1235,16 +1440,22 @@
 			yes.</sq>
 		</p>
 
-		<p>
-			<me>\begin{array}{rrrr}
-				1+2i \, \, \vline &amp; 1 &amp; -2 &amp; 5 \\
 
-				&amp; \downarrow &amp; 1+2i &amp; -5 \\ \hhline{~---}
-
-				&amp; 1 &amp; -1+2i &amp; \fbox{$0$} \\
-
-				\end{array}</me>
-		</p>
+		<tabular>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<row>
+		<cell right="medium"><m>1+2i</m></cell><cell><m>1</m></cell><cell><m>-2</m></cell><cell><m>5</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell bottom="medium"><m>\downarrow</m></cell><cell bottom="medium"><m>1+2i</m></cell><cell bottom="medium"><m>-5</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell><m>1</m></cell><cell><m>-1+2i</m></cell><cell><m>\fbox{$0$}</m></cell>
+	</row>
+</tabular>
 
 		<p> Indeed, the above shows <m>x^2-2x+5 = (x-[1+2i])(x-1+2i)= (x-[1+2i])(x-[1-2i])</m> which
 			demonstrates both <m>(x-[1+2i])</m> and <m>(x-[1-2i])</m> are factors of <m>x^2-2x+5</m>
@@ -1260,11 +1471,17 @@
 			whatsoever? The answer to that last question is <q>No.</q> and the theorem which
 			provides that answer is The Fundamental Theorem of Algebra. </p>
 
-		<!-- div attr= class="theorem1"-->
-		<p> The Fundamental Theorem of Algebra Suppose <m>f</m> is a polynomial function with
+		<theorem xml:id="thm-FTA">
+			<title>The Fundamental Theorem of Algebra</title>
+			
+			<statement>
+				<p>
+					Suppose <m>f</m> is a polynomial function with
 			complex number coefficients of degree <m>n \geq 1</m>, then <m>f</m> has at least one
-			complex zero. </p><!--</div
-		attr= class="theorem1">-->
+			complex zero.
+				</p>
+			</statement>
+		</theorem>
 
 		<p> The Fundamental Theorem of Algebra is an example of an <sq>existence</sq> theorem in
 			Mathematics. Like the Intermediate Value Theorem, the Fundamental Theorem of Algebra
@@ -1292,7 +1509,7 @@
 			z_{\mbox{\tiny $2$}}\right) q_{\mbox{\tiny $2$}}(x)</m>, and hence <m>f(x) = \left(x -
 			z_{\mbox{\tiny $1$}}\right) \left(x - z_{\mbox{\tiny $2$}}\right) q_{\mbox{\tiny
 			$2$}}(x)</m>. We can continue this process exactly <m>n</m> times, at which point our
-			quotient polynomial <m>q_{\mbox{\tiny $n$}}</m> has degree <m>0</m> so it’s a constant.
+			quotient polynomial <m>q_{\mbox{\tiny $n$}}</m> has degree <m>0</m> so it's a constant.
 			This constant is none-other than the leading coefficient of <m>f</m> which is carried
 			down line by line each time we divide by factors of the form <m>x-c</m>. </p>
 
@@ -1313,93 +1530,95 @@
 		</theorem>
 
 
-		<p> Theorem <xref ref="complexfactorization" /> says two important things: first, every
+		<p> <xref ref="complexfactorization" /> says two important things: first, every
 			polynomial is a product of linear factors; second, every polynomial function is
 			completely determined by its zeros, their multiplicities, and its leading coefficient.
 			We put this theorem to good use in the next example. </p>
 
 
 		<example>
-			<title> </title>
-			<statement>
+			<introduction>
 				<p> Let <m>f(x) = 12x^5 - 20x^4+19x^3-6x^2-2x+1</m>. </p>
-
-				<p>
-					<ol>
-						<li>
-							<p> Find all of the complex zeros of <m>f</m> and state their
-								multiplicities. </p>
-						</li>
-
-						<li>
-							<p> Factor <m>f(x)</m> using Theorem <xref ref="complexfactorization" />
-							</p>
-						</li>
-
-					</ol>
-				</p>
-			</statement>
-
-			<solution>
-				<p>
-					<ol>
-						<li>
-							<p> Since <m>f</m> is a fifth degree polynomial, we know that we need to
+			</introduction>
+				<task>
+					<statement>
+						<p>
+							Find all of the complex zeros of <m>f</m> and state their
+								multiplicities.
+						</p>
+					</statement>
+					<solution>
+						<p>
+							Since <m>f</m> is a fifth degree polynomial, we know that we need to
 								perform at least three successful divisions to get the quotient down
 								to a quadratic function. At that point, we can find the remaining
 								zeros using the Quadratic Formula, if necessary. Using the
 								techniques of synthetic division: </p>
 
-							<p>
-								<me>\begin{array}{rrrrrrr}
-									\frac{1}{2} \, \, \vline&amp; 12 &amp; -20&amp; 19 &amp; -6
-									&amp; -2 &amp;1 \\
 
-									&amp; \downarrow &amp; 6 &amp; -7 &amp; 6 &amp; 0 &amp; -1\\
-									\hhline{~------}
-
-									\frac{1}{2} \, \, \vline&amp; 12 &amp; -14 &amp; 12 &amp; 0
-									&amp; -2 &amp; \fbox{$0$} \\
-
-									&amp; \downarrow &amp; 6 &amp; -4 &amp; 4 &amp; 2 &amp;\\
-									\hhline{~-----}
-
-									-\frac{1}{3} \, \, \vline&amp; 12 &amp; -8 &amp; 8 &amp; 4 &amp;
-									\fbox{$0$} &amp; \\
-
-									&amp; \downarrow &amp; -4 &amp; 4 &amp; -4 &amp; &amp; \\
-									\hhline{~----}
-
-									&amp; 12 &amp; -12 &amp; 12&amp; \fbox{0} &amp;&amp; \\
-									\end{array}</me>
-							</p>
+							<tabular>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<col halign="right"/>
+	<row>
+		<cell right="medium"><m>\frac{1}{2}</m></cell><cell><m>12</m></cell><cell><m>-20</m></cell><cell><m>19</m></cell><cell><m>-6</m></cell><cell><m>-2</m></cell><cell><m>1</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell bottom="medium"><m>\downarrow</m></cell><cell bottom="medium"><m>6</m></cell><cell bottom="medium"><m>-7</m></cell><cell bottom="medium"><m>6</m></cell><cell bottom="medium"><m>0</m></cell><cell bottom="medium"><m>-1</m></cell>
+	</row>
+	<row>
+		<cell right="medium"><m>\frac{1}{2}</m></cell><cell><m>12</m></cell><cell><m>-14</m></cell><cell><m>12</m></cell><cell><m>0</m></cell><cell><m>-2</m></cell><cell><m>\fbox{$0$}</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell bottom="medium"><m>\downarrow</m></cell><cell bottom="medium"><m>6</m></cell><cell bottom="medium"><m>-4</m></cell><cell bottom="medium"><m>4</m></cell><cell bottom="medium"><m>2</m></cell><cell></cell>
+	</row>
+	<row>
+		<cell right="medium"><m>-\frac{1}{3}</m></cell><cell><m>12</m></cell><cell><m>-8</m></cell><cell><m>8</m></cell><cell><m>4</m></cell><cell><m>\fbox{$0$}</m></cell><cell></cell>
+	</row>
+	<row>
+		<cell></cell><cell bottom="medium"><m>\downarrow</m></cell><cell bottom="medium"><m>-4</m></cell><cell bottom="medium"><m>4</m></cell><cell bottom="medium"><m>-4</m></cell><cell></cell><cell></cell>
+	</row>
+	<row>
+		<cell></cell><cell><m>12</m></cell><cell><m>-12</m></cell><cell><m>12</m></cell><cell><m>\fbox{$0$}</m></cell><cell></cell><cell></cell>
+	</row>
+</tabular>
 
 							<p> Our quotient is <m>12x^2 - 12x + 12</m>, whose zeros we find to be <m>\frac{1
-								\pm i \sqrt{3}}{2}</m>. From Theorem <xref
+								\pm i \sqrt{3}}{2}</m>. From <xref
 									ref="complexfactorization" />, we know <m>f</m> has exactly <m>5</m>
 								zeros, counting multiplicities, and as such we have the zero <m>
 								\frac{1}{2}</m> with multiplicity <m>2</m>, and the zeros <m>
 								-\frac{1}{3}</m>, <m>\frac{1 + i \sqrt{3}}{2}</m> and <m>\frac{1 - i
-								\sqrt{3}}{2}</m>, each of multiplicity <m>1</m>. </p>
-						</li>
-
-						<li>
-							<p> Applying Theorem <xref ref="complexfactorization" />, we are
+								\sqrt{3}}{2}</m>, each of multiplicity <m>1</m>.
+						</p>
+					</solution>
+				</task>
+				<task>
+					<statement>
+						<p>
+							Factor <m>f(x)</m> using <xref ref="complexfactorization" />
+						</p>
+					</statement>
+					<solution>
+						<p>
+							Applying <xref ref="complexfactorization" />, we are
 								guaranteed that <m>f</m> factors as </p>
 
 							<p>
-								<me>f(x) = 12 \left(x- \dfrac{1}{2}\right)^2 \left(x +
+								<md>f(x) = 12 \left(x- \dfrac{1}{2}\right)^2 \left(x +
 									\dfrac{1}{3}\right) \left(x - \left[\dfrac{1 + i
 									\sqrt{3}}{2}\right]\right) \left(x - \left[\dfrac{1 - i
-									\sqrt{3}}{2}\right]\right)</me>
-							</p>
-						</li>
+									\sqrt{3}}{2}\right]\right)</md>
+						</p>
+					</solution>
+				</task>
 
-					</ol>
-				</p>
-			</solution>
 		</example>
-		<p> A true test of Theorem <xref ref="complexfactorization" /> would be to take the factored
+		<p> A true test of <xref ref="complexfactorization" /> would be to take the factored
 			form of <m>f(x)</m> in the previous example and multiply it out<fn>
 				
 					This is a good chance to test your algebraic mettle and see that all of this
@@ -1407,7 +1626,7 @@
 				
 			</fn>
 			to see that it really does reduce to <m>f(x) = 12x^5 - 20x^4+19x^3-6x^2-2x+1</m>. When
-			factoring a polynomial using Theorem <xref ref="complexfactorization" />, we say that it
+			factoring a polynomial using <xref ref="complexfactorization" />, we say that it
 			is <em>factored completely over the complex numbers</em>, meaning that it is impossible
 			to factor the polynomial any further using complex numbers. If we wanted to completely
 			factor <m>f(x)</m> over the <em>real numbers</em> then we would have stopped short of
@@ -1439,50 +1658,42 @@
 			number coefficients. If <m>z</m> is a zero of <m>f</m>, then <m>f(z) = 0</m>, which
 			means <m>a_{n} z^{n} + a_{n-\mbox{\tiny$1$}} z^{n-\mbox{\tiny$1$}} + \ldots +
 			a_{\mbox{\tiny $2$}} z^{\mbox{\tiny $2$}} + a_{\mbox{\tiny $1$}} z + a_{\mbox{\tiny
-			$0$}} = 0</m>. Next, we consider <m>f\left(\overline{z}\right)</m> and apply Theorem <xref
+			$0$}} = 0</m>. Next, we consider <m>f\left(\overline{z}\right)</m> and apply <xref
 				ref="conjugateprops" /> below. </p>
 
 		<p>
-			<me>\begin{array}{rclr}
-
-				f\left(\overline{z}\right) &amp; = &amp; a_{n} \left(\overline{z}\right)^{n} +
+			<md>
+				<mrow> f\left(\overline{z}\right) &amp; =  a_{n} \left(\overline{z}\right)^{n} +
 				a_{n-\mbox{\tiny$1$}} \left(\overline{z}\right)^{n-\mbox{\tiny$1$}} + \ldots +
 				a_{\mbox{\tiny $2$}}\left( \overline{z}\right)^{\mbox{\tiny $2$}} + a_{\mbox{\tiny
-				$1$}} \overline{z} + a_{\mbox{\tiny $0$}} &amp; \\ [3pt]
-
-				&amp; = &amp; a_{n}\overline{z^{n}} +
+				$1$}} \overline{z} + a_{\mbox{\tiny $0$}} </mrow>
+				<mrow> &amp; =  a_{n}\overline{z^{n}} +
 				a_{n-\mbox{\tiny$1$}}\overline{z^{n-\mbox{\tiny$1$}}} + \ldots + a_{\mbox{\tiny
 				$2$}}\overline{z^{\mbox{\tiny $2$}}} + a_{\mbox{\tiny $1$}} \overline{z} +
 				a_{\mbox{\tiny $0$}} &amp; \mbox{ since $\left(\overline{z}\right)^n =
-				\overline{z^{n}}$}\\ [3pt]
-
-				&amp; = &amp; \overline{a_{n}}\overline{z^{n}} +
+				\overline{z^{n}}$} </mrow>
+				<mrow> &amp; =  \overline{a_{n}}\overline{z^{n}} +
 				\overline{a_{n-\mbox{\tiny$1$}}}\overline{z^{n-\mbox{\tiny$1$}}} + \ldots +
 				\overline{a_{\mbox{\tiny $2$}}}\overline{z^{\mbox{\tiny $2$}}} +
 				\overline{a_{\mbox{\tiny $1$}}}\, \overline{z} + \overline{a_{\mbox{\tiny $0$}}}
-				&amp; \mbox{since the coefficients are real} \\ [3pt]
-
-				&amp; = &amp; \overline{a_{n} z^{n}} + \overline{a_{n-\mbox{\tiny$1$}}
+				&amp; \mbox{since the coefficients are real} </mrow>
+				<mrow> &amp; = \overline{a_{n} z^{n}} + \overline{a_{n-\mbox{\tiny$1$}}
 				z^{n-\mbox{\tiny$1$}}} + \ldots + \overline{a_{\mbox{\tiny $2$}} z^{\mbox{\tiny
 				$2$}}} + \overline{a_{\mbox{\tiny $1$}} z} + \overline{a_{\mbox{\tiny $0$}}} &amp;
-				\mbox{ since $\overline{z} \, \overline{w}=\overline{zw} $}\\ [3pt]
-
-				&amp; = &amp; \overline{a_{n} z^{n} + a_{n-\mbox{\tiny$1$}} z^{n-\mbox{\tiny$1$}} +
+				\mbox{ since $\overline{z} \, \overline{w}=\overline{zw} $} </mrow>
+				<mrow> &amp; =  \overline{a_{n} z^{n} + a_{n-\mbox{\tiny$1$}} z^{n-\mbox{\tiny$1$}} +
 				\ldots + a_{\mbox{\tiny $2$}} z^{\mbox{\tiny $2$}} + a_{\mbox{\tiny $1$}} z +
 				a_{\mbox{\tiny $0$}}} &amp; \mbox{ since $ \overline{z} + \overline{w} =
-				\overline{z+w} $}\\ [3pt]
-
-				&amp; = &amp; \overline{f(z)} &amp; \\ [3pt]
-
-				&amp; = &amp; \overline{0} &amp; \\ [3pt]
-
-				&amp; = &amp; 0 &amp; \\
-
-				\end{array}</me>
+				\overline{z+w} $} </mrow>
+				<mrow> &amp; = \overline{f(z)} </mrow>
+				<mrow> &amp; =  \overline{0} </mrow>
+				<mrow> &amp; =  0 </mrow>
+				
+	</md>
 		</p>
 
 		<p> This shows that <m>\overline{z}</m> is a zero of <m>f</m>. So, if <m>f</m> is a
-			polynomial function with real number coefficients, Theorem <xref ref="conjugatepairsthm" />
+			polynomial function with real number coefficients, <xref ref="conjugatepairsthm" />
 			tells us that if <m>a+bi</m> is a nonreal zero of <m>f</m>, then so is <m>a-bi</m>. In
 			other words, nonreal zeros of <m>f</m> come in conjugate pairs. The Factor Theorem kicks
 			in to give us both <m>(x-[a+bi])</m> and <m>(x-[a-bi])</m> as factors of <m>f(x)</m>
@@ -1490,107 +1701,124 @@
 			irreducible quadratic factor of <m>f</m>. As a result, we have our last theorem of the
 			section. </p>
 
-		<!-- div attr= class="theorem1"-->
-		<p> Real Factorization Theorem Suppose <m>f</m> is a polynomial function with real number
+		<theorem xml:id="thm-realfactorization">
+			<statement>
+				<p>Suppose <m>f</m> is a polynomial function with real number
 			coefficients. Then <m>f(x)</m> can be factored into a product of linear factors
 			corresponding to the real zeros of <m>f</m> and irreducible quadratic factors which give
-			the nonreal zeros of <m>f</m>. </p><!--</div
-		attr= class="theorem1">-->
-
-
-		<example>
-			<title> </title>
-			<statement>
-				<p> Let <m>f(x) = x^4+64</m>. </p>
-
-				<p>
-					<ol>
-						<li>
-							<p> Use synthetic division to show that <m>x=2+2i</m> is a zero of <m>f</m>
-								.
-							</p>
-						</li>
-
-						<li>
-							<p> Find the remaining complex zeros of <m>f</m>. </p>
-						</li>
-
-						<li>
-							<p> Completely factor <m>f(x)</m> over the complex numbers. </p>
-						</li>
-
-						<li>
-							<p> Completely factor <m>f(x)</m> over the real numbers. </p>
-						</li>
-
-					</ol>
-				</p>
+			the nonreal zeros of <m>f</m>. </p>
 			</statement>
-
-			<solution>
-				<p>
-					<ol>
-						<li>
-							<p> Remembering to insert the <m>0</m>’s in the synthetic division
+		</theorem>
+		
+		<example>
+			<introduction>
+				<p> Let <m>f(x) = x^4+64</m>. </p>
+			</introduction>
+				<task>
+					<statement>
+						<p>
+							Use synthetic division to show that <m>x=2+2i</m> is a zero of <m>f</m>.
+						</p>
+					</statement>
+					<solution>
+						<p>
+							Remembering to insert the <m>0</m>'s in the synthetic division
 								tableau we have </p>
 
-							<p>
-								<me>\begin{array}{cccccc}
-									2+2i \, \, \vline&amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 64 \\
-									&amp; \downarrow &amp; 2+2i &amp; 8i &amp; -16+16i &amp; -64\\
-									\hhline{~-----}
-
-									&amp; 1 &amp; 2+2i &amp; 8i &amp; -16+16i &amp; \fbox{$0$} \\
-									\end{array}</me>
-							</p>
-						</li>
-
-						<li>
-							<p> Since <m>f</m> is a fourth degree polynomial, we need to make two
+						<tabular>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<row>
+		<cell right="medium"><m>2+2i</m></cell><cell><m>1</m></cell><cell><m>0</m></cell><cell><m>0</m></cell><cell><m>0</m></cell><cell><m>64</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell bottom="medium"><m>\downarrow</m></cell><cell bottom="medium"><m>2+2i</m></cell><cell bottom="medium"><m>8i</m></cell><cell bottom="medium"><m>-16+16i</m></cell><cell bottom="medium"><m>-64</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell><m>1</m></cell><cell><m>2+2i</m></cell><cell><m>8i</m></cell><cell><m>-16+16i</m></cell><cell><m>\fbox{$0$}</m></cell>
+	</row>
+</tabular>
+					</solution>
+				</task>
+				<task>
+					<statement>
+						<p>
+							Find the remaining complex zeros of <m>f</m>.
+						</p>
+					</statement>
+					<solution>
+						<p>
+							Since <m>f</m> is a fourth degree polynomial, we need to make two
 								successful divisions to get a quadratic quotient. Since <m>2+2i</m>
-								is a zero, we know from Theorem <xref ref="conjugatepairsthm" />
+								is a zero, we know from <xref ref="conjugatepairsthm" />
 								that <m>2-2i</m> is also a zero. We continue our synthetic division
 								tableau. </p>
 
-							<p>
-								<me>\begin{array}{cccccc}
-									2+2i \, \, \vline&amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 64 \\
-									&amp; \downarrow &amp; 2+2i &amp; 8i &amp; -16+16i &amp; -64\\
-									\hhline{~-----}
-
-									2-2i \, \, \vline &amp; 1 &amp; 2+2i &amp; 8i &amp; -16+16i
-									&amp; \fbox{$0$} \\
-
-									&amp; \downarrow &amp; 2-2i &amp; 8-8i &amp; 16-16i &amp;\\
-									\hhline{~----}
-
-									&amp; 1 &amp; 4 &amp; 8&amp; \fbox{0} &amp; \\
-
-
-									\end{array}</me>
-							</p>
+							<tabular>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<col halign="center"/>
+	<row>
+		<cell right="medium"><m>2+2i</m></cell><cell><m>1</m></cell><cell><m>0</m></cell><cell><m>0</m></cell><cell><m>0</m></cell><cell><m>64</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell bottom="medium"><m>\downarrow</m></cell><cell bottom="medium"><m>2+2i</m></cell><cell bottom="medium"><m>8i</m></cell><cell bottom="medium"><m>-16+16i</m></cell><cell bottom="medium"><m>-64</m></cell>
+	</row>
+	<row>
+		<cell right="medium"><m>2-2i</m></cell><cell><m>1</m></cell><cell><m>2+2i</m></cell><cell><m>8i</m></cell><cell><m>-16+16i</m></cell><cell><m>\fbox{$0$}</m></cell>
+	</row>
+	<row>
+		<cell></cell><cell bottom="medium"><m>\downarrow</m></cell><cell bottom="medium"><m>2-2i</m></cell><cell bottom="medium"><m>8-8i</m></cell><cell bottom="medium"><m>16-16i</m></cell><cell></cell>
+	</row>
+	<row>
+		<cell></cell><cell><m>1</m></cell><cell><m>4</m></cell><cell><m>8</m></cell><cell><m>\fbox{$0$}</m></cell><cell></cell>
+	</row>
+</tabular>
 
 							<p> Our quotient polynomial is <m>x^2+4x+8</m>. Using the quadratic
 								formula, we solve <m>x^2+4x+8 = 0</m> and find the remaining zeros
-								are <m>-2+2i</m> and <m>-2-2i</m>. </p>
-						</li>
-
-						<li>
-							<p> Using Theorem <xref ref="complexfactorization" />, we get <m>f(x) =
-								(x-[2-2i])(x-[2+2i])(x-[-2+2i])(x-[-2-2i])</m>. </p>
-						</li>
-
-						<li>
-							<p> To find the irreducible quadratic factors of <m>f(x)</m>, we
+								are <m>-2+2i</m> and <m>-2-2i</m>.
+						</p>
+					</solution>
+				</task>
+				<task>
+					<statement>
+						<p>
+							Completely factor <m>f(x)</m> over the complex numbers.
+						</p>
+					</statement>
+					<solution>
+						<p>
+							Using <xref ref="complexfactorization" />, we get <m>f(x) =
+								(x-[2-2i])(x-[2+2i])(x-[-2+2i])(x-[-2-2i])</m>. 
+						</p>
+					</solution>
+				</task>
+				<task>
+					<statement>
+						<p>
+							Completely factor <m>f(x)</m> over the real numbers.
+						</p>
+					</statement>
+					<solution>
+						<p>
+							To find the irreducible quadratic factors of <m>f(x)</m>, we
 								multiply the factors together which correspond to the conjugate
 								pairs. We find <m>(x-[2-2i])(x-[2+2i]) = x^2-4x+8</m>, and <m>(x-[-2+2i])(x-[-2-2i])
 								= x^2+4x+8</m>, so <m>f(x) = \left(x^2-4x+8\right)
-								\left(x^2+4x+8\right)</m>. </p>
-						</li>
+								\left(x^2+4x+8\right)</m>.
+						</p>
+					</solution>
+				</task>
 
-					</ol>
-				</p>
-			</solution>
+
 		</example>
 		<p>
 			We close this section with an example where we are asked to manufacture a polynomial
@@ -1599,7 +1827,6 @@
 
 
 		<example>
-			<title> </title>
 			<statement>
 				<p> Find a polynomial function <m>p</m> of lowest degree that has integer
 					coefficients and satisfies all of the following criteria: </p>
@@ -1630,9 +1857,6 @@
 					</ul>
 				</p>
 
-				<!-- div attr= class="center"-->
-				<!--</div
-				attr= class="center">-->
 			</statement>
 
 			<solution>
@@ -1640,7 +1864,7 @@
 					between the <m>x</m>-intercepts of the graph of a function and the zeros of a
 					function, the Factor Theorem, the role of multiplicity, complex conjugates, the
 					Complex Factorization Theorem, and end behavior of polynomial functions. (In
-					short, you’ll need most of the major concepts of this chapter.) Since the graph
+					short, you'll need most of the major concepts of this chapter.) Since the graph
 					of <m>p</m> touches the <m>x</m>-axis at <m>\left(\frac{1}{3}, 0\right)</m>, we
 					know <m>x=\frac{1}{3}</m> is a zero of even multiplicity. Since we are after a
 					polynomial of lowest degree, we need <m>x=\frac{1}{3}</m> to have multiplicity

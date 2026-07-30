@@ -45,7 +45,7 @@
 <md>
 y'' = F(x, y, y')
 </md>
- for <m>F</m> an arbitrary function of three variables. As with first order equations, if the function <m>F</m> is not in a nice or simple form, there really isn’t a hope to find a solution for this. For second order equations, we need to be even more specific about the structure of these equations in order to find solutions than we did for first order.
+ for <m>F</m> an arbitrary function of three variables. As with first order equations, if the function <m>F</m> is not in a nice or simple form, there really isn't a hope to find a solution for this. For second order equations, we need to be even more specific about the structure of these equations in order to find solutions than we did for first order.
 		</p>
 
 <definition xml:id="def-second-order-linear">
@@ -294,7 +294,7 @@ y(x) = b_0 \cosh (kx) + \frac{b_1}{k} \sinh (kx) .
 <md>
 ay'' + by' + cy = g(x)
 </md>
- for real constants <m>a, b, c</m> and an arbitrary function <m>g(x)</m>. We will study the solution of nonhomogeneous equations (with <m>g(x) \neq 0</m>) in . We will first focus on finding general solutions to homogeneous equations, which are of the form 
+ for real constants <m>a, b, c</m> and an arbitrary function <m>g(x)</m>. We will study the solution of nonhomogeneous equations (with <m>g(x) \neq 0</m>) in <xref ref="sec-nonhom"/>. We will first focus on finding general solutions to homogeneous equations, which are of the form 
 <md>
 ay'' + by' + cy = 0.
 </md>
@@ -349,7 +349,7 @@ y''-6y'+8y = 0.
 			</ol></p>
 
 			<p>
-				The second point comes back to the existence and uniqueness theorem. This differential equation satisfies the conditions of the existence and uniqueness theorem. That means that as long as we find <em>a</em> solution that can meet any initial condition, then we know that the solution we have found is the <em>only</em> solution. We have not yet verified the part about meeting initial conditions yet (that'’'s coming later), but once we do, we'll know that making this assumption is completely fine, because it got us to a solution that works, and the uniqueness theorem tells us that this is the only solution.
+				The second point comes back to the existence and uniqueness theorem. This differential equation satisfies the conditions of the existence and uniqueness theorem. That means that as long as we find <em>a</em> solution that can meet any initial condition, then we know that the solution we have found is the <em>only</em> solution. We have not yet verified the part about meeting initial conditions yet (that'''s coming later), but once we do, we'll know that making this assumption is completely fine, because it got us to a solution that works, and the uniqueness theorem tells us that this is the only solution.
 			</p>
 
 			<p>
@@ -389,13 +389,13 @@ r_1, r_2 = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} .
 
 				<li>
 							<p>
-								If <m>b^2 - 4ac &lt; 0</m>, then <m>r_1</m> and <m>r_2</m> are complex numbers. We can still use <m>e^{r_1x}</m> and <m>e^{r_2x}</m> as solutions, but this runs into some issues, which will be addressed in Section <xref ref="complexroots-section" />.
+								If <m>b^2 - 4ac &lt; 0</m>, then <m>r_1</m> and <m>r_2</m> are complex numbers. We can still use <m>e^{r_1x}</m> and <m>e^{r_2x}</m> as solutions, but this runs into some issues, which will be addressed in <xref ref="complexroots-section" />.
 							</p>
 				</li>
 
 				<li>
 							<p>
-								If <m>b^2 - 4ac = 0</m>, then we only get one root, since <m>r_1 = r_2</m>. We do get that <m>e^{r_1x}</m> as a solution, but that’s all we get. This is another issue, which is addressed in Section <xref ref="reproots-section" />.
+								If <m>b^2 - 4ac = 0</m>, then we only get one root, since <m>r_1 = r_2</m>. We do get that <m>e^{r_1x}</m> as a solution, but that's all we get. This is another issue, which is addressed in <xref ref="reproots-section" />.
 							</p>
 				</li>
 
@@ -430,7 +430,7 @@ r^2 + 3r - 10 = 0
 			<title>Linear Independence</title>
 
 			<p>
-				Since <m>e^{2x}</m> and <m>e^{-5x}</m> solve the linear differential equation in the previous example, we know that superposition applies, so that <m>C_1e^{2x} + C_2e^{-5x}</m> solves the differential equation for any <m>C_1</m> and <m>C_2</m>. The last thing to figure out is if this is <em>all</em> of the solutions to this problem, namely if we can pick <m>C_1</m> and <m>C_2</m> in order to meet any possible initial condition <m>y(a) = b_0</m> and <m>y'(a) = b_1</m>. If this is possible, then we know that our method using the characteristic equation to find <m>e^{2x}</m> and <m>e^{-5x}</m> as solutions was enough to always solve this problem. To begin, we’ll define a structure that we’ll use later in and may seem a bit irrelevant now, but it will all tie together.
+				Since <m>e^{2x}</m> and <m>e^{-5x}</m> solve the linear differential equation in the previous example, we know that superposition applies, so that <m>C_1e^{2x} + C_2e^{-5x}</m> solves the differential equation for any <m>C_1</m> and <m>C_2</m>. The last thing to figure out is if this is <em>all</em> of the solutions to this problem, namely if we can pick <m>C_1</m> and <m>C_2</m> in order to meet any possible initial condition <m>y(a) = b_0</m> and <m>y'(a) = b_1</m>. If this is possible, then we know that our method using the characteristic equation to find <m>e^{2x}</m> and <m>e^{-5x}</m> as solutions was enough to always solve this problem. To begin, we'll define a structure that we'll use later in <xref ref="linalg-appendix"/> and may seem a bit irrelevant now, but it will all tie together.
 			</p>
 
 <definition xml:id="def-lin-indep-equns">
@@ -453,17 +453,15 @@ r^2 + 3r - 10 = 0
 <md>
 C_1e^{2x} + C_2e^{-5x} = 0 \quad \Rightarrow \quad C_1e^{2x} = -C_2e^{-5x} \quad \Rightarrow \quad e^{7x} = -\frac{C_2}{C_1} 
 </md>
- which cannot be true for all values of <m>x</m> because <m>e^{7x}</m> is not a constant but <m>-\frac{C_2}{C_1}</m> is. Another way is by taking the derivative of the combination and setting <m>x</m> to zero in both the original and the derivative. 
+ which cannot be true for all values of <m>x</m> because <m>e^{7x}</m> is not a constant but <m>-\frac{C_2}{C_1}</m> is. Another way is by taking the derivative of the combination to get 
 <md>
-\begin{split}
-C_1e^{2x} + C_2e^{-5x} &amp;= 0 \\
-2C_1e^{2x} - 5C_2e^{-5x} &amp;= 0\\
-\end{split}
-\quad \Rightarrow \quad 
-\begin{split}
-C_1 + C_2 &amp;= 0\\
-2C_1 - 5C_2 &amp;= 0\\
-\end{split}
+<mrow>C_1e^{2x} + C_2e^{-5x} \amp= 0 </mrow>
+<mrow> 2C_1e^{2x} - 5C_2e^{-5x} \amp= 0</mrow>
+</md>
+Setting <m>x</m> to zero in both the original and the derivative results in
+<md> 
+<mrow>C_1 + C_2 \amp= 0</mrow>
+<mrow> 2C_1 - 5C_2 \amp= 0</mrow>
 </md>
  and we can solve this last system to get that we must have <m>C_1 = C_2 = 0</m>.
 			</p>
@@ -474,7 +472,7 @@ C_1 + C_2 &amp;= 0\\
 			</p>
 
 			<p>
-				Now, what does this have to do with our initial conditions and showing that we can get all solutions via this method? The connection may not be obvious at first (without suitable experience in linear algebra) but we will get there. First, let’s start by just seeing what needs to happen in order to meet any initial condition at <m>x=0</m>. Assume that we are given <m>b_0</m> and <m>b_1</m> and want to solve the initial value problem 
+				Now, what does this have to do with our initial conditions and showing that we can get all solutions via this method? The connection may not be obvious at first (without suitable experience in linear algebra) but we will get there. First, let's start by just seeing what needs to happen in order to meet any initial condition at <m>x=0</m>. Assume that we are given <m>b_0</m> and <m>b_1</m> and want to solve the initial value problem 
 <md>
 y'' + 3y' - 10y = 0 \qquad y(0) = b_0,\ y'(0) = b_1.
 </md>
@@ -516,7 +514,7 @@ C_2 = b_0 - C_1 = b_0 - \frac{5b_0 + b_1}{7} = \frac{2b_0 - b_1}{7}.
 <md>
 b_0y_1'(x_0) - b_1y_1(x_0) = C_2(y_1'(x_0)y_2(x_0) - y_1(x_0)y_2'(x_0)).
 </md>
- We want to solve for <m>C_2</m> here, and once we do that, solving for <m>C_1</m> happens by plugging back into one of the original equations. Most of the time, this will be completely fine, but there’s one issue left. We can’t divide by zero. So to be able to solve these equations for <m>C_1</m> and <m>C_2</m>, we need to know that 
+ We want to solve for <m>C_2</m> here, and once we do that, solving for <m>C_1</m> happens by plugging back into one of the original equations. Most of the time, this will be completely fine, but there's one issue left. We can't divide by zero. So to be able to solve these equations for <m>C_1</m> and <m>C_2</m>, we need to know that 
 <md number="yes" xml:id="eqn-linindepW">
 y_1'(x_0)y_2(x_0) - y_1(x_0)y_2'(x_0) \neq 0.
 </md>
@@ -527,7 +525,7 @@ y_1'(x_0)y_2(x_0) - y_1(x_0)y_2'(x_0) \neq 0.
 			</p>
 
 			<p>
-				In order to bring everything together, the last statement we need to show is that if two solutions are linearly independent, then their Wronskian is zero, which will tell us that linear independence is enough to know that we can solve any initial value problem we want and have found all solutions to the problem in question.
+				In order to bring everything together, the last statement we need to show is that if two solutions are linearly independent, then their Wronskian is non-zero, which will tell us that linear independence is enough to know that we can solve any initial value problem we want and have found all solutions to the problem in question.
 			</p>
 
 <theorem xml:id="thm-lin-indep-Wronskian">
@@ -601,7 +599,7 @@ y = C_1 y_1 + C_2 y_2
 </statement>
 
 <solution>			<p>
-				One of the four fundamental equations in showed that the two functions <m>y_1 = \sin x</m> and <m>y_2 = \cos x</m> are solutions to the equation <m>y'' + y = 0</m>. It is not hard to see that sine and cosine are not constant multiples of each other. If <m>\sin x = A \cos x</m> for some <term>constant</term> <m>A</m>, we let <m>x=0</m> and this would imply <m>A = 0</m>. But then <m>\sin x = 0</m> for all <m>x</m>, which is preposterous. So <m>y_1</m> and <m>y_2</m> are linearly independent. We could also have checked this by taking derivatives and plugging in zero. Since 
+				One of the four fundamental equations in <xref ref="subsection-fourfundamental" text="title"/> showed that the two functions <m>y_1 = \sin x</m> and <m>y_2 = \cos x</m> are solutions to the equation <m>y'' + y = 0</m>. It is not hard to see that sine and cosine are not constant multiples of each other. If <m>\sin x = A \cos x</m> for some <term>constant</term> <m>A</m>, we let <m>x=0</m> and this would imply <m>A = 0</m>. But then <m>\sin x = 0</m> for all <m>x</m>, which is preposterous. So <m>y_1</m> and <m>y_2</m> are linearly independent. We could also have checked this by taking derivatives and plugging in zero. Since 
 <md>
 y_1(0) = 0 \ \ y_1'(0) = 1\ \ y_2(0) = 1\ \ y_2'(0) = 0 
 </md>
@@ -771,6 +769,12 @@ y(x) = \left(1 + \frac{1}{2\sqrt{2}}\right)e^{(1 + \sqrt{2})x} + \left(1 - \frac
 				Are <m>\sin(x)</m> and <m>e^x</m> linearly independent? Justify.
 			</p>
 </statement>
+<answer>
+	<p>
+		Yes.  To justify try to find a constant <m>A</m> such that <m>\sin(x) = A e^x</m>
+for all <m>x</m>.
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -779,6 +783,11 @@ y(x) = \left(1 + \frac{1}{2\sqrt{2}}\right)e^{(1 + \sqrt{2})x} + \left(1 - \frac
 				Are <m>e^x</m> and <m>e^{x+2}</m> linearly independent? Justify.
 			</p>
 </statement>
+<answer>
+	<p>
+		No.  <m>e^{x+2} = e^2 e^x</m>.
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -787,6 +796,11 @@ y(x) = \left(1 + \frac{1}{2\sqrt{2}}\right)e^{(1 + \sqrt{2})x} + \left(1 - \frac
 				Guess a solution to <m>y'' + y' + y= 5</m>.
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>y=5</m>
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -860,6 +874,11 @@ y(x) = \left(1 + \frac{1}{2\sqrt{2}}\right)e^{(1 + \sqrt{2})x} + \left(1 - \frac
 				Find the general solution to <m>x y'' + y' = 0</m>. Hint: It is a first order ODE in <m>y'</m>.
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>y=C_1 \ln(x) + C_2</m>
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -959,6 +978,14 @@ y(x) = \left(1 + \frac{1}{2\sqrt{2}}\right)e^{(1 + \sqrt{2})x} + \left(1 - \frac
 				Find the general solution to <m>y''+4y'+2y=0</m>.
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>y =
+C_1 e^{(-2+\sqrt{2}) x}
++
+C_2 e^{(-2-\sqrt{2}) x}</m>
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -967,6 +994,11 @@ y(x) = \left(1 + \frac{1}{2\sqrt{2}}\right)e^{(1 + \sqrt{2})x} + \left(1 - \frac
 				Find the solution to <m>2y''+y'-3y=0</m>, <m>y(0) = a</m>, <m>y'(0)=b</m>.
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>y = \frac{2(a-b)}{5} \, e^{-3x/2}+\frac{3 a+2 b}{5} \, e^x</m>
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -976,6 +1008,13 @@ y(x) = \left(1 + \frac{1}{2\sqrt{2}}\right)e^{(1 + \sqrt{2})x} + \left(1 - \frac
 \beta</m>.
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>y =
+\frac{a \beta-b}{\beta-\alpha} e^{\alpha x} + 
+\frac{b-a \alpha}{\beta-\alpha} e^{\beta x}</m>
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -984,6 +1023,11 @@ y(x) = \left(1 + \frac{1}{2\sqrt{2}}\right)e^{(1 + \sqrt{2})x} + \left(1 - \frac
 				Write down an equation (guess) for which we have the solutions <m>e^x</m> and <m>e^{2x}</m>. Hint: Try an equation of the form <m>y''+Ay'+By = 0</m> for constants <m>A</m> and <m>B</m>, plug in both <m>e^x</m> and <m>e^{2x}</m> and solve for <m>A</m> and <m>B</m>.
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>y''-3y'+2y = 0</m>
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -992,6 +1036,11 @@ y(x) = \left(1 + \frac{1}{2\sqrt{2}}\right)e^{(1 + \sqrt{2})x} + \left(1 - \frac
 				Construct an equation such that <m>y = C_1 e^{3x} + C_2 e^{-2x}</m> is the general solution.
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>y'' -y'-6y=0</m>
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -1049,7 +1098,7 @@ y(x) = \left(1 + \frac{1}{2\sqrt{2}}\right)e^{(1 + \sqrt{2})x} + \left(1 - \frac
 <exercise>
 <statement>
 			<p>
-				Suppose <m>{(b-a)}^2-4ac = 0</m>. Find a formula for the general solution of <m>a x^2 y'' + b x y' + c y = 0</m>. Hint: Try <m>y=x^r \ln x</m> for the second solution.
+				Same equation as in <xref ref="euler-eqn-exercise"/> Suppose <m>{(b-a)}^2-4ac = 0</m>. Find a formula for the general solution of <m>a x^2 y'' + b x y' + c y = 0</m>. Hint: Try <m>y=x^r \ln x</m> for the second solution.
 			</p>
 </statement>
 

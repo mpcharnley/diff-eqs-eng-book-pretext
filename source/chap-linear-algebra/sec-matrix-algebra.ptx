@@ -35,13 +35,17 @@
 			<title>One-by-one matrices</title>
 
 			<p>
-				Let us motivate what we want to achieve with matrices. What do real-valued linear mappings look like? A linear function of real numbers that you have seen in calculus is of the form <md>f(x) = mx + b.</md> However, the properties of linear mappings discussed in the previous section are that <md>f(x+y) = f(x) + f(y) \qquad f(a x) = a f(x).</md> Plugging in the definition from above gives that <md>\begin{split}
-f(x+y) &amp;= m(x+y) + b = mx + my + b \\
-f(ax) &amp;= m(ax) + b = a(mx) + b
-\end{split}</md> and neither of these match up appropriately, since <md>\begin{split}
-f(x) + f(y) &amp;= mx + b + my + b = mx + my + 2b \\
-af(x) &amp;= a(mx + b) = a(mx) + ab
-\end{split}.</md> In order for these to work, we need to have <m>b=0</m>. Therefore, real-valued linear mappings of the real line, linear functions that eat numbers and spit out numbers, are just multiplications by a number.
+				Let us motivate what we want to achieve with matrices. What do real-valued linear mappings look like? A linear function of real numbers that you have seen in calculus is of the form <md>f(x) = mx + b.</md> However, the properties of linear mappings discussed in the previous section are that <md>f(x+y) = f(x) + f(y) \qquad f(a x) = a f(x).</md> Plugging in the definition from above gives that 
+				<md>
+<mrow>f(x+y) \amp= m(x+y) + b = mx + my + b </mrow>
+<mrow> f(ax) \amp= m(ax) + b = a(mx) + b </mrow>
+</md>
+and neither of these match up appropriately, since 
+<md>
+<mrow>f(x) + f(y) \amp= mx + b + my + b = mx + my + 2b </mrow>
+<mrow> af(x) \amp= a(mx + b) = a(mx) + ab </mrow>
+</md>. 
+In order for these to work, we need to have <m>b=0</m>. Therefore, real-valued linear mappings of the real line, linear functions that eat numbers and spit out numbers, are just multiplications by a number.
 			</p>
 
 			<p>
@@ -49,7 +53,7 @@ af(x) &amp;= a(mx + b) = a(mx) + ab
 <md>
 \alpha x + \beta x = (\alpha + \beta) x .
 </md>
- We get a new mapping <m>\alpha+\beta</m> that multiplies <m>x</m> by, well, <m>\alpha+\beta</m>. If <m>D</m> is a mapping that doubles things, <m>Dx = 2x</m>, and <m>T</m> is a mapping that triples, <m>Tx = 3x</m>, then <m>D+T</m> is a mapping that multiplies by <m>5</m>, <m>(D+T)x = 5x</m>.
+We get a new mapping <m>\alpha+\beta</m> that multiplies <m>x</m> by, well, <m>\alpha+\beta</m>. If <m>D</m> is a mapping that doubles things, <m>Dx = 2x</m>, and <m>T</m> is a mapping that triples, <m>Tx = 3x</m>, then <m>D+T</m> is a mapping that multiplies by <m>5</m>, <m>(D+T)x = 5x</m>.
 			</p>
 
 			<p>
@@ -120,8 +124,7 @@ a_{21} + b_{21} &amp; a_{22} + b_{22} &amp; a_{23} + b_{23}
 </md>
  Let's check that this does the right thing to a vector. Let's use some of the vector algebra that we already know, and regroup things: 
 <md>
-\begin{split}
-\begin{bmatrix}
+<mrow> \begin{bmatrix}
 1 &amp; 2 \\
 3 &amp; 4 \\
 5 &amp; 6
@@ -137,8 +140,7 @@ a_{21} + b_{21} &amp; a_{22} + b_{22} &amp; a_{23} + b_{23}
 \end{bmatrix}
 \begin{bmatrix}
 2 \\ -1
-\end{bmatrix}
-&amp; =
+\end{bmatrix} \amp =
 \left(
 2
 \begin{bmatrix}
@@ -167,9 +169,9 @@ a_{21} + b_{21} &amp; a_{22} + b_{22} &amp; a_{23} + b_{23}
 10 \\
 -1
 \end{bmatrix}
-\right)
-\\
-&amp; = 
+\right) </mrow>
+
+<mrow> \amp = 
 2
 \left(
 \begin{bmatrix}
@@ -197,9 +199,9 @@ a_{21} + b_{21} &amp; a_{22} + b_{22} &amp; a_{23} + b_{23}
 10 \\
 -1
 \end{bmatrix}
-\right)
-\\
-&amp; = 
+\right) </mrow>
+
+<mrow> \amp = 
 2
 \begin{bmatrix}
 1+7 \\
@@ -224,10 +226,8 @@ a_{21} + b_{21} &amp; a_{22} + b_{22} &amp; a_{23} + b_{23}
 10 \\
 14 \\
 5
-\end{bmatrix}
-\\
-&amp; =
-\begin{bmatrix}
+\end{bmatrix} </mrow>
+<mrow> \amp = \begin{bmatrix}
 8 &amp; 10 \\
 12 &amp; 14 \\
 16 &amp; 5
@@ -250,9 +250,8 @@ a_{21} + b_{21} &amp; a_{22} + b_{22} &amp; a_{23} + b_{23}
 10 \\
 27
 \end{bmatrix}
-\right) .
-\end{split}
-</md>
+\right) </mrow>
+</md>.
  If we replaced the numbers by letters that would constitute a proof! You'll notice that we didn't really have to even compute what the result is to convince ourselves that the two expressions were equal.
 			</p>
 
@@ -316,13 +315,16 @@ a_{21} &amp; a_{22} &amp; a_{23}
 			</p>
 
 			<p>
-				Let us list some properties of matrix addition and scalar multiplication. Denote by <m>0</m> the zero matrix, by <m>\alpha</m>, <m>\beta</m> scalars, and by <m>A</m>, <m>B</m>, <m>C</m> matrices. Then: <md>\begin{align*}
-A + 0 &amp; = A = 0 + A , \\
-A + B &amp; = B + A , \\
-(A + B) + C &amp; = A + (B + C) , \\
-\alpha(A+B) &amp; = \alpha A+\alpha B, \\
-(\alpha+\beta)A &amp; = \alpha A + \beta A.
-\end{align*}</md> These rules should look very familiar.
+				Let us list some properties of matrix addition and scalar multiplication. Denote by <m>0</m> the zero matrix, by <m>\alpha</m>, <m>\beta</m> scalars, and by <m>A</m>, <m>B</m>, <m>C</m> matrices. Then: 
+<md>
+<mrow>A + 0 \amp = A = 0 + A , </mrow>
+<mrow> A + B \amp = B + A , </mrow>
+<mrow> (A + B) + C \amp = A + (B + C) , </mrow>
+<mrow> \alpha(A+B) \amp = \alpha A+\alpha B, </mrow>
+<mrow> (\alpha+\beta)A \amp = \alpha A + \beta A</mrow>
+</md>.
+
+These rules should look very familiar.
 			</p>
 
 		</subsection>
@@ -338,21 +340,12 @@ AB\vec{x} = A(B\vec{x}) .
  First, a vector <m>\vec{x}</m> in <m>{\mathbb R}^p</m> gets taken to the vector <m>B\vec{x}</m> in <m>{\mathbb R}^n</m>. Then the mapping <m>A</m> takes it to the vector <m>A(B\vec{x})</m> in <m>{\mathbb R}^m</m>. In other words, the composition <m>AB</m> should be an <m>m
 \times p</m> matrix. In terms of sizes we should have 
 <md>
-%mbxSTARTIGNORE
-\text{``}
-%mbxENDIGNORE
-%mbxlatex \text{"}
-\quad
 [ m \times n ]
 \,
 [ n \times p ]
 =
-[ m \times p ] . \quad
-%mbxSTARTIGNORE
-\text{''}
-%mbxENDIGNORE
-%mbxlatex \text{"}
-</md>
+[ m \times p ]
+</md>.
  Notice how the middle size must match.
 			</p>
 
@@ -581,13 +574,16 @@ a_{21} &amp; a_{22}
 			</p>
 
 			<p>
-				We have the following rules for matrix multiplication. Suppose that <m>A</m>, <m>B</m>, <m>C</m> are matrices of the correct sizes so that the following make sense. Let <m>\alpha</m> denote a scalar (number). Then <md>\begin{align*}
-A(BC) &amp; = (AB)C \\
-A(B+C) &amp; = AB + AC  \\
-(B+C)A &amp; = BA + CA  \\
-\alpha(AB) &amp; = (\alpha A)B = A(\alpha B) \\
-IA &amp; = A = AI 
-\end{align*}</md>. These are, in order, the <term>associative law</term>, <term>distributive law</term> (twice), scalar multiplication, and the definition of the identity.
+				We have the following rules for matrix multiplication. Suppose that <m>A</m>, <m>B</m>, <m>C</m> are matrices of the correct sizes so that the following make sense. Let <m>\alpha</m> denote a scalar (number). Then 
+			<md>
+<mrow>A(BC) \amp = (AB)C </mrow>
+<mrow>
+A(B+C) \amp = AB + AC  </mrow>
+<mrow> (B+C)A \amp = BA + CA  </mrow>
+<mrow> \alpha(AB) \amp = (\alpha A)B = A(\alpha B) </mrow>
+<mrow> IA \amp = A = AI </mrow>
+</md>.
+These are, in order, the <term>associative law</term>, <term>distributive law</term> (twice), scalar multiplication, and the definition of the identity.
 			</p>
 
 
@@ -865,12 +861,14 @@ AB = I = BA .
 			</p>
 
 			<p>
-				The computation is what you would do in regular algebra with numbers, but you have to be careful never to commute matrices: <md>\begin{align*}
-AB &amp; = AC , \\
-A^{-1}AB &amp; = A^{-1}AC , \\
-IB &amp; = IC , \\
-B &amp; = C .
-\end{align*}</md> And similarly for cancellation on the right: <em>If <m>A</m> is invertible, then <m>BA = CA</m> implies <m>B=C</m>.</em>
+				The computation is what you would do in regular algebra with numbers, but you have to be careful never to commute matrices: 
+				<md>
+<mrow>AB \amp = AC , </mrow>
+<mrow> A^{-1}AB \amp = A^{-1}AC , </mrow>
+<mrow> IB \amp = IC , </mrow>
+<mrow> B \amp = C </mrow>
+</md>.
+ And similarly for cancellation on the right: <em>If <m>A</m> is invertible, then <m>BA = CA</m> implies <m>B=C</m>.</em>
 			</p>
 
 			<p>
@@ -1356,6 +1354,14 @@ a_{21} x_1 + a_{22} x_2 + a_{23} x_3
 \end{bmatrix}</m>
 		</p>
 	</statement>
+	<answer>
+		<p>
+			<m>\left[\begin{smallmatrix}
+7 &amp; 4 &amp; 4 \\
+2 &amp; 3 &amp; 4
+\end{smallmatrix}\right]</m>
+		</p>
+	</answer>
 </task>
 <task>
 	<statement>
@@ -1373,6 +1379,15 @@ a_{21} x_1 + a_{22} x_2 + a_{23} x_3
 \end{bmatrix}</m>
 		</p>
 	</statement>
+	<answer>
+		<p>
+			<m>\left[\begin{smallmatrix}
+5 &amp; -3 &amp; 0 \\
+13 &amp; 10 &amp; 6 \\
+-1 &amp; 3 &amp; 1
+\end{smallmatrix}\right]</m>
+		</p>
+	</answer>
 </task>
 </exercise>
 
@@ -1447,7 +1462,15 @@ a_{21} x_1 + a_{22} x_2 + a_{23} x_3
 1 &amp; 2
 \end{bmatrix}</m>
 				</p>
-			</statement>		
+			</statement>
+			<answer>
+				<p>
+					<m>\left[\begin{smallmatrix}
+-1 &amp; 13 \\
+9 &amp; 14
+\end{smallmatrix}\right]</m>
+				</p>
+			</answer>		
 		</task>
 		<task>
 				<statement>
@@ -1464,6 +1487,14 @@ a_{21} x_1 + a_{22} x_2 + a_{23} x_3
 \end{bmatrix}</m>
 					</p>
 				</statement>
+				<answer>
+					<p>
+						<m>\left[\begin{smallmatrix}
+2 &amp; -5 \\
+5 &amp; 5
+\end{smallmatrix}\right]</m>
+					</p>
+				</answer>
 			</task>
 
 </exercise>
@@ -1578,6 +1609,14 @@ a_{21} x_1 + a_{22} x_2 + a_{23} x_3
 \end{bmatrix}</m>
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>\left[\begin{smallmatrix}
+22 &amp; 31 \\
+42 &amp; 44
+\end{smallmatrix}\right]</m>
+				</p>
+			</answer>
 		</task>
 		<task>
 			<statement>
@@ -1594,6 +1633,15 @@ a_{21} x_1 + a_{22} x_2 + a_{23} x_3
 \end{bmatrix}</m>
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>\left[\begin{smallmatrix}
+18 &amp; 18 &amp; 12 \\
+6 &amp; 0 &amp; 8 \\
+34 &amp; 48 &amp; -2
+\end{smallmatrix}\right]</m>
+				</p>
+			</answer>
 		</task>
 		<task>
 			<statement>
@@ -1610,6 +1658,15 @@ a_{21} x_1 + a_{22} x_2 + a_{23} x_3
 \end{bmatrix}</m>
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>\left[\begin{smallmatrix}
+11 &amp; 12 &amp; 36 &amp; 14 \\
+-2 &amp; 4 &amp; 5 &amp; -2 \\
+13 &amp; 38 &amp; 20 &amp; 28
+\end{smallmatrix}\right]</m>
+				</p>
+			</answer>
 		</task>
 		<task>
 			<statement>
@@ -1625,6 +1682,15 @@ a_{21} x_1 + a_{22} x_2 + a_{23} x_3
 \end{bmatrix}</m>
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>\left[\begin{smallmatrix}
+-2 &amp; -12 \\
+3 &amp; 24 \\
+1 &amp; 9
+\end{smallmatrix}\right]</m>
+				</p>
+			</answer>
 		</task>
 
 </exercise>
@@ -1829,6 +1895,13 @@ a_{21} x_1 + a_{22} x_2 + a_{23} x_3
 \end{bmatrix}</m>
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>\left[\begin{smallmatrix}
+\nicefrac{1}{2}
+\end{smallmatrix}\right]</m>
+				</p>
+			</answer>
 		</task>
 		<task>
 			<statement>
@@ -1839,6 +1912,14 @@ a_{21} x_1 + a_{22} x_2 + a_{23} x_3
 \end{bmatrix}</m>
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>\left[\begin{smallmatrix}
+0 &amp; 1 \\
+1 &amp; 0
+\end{smallmatrix}\right]</m>
+				</p>
+			</answer>
 		</task>
 		<task>
 			<statement>
@@ -1849,6 +1930,14 @@ a_{21} x_1 + a_{22} x_2 + a_{23} x_3
 \end{bmatrix}</m>
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>\left[\begin{smallmatrix}
+-5 &amp; 2 \\
+3 &amp; -1
+\end{smallmatrix}\right]</m>
+				</p>
+			</answer>
 		</task>
 		<task>
 			<statement>
@@ -1859,6 +1948,14 @@ a_{21} x_1 + a_{22} x_2 + a_{23} x_3
 \end{bmatrix}</m>
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>\left[\begin{smallmatrix}
+\nicefrac{1}{2} &amp; \nicefrac{-1}{4} \\
+\nicefrac{-1}{2} &amp; \nicefrac{1}{2}
+\end{smallmatrix}\right]</m>
+				</p>
+			</answer>
 		</task>
 
 </exercise>
@@ -1934,6 +2031,14 @@ a_{21} x_1 + a_{22} x_2 + a_{23} x_3
 \end{bmatrix}</m>
 		</p>
 	</statement>
+	<answer>
+		<p>
+			<m>\left[\begin{smallmatrix}
+\nicefrac{1}{2} &amp; 0 \\
+0 &amp; \nicefrac{1}{3} 
+\end{smallmatrix}\right]</m>
+		</p>
+	</answer>
 </task>
 <task>
 	<statement>
@@ -1945,6 +2050,15 @@ a_{21} x_1 + a_{22} x_2 + a_{23} x_3
 \end{bmatrix}</m>
 		</p>
 	</statement>
+	<answer>
+		<p>
+			<m>\left[\begin{smallmatrix}
+\nicefrac{1}{4} &amp; 0 &amp; 0 \\
+0 &amp; \nicefrac{1}{5} &amp; 0 \\ 
+0 &amp; 0 &amp; -1
+\end{smallmatrix}\right]</m>
+		</p>
+	</answer>
 </task>
 <task>
 	<statement>
@@ -1957,6 +2071,16 @@ a_{21} x_1 + a_{22} x_2 + a_{23} x_3
 \end{bmatrix}</m>
 		</p>
 	</statement>
+	<answer>
+		<p>
+			<m>\left[\begin{smallmatrix}
+-1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; \nicefrac{1}{2} &amp; 0 &amp; 0 \\ 
+0 &amp; 0 &amp; \nicefrac{1}{3} &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 10
+\end{smallmatrix}\right]</m>
+		</p>
+	</answer>
 </task>
 
 </exercise>

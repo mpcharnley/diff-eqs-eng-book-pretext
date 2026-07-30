@@ -26,39 +26,39 @@
 					<cell halign="center"><term>Function <m>f(x)</m></term></cell>
 					<cell halign="center"><term>Derivative <m>f'(x)</m></term></cell>
 				</row>
-				<row class="odd">
-					<cell halign="center"><m>x^n</m>   any <m>n</m></cell>
+				<row >
+					<cell halign="center"><m>x^n</m>   any <m>n</m></cell>
 					<cell halign="center"><m>nx^{n-1}</m></cell>
 				</row>
-				<row class="even">
+				<row >
 					<cell halign="center"><m>\ln(x)</m></cell>
 					<cell halign="center"><m>\frac{1}{x} = x^{-1}</m></cell>
 				</row>
-				<row class="odd">
+				<row >
 					<cell halign="center"><m>C</m> constant</cell>
 					<cell halign="center"><m>0</m></cell>
 				</row>
-				<row class="even">
+				<row >
 					<cell halign="center"><m>e^x</m></cell>
 					<cell halign="center"><m>e^x</m></cell>
 				</row>
-				<row class="odd">
+				<row >
 					<cell halign="center"><m>e^{ax}</m></cell>
 					<cell halign="center"><m>ae^{ax}</m></cell>
 				</row>
-				<row class="even">
+				<row >
 					<cell halign="center"><m>\sin(x)</m></cell>
 					<cell halign="center"><m>\cos(x)</m></cell>
 				</row>
-				<row class="odd">
+				<row >
 					<cell halign="center"><m>\cos(x)</m></cell>
 					<cell halign="center"><m>-\sin(x)</m></cell>
 				</row>
-				<row class="even">
+				<row >
 					<cell halign="center"><m>\tan(x)</m></cell>
 					<cell halign="center"><m>\sec^2(x)</m></cell>
 				</row>
-				<row class="odd">
+				<row >
 					<cell halign="center"><m>\arctan(x) = \tan^{-1}(x)</m></cell>
 					<cell halign="center"><m>\frac{1}{x^2 + 1}</m></cell>
 				</row>
@@ -77,31 +77,31 @@
 					<cell halign="center"><term>Function <m>f(x)</m></term></cell>
 					<cell halign="center"><term>Integral <m>\int f(x)\ dx</m></term></cell>
 				</row>
-				<row class="odd">
+				<row >
 					<cell halign="center"><m>x^n</m> any <m>n \neq -1</m></cell>
 					<cell halign="center"><m>\frac{1}{n+1}x^{n+1} + C</m></cell>
 				</row>
-				<row class="even">
+				<row >
 					<cell halign="center"><m>\frac{1}{x}</m></cell>
 					<cell halign="center"><m>\ln(|x|) + C</m></cell>
 				</row>
-				<row class="odd">
+				<row >
 					<cell halign="center"><m>e^x</m></cell>
 					<cell halign="center"><m>e^x + C</m></cell>
 				</row>
-				<row class="even">
+				<row >
 					<cell halign="center"><m>e^{ax}</m></cell>
 					<cell halign="center"><m>\frac{1}{a}e^{ax} + C</m></cell>
 				</row>
-				<row class="odd">
+				<row >
 					<cell halign="center"><m>\sin(x)</m></cell>
 					<cell halign="center"><m>-\cos(x) + C</m></cell>
 				</row>
-				<row class="even">
+				<row >
 					<cell halign="center"><m>\cos(x)</m></cell>
 					<cell halign="center"><m>\sin(x) + C</m></cell>
 				</row>
-				<row class="odd">
+				<row >
 					<cell halign="center"><m>\frac{1}{x^2 + 1}</m></cell>
 					<cell halign="center"><m>\arctan(x) + C</m> or <m>\tan^{-1}(x) + C</m></cell>
 				</row>
@@ -122,11 +122,11 @@
 				<title>Linearity of the Derivative and Integral</title>
 
 				<p>
-					The derivative and integral are both linear operators. This means that if we have two functions <m>f(x)</m> and <m>g(x)</m>, and two constants <m>a</m> and <m>b</m>, then <me>\frac{d}{dx}\left( af(x) + bg(x)\right) = a\frac{df}{dx} + b\frac{dg}{dx}.</me> That is, we can move constants and addition and subtractions out of the differentiation, reducing a complicated function down to simpler functions that we know how to differentiate.
+					The derivative and integral are both linear operators. This means that if we have two functions <m>f(x)</m> and <m>g(x)</m>, and two constants <m>a</m> and <m>b</m>, then  <md>\frac{d}{dx}\left( af(x) + bg(x)\right) = a\frac{df}{dx} + b\frac{dg}{dx}. </md> That is, we can move constants and addition and subtractions out of the differentiation, reducing a complicated function down to simpler functions that we know how to differentiate.
 				</p>
 
 				<p>
-					The same is true for integration or antidifferentiation; if we have functions <m>f(x)</m> and <m>g(x)</m> and constants <m>a</m> and <m>b</m>, then <me>\int af(x) + bg(x) \ dx = a\int f(x)\ dx + b\int g(x)\ dx.</me>
+					The same is true for integration or antidifferentiation; if we have functions <m>f(x)</m> and <m>g(x)</m> and constants <m>a</m> and <m>b</m>, then  <md>\int af(x) + bg(x) \ dx = a\int f(x)\ dx + b\int g(x)\ dx. </md>
 				</p>
 
 
@@ -167,41 +167,45 @@
 <solution>				<p><ol>
 					<li>
 									<p>
-										For this, we can use linearity and our formulas to write <me>\begin{split}
-					\frac{d}{dx}\left(x^3 + \frac{4}{x^2} + 3e^{x} \right) &amp;= \frac{d}{dx}\left( x^3 \right) + \frac{d}{dx}\left(\frac{4}{x^2} \right) + \frac{d}{dx}\left(3e^x \right) \\
-					&amp;= \frac{d}{dx}\left( x^3\right) + 4\frac{d}{dx}\left( x^{-2}\right) + 3\frac{d}{dx}\left( e^x\right) \\
-					&amp;= 3x^2 - 8x^{-3} + 3e^x.
-					\end{split}</me>
+										For this, we can use linearity and our formulas to write  
+										<md>
+<mrow>	\frac{d}{dx}\left(x^3 + \frac{4}{x^2} + 3e^{x} \right) \amp= \frac{d}{dx}\left( x^3 \right) + \frac{d}{dx}\left(\frac{4}{x^2} \right) + \frac{d}{dx}\left(3e^x \right) </mrow>
+<mrow>	\amp= \frac{d}{dx}\left( x^3\right) + 4\frac{d}{dx}\left( x^{-2}\right) + 3\frac{d}{dx}\left( e^x\right) </mrow>
+<mrow>	\amp= 3x^2 - 8x^{-3} + 3e^x</mrow>
+				</md>.
 									</p>
 					</li>
 
 					<li>
 									<p>
-										This one gives <me>\begin{split}
-					\frac{d}{dx}\left( \sin(x) - 2\cos(x) + 5\ln(x) \right) &amp;= \frac{d}{dx}\left( \sin(x)\right) - \frac{d}{dx}\left(2 \cos(x) \right) + \frac{d}{dx}\left( 5\ln(x)\right) \\ 
-					&amp;= \frac{d}{dx}\left( \sin(x)\right) - 2\frac{d}{dx}\left(\cos(x) \right) + 5\frac{d}{dx}\left( \ln(x)\right) \\
-					&amp;= \cos(x) + 2\sin(x) + \frac{5}{x}.
-					\end{split}</me>
+										This one gives  
+										<md>
+<mrow>	\frac{d}{dx}\left( \sin(x) - 2\cos(x) + 5\ln(x) \right) \amp= \frac{d}{dx}\left( \sin(x)\right) - \frac{d}{dx}\left(2 \cos(x) \right) + \frac{d}{dx}\left( 5\ln(x)\right) </mrow>
+<mrow> 	\amp= \frac{d}{dx}\left( \sin(x)\right) - 2\frac{d}{dx}\left(\cos(x) \right) + 5\frac{d}{dx}\left( \ln(x)\right) </mrow>
+<mrow>\amp= \cos(x) + 2\sin(x) + \frac{5}{x}</mrow>
+				</md>.
 									</p>
 					</li>
 
 					<li>
 									<p>
-										For this problem, we first want to simplify the expression algebraically, then integrate each term using linearity. <me>\begin{split}
-					\int \frac{2x^3 + 4x}{x^2}\ dx &amp;= \int \frac{2x^3}{x^2} + \frac{4x}{x^2}\ dx \\
-					&amp;= \int 2x + \frac{4}{x}\ dx \\
-					&amp;= 2\int x\ dx + 4\int \frac{1}{x}\ dx \\
-					&amp;= x^2 + 4\ln(|x|) + C.
-					\end{split}.</me>
+										For this problem, we first want to simplify the expression algebraically, then integrate each term using linearity.  
+										<md>
+<mrow>	\int \frac{2x^3 + 4x}{x^2}\ dx \amp= \int \frac{2x^3}{x^2} + \frac{4x}{x^2}\ dx </mrow>
+<mrow>\amp= \int 2x + \frac{4}{x}\ dx </mrow>
+<mrow>	\amp= 2\int x\ dx + 4\int \frac{1}{x}\ dx </mrow>
+<mrow>\amp= x^2 + 4\ln(|x|) + C</mrow>
+				</md>.
 									</p>
 					</li>
 
 					<li>
 									<p>
-										This problem uses standard linearity to get to the final answer. <me>\begin{split}
-					\int 2\cos(x) - \frac{3}{x^2 + 1}\ dx &amp;= 2 \int \cos(x)\ dx - 3 \int \frac{1}{x^2 + 1}\ dx \\
-					&amp;= 2 \sin(x) - 3\arctan(x) + C. \qedhere
-					\end{split}</me>
+										This problem uses standard linearity to get to the final answer.  
+										<md>
+<mrow>	\int 2\cos(x) - \frac{3}{x^2 + 1}\ dx \amp= 2 \int \cos(x)\ dx - 3 \int \frac{1}{x^2 + 1}\ dx </mrow>
+<mrow>	\amp= 2 \sin(x) - 3\arctan(x) + C</mrow>
+				</md>.
 									</p>
 					</li>
 
@@ -214,16 +218,15 @@
 				<title>Product and Quotient Rule</title>
 
 				<p>
-					Linearity gives us a way to handle sums and differences of derivatives. What about products? It turns out that doesn’t work as simply, but there is still as nice formula to work it out. This gives us the Product Rule. If we have two functions <m>f(x)</m> and <m>g(x)</m>, then <me>\frac{d}{dx}\left( f(x)g(x) \right) = f(x)\frac{dg}{dx} + \frac{df}{dx}g(x).</me> That is, the derivative has two terms, the first function times the derivative of the second, and the derivative of the first function times the second function. The product rule can also be used to compute the product of more than two functions; the general formula is that only one function is differentiated at a time and each function should be differentiated once. That is, for three functions, the formula is <me>\frac{d}{dx}\left( f(x)g(x)h(x)\right) = \frac{df}{dx}g(x)h(x) + f(x)\frac{dg}{dx}h(x) + f(x)g(x)\frac{dh}{dx}.</me>
+					Linearity gives us a way to handle sums and differences of derivatives. What about products? It turns out that doesn't work as simply, but there is still as nice formula to work it out. This gives us the Product Rule. If we have two functions <m>f(x)</m> and <m>g(x)</m>, then  <md>\frac{d}{dx}\left( f(x)g(x) \right) = f(x)\frac{dg}{dx} + \frac{df}{dx}g(x). </md> That is, the derivative has two terms, the first function times the derivative of the second, and the derivative of the first function times the second function. The product rule can also be used to compute the product of more than two functions; the general formula is that only one function is differentiated at a time and each function should be differentiated once. That is, for three functions, the formula is  <md>\frac{d}{dx}\left( f(x)g(x)h(x)\right) = \frac{df}{dx}g(x)h(x) + f(x)\frac{dg}{dx}h(x) + f(x)g(x)\frac{dh}{dx}. </md>
 				</p>
 
 				<p>
-					The Quotient Rule gives us a way to do the same thing, but with quotients. The formula here is that <me>\frac{d}{dx}\left(\frac{f(x)}{g(x)}\right) = \frac{g(x) \frac{df}{dx} - f(x)\frac{dg}{dx}}{(g(x))^2}.</me> This can also be derived using the product rule and the chain rule. It is important to get the order of the numerator correct, as there is a subtraction on top. For the product rule, the addition means that the order doesn’t matter, but if the order for the quotient rule is incorrect, there will be an additional minus sign in the answer.
+					The Quotient Rule gives us a way to do the same thing, but with quotients. The formula here is that  <md>\frac{d}{dx}\left(\frac{f(x)}{g(x)}\right) = \frac{g(x) \frac{df}{dx} - f(x)\frac{dg}{dx}}{(g(x))^2}. </md> This can also be derived using the product rule and the chain rule. It is important to get the order of the numerator correct, as there is a subtraction on top. For the product rule, the addition means that the order doesn't matter, but if the order for the quotient rule is incorrect, there will be an additional minus sign in the answer.
 				</p>
 
 
 <example>
-<title> </title>
 <statement>				<p>
 					Compute the following derivatives.
 				</p>
@@ -253,32 +256,35 @@
 <solution>				<p><ol>
 					<li>
 									<p>
-										This is a direct application of the product rule. <me>\begin{split}
-					\frac{d}{dx}\left( e^x \cos(x) \right) &amp;= e^x \frac{d}{dx}\left(\cos(x)\right) + \frac{d}{dx}\left(e^x \right)\cos(x) \\
-					&amp;= e^x (-\sin(x)) + (e^x) \cos(x) \\
-					&amp;= e^x(\cos(x) - \sin(x)).
-					\end{split}</me>
+										This is a direct application of the product rule.  
+										<md>
+<mrow>	\frac{d}{dx}\left( e^x \cos(x) \right) \amp= e^x \frac{d}{dx}\left(\cos(x)\right) + \frac{d}{dx}\left(e^x \right)\cos(x) </mrow>
+<mrow>\amp= e^x (-\sin(x)) + (e^x) \cos(x) </mrow>
+<mrow>\amp= e^x(\cos(x) - \sin(x))</mrow>
+				</md>.
 									</p>
 					</li>
 
 					<li>
 									<p>
-										This is a direct application of the quotient rule. <me>\begin{split}
-					\frac{d}{dx}\left(\frac{\sin(x)}{x^2}\right) &amp;= \frac{x^2 \frac{d}{dx}\left(\sin(x)\right) - \sin(x) \frac{d}{dx}\left(x^2\right)}{(x^2)^2} \\
-					&amp;= \frac{x^2 \cos(x) - \sin(x)(2x)}{x^4} \\
-					&amp;= \frac{x\cos(x) - 2\sin(x)}{x^3}.
-					\end{split}</me>
+										This is a direct application of the quotient rule.  
+										<md>
+<mrow>	\frac{d}{dx}\left(\frac{\sin(x)}{x^2}\right) \amp= \frac{x^2 \frac{d}{dx}\left(\sin(x)\right) - \sin(x) \frac{d}{dx}\left(x^2\right)}{(x^2)^2} </mrow>
+<mrow>	\amp= \frac{x^2 \cos(x) - \sin(x)(2x)}{x^4} </mrow>
+<mrow>	\amp= \frac{x\cos(x) - 2\sin(x)}{x^3}</mrow>
+				</md>.
 									</p>
 					</li>
 
 					<li>
 									<p>
-										For this problem, we need to apply both the product rule and the quotient rule. Since the quotient rule is on the outside, we apply it first. <me>\begin{split}
-					\frac{d}{dx}\left(\frac{x^3e^x}{\tan(x)}\right) &amp;= \frac{\tan(x) \frac{d}{dx}\left(x^3e^x\right) - x^3e^x \frac{d}{dx}\left(\tan(x)\right)}{(\tan(x))^2} \\
-					&amp;= \frac{\tan(x)\left(x^3 \frac{d}{dx}\left(e^x\right) + \frac{d}{dx}\left(x^3\right)e^x\right) - x^3e^x\sec^2(x)}{\tan^2(x)} \\
-					&amp;= \frac{\tan(x) \left(x^3e^x + 3x^2e^x\right) - x^3e^x\sec^2(x)}{\tan^2(x)} \\
-					&amp;= \frac{e^x(x^3 + 3x^2)}{\tan(x)} - \frac{x^3e^x}{\sin^2(x)}.
-					\end{split}</me>
+										For this problem, we need to apply both the product rule and the quotient rule. Since the quotient rule is on the outside, we apply it first.  
+										<md>
+<mrow>	\frac{d}{dx}\left(\frac{x^3e^x}{\tan(x)}\right) \amp= \frac{\tan(x) \frac{d}{dx}\left(x^3e^x\right) - x^3e^x \frac{d}{dx}\left(\tan(x)\right)}{(\tan(x))^2} </mrow>
+<mrow>\amp= \frac{\tan(x)\left(x^3 \frac{d}{dx}\left(e^x\right) + \frac{d}{dx}\left(x^3\right)e^x\right) - x^3e^x\sec^2(x)}{\tan^2(x)} </mrow>
+<mrow>	\amp= \frac{\tan(x) \left(x^3e^x + 3x^2e^x\right) - x^3e^x\sec^2(x)}{\tan^2(x)} </mrow>
+<mrow>\amp= \frac{e^x(x^3 + 3x^2)}{\tan(x)} - \frac{x^3e^x}{\sin^2(x)}</mrow>
+				</md>.
 									</p>
 					</li>
 
@@ -291,12 +297,11 @@
 				<title>Chain Rule</title>
 
 				<p>
-					The only type of function we haven’t discussed yet for differentiation is composite functions, and that is handled by the Chain Rule. For example, we don’t have a direct way (yet) to differentiate functions like <m>\sin(3x)</m> or <m>\frac{1}{x^3 + 4x + 1}</m>, and the Chain Rule lets us to do that. This rule tells us that, for functions <m>f(x)</m> and <m>g(x)</m>, we can compute the derivative of the composition <m>(f \circ g)(x)</m> or <m>f(g(x))</m> is <me>\frac{d}{dx}(f(g(x)) = f'(g(x))g'(x).</me> This means that we differentiate the <q>outside</q> function <m>f</m>, plug in the inside function, and then multiply this by the derivative of the <q>inside</q> function <m>g</m>. It requires us to identify what the <q>inner</q> and <q>outer</q> functions are, and then the formula gives what the derivative should be. This can be done in a few different ways, either moving from outside in, or moving from inside out. These problems are conventionally written with <m>u(x)</m> as the inside function, but any letter can be used.
+					The only type of function we haven't discussed yet for differentiation is composite functions, and that is handled by the Chain Rule. For example, we don't have a direct way (yet) to differentiate functions like <m>\sin(3x)</m> or <m>\frac{1}{x^3 + 4x + 1}</m>, and the Chain Rule lets us to do that. This rule tells us that, for functions <m>f(x)</m> and <m>g(x)</m>, we can compute the derivative of the composition <m>(f \circ g)(x)</m> or <m>f(g(x))</m> is  <md>\frac{d}{dx}(f(g(x)) = f'(g(x))g'(x). </md> This means that we differentiate the <q>outside</q> function <m>f</m>, plug in the inside function, and then multiply this by the derivative of the <q>inside</q> function <m>g</m>. It requires us to identify what the <q>inner</q> and <q>outer</q> functions are, and then the formula gives what the derivative should be. This can be done in a few different ways, either moving from outside in, or moving from inside out. These problems are conventionally written with <m>u(x)</m> as the inside function, but any letter can be used.
 				</p>
 
 
 <example>
-<title> </title>
 <statement>				<p>
 					Compute the derivative of each of the following functions.
 				</p>
@@ -326,19 +331,19 @@
 <solution>				<p><ol>
 					<li>
 									<p>
-										For this problem, we take <m>f(u) = u^5</m> and <m>u(x) = x^3 + 5x + 1</m>, which gives that composing these functions gives the <m>f_1</m> that we started with. Therefore, since <m>f'(u) = 5u^4</m> and <m>u'(x) = 3x^2 + 5</m>, we have that <me>f_1'(x) = f'(u)u'(x) = 5u^4(3x^2 + 5) = 5(x^3 + 5x + 1)^4(3x^2 + 5).</me>
+										For this problem, we take <m>f(u) = u^5</m> and <m>u(x) = x^3 + 5x + 1</m>, which gives that composing these functions gives the <m>f_1</m> that we started with. Therefore, since <m>f'(u) = 5u^4</m> and <m>u'(x) = 3x^2 + 5</m>, we have that  <md>f_1'(x) = f'(u)u'(x) = 5u^4(3x^2 + 5) = 5(x^3 + 5x + 1)^4(3x^2 + 5). </md>
 									</p>
 					</li>
 
 					<li>
 									<p>
-										For this case, the outside function is <m>\cos(u)</m> and the inner function is <m>u(x) = 3x^2 + 1</m>. Using the same process, we get that <me>f_2'(x) = -\sin(u)(6x) = -6x\sin(3x^2 + 1).</me>
+										For this case, the outside function is <m>\cos(u)</m> and the inner function is <m>u(x) = 3x^2 + 1</m>. Using the same process, we get that  <md>f_2'(x) = -\sin(u)(6x) = -6x\sin(3x^2 + 1). </md>
 									</p>
 					</li>
 
 					<li>
 									<p>
-										Starting from the outside, we see that we can take <m>f(u) = u^4</m>. This makes <m>u(x) = 1 + \sin(3x)</m>, but we can’t differentiate this directly; it requires another iteration of the Chain Rule. Taking <m>u(x) = 1 + \sin(v)</m> for <m>v(x) = 3x</m>, we can then compute the derivative of each of these functions, and our original function <m>f_3(x) = f(u(v(x)))</m>. We can extend the Chain Rule to apply to three functions by taking it one step at a time. The result of this process is that <me>\frac{d}{dx}(f(u(v(x)))) = f'(u(v(x))\frac{d}{dx}(u(v(x))) = f'(u(v(x)))u'(v(x))v'(x),</me> so you need to pull off one derivative at time to get to the correct computation. Thus, for this problem, we get that <me>f_3'(x) = 4u^3(\cos(v))(3) = 12u^3\cos(v) = 12(1 + \sin(3x))^3\cos(3x).</me>
+										Starting from the outside, we see that we can take <m>f(u) = u^4</m>. This makes <m>u(x) = 1 + \sin(3x)</m>, but we can't differentiate this directly; it requires another iteration of the Chain Rule. Taking <m>u(x) = 1 + \sin(v)</m> for <m>v(x) = 3x</m>, we can then compute the derivative of each of these functions, and our original function <m>f_3(x) = f(u(v(x)))</m>. We can extend the Chain Rule to apply to three functions by taking it one step at a time. The result of this process is that  <md>\frac{d}{dx}(f(u(v(x)))) = f'(u(v(x))\frac{d}{dx}(u(v(x))) = f'(u(v(x)))u'(v(x))v'(x), </md> so you need to pull off one derivative at time to get to the correct computation. Thus, for this problem, we get that  <md>f_3'(x) = 4u^3(\cos(v))(3) = 12u^3\cos(v) = 12(1 + \sin(3x))^3\cos(3x). </md>
 									</p>
 					</li>
 
@@ -360,11 +365,11 @@
 				<title>Substitution</title>
 
 				<p>
-					The substitution method for integration serves as the inverse operation to the Chain Rule for differentiation. Since <me>\frac{d}{dx}(f(u(x))) = f'(u(x))u'(x),</me> the definition of the integral as an antiderivative gives that <me>\int f'(u(x))u'(x)\ dx = f(u(x)) + C.</me> Integrals of this form can be computed using this formula, but it is often easier to think of this process in terms of <q>changing variables.</q> This means the following: If we have an integral that looks like <me>\int f'(u(x))u'(x)\ dx</me> then we can define the variable <m>u</m> to represent the entire function <m>u(x)</m>. Then the differential <m>du</m> is defined by <me>du = u'(x) dx.</me> Then we can substitute both <m>u</m> and <m>du</m> into the original expression to get that <me>\int f'(u(x))u'(x)\ dx = \int f'(u)\ du = f(u) + C = f(u(x)) + C.</me>
+					The substitution method for integration serves as the inverse operation to the Chain Rule for differentiation. Since  <md>\frac{d}{dx}(f(u(x))) = f'(u(x))u'(x), </md> the definition of the integral as an antiderivative gives that  <md>\int f'(u(x))u'(x)\ dx = f(u(x)) + C. </md> Integrals of this form can be computed using this formula, but it is often easier to think of this process in terms of <q>changing variables.</q> This means the following: If we have an integral that looks like  <md>\int f'(u(x))u'(x)\ dx </md> then we can define the variable <m>u</m> to represent the entire function <m>u(x)</m>. Then the differential <m>du</m> is defined by  <md>du = u'(x) dx. </md> Then we can substitute both <m>u</m> and <m>du</m> into the original expression to get that  <md>\int f'(u(x))u'(x)\ dx = \int f'(u)\ du = f(u) + C = f(u(x)) + C. </md>
 				</p>
 
 				<p>
-					The last component of this process is changing the limits of integration if a definite integral is being computed. The idea is that an integral in <m>x</m> (denoted by <m>dx</m>) has its limits also in terms of <m>x</m>, where as the <m>du</m> integral has endpoints given in terms of <m>u</m>. The main way this comes up in problems is that <me>\int_a^b f(u(x))u'(x)\ dx = \int_{u(a)}^{u(b)} f(u)\ du</me> because we know that <m>u</m> is written in terms of <m>x</m> as <m>u = u(x)</m>. Thus if we plug the <m>x</m> endpoints into this function, we will be the new <m>u</m> endpoints.
+					The last component of this process is changing the limits of integration if a definite integral is being computed. The idea is that an integral in <m>x</m> (denoted by <m>dx</m>) has its limits also in terms of <m>x</m>, where as the <m>du</m> integral has endpoints given in terms of <m>u</m>. The main way this comes up in problems is that  <md>\int_a^b f(u(x))u'(x)\ dx = \int_{u(a)}^{u(b)} f(u)\ du </md> because we know that <m>u</m> is written in terms of <m>x</m> as <m>u = u(x)</m>. Thus if we plug the <m>x</m> endpoints into this function, we will be the new <m>u</m> endpoints.
 				</p>
 
 
@@ -399,19 +404,19 @@
 <solution>				<p><ol>
 					<li>
 									<p>
-										For this situation we want to set <m>u = 4x</m>, because then the integrand, once we make the change of variables, will be <m>\cos(u)</m>, which we know how to integrate. With this, we have <m>du = 4\ dx</m>, which we can rewrite as <m>dx = \frac{1}{4}\ du</m>. Plugging all of this in gives that <me>\int \cos(4x)\ dx = \int \cos(u) \frac{1}{4}\ du = \frac{1}{4} \int cos(u)\ du = \frac{1}{4}\sin(u) + C = \frac{1}{4}\sin(4x) + C.</me>
+										For this situation we want to set <m>u = 4x</m>, because then the integrand, once we make the change of variables, will be <m>\cos(u)</m>, which we know how to integrate. With this, we have <m>du = 4\ dx</m>, which we can rewrite as <m>dx = \frac{1}{4}\ du</m>. Plugging all of this in gives that  <md>\int \cos(4x)\ dx = \int \cos(u) \frac{1}{4}\ du = \frac{1}{4} \int cos(u)\ du = \frac{1}{4}\sin(u) + C = \frac{1}{4}\sin(4x) + C. </md>
 									</p>
 					</li>
 
 					<li>
 									<p>
-										For the same reason, we want to set <m>u = 3x^2 + 1</m> to make the resulting integral <m>\sin(u)\ du</m>. In this case, we have <m>du = 6x\  dx</m> or <m>x\ dx = \frac{1}{6}\ du</m>. Plugging all of this in, we get <me>\int x\sin(3x^2 + 1)\ dx = \int \sin(u) \frac{1}{6}\ du = \frac{1}{6}\int \sin(u)\ du = -\frac{1}{6}\cos(u) + C = -\frac{1}{6}\cos(3x^2 + 1) + C.</me>
+										For the same reason, we want to set <m>u = 3x^2 + 1</m> to make the resulting integral <m>\sin(u)\ du</m>. In this case, we have <m>du = 6x\  dx</m> or <m>x\ dx = \frac{1}{6}\ du</m>. Plugging all of this in, we get  <md>\int x\sin(3x^2 + 1)\ dx = \int \sin(u) \frac{1}{6}\ du = \frac{1}{6}\int \sin(u)\ du = -\frac{1}{6}\cos(u) + C = -\frac{1}{6}\cos(3x^2 + 1) + C. </md>
 									</p>
 					</li>
 
 					<li>
 									<p>
-										We can follow the same logic here as for the previous examples, but since we have a definite integral, we also need to switch the limits of integration. In this case, we want to pick <m>u = x^3 + 4</m>, which gives <m>du = 3x^2\ dx</m>. This gives the resulting integral as <me>\int \frac{3x^2}{x^3 + 4}\ dx = \int \frac{1}{u}\ du.</me> For the limits of integration, we take the function <m>u(x) = x^3 + 4</m> and plug in the original values of <m>0</m> and <m>2</m>. This gives the value <m>4</m> and <m>x=0</m> and the value <m>12</m> at <m>x=2</m>. Therefore, the result of this computation is <me>\int_0^2 \frac{3x^2}{x^3 + 4}\ dx = \int_4^{12} \frac{1}{u}\ du = \ln(|u|)\mid_4^{12} = \ln(12) - \ln(4) = \ln(3).</me>
+										We can follow the same logic here as for the previous examples, but since we have a definite integral, we also need to switch the limits of integration. In this case, we want to pick <m>u = x^3 + 4</m>, which gives <m>du = 3x^2\ dx</m>. This gives the resulting integral as  <md>\int \frac{3x^2}{x^3 + 4}\ dx = \int \frac{1}{u}\ du. </md> For the limits of integration, we take the function <m>u(x) = x^3 + 4</m> and plug in the original values of <m>0</m> and <m>2</m>. This gives the value <m>4</m> and <m>x=0</m> and the value <m>12</m> at <m>x=2</m>. Therefore, the result of this computation is  <md>\int_0^2 \frac{3x^2}{x^3 + 4}\ dx = \int_4^{12} \frac{1}{u}\ du = \ln(|u|)\mid_4^{12} = \ln(12) - \ln(4) = \ln(3). </md>
 									</p>
 					</li>
 
@@ -419,7 +424,7 @@
 </solution>
 </example>
 				<p>
-					There can be some cases where these techniques will not work, because the <m>u'</m> term that you are looking for doesn’t quite appear in the expression you are trying to integrate. In cases like this, you may need to use some more complicated methods (like trigonometric substitution) or connect to inverse trigonometric integrals or other known formulas.
+					There can be some cases where these techniques will not work, because the <m>u'</m> term that you are looking for doesn't quite appear in the expression you are trying to integrate. In cases like this, you may need to use some more complicated methods (like trigonometric substitution) or connect to inverse trigonometric integrals or other known formulas.
 				</p>
 
 			</subsubsection>
@@ -428,7 +433,7 @@
 				<title>Integration by Parts</title>
 
 				<p>
-					Integration by parts is the method used to handle integrals of a product of functions. Like the substitution method is the inverse of the Chain Rule, integration by parts is the inverse of the product rule. There are two main formulas that are used for this process. For two differentiable functions <m>f(x)</m> and <m>g(x)</m>, we have <me>\int f(x) g'(x)\ dx = f(x)g(x) - \int g(x) f'(x) dx.</me> The other form is <me>\int u\ dv = uv - \int v\ du,</me> which matches the original form after setting <m>u = f(x)</m> and <m>v = g(x)</m>.
+					Integration by parts is the method used to handle integrals of a product of functions. Like the substitution method is the inverse of the Chain Rule, integration by parts is the inverse of the product rule. There are two main formulas that are used for this process. For two differentiable functions <m>f(x)</m> and <m>g(x)</m>, we have  <md>\int f(x) g'(x)\ dx = f(x)g(x) - \int g(x) f'(x) dx. </md> The other form is  <md>\int u\ dv = uv - \int v\ du, </md> which matches the original form after setting <m>u = f(x)</m> and <m>v = g(x)</m>.
 				</p>
 
 				<p>
@@ -469,7 +474,7 @@
 				</ul></p>
 
 				<p>
-					and you want to make <m>u</m>, the function that you are differentiating, the one that is higher on the list. The main reason for this list is that integration is much harder than differentiation, and so we generally want to integrate the part of the product that we have a formula for. This is why logarithms and inverses are on the top; we know how to differentiate them, but integration is difficult or impossible. Polynomials are good for both differentiation and integrals, but the benefit of differentiating them is that they eventually disappear, leaving us with an integral that we know how to solve. For example, <m>x^2</m> becomes <m>2x</m>, and then differentiating a second time gives <m>2</m>, which is just a constant and can be removed from the integral. Trigonometric and Exponential functions are interchangeable, they are easy to differentiate and integrate, and they don’t go away if we keep applying either operation.
+					and you want to make <m>u</m>, the function that you are differentiating, the one that is higher on the list. The main reason for this list is that integration is much harder than differentiation, and so we generally want to integrate the part of the product that we have a formula for. This is why logarithms and inverses are on the top; we know how to differentiate them, but integration is difficult or impossible. Polynomials are good for both differentiation and integrals, but the benefit of differentiating them is that they eventually disappear, leaving us with an integral that we know how to solve. For example, <m>x^2</m> becomes <m>2x</m>, and then differentiating a second time gives <m>2</m>, which is just a constant and can be removed from the integral. Trigonometric and Exponential functions are interchangeable, they are easy to differentiate and integrate, and they don't go away if we keep applying either operation.
 				</p>
 
 				<p>
@@ -508,27 +513,29 @@
 <solution>				<p><ol>
 					<li>
 									<p>
-										Based on our list, we should choose <m>u = x</m>, as it is a polynomial function. This means that <m>dv = \sin(2x)\ dx</m>. From this, we get that <m>du = dx</m> and we compute <m>v</m> by integrating <m>\sin(2x)\ dx</m>, which requires a substitution. This results in <m>v = -\frac{1}{2}\cos(2x)</m>. Thus, the integration by parts formula gives <me>\int x\sin(2x)\ dx = x \left(-\frac{1}{2}\cos(2x)\right) - \int \left(-\frac{1}{2}\cos(2x) \right) dx.</me> This last integral we can compute directly, again requiring a substitution. Thus, the final answer is <me>\int x\sin(2x)\ dx = -\frac{x}{2}\cos(2x) + \frac{1}{4}\sin(2x) + C.</me>
+										Based on our list, we should choose <m>u = x</m>, as it is a polynomial function. This means that <m>dv = \sin(2x)\ dx</m>. From this, we get that <m>du = dx</m> and we compute <m>v</m> by integrating <m>\sin(2x)\ dx</m>, which requires a substitution. This results in <m>v = -\frac{1}{2}\cos(2x)</m>. Thus, the integration by parts formula gives  <md>\int x\sin(2x)\ dx = x \left(-\frac{1}{2}\cos(2x)\right) - \int \left(-\frac{1}{2}\cos(2x) \right) dx. </md> This last integral we can compute directly, again requiring a substitution. Thus, the final answer is  <md>\int x\sin(2x)\ dx = -\frac{x}{2}\cos(2x) + \frac{1}{4}\sin(2x) + C. </md>
 									</p>
 					</li>
 
 					<li>
 									<p>
-										By the same argument as the first example, we want to pick <m>u = 3x^2</m> so then <m>dv = e^{4x} dx</m>. We can then compute that <m>du = 6x\ dx</m> and <m>v = \frac{1}{4}e^{4x}</m>. Thus, integration by parts gives <me>\int 3x^2e^{4x}\ dx = 3x^2\left(\frac{1}{4}e^{4x}\right) - \int \left(\frac{1}{4}e^{4x}\right) (6x \ dx) = \frac{3}{4}x^2e^{4x}- \int \frac{3}{2} xe^{4x}\ dx.</me>
+										By the same argument as the first example, we want to pick <m>u = 3x^2</m> so then <m>dv = e^{4x} dx</m>. We can then compute that <m>du = 6x\ dx</m> and <m>v = \frac{1}{4}e^{4x}</m>. Thus, integration by parts gives  <md>\int 3x^2e^{4x}\ dx = 3x^2\left(\frac{1}{4}e^{4x}\right) - \int \left(\frac{1}{4}e^{4x}\right) (6x \ dx) = \frac{3}{4}x^2e^{4x}- \int \frac{3}{2} xe^{4x}\ dx. </md>
 									</p>
 					
 									<p>
-										This last integral is not something that we know how to compute. However, it looks like a product, so we should be able to work it out using integration by parts. We can set <m>u = \frac{3}{2}x</m> and <m>dv = e^{4x}\ dx</m>. This is the same <m>dv</m> as before, which is good. If we had picked <m>dv = \frac{3}{2}x\ dx</m>, we would have just gotten back to where we started. From these choices, we get that <m>du = \frac{3}{2}\ dx</m> and <m>v = \frac{1}{4} e^{4x}</m>. Integration by parts then gives that <me>\int \frac{3}{2} xe^{4x}\ dx = \frac{3}{8}xe^{4x} - \int \frac{3}{8}e^{4x}\ dx.</me> Now we can compute this last integral, which will give another factor of <m>\frac{1}{4}</m>, resulting in <me>\int \frac{3}{2} xe^{4x}\ dx = \frac{3}{8}xe^{4x} - \frac{3}{32}e^{4x} + C.</me> Finally, we can combine this with our first integration by parts step to get that <me>\int 3x^2e^{4x}\ dx =  \frac{3}{4}x^2e^{4x}- \frac{3}{8}xe^{4x} + \frac{3}{32}e^{4x} + C.</me>
+										This last integral is not something that we know how to compute. However, it looks like a product, so we should be able to work it out using integration by parts. We can set <m>u = \frac{3}{2}x</m> and <m>dv = e^{4x}\ dx</m>. This is the same <m>dv</m> as before, which is good. If we had picked <m>dv = \frac{3}{2}x\ dx</m>, we would have just gotten back to where we started. From these choices, we get that <m>du = \frac{3}{2}\ dx</m> and <m>v = \frac{1}{4} e^{4x}</m>. Integration by parts then gives that  <md>\int \frac{3}{2} xe^{4x}\ dx = \frac{3}{8}xe^{4x} - \int \frac{3}{8}e^{4x}\ dx. </md> Now we can compute this last integral, which will give another factor of <m>\frac{1}{4}</m>, resulting in  <md>\int \frac{3}{2} xe^{4x}\ dx = \frac{3}{8}xe^{4x} - \frac{3}{32}e^{4x} + C. </md> Finally, we can combine this with our first integration by parts step to get that  <md>\int 3x^2e^{4x}\ dx =  \frac{3}{4}x^2e^{4x}- \frac{3}{8}xe^{4x} + \frac{3}{32}e^{4x} + C. </md>
 									</p>
 					</li>
 
 					<li>
 									<p>
-										For this example, we have both an exponential and a trigonometric function. We can pick either one to be <m>u</m> and <m>dv</m>, and as long as we are consistent with that choice, we will get to the correct answer. For this, we will choose <m>u = e^{2x}</m> and <m>dv = \cos(3x)\ dx</m>. From these, we can compute that <m>du = 2e^{2x}\ dx</m> and <m>v = \frac{1}{3}\sin(3x)</m>. Thus, integration by parts tells us that <me>\int e^{2x}\cos(3x)\ dx = \frac{1}{3}e^{2x}\sin(3x) - \int \frac{2}{3}e^{2x}\sin(3x)\ dx.</me> This new integral is again a product, so we need to handle it using integration by parts. To do this, we are going to pick <m>u = \frac{2}{3}e^{2x}</m> and <m>dv = \sin(3x)\ dx</m>. <em>Note:</em> If you pick <m>u = \sin(3x)</m> and <m>dv = \frac{2}{3}e^{2x}\ dx</m>, the second integration by parts will just give that <me>\int e^{2x}\cos(3x) \ dx = \int e^{2x}\cos(3x)\ dx</me> which does not help in solving the problem. With the correct choice of <m>u</m> and <m>dv</m>, <m>u = \frac{2}{3}e^{2x}</m> and <m>dv = \sin(3x)\ dx</m>, we have that <m>du = \frac{4}{3}e^{2x}\ dx</m> and <m>v = -\frac{1}{3}\cos(3x)</m>, so that integration by parts tells us that <me>\int \frac{2}{3}e^{2x}\sin(3x)\ dx = -\frac{2}{9}e^{2x}\cos(3x) - \int - \frac{4}{9}e^{2x}\cos(3x)\ dx.</me> Combining this with our first integration by parts gives <me>\begin{split}
-					\int e^{2x}\cos(3x)\ dx &amp;= \frac{1}{3}e^{2x}\sin(3x) - \int \frac{2}{3}e^{2x}\sin(3x)\ dx \\
-					&amp;= \frac{1}{3}e^{2x}\sin(3x)  + \frac{2}{9}e^{2x}\cos(3x) - \int \frac{4}{9}e^{2x}\cos(3x)\ dx \\
-					\int e^{2x}\cos(3x)\ dx &amp;= \frac{1}{3}e^{2x}\sin(3x)  + \frac{2}{9}e^{2x}\cos(3x)- \frac{4}{9}\int e^{2x}\cos(3x)\ dx.
-					\end{split}</me> In this case, we can see that the integral on the left matches the integral on the right. If we combine these on the left side, we get <me>\frac{13}{9} \int e^{2x}\cos(3x)\ dx = \frac{1}{3}e^{2x}\sin(3x)  + \frac{2}{9}e^{2x}\cos(3x)</me> which then allows us to solve for the answers as <me>\int e^{2x}\cos(3x)\ dx = \frac{3}{13}e^{2x}\sin(3x)  + \frac{2}{13}e^{2x}\cos(3x).</me>
+										For this example, we have both an exponential and a trigonometric function. We can pick either one to be <m>u</m> and <m>dv</m>, and as long as we are consistent with that choice, we will get to the correct answer. For this, we will choose <m>u = e^{2x}</m> and <m>dv = \cos(3x)\ dx</m>. From these, we can compute that <m>du = 2e^{2x}\ dx</m> and <m>v = \frac{1}{3}\sin(3x)</m>. Thus, integration by parts tells us that  <md>\int e^{2x}\cos(3x)\ dx = \frac{1}{3}e^{2x}\sin(3x) - \int \frac{2}{3}e^{2x}\sin(3x)\ dx. </md> This new integral is again a product, so we need to handle it using integration by parts. To do this, we are going to pick <m>u = \frac{2}{3}e^{2x}</m> and <m>dv = \sin(3x)\ dx</m>. <em>Note:</em> If you pick <m>u = \sin(3x)</m> and <m>dv = \frac{2}{3}e^{2x}\ dx</m>, the second integration by parts will just give that  <md>\int e^{2x}\cos(3x) \ dx = \int e^{2x}\cos(3x)\ dx </md> which does not help in solving the problem. With the correct choice of <m>u</m> and <m>dv</m>, <m>u = \frac{2}{3}e^{2x}</m> and <m>dv = \sin(3x)\ dx</m>, we have that <m>du = \frac{4}{3}e^{2x}\ dx</m> and <m>v = -\frac{1}{3}\cos(3x)</m>, so that integration by parts tells us that  <md>\int \frac{2}{3}e^{2x}\sin(3x)\ dx = -\frac{2}{9}e^{2x}\cos(3x) - \int - \frac{4}{9}e^{2x}\cos(3x)\ dx. </md> Combining this with our first integration by parts gives  
+										<md>
+<mrow>	\int e^{2x}\cos(3x)\ dx \amp= \frac{1}{3}e^{2x}\sin(3x) - \int \frac{2}{3}e^{2x}\sin(3x)\ dx </mrow>
+<mrow>	\amp= \frac{1}{3}e^{2x}\sin(3x)  + \frac{2}{9}e^{2x}\cos(3x) - \int \frac{4}{9}e^{2x}\cos(3x)\ dx </mrow>
+<mrow>\int e^{2x}\cos(3x)\ dx \amp= \frac{1}{3}e^{2x}\sin(3x)  + \frac{2}{9}e^{2x}\cos(3x)- \frac{4}{9}\int e^{2x}\cos(3x)\ dx</mrow>
+				</md>. 
+				In this case, we can see that the integral on the left matches the integral on the right. If we combine these on the left side, we get  <md>\frac{13}{9} \int e^{2x}\cos(3x)\ dx = \frac{1}{3}e^{2x}\sin(3x)  + \frac{2}{9}e^{2x}\cos(3x) </md> which then allows us to solve for the answers as  <md>\int e^{2x}\cos(3x)\ dx = \frac{3}{13}e^{2x}\sin(3x)  + \frac{2}{13}e^{2x}\cos(3x). </md>
 									</p>
 					</li>
 
@@ -542,20 +549,33 @@
 
 				<p>
 					Another integration technique that shows up frequently when dealing with rational functions is the method of partial fractions. This method works around decomposing a rational function into forms that we are able to integrate. For example, we do not have a formula or method to compute the integral 
-<me>
+ <md>
 \int \frac{3}{x^2 - x - 2} \ dx.
-</me>
+ </md>
  since there is no simple function whose derivative is <m>\frac{3}{x^2 - x - 2}</m>. What functions like this can we integrate?
 				</p>
 
 
-<example>
-<title> </title>
+<example xml:id="ex-PFPossible">
 <statement>				<p>
 					 Compute the following antiderivatives 
-<me>
-\text{(a) } \int \frac{1}{x-2} \ dx \qquad \text{(b) } \int \frac{1}{x^2 + 4}\ dx \qquad \text{(c) } \int \frac{x}{x^2 + 9}\ dx.
-</me>
+<ol>
+	<li>
+		<p>
+			<m>\int \frac{1}{x-2} \ dx</m>
+		</p>
+	</li>
+	<li>
+		<p>
+			<m>\int \frac{1}{x^2 + 4}\ dx</m>
+		</p>
+	</li>
+	<li>
+		<p>
+			<m>\int \frac{x}{x^2 + 9}\ dx</m>.
+		</p>
+	</li>
+</ol>
 
 				</p>
 </statement>
@@ -564,9 +584,9 @@
 					<li>
 									<p>
 										This integral can be computed by a substitution <m>u = x-2</m>, 
-<me>
+ <md>
 					\int \frac{1}{x-2}\ dx = \int \frac{1}{u}\ du = \ln|x-2| + C.
-					</me>
+					 </md>
 
 									</p>
 					</li>
@@ -574,9 +594,9 @@
 					<li>
 									<p>
 										This integral is another substitution, but the goal here is arctangent, not a logarithm. We let <m>u = \nicefrac{x}{2}</m>, so that <m>du = \nicefrac{1}{2}\ dx</m>, and then 
-<me>
+ <md>
 					\int \frac{1}{x^2 + 4}\ dx = \int \frac{1}{4u^2 + 4} 2\ du = \frac{1}{2} \int \frac{1}{u^2 + 1}\ du = \frac{1}{2} \arctan\left( \frac{x}{2} \right) + C.
-					</me>
+					 </md>
 
 									</p>
 					</li>
@@ -584,9 +604,9 @@
 					<li>
 									<p>
 										With an <m>x</m> on top of the expression, we can now use a substitution <m>u = x^2 + 9</m> to solve the integral. 
-<me>
+ <md>
 					\int \frac{x}{x^2 + 9}\ dx = \frac{1}{2} \int \frac{1}{u}\ du = \frac{1}{2} \ln|x^2 + 9| + C.
-					</me>
+					 </md>
 
 									</p>
 					</li>
@@ -595,48 +615,47 @@
 </solution>
 </example>
 				<p>
-					So, we can handle these types of integrals, but that doesn’t necessarily help us with the initial one. Let’s take a look at another example.
+					So, we can handle these types of integrals, but that doesn't necessarily help us with the initial one. Let's take a look at another example.
 				</p>
 
 
 <example>
-<title> </title>
 <statement>				<p>
 					Compute 
-<me>
+ <md>
 \int \frac{1}{x-2} - \frac{1}{x+1}\ dx.
-</me>
+ </md>
 
 				</p>
 </statement>
 
 <solution>				<p>
 					This integral can be computed by splitting it into the two terms present. Each of those we know how to evaluate using the previous example. Thus, we have that 
-<me>
+ <md>
 \int \frac{1}{x-2} - \frac{1}{x+1}\ dx = \ln(|x-2|) - \ln(|x+1|) + C = \ln\left(\frac{|x-2|}{|x+1|}\right) + C.
-</me>
+ </md>
 
 				</p>
 </solution>
 </example>
 				<p>
 					This is great! However, we can compute that, by adding fractions 
-<me>
+ <md>
 \frac{1}{x-2} - \frac{1}{x+1} = \frac{(x+1)-(x-2)}{(x-2)(x+1)} = \frac{3}{x^2 - x - 2}.
-</me>
+ </md>
  So this gives us a way to compute the original integral of this section, and we now know that 
-<me>
+ <md>
 \int \frac{3}{x^2 - x - 2} \ dx = \ln\left(\frac{|x-2|}{|x+1|}\right) + C.
-</me>
+ </md>
 
 				</p>
 
 				<p>
 					This gives an idea for how we may be able to evaluate integrals of rational functions. In the case of the integral above, we would need to figure out a way to convert between 
-<me>
+ <md>
 \frac{3}{x^2 - x - 2} \text{ and } \frac{1}{x-2} - \frac{1}{x+1},
-</me>
- that is, we need to split the complicated fraction into the smaller, simpler that we can integrate. Based on our work in , we know that we can integrate functions that have a linear term in the denominator and a quadratic term in the denominator, and the process of putting these fractions together into a single term involves multiplying the individual denominators together. This gives the motivation for the method of partial fractions for integrating rational functions:
+ </md>
+ that is, we need to split the complicated fraction into the smaller, simpler that we can integrate. Based on our work in <xref ref="ex-PFPossible"/>, we know that we can integrate functions that have a linear term in the denominator and a quadratic term in the denominator, and the process of putting these fractions together into a single term involves multiplying the individual denominators together. This gives the motivation for the method of partial fractions for integrating rational functions:
 				</p>
 
 				<p><ol>
@@ -681,50 +700,50 @@
 <title> </title>
 <statement>				<p>
 					Compute 
-<me>
+ <md>
 \int \frac{3x + 1}{x^3 - x^2 - 12x}\ dx.
-</me>
+ </md>
 
 				</p>
 </statement>
 
 <solution>				<p>
 					We start by factoring the denominator. We can factor an <m>x</m> out of each term, and then the resulting quadratic can be factored. Since 
-<me>
+ <md>
 x^3 - x^2 - 12x = x(x+3)(x-4)
-</me>
+ </md>
  we want to figure out coefficients <m>A</m>, <m>B</m>, and <m>C</m> so that 
-<me>
+ <md>
 \frac{3x + 1}{x^3 - x^2 - 12x} = \frac{A}{x} + \frac{B}{x+3} + \frac{C}{x-4} 
-</me>
+ </md>
  where we have one term per factor of the denominator. In order to find these constants, our first trick is to multiply both sides of this equation by the entire denominator on the left. This gives 
-<men xml:id="eq-PFSetup1">
+ <md number="yes" xml:id="eq-PFSetup1">
  3x+1 = A(x+3)(x-4) + B(x)(x-4) + C(x)(x+3)
-</men>
+ </md>
 where we have cancelled the appropriate terms from the top and bottom of each expression. One way to go from here to the constants is to expand out the right-hand side and recognize that for these two sides to be equal for all <m>x</m>, the coefficient of <m>x^2</m>, <m>x</m>, and the constant term must match. This will result in solve a system of 3 equations.
 				</p>
 
 				<p>
 					An easier approach to doing this is to plug values for <m>x</m> into each side, and to pick those values cleverly. One clever choice for <xref ref="eq-PFSetup1" /> is to set <m>x=0</m>. If we do that, both the <m>B</m> and <m>C</m> terms will go away, because they are multiplied by zero. Thus, if we plug in zero, we get 
-<me>
+ <md>
 1 = -12A + 0 + 0
-</me>
+ </md>
  which implies that <m>A = -\nicefrac{1}{12}</m>. For the next term, we can plug in <m>-3</m> to make the <m>x+3</m> terms go away, resulting in 
-<me>
+ <md>
 -8 = B(-3)(-7)
-</me>
+ </md>
  so that <m>B = -\nicefrac{8}{21}</m>. Plugging in <m>x=4</m> gives 
-<me>
+ <md>
 13 = C(4)(7)
-</me>
+ </md>
  so that <m>C = \nicefrac{13}{28}</m>. Therefore, we can write that 
-<me>
+ <md>
 \frac{3x + 1}{x^3 - x^2 - 12x} = \frac{-\nicefrac{1}{12}}{x} + \frac{ -\nicefrac{8}{21}}{x+3} + \frac{\nicefrac{13}{28}}{x-4}
-</me>
+ </md>
  Then, we can integrate both sides to get that 
-<me>
+ <md>
 \int \frac{3x + 1}{x^3 - x^2 - 12x}\ dx = -\frac{1}{12}\ln(|x|) - \frac{8}{21}\ln(|x+3|) + \frac{13}{28} \ln(|x-4|) + C.
-</me>
+ </md>
 
 				</p>
 </solution>
@@ -735,45 +754,42 @@ where we have cancelled the appropriate terms from the top and bottom of each ex
 
 
 <example>
-<title> </title>
 <statement>				<p>
 					Compute 
-<me>
+ <md>
 \int \frac{2x^2 - 6}{x^3 - x^2 + 4x - 4}\ dx.
-</me>
+ </md>
 
 				</p>
 </statement>
 
 <solution>				<p>
 					The denominator can be factored as <m>(x^2 + 4)(x-1)</m>, which can be determined by grouping. This means that to do the partial fraction decomposition, we need to find coefficients <m>A</m>, <m>B</m>, and <m>C</m> so that 
-<me>
+ <md>
 \frac{2x^2 - 6}{x^3 - x^2 + 4x - 4} = \frac{Ax + B}{x^2 + 4} + \frac{C}{x-1}.
-</me>
+ </md>
  Note that the <m>x^2 + 4</m> term has <m>Ax + B</m> on top instead of just <m>A</m>. This is because the term on the bottom is a quadratic, and there will always be a number of coefficients on top that matches the degree of the term in the denominator. By multiplying both sides by the denominator will give the equation 
-<me>
+ <md>
 2x^2 - 6 = (Ax + B)(x-1) + C(x^2 + 4)
-</me>
- where we need to find the appropriate constants. In this case, we can plug in <m>x=1</m> to determine that <m>-4 = 5C</m> or <m>C = -\nicefrac{4}{5}</m>. However, there is no value we can plug in to make <m>x^2 + 4 = 0</m>. We could use complex numbers here, but assuming we don’t want to do that, we can plug in any two numbers and go from there. Plugging in <m>x=0</m> is nice because it makes the <m>A</m> term go away, resulting in 
-<me>
+ </md>
+ where we need to find the appropriate constants. In this case, we can plug in <m>x=1</m> to determine that <m>-4 = 5C</m> or <m>C = -\nicefrac{4}{5}</m>. However, there is no value we can plug in to make <m>x^2 + 4 = 0</m>. We could use complex numbers here, but assuming we don't want to do that, we can plug in any two numbers and go from there. Plugging in <m>x=0</m> is nice because it makes the <m>A</m> term go away, resulting in 
+ <md>
 -6 = B(-1) + C(4) = -B - \frac{16}{5}
-</me>
- which we can solve to get <m>B = \nicefrac{14}{5}</m>. Finally, we can plug in any other number for <m>x</m> to get an equation to solve for <m>A</m>. Let’s use <m>-1</m> to give that 
-<me>
+ </md>
+ which we can solve to get <m>B = \nicefrac{14}{5}</m>. Finally, we can plug in any other number for <m>x</m> to get an equation to solve for <m>A</m>. Let's use <m>-1</m> to give that 
+ <md>
 -4 = \left(-A + \frac{14}{5}\right)(-2) + \left(-\frac{4}{5}\right)(5) = 2A - \frac{28}{5} - 4
-</me>
+ </md>
  which gives that <m>A = -\nicefrac{14}{5}</m>. Therefore, we can write 
-<me>
+ <md>
 \frac{2x^2 - 6}{x^3 - x^2 + 4x - 4} = \frac{-\nicefrac{14}{5}x + \nicefrac{14}{5}}{x^2 + 4} + \frac{-\nicefrac{4}{5}}{x-1}.
-</me>
+ </md>
  Therefore, we can write the integral we want to compute as 
-<me>
-\begin{split}
-\int \frac{2x^2 - 6}{x^3 - x^2 + 4x - 4}\ dx &amp;= \int  \frac{-\nicefrac{14}{5}x + \nicefrac{14}{5}}{x^2 + 4} + \frac{-\nicefrac{4}{5}}{x-1}\ dx \\
-&amp;= -\frac{14}{5} \int \frac{x}{x^2 + 4}\ dx + \frac{14}{5} \int \frac{1}{x^2 + 4}\ dx - \frac{4}{5} \int \frac{1}{x-1}\ dx \\
-&amp;= -\frac{7}{5}\ln(|x^2 + 4|) + \frac{7}{5} \arctan\left(\frac{x}{2}\right) - \frac{4}{5}\ln(|x-1|) + C
-\end{split}
-</me>
+ <md>
+<mrow>\int \frac{2x^2 - 6}{x^3 - x^2 + 4x - 4}\ dx \amp= \int  \frac{-\nicefrac{14}{5}x + \nicefrac{14}{5}}{x^2 + 4} + \frac{-\nicefrac{4}{5}}{x-1}\ dx </mrow>
+<mrow>\amp= -\frac{14}{5} \int \frac{x}{x^2 + 4}\ dx + \frac{14}{5} \int \frac{1}{x^2 + 4}\ dx - \frac{4}{5} \int \frac{1}{x-1}\ dx </mrow>
+<mrow>\amp= -\frac{7}{5}\ln(|x^2 + 4|) + \frac{7}{5} \arctan\left(\frac{x}{2}\right) - \frac{4}{5}\ln(|x-1|) + C</mrow>
+ </md>.
 
 				</p>
 </solution>
@@ -792,9 +808,9 @@ where we have cancelled the appropriate terms from the top and bottom of each ex
 					<li>
 									<p>
 										If there are repeated factors, like <m>(x-1)^2</m> in the denominator, we need to include one term in the partial fraction expansion for every power of that factor. For instance, the expansion should look like 
-<me>
+ <md>
 					\frac{1}{(x+1)(x-3)^3} = \frac{A}{x+1} + \frac{B}{x-3} + \frac{C}{(x-3)^2} + \frac{D}{(x-3)^3}.
-					</me>
+					 </md>
 
 									</p>
 					</li>

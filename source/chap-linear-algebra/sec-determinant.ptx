@@ -183,18 +183,17 @@ a_{13} \det (A_{13}) -
 - a_{1n} \det (A_{1n}) &amp; \text{if } n \text{ even.}
 \end{cases}
 </md>
- For a <m>3 \times 3</m> matrix, we get <m>\det (A) = a_{11} \det (A_{11}) -
-a_{12} \det (A_{12}) + a_{13} \det (A_{13})</m>. For example, 
+ For a <m>3 \times 3</m> matrix, we get <md>\det (A) = a_{11} \det (A_{11}) -
+a_{12} \det (A_{12}) + a_{13} \det (A_{13})</md>. For example, 
 <md>
-\begin{split}
-\det \left(
+<mrow>\det \left(
 \begin{bmatrix}
 1 &amp; 2 &amp; 3 \\
 4 &amp; 5 &amp; 6 \\
 7 &amp; 8 &amp; 9
 \end{bmatrix}
 \right)
-&amp; =
+\amp =
 1 \cdot
 \det \left(
 \begin{bmatrix}
@@ -217,16 +216,17 @@ a_{12} \det (A_{12}) + a_{13} \det (A_{13})</m>. For example,
 4 &amp; 5 \\
 7 &amp; 8
 \end{bmatrix}
-\right) \\
-&amp; =
+\right) </mrow>
+<mrow>
+\amp =
 1 (5 \cdot 9 - 6 \cdot 8)
 -
 2 (4 \cdot 9 - 6 \cdot 7)
 +
 3 (4 \cdot 8 - 5 \cdot 7)
-= 0 .
-\end{split}
-</md>
+= 0
+</mrow>
+</md>.
 
 		</p>
 
@@ -241,15 +241,14 @@ a_{ij} \det (A_{ij}) .
 </md>
  It is sometimes useful to use a row other than the first. In the following example it is more convenient to expand along the second row. Notice that for the second row we are starting with a negative sign. 
 <md>
-\begin{split}
-\det \left(
+<mrow>\det \left(
 \begin{bmatrix}
 1 &amp; 2 &amp; 3 \\
 0 &amp; 5 &amp; 0 \\
 7 &amp; 8 &amp; 9
 \end{bmatrix}
 \right)
-&amp; =
+\amp =
 - 0 \cdot
 \det \left(
 \begin{bmatrix}
@@ -272,27 +271,27 @@ a_{ij} \det (A_{ij}) .
 1 &amp; 2 \\
 7 &amp; 8
 \end{bmatrix}
-\right) \\
-&amp; =
+\right) </mrow>
+<mrow>
+\amp =
 0
 +
 5 (1 \cdot 9 - 3 \cdot 7)
 +
 0
-= -60 .
-\end{split}
-</md>
+= -60
+</mrow>
+</md>.
  Let us check if it is really the same as expanding along the first row, 
 <md>
-\begin{split}
-\det \left(
+<mrow>\det \left(
 \begin{bmatrix}
 1 &amp; 2 &amp; 3 \\
 0 &amp; 5 &amp; 0 \\
 7 &amp; 8 &amp; 9
 \end{bmatrix}
 \right)
-&amp; =
+\amp =
 1 \cdot
 \det \left(
 \begin{bmatrix}
@@ -315,16 +314,17 @@ a_{ij} \det (A_{ij}) .
 0 &amp; 5 \\
 7 &amp; 8
 \end{bmatrix}
-\right) \\
-&amp; =
+\right) </mrow>
+<mrow>
+\amp =
 1 (5 \cdot 9 - 0 \cdot 8)
 -
 2 (0 \cdot 9 - 0 \cdot 7)
 +
 3 (0 \cdot 8 - 5 \cdot 7)
-= -60 .
-\end{split}
-</md>
+= -60
+</mrow>
+</md>.
 
 		</p>
 
@@ -429,8 +429,8 @@ a_{ij} \det (A_{ij}) .
 			Another way that we can compute determinants is by using row reduction. Since the row echelon form is a diagonal matrix, this will make it easy to compute the determinant using the product of the diagonal entries. However, we need to know how the determinant is affected by elementary row operations.
 		</p>
 
-<theorem xml:id="thm-det-properties">
-	<title>Properties of the Determinant</title>
+<theorem xml:id="thm-detElem">
+	<title>Determinants and Elementary Row Operations</title>
 		
 	<statement>
 		<p> Let <m>A</m> be a square <m>n\times n</m> matrix.
@@ -481,7 +481,7 @@ a_{ij} \det (A_{ij}) .
 
 			<li>
 					<p>
-						Assume that <m>B</m> is formed by adding <m>r</m> copies of the <m>k</m>th row of <m>A</m> to the <m>i</m>th row. Since the <m>i</m>th row is the one being changed, we will use cofactor expansion there to compute each determinant. We get that <md>\det(A) = \sum_{j=1}^n (-1)^{i+j}a_{ij}\det(A_{ij}</md> and <md>\det(B) = \sum_{j=1}^n (-1)^{i+j} b_{ij}\det(B_{ij}) = \sum (-1)^{i+j} (a_{ij} + ra_{kj})\det(A_{ij})</md> where we have replaced the minors of <m>B</m> by the minors of <m>A</m> because they ignore the <m>i</m>th row, which is the only thing that has changed. We can now split the determinant of <m>B</m> into two parts <md>\sum (-1)^{i+j} (a_{ij} + ra_{kj})\det(A_{ij}) = \sum (-1)^{i+j} a_{ij}\det(A_{ij}) + \sum (-1)^{i+j} ra_{kj}\det(A_{ij}).</md> The first of these is the determinant of the matrix <m>A</m>. The second is the determinant of a new matrix that we will call <m>C</m>. <m>C</m> is the same as the matrix <m>A</m>, except that we have replaced the <m>i</m>th row of <m>A</m> by <m>r</m> times the <m>k</m>th row of <m>A</m>. Thus, the <m>i</m>th row of this matrix <m>C</m> is a multiple of the <m>k</m>th row. This means that the rows of <m>C</m> are not linearly independent. By coming up later (don’t worry, it does not depend on this result), this tells us that the determinant of <m>C</m> is zero. Therefore <md>\det(B) = \det(A) + \det(C) = \det(A)</md> so this operation does not change the determinant of the matrix.
+						Assume that <m>B</m> is formed by adding <m>r</m> copies of the <m>k</m>th row of <m>A</m> to the <m>i</m>th row. Since the <m>i</m>th row is the one being changed, we will use cofactor expansion there to compute each determinant. We get that <md>\det(A) = \sum_{j=1}^n (-1)^{i+j}a_{ij}\det(A_{ij}</md> and <md>\det(B) = \sum_{j=1}^n (-1)^{i+j} b_{ij}\det(B_{ij}) = \sum (-1)^{i+j} (a_{ij} + ra_{kj})\det(A_{ij})</md> where we have replaced the minors of <m>B</m> by the minors of <m>A</m> because they ignore the <m>i</m>th row, which is the only thing that has changed. We can now split the determinant of <m>B</m> into two parts <md>\sum (-1)^{i+j} (a_{ij} + ra_{kj})\det(A_{ij}) = \sum (-1)^{i+j} a_{ij}\det(A_{ij}) + \sum (-1)^{i+j} ra_{kj}\det(A_{ij}).</md> The first of these is the determinant of the matrix <m>A</m>. The second is the determinant of a new matrix that we will call <m>C</m>. <m>C</m> is the same as the matrix <m>A</m>, except that we have replaced the <m>i</m>th row of <m>A</m> by <m>r</m> times the <m>k</m>th row of <m>A</m>. Thus, the <m>i</m>th row of this matrix <m>C</m> is a multiple of the <m>k</m>th row. This means that the rows of <m>C</m> are not linearly independent. By <xref ref="thm-bigLinAlg"/> coming up later (don't worry, it does not depend on this result), this tells us that the determinant of <m>C</m> is zero. Therefore <md>\det(B) = \det(A) + \det(C) = \det(A)</md> so this operation does not change the determinant of the matrix.
 					</p>
 			</li>
 
@@ -509,7 +509,7 @@ a_{ij} \det (A_{ij}) .
  -3 &amp; -3  &amp; 2\\
  -2 &amp;-3 &amp; 1\end{bmatrix}  \rightarrow \begin{bmatrix}  1  &amp; 1/2 &amp; -1\\
  -3 &amp; -3  &amp; 2\\
- -2 &amp;-3 &amp; 1\end{bmatrix}.</md> Since we divided by <m>-4</m>, tells us that <md>\det(M) = -\frac{1}{4} \det(A).</md> The next step of row reduction will be to use the 1 in the top left to cancel out the <m>-3</m> and <m>-2</m> below it. Part (c) in says that this doesn’t change the determinant. Therefore, the row reduction gives <md>\begin{bmatrix}  1  &amp; 1/2 &amp; -1\\
+ -2 &amp;-3 &amp; 1\end{bmatrix}.</md> Since we divided by <m>-4</m>, <xref ref="thm-detElem"/> tells us that <md>\det(M) = -\frac{1}{4} \det(A).</md> The next step of row reduction will be to use the 1 in the top left to cancel out the <m>-3</m> and <m>-2</m> below it. Part (c) in says that this doesn't change the determinant. Therefore, the row reduction gives <md>\begin{bmatrix}  1  &amp; 1/2 &amp; -1\\
  -3 &amp; -3  &amp; 2\\
  -2 &amp;-3 &amp; 1\end{bmatrix} \rightarrow \begin{bmatrix}  1  &amp; 1/2 &amp; -1\\
  0 &amp; -3/2  &amp; -1\\
@@ -517,7 +517,7 @@ a_{ij} \det (A_{ij}) .
  0 &amp; -3/2  &amp; -1\\
  0 &amp; -2 &amp; -1\end{bmatrix} \rightarrow \begin{bmatrix}  1  &amp; 1/2 &amp; -1\\
  0 &amp; 1  &amp; 2/3\\
- 0 &amp; -2 &amp; -1\end{bmatrix}.</md> Adding this in to our previous steps using , we get that <md>\det(M) = \left(-\frac{2}{3} \right) \left( -\frac{1}{4} \right) \det(A).</md> Finally, we add two copies of row 2 to row 3, which does not change the determinant and gives the matrix <md>\begin{bmatrix}  1  &amp; 1/2 &amp; -1\\
+ 0 &amp; -2 &amp; -1\end{bmatrix}.</md> Adding this in to our previous steps using <xref ref="thm-detElem"/>, we get that <md>\det(M) = \left(-\frac{2}{3} \right) \left( -\frac{1}{4} \right) \det(A).</md> Finally, we add two copies of row 2 to row 3, which does not change the determinant and gives the matrix <md>\begin{bmatrix}  1  &amp; 1/2 &amp; -1\\
  0 &amp; 1  &amp; 2/3\\
  0 &amp; -2 &amp; -1\end{bmatrix} \rightarrow
  \begin{bmatrix}  1  &amp; 1/2 &amp; -1\\
@@ -532,12 +532,13 @@ a_{ij} \det (A_{ij}) .
 			Compute <m>\det(A)</m> using cofactor expansion and show that you get the same answer.
 		</p>
 </statement>
+</exercise>
 
-<answer>		<p>
+	<p>
 			The determinant is telling you how geometric objects scale. If <m>B</m> doubles the sizes of geometric objects and <m>A</m> triples them, then <m>AB</m> (which applies <m>B</m> to an object and then it applies <m>A</m>) should make size go up by a factor of <m>6</m>. This is true in general:
 		</p>
-</answer>
-</exercise>
+
+
 
 <theorem xml:id="thm-det-multip">
 	<statement>
@@ -614,7 +615,7 @@ c &amp; d
 		</p>
 
 		<p>
-			<em>Note:</em> This is an example of an <em>equivalence</em> theorem, which is fairly common in mathematics. It means that if any one of the statements are true, then we know that all of the others are true as well. It means it’s harder to prove, but once we have such a theorem, it is very powerful in how we can use it going forward.
+			<em>Note:</em> This is an example of an <em>equivalence</em> theorem, which is fairly common in mathematics. It means that if any one of the statements are true, then we know that all of the others are true as well. It means it's harder to prove, but once we have such a theorem, it is very powerful in how we can use it going forward.
 		</p>
 
 <theorem xml:id="thm-bigLinAlg">
@@ -664,7 +665,7 @@ c &amp; d
 	</statement>
 	<proof>
 		<p>
-			Why is all of this true? For (a) and (b), we have Theorem <xref ref="thm-detInv" /> to say that they are equivalent. For (c), if <m>A</m> is invertible, then the unique solution to <m>A\vec{x} = \vec{b}</m> is <m>\vec{x} = A^{-1}\vec{b}</m>. If we take <m>\vec{b} = \vec{0}</m> here, we get (d), that the solution is <m>\vec{x} = A^{-1}\vec{0} = \vec{0}</m>. This means that reducing the system of equations <m>A\vec{x} = 0</m> gives <m>x_1 = 0</m>, <m>x_2 = 0</m>, ..., <m>x_n = 0</m>, which means the reduced row echelon form of <m>A</m> is just the identity matrix, which is (e). Finally, this means that every column is a pivot column, so that all of the columns are linearly independent, giving (f). ◻
+			Why is all of this true? For (a) and (b), we have Theorem <xref ref="thm-detInv" /> to say that they are equivalent. For (c), if <m>A</m> is invertible, then the unique solution to <m>A\vec{x} = \vec{b}</m> is <m>\vec{x} = A^{-1}\vec{b}</m>. If we take <m>\vec{b} = \vec{0}</m> here, we get (d), that the solution is <m>\vec{x} = A^{-1}\vec{0} = \vec{0}</m>. This means that reducing the system of equations <m>A\vec{x} = 0</m> gives <m>x_1 = 0</m>, <m>x_2 = 0</m>, ..., <m>x_n = 0</m>, which means the reduced row echelon form of <m>A</m> is just the identity matrix, which is (e). Finally, this means that every column is a pivot column, so that all of the columns are linearly independent, giving (f).
 		</p>
 	</proof>
 </theorem>
@@ -824,6 +825,11 @@ c &amp; d
 \end{bmatrix}</m>
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>-2</m>
+				</p>
+			</answer>
 		</task>
 		<task>
 			<statement>
@@ -834,6 +840,11 @@ c &amp; d
 \end{bmatrix}</m>
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>8</m>
+				</p>
+			</answer>
 		</task>
 		<task>
 			<statement>
@@ -844,6 +855,11 @@ c &amp; d
 \end{bmatrix}</m>
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>0</m>
+				</p>
+			</answer>
 		</task>
 		<task>
 			<statement>
@@ -855,6 +871,11 @@ c &amp; d
 \end{bmatrix}</m>
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>-6</m>
+				</p>
+			</answer>
 		</task>
 		<task>
 			<statement>
@@ -866,6 +887,11 @@ c &amp; d
 \end{bmatrix}</m>
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>-3</m>
+				</p>
+			</answer>
 		</task>
 		<task>
 			<statement>
@@ -877,6 +903,11 @@ c &amp; d
 \end{bmatrix}</m>
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>28</m>
+				</p>
+			</answer>
 		</task>
 		<task>
 			<statement>
@@ -889,6 +920,11 @@ c &amp; d
 \end{bmatrix}</m>
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>16</m>
+				</p>
+			</answer>
 		</task>
 		<task>
 			<statement>
@@ -901,6 +937,11 @@ c &amp; d
 \end{bmatrix}</m>
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>-24</m>
+				</p>
+			</answer>
 		</task>
 </exercise>
 <exercise>
@@ -988,6 +1029,11 @@ x &amp; 0 &amp; 1 \\
 \end{bmatrix}</m>
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>3</m>
+				</p>
+			</answer>
 		</task>
 		<task>
 			<statement>
@@ -998,6 +1044,11 @@ x &amp; 0 &amp; 1 \\
 \end{bmatrix}</m>
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>9</m>
+				</p>
+			</answer>
 		</task>
 		<task>
 			<statement>
@@ -1008,6 +1059,11 @@ x &amp; 3 \\
 \end{bmatrix}</m>
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>3</m>, <m>-3</m>
+				</p>
+			</answer>
 		</task>
 		<task>
 			<statement>
@@ -1019,6 +1075,11 @@ x &amp; 1 &amp; 0 \\
 \end{bmatrix}</m>
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>\frac{1}{4}</m>
+				</p>
+			</answer>
 		</task>
 
 </exercise>
@@ -1040,6 +1101,11 @@ A = \begin{bmatrix}
 					Compute the determinant of <m>A</m> using cofactor expansion along row 1.
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>-10</m>
+				</p>
+			</answer>
 		</task>
 		<task>
 			<statement>
@@ -1047,6 +1113,11 @@ A = \begin{bmatrix}
 					Compute the determinant of <m>A</m> using cofactor expansion along column 2.
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>-10</m>
+				</p>
+			</answer>
 		</task>
 		<task>
 			<statement>
@@ -1054,6 +1125,11 @@ A = \begin{bmatrix}
 					Compute the determinant using row reduction.
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>-10</m>
+				</p>
+			</answer>
 		</task>
 
 
@@ -1076,6 +1152,11 @@ A = \begin{bmatrix}
 					Compute the determinant of <m>A</m> using cofactor expansion along row 1.
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>6</m>
+				</p>
+			</answer>
 		</task>
 		<task>
 			<statement>
@@ -1083,6 +1164,11 @@ A = \begin{bmatrix}
 					Compute the determinant of <m>A</m> using cofactor expansion along column 3. 
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>6</m>
+				</p>
+			</answer>
 		</task>
 		<task>
 			<statement>
@@ -1090,6 +1176,11 @@ A = \begin{bmatrix}
 					Compute the determinant using row reduction.
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>6</m>
+				</p>
+			</answer>
 		</task>
 
 </exercise>
@@ -1111,6 +1202,11 @@ A = \begin{bmatrix}
 					Compute the determinant of <m>A</m> using cofactor expansion along row 1. 
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>6</m>
+				</p>
+			</answer>
 		</task>
 		<task>
 			<statement>
@@ -1118,6 +1214,11 @@ A = \begin{bmatrix}
 					Compute the determinant of <m>A</m> using cofactor expansion along column 4.
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>6</m>
+				</p>
+			</answer>
 		</task>
 		<task>
 			<statement>
@@ -1125,6 +1226,11 @@ A = \begin{bmatrix}
 					Compute the determinant using row reduction.
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>6</m>
+				</p>
+			</answer>
 		</task>
 
 
@@ -1152,6 +1258,11 @@ A = \begin{bmatrix}
 \end{bmatrix}</md> using row reduction. What does this say about the solutions to <m>A\vec{x} = 0</m>?
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>-1</m>. The only solution is <m>\vec{x} = 0</m>.
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -1165,6 +1276,11 @@ A = \begin{bmatrix}
 \end{bmatrix}</md> using row reduction. What does this say about the columns of <m>A</m>?
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>2</m>. The colums are linearly independent.
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -1178,6 +1294,11 @@ A = \begin{bmatrix}
 \end{bmatrix}</md> using row reduction. What does this say about the solutions to <m>A\vec{x} = \left[ \begin{smallmatrix} 1 \\ 0 \\ -1 \\ 1 \end{smallmatrix} \right]</m>.
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>8</m>. There ies exactly one solution, found by row reduction or multiplying by <m>A^{-1}</m>.
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -1219,6 +1340,11 @@ A = \begin{bmatrix}
  without computing the inverse.
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>\frac{1}{12}</m>
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -1284,6 +1410,11 @@ A(x) = \begin{bmatrix}
 					Find all the <m>x</m> so that <m>A(x)</m> and the matrix inverse <m>A(x)^{-1}</m> have only integer entries (no fractions). Note that there are two answers.
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>1</m> and <m>3</m>.
+				</p>
+			</answer>
 		</task>
 		<task>
 			<statement>
@@ -1291,6 +1422,11 @@ A(x) = \begin{bmatrix}
 					Find all the <m>x</m> so that the matrix inverse <m>A(x)^{-1}</m> has only integer entries (no fractions). (You should get more answers here than the previous part.)
 				</p>
 			</statement>
+			<answer>
+				<p>
+					<m>2 + \frac{1}{k}</m> for any integer <m>k</m>.
+				</p>
+			</answer>
 		</task>
 
 </exercise>

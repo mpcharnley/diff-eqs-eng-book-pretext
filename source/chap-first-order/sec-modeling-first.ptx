@@ -40,7 +40,7 @@
 			</p>
 
 			<p>
-				The final step of the process is to validate the model by comparing with experimental data. Once we have written the model and solved the corresponding differential equation, we want to make sure that the model works. To do this, we can take a new version of the original scenario, run the model as well as the physical experiment and see how the results compare. If the results are <q>close</q> (in whatever sense makes logical sense for the problem), then we have a good model and can keep it. However, if our results differ significantly, then the model we used probably doesn’t apply to this problem. We need to go back to step 1 to try to figure out a better model for the physical situation in order to get more accurate results.
+				The final step of the process is to validate the model by comparing with experimental data. Once we have written the model and solved the corresponding differential equation, we want to make sure that the model works. To do this, we can take a new version of the original scenario, run the model as well as the physical experiment and see how the results compare. If the results are <q>close</q> (in whatever sense makes logical sense for the problem), then we have a good model and can keep it. However, if our results differ significantly, then the model we used probably doesn't apply to this problem. We need to go back to step 1 to try to figure out a better model for the physical situation in order to get more accurate results.
 			</p>
 
 			<p>
@@ -196,39 +196,36 @@ r(t) = \exp \left( \int \frac{3}{60+2t} dt  \right)
 			</p>
 
 			<p>
-				We multiply both sides of the equation to get <md >\begin{align*}
-{(60+2t)}^{3/2} \frac{dx}{dt} +
-{(60+2t)}^{3/2} \frac{3}{60+2t} x
-&amp; =
-0.5{(60+2t)}^{3/2} ,\\
-\frac{d}{dt}\left[
-{(60+2t)}^{3/2} x \right]
-&amp; =
-0.5{(60+2t)}^{3/2} ,\\
-{(60+2t)}^{3/2} x
-&amp; =
+				We multiply both sides of the equation by this <m>r(t)</m> to get <md >
+					<mrow> {(60+2t)}^{3/2} \frac{dx}{dt} +
+{(60+2t)}^{3/2} \frac{3}{60+2t} x \amp = 0.5{(60+2t)}^{3/2} </mrow>
+<mrow> \frac{d}{dt}\left[
+{(60+2t)}^{3/2} x \right] \amp  =
+0.5{(60+2t)}^{3/2} </mrow>
+<mrow> {(60+2t)}^{3/2} x
+\amp =
 \int 
 0.5{(60+2t)}^{3/2}
 dt
-+C ,\\
- x
-&amp; =
++C  </mrow>
+<mrow> x
+\amp =
 {(60+2t)}^{-3/2} \int 
 \frac{
 {(60+2t)}^{3/2}
 }{2}
 dt
-+C{(60+2t)}^{-3/2} ,\\
- x
-&amp; =
++C{(60+2t)}^{-3/2}  </mrow>
+<mrow> x
+\amp =
 {(60+2t)}^{-3/2}
 \frac{1}{10}{(60+2t)}^{5/2}
-+C{(60+2t)}^{-3/2} ,\\
- x
-&amp; =
++C{(60+2t)}^{-3/2}  </mrow>
+<mrow>  x
+\amp =
 \frac{60+2t}{10}
-+C{(60+2t)}^{-3/2} .
-\end{align*}</md>
++C{(60+2t)}^{-3/2} </mrow>
+</md>.
 			</p>
 
 <figure xml:id="linear-salt-graph-fig">
@@ -264,19 +261,10 @@ C=4 ({60}^{3/2}) \approx 1859.03 .
 
 			<p>
 				We are interested in <m>x</m> when the tank is full. The tank is full when <m>60+2t = 100</m>, or when <m>t=20</m>. So 
-<md >
-\begin{split}
-x(20) &amp; = 
-\frac{60+40}{10}
-+C{(60+40)}^{-3/2}
-\\
-&amp; \approx
-10
-+1859.03 {(100)}^{-3/2}
-\approx
-11.86 .
-\end{split}
-</md>
+<md>
+<mrow>x(20) \amp = \frac{60+40}{10}+C{(60+40)}^{-3/2}</mrow>
+<mrow> \amp \approx 10+1859.03 {(100)}^{-3/2} \approx 11.86 </mrow>
+</md>.
  See <xref ref="linear-salt-graph-fig"/> for the graph of <m>x</m> over <m>t</m>.
 			</p>
 
@@ -290,7 +278,7 @@ x(20) &amp; =
 <md >
 x(t) = \frac{60 + 2t}{10} + 1859.03(60+2t)^{-3/2},
 </md>
- which is valid and well defined for all positive values of <m>t</m> (it has an issue at <m>t=-30</m>, but we aren’t concerned about that here). However, as a differential equation that represents a physical situation, it is not valid for all positive values of <m>t</m>. The issue here is that the tank is full at <m>t=20</m>. Therefore, beyond this point, while the function still exists, it is not a valid model for this physical system. Once the tank fills, you can’t keep adding and removing water at the same rates that you have been up until this point, because something is going to break with the system. The same goes for if you are removing water from the tank at a faster rate than you are adding it, because then the tank will empty at some point in time and beyond that, the model equation no longer represents the system.
+ which is valid and well defined for all positive values of <m>t</m> (it has an issue at <m>t=-30</m>, but we aren't concerned about that here). However, as a differential equation that represents a physical situation, it is not valid for all positive values of <m>t</m>. The issue here is that the tank is full at <m>t=20</m>. Therefore, beyond this point, while the function still exists, it is not a valid model for this physical system. Once the tank fills, you can't keep adding and removing water at the same rates that you have been up until this point, because something is going to break with the system. The same goes for if you are removing water from the tank at a faster rate than you are adding it, because then the tank will empty at some point in time and beyond that, the model equation no longer represents the system.
 			</p>
 
 			<p>
@@ -308,12 +296,14 @@ x(t) = \frac{60 + 2t}{10} + 1859.03(60+2t)^{-3/2},
 </statement>
 
 <solution>			<p>
-				We will use the function <m>P(t)</m> to model the balance of the account over time, where <m>t</m> is in <em>years</em>. Since the owner withdraws $50 per month, this means that they withdraw $600 over the course of the year. This means that the differential equation we want is <md >\frac{dP}{dt} = 0.06P - 600 \qquad P(0) = 30000.</md> We can solve this equation by the integrating factor method. <md >\begin{split}
-P' - 0.06P &amp;= -600 \\
-(e^{-0.06t}P)' &amp;= -600e^{-0.06t} \\
-e^{-0.06t}P &amp;= 10000e^{-0.06t} + C \\
-P &amp;= 10000 + Ce^{0.06t}
-\end{split}</md> For <m>P(0) = 30000</m>, we need to take <m>C = 20000</m>. Thus, the solution to the initial value problem is <md >P(t) = 10000 + 20000e^{0.06 t}.</md> Since the coefficient in front of <m>e^{0.06t}</m> is positive, this means that the account balance here will grow in time.
+				We will use the function <m>P(t)</m> to model the balance of the account over time, where <m>t</m> is in <em>years</em>. Since the owner withdraws $50 per month, this means that they withdraw $600 over the course of the year. This means that the differential equation we want is <md >\frac{dP}{dt} = 0.06P - 600 \qquad P(0) = 30000.</md> We can solve this equation by the integrating factor method. 
+			<md>
+<mrow>P' - 0.06P \amp= -600 </mrow>
+<mrow> (e^{-0.06t}P)' \amp= -600e^{-0.06t} </mrow>
+<mrow> e^{-0.06t}P \amp= 10000e^{-0.06t} + C </mrow>
+<mrow> P \amp= 10000 + Ce^{0.06t} </mrow>
+</md>.
+For <m>P(0) = 30000</m>, we need to take <m>C = 20000</m>. Thus, the solution to the initial value problem is <md >P(t) = 10000 + 20000e^{0.06 t}.</md> Since the coefficient in front of <m>e^{0.06t}</m> is positive, this means that the account balance here will grow in time.
 			</p>
 
 			<p>
@@ -742,7 +732,7 @@ v(10) = \frac{98}{3} - \frac{92}{3}e^{-3} \approx 31.14\ m/s.
 <exercise>
 	<introduction>
 		<p>
-				Newton’s Law of Procrastination states that the rate at which one accomplishes a chore is <em>proportional to the amount of the chore not yet done</em>. Unbeknownst to Newton, this applies to robots too. A Roomba is attempting to vacuum a house measuring 1000 square feet. When none of the house is clean, the roomba can clean 200 square feet per hour. What makes this problem fun is that there is also a dog. It’s whatever kind of dog you like, take your pick. The dog dirties the house at a constant rate of 50 square feet per hour.
+				Newton's Law of Procrastination states that the rate at which one accomplishes a chore is <em>proportional to the amount of the chore not yet done</em>. Unbeknownst to Newton, this applies to robots too. A Roomba is attempting to vacuum a house measuring 1000 square feet. When none of the house is clean, the roomba can clean 200 square feet per hour. What makes this problem fun is that there is also a dog. It's whatever kind of dog you like, take your pick. The dog dirties the house at a constant rate of 50 square feet per hour.
 			</p>
 	</introduction>
 	<task>

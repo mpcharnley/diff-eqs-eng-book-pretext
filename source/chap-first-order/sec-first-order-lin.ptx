@@ -13,20 +13,17 @@
 		<ul>
 			<li>
 				<p>
-					Identify a linear first-order differential equation and write a first-order linear
-equation in standard form,
+					Identify a linear first-order differential equation and write a first-order linear equation in standard form,
 				</p>
 			</li>
 			<li>
 				<p>
-					Solve initial value problems for first-order linear differential equations by integrating
-factors, and 
+					Solve initial value problems for first-order linear differential equations by integrating factors, and 
 				</p>
 			</li>
 			<li>
 				<p>
-					Write solutions to first-order linear initial value problems in integral form if
-needed.
+					Write solutions to first-order linear initial value problems in integral form if needed.
 				</p>
 			</li>
 		</ul>
@@ -53,7 +50,7 @@ needed.
 		</p>
 
 		<p>
-			Solutions of linear equations have nice properties. For example, the solution exists wherever <m>p(x)</m> and <m>f(x)</m> are defined, and has the same regularity (read: it is just as nice). We’ll see this in detail in . But most importantly for us right now, there is a method for solving linear first order equations. In , we saw that we could easily solve equations of the form <md>\frac{dy}{dx} = f(x)</md> because we could directly integrate both sides of the equation, since the left hand side was the derivative of something (in this case, <m>y</m>) and the right side was only a function of <m>x</m>. We want to do the same here, but the something on the left will not be the derivative of just <m>y</m>.
+			Solutions of linear equations have nice properties. For example, the solution exists wherever <m>p(x)</m> and <m>f(x)</m> are defined, and has the same regularity (read: it is just as nice). We'll see this in detail in <xref ref="existunique-section"/>. But most importantly for us right now, there is a method for solving linear first order equations. In <xref ref="integralsols-section"/>, we saw that we could easily solve equations of the form <md>\frac{dy}{dx} = f(x)</md> because we could directly integrate both sides of the equation, since the left hand side was the derivative of something (in this case, <m>y</m>) and the right side was only a function of <m>x</m>. We want to do the same here, but the something on the left will not be the derivative of just <m>y</m>.
 		</p>
 
 		<p>
@@ -400,6 +397,11 @@ y' + y = e^{x^2-x}, \qquad y(0) = 10 .
 				Solve <m>y'+3 x^2 y = x^2</m>.
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>y = C e^{-x^3} + \nicefrac{1}{3}</m>
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -473,6 +475,11 @@ y' + y = e^{x^2-x}, \qquad y(0) = 10 .
 				Solve <m>y'+ 2\sin(2x) y = 2\sin(2x)</m>, <m>y(\nicefrac{\pi}{2}) = 3</m>.
 			</p>
 </statement>
+<answer>
+	<p>
+		<m>y = 2 e^{\cos(2x)+1} + 1</m>
+	</p>
+</answer>
 
 </exercise>
 <exercise>

@@ -77,7 +77,7 @@ y' = \frac{1}{x}, \qquad y(0) = 0 .
 </answer>
 </example>
 
-<example>
+<example xml:id="ex-nonuniqueness">
 <title>Non-Uniqueness of Solution</title>
 <statement>		<p>
 			 Solve: 
@@ -114,7 +114,7 @@ x^2 &amp; \text{if } \; x \geq 0,\\
 
 </example>
 		<p>
-			What we see here is a significant problem for trying to represent physical situations. In the first there is no solution at <m>x=0</m>, so if our physical scenario had wanted one, that would be an issue. Similarly, for the second, we do have solutions, but we have two of them, so we can’t use this to predict what is going to happen to a physical situation modeled by this equation over time. So, we need both existence and uniqueness to hold for our modeling equation in order to use differential equations to accurately model situations. Thankfully, these properties do apply to most equations, and we have fairly straight-forward criteria that can be used to determine if these properties are true for a given differential equation. For a first-order linear differential equation, the theorem is fairly straight-forward.
+			What we see here is a significant problem for trying to represent physical situations. In the first there is no solution at <m>x=0</m>, so if our physical scenario had wanted one, that would be an issue. Similarly, for the second, we do have solutions, but we have two of them, so we can't use this to predict what is going to happen to a physical situation modeled by this equation over time. So, we need both existence and uniqueness to hold for our modeling equation in order to use differential equations to accurately model situations. Thankfully, these properties do apply to most equations, and we have fairly straight-forward criteria that can be used to determine if these properties are true for a given differential equation. For a first-order linear differential equation, the theorem is fairly straight-forward.
 		</p>
 
 <theorem xml:id= "exist-lin1thm" >
@@ -162,7 +162,7 @@ y' + \frac{1}{(x-1)(x-5)} y = \frac{e^x}{x-1}.
 		</p>
 
 		<p>
-			A convenient way to represent this situation is with a number line like that presented in . On this number line, we mark the places where the functions <m>p(x)</m> or <m>g(x)</m> are discontinuous.
+			A convenient way to represent this situation is with a number line like that presented in <xref ref="fig-lin-eu-numline"/>. On this number line, we mark the places where the functions <m>p(x)</m> or <m>g(x)</m> are discontinuous.
 		</p>
 
 		<figure xml:id="fig-lin-eu-numline">
@@ -250,11 +250,11 @@ y_1(x_0) = y_0 \qquad y_2(x_0) = y_0.
 <md>
 y' = f(x,y) \qquad y(x_0) = y_0.
 </md>
- However, both <m>y_1</m> and <m>y_2</m> satisfy these two properties. Therefore, <m>y_1</m> and <m>y_2</m> must be the same, which doesn't make sense because we assumed they were different. So it is impossible for two different solution curves to cross, provided the existence and uniqueness theorem holds. For a comparison, refer back to earlier to see what non-uniqueness looks like, where we do have two solution curves that cross at the point <m>(0,0)</m>.
+ However, both <m>y_1</m> and <m>y_2</m> satisfy these two properties. Therefore, <m>y_1</m> and <m>y_2</m> must be the same, which doesn't make sense because we assumed they were different. So it is impossible for two different solution curves to cross, provided the existence and uniqueness theorem holds. For a comparison, refer back to <xref ref="ex-nonuniqueness"/> earlier to see what non-uniqueness looks like, where we do have two solution curves that cross at the point <m>(0,0)</m>.
 		</p>
 
 		<p>
-			This fact is useful for analyzing differential equations in general, but will be particularly useful in in dealing with autonomous equations, where we can use simple solutions to provide boundaries over which other solutions can not cross. This fact will come up again in <xref ref="sys-chapter" /> and <xref ref="nlin-chapter" /> in sketching trajectories for these solutions as well.
+			This fact is useful for analyzing differential equations in general, but will be particularly useful in <xref ref="auteq-section"/> in dealing with autonomous equations, where we can use simple solutions to provide boundaries over which other solutions can not cross. This fact will come up again in <xref ref="sys-chapter" /> and <xref ref="nlin-chapter" /> in sketching trajectories for these solutions as well.
 		</p>
 
 
@@ -692,7 +692,7 @@ y' = f(x,y) \qquad y(x_0) = y_0.
 <exercise>
 <statement>
 			<p>
-				Find a solution to <m>y' = \lvert y \rvert</m>, <m>y(0) = 0</m>. Does Picard’s theorem apply?
+				Find a solution to <m>y' = \lvert y \rvert</m>, <m>y(0) = 0</m>. Does Picard's theorem apply?
 			</p>
 </statement>
 
@@ -857,7 +857,7 @@ y' = f(x,y) \qquad y(x_0) = y_0.
 <task>
 	<statement>
 		<p>
-			Verify that the hypotheses of Picard’s theorem are satisfies for this equation.
+			Verify that the hypotheses of Picard's theorem are satisfies for this equation.
 		</p>
 	</statement>
 	<answer>
@@ -932,6 +932,15 @@ f(y) =
  Does <m>y' = f(y)</m>, <m>y(0) = 0</m> have a continuously differentiable solution? Does Picard apply? Why, or why not?
 			</p>
 </statement>
+<answer>
+	<p>
+		Picard does not apply as <m>f</m> is not continuous at <m>y=0</m>.
+The equation does not have a continuously differentiable solution. Suppose it did. Notice that
+<m>y'(0) = 1</m>.  By the first derivative test, <m>y(x) &gt; 0</m> for small positive <m>x</m>.
+But then for those <m>x</m> we would have <m>y'(x) = 0</m>, so clearly the derivative
+cannot be continuous.
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -940,6 +949,12 @@ f(y) =
 				Consider an equation of the form <m>y' = f(x)</m> for some continuous function <m>f</m>, and an initial condition <m>y(x_0) = y_0</m>. Does a solution exist for all <m>x</m>? Why or why not?
 			</p>
 </statement>
+<answer>
+	<p>
+		The solution is <m>y(x) = \int_{x_0}^x f(s) \,ds + y_0</m>, and this does indeed
+exist for every <m>x</m>.
+	</p>
+</answer>
 </exercise></exercises>
 
 	</section>

@@ -32,7 +32,7 @@
 		</p>
 
 		<p>
-			The basic results about linear ODEs of higher order are essentially the same as for second order equations, with 2 replaced by <m>n</m>. The important concept of linear independence is somewhat more complicated when more than two functions are involved. For higher order constant coefficient ODEs, the methods developed are also somewhat harder to apply, but we will not dwell on these complications. It is also possible to use the methods for systems of linear equations from to solve higher order constant coefficient equations.
+			The basic results about linear ODEs of higher order are essentially the same as for second order equations, with 2 replaced by <m>n</m>. The important concept of linear independence is somewhat more complicated when more than two functions are involved. For higher order constant coefficient ODEs, the methods developed are also somewhat harder to apply, but we will not dwell on these complications. It is also possible to use the methods for systems of linear equations from <xref ref="sys-chapter"/> to solve higher order constant coefficient equations.
 		</p>
 
 		<p>
@@ -99,7 +99,7 @@ c_1 y_1 + c_2 y_2 + \cdots + c_n y_n = 0
 </statement>
 
 <solution>			<p>
-				Let us give several ways to show this fact. Many textbooks (including <xref ref="EP"></xref> and <xref ref="F"></xref>) introduce Wronskians for higher order equations, but it is harder to analyze them without tools from linear algebra (see ). Once there are more than two functions involved, there is not a nice, simple formula for the Wronskian (like <m>y_1'y_2 - y_2'y_1</m> for two functions) and linear algebra is required to analyze what is happening here. Instead, we will take a slightly different and more improvized approach to see why these functions are linearly independent.
+				Let us give several ways to show this fact. Many textbooks (including <xref ref="EP"></xref> and <xref ref="F"></xref>) introduce Wronskians for higher order equations, but it is harder to analyze them without tools from linear algebra (see <xref ref="linalg-appendix"/>). Once there are more than two functions involved, there is not a nice, simple formula for the Wronskian (like <m>y_1'y_2 - y_2'y_1</m> for two functions) and linear algebra is required to analyze what is happening here. Instead, we will take a slightly different and more improvized approach to see why these functions are linearly independent.
 			</p>
 
 			<p>
@@ -228,7 +228,7 @@ r^3 - 3 r^2 - r + 3 = 0 .
 			</p>
 
 			<p>
-				Another technique for guessing roots of polynomials is the Rational Roots Theorem, which says that any rational root of the polynomial must be of the form <m>p/q</m> where <m>p</m> divides the constant term of the polynomial and <m>q</m> divides the leading term, provided neither of them are zero. For more information on this see . In this case, we would know that <m>p</m> must divide <m>3</m>, and <m>q</m> must divide <m>1</m>. Therefore, the only possible options here are <m>\pm 1</m> and <m>\pm 3</m>. These would be good places to start to look for rational roots.
+				Another technique for guessing roots of polynomials is the Rational Roots Theorem, which says that any rational root of the polynomial must be of the form <m>p/q</m> where <m>p</m> divides the constant term of the polynomial and <m>q</m> divides the leading term, provided neither of them are zero. For more information on this see <xref ref="sec-polys"/>. In this case, we would know that <m>p</m> must divide <m>3</m>, and <m>q</m> must divide <m>1</m>. Therefore, the only possible options here are <m>\pm 1</m> and <m>\pm 3</m>. These would be good places to start to look for rational roots.
 			</p>
 
 			<p>
@@ -249,11 +249,13 @@ y = C_1 e^{-x} + C_2 e^{x} + C_3 e^{3x} .
 			</p>
 
 			<p>
-				Suppose we were given some initial conditions <m>y(0) = 1</m>, <m>y'(0) = 2</m>, and <m>y''(0) = 3</m>. Then <md>\begin{align*}
-1 = y(0) &amp; = C_1 + C_2 + C_3 , \\
-2 = y'(0) &amp; = -C_1 + C_2 + 3C_3 , \\
-3 = y''(0) &amp; = C_1 + C_2 + 9C_3 .
-\end{align*}</md> It is possible to find the solution by high school algebra, but it would be a pain. The sensible way to solve a system of equations such as this is to use matrix algebra, see or . For now we note that the solution is <m>C_1 =
+				Suppose we were given some initial conditions <m>y(0) = 1</m>, <m>y'(0) = 2</m>, and <m>y''(0) = 3</m>. Then 
+<md>
+<mrow>1 = y(0) \amp = C_1 + C_2 + C_3 , </mrow>
+<mrow> 2 = y'(0) \amp = -C_1 + C_2 + 3C_3 , </mrow>
+<mrow> 3 = y''(0) \amp = C_1 + C_2 + 9C_3 </mrow>
+</md>.
+It is possible to find the solution by high school algebra, but it would be a pain. The sensible way to solve a system of equations such as this is to use matrix algebra, see <xref ref="sec-matrix"/> or <xref ref="linalg-appendix"/>. For now we note that the solution is <m>C_1 =
 -\nicefrac{1}{4}</m>, <m>C_2 = 1</m>, and <m>C_3 = \nicefrac{1}{4}</m>. The specific solution to the ODE is 
 <md>
 y = \frac{-1}{4}\, e^{-x} + e^x + \frac{1}{4}\, e^{3x} .
@@ -297,8 +299,7 @@ r=1} + \underbrace{C_4}_{\text{from } r=0} .
 </solution>
 </example>
 
-<example>
-<title> </title>
+<example xml:id="ex-factorguess">
 <statement>			<p>
 				 Find the general solution of 
 <md>
@@ -309,11 +310,11 @@ y''' + 2y'' - 5y' - 6y = 0
 </statement>
 
 <solution>			<p>
-				The characteristic equation for this example is <md>r^3 + 2r^2 - 5r - 6 = 0.</md> There is no convenient factoring by grouping or other quick formula to get to the roots here. The best hope we have is to try to guess the roots and see if we come up with anything. Once we get one root, we’ll be able to factor a term out and get down to a quadratic equation, where the quadratic formula will give us the other two roots.
+				The characteristic equation for this example is <md>r^3 + 2r^2 - 5r - 6 = 0.</md> There is no convenient factoring by grouping or other quick formula to get to the roots here. The best hope we have is to try to guess the roots and see if we come up with anything. Once we get one root, we'll be able to factor a term out and get down to a quadratic equation, where the quadratic formula will give us the other two roots.
 			</p>
 
 			<p>
-				The properties of polynomials tell us that all rational roots of this polynomial must be factors of <m>\frac{-6}{1}</m> or <m>-6</m>. Thus, the options are <m>\pm 1,\ \pm 2</m>, and <m>\pm 3</m>. At this point, the best bet is to start guessing and see if we can find one. Let’s start with <m>1</m>. Plugging this into the polynomial gives <md>1^3 + 2(1)^2 - 5(1) - 6 = -8 \neq 0.</md> Trying <m>-1</m> next, we get <md>(-1)^3 + 2(-1)^2 - 5(-1) - 6 = -1+2+5-6 = 0.</md> Therefore, <m>-1</m> is as root, and so <m>(r+1)</m> is a factor of this polynomial.
+				The properties of polynomials tell us that all rational roots of this polynomial must be factors of <m>\frac{-6}{1}</m> or <m>-6</m>. Thus, the options are <m>\pm 1,\ \pm 2</m>, and <m>\pm 3</m>. At this point, the best bet is to start guessing and see if we can find one. Let's start with <m>1</m>. Plugging this into the polynomial gives <md>1^3 + 2(1)^2 - 5(1) - 6 = -8 \neq 0.</md> Trying <m>-1</m> next, we get <md>(-1)^3 + 2(-1)^2 - 5(-1) - 6 = -1+2+5-6 = 0.</md> Therefore, <m>-1</m> is as root, and so <m>(r+1)</m> is a factor of this polynomial.
 			</p>
 
 			<p>
@@ -326,7 +327,7 @@ y''' + 2y'' - 5y' - 6y = 0
 </solution>
 </example>
 			<p>
-				For more information on synthetic division and finding roots of polynomials, see .
+				For more information on synthetic division and finding roots of polynomials, see <xref ref="sec-polys"/>.
 			</p>
 
 			<p>
@@ -351,11 +352,13 @@ y^{(4)} - 4 y''' + 8 y'' - 8 y' + 4y = 0 .
 </statement>
 
 <solution>			<p>
-				The characteristic equation is <md>\begin{align*}
-r^4 - 4 r^3 + 8 r^2 - 8 r + 4 &amp; = 0 , \\
-{(r^2-2r+2)}^2 &amp; = 0 , \\
-{\bigl({(r-1)}^2+1\bigr)}^2 &amp; = 0 .
-\end{align*}</md> Hence the roots are <m>1 \pm i</m>, both with multiplicity 2. Hence the general solution to the ODE is 
+				The characteristic equation is
+<md>
+<mrow>r^4 - 4 r^3 + 8 r^2 - 8 r + 4 \amp = 0 , </mrow>
+<mrow> {(r^2-2r+2)}^2 \amp = 0 , </mrow>
+<mrow> {\bigl({(r-1)}^2+1\bigr)}^2 \amp = 0 </mrow>
+</md>.
+ Hence the roots are <m>1 \pm i</m>, both with multiplicity 2. Hence the general solution to the ODE is 
 <md>
 y = 
 ( C_1 + C_2 x ) \, e^{x} \cos x
@@ -387,19 +390,22 @@ y =
 </statement>
 
 <solution>			<p>
-				We found the general solution of the homogeneous problem in , which is <md>y(x) = C_1 e^{-x} + C_2 e^{2x}+ C_3e^{-3x}.</md>
+				We found the general solution of the homogeneous problem in <xref ref="ex-factorguess"/>, which is <md>y(x) = C_1 e^{-x} + C_2 e^{2x}+ C_3e^{-3x}.</md>
 			</p>
 
 			<p>
-				Now, to solve the non-homogeneous problem, we use the method of undetermined coefficients. Since the non-homogeneous part of the equation has terms of the form <m>e^{2x}</m> and <m>e^{4x}</m>, we would want to guess <md>y_p(x) = Ae^{2x} + Be^{4x}.</md> However, <m>e^{2x}</m> solves the homogeneous problem, so we need to multiply it by <m>x</m>, making our actual guess become <md>y_p(x) = Axe^{2x} + Be^{4x}.</md> In order to plug this in, we need to take three derivatives of this guess, which are <md>\begin{split}
-y_p(x) &amp;= Axe^{2x} + Be^{4x} \\
-y_p'(x) &amp;= Ae^{2x} + 2Axe^{2x} + 4Be^{4x} \\
-y_p''(x) &amp;= 4Ae^{2x} + 4Axe^{2x} + 16Be^{4x} \\
-y_p'''(x) &amp;= 12Ae^{2x} + 8Axe^{2x} + 64Be^{4x}
-\end{split}.</md> By putting this into the non-homogeneous equation we want to solve, we get <md>\begin{split}
-(12Ae^{2x} &amp;+ 8Axe^{2x} + 64Be^{4x}) + 2(4Ae^{2x} + 4Axe^{2x} + 16Be^{4x})\\
- &amp; - 5(Ae^{2x} + 2Axe^{2x} + 4Be^{4x}) - 6(Axe^{2x} + Be^{4x} ) = 3e^{2x} + e^{4x}
-\end{split}.</md>
+				Now, to solve the non-homogeneous problem, we use the method of undetermined coefficients. Since the non-homogeneous part of the equation has terms of the form <m>e^{2x}</m> and <m>e^{4x}</m>, we would want to guess <md>y_p(x) = Ae^{2x} + Be^{4x}.</md> However, <m>e^{2x}</m> solves the homogeneous problem, so we need to multiply it by <m>x</m>, making our actual guess become <md>y_p(x) = Axe^{2x} + Be^{4x}.</md> In order to plug this in, we need to take three derivatives of this guess, which are 
+				<md>
+<mrow>y_p(x) \amp= Axe^{2x} + Be^{4x} </mrow>
+<mrow> y_p'(x) \amp= Ae^{2x} + 2Axe^{2x} + 4Be^{4x} </mrow>
+<mrow> y_p''(x) \amp= 4Ae^{2x} + 4Axe^{2x} + 16Be^{4x} </mrow>
+<mrow> y_p'''(x) \amp= 12Ae^{2x} + 8Axe^{2x} + 64Be^{4x} </mrow>
+</md>. 
+By putting this into the non-homogeneous equation we want to solve, we get 
+<md>
+<mrow>(12Ae^{2x} \amp+ 8Axe^{2x} + 64Be^{4x}) + 2(4Ae^{2x} + 4Axe^{2x} + 16Be^{4x})</mrow>
+<mrow>  \amp - 5(Ae^{2x} + 2Axe^{2x} + 4Be^{4x}) - 6(Axe^{2x} + Be^{4x} ) = 3e^{2x} + e^{4x} </mrow>
+</md>.
 			</p>
 
 			<p>
@@ -419,7 +425,7 @@ y_p'''(x) &amp;= 12Ae^{2x} + 8Axe^{2x} + 64Be^{4x}
 </statement>
 
 <solution>			<p>
-				To determine the guess, we need to first find the solution to the homogeneous equations. The characteristic equation of the homogeneous equation is <md>r^9 + r^8 - 2r^5 - 2r^4 + r + 1 = 0.</md> We could use the root guessing method for this example, and all rational roots must be <m>\pm 1</m>. However, that method is not great for polynomials that are of degree higher than around 3 or 4. So, we’ll want to use some other technique to find all of the root.
+				To determine the guess, we need to first find the solution to the homogeneous equations. The characteristic equation of the homogeneous equation is <md>r^9 + r^8 - 2r^5 - 2r^4 + r + 1 = 0.</md> We could use the root guessing method for this example, and all rational roots must be <m>\pm 1</m>. However, that method is not great for polynomials that are of degree higher than around 3 or 4. So, we'll want to use some other technique to find all of the root.
 			</p>
 
 			<p>
@@ -432,7 +438,7 @@ y_p'''(x) &amp;= 12Ae^{2x} + 8Axe^{2x} + 64Be^{4x}
 </solution>
 </example>
 			<p>
-				There is also an extension of variation of parameters to higher order equations. However, the fact that there are more terms in the solution means that the form of the expression is much more complicated that for second order, and is not worth looking into or trying to remember. The easier way to handle these situations using variation of parameters is by converting the higher order equation into a first order system and applying the methods there, which will be covered in and respectively.
+				There is also an extension of variation of parameters to higher order equations. However, the fact that there are more terms in the solution means that the form of the expression is much more complicated that for second order, and is not worth looking into or trying to remember. The easier way to handle these situations using variation of parameters is by converting the higher order equation into a first order system and applying the methods there, which will be covered in <xref ref="sec-introtosys"/> and <xref ref="nonhomogsys-section"/> respectively.
 			</p>
 
 		</subsection>
@@ -825,6 +831,12 @@ y'''-y''-8y'+12y=0. </md>
 				Are <m>\sin(x)</m>, <m>x</m>, <m>x\sin(x)</m> linearly independent? If so, show it, if not find a linear combination that works.
 			</p>
 </statement>
+<answer>
+	<p>
+		Yes.  (Hint: First note that <m>\sin(x)</m> is bounded.  Then note that
+<m>x</m> and <m>x\sin(x)</m> cannot be multiples of each other.)
+	</p>
+</answer>
 
 </exercise>
 <exercise>
@@ -835,7 +847,7 @@ y'''-y''-8y'+12y=0. </md>
 </statement>
 
 <answer>			<p>
-				 Hint: Try to find the <m>t</m> value when they match, and determine that it can’t be all <m>t</m>. 
+				 Hint: Try to find the <m>t</m> value when they match, and determine that it can't be all <m>t</m>. 
 			</p>
 </answer>
 </exercise>

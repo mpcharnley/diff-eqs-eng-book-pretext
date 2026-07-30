@@ -141,7 +141,8 @@
         exercise-worksheet="no"
         exercise-readingquestion="no"
       />-->
-    <knowl example="no" example-solution="yes"/>
+    <!--<knowl example="no" example-solution="yes"/>-->
+    <knowl proof="no" example="no" example-solution="no" exercise-inline="no"/>
 
     <!-- Specify the theme for the html by giving names to     -->
     <!-- override defaults.  Ex:<css theme="denver"/>          -->
