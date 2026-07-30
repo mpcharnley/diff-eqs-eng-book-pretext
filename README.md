@@ -28,4 +28,5 @@ A free online textbook for a first course in differential equations. This is the
     - Differentiation and Integration Techniques
     - Introduction to MATLAB
 
-
+## Supplemental Files
+There are a few extra Python and text files in the folder that were useful in creating this PreTeXt version. These include files to convert images to PNG, create "long division" tables, and modify the Pandoc generated PreTeXt code to get it closer to the desired outcome. 
