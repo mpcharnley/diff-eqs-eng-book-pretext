@@ -14,7 +14,7 @@
 <!--******************************************-->
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Chaos</title>
+<title>Differential Equations</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
@@ -85,7 +85,7 @@ eBookConfig.enable_chatcodes =  false;
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="limitcycles-section.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="nlin-chapter.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="chap-prereq.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><span class="previous-button button disabled"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></span><span class="up-button button disabled"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></span><a class="next-button button" href="frontmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\( \newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R} \newcommand{\C}{\mathbb C} \newcommand{\unitfrac}[3][]{#1~\,{\mathrm{#2}}/{\mathrm{#3}}} \newcommand{\unit}[2][]{#1~\,\textrm{#2}} \newcommand{\nicefrac}[2]{\frac{#1}{#2}} \newcommand{\mybxbg}[1]{#1}
 \newcommand{\mybxsm}[1]{\boxed{#1}}
 \newcommand{\lt}{&lt;}
@@ -451,9 +451,9 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </li>
-<li class="toc-item toc-chapter contains-active">
+<li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="nlin-chapter.html" class="internal"><span class="codenumber">5</span> <span class="title">Nonlinear Systems</span></a></div>
-<ul class="structural toc-item-list contains-active">
+<ul class="structural toc-item-list">
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="linearization-section.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Linearization, critical points, and stability</span></a></div>
 <ul class="structural toc-item-list">
@@ -488,9 +488,9 @@ eBookConfig.enable_chatcodes =  false;
 <div class="toc-title-box"><a href="limitcycles-section.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Limit cycles</span></a></div>
 <ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="limitcycles-section.html#limitcycles-section-28" class="internal"><span class="codenumber">5.4</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
-<li class="toc-item toc-section contains-active">
+<li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec-chaos.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Chaos</span></a></div>
-<ul class="structural toc-item-list active">
+<ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaos.html#subsec-intro-chaos" class="internal"><span class="title">Introduction to Chaos</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaos.html#duffing-equation-and-strange-attractors" class="internal"><span class="title">Duffing equation and strange attractors</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaos.html#the-lorenz-system" class="internal"><span class="title">The Lorenz system</span></a></div></li>
@@ -562,278 +562,19 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content">
-<section class="section" id="sec-chaos">
-<h2 class="heading hide-type">
-<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Chaos</span>
-</h2>
-<article class="objectives goal-like" id="sec-chaos-2"><h3 class="heading"><span class="type">Objectives</span></h3>
-<div class="introduction" id="sec-chaos-2-1">
-<div class="para" id="sec-chaos-2-1-1">After this section, you will be able to:<div class="autopermalink" data-description="Paragraph"><a href="#sec-chaos-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-</div>
-<ul class="disc" id="sec-chaos-2-2">
-<li id="sec-chaos-2-2-1">
-<div class="para" id="sec-chaos-2-2-1-1">Identify chaotic behavior and how it is distinct from other types of equations.<div class="autopermalink" data-description="Paragraph"><a href="#sec-chaos-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Objective"><a href="#sec-chaos-2-2-1" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
-</li>
-</ul>
-<div class="autopermalink" data-description="Objectives 5.5"><a href="#sec-chaos-2" title="Copy heading and permalink for Objectives 5.5" aria-label="Copy heading and permalink for Objectives 5.5">🔗</a></div>
-</article>
-<section class="subsection" id="subsec-intro-chaos">
-<h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Introduction to Chaos</span>
-</h3>
-<div class="para" id="subsec-intro-chaos-2">You have surely heard the idea of the “butterfly effect,” that the flap of a butterfly wing in the Amazon can cause hurricanes in the North Atlantic. In a prior section, we mentioned that a small change in initial conditions of the planets can lead to very different configuration of the planets in the long term. These are examples of <dfn class="terminology">chaotic systems</dfn>. Mathematical chaos is not really chaos, there is precise order behind the scenes. Everything is still deterministic. However a chaotic system is extremely sensitive to initial conditions. This also means even small errors induced via numerical approximation create large errors very quickly, so it is almost impossible to numerically approximate for long times. This is a large part of the trouble, as chaotic systems cannot be in general solved analytically.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-intro-chaos-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="subsec-intro-chaos-3">Take the weather, the most well-known chaotic system. A small change in the initial conditions (the temperature at every point of the atmosphere for example) produces drastically different predictions in relatively short time, and so we cannot accurately predict weather. And we do not actually know the exact initial conditions. We measure temperatures at a few points with some error, and then we somehow estimate what is in between. There is no way we can accurately measure the effects of every butterfly wing. Then we solve the equations numerically introducing new errors. You should not trust weather prediction more than a few days out.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-intro-chaos-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="subsec-intro-chaos-4">
-<div class="para">Chaotic behavior was first noticed by Edward Lorenz<details class="ptx-footnote" aria-live="polite" id="subsec-intro-chaos-4-1"><summary class="ptx-footnote__number" title="Footnote 5.5.1"><sup> 1 </sup></summary>
-<div class="ptx-footnote__contents" id="subsec-intro-chaos-4-1">
-<a class="external" href="https://en.wikipedia.org/wiki/Edward_Norton_Lorenz" target="_blank">Edward Norton Lorenz</a> (1917-2008) was an American mathematician and meteorologist.
-</div></details> in the 1960s when trying to model thermally induced air convection (movement). Lorentz was looking at the relatively simple system:</div>
-<div class="displaymath process-math" id="subsec-intro-chaos-4-2">
-\begin{equation*}
-x' = -10x +10y, \qquad y' = 28x-y-xz, \qquad z'=-\frac{8}{3}z + xy .
-\end{equation*}
-</div>
-<div class="para">A small change in the initial conditions yields a very different solution after a reasonably short time.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#subsec-intro-chaos-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<figure class="figure figure-like" id="fig-chaos-pend"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;">
-<img src="external/chaos-pend.png" class="contained" alt="ALT TEXT HERE"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-chaos-pend-2-description">
-<div class="para" id="fig-chaos-pend-2-2-1">IMAGE DESCRIPTION HERE<div class="autopermalink" data-description="Paragraph"><a href="#fig-chaos-pend-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-</div></details>
-</div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Schematic of a double pendulum.<div class="autopermalink" data-description="Figure 5.5.1"><a href="#fig-chaos-pend" title="Copy heading and permalink for Figure 5.5.1" aria-label="Copy heading and permalink for Figure 5.5.1">🔗</a></div></figcaption>
-</figure>
-<div class="para" id="subsec-intro-chaos-6">A simple example the reader can experiment with, and which displays chaotic behavior, is a double pendulum. The equations for this setup are somewhat complicated, and their derivation is quite tedious, so we will not bother to write them down. The idea is to put a pendulum on the end of another pendulum. The movement of the bottom mass will appear chaotic. This type of chaotic system is a basis for a whole number of office novelty desk toys. It is simple to build a version. Take a piece of a string. Tie two heavy nuts at different points of the string; one at the end, and one a bit above. Now give the bottom nut a little push. As long as the swings are not too big and the string stays tight, you have a double pendulum system.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-intro-chaos-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Subsection: Introduction to Chaos"><a href="#subsec-intro-chaos" title="Copy heading and permalink for Subsection: Introduction to Chaos" aria-label="Copy heading and permalink for Subsection: Introduction to Chaos">🔗</a></div>
-</section>
-<section class="subsection" id="duffing-equation-and-strange-attractors">
-<h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Duffing equation and strange attractors</span>
-</h3>
-<div class="para logical" id="duffing-equation-and-strange-attractors-2">
-<div class="para">Let us study the so-called <dfn class="terminology">Duffing equation</dfn>:</div>
-<div class="displaymath process-math" id="duffing-equation-and-strange-attractors-2-2">
-\begin{equation*}
-x'' + a x' + bx + cx^3 = C \cos(\omega t) .
-\end{equation*}
-</div>
-<div class="para">Here <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> <span class="process-math">\(c\text{,}\)</span> <span class="process-math">\(C\text{,}\)</span> and <span class="process-math">\(\omega\)</span> are constants. Except for the <span class="process-math">\(c x^3\)</span> term, this equation looks like a forced mass-spring system. The <span class="process-math">\(c x^3\)</span> means the spring does not exactly obey Hooke’s law (which no real-world spring actually does obey exactly). When <span class="process-math">\(c\)</span> is not zero, the equation does not have a closed form solution, so we must resort to numerical solutions, as is usual for nonlinear systems. Not all choices of constants and initial conditions exhibit chaotic behavior. Let us study</div>
-<div class="displaymath process-math" id="duffing-equation-and-strange-attractors-2-11">
-\begin{equation*}
-x''+0.05 x' + x^3 = 8\cos(t) .
-\end{equation*}
-</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#duffing-equation-and-strange-attractors-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="duffing-equation-and-strange-attractors-3">The equation is not autonomous, so we cannot draw the vector field in the phase plane. We can still draw the trajectories. In <a href="sec-chaos.html#nlin-duf-two-traj" class="xref" data-knowl="./knowl/xref/nlin-duf-two-traj.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 5.5.2">Figure 5.5.2</a> we plot trajectories for <span class="process-math">\(t\)</span> going from 0 to 15, for two very close initial conditions <span class="process-math">\((2,3)\)</span> and <span class="process-math">\((2,2.9)\text{,}\)</span> and also the solutions in the <span class="process-math">\((x,t)\)</span> space. The two trajectories are close at first, but after a while diverge significantly. This sensitivity to initial conditions is precisely what we mean by the system behaving chaotically.<div class="autopermalink" data-description="Paragraph"><a href="#duffing-equation-and-strange-attractors-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<figure class="figure figure-like" id="nlin-duf-two-traj"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
-<img src="external/nlin-duf-two-traj-sols.png" class="contained" alt="ALT TEXT HERE"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="nlin-duf-two-traj-2-description">
-<div class="para" id="nlin-duf-two-traj-2-2-1">IMAGE DESCRIPTION HERE<div class="autopermalink" data-description="Paragraph"><a href="#nlin-duf-two-traj-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-</div></details>
-</div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>On left, two trajectories in phase space for <span class="process-math">\(0 \leq t \leq 15\text{,}\)</span> for the Duffing equation one with initial conditions <span class="process-math">\((2,3)\)</span> and the other with <span class="process-math">\((2,2.9)\text{.}\)</span>  On right the two solutions in <span class="process-math">\((x,t)\)</span>-space.<div class="autopermalink" data-description="Figure 5.5.2"><a href="#nlin-duf-two-traj" title="Copy heading and permalink for Figure 5.5.2" aria-label="Copy heading and permalink for Figure 5.5.2">🔗</a></div></figcaption>
-</figure>
-<figure class="figure figure-like" id="nlin-duf-long"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
-<img src="external/nlin-duf-long.png" class="contained" alt="ALT TEXT HERE"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="nlin-duf-long-2-description">
-<div class="para" id="nlin-duf-long-2-2-1">IMAGE DESCRIPTION HERE<div class="autopermalink" data-description="Paragraph"><a href="#nlin-duf-long-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-</div></details>
-</div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The solution to the given Duffing equation for <span class="process-math">\(t\)</span> from 0 to 100.<div class="autopermalink" data-description="Figure 5.5.3"><a href="#nlin-duf-long" title="Copy heading and permalink for Figure 5.5.3" aria-label="Copy heading and permalink for Figure 5.5.3">🔗</a></div></figcaption>
-</figure>
-<div class="para" id="duffing-equation-and-strange-attractors-6">Let us see the long term behavior. In <a href="sec-chaos.html#nlin-duf-long" class="xref" data-knowl="./knowl/xref/nlin-duf-long.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 5.5.3">Figure 5.5.3</a>, we plot the behavior of the system for initial conditions <span class="process-math">\((2,3)\)</span> for a longer period of time. It is hard to see any particular pattern in the shape of the solution except that it seems to oscillate, but each oscillation appears quite unique. The oscillation is expected due to the forcing term. We mention that to produce the picture accurately, a ridiculously large number of steps<details class="ptx-footnote" aria-live="polite" id="duffing-equation-and-strange-attractors-6-3"><summary class="ptx-footnote__number" title="Footnote 5.5.2"><sup> 2 </sup></summary>
-<div class="ptx-footnote__contents" id="duffing-equation-and-strange-attractors-6-3">In fact for reference, 30,000 steps were used with the Runge-Kutta algorithm, see exercises in <a href="numer-section.html" class="internal" title="Section 1.6: Numerical methods: Euler’s method">Section 1.6</a>.
-</div></details> had to be used in the numerical algorithm, as even small errors quickly propagate in a chaotic system.<div class="autopermalink" data-description="Paragraph"><a href="#duffing-equation-and-strange-attractors-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="duffing-equation-and-strange-attractors-7">It is very difficult to analyze chaotic systems, or to find the order behind the madness, but let us try to do something that we did for the standard mass-spring system. One way we analyzed the system is that we figured out what was the long term behavior (not dependent on initial conditions). From the figure above, it is clear that we will not get a nice exact description of the long term behavior for this chaotic system, but perhaps we can find some order to what happens on each “oscillation” and what do these oscillations have in common.<div class="autopermalink" data-description="Paragraph"><a href="#duffing-equation-and-strange-attractors-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="duffing-equation-and-strange-attractors-8">
-<div class="para">The concept we explore is that of a <dfn class="terminology">Poincaré section</dfn>  <details class="ptx-footnote" aria-live="polite" id="duffing-equation-and-strange-attractors-8-2"><summary class="ptx-footnote__number" title="Footnote 5.5.3"><sup> 3 </sup></summary>
-<div class="ptx-footnote__contents" id="duffing-equation-and-strange-attractors-8-2">Named for the French polymath <a class="external" href="https://en.wikipedia.org/wiki/Henri_Poincar%C3%A9" target="_blank">Jules Henri Poincaré</a> (1854-1912).
-</div></details>. Instead of looking at <span class="process-math">\(t\)</span> in a certain interval, we look at where the system is at a certain sequence of points in time. Imagine flashing a strobe at a fixed frequency and drawing the points where the solution is during the flashes. The right strobing frequency depends on the system in question. The correct frequency for the forced Duffing equation (and other similar systems) is the frequency of the forcing term. For the Duffing equation above, find a solution <span class="process-math">\(\bigl(x(t),y(t)\bigr)\text{,}\)</span> and look at the points</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/nlin-strange.html" id="duffing-equation-and-strange-attractors-8-5">
-\begin{equation*}
-\bigl(x(0),y(0)\bigr), \quad
-\bigl(x(2\pi),y(2\pi)\bigr), \quad
-\bigl(x(4\pi),y(4\pi)\bigr), \quad
-\bigl(x(6\pi),y(6\pi)\bigr), \quad \ldots
-\end{equation*}
-</div>
-<div class="para">As we are really not interested in the transient part of the solution, that is, the part of the solution that depends on the initial condition, we skip some number of steps in the beginning. For example, we might skip the first 100 such steps and start plotting points at <span class="process-math">\(t = 100(2\pi)\text{,}\)</span> that is</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/nlin-strange.html" id="duffing-equation-and-strange-attractors-8-7">
-\begin{equation*}
-\bigl(x(200\pi),y(200\pi)\bigr), \quad
-\bigl(x(202\pi),y(202\pi)\bigr), \quad
-\bigl(x(204\pi),y(204\pi)\bigr), \quad \ldots
-\end{equation*}
-</div>
-<div class="para">The plot of these points is the Poincaré section. After plotting enough points, a curious pattern emerges in <a href="sec-chaos.html#nlin-strange" class="xref" data-knowl="./knowl/xref/nlin-strange.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 5.5.4">Figure 5.5.4</a> (the left-hand picture), a so-called <dfn class="terminology">strange attractor</dfn>.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#duffing-equation-and-strange-attractors-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<figure class="figure figure-like" id="nlin-strange"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
-<img src="external/nlin-strange-strange2.png" class="contained" alt="ALT TEXT HERE"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="nlin-strange-2-description">
-<div class="para" id="nlin-strange-2-2-1">IMAGE DESCRIPTION HERE<div class="autopermalink" data-description="Paragraph"><a href="#nlin-strange-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-</div></details>
-</div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Strange attractor. The left plot is with no phase shift, the right plot has phase shift <span class="process-math">\(\nicefrac{\pi}{4}\text{.}\)</span><div class="autopermalink" data-description="Figure 5.5.4"><a href="#nlin-strange" title="Copy heading and permalink for Figure 5.5.4" aria-label="Copy heading and permalink for Figure 5.5.4">🔗</a></div></figcaption>
-</figure>
-<div class="para" id="duffing-equation-and-strange-attractors-10">Given a sequence of points, an <dfn class="terminology">attractor</dfn> is a set towards which the points in the sequence eventually get closer and closer to, that is, they are attracted. The Poincaré section is not really the attractor itself, but as the points are very close to it, we see its shape. The strange attractor is a very complicated set. It has fractal structure, that is, if you zoom in as far as you want, you keep seeing the same complicated structure.<div class="autopermalink" data-description="Paragraph"><a href="#duffing-equation-and-strange-attractors-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="duffing-equation-and-strange-attractors-11">The initial condition makes no difference. If we start with a different initial condition, the points eventually gravitate towards the attractor, and so as long as we throw away the first few points, we get the same picture. Similarly small errors in the numerical approximations do not matter here.<div class="autopermalink" data-description="Paragraph"><a href="#duffing-equation-and-strange-attractors-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="duffing-equation-and-strange-attractors-12">An amazing thing is that a chaotic system such as the Duffing equation is not random at all. There is a very complicated order to it, and the strange attractor says something about this order. We cannot quite say what state the system will be in eventually, but given the fixed strobing frequency we narrow it down to the points on the attractor.<div class="autopermalink" data-description="Paragraph"><a href="#duffing-equation-and-strange-attractors-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="duffing-equation-and-strange-attractors-13">
-<div class="para">If we use a phase shift, for example <span class="process-math">\(\nicefrac{\pi}{4}\text{,}\)</span> and look at the times</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/nlin-strange.html" id="duffing-equation-and-strange-attractors-13-2">
-\begin{equation*}
-\nicefrac{\pi}{4}, \quad
-2\pi+\nicefrac{\pi}{4}, \quad
-4\pi+\nicefrac{\pi}{4}, \quad
-6\pi+\nicefrac{\pi}{4}, \quad
-\ldots
-\end{equation*}
-</div>
-<div class="para">we obtain a slightly different attractor. The picture is the right-hand side of <a href="sec-chaos.html#nlin-strange" class="xref" data-knowl="./knowl/xref/nlin-strange.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 5.5.4">Figure 5.5.4</a>. It is as if we had rotated, moved, and slightly distorted the original. For each phase shift you can find the set of points towards which the system periodically keeps coming back to.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#duffing-equation-and-strange-attractors-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="duffing-equation-and-strange-attractors-14">Study the pictures and notice especially the scales—where are these attractors located in the phase plane. Notice the regions where the strange attractor lives and compare it to the plot of the trajectories in <a href="sec-chaos.html#nlin-duf-two-traj" class="xref" data-knowl="./knowl/xref/nlin-duf-two-traj.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 5.5.2">Figure 5.5.2</a>.<div class="autopermalink" data-description="Paragraph"><a href="#duffing-equation-and-strange-attractors-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="duffing-equation-and-strange-attractors-15">
-<div class="para">Let us compare this section to the discussion in <a href="forcedo-section.html" class="internal" title="Section 2.6: Forced oscillations and resonance">Section 2.6</a> about forced oscillations. Take the equation</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/forcedo-section.html" id="duffing-equation-and-strange-attractors-15-2">
-\begin{equation*}
-x''+2p x' + \omega_0^2 x = \frac{F_0}{m} \cos (\omega t) .
-\end{equation*}
-</div>
-<div class="para">This is like the Duffing equation, but with no <span class="process-math">\(x^3\)</span> term. The steady periodic solution is of the form</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/forcedo-section.html" id="duffing-equation-and-strange-attractors-15-4">
-\begin{equation*}
-x = C \cos (\omega t + \gamma) .
-\end{equation*}
-</div>
-<div class="para">Strobing using the frequency <span class="process-math">\(\omega\text{,}\)</span> we obtain a single point in the phase space. The attractor in this setting is a single point—an expected result as the system is not chaotic. It was the opposite of chaotic: Any difference induced by the initial conditions dies away very quickly, and we settle into always the same steady periodic motion.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#duffing-equation-and-strange-attractors-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Subsection: Duffing equation and strange attractors"><a href="#duffing-equation-and-strange-attractors" title="Copy heading and permalink for Subsection: Duffing equation and strange attractors" aria-label="Copy heading and permalink for Subsection: Duffing equation and strange attractors">🔗</a></div>
-</section>
-<section class="subsection" id="the-lorenz-system">
-<h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Lorenz system</span>
-</h3>
-<div class="para" id="the-lorenz-system-2">In two dimensions to find chaotic behavior, we must study forced, or non-autonomous, systems such as the Duffing equation. The Poincaré-Bendixson Theorem says that a solution to an autonomous two-dimensional system that exists for all time in the future and does not go towards infinity is periodic or tends towards a periodic solution. Hardly the chaotic behavior we are looking for.<div class="autopermalink" data-description="Paragraph"><a href="#the-lorenz-system-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="the-lorenz-system-3">
-<div class="para">In three dimensions even autonomous systems can be chaotic. Let us very briefly return to the <dfn class="terminology">Lorenz system</dfn>
-</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/nlin-lorenz.html" id="the-lorenz-system-3-2">
-\begin{equation*}
-x' = -10x +10y, \qquad y' = 28x-y-xz, \qquad z'=-\frac{8}{3}z + xy .
-\end{equation*}
-</div>
-<div class="para">The Lorenz system is an autonomous system in three dimensions exhibiting chaotic behavior. See <a href="sec-chaos.html#nlin-lorenz" class="xref" data-knowl="./knowl/xref/nlin-lorenz.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 5.5.5">Figure 5.5.5</a> the for a sample trajectory, which is now a curve in three-dimensional space.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#the-lorenz-system-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<figure class="figure figure-like" id="nlin-lorenz"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
-<img src="external/nlin-lorenz.png" class="contained" alt="ALT TEXT HERE"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="nlin-lorenz-2-description">
-<div class="para" id="nlin-lorenz-2-2-1">IMAGE DESCRIPTION HERE<div class="autopermalink" data-description="Paragraph"><a href="#nlin-lorenz-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-</div></details>
-</div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A trajectory in the Lorenz system.<div class="autopermalink" data-description="Figure 5.5.5"><a href="#nlin-lorenz" title="Copy heading and permalink for Figure 5.5.5" aria-label="Copy heading and permalink for Figure 5.5.5">🔗</a></div></figcaption>
-</figure>
-<div class="para" id="the-lorenz-system-5">The solutions tend to an <em class="emphasis">attractor</em> in space, the so-called <dfn class="terminology">Lorenz attractor</dfn>. In this case no strobing is necessary. Again we cannot quite see the attractor itself, but if we try to follow a solution for long enough, as in the figure, we get a pretty good picture of what the attractor looks like. The Lorenz attractor is also a strange attractor and has a complicated fractal structure. And, just as for the Duffing equation, what we want to draw is not the whole trajectory, but start drawing the trajectory after a while, once it is close to the attractor.<div class="autopermalink" data-description="Paragraph"><a href="#the-lorenz-system-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="the-lorenz-system-6">The path of the trajectory is not simply a repeating figure-eight. The trajectory spins some seemingly random number of times on the left, then spins a number of times on the right, and so on. As this system arose in weather prediction, one can perhaps imagine a few days of warm weather and then a few days of cold weather, where it is not easy to predict when the weather will change, just as it is not really easy to predict far in advance when the solution will jump onto the other side. See <a href="sec-chaos.html#nlin-lorenz-graphx" class="xref" data-knowl="./knowl/xref/nlin-lorenz-graphx.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 5.5.6">Figure 5.5.6</a> for a plot of the <span class="process-math">\(x\)</span> component of the solution drawn above. A negative <span class="process-math">\(x\)</span> corresponds to the left “loop” and a positive <span class="process-math">\(x\)</span> corresponds to the right “loop”.<div class="autopermalink" data-description="Paragraph"><a href="#the-lorenz-system-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="the-lorenz-system-7">Most of the mathematics we studied in this book is quite classical and well understood. On the other hand, chaos, including the Lorenz system, continues to be the subject of current research. Furthermore, chaos has found applications not just in the sciences, but also in art.<div class="autopermalink" data-description="Paragraph"><a href="#the-lorenz-system-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<figure class="figure figure-like" id="nlin-lorenz-graphx"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
-<img src="external/nlin-lorenz-graphx.png" class="contained" alt="ALT TEXT HERE"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="nlin-lorenz-graphx-2-description">
-<div class="para" id="nlin-lorenz-graphx-2-2-1">IMAGE DESCRIPTION HERE<div class="autopermalink" data-description="Paragraph"><a href="#nlin-lorenz-graphx-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-</div></details>
-</div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Graph of the <span class="process-math">\(x(t)\)</span> component of the solution.<div class="autopermalink" data-description="Figure 5.5.6"><a href="#nlin-lorenz-graphx" title="Copy heading and permalink for Figure 5.5.6" aria-label="Copy heading and permalink for Figure 5.5.6">🔗</a></div></figcaption>
-</figure><div class="autopermalink" data-description="Subsection: The Lorenz system"><a href="#the-lorenz-system" title="Copy heading and permalink for Subsection: The Lorenz system" aria-label="Copy heading and permalink for Subsection: The Lorenz system">🔗</a></div>
-</section>
-<section class="exercises" id="sec-chaos-6">
-<h3 class="heading hide-type">
-<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
-</h3>
-<article class="exercise exercise-like" id="sec-chaos-6-2"><h4 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
-<div class="para" id="sec-chaos-6-2-1-1">Find critical points of the Lorenz system and the associated linearizations.<div class="autopermalink" data-description="Paragraph"><a href="#sec-chaos-6-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="solutions">
-<details id="sec-chaos-6-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
-<div class="answer solution-like knowl__content">
-<div class="para" id="sec-chaos-6-2-2-1">Critical points: <span class="process-math">\((0,0,0)\text{,}\)</span> <span class="process-math">\((3\sqrt{8},3 \sqrt{8}, 27)\text{,}\)</span> <span class="process-math">\((-3 \sqrt{8},-3 \sqrt{8}, 27)\text{.}\)</span> Linearization at <span class="process-math">\((0,0,0)\)</span> using <span class="process-math">\(u=x\text{,}\)</span> <span class="process-math">\(v=y\text{,}\)</span> <span class="process-math">\(w=z\)</span> is <span class="process-math">\(u' = -10u+10v\text{,}\)</span> <span class="process-math">\(v'=28u-v\text{,}\)</span> <span class="process-math">\(w'=-(\nicefrac{8}{3})w\text{.}\)</span> Linearization at <span class="process-math">\((3 \sqrt{8},3\sqrt{8},27)\)</span> using <span class="process-math">\(u=x-3\sqrt{8}\text{,}\)</span> <span class="process-math">\(v=y-3\sqrt{8}\text{,}\)</span> <span class="process-math">\(w=z-27\)</span> is <span class="process-math">\(u' = -10u+10v\text{,}\)</span> <span class="process-math">\(v'=u-v-3\sqrt{8}w\text{,}\)</span> <span class="process-math">\(w'=3\sqrt{8}u+3\sqrt{8}v-(\nicefrac{8}{3})w\text{.}\)</span> Linearization at <span class="process-math">\((-3 \sqrt{8},-3\sqrt{8},27)\)</span> using <span class="process-math">\(u=x+3\sqrt{8}\text{,}\)</span> <span class="process-math">\(v=y+3\sqrt{8}\text{,}\)</span> <span class="process-math">\(w=z-27\)</span> is <span class="process-math">\(u' = -10u+10v\text{,}\)</span> <span class="process-math">\(v'=u-v+3\sqrt{8}w\text{,}\)</span> <span class="process-math">\(w'=-3\sqrt{8}u-3\sqrt{8}v-(\nicefrac{8}{3})w\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-chaos-6-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Answer 1.1"><a href="#sec-chaos-6-2-2" title="Copy heading and permalink for Answer 1.1" aria-label="Copy heading and permalink for Answer 1.1">🔗</a></div>
-</div></details>
-</div>
-<div class="autopermalink" data-description="Exercise 1"><a href="#sec-chaos-6-2" title="Copy heading and permalink for Exercise 1" aria-label="Copy heading and permalink for Exercise 1">🔗</a></div>
-</article>
-<article class="exercise exercise-like" id="sec-chaos-6-3"><h4 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
-<div class="para" id="sec-chaos-6-3-1-1">For the non-chaotic equation <span class="process-math">\(x''+2p x' + \omega_0^2 x = \frac{F_0}{m} \cos (\omega t)\text{,}\)</span> suppose we strobe with frequency <span class="process-math">\(\omega\)</span> as we mentioned above. Use the known steady periodic solution to find precisely the point which is the attractor for the Poincaré section.<div class="autopermalink" data-description="Paragraph"><a href="#sec-chaos-6-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="solutions">
-<details id="sec-chaos-6-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
-<div class="answer solution-like knowl__content">
-<div class="para" id="sec-chaos-6-3-2-1">
-<span class="process-math">\((A, \omega B)\)</span> for <span class="process-math">\(A \cos(\omega t) + B\sin(\omega t)\text{,}\)</span> or <span class="process-math">\(\frac{F_0/m}{(\omega_0^2 - \omega^2)^2 + (2p\omega)^2}(\omega_0^2 - \omega^2, 2p\omega^2)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-chaos-6-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Answer 2.1"><a href="#sec-chaos-6-3-2" title="Copy heading and permalink for Answer 2.1" aria-label="Copy heading and permalink for Answer 2.1">🔗</a></div>
-</div></details>
-</div>
-<div class="autopermalink" data-description="Exercise 2"><a href="#sec-chaos-6-3" title="Copy heading and permalink for Exercise 2" aria-label="Copy heading and permalink for Exercise 2">🔗</a></div>
-</article>
-<article class="exercise exercise-like" id="sec-chaos-6-4"><h4 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
-<div class="para" id="sec-chaos-6-4-1-1">Construct the double pendulum described in the text with a string and two nuts (or heavy beads). Play around with the position of the middle nut, and perhaps use different weight nuts. Describe what you find.<div class="autopermalink" data-description="Paragraph"><a href="#sec-chaos-6-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Exercise 3"><a href="#sec-chaos-6-4" title="Copy heading and permalink for Exercise 3" aria-label="Copy heading and permalink for Exercise 3">🔗</a></div>
-</article>
-<article class="exercise exercise-like" id="sec-chaos-6-5"><h4 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
-<div class="para" id="sec-chaos-6-5-1-1">A simple fractal attractor can be drawn via the following chaos game. Draw the three vertices of a triangle and label them, say <span class="process-math">\(p_1\text{,}\)</span> <span class="process-math">\(p_2\)</span> and <span class="process-math">\(p_3\text{.}\)</span> Draw some random point <span class="process-math">\(p\)</span> (it does not have to be one of the three points above). Roll a die to pick of the <span class="process-math">\(p_1\text{,}\)</span> <span class="process-math">\(p_2\text{,}\)</span> or <span class="process-math">\(p_3\)</span> randomly (for example 1 and 4 mean <span class="process-math">\(p_1\text{,}\)</span> 2 and 5 mean <span class="process-math">\(p_2\text{,}\)</span> and 3 and 6 mean <span class="process-math">\(p_3\)</span>). Suppose we picked <span class="process-math">\(p_2\text{,}\)</span> then let <span class="process-math">\(p_{\text{new}}\)</span> be the point exactly halfway between <span class="process-math">\(p\)</span> and <span class="process-math">\(p_2\text{.}\)</span> Draw this point and let <span class="process-math">\(p\)</span> now refer to this new point <span class="process-math">\(p_{\text{new}}\text{.}\)</span> Rinse, repeat. Try to be precise and draw as many iterations as possible. Your points will be attracted to the so-called <em class="emphasis"></em>. A computer was used to run the game for 10,000 iterations to obtain the picture in <a href="sec-chaos.html#nlin-sierpinski" class="xref" data-knowl="./knowl/xref/nlin-sierpinski.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 5.5.7">Figure 5.5.7</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-chaos-6-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> 
-<figure class="figure figure-like" id="nlin-sierpinski"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
-<img src="external/nlin-sierpinski.png" class="contained" alt="ALT TEXT HERE"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="nlin-sierpinski-2-description">
-<div class="para" id="nlin-sierpinski-2-2-1">IMAGE DESCRIPTION HERE<div class="autopermalink" data-description="Paragraph"><a href="#nlin-sierpinski-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-</div></details>
-</div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>10,000 iterations of the chaos game producing the Sierpinski triangle.<div class="autopermalink" data-description="Figure 5.5.7"><a href="#nlin-sierpinski" title="Copy heading and permalink for Figure 5.5.7" aria-label="Copy heading and permalink for Figure 5.5.7">🔗</a></div></figcaption>
-</figure><div class="autopermalink" data-description="Exercise 4"><a href="#sec-chaos-6-5" title="Copy heading and permalink for Exercise 4" aria-label="Copy heading and permalink for Exercise 4">🔗</a></div>
-</article>
-<article class="exercise exercise-like" id="sec-chaos-6-6"><h4 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
-<div class="para" id="sec-chaos-6-6-1-1">Use a computer software (such as Matlab, Octave, or perhaps even a spreadsheet), plot the solution of the given forced Duffing equation with Euler’s method. Plotting the solution for <span class="process-math">\(t\)</span> from 0 to 100 with several different (small) step sizes. Discuss.<div class="autopermalink" data-description="Paragraph"><a href="#sec-chaos-6-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="solutions">
-<details id="sec-chaos-6-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
-<div class="answer solution-like knowl__content">
-<div class="para" id="sec-chaos-6-6-2-1">You should get very different behavior for similar (small) step sizes because the equation is chaotic.<div class="autopermalink" data-description="Paragraph"><a href="#sec-chaos-6-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Answer 5.1"><a href="#sec-chaos-6-6-2" title="Copy heading and permalink for Answer 5.1" aria-label="Copy heading and permalink for Answer 5.1">🔗</a></div>
-</div></details>
-</div>
-<div class="autopermalink" data-description="Exercise 5"><a href="#sec-chaos-6-6" title="Copy heading and permalink for Exercise 5" aria-label="Copy heading and permalink for Exercise 5">🔗</a></div>
-</article><div class="autopermalink" data-description="Exercises: Exercises"><a href="#sec-chaos-6" title="Copy heading and permalink for Exercises: Exercises" aria-label="Copy heading and permalink for Exercises: Exercises">🔗</a></div>
-</section><div class="autopermalink" data-description="Section 5.5: Chaos"><a href="#sec-chaos" title="Copy heading and permalink for Section 5.5: Chaos" aria-label="Copy heading and permalink for Section 5.5: Chaos">🔗</a></div>
-</section>
-</div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="book" id="de-intro-engineers"><nav class="summary-links"><ul>
+<li><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></li>
+<li><a href="intro-chapter.html" class="internal"><span class="codenumber">0</span> <span class="title">Introduction</span></a></li>
+<li><a href="fo-chapter.html" class="internal"><span class="codenumber">1</span> <span class="title">First Order Differential Equations</span></a></li>
+<li><a href="ho-chapter.html" class="internal"><span class="codenumber">2</span> <span class="title">Higher Order Linear ODEs</span></a></li>
+<li><a href="linalg-appendix.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Algebra</span></a></li>
+<li><a href="sys-chapter.html" class="internal"><span class="codenumber">4</span> <span class="title">Systems of ODEs</span></a></li>
+<li><a href="nlin-chapter.html" class="internal"><span class="codenumber">5</span> <span class="title">Nonlinear Systems</span></a></li>
+<li><a href="chap-prereq.html" class="internal"><span class="codenumber">A</span> <span class="title">Prerequisite Material</span></a></li>
+<li><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></li>
+</ul></nav><div class="autopermalink" data-description="Book: Differential Equations"><a href="#de-intro-engineers" title="Copy heading and permalink for Book: Differential Equations" aria-label="Copy heading and permalink for Book: Differential Equations">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
-<a class="previous-button button" href="limitcycles-section.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="chap-prereq.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<span class="previous-button button disabled"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></span><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="frontmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
