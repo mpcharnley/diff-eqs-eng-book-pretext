@@ -1,6 +1,6 @@
 # Differential Equations - An Introduction for Engineers
 
-A free online textbook for a first course in differential equations. This is the PreTeXt version of the textbook and contains a link to the PDF version as well. See [website coming soon]. This book was created with the *Notes on Diffy Qs* text by Jiri Lebl as a starting point. This book has some additional content and was reordered to fit the class that is normally run. See https://www.jirka.org/diffyqs/ for information on that text. 
+A free online textbook for a first course in differential equations. This is the PreTeXt version of the textbook and contains a link to the PDF version as well. See [this website](https://mpcharnley.github.io/DEBook/) for more details on the book. This book was created with the *Notes on Diffy Qs* text by Jiri Lebl as a starting point. This book has some additional content and was reordered to fit the class that is normally run. See https://www.jirka.org/diffyqs/ for information on that text. 
 
 ## Branches
 - ``main`` is the most up-to-date finished branch, and the one that is published to the website. 
