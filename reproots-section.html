@@ -57,14 +57,14 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.2.1';
+eBookConfig.runestone_version = '8.2.2';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.ed2cce180827a7ad.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.1f660864c47fc762.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<script src="_static/prefix-runtime.ed2cce180827a7ad.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.18fa7ea1d9f376c1.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8086b62682b271d1.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
@@ -613,10 +613,9 @@ y'' + 2y' + y = 0.
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#reproots-section-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solution solution-like" id="reproots-section-4-2">
-<h4 class="heading">
-<span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+<div class="solutions">
+<details id="reproots-section-4-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
 <div class="para" id="reproots-section-4-2-1">To start, we find the first solution using our original method. The characteristic equation here is <span class="process-math">\(r^2 + 2r + 1 = 0\text{,}\)</span> which is <span class="process-math">\((r+1)^2\text{.}\)</span> Therefore, we have a double root at <span class="process-math">\(r=-1\text{,}\)</span> so that <span class="process-math">\(y_1(x) = e^{-x}\)</span> is a solution.<div class="autopermalink" data-description="Paragraph"><a href="#reproots-section-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="reproots-section-4-2-2">
@@ -645,16 +644,18 @@ y''(x) \amp= v''(x)e^{-x} - 2v'(x)e^{-x} + v(x)e^{-x}
 <div class="para" id="reproots-section-4-2-3">Our goal with all of this was to find a solution <span class="process-math">\(y\)</span> of the form <span class="process-math">\(v(x)e^{-x}\text{.}\)</span> The set up here means that <span class="process-math">\(y = (Ax + B)e^{-x}\)</span> will solve the differential equation. Since we already knew that <span class="process-math">\(Be^{-x}\)</span> was a solution, the new information we gained here was that <span class="process-math">\(Axe^{-x}\text{,}\)</span> or in particular, <span class="process-math">\(xe^{-x}\)</span> is a solution to the differential equation. Thus, our two solutions are <span class="process-math">\(y_1(x) = e^{-x}\)</span> and <span class="process-math">\(y_2(x) = xe^{-x}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#reproots-section-4-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Solution 2.3.1.1"><a href="#reproots-section-4-2" title="Copy heading and permalink for Solution 2.3.1.1" aria-label="Copy heading and permalink for Solution 2.3.1.1">🔗</a></div>
+</div></details>
 </div>
 <div class="autopermalink" data-description="Example 2.3.1"><a href="#reproots-section-4" title="Copy heading and permalink for Example 2.3.1" aria-label="Copy heading and permalink for Example 2.3.1">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="reproots-section-5"><h3 class="heading">
+<details id="reproots-section-5" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.3.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h3>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
 <div class="para" id="reproots-section-5-1-1">Check that <span class="process-math">\(e^{-x}\)</span> and <span class="process-math">\(xe^{-x}\)</span> both solve <span class="process-math">\(y'' + 2y' + y = 0\text{,}\)</span> and that these solutions are linearly independent.<div class="autopermalink" data-description="Paragraph"><a href="#reproots-section-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Checkpoint 2.3.2"><a href="#reproots-section-5" title="Copy heading and permalink for Checkpoint 2.3.2" aria-label="Copy heading and permalink for Checkpoint 2.3.2">🔗</a></div>
-</article>
+</article></details>
 <div class="para logical" id="reproots-section-6">
 <div class="para">The <dfn class="terminology">reduction of order</dfn> method applies more generally to any second order linear homogeneous equation and the goal is the same: use one solution of the differential equation to generate another one. The idea is that if we somehow found <span class="process-math">\(y_1\)</span> as a solution of <span class="process-math">\(y'' + p(x) y' + q(x) y = 0\)</span> we try a second solution of the form <span class="process-math">\(y_2(x) = y_1(x) v(x)\text{.}\)</span> We just need to find <span class="process-math">\(v\text{.}\)</span> We plug <span class="process-math">\(y_2\)</span> into the equation:</div>
 <div class="displaymath process-math" id="reproots-section-6-7">
@@ -691,10 +692,9 @@ y'' -8 y' + 16 y = 0 .
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#reproots-section-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solution solution-like" id="reproots-section-9-3">
-<h4 class="heading">
-<span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+<div class="solutions">
+<details id="reproots-section-9-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
 <div class="para logical" id="reproots-section-9-3-1">
 <div class="para">The characteristic equation is <span class="process-math">\(r^2 - 8 r + 16 = {(r-4)}^2 = 0\text{.}\)</span> The equation has a double root <span class="process-math">\(r_1 = r_2 = 4\text{.}\)</span> The general solution is, therefore,</div>
 <div class="displaymath process-math" id="reproots-section-9-3-1-3">
@@ -705,12 +705,14 @@ y = (C_1 + C_2 x)\, e^{4 x} = C_1 e^{4x} + C_2 x e^{4x} .
 <div class="autopermalink" data-description="Paragraph"><a href="#reproots-section-9-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Solution 2.3.3.1"><a href="#reproots-section-9-3" title="Copy heading and permalink for Solution 2.3.3.1" aria-label="Copy heading and permalink for Solution 2.3.3.1">🔗</a></div>
+</div></details>
 </div>
 <div class="autopermalink" data-description="Example 2.3.3: "><a href="#reproots-section-9" title="Copy heading and permalink for Example 2.3.3: " aria-label="Copy heading and permalink for Example 2.3.3: ">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="reproots-section-10"><h3 class="heading">
+<details id="reproots-section-10" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.3.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h3>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
 <div class="para" id="reproots-section-10-1-1">Check that <span class="process-math">\(e^{4x}\)</span> and <span class="process-math">\(x e^{4x}\)</span> are linearly independent.<div class="autopermalink" data-description="Paragraph"><a href="#reproots-section-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
@@ -731,7 +733,7 @@ y'' - 8 y' + 16 y =
 </div></details>
 </div>
 <div class="autopermalink" data-description="Checkpoint 2.3.4"><a href="#reproots-section-10" title="Copy heading and permalink for Checkpoint 2.3.4" aria-label="Copy heading and permalink for Checkpoint 2.3.4">🔗</a></div>
-</article>
+</article></details>
 <div class="para" id="reproots-section-11">In some sense, a doubled root rarely happens. If coefficients are picked randomly, a doubled root is unlikely. There are, however, some natural phenomena where a doubled root does happen, so we cannot just dismiss this case. In addition, there are specific physical applications that involve the double root problem, which we will discuss in <a href="sec-mv.html" class="internal" title="Section 2.4: Mechanical vibrations">Section 2.4</a>. Finally, the solution with a doubled root can be thought of as an approximation of the solution with two roots that are very close together, and the behavior of this solution will approximate “nearby” solutions as well.<div class="autopermalink" data-description="Paragraph"><a href="#reproots-section-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="reproots-section-12"><h3 class="heading">
@@ -746,10 +748,9 @@ y'' + 6y' + 9y = 0 \qquad y(0) = 2,\ y'(0) = -3.
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#reproots-section-12-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solution solution-like" id="reproots-section-12-3">
-<h4 class="heading">
-<span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+<div class="solutions">
+<details id="reproots-section-12-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
 <div class="para logical" id="reproots-section-12-3-1">
 <div class="para">The characteristic polynomials for this differential equation is</div>
 <div class="displaymath process-math" id="reproots-section-12-3-1-1">
@@ -793,6 +794,7 @@ y(t) = 2e^{-3t} + 3te^{-3t}.
 <div class="autopermalink" data-description="Paragraph"><a href="#reproots-section-12-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Solution 2.3.5.1"><a href="#reproots-section-12-3" title="Copy heading and permalink for Solution 2.3.5.1" aria-label="Copy heading and permalink for Solution 2.3.5.1">🔗</a></div>
+</div></details>
 </div>
 <div class="autopermalink" data-description="Example 2.3.5: "><a href="#reproots-section-12" title="Copy heading and permalink for Example 2.3.5: " aria-label="Copy heading and permalink for Example 2.3.5: ">🔗</a></div>
 </article>

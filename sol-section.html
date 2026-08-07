@@ -57,14 +57,14 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.2.1';
+eBookConfig.runestone_version = '8.2.2';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.ed2cce180827a7ad.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.1f660864c47fc762.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<script src="_static/prefix-runtime.ed2cce180827a7ad.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.18fa7ea1d9f376c1.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8086b62682b271d1.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
@@ -640,13 +640,14 @@ M {\vec{x}}'' = K \vec{x} .
 <div class="para">At this point we could introduce 3 new variables and write out a system of 6 first order equations. We claim this simple setup is easier to handle as a second order system. We call <span class="process-math">\(\vec{x}\)</span> the <dfn class="terminology">displacement vector</dfn>, <span class="process-math">\(M\)</span> the <dfn class="terminology">mass matrix</dfn>, and <span class="process-math">\(K\)</span> the <dfn class="terminology">stiffness matrix</dfn>.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#undamped-mass-spring-systems-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="exercise exercise-like" id="undamped-mass-spring-systems-6"><h4 class="heading">
+<details id="undamped-mass-spring-systems-6" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h4></summary>
+<article class="exercise exercise-like knowl__content">
 <div class="para" id="undamped-mass-spring-systems-6-1-1">Repeat this setup for 4 masses (find the matrices <span class="process-math">\(M\)</span> and <span class="process-math">\(K\)</span>). Do it for 5 masses. Can you find a prescription to do it for <span class="process-math">\(n\)</span> masses?<div class="autopermalink" data-description="Paragraph"><a href="#undamped-mass-spring-systems-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Checkpoint 4.9.2"><a href="#undamped-mass-spring-systems-6" title="Copy heading and permalink for Checkpoint 4.9.2" aria-label="Copy heading and permalink for Checkpoint 4.9.2">🔗</a></div>
-</article>
+</article></details>
 <div class="para logical" id="undamped-mass-spring-systems-7">
 <div class="para">As with a single equation we want to “divide by <span class="process-math">\(M\)</span>”. This means computing the inverse of <span class="process-math">\(M\text{.}\)</span> The masses are all nonzero and <span class="process-math">\(M\)</span> is a diagonal matrix, so computing the inverse is easy:</div>
 <div class="displaymath process-math" id="undamped-mass-spring-systems-7-4">
@@ -697,13 +698,14 @@ M^{-1} =
 </div>
 <div class="para" id="undamped-mass-spring-systems-10">If an eigenvalue is zero, it turns out that both <span class="process-math">\(\vec{v}\)</span> and <span class="process-math">\(\vec{v} t\)</span> are solutions, where <span class="process-math">\(\vec{v}\)</span> is an eigenvector corresponding to the eigenvalue 0.<div class="autopermalink" data-description="Paragraph"><a href="#undamped-mass-spring-systems-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="exercise exercise-like" id="undamped-mass-spring-systems-11"><h4 class="heading">
+<details id="undamped-mass-spring-systems-11" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h4></summary>
+<article class="exercise exercise-like knowl__content">
 <div class="para" id="undamped-mass-spring-systems-11-1-1">Show that if <span class="process-math">\(A\)</span> has a zero eigenvalue and <span class="process-math">\(\vec{v}\)</span> is a corresponding eigenvector, then <span class="process-math">\(\vec{x} = \vec{v} (a + bt)\)</span> is a solution of <span class="process-math">\({\vec{x}}'' = A \vec{x}\)</span> for arbitrary constants <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#undamped-mass-spring-systems-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Checkpoint 4.9.3"><a href="#undamped-mass-spring-systems-11" title="Copy heading and permalink for Checkpoint 4.9.3" aria-label="Copy heading and permalink for Checkpoint 4.9.3">🔗</a></div>
-</article>
+</article></details>
 <article class="theorem theorem-like" id="thm-secondorder-eigen"><h4 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
@@ -756,11 +758,9 @@ M^{-1} =
 </div></details>
 </div>
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>System of masses and springs.<div class="autopermalink" data-description="Figure 4.9.6"><a href="#sosa-twocartswallfig" title="Copy heading and permalink for Figure 4.9.6" aria-label="Copy heading and permalink for Figure 4.9.6">🔗</a></div></figcaption>
-</figure>
-<div class="solution solution-like" id="examples-2-2">
-<h5 class="heading">
-<span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
+</figure><div class="solutions">
+<details id="examples-2-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
 <div class="para logical" id="examples-2-2-1">
 <div class="para">The equations we write down are</div>
 <div class="displaymath process-math" id="examples-2-2-1-1">
@@ -938,6 +938,7 @@ b_1
 </div>
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Superposition of the two modes given the initial conditions.<div class="autopermalink" data-description="Figure 4.9.8"><a href="#sosa-superposfig" title="Copy heading and permalink for Figure 4.9.8" aria-label="Copy heading and permalink for Figure 4.9.8">🔗</a></div></figcaption>
 </figure><div class="autopermalink" data-description="Solution 4.9.5.1"><a href="#examples-2-2" title="Copy heading and permalink for Solution 4.9.5.1" aria-label="Copy heading and permalink for Solution 4.9.5.1">🔗</a></div>
+</div></details>
 </div>
 <div class="autopermalink" data-description="Example 4.9.5"><a href="#examples-2" title="Copy heading and permalink for Example 4.9.5" aria-label="Copy heading and permalink for Example 4.9.5">🔗</a></div>
 </article>
@@ -956,10 +957,9 @@ b_1
 </figure> 
 <div class="para" id="sosa-railcarexample-1-3">We want to ask several questions. At what time after the cars link does impact with the wall happen? What is the speed of car 2 when it hits the wall?<div class="autopermalink" data-description="Paragraph"><a href="#sosa-railcarexample-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solution solution-like" id="sosa-railcarexample-2">
-<h5 class="heading">
-<span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
+<div class="solutions">
+<details id="sosa-railcarexample-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
 <div class="para logical" id="sosa-railcarexample-2-1">
 <div class="para">OK, let us first set the system up. Let <span class="process-math">\(t=0\)</span> be the time when the two cars link up. Let <span class="process-math">\(x_1\)</span> be the displacement of the first car from the position at <span class="process-math">\(t=0\text{,}\)</span> and let <span class="process-math">\(x_2\)</span> be the displacement of the second car from its original location. Then the time when <span class="process-math">\(x_2(t) = 10\)</span> is exactly the time when impact with wall occurs. For this <span class="process-math">\(t\text{,}\)</span> <span class="process-math">\(x_2'(t)\)</span> is the speed at impact. This system acts just like the system of the previous example but without <span class="process-math">\(k_1\text{.}\)</span> Hence the equation is</div>
 <div class="displaymath process-math" id="sosa-railcarexample-2-1-9">
@@ -1088,6 +1088,7 @@ t)\text{.}\)</span> Using a computer (or even a graphing calculator) we find tha
 \approx 14.51\)</span> and so on. We can use all the different <span class="process-math">\(t\)</span> such that <span class="process-math">\(x_2'(t) = 0\text{.}\)</span> Of course <span class="process-math">\(t=0\)</span> is also a solution, corresponding to <span class="process-math">\(x_2 = 0\text{,}\)</span> but that means standing right at the wall.<div class="autopermalink" data-description="Paragraph"><a href="#sosa-railcarexample-2-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Solution 4.9.9.1"><a href="#sosa-railcarexample-2" title="Copy heading and permalink for Solution 4.9.9.1" aria-label="Copy heading and permalink for Solution 4.9.9.1">🔗</a></div>
+</div></details>
 </div>
 <div class="autopermalink" data-description="Example 4.9.9"><a href="#sosa-railcarexample" title="Copy heading and permalink for Example 4.9.9" aria-label="Copy heading and permalink for Example 4.9.9">🔗</a></div>
 </article><div class="autopermalink" data-description="Subsection: Examples"><a href="#examples" title="Copy heading and permalink for Subsection: Examples" aria-label="Copy heading and permalink for Subsection: Examples">🔗</a></div>
@@ -1177,10 +1178,9 @@ M \vec{x}'' = K \vec{x} + \vec{G} \cos(\omega t) .
 </h4>
 <div class="para" id="forced-oscillations-5-1-1">Let us take the example in <a href="sol-section.html#sosa-twocartswallfig" class="xref" data-knowl="./knowl/xref/sosa-twocartswallfig.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.9.6">Figure 4.9.6</a> with the same parameters as before: <span class="process-math">\(m_1 = 2\text{,}\)</span> <span class="process-math">\(m_2 = 1\text{,}\)</span> <span class="process-math">\(k_1 = 4\text{,}\)</span> and <span class="process-math">\(k_2 = 2\text{.}\)</span> Now suppose that there is a force <span class="process-math">\(2 \cos (3t)\)</span> acting on the second cart.<div class="autopermalink" data-description="Paragraph"><a href="#forced-oscillations-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solution solution-like" id="forced-oscillations-5-2">
-<h5 class="heading">
-<span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
+<div class="solutions">
+<details id="forced-oscillations-5-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
 <div class="para logical" id="forced-oscillations-5-2-1">
 <div class="para">The equation is</div>
 <div class="displaymath process-math" id="forced-oscillations-5-2-1-1">
@@ -1295,6 +1295,7 @@ M \vec{x}'' = K \vec{x} + \vec{G} \cos(\omega t) .
 <div class="autopermalink" data-description="Paragraph"><a href="#forced-oscillations-5-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Solution 4.9.12.1"><a href="#forced-oscillations-5-2" title="Copy heading and permalink for Solution 4.9.12.1" aria-label="Copy heading and permalink for Solution 4.9.12.1">🔗</a></div>
+</div></details>
 </div>
 <div class="autopermalink" data-description="Example 4.9.12"><a href="#forced-oscillations-5" title="Copy heading and permalink for Example 4.9.12" aria-label="Copy heading and permalink for Example 4.9.12">🔗</a></div>
 </article>
@@ -1452,10 +1453,9 @@ A \vec{v}_n \xi_n
 </h5>
 <div class="para" id="eigenvector-decomposition-5-1-1">Let us do the same example from before using this method.<div class="autopermalink" data-description="Paragraph"><a href="#eigenvector-decomposition-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solution solution-like" id="eigenvector-decomposition-5-2">
-<h6 class="heading">
-<span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h6>
+<div class="solutions">
+<details id="eigenvector-decomposition-5-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
 <div class="para logical" id="eigenvector-decomposition-5-2-1">
 <div class="para">The equation is</div>
 <div class="displaymath process-math" id="eigenvector-decomposition-5-2-1-1">
@@ -1533,6 +1533,7 @@ E^{-1} \vec{f}(t)
 <div class="autopermalink" data-description="Paragraph"><a href="#eigenvector-decomposition-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Solution 4.9.13.1"><a href="#eigenvector-decomposition-5-2" title="Copy heading and permalink for Solution 4.9.13.1" aria-label="Copy heading and permalink for Solution 4.9.13.1">🔗</a></div>
+</div></details>
 </div>
 <div class="autopermalink" data-description="Example 4.9.13"><a href="#eigenvector-decomposition-5" title="Copy heading and permalink for Example 4.9.13" aria-label="Copy heading and permalink for Example 4.9.13">🔗</a></div>
 </article><div class="autopermalink" data-description="Subsubsection: Eigenvector decomposition"><a href="#eigenvector-decomposition" title="Copy heading and permalink for Subsubsection: Eigenvector decomposition" aria-label="Copy heading and permalink for Subsubsection: Eigenvector decomposition">🔗</a></div>

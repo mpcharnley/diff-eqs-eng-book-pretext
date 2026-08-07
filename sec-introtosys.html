@@ -57,14 +57,14 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.2.1';
+eBookConfig.runestone_version = '8.2.2';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.ed2cce180827a7ad.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.1f660864c47fc762.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<script src="_static/prefix-runtime.ed2cce180827a7ad.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.18fa7ea1d9f376c1.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8086b62682b271d1.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
@@ -643,10 +643,9 @@ y_2' \amp = y_1 - y_2
 <div class="para">with <span class="process-math">\(y_1\text{,}\)</span> <span class="process-math">\(y_2\)</span> as the dependent variables and <span class="process-math">\(x\)</span> as the independent variable. Consider initial conditions <span class="process-math">\(y_1(0) = 1\text{,}\)</span> <span class="process-math">\(y_2(0) = 2\)</span> and solve the initial value problem.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#systems-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solution solution-like" id="systems-6-2">
-<h5 class="heading">
-<span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
+<div class="solutions">
+<details id="systems-6-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
 <div class="para logical" id="systems-6-2-1">
 <div class="para">We note that <span class="process-math">\(y_1 = C_1 e^x\)</span> is the general solution of the first equation, which we can get because this equation does not involve <span class="process-math">\(y_2\)</span> at all and we can get a solution via our normal first order equation methods. We then plug this <span class="process-math">\(y_1\)</span> into the second equation and get the equation <span class="process-math">\(y_2' = C_1e^x - y_2\text{,}\)</span> which is a linear first order equation that is easily solved for <span class="process-math">\(y_2\text{.}\)</span> By the method of integrating factor we get</div>
 <div class="displaymath process-math" id="systems-6-2-1-6">
@@ -666,6 +665,7 @@ y_2 = \frac{C_1}{2}e^{x} + C_2e^{-x} .
 <div class="autopermalink" data-description="Paragraph"><a href="#systems-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Solution 4.1.1.1"><a href="#systems-6-2" title="Copy heading and permalink for Solution 4.1.1.1" aria-label="Copy heading and permalink for Solution 4.1.1.1">🔗</a></div>
+</div></details>
 </div>
 <div class="autopermalink" data-description="Example 4.1.1"><a href="#systems-6" title="Copy heading and permalink for Example 4.1.1" aria-label="Copy heading and permalink for Example 4.1.1">🔗</a></div>
 </article>
@@ -704,10 +704,9 @@ y_2'' \amp= t y_1'-y_2' + 2 y_1 + \cos(t)\text{.}
 </figure> 
 <div class="para" id="sintro-closedbrine-example-1-3">Suppose we have two tanks, each containing volume <span class="process-math">\(V\)</span> liters of salt brine. The amount of salt in the first tank is <span class="process-math">\(x_1\)</span> grams, and the amount of salt in the second tank is <span class="process-math">\(x_2\)</span> grams. The liquid is perfectly mixed and flows at the rate <span class="process-math">\(r\)</span> liters per second out of each tank into the other. See <a href="sec-introtosys.html#sintro-closedbrine" class="xref" data-knowl="./knowl/xref/sintro-closedbrine.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.1.3">Figure 4.1.3</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sintro-closedbrine-example-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solution solution-like" id="sintro-closedbrine-example-2">
-<h5 class="heading">
-<span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
+<div class="solutions">
+<details id="sintro-closedbrine-example-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
 <div class="para logical" id="sintro-closedbrine-example-2-1">
 <div class="para">The rate of change of <span class="process-math">\(x_1\text{,}\)</span> that is <span class="process-math">\(x_1'\text{,}\)</span> is the rate of salt coming in minus the rate going out. The rate coming in is the density of the salt in tank 2, that is <span class="process-math">\(\frac{x_2}{V}\text{,}\)</span> times the rate <span class="process-math">\(r\text{.}\)</span> The rate coming out is the density of the salt in tank 1, that is <span class="process-math">\(\frac{x_1}{V}\text{,}\)</span> times the rate <span class="process-math">\(r\text{.}\)</span> In other words it is</div>
 <div class="displaymath process-math" id="sintro-closedbrine-example-2-1-7">
@@ -731,6 +730,7 @@ x_2' \amp = \frac{r}{V} (x_1-x_2)\text{.}
 <div class="para" id="sintro-closedbrine-example-2-3">Let us think about the setup a little bit more without solving it. Suppose the initial conditions are <span class="process-math">\(x_1(0) = A\)</span> and <span class="process-math">\(x_2(0) = B\text{,}\)</span> for two different constants <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{.}\)</span> Since no salt is coming in or out of this closed system, the total amount of salt is constant. That is, <span class="process-math">\(x_1+x_2\)</span> is constant, and so it equals <span class="process-math">\(A+B\text{.}\)</span> Intuitively if <span class="process-math">\(A\)</span> is bigger than <span class="process-math">\(B\text{,}\)</span> then more salt will flow out of tank one than into it. Eventually, after a long time we would then expect the amount of salt in each tank to equalize. In other words, the solutions of both <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_2\)</span> should tend towards <span class="process-math">\(\frac{A+B}{2}\text{.}\)</span> Once you know how to solve systems you will find out that this really is so.<div class="autopermalink" data-description="Paragraph"><a href="#sintro-closedbrine-example-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Solution 4.1.2.1"><a href="#sintro-closedbrine-example-2" title="Copy heading and permalink for Solution 4.1.2.1" aria-label="Copy heading and permalink for Solution 4.1.2.1">🔗</a></div>
+</div></details>
 </div>
 <div class="autopermalink" data-description="Example 4.1.2"><a href="#sintro-closedbrine-example" title="Copy heading and permalink for Example 4.1.2" aria-label="Copy heading and permalink for Example 4.1.2">🔗</a></div>
 </article>
@@ -834,10 +834,9 @@ u_n' \amp = F(u_n,u_{n-1},\ldots,u_2,u_1,x) \text{.}
 </h4>
 <div class="para" id="changing-to-first-order-5-1-1">Take <span class="process-math">\(x''' = 2x''+ 8x' + x + t\text{.}\)</span> Convert this equation into a first order system.<div class="autopermalink" data-description="Paragraph"><a href="#changing-to-first-order-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solution solution-like" id="changing-to-first-order-5-2">
-<h5 class="heading">
-<span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
+<div class="solutions">
+<details id="changing-to-first-order-5-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
 <div class="para logical" id="changing-to-first-order-5-2-1">
 <div class="para">Letting <span class="process-math">\(u_1 = x\text{,}\)</span> <span class="process-math">\(u_2 = x'\text{,}\)</span> <span class="process-math">\(u_3
 = x''\text{,}\)</span> we find the system:</div>
@@ -879,6 +878,7 @@ u_1' = u_2, \qquad u_2' = u_3, \qquad u_3' = 2u_3 + 8u_2 + u_1 + t.
 <div class="autopermalink" data-description="Paragraph"><a href="#changing-to-first-order-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Solution 4.1.7.1"><a href="#changing-to-first-order-5-2" title="Copy heading and permalink for Solution 4.1.7.1" aria-label="Copy heading and permalink for Solution 4.1.7.1">🔗</a></div>
+</div></details>
 </div>
 <div class="autopermalink" data-description="Example 4.1.7"><a href="#changing-to-first-order-5" title="Copy heading and permalink for Example 4.1.7" aria-label="Copy heading and permalink for Example 4.1.7">🔗</a></div>
 </article>
@@ -897,10 +897,9 @@ x''' = 4e^t x'' - 3(x')^2 + t^2\sin(x) + (t^2 + 1) \qquad x(0) = 2,\ x'(0) = -1,
 <div class="para">into a system of first order equations. Simplify the expression as much as possible.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#changing-to-first-order-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solution solution-like" id="changing-to-first-order-7-3">
-<h5 class="heading">
-<span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
+<div class="solutions">
+<details id="changing-to-first-order-7-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
 <div class="para logical" id="changing-to-first-order-7-3-1">
 <div class="para">We follow the same procedure as the previous example. We define variables <span class="process-math">\(u_1\text{,}\)</span> <span class="process-math">\(u_2\text{,}\)</span> <span class="process-math">\(u_3\)</span> as</div>
 <div class="displaymath process-math" id="changing-to-first-order-7-3-1-4">
@@ -957,6 +956,7 @@ u_1(0) = 2,\ u_2(0) = -1,\ u_3(0) = 4,
 <div class="autopermalink" data-description="Paragraph"><a href="#changing-to-first-order-7-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Solution 4.1.8.1"><a href="#changing-to-first-order-7-3" title="Copy heading and permalink for Solution 4.1.8.1" aria-label="Copy heading and permalink for Solution 4.1.8.1">🔗</a></div>
+</div></details>
 </div>
 <div class="autopermalink" data-description="Example 4.1.8: "><a href="#changing-to-first-order-7" title="Copy heading and permalink for Example 4.1.8: " aria-label="Copy heading and permalink for Example 4.1.8: ">🔗</a></div>
 </article>
@@ -1000,10 +1000,9 @@ y' = x,
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#changing-to-first-order-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solution solution-like" id="changing-to-first-order-10-2">
-<h5 class="heading">
-<span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
+<div class="solutions">
+<details id="changing-to-first-order-10-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
 <div class="para logical" id="changing-to-first-order-10-2-1">
 <div class="para">If we differentiate the second equation, we get <span class="process-math">\(y''=x'\text{.}\)</span> We know what <span class="process-math">\(x'\)</span> is in terms of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{,}\)</span> and we know that <span class="process-math">\(x=y'\text{.}\)</span> So,</div>
 <div class="displaymath process-math" id="changing-to-first-order-10-2-1-6">
@@ -1028,16 +1027,18 @@ y = \frac{-e^{-2t} + e^t}{3} .
 <div class="autopermalink" data-description="Paragraph"><a href="#changing-to-first-order-10-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Solution 4.1.10.1"><a href="#changing-to-first-order-10-2" title="Copy heading and permalink for Solution 4.1.10.1" aria-label="Copy heading and permalink for Solution 4.1.10.1">🔗</a></div>
+</div></details>
 </div>
 <div class="autopermalink" data-description="Example 4.1.10"><a href="#changing-to-first-order-10" title="Copy heading and permalink for Example 4.1.10" aria-label="Copy heading and permalink for Example 4.1.10">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="changing-to-first-order-11"><h4 class="heading">
+<details id="changing-to-first-order-11" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h4></summary>
+<article class="exercise exercise-like knowl__content">
 <div class="para" id="changing-to-first-order-11-1-1">Plug in and check that this really is the solution.<div class="autopermalink" data-description="Paragraph"><a href="#changing-to-first-order-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Checkpoint 4.1.11"><a href="#changing-to-first-order-11" title="Copy heading and permalink for Checkpoint 4.1.11" aria-label="Copy heading and permalink for Checkpoint 4.1.11">🔗</a></div>
-</article>
+</article></details>
 <div class="para" id="changing-to-first-order-12">It is useful to go back and forth between systems and higher order equations for other reasons. For example, software for solving ODE numerically (approximation) is generally for first order systems. So to use it, you have to take whatever ODE you want to solve and convert it to a first order system. In fact, it is not very hard to adapt computer code for the Euler or Runge–Kutta method for first order equations to handle first order systems. We essentially just treat the dependent variable not as a number but as a vector. In many mathematical computer languages there is almost no distinction in syntax.<div class="autopermalink" data-description="Paragraph"><a href="#changing-to-first-order-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Subsection: Changing to first order"><a href="#changing-to-first-order" title="Copy heading and permalink for Subsection: Changing to first order" aria-label="Copy heading and permalink for Subsection: Changing to first order">🔗</a></div>
